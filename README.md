@@ -1,3 +1,27 @@
+##About this project
+
+This project is to make available playing table RPG online.
+
+First sprint
+
+Character creation
+Right now focusing just a Hungarian table RPG MAGUS character creation, in plan have later to integrate D&D, Shadowrun and Vampire ( but this is in far future ).
+
+Second sprint
+Game module creation
+In this sprint the plan is to enable to Game Master to make a game-modul with visual interface, in first step just for MAGUS.
+
+Third sprint
+Chat
+To make available chat feature for players, later using this feature in game.
+
+Forth sprint
+Game
+To make a SPA for each module where players can join and play.Posibly with voice call.
+
+The plan is big, the finishing time around 2 year.
+Right now in halfway at first sprint.
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
