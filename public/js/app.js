@@ -6952,7 +6952,7 @@ var state = {
     CE: 0,
     specials: [],
     skills: [],
-    description: 'Az emberek Ynev legelterjetebb népe. Nem rendelkeznek semilyen különleges képességgel, a kasztok és leirások átlaga rájuk vonatkozik. Étlag életkoruk ugy 60-70 év.'
+    description: ['Az emberek Ynev legelterjetebb népe. Nem rendelkeznek semilyen különleges képességgel, a kasztok és leirások átlaga rájuk vonatkozik. Átlag életkoruk ugy 60-70 év.']
   }, {
     id: 'ELF',
     name: 'Elf',
@@ -6981,7 +6981,7 @@ var state = {
       level: 'MF',
       kp: 0
     }],
-    description: ''
+    description: ['Az elfeket két különböző csoportba oszthatjuk: a közönséges elfekre - akiknek jó néhány alfaja létezik, és az óelfekre. Miután a MAGUS rendszerében csak közönséges elffel lehet játszani, ezért itt és most csak rájuk térünk ki.', 'Negyvenezer éve még csak Dél-Zneven léteztek elfek. Származásukat illetően csupán legendáikra hagyatkozhatunk - a legtöbb bölcs Larion szigetét tartja őshazájuknak. A kráni Sötét Hatalom megjelenése után a Délen virágzó elf birodalom hanyatlásnak indult. Életterük egyre szűkült, némely csoportjaik a fenyegetés elől Északra menekültek, mig a délen maradottak beszorultak Tzsson Larba, hogy azután onnan is tovább meneküljenek Lasmosiüfélszigetre. Itt élnek ma is, Elfendelnek nevezett királyságukban. Északra költözött társaik szerencsésebbnek bizonyultak: a Nyugati-óceán partjától a kontinens belsejéig húzódó komor erdőségekben - távol majd minden emberi civilizációtól - telepedtek meg. Birodalmukat Sirenar Szövetség néven jegyzik az ynevi bölcsek.', 'Az elf elzárkózásra hajlamos, a világot csöndes méltóságal szemlélő nép - egyes feltételezések szerint a lélekvándorlás egy magasabb lépcsőfokát jelentik. Mérhetelenül hosszú ideig élnek az embernépekhez képest, s ez gondolkodásmódjukra, és viselkedésükre egyaránt rányomja bélyegét. Türelmesek, emberi mércével gyönyörűek, bölcsességük, felhalmozott tudásuk elképesztő. A természet gyermekei, mindenki másnál jobban ismerik az élővilágot, tisztelettel és végtelen megbecsüléssel közelitenek hozzá. Városaik, településeik erdők mélyén állnak, követ csak elvétve használnak felépitésükhöz, ám művészetük és hozzáértésük folytán a fából készült házaik vetekednek a leggondosabban, legpazarabban megépitett kőpalotával is. Idejük nagy részét elmélkedéssel, művészeteik gyakorlásával töltik, de az univerzum legkitűnőbb ijászai is egyben, s nem kétséges: náluk jobb lovasokat még nem hordott hátán Ynev. Testfelépitésük, mozgásuk inkább könnyed és légies, mint erőtől duzzadó, de gyorsak akár a szarvas, és kézügyességük is párját ritkitja. Bőrük halovány, hajuk aranyszőke, szemük borostyánszinű vagy mélykék. Mindent összevetve csodálatos nép ez: egyedi- bárhova is vetődjenek Yneven - csodálatot, olykor azonban, a babonaságok, előitéletek miatt, félelmet váltanak ki más fajok szülötteiből. Közönbös azonban senki sem marad irántuk.', 'Nyugodt, türelmes életüket, megszokott környezetüket nem szivessen hagyják el, az embernépek mentalitása teljesen idegen tőlük. Nyiltak és egyenesek, igaztalanságon, vagy hazugságon nem kaphatja őket még ellenségeik sem. Jellemük az Élet és a Rend értékeinek leghivebb tükre. Hogy olykor rosz hirüket keltik, arról kizárólag az emberi civilizációban nevelkedett - s attól megrontott - fajtársaik tehetnek, akiket - bár látszólag mindenben azonosak elf birodalmakban élő társaikkal - gondolkodását, erkölcseit már eltorzitotta a fiatalabb népek kultúrája.', 'Igazi elfek csak igen ritkán kapják el a kalandozó-kórt, igy a legtöbb elf kalandozó valamelyik emberbirodalomból, annak elf közösségéből származik. Noha nem zárható ki, hogy az ősi földön élők némelyikében is kiváncsiság ebred a születésük óta jócskán megváltozott külvilág iránt, ennek valószinűsége egy az ezerhez.', 'Bármilyen eltorzult is az emberek közt nevelkedett elfek értékrendje, némely ösztönüket sosem vetkőzik le. Minden elf - származzon bárhonnét - nehezen viseli a kővárosokat, s a csillagos eget jobban kedveli fedél gyanánt, mint a cserepes tetőt. Az Élet szeretete ott fészkell bennük, s -legyenek bár rettenthetetlen harcosok, netán hires gladiátorok - az öncélú pusztitás, a kegyetlenség távol áll tőlük. A természet egyébb teremtményeivel kialakult évezredes jó kapcsolat sem múlik el nyomtalanul: nincs az az elf, aki tétlenül tűrné, hogy egy állatot megkinozzanak, vagy egy ligetet fölöslegesen kivágjanak. Ez persze kölcsönös, az erdő-mező vadjai ösztönös bizalommal viseltetnek irányukban, s ha egy nekivadult lovat, vagy örjöngő kutyát kell lecsillapitani, azt elfeknél jobban senki sem képes teljesiteni.', 'Az elfek természetétől leginkább a feketemágia - Nekromancia - esik távol, ezért az efféle varázslatoknak kevésbé birnak ellenszegülni, mint mások.']
   }, {
     id: 'HALF_ELF',
     name: 'Félelf',
@@ -7006,7 +7006,7 @@ var state = {
       level: 'MF',
       kp: 0
     }],
-    description: ''
+    description: ['']
   }, {
     id: 'TORPE',
     name: 'Törpe',
@@ -7031,7 +7031,7 @@ var state = {
       level: '30%',
       kp: 0
     }],
-    description: ''
+    description: ['']
   }, {
     id: 'HALF_ORK',
     name: 'Udvari Ork',
@@ -7056,7 +7056,7 @@ var state = {
       level: '10%',
       kp: 0
     }],
-    description: ''
+    description: ['']
   }]
 };
 var getters = {
@@ -31946,7 +31946,9 @@ var render = function () {
                 "div",
                 { staticClass: "modal-body" },
                 [
-                  _c("p", [_vm._v(_vm._s(_vm.Faj.description))]),
+                  _vm._l(_vm.Faj.description, function (des, index) {
+                    return _c("p", { key: index }, [_vm._v(_vm._s(des))])
+                  }),
                   _vm._v(" "),
                   _vm._m(21),
                   _vm._v(" "),

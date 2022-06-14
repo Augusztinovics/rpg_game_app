@@ -504,7 +504,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                       <p>{{ Faj.description }}</p> 
+                       <p v-for="des, index in Faj.description" :key="index">{{ des }}</p>
                        <p> <b>Különleges képességek </b></p>
                        <p v-for="special, index in Faj.specials" :key="index">{{ special }}</p>
                     </div>
