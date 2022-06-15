@@ -38,6 +38,107 @@
                     TeSzint: 2,
                     VeSzint: 2,
                     CeSzint: 0,
+                    HmLeft: 0,
+                    KpLeft: 0,
+                    KpPrecentLeft: 0,
+                    FegyverhasznalatAlap: [],
+                    FegyverhasznalatMester: [],
+                    FegyverdobasAlap: [],
+                    FegyverdobasMester: [],
+                    Nyelvismeret: [],
+                    Szakma: [],
+                    Pszi: {
+                        learned: false,
+                        atlevel: 0,
+                        level: 'Af',
+                    },
+                    szazalekosKepzetsegek: {
+                        maszas: {
+                            precent: 0,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                         eses: {
+                            precent: 0,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                         ugras: {
+                            precent: 0,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                         lopakodas: {
+                            precent: 0,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                         rejtozes: {
+                            precent: 0,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                         koteltanc: {
+                            precent: 0,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                         zsebmetszes: {
+                            precent: 0,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                         csabdafelfedezes: {
+                            precent: 0,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                         zarnyitas: {
+                            precent: 0,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                         titkosajto: {
+                            precent: 0,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                    },
+                    LearnedSkills:[],
+                    Pancel: {
+                        name: '',
+                        equipped: false,
+                        mgt: 0,
+                        sfe: 0,
+                    },
+                    Pajzs: {
+                        name: '',
+                        eqiupped: false,
+                        ve: 0,
+                        mgt: 0,
+                    },
+                    Fegyverek: [
+                        {
+                            name: 'HOSSZUKARD',
+                            rightHand: false,
+                            leftHand: false,
+                        }
+                    ],
+                    Kincsek: {
+                        rez: 10,
+                        ezust: 2,
+                        arany: 0,
+                        mithrill: 0,
+                        dragako: 0,
+                        egyebb: [],
+                    },
+                    Felszereles: [
+                        {
+                            name:'',
+                            quantity: 0,
+                            where: '',
+                        }
+                    ]
                 }
             }
         },

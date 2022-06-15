@@ -95,7 +95,9 @@
                 }
             ],
             description: [
-                ''
+                'A félelfek Ynev legkülönösebb jellemű lényei. Egyik szülőjük elf, mig a másik ember, s ez a kettőség egész - igen hosszú - életük során végigkiséri őket. Igazán nem képesek beilleszkedni egyik nép világába sem - az embereknek túlságosan elfek, az elfeknek túlságosan emberek. Gondolkodásmódjukban közelebb állnak az emberekhez - noha mindég egyfajta töprengő, a világ dolgain merengő hozzáállás jellemzi őket -, külsejük azonban magán hordozza elfőseik örökségét. Légiesebbek, könnyedebbek mint az emberek - igaz, az elfeknél erősebb testalkatúak -,vonásaik megnyerőek, hajuk szőke, olykor ezüstszin, szemük legtöbbször ibolyakék. Állandóan nyughatatlanok. Egyszer egy Dorani bölcs azt találta állitani róluk, hogy örökké helyüket keresik a világban, s ez kissé profán általánositás, van benn némi igazság. Igen sok kalandozó kerül ki közülük, ennek oka nyilván a fenti tényekben keresendő. A két faj számtalan kitünő tulajdonságát egyesiti, ám vég nélkül - önmaguk számára is megmafyarázhatatlan - elégedetlenségük olyan átok, mely megakadályozza őket abban, hogy népük döntő befolyásolással birjon a világ sorsának alakitásában. A természet furcsa fintora, hogy két félelf utódja is félelf lesz, sőt egy flelf és egy tisztavérú elf frigyéből is csak félelf születhet. Félelf és ember kapcsolatából mindég ember születik.',
+                'A félelfek is rajongva szeretik a természetet és az élőlényeket, noha korántsem olyan töretlen a kapcsolatuk vele, mint tisztavérű társaiké. Éltalában az Élet és a Rend erkölcsei szerint élik életüket, noha találhatunk köztük velejéig romlott, önmaguktól és a világtól megkeseredett gyilkosokat is. Hazudni hamar megtanultak, ám a barátság szentségét még a legelvetemültebbek sem gyalázzák meg.',
+                'A félelfek természetétől - akárcsak elf szüleikétől - leginkább a Nekromancia esik távol, ezért az efféle varázslatoknak kevésbé birnak ellenszegülni, mint mások.'
             ]
         },
         {
@@ -126,6 +128,12 @@
                 }
             ],
             description: [
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
                 ''
             ]
         },
