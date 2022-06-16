@@ -401,27 +401,93 @@
             <div class="row">
                 <div class="col text-center">
                     <h5>réz</h5>
-                    <p>12</p>
+                    <div class="row">
+                        <div class="col-8">
+                            <p>{{ rez }}</p>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-outline-success btn-sm my-1 d-block" type="button" @click=" modKincsek(1, 0, 0, 0, 0, '+')" :disabled="loading">+</button>
+                            <button class="btn btn-outline-danger btn-sm my-1 d-block" type="button" @click=" modKincsek(1, 0, 0, 0, 0, '-')" :disabled="loading">-</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="col text-center">
                     <h5>ezüst</h5>
-                    <p>2</p>
+                    <div class="row">
+                        <div class="col-8">
+                            <p>{{ ezust }}</p>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-outline-success btn-sm my-1 d-block" type="button" @click=" modKincsek(0, 1, 0, 0, 0, '+')" :disabled="loading">+</button>
+                            <button class="btn btn-outline-danger btn-sm my-1 d-block" type="button" @click=" modKincsek(0, 1, 0, 0, 0, '-')" :disabled="loading">-</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="col text-center">
                     <h5>arany</h5>
-                    <p>1</p>
+                    <div class="row">
+                        <div class="col-8">
+                            <p>{{ arany }}</p>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-outline-success btn-sm my-1 d-block" type="button" @click=" modKincsek(0, 0, 1, 0, 0, '+')" :disabled="loading">+</button>
+                            <button class="btn btn-outline-danger btn-sm my-1 d-block" type="button" @click=" modKincsek(0, 0, 1, 0, 0, '-')" :disabled="loading">-</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="col text-center">
                     <h5>mithrill</h5>
-                    <p>0</p>
+                    <div class="row">
+                        <div class="col-8">
+                            <p>{{ mithrill }}</p>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-outline-success btn-sm my-1 d-block" type="button" @click=" modKincsek(0, 0, 0, 1, 0, '+')" :disabled="loading">+</button>
+                            <button class="btn btn-outline-danger btn-sm my-1 d-block" type="button" @click=" modKincsek(0, 0, 0, 1, 0, '-')" :disabled="loading">-</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="col text-center">
                     <h5>drágakő</h5>
-                    <p>0</p>
+                    <div class="row">
+                        <div class="col-8">
+                            <p>{{ dragako }}</p>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-outline-success btn-sm my-1 d-block" type="button" @click=" modKincsek(0, 0, 0, 0, 1, '+')" :disabled="loading">+</button>
+                            <button class="btn btn-outline-danger btn-sm my-1 d-block" type="button" @click=" modKincsek(0, 0, 0, 0, 1, '-')" :disabled="loading">-</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="col text-center">
                     <h5>egyébb</h5>
-                    <p>0</p>
+                     <div class="row">
+                        <div class="col-10">
+                             <p v-for="valami, index in egyebb" :key="'K' + index">{{ valami }} <button class="btn btn-outline-danger btn-sm ms-1" type="button" :disabled="loading">-</button></p>
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-outline-success btn-sm my-1 d-block" type="button" :disabled="loading" data-bs-toggle="modal" data-bs-target="#egyebbModal">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kincsek egyebb input modal -->
+        <div class="modal fade" id="egyebbModal" tabindex="-1" aria-labelledby="egyebbModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Uj kincs</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" id="egyebb-text" v-model="egyebb_text">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"  @click=" modKincsek(0, 0, 0, 0, 1, '+')" data-bs-dismiss="modal">Save changes</button>
+                </div>
                 </div>
             </div>
         </div>
@@ -456,7 +522,7 @@
             <div class="col">
                 <div class="bg-light border border-secondary rounded mb-4 p-3">
                     <h4>Egyébb módositók</h4>
-                    <p v-for="special, index in Faj.specials" :key="index">{{ special }}</p>
+                    <p v-for="special, index in Faj.specials" :key="'E' + index">{{ special }}</p>
                 </div>
             </div>
             <div class="col">
@@ -504,9 +570,9 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                       <p v-for="des, index in Faj.description" :key="index">{{ des }}</p>
+                       <p v-for="des, index in Faj.description" :key="'D' + index">{{ des }}</p>
                        <p> <b>Különleges képességek </b></p>
-                       <p v-for="special, index in Faj.specials" :key="index">{{ special }}</p>
+                       <p v-for="special, index in Faj.specials" :key="'S' + index">{{ special }}</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -556,6 +622,14 @@
                 intMod: 0,
                 akMod: 0,
                 asztMod: 0,
+                rez: 0,
+                ezust: 0,
+                arany: 0,
+                mithrill: 0,
+                dragako: 0,
+                egyebb: [],
+                loading: false,
+                egyebb_text: '',
             }
         },
 
@@ -856,8 +930,47 @@
                     this.asztMod = 0;
                 }
             },
+            modKincsek(rez, ezust, arany, mithrill, dragako, mod) {
+                if (mod === '+') {
+                    this.rez += rez;
+                    this.ezust += ezust;
+                    this.arany  += arany;
+                    this.mithrill += mithrill;
+                    this.dragako += dragako;
+                    if (this.egyebb_text !== '') {
+                        this.egyebb.push(this.egyebb_text);
+                    }
+                }
+                if (mod === '-') {
+                    if (this.rez > 0) {
+                        this.rez -= rez;
+                    }
+                     if (this.ezust > 0) {
+                        this.ezust -= ezust;
+                    }
+                     if (this.arany > 0) {
+                        this.arany -= arany;
+                    }
+                     if (this.mithrill > 0) {
+                        this.mithrill -= mithrill;
+                    }
+                     if (this.dragako > 0) {
+                        this.dragako -= dragako;
+                    }
+                }
+                this.egyebb_text = '';
+                //elmenteni az adatbazisba a valtozasokat!!!!
+            }
         },
         mounted() {
+            if (this.magusCharacter) {
+                this.rez = this.magusCharacter.Kincsek.rez;
+                this.ezust = this.magusCharacter.Kincsek.ezust;
+                this.arany = this.magusCharacter.Kincsek.arany;
+                this.mithrill = this.magusCharacter.Kincsek.mithrill;
+                this.dragako = this.magusCharacter.Kincsek.dragako;
+                this.egyebb = this.magusCharacter.Kincsek.egyebb;
+            }
             console.log('Component mounted.')
         }
     }

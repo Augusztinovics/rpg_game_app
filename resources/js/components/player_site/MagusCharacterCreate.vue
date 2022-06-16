@@ -130,7 +130,7 @@
                         arany: 0,
                         mithrill: 0,
                         dragako: 0,
-                        egyebb: [],
+                        egyebb: ['ezust serleg', 'disztanyer'],
                     },
                     Felszereles: [
                         {

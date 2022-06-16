@@ -5554,7 +5554,104 @@ __webpack_require__.r(__webpack_exports__);
         KeSzint: 1,
         TeSzint: 2,
         VeSzint: 2,
-        CeSzint: 0
+        CeSzint: 0,
+        HmLeft: 0,
+        KpLeft: 0,
+        KpPrecentLeft: 0,
+        FegyverhasznalatAlap: [],
+        FegyverhasznalatMester: [],
+        FegyverdobasAlap: [],
+        FegyverdobasMester: [],
+        Nyelvismeret: [],
+        Szakma: [],
+        Pszi: {
+          learned: false,
+          atlevel: 0,
+          level: 'Af'
+        },
+        szazalekosKepzetsegek: {
+          maszas: {
+            precent: 0,
+            precentAdded: 0,
+            kpAdded: 0
+          },
+          eses: {
+            precent: 0,
+            precentAdded: 0,
+            kpAdded: 0
+          },
+          ugras: {
+            precent: 0,
+            precentAdded: 0,
+            kpAdded: 0
+          },
+          lopakodas: {
+            precent: 0,
+            precentAdded: 0,
+            kpAdded: 0
+          },
+          rejtozes: {
+            precent: 0,
+            precentAdded: 0,
+            kpAdded: 0
+          },
+          koteltanc: {
+            precent: 0,
+            precentAdded: 0,
+            kpAdded: 0
+          },
+          zsebmetszes: {
+            precent: 0,
+            precentAdded: 0,
+            kpAdded: 0
+          },
+          csabdafelfedezes: {
+            precent: 0,
+            precentAdded: 0,
+            kpAdded: 0
+          },
+          zarnyitas: {
+            precent: 0,
+            precentAdded: 0,
+            kpAdded: 0
+          },
+          titkosajto: {
+            precent: 0,
+            precentAdded: 0,
+            kpAdded: 0
+          }
+        },
+        LearnedSkills: [],
+        Pancel: {
+          name: '',
+          equipped: false,
+          mgt: 0,
+          sfe: 0
+        },
+        Pajzs: {
+          name: '',
+          eqiupped: false,
+          ve: 0,
+          mgt: 0
+        },
+        Fegyverek: [{
+          name: 'HOSSZUKARD',
+          rightHand: false,
+          leftHand: false
+        }],
+        Kincsek: {
+          rez: 10,
+          ezust: 2,
+          arany: 0,
+          mithrill: 0,
+          dragako: 0,
+          egyebb: ['ezust serleg', 'disztanyer']
+        },
+        Felszereles: [{
+          name: '',
+          quantity: 0,
+          where: ''
+        }]
       }
     };
   },
@@ -6121,6 +6218,72 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -6140,7 +6303,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       szepMod: 0,
       intMod: 0,
       akMod: 0,
-      asztMod: 0
+      asztMod: 0,
+      rez: 0,
+      ezust: 0,
+      arany: 0,
+      mithrill: 0,
+      dragako: 0,
+      egyebb: [],
+      loading: false,
+      egyebb_text: ''
     };
   },
   //COMPUTED----------------------------------
@@ -6542,9 +6713,55 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (mod === '0') {
         this.asztMod = 0;
       }
+    },
+    modKincsek: function modKincsek(rez, ezust, arany, mithrill, dragako, mod) {
+      if (mod === '+') {
+        this.rez += rez;
+        this.ezust += ezust;
+        this.arany += arany;
+        this.mithrill += mithrill;
+        this.dragako += dragako;
+
+        if (this.egyebb_text !== '') {
+          this.egyebb.push(this.egyebb_text);
+        }
+      }
+
+      if (mod === '-') {
+        if (this.rez > 0) {
+          this.rez -= rez;
+        }
+
+        if (this.ezust > 0) {
+          this.ezust -= ezust;
+        }
+
+        if (this.arany > 0) {
+          this.arany -= arany;
+        }
+
+        if (this.mithrill > 0) {
+          this.mithrill -= mithrill;
+        }
+
+        if (this.dragako > 0) {
+          this.dragako -= dragako;
+        }
+      }
+
+      this.egyebb_text = ''; //elmenteni az adatbazisba a valtozasokat!!!!
     }
   },
   mounted: function mounted() {
+    if (this.magusCharacter) {
+      this.rez = this.magusCharacter.Kincsek.rez;
+      this.ezust = this.magusCharacter.Kincsek.ezust;
+      this.arany = this.magusCharacter.Kincsek.arany;
+      this.mithrill = this.magusCharacter.Kincsek.mithrill;
+      this.dragako = this.magusCharacter.Kincsek.dragako;
+      this.egyebb = this.magusCharacter.Kincsek.egyebb;
+    }
+
     console.log('Component mounted.');
   }
 });
@@ -7006,7 +7223,7 @@ var state = {
       level: 'MF',
       kp: 0
     }],
-    description: ['']
+    description: ['A félelfek Ynev legkülönösebb jellemű lényei. Egyik szülőjük elf, mig a másik ember, s ez a kettőség egész - igen hosszú - életük során végigkiséri őket. Igazán nem képesek beilleszkedni egyik nép világába sem - az embereknek túlságosan elfek, az elfeknek túlságosan emberek. Gondolkodásmódjukban közelebb állnak az emberekhez - noha mindég egyfajta töprengő, a világ dolgain merengő hozzáállás jellemzi őket -, külsejük azonban magán hordozza elfőseik örökségét. Légiesebbek, könnyedebbek mint az emberek - igaz, az elfeknél erősebb testalkatúak -,vonásaik megnyerőek, hajuk szőke, olykor ezüstszin, szemük legtöbbször ibolyakék. Állandóan nyughatatlanok. Egyszer egy Dorani bölcs azt találta állitani róluk, hogy örökké helyüket keresik a világban, s ez kissé profán általánositás, van benn némi igazság. Igen sok kalandozó kerül ki közülük, ennek oka nyilván a fenti tényekben keresendő. A két faj számtalan kitünő tulajdonságát egyesiti, ám vég nélkül - önmaguk számára is megmafyarázhatatlan - elégedetlenségük olyan átok, mely megakadályozza őket abban, hogy népük döntő befolyásolással birjon a világ sorsának alakitásában. A természet furcsa fintora, hogy két félelf utódja is félelf lesz, sőt egy flelf és egy tisztavérú elf frigyéből is csak félelf születhet. Félelf és ember kapcsolatából mindég ember születik.', 'A félelfek is rajongva szeretik a természetet és az élőlényeket, noha korántsem olyan töretlen a kapcsolatuk vele, mint tisztavérű társaiké. Éltalában az Élet és a Rend erkölcsei szerint élik életüket, noha találhatunk köztük velejéig romlott, önmaguktól és a világtól megkeseredett gyilkosokat is. Hazudni hamar megtanultak, ám a barátság szentségét még a legelvetemültebbek sem gyalázzák meg.', 'A félelfek természetétől - akárcsak elf szüleikétől - leginkább a Nekromancia esik távol, ezért az efféle varázslatoknak kevésbé birnak ellenszegülni, mint mások.']
   }, {
     id: 'TORPE',
     name: 'Törpe',
@@ -7031,7 +7248,7 @@ var state = {
       level: '30%',
       kp: 0
     }],
-    description: ['']
+    description: ['', '', '', '', '', '', '']
   }, {
     id: 'HALF_ORK',
     name: 'Udvari Ork',
@@ -31822,7 +32039,323 @@ var render = function () {
     _vm._v(" "),
     _vm._m(15),
     _vm._v(" "),
-    _vm._m(16),
+    _c(
+      "div",
+      { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+      [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col text-center" }, [
+            _c("h5", [_vm._v("réz")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-8" }, [
+                _c("p", [_vm._v(_vm._s(_vm.rez))]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+                    attrs: { type: "button", disabled: _vm.loading },
+                    on: {
+                      click: function ($event) {
+                        return _vm.modKincsek(1, 0, 0, 0, 0, "+")
+                      },
+                    },
+                  },
+                  [_vm._v("+")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-danger btn-sm my-1 d-block",
+                    attrs: { type: "button", disabled: _vm.loading },
+                    on: {
+                      click: function ($event) {
+                        return _vm.modKincsek(1, 0, 0, 0, 0, "-")
+                      },
+                    },
+                  },
+                  [_vm._v("-")]
+                ),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col text-center" }, [
+            _c("h5", [_vm._v("ezüst")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-8" }, [
+                _c("p", [_vm._v(_vm._s(_vm.ezust))]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+                    attrs: { type: "button", disabled: _vm.loading },
+                    on: {
+                      click: function ($event) {
+                        return _vm.modKincsek(0, 1, 0, 0, 0, "+")
+                      },
+                    },
+                  },
+                  [_vm._v("+")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-danger btn-sm my-1 d-block",
+                    attrs: { type: "button", disabled: _vm.loading },
+                    on: {
+                      click: function ($event) {
+                        return _vm.modKincsek(0, 1, 0, 0, 0, "-")
+                      },
+                    },
+                  },
+                  [_vm._v("-")]
+                ),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col text-center" }, [
+            _c("h5", [_vm._v("arany")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-8" }, [
+                _c("p", [_vm._v(_vm._s(_vm.arany))]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+                    attrs: { type: "button", disabled: _vm.loading },
+                    on: {
+                      click: function ($event) {
+                        return _vm.modKincsek(0, 0, 1, 0, 0, "+")
+                      },
+                    },
+                  },
+                  [_vm._v("+")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-danger btn-sm my-1 d-block",
+                    attrs: { type: "button", disabled: _vm.loading },
+                    on: {
+                      click: function ($event) {
+                        return _vm.modKincsek(0, 0, 1, 0, 0, "-")
+                      },
+                    },
+                  },
+                  [_vm._v("-")]
+                ),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col text-center" }, [
+            _c("h5", [_vm._v("mithrill")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-8" }, [
+                _c("p", [_vm._v(_vm._s(_vm.mithrill))]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+                    attrs: { type: "button", disabled: _vm.loading },
+                    on: {
+                      click: function ($event) {
+                        return _vm.modKincsek(0, 0, 0, 1, 0, "+")
+                      },
+                    },
+                  },
+                  [_vm._v("+")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-danger btn-sm my-1 d-block",
+                    attrs: { type: "button", disabled: _vm.loading },
+                    on: {
+                      click: function ($event) {
+                        return _vm.modKincsek(0, 0, 0, 1, 0, "-")
+                      },
+                    },
+                  },
+                  [_vm._v("-")]
+                ),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col text-center" }, [
+            _c("h5", [_vm._v("drágakő")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-8" }, [
+                _c("p", [_vm._v(_vm._s(_vm.dragako))]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+                    attrs: { type: "button", disabled: _vm.loading },
+                    on: {
+                      click: function ($event) {
+                        return _vm.modKincsek(0, 0, 0, 0, 1, "+")
+                      },
+                    },
+                  },
+                  [_vm._v("+")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-danger btn-sm my-1 d-block",
+                    attrs: { type: "button", disabled: _vm.loading },
+                    on: {
+                      click: function ($event) {
+                        return _vm.modKincsek(0, 0, 0, 0, 1, "-")
+                      },
+                    },
+                  },
+                  [_vm._v("-")]
+                ),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col text-center" }, [
+            _c("h5", [_vm._v("egyébb")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                { staticClass: "col-10" },
+                _vm._l(_vm.egyebb, function (valami, index) {
+                  return _c("p", { key: "K" + index }, [
+                    _vm._v(_vm._s(valami) + " "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-danger btn-sm ms-1",
+                        attrs: { type: "button", disabled: _vm.loading },
+                      },
+                      [_vm._v("-")]
+                    ),
+                  ])
+                }),
+                0
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-2" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+                    attrs: {
+                      type: "button",
+                      disabled: _vm.loading,
+                      "data-bs-toggle": "modal",
+                      "data-bs-target": "#egyebbModal",
+                    },
+                  },
+                  [_vm._v("+")]
+                ),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "egyebbModal",
+          tabindex: "-1",
+          "aria-labelledby": "egyebbModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(16),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.egyebb_text,
+                    expression: "egyebb_text",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", id: "egyebb-text" },
+                domProps: { value: _vm.egyebb_text },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.egyebb_text = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.modKincsek(0, 0, 0, 0, 1, "+")
+                    },
+                  },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
     _vm._v(" "),
     _vm._m(17),
     _vm._v(" "),
@@ -31835,7 +32368,7 @@ var render = function () {
             _c("h4", [_vm._v("Egyébb módositók")]),
             _vm._v(" "),
             _vm._l(_vm.Faj.specials, function (special, index) {
-              return _c("p", { key: index }, [_vm._v(_vm._s(special))])
+              return _c("p", { key: "E" + index }, [_vm._v(_vm._s(special))])
             }),
           ],
           2
@@ -31947,13 +32480,15 @@ var render = function () {
                 { staticClass: "modal-body" },
                 [
                   _vm._l(_vm.Faj.description, function (des, index) {
-                    return _c("p", { key: index }, [_vm._v(_vm._s(des))])
+                    return _c("p", { key: "D" + index }, [_vm._v(_vm._s(des))])
                   }),
                   _vm._v(" "),
                   _vm._m(21),
                   _vm._v(" "),
                   _vm._l(_vm.Faj.specials, function (special, index) {
-                    return _c("p", { key: index }, [_vm._v(_vm._s(special))])
+                    return _c("p", { key: "S" + index }, [
+                      _vm._v(_vm._s(special)),
+                    ])
                   }),
                 ],
                 2
@@ -32550,49 +33085,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
-      [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col text-center" }, [
-            _c("h5", [_vm._v("réz")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("12")]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col text-center" }, [
-            _c("h5", [_vm._v("ezüst")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("2")]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col text-center" }, [
-            _c("h5", [_vm._v("arany")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("1")]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col text-center" }, [
-            _c("h5", [_vm._v("mithrill")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("0")]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col text-center" }, [
-            _c("h5", [_vm._v("drágakő")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("0")]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col text-center" }, [
-            _c("h5", [_vm._v("egyébb")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("0")]),
-          ]),
-        ]),
-      ]
-    )
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Uj kincs")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
   },
   function () {
     var _vm = this
