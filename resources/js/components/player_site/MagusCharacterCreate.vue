@@ -132,13 +132,15 @@
                         dragako: 0,
                         egyebb: ['ezust serleg', 'disztanyer'],
                     },
-                    Felszereles: [
-                        {
-                            name:'',
-                            quantity: 0,
-                            where: '',
-                        }
-                    ]
+                    Felszereles: { 
+                        felszereles: [
+                            {
+                                name:'Hálózsák',
+                                quantity: 1,
+                                where: 'Táska alatt',
+                            }
+                        ]
+                    },
                 }
             }
         },

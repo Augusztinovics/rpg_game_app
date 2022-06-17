@@ -128,13 +128,13 @@
                 }
             ],
             description: [
-                '',
-                '',
-                '',
-                '',
-                '',
-                '',
-                ''
+                'A törpék Beriquelről érkeztek, a P.sz. 1200-as években. Hamarosan barátságot kötöttek az Északi Szövetség népeivel, akik eleinte ugyan különösnek találták ezt az apró termetű fajt, mely szokásában és gondolkodásában igen elüt az embertől - ám rövidesen rádöbbentek, milyen kemény harcosokra, milyen hű barátokra tettek szert.',
+                'Való igaz: a törpéknél, az épitészet, a statika szerelmeseinél keresve sem találni rendithetetlenebb társakat. Életük egész tartalma alatt az állandóságot a nyugalmat keresik - ám mivel Ynev és a valóság talaján is két lábbal állnak, pontosan felmérik, hogy az állandósághoy, a nyugalomhoz és a kényelemhez munkára, vagyonra, vagyis kiemelkedetségre van szükség.',
+                'Az átlag fölé emelkedés egyik módja: maradandót alkotni. Aki látot már törpék épitette palotát, netán megfordult a Tarini-hegység mélyén kialakitott barlangvárosaik valamelyikében, tudja, miként viszonyulnak ehhez a kérdéshez. Épületeik, hidjaik bámulatosan szilárdak, századokig, sőt, akár ezredévekig is dacolnak az idővel. A törpék azonban nem csak az épitészet terén alkottak nagyot. Erről azok mondhatnának bővebbet, akik viseltek már ütközetben törpék álltal kovácsolt páncélt, láncinget és pajzsot, vagy küzdöttek már tarini csadabárddal nem tarini vértbe öltözött szerencsétlenekkel.',
+                'A kiemelkedés másik bevett módja a katonáskodás - s Tarin törpéi nagy számban élnek ezzel a lehetőséggel. Az Északi Szövetség ármádiájának gyalogos derékhadát adják háború idején, de rettegést keltenek az ellenség szivében villámgyors mozgású rackla-lovasaik is.Feljebbvalóik parancsát mindenkor képességeik legjavát adva teljesitik. Ha nem természetes akadály álja útjukat, szétrombolják, legyen az fatörzsek torlasza, vagy roppant kövekből rakott fal, ha szorult helyzetbe kerülnek, utolsó törpéig harcolnak, megadni sosem szokták magukat. Valamennyi törpe harcos számára adott az előmenetel lehetősége, hadijelvényeik alatt nincs más mérce, csak a rátermettség.',
+                'Azok a törpék akik a fejüket kalandozásra adják, a harmadik megoldás mellett teszik le voksukat, mely kockázat tekintetében vetekszik ugyan a másodikkal, viszont gyorsabb - és bisztosabb - kiemelkedést tesz lehetővé az elsőnél. Északon gyakorta látható, az aranyaikat elmélyülten számoló törpe kalandozók. Erionnál meszebbre azonban nem szivesen merészkednek, mert Dél emberközpontú birodalmai nem igazán az ő izlésüknek valók.',
+                'Ha további nyugodt életük anyagi/erkölcsi feltételeit biztositva látják, visszavonulnak otthonukba, melyet - minden tartozékával együtt - egy royzomák elszántságával védenek. Előfordul persze, hogy egy - kezdetben csak anyagi érdekből kalandozó - törpe a nagyvilág, a kötetlen munka és a kockázat szerelmesévé válik, s egész hosszú ( kb 800 év ) életét ennek szenteli.',
+                'A törpék átlagos testmagassága 130 cm, alkatuk tömbszerű, nagy erőkifejtésre képesek, kitartásuk párját ritkitja. Arcuk széles, gyakorta - de nem mindég - szakáll ékiti. Szemük sötét árnyalatú, az egészen ősi, beriqueli vérvonal képviselőié azonban gleccserkék is lehet. Rendszerint csak egyszer házasodnak, a hűség fogalmának, az emberektől eltérő módon, csak egy változatát, a sirig tartót ismerik.'
             ]
         },
         {

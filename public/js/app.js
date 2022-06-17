@@ -5647,11 +5647,13 @@ __webpack_require__.r(__webpack_exports__);
           dragako: 0,
           egyebb: ['ezust serleg', 'disztanyer']
         },
-        Felszereles: [{
-          name: '',
-          quantity: 0,
-          where: ''
-        }]
+        Felszereles: {
+          felszereles: [{
+            name: 'Hálózsák',
+            quantity: 1,
+            where: 'Táska alatt'
+          }]
+        }
       }
     };
   },
@@ -6284,6 +6286,63 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -6295,6 +6354,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
+      //tulajdonsag modositok
       eroMod: 0,
       gyorsMod: 0,
       ugyMod: 0,
@@ -6304,6 +6364,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       intMod: 0,
       akMod: 0,
       asztMod: 0,
+      //kincsek
       rez: 0,
       ezust: 0,
       arany: 0,
@@ -6311,7 +6372,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       dragako: 0,
       egyebb: [],
       loading: false,
-      egyebb_text: ''
+      egyebb_text: '',
+      rez_input: 0,
+      ezust_input: 0,
+      arany_input: 0,
+      mithrill_input: 0,
+      dragako_input: 0,
+      //felszereles
+      felszereles: [],
+      equip_loading: false,
+      input_felszereles: '',
+      input_quantity: 1,
+      input_where: ''
     };
   },
   //COMPUTED----------------------------------
@@ -6749,7 +6821,59 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       }
 
-      this.egyebb_text = ''; //elmenteni az adatbazisba a valtozasokat!!!!
+      this.egyebb_text = '';
+      this.saveKincsek();
+    },
+    removeEgyebbKincs: function removeEgyebbKincs(index) {
+      this.egyebb.splice(index, 1);
+      this.saveKincsek();
+    },
+    submitVagyon: function submitVagyon() {
+      this.modKincsek(parseInt(this.rez_input), parseInt(this.ezust_input), parseInt(this.arany_input), parseInt(this.mithrill_input), parseInt(this.dragako_input), '+');
+      this.rez_input = 0;
+      this.ezust_input = 0;
+      this.arany_input = 0;
+      this.mithrill_input = 0;
+      this.dragako_input = 0;
+    },
+    saveKincsek: function saveKincsek() {
+      var data = {
+        rez: this.rez,
+        ezust: this.ezust,
+        arany: this.arany,
+        mithrill: this.mithrill,
+        dragako: this.dragako,
+        egyebb: this.egyebb
+      }; //axios to enpoint 
+    },
+    addQuantToEquipment: function addQuantToEquipment(index) {
+      this.felszereles[index].quantity++; //menteni
+    },
+    removeQuantFromEquipment: function removeQuantFromEquipment(index) {
+      if (this.felszereles[index].quantity === 1) {
+        this.felszereles.splice(index, 1);
+      } else {
+        this.felszereles[index].quantity--;
+      } //menteni
+
+    },
+    addNewEquipment: function addNewEquipment() {
+      if (this.input_felszereles !== '' && this.input_where !== '') {
+        var newEquip = {
+          name: this.input_felszereles,
+          quantity: this.input_quantity,
+          where: this.input_where
+        };
+        this.felszereles.push(newEquip);
+        this.input_felszereles = '';
+        this.input_quantity = 1;
+        this.input_where = ''; //menteni
+      }
+    },
+    saveEquipment: function saveEquipment() {
+      var data = {
+        felszereles: this.felszereles
+      }; //axioas to endpoint
     }
   },
   mounted: function mounted() {
@@ -6760,6 +6884,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.mithrill = this.magusCharacter.Kincsek.mithrill;
       this.dragako = this.magusCharacter.Kincsek.dragako;
       this.egyebb = this.magusCharacter.Kincsek.egyebb;
+      this.felszereles = this.magusCharacter.Felszereles.felszereles;
     }
 
     console.log('Component mounted.');
@@ -7248,7 +7373,7 @@ var state = {
       level: '30%',
       kp: 0
     }],
-    description: ['', '', '', '', '', '', '']
+    description: ['A törpék Beriquelről érkeztek, a P.sz. 1200-as években. Hamarosan barátságot kötöttek az Északi Szövetség népeivel, akik eleinte ugyan különösnek találták ezt az apró termetű fajt, mely szokásában és gondolkodásában igen elüt az embertől - ám rövidesen rádöbbentek, milyen kemény harcosokra, milyen hű barátokra tettek szert.', 'Való igaz: a törpéknél, az épitészet, a statika szerelmeseinél keresve sem találni rendithetetlenebb társakat. Életük egész tartalma alatt az állandóságot a nyugalmat keresik - ám mivel Ynev és a valóság talaján is két lábbal állnak, pontosan felmérik, hogy az állandósághoy, a nyugalomhoz és a kényelemhez munkára, vagyonra, vagyis kiemelkedetségre van szükség.', 'Az átlag fölé emelkedés egyik módja: maradandót alkotni. Aki látot már törpék épitette palotát, netán megfordult a Tarini-hegység mélyén kialakitott barlangvárosaik valamelyikében, tudja, miként viszonyulnak ehhez a kérdéshez. Épületeik, hidjaik bámulatosan szilárdak, századokig, sőt, akár ezredévekig is dacolnak az idővel. A törpék azonban nem csak az épitészet terén alkottak nagyot. Erről azok mondhatnának bővebbet, akik viseltek már ütközetben törpék álltal kovácsolt páncélt, láncinget és pajzsot, vagy küzdöttek már tarini csadabárddal nem tarini vértbe öltözött szerencsétlenekkel.', 'A kiemelkedés másik bevett módja a katonáskodás - s Tarin törpéi nagy számban élnek ezzel a lehetőséggel. Az Északi Szövetség ármádiájának gyalogos derékhadát adják háború idején, de rettegést keltenek az ellenség szivében villámgyors mozgású rackla-lovasaik is.Feljebbvalóik parancsát mindenkor képességeik legjavát adva teljesitik. Ha nem természetes akadály álja útjukat, szétrombolják, legyen az fatörzsek torlasza, vagy roppant kövekből rakott fal, ha szorult helyzetbe kerülnek, utolsó törpéig harcolnak, megadni sosem szokták magukat. Valamennyi törpe harcos számára adott az előmenetel lehetősége, hadijelvényeik alatt nincs más mérce, csak a rátermettség.', 'Azok a törpék akik a fejüket kalandozásra adják, a harmadik megoldás mellett teszik le voksukat, mely kockázat tekintetében vetekszik ugyan a másodikkal, viszont gyorsabb - és bisztosabb - kiemelkedést tesz lehetővé az elsőnél. Északon gyakorta látható, az aranyaikat elmélyülten számoló törpe kalandozók. Erionnál meszebbre azonban nem szivesen merészkednek, mert Dél emberközpontú birodalmai nem igazán az ő izlésüknek valók.', 'Ha további nyugodt életük anyagi/erkölcsi feltételeit biztositva látják, visszavonulnak otthonukba, melyet - minden tartozékával együtt - egy royzomák elszántságával védenek. Előfordul persze, hogy egy - kezdetben csak anyagi érdekből kalandozó - törpe a nagyvilág, a kötetlen munka és a kockázat szerelmesévé válik, s egész hosszú ( kb 800 év ) életét ennek szenteli.', 'A törpék átlagos testmagassága 130 cm, alkatuk tömbszerű, nagy erőkifejtésre képesek, kitartásuk párját ritkitja. Arcuk széles, gyakorta - de nem mindég - szakáll ékiti. Szemük sötét árnyalatú, az egészen ősi, beriqueli vérvonal képviselőié azonban gleccserkék is lehet. Rendszerint csak egyszer házasodnak, a hűség fogalmának, az emberektől eltérő módon, csak egy változatát, a sirig tartót ismerik.']
   }, {
     id: 'HALF_ORK',
     name: 'Udvari Ork',
@@ -32043,6 +32168,28 @@ var render = function () {
       "div",
       { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
       [
+        _c(
+          "div",
+          { staticClass: "text-center border-bottom border-secondary" },
+          [
+            _c("h4", [_vm._v("Kincsek")]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-success my-3",
+                attrs: {
+                  type: "button",
+                  disabled: _vm.loading,
+                  "data-bs-toggle": "modal",
+                  "data-bs-target": "#vagyonModal",
+                },
+              },
+              [_vm._v("Vagyon hozzáadása")]
+            ),
+          ]
+        ),
+        _vm._v(" "),
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col text-center" }, [
             _c("h5", [_vm._v("réz")]),
@@ -32259,6 +32406,11 @@ var render = function () {
                       {
                         staticClass: "btn btn-outline-danger btn-sm ms-1",
                         attrs: { type: "button", disabled: _vm.loading },
+                        on: {
+                          click: function ($event) {
+                            return _vm.removeEgyebbKincs(index)
+                          },
+                        },
                       },
                       [_vm._v("-")]
                     ),
@@ -32345,7 +32497,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: {
                     click: function ($event) {
-                      return _vm.modKincsek(0, 0, 0, 0, 1, "+")
+                      return _vm.modKincsek(0, 0, 0, 0, 0, "+")
                     },
                   },
                 },
@@ -32357,7 +32509,366 @@ var render = function () {
       ]
     ),
     _vm._v(" "),
-    _vm._m(17),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "vagyonModal",
+          tabindex: "-1",
+          "aria-labelledby": "vagyonModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(17),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("label", { attrs: { for: "rez" } }, [_vm._v("Réz:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.rez_input,
+                    expression: "rez_input",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "rez" },
+                domProps: { value: _vm.rez_input },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.rez_input = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "ezust" } }, [_vm._v("Ezüst:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.ezust_input,
+                    expression: "ezust_input",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "ezust" },
+                domProps: { value: _vm.ezust_input },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.ezust_input = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "arany" } }, [_vm._v("Arany:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.arany_input,
+                    expression: "arany_input",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "arany" },
+                domProps: { value: _vm.arany_input },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.arany_input = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "mithrill" } }, [
+                _vm._v("Mithrill:"),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.mithrill_input,
+                    expression: "mithrill_input",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "mithrill" },
+                domProps: { value: _vm.mithrill_input },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.mithrill_input = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "dragako" } }, [_vm._v("Drágakő:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.dragako_input,
+                    expression: "dragako_input",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "dragako" },
+                domProps: { value: _vm.dragako_input },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.dragako_input = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.submitVagyon },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+      [
+        _c(
+          "div",
+          { staticClass: "text-center border-bottom border-secondary" },
+          [
+            _c("h4", [_vm._v("Felszerelés")]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-success my-3",
+                attrs: {
+                  type: "button",
+                  disabled: _vm.equip_loading,
+                  "data-bs-toggle": "modal",
+                  "data-bs-target": "#equipModal",
+                },
+              },
+              [_vm._v("Új felszerelés hozzáadása")]
+            ),
+          ]
+        ),
+        _vm._v(" "),
+        _c("table", { staticClass: "table table-striped" }, [
+          _vm._m(18),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.felszereles, function (equip, index) {
+              return _c("tr", { key: "FSZ" + index }, [
+                _c("td", [_vm._v(_vm._s(equip.name))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(equip.quantity))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(equip.where))]),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-success btn-sm m-1",
+                      attrs: { type: "button", disabled: _vm.equip_loading },
+                      on: {
+                        click: function ($event) {
+                          return _vm.addQuantToEquipment(index)
+                        },
+                      },
+                    },
+                    [_vm._v("+")]
+                  ),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-danger btn-sm m-1",
+                      attrs: { type: "button", disabled: _vm.equip_loading },
+                      on: {
+                        click: function ($event) {
+                          return _vm.removeQuantFromEquipment(index)
+                        },
+                      },
+                    },
+                    [_vm._v("-")]
+                  ),
+                ]),
+              ])
+            }),
+            0
+          ),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "equipModal",
+          tabindex: "-1",
+          "aria-labelledby": "equipModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(19),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("label", { attrs: { for: "elnevezes" } }, [
+                _vm._v("Felszerelés elnevezése"),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.input_felszereles,
+                    expression: "input_felszereles",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", id: "elnevezes" },
+                domProps: { value: _vm.input_felszereles },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.input_felszereles = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "quant" } }, [
+                _vm._v("Felszerelés mennyisége"),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.input_quantity,
+                    expression: "input_quantity",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "quant" },
+                domProps: { value: _vm.input_quantity },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.input_quantity = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "where" } }, [
+                _vm._v("Felszerelés elhelyezése"),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.input_where,
+                    expression: "input_where",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", id: "where" },
+                domProps: { value: _vm.input_where },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.input_where = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.addNewEquipment },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "row justify-content-evenly" }, [
       _c("div", { staticClass: "col" }, [
@@ -32375,9 +32886,9 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _vm._m(18),
+      _vm._m(20),
       _vm._v(" "),
-      _vm._m(19),
+      _vm._m(21),
     ]),
     _vm._v(" "),
     _c(
@@ -32428,7 +32939,7 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _vm._m(20),
+              _vm._m(22),
             ]),
           ]
         ),
@@ -32483,7 +32994,7 @@ var render = function () {
                     return _c("p", { key: "D" + index }, [_vm._v(_vm._s(des))])
                   }),
                   _vm._v(" "),
-                  _vm._m(21),
+                  _vm._m(23),
                   _vm._v(" "),
                   _vm._l(_vm.Faj.specials, function (special, index) {
                     return _c("p", { key: "S" + index }, [
@@ -32494,7 +33005,7 @@ var render = function () {
                 2
               ),
               _vm._v(" "),
-              _vm._m(22),
+              _vm._m(24),
             ]),
           ]
         ),
@@ -32548,7 +33059,7 @@ var render = function () {
                 1
               ),
               _vm._v(" "),
-              _vm._m(23),
+              _vm._m(25),
             ]),
           ]
         ),
@@ -33088,7 +33599,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c(
         "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        { staticClass: "modal-title", attrs: { id: "egyebbModalLabel" } },
         [_vm._v("Uj kincs")]
       ),
       _vm._v(" "),
@@ -33106,41 +33617,57 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
-      [
-        _c("table", { staticClass: "table table-striped" }, [
-          _c("thead", [
-            _c("tr", [
-              _c("th", { attrs: { scope: "col-6" } }, [_vm._v("Felszerelés")]),
-              _vm._v(" "),
-              _c("th", { attrs: { scope: "col-2" } }, [_vm._v("darab")]),
-              _vm._v(" "),
-              _c("th", { attrs: { scope: "col" } }, [_vm._v("elhelyezés")]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("tbody", [
-            _c("tr", [
-              _c("td", [_vm._v("Hálózsák")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("1")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("táska alatt")]),
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("td", [_vm._v("Fáklya")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("2")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("táskába")]),
-            ]),
-          ]),
-        ]),
-      ]
-    )
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "vagyonModalLabel" } },
+        [_vm._v("Uj vagyon")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col-4" } }, [_vm._v("Felszerelés")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col-2" } }, [_vm._v("darab")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col-4" } }, [_vm._v("elhelyezés")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col-2" } }, [_vm._v("kontrol")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title", attrs: { id: "equipModal" } }, [
+        _vm._v("Uj felszerelés"),
+      ]),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
   },
   function () {
     var _vm = this

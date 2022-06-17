@@ -398,6 +398,10 @@
 
         <!-- kincsek -->
         <div class="bg-light border border-secondary rounded mb-4 p-3">
+            <div class="text-center border-bottom border-secondary">
+                <h4>Kincsek</h4>
+                <button class="btn btn-success my-3" type="button" :disabled="loading" data-bs-toggle="modal" data-bs-target="#vagyonModal">Vagyon hozzáadása</button>
+            </div>
             <div class="row">
                 <div class="col text-center">
                     <h5>réz</h5>
@@ -463,7 +467,7 @@
                     <h5>egyébb</h5>
                      <div class="row">
                         <div class="col-10">
-                             <p v-for="valami, index in egyebb" :key="'K' + index">{{ valami }} <button class="btn btn-outline-danger btn-sm ms-1" type="button" :disabled="loading">-</button></p>
+                             <p v-for="valami, index in egyebb" :key="'K' + index">{{ valami }} <button class="btn btn-outline-danger btn-sm ms-1" type="button" :disabled="loading" @click="removeEgyebbKincs(index)">-</button></p>
                         </div>
                         <div class="col-2">
                             <button class="btn btn-outline-success btn-sm my-1 d-block" type="button" :disabled="loading" data-bs-toggle="modal" data-bs-target="#egyebbModal">+</button>
@@ -478,7 +482,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Uj kincs</h5>
+                        <h5 class="modal-title" id="egyebbModalLabel">Uj kincs</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                 <div class="modal-body">
@@ -486,7 +490,35 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click=" modKincsek(0, 0, 0, 0, 1, '+')" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-primary"  @click=" modKincsek(0, 0, 0, 0, 0, '+')" data-bs-dismiss="modal">Save changes</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kincsek vagyon input modal -->
+        <div class="modal fade" id="vagyonModal" tabindex="-1" aria-labelledby="vagyonModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="vagyonModalLabel">Uj vagyon</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <div class="modal-body">
+                    <label for="rez">Réz:</label>
+                    <input type="number" class="form-control" id="rez" v-model="rez_input">
+                    <label for="ezust">Ezüst:</label>
+                    <input type="number" class="form-control" id="ezust" v-model="ezust_input">
+                    <label for="arany">Arany:</label>
+                    <input type="number" class="form-control" id="arany" v-model="arany_input">
+                    <label for="mithrill">Mithrill:</label>
+                    <input type="number" class="form-control" id="mithrill" v-model="mithrill_input">
+                    <label for="dragako">Drágakő:</label>
+                    <input type="number" class="form-control" id="dragako" v-model="dragako_input">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"  @click="submitVagyon" data-bs-dismiss="modal">Save changes</button>
                 </div>
                 </div>
             </div>
@@ -494,27 +526,52 @@
 
         <!-- felszereles -->
         <div class="bg-light border border-secondary rounded mb-4 p-3">
+            <div class="text-center border-bottom border-secondary">
+                <h4>Felszerelés</h4>
+                <button class="btn btn-success my-3" type="button" :disabled="equip_loading" data-bs-toggle="modal" data-bs-target="#equipModal">Új felszerelés hozzáadása</button>
+            </div>
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col-6">Felszerelés</th>
+                        <th scope="col-4">Felszerelés</th>
                         <th scope="col-2">darab</th>
-                        <th scope="col">elhelyezés</th>
+                        <th scope="col-4">elhelyezés</th>
+                        <th scope="col-2">kontrol</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Hálózsák</td>
-                        <td>1</td>
-                        <td>táska alatt</td>
-                    </tr>
-                    <tr>
-                        <td>Fáklya</td>
-                        <td>2</td>
-                        <td>táskába</td>
-                    </tr>                  
+                    <tr v-for="equip, index in felszereles" :key="'FSZ' + index">
+                        <td>{{ equip.name }}</td>
+                        <td>{{ equip.quantity }}</td>
+                        <td>{{ equip.where }}</td>
+                        <td><button class="btn btn-outline-success btn-sm m-1" type="button" @click="addQuantToEquipment(index)" :disabled="equip_loading">+</button><button class="btn btn-outline-danger btn-sm m-1" type="button" @click="removeQuantFromEquipment(index)" :disabled="equip_loading">-</button></td>
+                    </tr> 
                 </tbody>
             </table>
+        </div>
+
+         <!-- Uj felszereles input modal -->
+        <div class="modal fade" id="equipModal" tabindex="-1" aria-labelledby="equipModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="equipModal">Uj felszerelés</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <div class="modal-body">
+                    <label for="elnevezes">Felszerelés elnevezése</label>
+                    <input type="text" class="form-control" id="elnevezes" v-model="input_felszereles">
+                    <label for="quant">Felszerelés mennyisége</label>
+                    <input type="number" class="form-control" id="quant" v-model="input_quantity">
+                    <label for="where">Felszerelés elhelyezése</label>
+                    <input type="text" class="form-control" id="where" v-model="input_where">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"  @click="addNewEquipment" data-bs-dismiss="modal">Save changes</button>
+                </div>
+                </div>
+            </div>
         </div>
 
         <!-- egyebb -->
@@ -613,6 +670,7 @@
         },
         data() {
             return {
+                //tulajdonsag modositok
                 eroMod: 0,
                 gyorsMod: 0,
                 ugyMod: 0,
@@ -622,6 +680,7 @@
                 intMod: 0,
                 akMod: 0,
                 asztMod: 0,
+                //kincsek
                 rez: 0,
                 ezust: 0,
                 arany: 0,
@@ -630,6 +689,17 @@
                 egyebb: [],
                 loading: false,
                 egyebb_text: '',
+                rez_input: 0,
+                ezust_input: 0,
+                arany_input: 0,
+                mithrill_input: 0,
+                dragako_input: 0,
+                //felszereles
+                felszereles: [],
+                equip_loading: false,
+                input_felszereles: '',
+                input_quantity: 1,
+                input_where: '',
             }
         },
 
@@ -959,7 +1029,74 @@
                     }
                 }
                 this.egyebb_text = '';
-                //elmenteni az adatbazisba a valtozasokat!!!!
+               this.saveKincsek();
+            },
+            removeEgyebbKincs(index) {
+                this.egyebb.splice(index, 1);
+                this.saveKincsek();
+            },
+            submitVagyon() {
+                this.modKincsek(parseInt(this.rez_input), parseInt(this.ezust_input), parseInt(this.arany_input), parseInt(this.mithrill_input), parseInt(this.dragako_input), '+');
+                this.rez_input = 0;
+                this.ezust_input = 0;
+                this.arany_input = 0;
+                this.mithrill_input = 0;
+                this.dragako_input = 0;
+            },
+            saveKincsek() {
+                let data = {
+                    rez: this.rez,
+                    ezust: this.ezust,
+                    arany: this.arany,
+                    mithrill: this.mithrill,
+                    dragako: this.dragako,
+                    egyebb: this.egyebb
+                };
+
+
+
+                //axios to enpoint 
+
+
+
+            },
+            addQuantToEquipment(index) {
+                this.felszereles[index].quantity ++;
+                //menteni
+            },
+            removeQuantFromEquipment(index) {
+                if (this.felszereles[index].quantity === 1) {
+                    this.felszereles.splice(index, 1);
+                } else {
+                    this.felszereles[index].quantity --;
+                }
+                //menteni
+            },
+            addNewEquipment() {
+                if (this.input_felszereles !== '' && this.input_where !== '') {
+                    let newEquip = {
+                        name: this.input_felszereles,
+                        quantity: this.input_quantity,
+                        where: this.input_where
+                    }
+                    this.felszereles.push(newEquip);
+                    this.input_felszereles = '';
+                    this.input_quantity = 1;
+                    this.input_where = '';
+
+                    //menteni
+                }
+            },
+            saveEquipment() {
+                let data = {
+                    felszereles: this.felszereles
+                }
+
+
+
+                //axioas to endpoint
+
+
             }
         },
         mounted() {
@@ -970,6 +1107,7 @@
                 this.mithrill = this.magusCharacter.Kincsek.mithrill;
                 this.dragako = this.magusCharacter.Kincsek.dragako;
                 this.egyebb = this.magusCharacter.Kincsek.egyebb;
+                this.felszereles = this.magusCharacter.Felszereles.felszereles;
             }
             console.log('Component mounted.')
         }
