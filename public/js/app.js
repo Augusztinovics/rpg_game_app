@@ -5515,7 +5515,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _common_MagusCharacterSheet_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common/MagusCharacterSheet.vue */ "./resources/js/components/player_site/common/MagusCharacterSheet.vue");
+/* harmony import */ var _magus_MagusCharacterSheet_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./magus/MagusCharacterSheet.vue */ "./resources/js/components/player_site/magus/MagusCharacterSheet.vue");
 //
 //
 //
@@ -5525,7 +5525,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    MagusCharacterSheet: _common_MagusCharacterSheet_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    MagusCharacterSheet: _magus_MagusCharacterSheet_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
@@ -5664,10 +5664,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/common/MagusCharacterSheet.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/common/MagusCharacterSheet.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusBaseData.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusBaseData.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -5676,7 +5676,165 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _MagusKasztPreview_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusKasztPreview.vue */ "./resources/js/components/player_site/common/MagusKasztPreview.vue");
+/* harmony import */ var _MagusKasztPreview_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusKasztPreview.vue */ "./resources/js/components/player_site/magus/MagusKasztPreview.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    MagusKasztPreview: _MagusKasztPreview_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: {
+    Nev: String,
+    MagusClass: String,
+    Race: String,
+    Aligment: String,
+    Vallas: String,
+    Szimbolum: String,
+    Szulofold: String,
+    Iskola: String,
+    Szint: Number
+  },
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusAligments', {
+    aligment: 'aligment'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusRaces', {
+    race: 'race'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusClasses', {
+    magusKaszt: 'magusClass'
+  })), {}, {
+    Jellem: function Jellem() {
+      var jellem = this.aligment(this.Aligment);
+
+      if (jellem) {
+        return jellem;
+      } else {
+        return {
+          name: 'Not selected',
+          description: 'Not selected'
+        };
+      }
+    },
+    Faj: function Faj() {
+      var race = 'HUMAN';
+
+      if (this.Race) {
+        race = this.Race;
+      }
+
+      return this.race(race);
+    },
+    Kaszt: function Kaszt() {
+      var kaszt = 'HARCOS';
+
+      if (this.MagusClass) {
+        kaszt = this.MagusClass;
+      }
+
+      return this.magusKaszt(kaszt);
+    }
+  })
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _MagusBaseData_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusBaseData.vue */ "./resources/js/components/player_site/magus/MagusBaseData.vue");
+/* harmony import */ var _MagusKincsek_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusKincsek.vue */ "./resources/js/components/player_site/magus/MagusKincsek.vue");
+/* harmony import */ var _MagusEquipment_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MagusEquipment.vue */ "./resources/js/components/player_site/magus/MagusEquipment.vue");
+/* harmony import */ var _MagusHarcertek_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MagusHarcertek.vue */ "./resources/js/components/player_site/magus/MagusHarcertek.vue");
+/* harmony import */ var _MagusEletero_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MagusEletero.vue */ "./resources/js/components/player_site/magus/MagusEletero.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -6069,292 +6227,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
+
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    MagusKasztPreview: _MagusKasztPreview_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    MagusBaseData: _MagusBaseData_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    MagusKincsek: _MagusKincsek_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    MagusEquipment: _MagusEquipment_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    MagusHarcertek: _MagusHarcertek_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    MagusEletero: _MagusEletero_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   props: {
     magusCharacter: Object
   },
   data: function data() {
     return {
-      //tulajdonsag modositok
       eroMod: 0,
       gyorsMod: 0,
       ugyMod: 0,
@@ -6363,35 +6254,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       szepMod: 0,
       intMod: 0,
       akMod: 0,
-      asztMod: 0,
-      //kincsek
-      rez: 0,
-      ezust: 0,
-      arany: 0,
-      mithrill: 0,
-      dragako: 0,
-      egyebb: [],
-      loading: false,
-      egyebb_text: '',
-      rez_input: 0,
-      ezust_input: 0,
-      arany_input: 0,
-      mithrill_input: 0,
-      dragako_input: 0,
-      //felszereles
-      felszereles: [],
-      equip_loading: false,
-      input_felszereles: '',
-      input_quantity: 1,
-      input_where: ''
+      asztMod: 0
     };
   },
   //COMPUTED----------------------------------
-  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusAligments', {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapGetters)('magusAligments', {
     aligment: 'aligment'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusRaces', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapGetters)('magusRaces', {
     race: 'race'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusClasses', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapGetters)('magusClasses', {
     magusKaszt: 'magusClass'
   })), {}, {
     spMod: function spMod() {
@@ -6785,67 +6656,178 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (mod === '0') {
         this.asztMod = 0;
       }
-    },
-    modKincsek: function modKincsek(rez, ezust, arany, mithrill, dragako, mod) {
-      if (mod === '+') {
-        this.rez += rez;
-        this.ezust += ezust;
-        this.arany += arany;
-        this.mithrill += mithrill;
-        this.dragako += dragako;
+    }
+  },
+  mounted: function mounted() {}
+});
 
-        if (this.egyebb_text !== '') {
-          this.egyebb.push(this.egyebb_text);
-        }
-      }
+/***/ }),
 
-      if (mod === '-') {
-        if (this.rez > 0) {
-          this.rez -= rez;
-        }
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusEletero.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusEletero.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-        if (this.ezust > 0) {
-          this.ezust -= ezust;
-        }
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    maxEp: Number,
+    aktEp: Number,
+    maxFp: Number,
+    aktFp: Number,
+    fpSzint: String,
+    sfe: Number
+  },
+  data: function data() {
+    return {
+      aktualisFp: 0,
+      aktualisEp: 0,
+      inputFp: 0,
+      inputEp: 0
+    };
+  },
+  methods: {
+    sebzesGyogyul: function sebzesGyogyul(mod) {},
+    teljesGyogyul: function teljesGyogyul() {}
+  },
+  mounted: function mounted() {
+    this.aktualisFp = this.aktFp;
+    this.aktualisEp = this.aktEp;
+  }
+});
 
-        if (this.arany > 0) {
-          this.arany -= arany;
-        }
+/***/ }),
 
-        if (this.mithrill > 0) {
-          this.mithrill -= mithrill;
-        }
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusEquipment.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusEquipment.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-        if (this.dragako > 0) {
-          this.dragako -= dragako;
-        }
-      }
-
-      this.egyebb_text = '';
-      this.saveKincsek();
-    },
-    removeEgyebbKincs: function removeEgyebbKincs(index) {
-      this.egyebb.splice(index, 1);
-      this.saveKincsek();
-    },
-    submitVagyon: function submitVagyon() {
-      this.modKincsek(parseInt(this.rez_input), parseInt(this.ezust_input), parseInt(this.arany_input), parseInt(this.mithrill_input), parseInt(this.dragako_input), '+');
-      this.rez_input = 0;
-      this.ezust_input = 0;
-      this.arany_input = 0;
-      this.mithrill_input = 0;
-      this.dragako_input = 0;
-    },
-    saveKincsek: function saveKincsek() {
-      var data = {
-        rez: this.rez,
-        ezust: this.ezust,
-        arany: this.arany,
-        mithrill: this.mithrill,
-        dragako: this.dragako,
-        egyebb: this.egyebb
-      }; //axios to enpoint 
-    },
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    Equipment: Object
+  },
+  data: function data() {
+    return {
+      felszereles: [],
+      equip_loading: false,
+      input_felszereles: '',
+      input_quantity: 1,
+      input_where: ''
+    };
+  },
+  methods: {
     addQuantToEquipment: function addQuantToEquipment(index) {
       this.felszereles[index].quantity++; //menteni
     },
@@ -6877,26 +6859,62 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   mounted: function mounted() {
-    if (this.magusCharacter) {
-      this.rez = this.magusCharacter.Kincsek.rez;
-      this.ezust = this.magusCharacter.Kincsek.ezust;
-      this.arany = this.magusCharacter.Kincsek.arany;
-      this.mithrill = this.magusCharacter.Kincsek.mithrill;
-      this.dragako = this.magusCharacter.Kincsek.dragako;
-      this.egyebb = this.magusCharacter.Kincsek.egyebb;
-      this.felszereles = this.magusCharacter.Felszereles.felszereles;
-    }
-
-    console.log('Component mounted.');
+    this.felszereles = this.Equipment.felszereles;
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/common/MagusKasztPreview.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/common/MagusKasztPreview.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusHarcertek.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusHarcertek.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    moduleName: String,
+    alap: Number,
+    osztotHm: Number,
+    aktualis: Number,
+    fegyverNelkul: Number,
+    modositok: Array
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusKasztPreview.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusKasztPreview.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6961,6 +6979,241 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     console.log('Component mounted.');
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusKincsek.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusKincsek.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    Kincsek: Object
+  },
+  data: function data() {
+    return {
+      rez: 0,
+      ezust: 0,
+      arany: 0,
+      mithrill: 0,
+      dragako: 0,
+      egyebb: [],
+      loading: false,
+      egyebb_text: '',
+      rez_input: 0,
+      ezust_input: 0,
+      arany_input: 0,
+      mithrill_input: 0,
+      dragako_input: 0
+    };
+  },
+  methods: {
+    modKincsek: function modKincsek(rez, ezust, arany, mithrill, dragako, mod) {
+      if (mod === '+') {
+        this.rez += rez;
+        this.ezust += ezust;
+        this.arany += arany;
+        this.mithrill += mithrill;
+        this.dragako += dragako;
+
+        if (this.egyebb_text !== '') {
+          this.egyebb.push(this.egyebb_text);
+        }
+      }
+
+      if (mod === '-') {
+        if (this.rez > 0) {
+          this.rez -= rez;
+        }
+
+        if (this.ezust > 0) {
+          this.ezust -= ezust;
+        }
+
+        if (this.arany > 0) {
+          this.arany -= arany;
+        }
+
+        if (this.mithrill > 0) {
+          this.mithrill -= mithrill;
+        }
+
+        if (this.dragako > 0) {
+          this.dragako -= dragako;
+        }
+      }
+
+      this.egyebb_text = '';
+      this.saveKincsek();
+    },
+    removeEgyebbKincs: function removeEgyebbKincs(index) {
+      this.egyebb.splice(index, 1);
+      this.saveKincsek();
+    },
+    submitVagyon: function submitVagyon() {
+      this.modKincsek(parseInt(this.rez_input), parseInt(this.ezust_input), parseInt(this.arany_input), parseInt(this.mithrill_input), parseInt(this.dragako_input), '+');
+      this.rez_input = 0;
+      this.ezust_input = 0;
+      this.arany_input = 0;
+      this.mithrill_input = 0;
+      this.dragako_input = 0;
+    },
+    saveKincsek: function saveKincsek() {
+      var data = {
+        rez: this.rez,
+        ezust: this.ezust,
+        arany: this.arany,
+        mithrill: this.mithrill,
+        dragako: this.dragako,
+        egyebb: this.egyebb
+      }; //axios to enpoint 
+    }
+  },
+  mounted: function mounted() {
+    this.rez = this.Kincsek.rez;
+    this.ezust = this.Kincsek.ezust;
+    this.arany = this.Kincsek.arany;
+    this.mithrill = this.Kincsek.mithrill;
+    this.dragako = this.Kincsek.dragako;
+    this.egyebb = this.Kincsek.egyebb;
   }
 });
 
@@ -30479,10 +30732,10 @@ component.options.__file = "resources/js/components/player_site/MagusCharacterCr
 
 /***/ }),
 
-/***/ "./resources/js/components/player_site/common/MagusCharacterSheet.vue":
-/*!****************************************************************************!*\
-  !*** ./resources/js/components/player_site/common/MagusCharacterSheet.vue ***!
-  \****************************************************************************/
+/***/ "./resources/js/components/player_site/magus/MagusBaseData.vue":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusBaseData.vue ***!
+  \*********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -30490,8 +30743,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _MagusCharacterSheet_vue_vue_type_template_id_bf7fa610___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusCharacterSheet.vue?vue&type=template&id=bf7fa610& */ "./resources/js/components/player_site/common/MagusCharacterSheet.vue?vue&type=template&id=bf7fa610&");
-/* harmony import */ var _MagusCharacterSheet_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusCharacterSheet.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/common/MagusCharacterSheet.vue?vue&type=script&lang=js&");
+/* harmony import */ var _MagusBaseData_vue_vue_type_template_id_7b4bbf49___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusBaseData.vue?vue&type=template&id=7b4bbf49& */ "./resources/js/components/player_site/magus/MagusBaseData.vue?vue&type=template&id=7b4bbf49&");
+/* harmony import */ var _MagusBaseData_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusBaseData.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/magus/MagusBaseData.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MagusBaseData_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusBaseData_vue_vue_type_template_id_7b4bbf49___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusBaseData_vue_vue_type_template_id_7b4bbf49___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/player_site/magus/MagusBaseData.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusCharacterSheet.vue":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusCharacterSheet.vue ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusCharacterSheet_vue_vue_type_template_id_1d778a38___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusCharacterSheet.vue?vue&type=template&id=1d778a38& */ "./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=template&id=1d778a38&");
+/* harmony import */ var _MagusCharacterSheet_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusCharacterSheet.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -30502,8 +30794,8 @@ __webpack_require__.r(__webpack_exports__);
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _MagusCharacterSheet_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _MagusCharacterSheet_vue_vue_type_template_id_bf7fa610___WEBPACK_IMPORTED_MODULE_0__.render,
-  _MagusCharacterSheet_vue_vue_type_template_id_bf7fa610___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _MagusCharacterSheet_vue_vue_type_template_id_1d778a38___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusCharacterSheet_vue_vue_type_template_id_1d778a38___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -30513,15 +30805,15 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/player_site/common/MagusCharacterSheet.vue"
+component.options.__file = "resources/js/components/player_site/magus/MagusCharacterSheet.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/player_site/common/MagusKasztPreview.vue":
-/*!**************************************************************************!*\
-  !*** ./resources/js/components/player_site/common/MagusKasztPreview.vue ***!
-  \**************************************************************************/
+/***/ "./resources/js/components/player_site/magus/MagusEletero.vue":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusEletero.vue ***!
+  \********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -30529,8 +30821,125 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _MagusKasztPreview_vue_vue_type_template_id_0009cf9a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusKasztPreview.vue?vue&type=template&id=0009cf9a& */ "./resources/js/components/player_site/common/MagusKasztPreview.vue?vue&type=template&id=0009cf9a&");
-/* harmony import */ var _MagusKasztPreview_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusKasztPreview.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/common/MagusKasztPreview.vue?vue&type=script&lang=js&");
+/* harmony import */ var _MagusEletero_vue_vue_type_template_id_7d2bc7ce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusEletero.vue?vue&type=template&id=7d2bc7ce& */ "./resources/js/components/player_site/magus/MagusEletero.vue?vue&type=template&id=7d2bc7ce&");
+/* harmony import */ var _MagusEletero_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusEletero.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/magus/MagusEletero.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MagusEletero_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusEletero_vue_vue_type_template_id_7d2bc7ce___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusEletero_vue_vue_type_template_id_7d2bc7ce___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/player_site/magus/MagusEletero.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusEquipment.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusEquipment.vue ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusEquipment_vue_vue_type_template_id_eb09a860___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusEquipment.vue?vue&type=template&id=eb09a860& */ "./resources/js/components/player_site/magus/MagusEquipment.vue?vue&type=template&id=eb09a860&");
+/* harmony import */ var _MagusEquipment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusEquipment.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/magus/MagusEquipment.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MagusEquipment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusEquipment_vue_vue_type_template_id_eb09a860___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusEquipment_vue_vue_type_template_id_eb09a860___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/player_site/magus/MagusEquipment.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusHarcertek.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusHarcertek.vue ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusHarcertek_vue_vue_type_template_id_149b4d65___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusHarcertek.vue?vue&type=template&id=149b4d65& */ "./resources/js/components/player_site/magus/MagusHarcertek.vue?vue&type=template&id=149b4d65&");
+/* harmony import */ var _MagusHarcertek_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusHarcertek.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/magus/MagusHarcertek.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MagusHarcertek_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusHarcertek_vue_vue_type_template_id_149b4d65___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusHarcertek_vue_vue_type_template_id_149b4d65___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/player_site/magus/MagusHarcertek.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusKasztPreview.vue":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusKasztPreview.vue ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusKasztPreview_vue_vue_type_template_id_4841b11f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusKasztPreview.vue?vue&type=template&id=4841b11f& */ "./resources/js/components/player_site/magus/MagusKasztPreview.vue?vue&type=template&id=4841b11f&");
+/* harmony import */ var _MagusKasztPreview_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusKasztPreview.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/magus/MagusKasztPreview.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -30541,8 +30950,8 @@ __webpack_require__.r(__webpack_exports__);
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _MagusKasztPreview_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _MagusKasztPreview_vue_vue_type_template_id_0009cf9a___WEBPACK_IMPORTED_MODULE_0__.render,
-  _MagusKasztPreview_vue_vue_type_template_id_0009cf9a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _MagusKasztPreview_vue_vue_type_template_id_4841b11f___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusKasztPreview_vue_vue_type_template_id_4841b11f___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -30552,7 +30961,46 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/player_site/common/MagusKasztPreview.vue"
+component.options.__file = "resources/js/components/player_site/magus/MagusKasztPreview.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusKincsek.vue":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusKincsek.vue ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusKincsek_vue_vue_type_template_id_3c4f70a8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusKincsek.vue?vue&type=template&id=3c4f70a8& */ "./resources/js/components/player_site/magus/MagusKincsek.vue?vue&type=template&id=3c4f70a8&");
+/* harmony import */ var _MagusKincsek_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusKincsek.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/magus/MagusKincsek.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MagusKincsek_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusKincsek_vue_vue_type_template_id_3c4f70a8___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusKincsek_vue_vue_type_template_id_3c4f70a8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/player_site/magus/MagusKincsek.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -30637,10 +31085,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/player_site/common/MagusCharacterSheet.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************!*\
-  !*** ./resources/js/components/player_site/common/MagusCharacterSheet.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************/
+/***/ "./resources/js/components/player_site/magus/MagusBaseData.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusBaseData.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -30648,15 +31096,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusCharacterSheet.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/common/MagusCharacterSheet.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusBaseData_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusBaseData.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusBaseData.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusBaseData_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusCharacterSheet.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/player_site/common/MagusKasztPreview.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************!*\
-  !*** ./resources/js/components/player_site/common/MagusKasztPreview.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************/
+/***/ "./resources/js/components/player_site/magus/MagusEletero.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusEletero.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -30664,8 +31128,72 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKasztPreview_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusKasztPreview.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/common/MagusKasztPreview.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusEletero_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusEletero.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusEletero.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusEletero_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusEquipment.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusEquipment.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusEquipment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusEquipment.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusEquipment.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusEquipment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusHarcertek.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusHarcertek.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusHarcertek_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusHarcertek.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusHarcertek.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusHarcertek_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusKasztPreview.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusKasztPreview.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKasztPreview_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusKasztPreview.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusKasztPreview.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKasztPreview_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusKincsek.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusKincsek.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKincsek_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusKincsek.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusKincsek.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKincsek_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -30767,36 +31295,121 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/player_site/common/MagusCharacterSheet.vue?vue&type=template&id=bf7fa610&":
-/*!***********************************************************************************************************!*\
-  !*** ./resources/js/components/player_site/common/MagusCharacterSheet.vue?vue&type=template&id=bf7fa610& ***!
-  \***********************************************************************************************************/
+/***/ "./resources/js/components/player_site/magus/MagusBaseData.vue?vue&type=template&id=7b4bbf49&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusBaseData.vue?vue&type=template&id=7b4bbf49& ***!
+  \****************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_template_id_bf7fa610___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_template_id_bf7fa610___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusBaseData_vue_vue_type_template_id_7b4bbf49___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusBaseData_vue_vue_type_template_id_7b4bbf49___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_template_id_bf7fa610___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusCharacterSheet.vue?vue&type=template&id=bf7fa610& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/common/MagusCharacterSheet.vue?vue&type=template&id=bf7fa610&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusBaseData_vue_vue_type_template_id_7b4bbf49___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusBaseData.vue?vue&type=template&id=7b4bbf49& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusBaseData.vue?vue&type=template&id=7b4bbf49&");
 
 
 /***/ }),
 
-/***/ "./resources/js/components/player_site/common/MagusKasztPreview.vue?vue&type=template&id=0009cf9a&":
-/*!*********************************************************************************************************!*\
-  !*** ./resources/js/components/player_site/common/MagusKasztPreview.vue?vue&type=template&id=0009cf9a& ***!
-  \*********************************************************************************************************/
+/***/ "./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=template&id=1d778a38&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=template&id=1d778a38& ***!
+  \**********************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKasztPreview_vue_vue_type_template_id_0009cf9a___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKasztPreview_vue_vue_type_template_id_0009cf9a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_template_id_1d778a38___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_template_id_1d778a38___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKasztPreview_vue_vue_type_template_id_0009cf9a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusKasztPreview.vue?vue&type=template&id=0009cf9a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/common/MagusKasztPreview.vue?vue&type=template&id=0009cf9a&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_template_id_1d778a38___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusCharacterSheet.vue?vue&type=template&id=1d778a38& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=template&id=1d778a38&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusEletero.vue?vue&type=template&id=7d2bc7ce&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusEletero.vue?vue&type=template&id=7d2bc7ce& ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusEletero_vue_vue_type_template_id_7d2bc7ce___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusEletero_vue_vue_type_template_id_7d2bc7ce___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusEletero_vue_vue_type_template_id_7d2bc7ce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusEletero.vue?vue&type=template&id=7d2bc7ce& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusEletero.vue?vue&type=template&id=7d2bc7ce&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusEquipment.vue?vue&type=template&id=eb09a860&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusEquipment.vue?vue&type=template&id=eb09a860& ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusEquipment_vue_vue_type_template_id_eb09a860___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusEquipment_vue_vue_type_template_id_eb09a860___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusEquipment_vue_vue_type_template_id_eb09a860___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusEquipment.vue?vue&type=template&id=eb09a860& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusEquipment.vue?vue&type=template&id=eb09a860&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusHarcertek.vue?vue&type=template&id=149b4d65&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusHarcertek.vue?vue&type=template&id=149b4d65& ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusHarcertek_vue_vue_type_template_id_149b4d65___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusHarcertek_vue_vue_type_template_id_149b4d65___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusHarcertek_vue_vue_type_template_id_149b4d65___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusHarcertek.vue?vue&type=template&id=149b4d65& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusHarcertek.vue?vue&type=template&id=149b4d65&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusKasztPreview.vue?vue&type=template&id=4841b11f&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusKasztPreview.vue?vue&type=template&id=4841b11f& ***!
+  \********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKasztPreview_vue_vue_type_template_id_4841b11f___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKasztPreview_vue_vue_type_template_id_4841b11f___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKasztPreview_vue_vue_type_template_id_4841b11f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusKasztPreview.vue?vue&type=template&id=4841b11f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusKasztPreview.vue?vue&type=template&id=4841b11f&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusKincsek.vue?vue&type=template&id=3c4f70a8&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusKincsek.vue?vue&type=template&id=3c4f70a8& ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKincsek_vue_vue_type_template_id_3c4f70a8___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKincsek_vue_vue_type_template_id_3c4f70a8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKincsek_vue_vue_type_template_id_3c4f70a8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusKincsek.vue?vue&type=template&id=3c4f70a8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusKincsek.vue?vue&type=template&id=3c4f70a8&");
 
 
 /***/ }),
@@ -31315,10 +31928,355 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/common/MagusCharacterSheet.vue?vue&type=template&id=bf7fa610&":
-/*!**************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/common/MagusCharacterSheet.vue?vue&type=template&id=bf7fa610& ***!
-  \**************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusBaseData.vue?vue&type=template&id=7b4bbf49&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusBaseData.vue?vue&type=template&id=7b4bbf49& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "h4",
+      { staticClass: "text-center mt-5 border-bottom border-secondary" },
+      [_vm._v("Karakter adatai")]
+    ),
+    _vm._v(" "),
+    _c("p", { staticClass: "fs-4 border-bottom border-secondary mt-5" }, [
+      _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Név: ")]),
+      _c("span", [_vm._v(_vm._s(_vm.Nev))]),
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
+      _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Kaszt: ")]),
+      _c("span", [_vm._v(_vm._s(_vm.Kaszt.name))]),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-success btn-sm ms-2",
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#kasztModal",
+          },
+        },
+        [_vm._v("i")]
+      ),
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
+      _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Faj: ")]),
+      _c("span", [_vm._v(_vm._s(_vm.Faj.name))]),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-success btn-sm ms-2",
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#fajModal",
+          },
+        },
+        [_vm._v("i")]
+      ),
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
+      _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Jellem: ")]),
+      _c("span", [_vm._v(_vm._s(_vm.Jellem.name))]),
+      _vm._v(" "),
+      _vm.Jellem.name !== ""
+        ? _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-success btn-sm ms-2",
+              attrs: {
+                type: "button",
+                "data-bs-toggle": "modal",
+                "data-bs-target": "#jellemModal",
+              },
+            },
+            [_vm._v("i")]
+          )
+        : _vm._e(),
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
+      _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Vallás: ")]),
+      _c("span", [_vm._v(_vm._s(_vm.Vallas))]),
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
+      _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Szimbólum: ")]),
+      _c("span", [_vm._v(_vm._s(_vm.Szimbolum))]),
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
+      _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Szülőföld: ")]),
+      _c("span", [_vm._v(_vm._s(_vm.Szulofold))]),
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "fs-4 border-bottom border-secondary mb-5" }, [
+      _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Iskola: ")]),
+      _c("span", [_vm._v(_vm._s(_vm.Iskola))]),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "my-5 text-center" }, [
+      _c("p", { staticClass: "border border-secondary p-3 fs-1 fw-bolder" }, [
+        _vm._v(_vm._s(_vm.Szint)),
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "fs-3 mt-2" }, [_vm._v("Tapasztalati szint")]),
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "jellemModal",
+          tabindex: "-1",
+          "aria-labelledby": "jellemModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "modal-dialog modal-dialog-centered modal-dialog-scrollable",
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "jellemModalLabel" },
+                  },
+                  [_vm._v(_vm._s(_vm.Jellem.name))]
+                ),
+                _vm._v(" "),
+                _c("button", {
+                  staticClass: "btn-close",
+                  attrs: {
+                    type: "button",
+                    "data-bs-dismiss": "modal",
+                    "aria-label": "Close",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(_vm.Jellem.description) +
+                    "\n                "
+                ),
+              ]),
+              _vm._v(" "),
+              _vm._m(0),
+            ]),
+          ]
+        ),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "fajModal",
+          tabindex: "-1",
+          "aria-labelledby": "fajModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "modal-dialog modal-dialog-centered modal-dialog-scrollable",
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "fajModalLabel" },
+                  },
+                  [_c("b", [_vm._v(_vm._s(_vm.Faj.name))])]
+                ),
+                _vm._v(" "),
+                _c("button", {
+                  staticClass: "btn-close",
+                  attrs: {
+                    type: "button",
+                    "data-bs-dismiss": "modal",
+                    "aria-label": "Close",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "modal-body" },
+                [
+                  _vm._l(_vm.Faj.description, function (des, index) {
+                    return _c("p", { key: "D" + index }, [_vm._v(_vm._s(des))])
+                  }),
+                  _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _vm._l(_vm.Faj.specials, function (special, index) {
+                    return _c("p", { key: "S" + index }, [
+                      _vm._v(_vm._s(special)),
+                    ])
+                  }),
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _vm._m(2),
+            ]),
+          ]
+        ),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "kasztModal",
+          tabindex: "-1",
+          "aria-labelledby": "kasztModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "modal-dialog modal-dialog-centered modal-dialog-scrollable",
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "kasztModalLabel" },
+                  },
+                  [_vm._v(_vm._s(_vm.Kaszt.name))]
+                ),
+                _vm._v(" "),
+                _c("button", {
+                  staticClass: "btn-close",
+                  attrs: {
+                    type: "button",
+                    "data-bs-dismiss": "modal",
+                    "aria-label": "Close",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "modal-body" },
+                [_c("magus-kaszt-preview", { attrs: { kaszt: _vm.Kaszt } })],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(3),
+            ]),
+          ]
+        ),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Close")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Különleges képességek ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Close")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Close")]
+      ),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=template&id=1d778a38&":
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=template&id=1d778a38& ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -31787,40 +32745,18 @@ var render = function () {
           "div",
           { staticClass: " bg-light border border-secondary rounded mb-4 p-3" },
           [
-            _c("h4", { staticClass: "text-center mt-2" }, [_vm._v("Életerő")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col border-end border-secondary" }, [
-                _c("p", [_vm._v("Max Ép")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "border-bottom border-secondary" }, [
-                  _vm._v(_vm._s(_vm.maxEp)),
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Akt Ép")]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.magusCharacter.AktEp))]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col" }, [
-                _c("p", [_vm._v("Max Fp")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "border-bottom border-secondary" }, [
-                  _vm._v(_vm._s(_vm.maxFp)),
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Fp/szint")]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.Kaszt.FpSzint))]),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "border-top border-secondary" }, [
-              _vm._v("Akt Fp"),
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(_vm.magusCharacter.AktFp))]),
-          ]
+            _c("magus-eletero", {
+              attrs: {
+                maxEp: _vm.maxEp,
+                aktEp: _vm.magusCharacter.AktEp,
+                maxFp: _vm.maxFp,
+                aktFp: _vm.magusCharacter.AktFp,
+                fpSzint: _vm.Kaszt.FpSzint,
+                sfe: 0,
+              },
+            }),
+          ],
+          1
         ),
         _vm._v(" "),
         _vm._m(5),
@@ -31835,127 +32771,21 @@ var render = function () {
           "div",
           { staticClass: "bg-light border border-secondary rounded mb-5 p-3" },
           [
-            _c("div", [
-              _c(
-                "h4",
-                {
-                  staticClass:
-                    "text-center mt-5 border-bottom border-secondary",
-                },
-                [_vm._v("Karakter adatai")]
-              ),
-              _vm._v(" "),
-              _c(
-                "p",
-                { staticClass: "fs-4 border-bottom border-secondary mt-5" },
-                [
-                  _c("span", { staticClass: "fw-bolder me-2" }, [
-                    _vm._v("Név: "),
-                  ]),
-                  _c("span", [_vm._v(_vm._s(_vm.magusCharacter.Nev))]),
-                ]
-              ),
-              _vm._v(" "),
-              _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
-                _c("span", { staticClass: "fw-bolder me-2" }, [
-                  _vm._v("Kaszt: "),
-                ]),
-                _c("span", [_vm._v(_vm._s(_vm.Kaszt.name))]),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-success btn-sm ms-2",
-                    attrs: {
-                      type: "button",
-                      "data-bs-toggle": "modal",
-                      "data-bs-target": "#kasztModal",
-                    },
-                  },
-                  [_vm._v("i")]
-                ),
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
-                _c("span", { staticClass: "fw-bolder me-2" }, [
-                  _vm._v("Faj: "),
-                ]),
-                _c("span", [_vm._v(_vm._s(_vm.Faj.name))]),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-success btn-sm ms-2",
-                    attrs: {
-                      type: "button",
-                      "data-bs-toggle": "modal",
-                      "data-bs-target": "#fajModal",
-                    },
-                  },
-                  [_vm._v("i")]
-                ),
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
-                _c("span", { staticClass: "fw-bolder me-2" }, [
-                  _vm._v("Jellem: "),
-                ]),
-                _c("span", [_vm._v(_vm._s(_vm.Jellem.name))]),
-                _vm._v(" "),
-                _vm.Jellem.name !== ""
-                  ? _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-outline-success btn-sm ms-2",
-                        attrs: {
-                          type: "button",
-                          "data-bs-toggle": "modal",
-                          "data-bs-target": "#jellemModal",
-                        },
-                      },
-                      [_vm._v("i")]
-                    )
-                  : _vm._e(),
-              ]),
-              _vm._v(" "),
-              _vm._m(8),
-              _vm._v(" "),
-              _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
-                _c("span", { staticClass: "fw-bolder me-2" }, [
-                  _vm._v("Szimbólum: "),
-                ]),
-                _c("span", [_vm._v(_vm._s(_vm.magusCharacter.Szimbolum))]),
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
-                _c("span", { staticClass: "fw-bolder me-2" }, [
-                  _vm._v("Szülőföld: "),
-                ]),
-                _c("span", [_vm._v(_vm._s(_vm.magusCharacter.Szulofold))]),
-              ]),
-              _vm._v(" "),
-              _c(
-                "p",
-                { staticClass: "fs-4 border-bottom border-secondary mb-5" },
-                [
-                  _c("span", { staticClass: "fw-bolder me-2" }, [
-                    _vm._v("Iskola: "),
-                  ]),
-                  _c("span", [_vm._v(_vm._s(_vm.magusCharacter.Iskola))]),
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "my-5 text-center" }, [
-                _c(
-                  "p",
-                  { staticClass: "border border-secondary p-3 fs-1 fw-bolder" },
-                  [_vm._v(_vm._s(_vm.magusCharacter.Szint))]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "fs-3 mt-2" }, [
-                  _vm._v("Tapasztalati szint"),
-                ]),
-              ]),
-            ]),
-          ]
+            _c("magus-base-data", {
+              attrs: {
+                Nev: _vm.magusCharacter.Nev,
+                MagusClass: _vm.magusCharacter.Kaszt,
+                Race: _vm.magusCharacter.Faj,
+                Aligment: _vm.magusCharacter.Jellem,
+                Vallas: _vm.magusCharacter.Vallas,
+                Szimbolum: _vm.magusCharacter.Szimbolum,
+                Szulofold: _vm.magusCharacter.Szulofold,
+                Iskola: _vm.magusCharacter.Iskola,
+                Szint: _vm.magusCharacter.Szint,
+              },
+            }),
+          ],
+          1
         ),
         _vm._v(" "),
         _c(
@@ -31978,9 +32808,9 @@ var render = function () {
           ]
         ),
         _vm._v(" "),
-        _vm._m(9),
+        _vm._m(8),
         _vm._v(" "),
-        _vm._m(10),
+        _vm._m(9),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-lg" }, [
@@ -31988,886 +32818,106 @@ var render = function () {
           "div",
           { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
           [
-            _c("h4", { staticClass: "text-center mt-2" }, [
-              _vm._v("Kezdeményező érték (KÉ)"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col border-end border-secondary" }, [
-                _c("p", [_vm._v("Alap")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "border-bottom border-secondary" }, [
-                  _vm._v(_vm._s(_vm.Kaszt.KEalap)),
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Osztott HM")]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.magusCharacter.KeSzint))]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col" }, [
-                _c("p", [_vm._v("Aktuális")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "border-bottom border-secondary" }, [
-                  _vm._v("11"),
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Fegyver nélkül")]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.keAlap))]),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "border-top border-secondary" }, [
-              _vm._v("Módositók"),
-            ]),
-            _vm._v(" "),
-            _c("p"),
-          ]
+            _c("magus-harcertek", {
+              attrs: {
+                moduleName: "Kezdeményező érték (KÉ)",
+                alap: _vm.Kaszt.KEalap,
+                osztotHm:
+                  _vm.magusCharacter.KeSzint + _vm.Kaszt.KESzintKotelezo,
+                aktualis: 11,
+                fegyverNelkul: _vm.keAlap,
+                modositok: [],
+              },
+            }),
+          ],
+          1
         ),
         _vm._v(" "),
         _c(
           "div",
           { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
           [
-            _c("h4", { staticClass: "text-center mt-2" }, [
-              _vm._v("Támadó érték (TÉ)"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col border-end border-secondary" }, [
-                _c("p", [_vm._v("Alap")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "border-bottom border-secondary" }, [
-                  _vm._v(_vm._s(_vm.Kaszt.TEalap)),
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Osztott HM")]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.magusCharacter.TeSzint))]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col" }, [
-                _c("p", [_vm._v("Aktuális")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "border-bottom border-secondary" }, [
-                  _vm._v("11"),
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Fegyver nélkül")]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.teAlap))]),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "border-top border-secondary" }, [
-              _vm._v("Módositók"),
-            ]),
-            _vm._v(" "),
-            _c("p"),
-          ]
+            _c("magus-harcertek", {
+              attrs: {
+                moduleName: "Támadó érték (TÉ)",
+                alap: _vm.Kaszt.TEalap,
+                osztotHm:
+                  _vm.magusCharacter.TeSzint + _vm.Kaszt.TESzintKotelezo,
+                aktualis: 11,
+                fegyverNelkul: _vm.teAlap,
+                modositok: [],
+              },
+            }),
+          ],
+          1
         ),
         _vm._v(" "),
         _c(
           "div",
           { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
           [
-            _c("h4", { staticClass: "text-center mt-2" }, [
-              _vm._v("Védő érték (VÉ)"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col border-end border-secondary" }, [
-                _c("p", [_vm._v("Alap")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "border-bottom border-secondary" }, [
-                  _vm._v(_vm._s(_vm.Kaszt.VEalap)),
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Osztott HM")]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.magusCharacter.VeSzint))]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col" }, [
-                _c("p", [_vm._v("Aktuális")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "border-bottom border-secondary" }, [
-                  _vm._v("11"),
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Fegyver nélkül")]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.veAlap))]),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "border-top border-secondary" }, [
-              _vm._v("Módositók"),
-            ]),
-            _vm._v(" "),
-            _c("p"),
-          ]
+            _c("magus-harcertek", {
+              attrs: {
+                moduleName: "Védő érték (VÉ)",
+                alap: _vm.Kaszt.VEalap,
+                osztotHm:
+                  _vm.magusCharacter.VeSzint + _vm.Kaszt.VESzintKotelezo,
+                aktualis: 11,
+                fegyverNelkul: _vm.veAlap,
+                modositok: [],
+              },
+            }),
+          ],
+          1
         ),
         _vm._v(" "),
         _c(
           "div",
           { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
           [
-            _c("h4", { staticClass: "text-center mt-2" }, [
-              _vm._v("Célzó érték (CÉ)"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col border-end border-secondary" }, [
-                _c("p", [_vm._v("Alap")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "border-bottom border-secondary" }, [
-                  _vm._v(_vm._s(_vm.ceFaj)),
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Osztott HM")]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.magusCharacter.CeSzint))]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col" }, [
-                _c("p", [_vm._v("Aktuális")]),
-                _vm._v(" "),
-                _c("p", { staticClass: "border-bottom border-secondary" }, [
-                  _vm._v("11"),
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Fegyver nélkül")]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.ceAlap))]),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "border-top border-secondary" }, [
-              _vm._v("Módositók"),
-            ]),
-            _vm._v(" "),
-            _c("p"),
-          ]
+            _c("magus-harcertek", {
+              attrs: {
+                moduleName: "Célzó érték (CÉ)",
+                alap: _vm.ceFaj,
+                osztotHm:
+                  _vm.magusCharacter.CeSzint + _vm.Kaszt.CESzintKotelezo,
+                aktualis: 11,
+                fegyverNelkul: _vm.ceAlap,
+                modositok: [],
+              },
+            }),
+          ],
+          1
         ),
+        _vm._v(" "),
+        _vm._m(10),
         _vm._v(" "),
         _vm._m(11),
-        _vm._v(" "),
-        _vm._m(12),
       ]),
     ]),
+    _vm._v(" "),
+    _vm._m(12),
     _vm._v(" "),
     _vm._m(13),
     _vm._v(" "),
     _vm._m(14),
     _vm._v(" "),
-    _vm._m(15),
-    _vm._v(" "),
     _c(
       "div",
       { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
-      [
-        _c(
-          "div",
-          { staticClass: "text-center border-bottom border-secondary" },
-          [
-            _c("h4", [_vm._v("Kincsek")]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-success my-3",
-                attrs: {
-                  type: "button",
-                  disabled: _vm.loading,
-                  "data-bs-toggle": "modal",
-                  "data-bs-target": "#vagyonModal",
-                },
-              },
-              [_vm._v("Vagyon hozzáadása")]
-            ),
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col text-center" }, [
-            _c("h5", [_vm._v("réz")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-8" }, [
-                _c("p", [_vm._v(_vm._s(_vm.rez))]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-4" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-success btn-sm my-1 d-block",
-                    attrs: { type: "button", disabled: _vm.loading },
-                    on: {
-                      click: function ($event) {
-                        return _vm.modKincsek(1, 0, 0, 0, 0, "+")
-                      },
-                    },
-                  },
-                  [_vm._v("+")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-danger btn-sm my-1 d-block",
-                    attrs: { type: "button", disabled: _vm.loading },
-                    on: {
-                      click: function ($event) {
-                        return _vm.modKincsek(1, 0, 0, 0, 0, "-")
-                      },
-                    },
-                  },
-                  [_vm._v("-")]
-                ),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col text-center" }, [
-            _c("h5", [_vm._v("ezüst")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-8" }, [
-                _c("p", [_vm._v(_vm._s(_vm.ezust))]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-4" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-success btn-sm my-1 d-block",
-                    attrs: { type: "button", disabled: _vm.loading },
-                    on: {
-                      click: function ($event) {
-                        return _vm.modKincsek(0, 1, 0, 0, 0, "+")
-                      },
-                    },
-                  },
-                  [_vm._v("+")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-danger btn-sm my-1 d-block",
-                    attrs: { type: "button", disabled: _vm.loading },
-                    on: {
-                      click: function ($event) {
-                        return _vm.modKincsek(0, 1, 0, 0, 0, "-")
-                      },
-                    },
-                  },
-                  [_vm._v("-")]
-                ),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col text-center" }, [
-            _c("h5", [_vm._v("arany")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-8" }, [
-                _c("p", [_vm._v(_vm._s(_vm.arany))]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-4" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-success btn-sm my-1 d-block",
-                    attrs: { type: "button", disabled: _vm.loading },
-                    on: {
-                      click: function ($event) {
-                        return _vm.modKincsek(0, 0, 1, 0, 0, "+")
-                      },
-                    },
-                  },
-                  [_vm._v("+")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-danger btn-sm my-1 d-block",
-                    attrs: { type: "button", disabled: _vm.loading },
-                    on: {
-                      click: function ($event) {
-                        return _vm.modKincsek(0, 0, 1, 0, 0, "-")
-                      },
-                    },
-                  },
-                  [_vm._v("-")]
-                ),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col text-center" }, [
-            _c("h5", [_vm._v("mithrill")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-8" }, [
-                _c("p", [_vm._v(_vm._s(_vm.mithrill))]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-4" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-success btn-sm my-1 d-block",
-                    attrs: { type: "button", disabled: _vm.loading },
-                    on: {
-                      click: function ($event) {
-                        return _vm.modKincsek(0, 0, 0, 1, 0, "+")
-                      },
-                    },
-                  },
-                  [_vm._v("+")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-danger btn-sm my-1 d-block",
-                    attrs: { type: "button", disabled: _vm.loading },
-                    on: {
-                      click: function ($event) {
-                        return _vm.modKincsek(0, 0, 0, 1, 0, "-")
-                      },
-                    },
-                  },
-                  [_vm._v("-")]
-                ),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col text-center" }, [
-            _c("h5", [_vm._v("drágakő")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-8" }, [
-                _c("p", [_vm._v(_vm._s(_vm.dragako))]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-4" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-success btn-sm my-1 d-block",
-                    attrs: { type: "button", disabled: _vm.loading },
-                    on: {
-                      click: function ($event) {
-                        return _vm.modKincsek(0, 0, 0, 0, 1, "+")
-                      },
-                    },
-                  },
-                  [_vm._v("+")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-danger btn-sm my-1 d-block",
-                    attrs: { type: "button", disabled: _vm.loading },
-                    on: {
-                      click: function ($event) {
-                        return _vm.modKincsek(0, 0, 0, 0, 1, "-")
-                      },
-                    },
-                  },
-                  [_vm._v("-")]
-                ),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col text-center" }, [
-            _c("h5", [_vm._v("egyébb")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                { staticClass: "col-10" },
-                _vm._l(_vm.egyebb, function (valami, index) {
-                  return _c("p", { key: "K" + index }, [
-                    _vm._v(_vm._s(valami) + " "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-outline-danger btn-sm ms-1",
-                        attrs: { type: "button", disabled: _vm.loading },
-                        on: {
-                          click: function ($event) {
-                            return _vm.removeEgyebbKincs(index)
-                          },
-                        },
-                      },
-                      [_vm._v("-")]
-                    ),
-                  ])
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-2" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-success btn-sm my-1 d-block",
-                    attrs: {
-                      type: "button",
-                      disabled: _vm.loading,
-                      "data-bs-toggle": "modal",
-                      "data-bs-target": "#egyebbModal",
-                    },
-                  },
-                  [_vm._v("+")]
-                ),
-              ]),
-            ]),
-          ]),
-        ]),
-      ]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "egyebbModal",
-          tabindex: "-1",
-          "aria-labelledby": "egyebbModalLabel",
-          "aria-hidden": "true",
-        },
-      },
-      [
-        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
-          _c("div", { staticClass: "modal-content" }, [
-            _vm._m(16),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-body" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.egyebb_text,
-                    expression: "egyebb_text",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text", id: "egyebb-text" },
-                domProps: { value: _vm.egyebb_text },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.egyebb_text = $event.target.value
-                  },
-                },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-footer" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-secondary",
-                  attrs: { type: "button", "data-bs-dismiss": "modal" },
-                },
-                [_vm._v("Close")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { type: "button", "data-bs-dismiss": "modal" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.modKincsek(0, 0, 0, 0, 0, "+")
-                    },
-                  },
-                },
-                [_vm._v("Save changes")]
-              ),
-            ]),
-          ]),
-        ]),
-      ]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "vagyonModal",
-          tabindex: "-1",
-          "aria-labelledby": "vagyonModalLabel",
-          "aria-hidden": "true",
-        },
-      },
-      [
-        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
-          _c("div", { staticClass: "modal-content" }, [
-            _vm._m(17),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-body" }, [
-              _c("label", { attrs: { for: "rez" } }, [_vm._v("Réz:")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.rez_input,
-                    expression: "rez_input",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: { type: "number", id: "rez" },
-                domProps: { value: _vm.rez_input },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.rez_input = $event.target.value
-                  },
-                },
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "ezust" } }, [_vm._v("Ezüst:")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.ezust_input,
-                    expression: "ezust_input",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: { type: "number", id: "ezust" },
-                domProps: { value: _vm.ezust_input },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.ezust_input = $event.target.value
-                  },
-                },
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "arany" } }, [_vm._v("Arany:")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.arany_input,
-                    expression: "arany_input",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: { type: "number", id: "arany" },
-                domProps: { value: _vm.arany_input },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.arany_input = $event.target.value
-                  },
-                },
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "mithrill" } }, [
-                _vm._v("Mithrill:"),
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.mithrill_input,
-                    expression: "mithrill_input",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: { type: "number", id: "mithrill" },
-                domProps: { value: _vm.mithrill_input },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.mithrill_input = $event.target.value
-                  },
-                },
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "dragako" } }, [_vm._v("Drágakő:")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.dragako_input,
-                    expression: "dragako_input",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: { type: "number", id: "dragako" },
-                domProps: { value: _vm.dragako_input },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.dragako_input = $event.target.value
-                  },
-                },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-footer" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-secondary",
-                  attrs: { type: "button", "data-bs-dismiss": "modal" },
-                },
-                [_vm._v("Close")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { type: "button", "data-bs-dismiss": "modal" },
-                  on: { click: _vm.submitVagyon },
-                },
-                [_vm._v("Save changes")]
-              ),
-            ]),
-          ]),
-        ]),
-      ]
+      [_c("magus-kincsek", { attrs: { Kincsek: _vm.magusCharacter.Kincsek } })],
+      1
     ),
     _vm._v(" "),
     _c(
       "div",
       { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
       [
-        _c(
-          "div",
-          { staticClass: "text-center border-bottom border-secondary" },
-          [
-            _c("h4", [_vm._v("Felszerelés")]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-success my-3",
-                attrs: {
-                  type: "button",
-                  disabled: _vm.equip_loading,
-                  "data-bs-toggle": "modal",
-                  "data-bs-target": "#equipModal",
-                },
-              },
-              [_vm._v("Új felszerelés hozzáadása")]
-            ),
-          ]
-        ),
-        _vm._v(" "),
-        _c("table", { staticClass: "table table-striped" }, [
-          _vm._m(18),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.felszereles, function (equip, index) {
-              return _c("tr", { key: "FSZ" + index }, [
-                _c("td", [_vm._v(_vm._s(equip.name))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(equip.quantity))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(equip.where))]),
-                _vm._v(" "),
-                _c("td", [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-outline-success btn-sm m-1",
-                      attrs: { type: "button", disabled: _vm.equip_loading },
-                      on: {
-                        click: function ($event) {
-                          return _vm.addQuantToEquipment(index)
-                        },
-                      },
-                    },
-                    [_vm._v("+")]
-                  ),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-outline-danger btn-sm m-1",
-                      attrs: { type: "button", disabled: _vm.equip_loading },
-                      on: {
-                        click: function ($event) {
-                          return _vm.removeQuantFromEquipment(index)
-                        },
-                      },
-                    },
-                    [_vm._v("-")]
-                  ),
-                ]),
-              ])
-            }),
-            0
-          ),
-        ]),
-      ]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "equipModal",
-          tabindex: "-1",
-          "aria-labelledby": "equipModalLabel",
-          "aria-hidden": "true",
-        },
-      },
-      [
-        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
-          _c("div", { staticClass: "modal-content" }, [
-            _vm._m(19),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-body" }, [
-              _c("label", { attrs: { for: "elnevezes" } }, [
-                _vm._v("Felszerelés elnevezése"),
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.input_felszereles,
-                    expression: "input_felszereles",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text", id: "elnevezes" },
-                domProps: { value: _vm.input_felszereles },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.input_felszereles = $event.target.value
-                  },
-                },
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "quant" } }, [
-                _vm._v("Felszerelés mennyisége"),
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.input_quantity,
-                    expression: "input_quantity",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: { type: "number", id: "quant" },
-                domProps: { value: _vm.input_quantity },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.input_quantity = $event.target.value
-                  },
-                },
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "where" } }, [
-                _vm._v("Felszerelés elhelyezése"),
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.input_where,
-                    expression: "input_where",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text", id: "where" },
-                domProps: { value: _vm.input_where },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.input_where = $event.target.value
-                  },
-                },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-footer" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-secondary",
-                  attrs: { type: "button", "data-bs-dismiss": "modal" },
-                },
-                [_vm._v("Close")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { type: "button", "data-bs-dismiss": "modal" },
-                  on: { click: _vm.addNewEquipment },
-                },
-                [_vm._v("Save changes")]
-              ),
-            ]),
-          ]),
-        ]),
-      ]
+        _c("magus-equipment", {
+          attrs: { Equipment: _vm.magusCharacter.Felszereles },
+        }),
+      ],
+      1
     ),
     _vm._v(" "),
     _c("div", { staticClass: "row justify-content-evenly" }, [
@@ -32886,185 +32936,10 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _vm._m(20),
+      _vm._m(15),
       _vm._v(" "),
-      _vm._m(21),
+      _vm._m(16),
     ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "jellemModal",
-          tabindex: "-1",
-          "aria-labelledby": "jellemModalLabel",
-          "aria-hidden": "true",
-        },
-      },
-      [
-        _c(
-          "div",
-          {
-            staticClass:
-              "modal-dialog modal-dialog-centered modal-dialog-scrollable",
-          },
-          [
-            _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
-                _c(
-                  "h5",
-                  {
-                    staticClass: "modal-title",
-                    attrs: { id: "jellemModalLabel" },
-                  },
-                  [_vm._v(_vm._s(_vm.Jellem.name))]
-                ),
-                _vm._v(" "),
-                _c("button", {
-                  staticClass: "btn-close",
-                  attrs: {
-                    type: "button",
-                    "data-bs-dismiss": "modal",
-                    "aria-label": "Close",
-                  },
-                }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(_vm.Jellem.description) +
-                    "\n                "
-                ),
-              ]),
-              _vm._v(" "),
-              _vm._m(22),
-            ]),
-          ]
-        ),
-      ]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "fajModal",
-          tabindex: "-1",
-          "aria-labelledby": "fajModalLabel",
-          "aria-hidden": "true",
-        },
-      },
-      [
-        _c(
-          "div",
-          {
-            staticClass:
-              "modal-dialog modal-dialog-centered modal-dialog-scrollable",
-          },
-          [
-            _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
-                _c(
-                  "h5",
-                  {
-                    staticClass: "modal-title",
-                    attrs: { id: "fajModalLabel" },
-                  },
-                  [_c("b", [_vm._v(_vm._s(_vm.Faj.name))])]
-                ),
-                _vm._v(" "),
-                _c("button", {
-                  staticClass: "btn-close",
-                  attrs: {
-                    type: "button",
-                    "data-bs-dismiss": "modal",
-                    "aria-label": "Close",
-                  },
-                }),
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "modal-body" },
-                [
-                  _vm._l(_vm.Faj.description, function (des, index) {
-                    return _c("p", { key: "D" + index }, [_vm._v(_vm._s(des))])
-                  }),
-                  _vm._v(" "),
-                  _vm._m(23),
-                  _vm._v(" "),
-                  _vm._l(_vm.Faj.specials, function (special, index) {
-                    return _c("p", { key: "S" + index }, [
-                      _vm._v(_vm._s(special)),
-                    ])
-                  }),
-                ],
-                2
-              ),
-              _vm._v(" "),
-              _vm._m(24),
-            ]),
-          ]
-        ),
-      ]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "kasztModal",
-          tabindex: "-1",
-          "aria-labelledby": "kasztModalLabel",
-          "aria-hidden": "true",
-        },
-      },
-      [
-        _c(
-          "div",
-          {
-            staticClass:
-              "modal-dialog modal-dialog-centered modal-dialog-scrollable",
-          },
-          [
-            _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
-                _c(
-                  "h5",
-                  {
-                    staticClass: "modal-title",
-                    attrs: { id: "kasztModalLabel" },
-                  },
-                  [_vm._v(_vm._s(_vm.Kaszt.name))]
-                ),
-                _vm._v(" "),
-                _c("button", {
-                  staticClass: "btn-close",
-                  attrs: {
-                    type: "button",
-                    "data-bs-dismiss": "modal",
-                    "aria-label": "Close",
-                  },
-                }),
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "modal-body" },
-                [_c("magus-kaszt-preview", { attrs: { kaszt: _vm.Kaszt } })],
-                1
-              ),
-              _vm._v(" "),
-              _vm._m(25),
-            ]),
-          ]
-        ),
-      ]
-    ),
   ])
 }
 var staticRenderFns = [
@@ -33303,15 +33178,6 @@ var staticRenderFns = [
         _c("p", [_vm._v("0")]),
       ]
     )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
-      _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Vallás: ")]),
-      _c("span"),
-    ])
   },
   function () {
     var _vm = this
@@ -33596,83 +33462,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "egyebbModalLabel" } },
-        [_vm._v("Uj kincs")]
-      ),
-      _vm._v(" "),
-      _c("button", {
-        staticClass: "btn-close",
-        attrs: {
-          type: "button",
-          "data-bs-dismiss": "modal",
-          "aria-label": "Close",
-        },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "vagyonModalLabel" } },
-        [_vm._v("Uj vagyon")]
-      ),
-      _vm._v(" "),
-      _c("button", {
-        staticClass: "btn-close",
-        attrs: {
-          type: "button",
-          "data-bs-dismiss": "modal",
-          "aria-label": "Close",
-        },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { attrs: { scope: "col-4" } }, [_vm._v("Felszerelés")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col-2" } }, [_vm._v("darab")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col-4" } }, [_vm._v("elhelyezés")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col-2" } }, [_vm._v("kontrol")]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c("h5", { staticClass: "modal-title", attrs: { id: "equipModal" } }, [
-        _vm._v("Uj felszerelés"),
-      ]),
-      _vm._v(" "),
-      _c("button", {
-        staticClass: "btn-close",
-        attrs: {
-          type: "button",
-          "data-bs-dismiss": "modal",
-          "aria-label": "Close",
-        },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col" }, [
       _c(
         "div",
@@ -33709,18 +33498,201 @@ var staticRenderFns = [
       ),
     ])
   },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusEletero.vue?vue&type=template&id=7d2bc7ce&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusEletero.vue?vue&type=template&id=7d2bc7ce& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("h4", { staticClass: "text-center mt-2" }, [_vm._v("Életerő")]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col border-end border-secondary" }, [
+        _c("p", [_vm._v("Max Ép")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "border-bottom border-secondary" }, [
+          _vm._v(_vm._s(_vm.maxEp)),
+        ]),
+        _vm._v(" "),
+        _c("p", [_vm._v("Akt Ép")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.aktualisEp))]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [
+        _c("p", [_vm._v("Max Fp")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "border-bottom border-secondary" }, [
+          _vm._v(_vm._s(_vm.maxFp)),
+        ]),
+        _vm._v(" "),
+        _c("p", [_vm._v("Fp/szint")]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.fpSzint))]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "border-top border-secondary" }, [_vm._v("Akt Fp")]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.aktualisFp))]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "damageModal",
+          tabindex: "-1",
+          "aria-labelledby": "damageModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("label", { attrs: { for: "fp" } }, [_vm._v("Fájdalom:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputFp,
+                    expression: "inputFp",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "fp" },
+                domProps: { value: _vm.inputFp },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inputFp = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "ep" } }, [_vm._v("Életerő:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputEp,
+                    expression: "inputEp",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "ep" },
+                domProps: { value: _vm.inputEp },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inputEp = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-success",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.teljesGyogyul },
+                },
+                [_vm._v("Teljesen gyógyult")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-danger",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.sebzesGyogyul("-")
+                    },
+                  },
+                },
+                [_vm._v("Sebzés")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-success",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.sebzesGyogyul("+")
+                    },
+                  },
+                },
+                [_vm._v("Gyógyulás")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
+    return _c("div", { staticClass: "d-grid text-center mb-3" }, [
       _c(
         "button",
         {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-bs-dismiss": "modal" },
+          staticClass: "btn btn-success my-3",
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#damageModal",
+          },
         },
-        [_vm._v("Close")]
+        [_vm._v("Életerő módositása")]
       ),
     ])
   },
@@ -33728,36 +33700,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", [_c("b", [_vm._v("Különleges képességek ")])])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
+    return _c("div", { staticClass: "modal-header" }, [
       _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-bs-dismiss": "modal" },
-        },
-        [_vm._v("Close")]
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "damageModalLabel" } },
+        [_vm._v("Sebzés / Gyógyulás")]
       ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-bs-dismiss": "modal" },
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
         },
-        [_vm._v("Close")]
-      ),
+      }),
     ])
   },
 ]
@@ -33767,10 +33724,324 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/common/MagusKasztPreview.vue?vue&type=template&id=0009cf9a&":
-/*!************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/common/MagusKasztPreview.vue?vue&type=template&id=0009cf9a& ***!
-  \************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusEquipment.vue?vue&type=template&id=eb09a860&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusEquipment.vue?vue&type=template&id=eb09a860& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "text-center border-bottom border-secondary" }, [
+      _c("h4", [_vm._v("Felszerelés")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success my-3",
+          attrs: {
+            type: "button",
+            disabled: _vm.equip_loading,
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#equipModal",
+          },
+        },
+        [_vm._v("Új felszerelés hozzáadása")]
+      ),
+    ]),
+    _vm._v(" "),
+    _c("table", { staticClass: "table table-striped" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.felszereles, function (equip, index) {
+          return _c("tr", { key: "FSZ" + index }, [
+            _c("td", [_vm._v(_vm._s(equip.name))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(equip.quantity))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(equip.where))]),
+            _vm._v(" "),
+            _c("td", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-outline-success btn-sm m-1",
+                  attrs: { type: "button", disabled: _vm.equip_loading },
+                  on: {
+                    click: function ($event) {
+                      return _vm.addQuantToEquipment(index)
+                    },
+                  },
+                },
+                [_vm._v("+")]
+              ),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-outline-danger btn-sm m-1",
+                  attrs: { type: "button", disabled: _vm.equip_loading },
+                  on: {
+                    click: function ($event) {
+                      return _vm.removeQuantFromEquipment(index)
+                    },
+                  },
+                },
+                [_vm._v("-")]
+              ),
+            ]),
+          ])
+        }),
+        0
+      ),
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "equipModal",
+          tabindex: "-1",
+          "aria-labelledby": "equipModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("label", { attrs: { for: "elnevezes" } }, [
+                _vm._v("Felszerelés elnevezése"),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.input_felszereles,
+                    expression: "input_felszereles",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", id: "elnevezes" },
+                domProps: { value: _vm.input_felszereles },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.input_felszereles = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "quant" } }, [
+                _vm._v("Felszerelés mennyisége"),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.input_quantity,
+                    expression: "input_quantity",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "quant" },
+                domProps: { value: _vm.input_quantity },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.input_quantity = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "where" } }, [
+                _vm._v("Felszerelés elhelyezése"),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.input_where,
+                    expression: "input_where",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", id: "where" },
+                domProps: { value: _vm.input_where },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.input_where = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.addNewEquipment },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col-4" } }, [_vm._v("Felszerelés")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col-2" } }, [_vm._v("darab")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col-4" } }, [_vm._v("elhelyezés")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col-2" } }, [_vm._v("kontrol")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title", attrs: { id: "equipModal" } }, [
+        _vm._v("Uj felszerelés"),
+      ]),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusHarcertek.vue?vue&type=template&id=149b4d65&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusHarcertek.vue?vue&type=template&id=149b4d65& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("h4", { staticClass: "text-center mt-2" }, [
+        _vm._v(_vm._s(_vm.moduleName)),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col border-end border-secondary" }, [
+          _c("p", [_vm._v("Alap")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "border-bottom border-secondary" }, [
+            _vm._v(_vm._s(_vm.alap)),
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Osztott HM")]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.osztotHm))]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c("p", [_vm._v("Aktuális")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "border-bottom border-secondary" }, [
+            _vm._v(_vm._s(_vm.aktualis)),
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Fegyver nélkül")]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.fegyverNelkul))]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "border-top border-secondary" }, [
+        _vm._v("Módositók"),
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.modositok, function (mod, index) {
+        return _c("p", { key: index }, [_vm._v(_vm._s(mod))])
+      }),
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusKasztPreview.vue?vue&type=template&id=4841b11f&":
+/*!***********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusKasztPreview.vue?vue&type=template&id=4841b11f& ***!
+  \***********************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -33963,6 +34234,574 @@ var staticRenderFns = [
       _c("p", [_vm._v("11.")]),
       _vm._v(" "),
       _c("p", [_vm._v("12.")]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusKincsek.vue?vue&type=template&id=3c4f70a8&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusKincsek.vue?vue&type=template&id=3c4f70a8& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "text-center border-bottom border-secondary" }, [
+      _c("h4", [_vm._v("Kincsek")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success my-3",
+          attrs: {
+            type: "button",
+            disabled: _vm.loading,
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#vagyonModal",
+          },
+        },
+        [_vm._v("Vagyon hozzáadása")]
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col text-center" }, [
+        _c("h5", [_vm._v("réz")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-8" }, [
+            _c("p", [_vm._v(_vm._s(_vm.rez))]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-4" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+                attrs: { type: "button", disabled: _vm.loading },
+                on: {
+                  click: function ($event) {
+                    return _vm.modKincsek(1, 0, 0, 0, 0, "+")
+                  },
+                },
+              },
+              [_vm._v("+")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-danger btn-sm my-1 d-block",
+                attrs: { type: "button", disabled: _vm.loading },
+                on: {
+                  click: function ($event) {
+                    return _vm.modKincsek(1, 0, 0, 0, 0, "-")
+                  },
+                },
+              },
+              [_vm._v("-")]
+            ),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col text-center" }, [
+        _c("h5", [_vm._v("ezüst")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-8" }, [
+            _c("p", [_vm._v(_vm._s(_vm.ezust))]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-4" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+                attrs: { type: "button", disabled: _vm.loading },
+                on: {
+                  click: function ($event) {
+                    return _vm.modKincsek(0, 1, 0, 0, 0, "+")
+                  },
+                },
+              },
+              [_vm._v("+")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-danger btn-sm my-1 d-block",
+                attrs: { type: "button", disabled: _vm.loading },
+                on: {
+                  click: function ($event) {
+                    return _vm.modKincsek(0, 1, 0, 0, 0, "-")
+                  },
+                },
+              },
+              [_vm._v("-")]
+            ),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col text-center" }, [
+        _c("h5", [_vm._v("arany")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-8" }, [
+            _c("p", [_vm._v(_vm._s(_vm.arany))]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-4" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+                attrs: { type: "button", disabled: _vm.loading },
+                on: {
+                  click: function ($event) {
+                    return _vm.modKincsek(0, 0, 1, 0, 0, "+")
+                  },
+                },
+              },
+              [_vm._v("+")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-danger btn-sm my-1 d-block",
+                attrs: { type: "button", disabled: _vm.loading },
+                on: {
+                  click: function ($event) {
+                    return _vm.modKincsek(0, 0, 1, 0, 0, "-")
+                  },
+                },
+              },
+              [_vm._v("-")]
+            ),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col text-center" }, [
+        _c("h5", [_vm._v("mithrill")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-8" }, [
+            _c("p", [_vm._v(_vm._s(_vm.mithrill))]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-4" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+                attrs: { type: "button", disabled: _vm.loading },
+                on: {
+                  click: function ($event) {
+                    return _vm.modKincsek(0, 0, 0, 1, 0, "+")
+                  },
+                },
+              },
+              [_vm._v("+")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-danger btn-sm my-1 d-block",
+                attrs: { type: "button", disabled: _vm.loading },
+                on: {
+                  click: function ($event) {
+                    return _vm.modKincsek(0, 0, 0, 1, 0, "-")
+                  },
+                },
+              },
+              [_vm._v("-")]
+            ),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col text-center" }, [
+        _c("h5", [_vm._v("drágakő")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-8" }, [
+            _c("p", [_vm._v(_vm._s(_vm.dragako))]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-4" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+                attrs: { type: "button", disabled: _vm.loading },
+                on: {
+                  click: function ($event) {
+                    return _vm.modKincsek(0, 0, 0, 0, 1, "+")
+                  },
+                },
+              },
+              [_vm._v("+")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-danger btn-sm my-1 d-block",
+                attrs: { type: "button", disabled: _vm.loading },
+                on: {
+                  click: function ($event) {
+                    return _vm.modKincsek(0, 0, 0, 0, 1, "-")
+                  },
+                },
+              },
+              [_vm._v("-")]
+            ),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col text-center" }, [
+        _c("h5", [_vm._v("egyébb")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            { staticClass: "col-10" },
+            _vm._l(_vm.egyebb, function (valami, index) {
+              return _c("p", { key: "K" + index }, [
+                _vm._v(_vm._s(valami) + " "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-danger btn-sm ms-1",
+                    attrs: { type: "button", disabled: _vm.loading },
+                    on: {
+                      click: function ($event) {
+                        return _vm.removeEgyebbKincs(index)
+                      },
+                    },
+                  },
+                  [_vm._v("-")]
+                ),
+              ])
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-2" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+                attrs: {
+                  type: "button",
+                  disabled: _vm.loading,
+                  "data-bs-toggle": "modal",
+                  "data-bs-target": "#egyebbModal",
+                },
+              },
+              [_vm._v("+")]
+            ),
+          ]),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "egyebbModal",
+          tabindex: "-1",
+          "aria-labelledby": "egyebbModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.egyebb_text,
+                    expression: "egyebb_text",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", id: "egyebb-text" },
+                domProps: { value: _vm.egyebb_text },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.egyebb_text = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.modKincsek(0, 0, 0, 0, 0, "+")
+                    },
+                  },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "vagyonModal",
+          tabindex: "-1",
+          "aria-labelledby": "vagyonModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("label", { attrs: { for: "rez" } }, [_vm._v("Réz:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.rez_input,
+                    expression: "rez_input",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "rez" },
+                domProps: { value: _vm.rez_input },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.rez_input = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "ezust" } }, [_vm._v("Ezüst:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.ezust_input,
+                    expression: "ezust_input",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "ezust" },
+                domProps: { value: _vm.ezust_input },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.ezust_input = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "arany" } }, [_vm._v("Arany:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.arany_input,
+                    expression: "arany_input",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "arany" },
+                domProps: { value: _vm.arany_input },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.arany_input = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "mithrill" } }, [
+                _vm._v("Mithrill:"),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.mithrill_input,
+                    expression: "mithrill_input",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "mithrill" },
+                domProps: { value: _vm.mithrill_input },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.mithrill_input = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "dragako" } }, [_vm._v("Drágakő:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.dragako_input,
+                    expression: "dragako_input",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "dragako" },
+                domProps: { value: _vm.dragako_input },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.dragako_input = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.submitVagyon },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "egyebbModalLabel" } },
+        [_vm._v("Uj kincs")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "vagyonModalLabel" } },
+        [_vm._v("Uj vagyon")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
     ])
   },
 ]

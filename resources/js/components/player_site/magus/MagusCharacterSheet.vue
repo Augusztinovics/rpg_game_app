@@ -54,23 +54,14 @@
 
                <!-- ------eletero--------- -->
                <div class=" bg-light border border-secondary rounded mb-4 p-3">
-                   <h4 class="text-center mt-2">Életerő</h4>
-                   <div class="row">
-                       <div class="col border-end border-secondary">
-                           <p>Max Ép</p>
-                           <p class="border-bottom border-secondary">{{ maxEp }}</p>
-                           <p>Akt Ép</p>
-                           <p>{{ magusCharacter.AktEp }}</p>
-                       </div>
-                        <div class="col">
-                            <p>Max Fp</p>
-                            <p class="border-bottom border-secondary">{{ maxFp }}</p>
-                            <p>Fp/szint</p>
-                            <p>{{ Kaszt.FpSzint }}</p>
-                        </div>
-                   </div>
-                   <p class="border-top border-secondary">Akt Fp</p>
-                   <p>{{ magusCharacter.AktFp }}</p>
+                   <magus-eletero 
+                        :maxEp="maxEp"
+                        :aktEp="magusCharacter.AktEp"
+                        :maxFp="maxFp"
+                        :aktFp="magusCharacter.AktFp"
+                        :fpSzint="Kaszt.FpSzint"
+                        :sfe="0"
+                   />
                </div>
 
                 <!-- Pszi kepzetseg -->    
@@ -143,21 +134,17 @@
 
                 <!-- karakter altalanos adatai -->
                 <div class="bg-light border border-secondary rounded mb-5 p-3">
-                    <div>
-                        <h4 class="text-center mt-5 border-bottom border-secondary">Karakter adatai</h4>
-                        <p class="fs-4 border-bottom border-secondary mt-5"><span class="fw-bolder me-2">Név: </span><span>{{ magusCharacter.Nev }}</span></p>
-                        <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Kaszt: </span><span>{{ Kaszt.name }}</span><button type="button" class="btn btn-outline-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#kasztModal">i</button></p>
-                        <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Faj: </span><span>{{ Faj.name }}</span><button type="button" class="btn btn-outline-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#fajModal">i</button></p>
-                        <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Jellem: </span><span>{{ Jellem.name }}</span> <button v-if="Jellem.name !== ''" type="button" class="btn btn-outline-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#jellemModal">i</button></p>
-                        <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Vallás: </span><span></span></p>
-                        <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Szimbólum: </span><span>{{ magusCharacter.Szimbolum }}</span></p>
-                        <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Szülőföld: </span><span>{{ magusCharacter.Szulofold }}</span></p>
-                        <p class="fs-4 border-bottom border-secondary mb-5"><span class="fw-bolder me-2">Iskola: </span><span>{{ magusCharacter.Iskola }}</span></p>
-                        <div class="my-5 text-center">
-                            <p class="border border-secondary p-3 fs-1 fw-bolder">{{ magusCharacter.Szint }}</p>
-                            <p class="fs-3 mt-2">Tapasztalati szint</p>
-                        </div>
-                    </div>
+                    <magus-base-data 
+                        :Nev="magusCharacter.Nev"
+                        :MagusClass="magusCharacter.Kaszt"
+                        :Race="magusCharacter.Faj"
+                        :Aligment="magusCharacter.Jellem"
+                        :Vallas="magusCharacter.Vallas"
+                        :Szimbolum="magusCharacter.Szimbolum"
+                        :Szulofold="magusCharacter.Szulofold"
+                        :Iskola="magusCharacter.Iskola"
+                        :Szint="magusCharacter.Szint"
+                    />
                 </div>
 
                 <!-- Tam per kor -->
@@ -195,85 +182,49 @@
            </div>
             <!-- A harmadik col a rowba -->
             <div class="col-lg">
-
+                <!-- Harcertekek  -->
                <div class="bg-light border border-secondary rounded mb-4 p-3">
-                   <h4 class="text-center mt-2">Kezdeményező érték (KÉ)</h4>
-                   <div class="row">
-                       <div class="col border-end border-secondary">
-                           <p>Alap</p>
-                           <p class="border-bottom border-secondary">{{ Kaszt.KEalap}}</p>
-                           <p>Osztott HM</p>
-                           <p>{{ magusCharacter.KeSzint }}</p>
-                       </div>
-                        <div class="col">
-                            <p>Aktuális</p>
-                            <p class="border-bottom border-secondary">11</p>
-                            <p>Fegyver nélkül</p>
-                            <p>{{ keAlap }}</p>
-                        </div>
-                   </div>
-                   <p class="border-top border-secondary">Módositók</p>
-                   <p></p>
+                   <magus-harcertek 
+                        :moduleName="'Kezdeményező érték (KÉ)'"
+                        :alap="Kaszt.KEalap"
+                        :osztotHm="magusCharacter.KeSzint + Kaszt.KESzintKotelezo"
+                        :aktualis="11"
+                        :fegyverNelkul="keAlap"
+                        :modositok="[]"
+                   />
                </div>
 
                 <div class="bg-light border border-secondary rounded mb-4 p-3">
-                   <h4 class="text-center mt-2">Támadó érték (TÉ)</h4>
-                   <div class="row">
-                       <div class="col border-end border-secondary">
-                           <p>Alap</p>
-                           <p class="border-bottom border-secondary">{{ Kaszt.TEalap}}</p>
-                           <p>Osztott HM</p>
-                           <p>{{ magusCharacter.TeSzint }}</p>
-                       </div>
-                        <div class="col">
-                            <p>Aktuális</p>
-                            <p class="border-bottom border-secondary">11</p>
-                            <p>Fegyver nélkül</p>
-                            <p>{{ teAlap }}</p>
-                        </div>
-                   </div>
-                   <p class="border-top border-secondary">Módositók</p>
-                   <p></p>
+                    <magus-harcertek 
+                        :moduleName="'Támadó érték (TÉ)'"
+                        :alap="Kaszt.TEalap"
+                        :osztotHm="magusCharacter.TeSzint + Kaszt.TESzintKotelezo"
+                        :aktualis="11"
+                        :fegyverNelkul="teAlap"
+                        :modositok="[]"
+                   />
                </div>
 
                 <div class="bg-light border border-secondary rounded mb-4 p-3">
-                   <h4 class="text-center mt-2">Védő érték (VÉ)</h4>
-                   <div class="row">
-                       <div class="col border-end border-secondary">
-                           <p>Alap</p>
-                           <p class="border-bottom border-secondary">{{ Kaszt.VEalap}}</p>
-                           <p>Osztott HM</p>
-                           <p>{{ magusCharacter.VeSzint }}</p>
-                       </div>
-                        <div class="col">
-                            <p>Aktuális</p>
-                            <p class="border-bottom border-secondary">11</p>
-                            <p>Fegyver nélkül</p>
-                            <p>{{ veAlap }}</p>
-                        </div>
-                   </div>
-                   <p class="border-top border-secondary">Módositók</p>
-                   <p></p>
+                    <magus-harcertek 
+                        :moduleName="'Védő érték (VÉ)'"
+                        :alap="Kaszt.VEalap"
+                        :osztotHm="magusCharacter.VeSzint + Kaszt.VESzintKotelezo"
+                        :aktualis="11"
+                        :fegyverNelkul="veAlap"
+                        :modositok="[]"
+                   />
                </div>
 
                <div class="bg-light border border-secondary rounded mb-4 p-3">
-                   <h4 class="text-center mt-2">Célzó érték (CÉ)</h4>
-                   <div class="row">
-                       <div class="col border-end border-secondary">
-                           <p>Alap</p>
-                           <p class="border-bottom border-secondary">{{ ceFaj }}</p>
-                           <p>Osztott HM</p>
-                           <p>{{ magusCharacter.CeSzint }}</p>
-                       </div>
-                        <div class="col">
-                            <p>Aktuális</p>
-                            <p class="border-bottom border-secondary">11</p>
-                            <p>Fegyver nélkül</p>
-                            <p>{{ ceAlap }}</p>
-                        </div>
-                   </div>
-                   <p class="border-top border-secondary">Módositók</p>
-                   <p></p>
+                   <magus-harcertek 
+                        :moduleName="'Célzó érték (CÉ)'"
+                        :alap="ceFaj"
+                        :osztotHm="magusCharacter.CeSzint + Kaszt.CESzintKotelezo"
+                        :aktualis="11"
+                        :fegyverNelkul="ceAlap"
+                        :modositok="[]"
+                   />
                </div>
 
                <!-- viselt pajzs tipus -->
@@ -398,180 +349,12 @@
 
         <!-- kincsek -->
         <div class="bg-light border border-secondary rounded mb-4 p-3">
-            <div class="text-center border-bottom border-secondary">
-                <h4>Kincsek</h4>
-                <button class="btn btn-success my-3" type="button" :disabled="loading" data-bs-toggle="modal" data-bs-target="#vagyonModal">Vagyon hozzáadása</button>
-            </div>
-            <div class="row">
-                <div class="col text-center">
-                    <h5>réz</h5>
-                    <div class="row">
-                        <div class="col-8">
-                            <p>{{ rez }}</p>
-                        </div>
-                        <div class="col-4">
-                            <button class="btn btn-outline-success btn-sm my-1 d-block" type="button" @click=" modKincsek(1, 0, 0, 0, 0, '+')" :disabled="loading">+</button>
-                            <button class="btn btn-outline-danger btn-sm my-1 d-block" type="button" @click=" modKincsek(1, 0, 0, 0, 0, '-')" :disabled="loading">-</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col text-center">
-                    <h5>ezüst</h5>
-                    <div class="row">
-                        <div class="col-8">
-                            <p>{{ ezust }}</p>
-                        </div>
-                        <div class="col-4">
-                            <button class="btn btn-outline-success btn-sm my-1 d-block" type="button" @click=" modKincsek(0, 1, 0, 0, 0, '+')" :disabled="loading">+</button>
-                            <button class="btn btn-outline-danger btn-sm my-1 d-block" type="button" @click=" modKincsek(0, 1, 0, 0, 0, '-')" :disabled="loading">-</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col text-center">
-                    <h5>arany</h5>
-                    <div class="row">
-                        <div class="col-8">
-                            <p>{{ arany }}</p>
-                        </div>
-                        <div class="col-4">
-                            <button class="btn btn-outline-success btn-sm my-1 d-block" type="button" @click=" modKincsek(0, 0, 1, 0, 0, '+')" :disabled="loading">+</button>
-                            <button class="btn btn-outline-danger btn-sm my-1 d-block" type="button" @click=" modKincsek(0, 0, 1, 0, 0, '-')" :disabled="loading">-</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col text-center">
-                    <h5>mithrill</h5>
-                    <div class="row">
-                        <div class="col-8">
-                            <p>{{ mithrill }}</p>
-                        </div>
-                        <div class="col-4">
-                            <button class="btn btn-outline-success btn-sm my-1 d-block" type="button" @click=" modKincsek(0, 0, 0, 1, 0, '+')" :disabled="loading">+</button>
-                            <button class="btn btn-outline-danger btn-sm my-1 d-block" type="button" @click=" modKincsek(0, 0, 0, 1, 0, '-')" :disabled="loading">-</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col text-center">
-                    <h5>drágakő</h5>
-                    <div class="row">
-                        <div class="col-8">
-                            <p>{{ dragako }}</p>
-                        </div>
-                        <div class="col-4">
-                            <button class="btn btn-outline-success btn-sm my-1 d-block" type="button" @click=" modKincsek(0, 0, 0, 0, 1, '+')" :disabled="loading">+</button>
-                            <button class="btn btn-outline-danger btn-sm my-1 d-block" type="button" @click=" modKincsek(0, 0, 0, 0, 1, '-')" :disabled="loading">-</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col text-center">
-                    <h5>egyébb</h5>
-                     <div class="row">
-                        <div class="col-10">
-                             <p v-for="valami, index in egyebb" :key="'K' + index">{{ valami }} <button class="btn btn-outline-danger btn-sm ms-1" type="button" :disabled="loading" @click="removeEgyebbKincs(index)">-</button></p>
-                        </div>
-                        <div class="col-2">
-                            <button class="btn btn-outline-success btn-sm my-1 d-block" type="button" :disabled="loading" data-bs-toggle="modal" data-bs-target="#egyebbModal">+</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Kincsek egyebb input modal -->
-        <div class="modal fade" id="egyebbModal" tabindex="-1" aria-labelledby="egyebbModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="egyebbModalLabel">Uj kincs</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                <div class="modal-body">
-                    <input type="text" class="form-control" id="egyebb-text" v-model="egyebb_text">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click=" modKincsek(0, 0, 0, 0, 0, '+')" data-bs-dismiss="modal">Save changes</button>
-                </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Kincsek vagyon input modal -->
-        <div class="modal fade" id="vagyonModal" tabindex="-1" aria-labelledby="vagyonModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="vagyonModalLabel">Uj vagyon</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                <div class="modal-body">
-                    <label for="rez">Réz:</label>
-                    <input type="number" class="form-control" id="rez" v-model="rez_input">
-                    <label for="ezust">Ezüst:</label>
-                    <input type="number" class="form-control" id="ezust" v-model="ezust_input">
-                    <label for="arany">Arany:</label>
-                    <input type="number" class="form-control" id="arany" v-model="arany_input">
-                    <label for="mithrill">Mithrill:</label>
-                    <input type="number" class="form-control" id="mithrill" v-model="mithrill_input">
-                    <label for="dragako">Drágakő:</label>
-                    <input type="number" class="form-control" id="dragako" v-model="dragako_input">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="submitVagyon" data-bs-dismiss="modal">Save changes</button>
-                </div>
-                </div>
-            </div>
+            <magus-kincsek :Kincsek="magusCharacter.Kincsek" />
         </div>
 
         <!-- felszereles -->
         <div class="bg-light border border-secondary rounded mb-4 p-3">
-            <div class="text-center border-bottom border-secondary">
-                <h4>Felszerelés</h4>
-                <button class="btn btn-success my-3" type="button" :disabled="equip_loading" data-bs-toggle="modal" data-bs-target="#equipModal">Új felszerelés hozzáadása</button>
-            </div>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col-4">Felszerelés</th>
-                        <th scope="col-2">darab</th>
-                        <th scope="col-4">elhelyezés</th>
-                        <th scope="col-2">kontrol</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="equip, index in felszereles" :key="'FSZ' + index">
-                        <td>{{ equip.name }}</td>
-                        <td>{{ equip.quantity }}</td>
-                        <td>{{ equip.where }}</td>
-                        <td><button class="btn btn-outline-success btn-sm m-1" type="button" @click="addQuantToEquipment(index)" :disabled="equip_loading">+</button><button class="btn btn-outline-danger btn-sm m-1" type="button" @click="removeQuantFromEquipment(index)" :disabled="equip_loading">-</button></td>
-                    </tr> 
-                </tbody>
-            </table>
-        </div>
-
-         <!-- Uj felszereles input modal -->
-        <div class="modal fade" id="equipModal" tabindex="-1" aria-labelledby="equipModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="equipModal">Uj felszerelés</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                <div class="modal-body">
-                    <label for="elnevezes">Felszerelés elnevezése</label>
-                    <input type="text" class="form-control" id="elnevezes" v-model="input_felszereles">
-                    <label for="quant">Felszerelés mennyisége</label>
-                    <input type="number" class="form-control" id="quant" v-model="input_quantity">
-                    <label for="where">Felszerelés elhelyezése</label>
-                    <input type="text" class="form-control" id="where" v-model="input_where">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="addNewEquipment" data-bs-dismiss="modal">Save changes</button>
-                </div>
-                </div>
-            </div>
+            <magus-equipment :Equipment="magusCharacter.Felszereles" />
         </div>
 
         <!-- egyebb -->
@@ -598,79 +381,30 @@
             </div>
         </div>
 
-        <!-- -----Info Modals------- -->
-
-        <!-- JELLEM -->
-        <div class="modal fade" id="jellemModal" tabindex="-1" aria-labelledby="jellemModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="jellemModalLabel">{{ Jellem.name }}</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        {{ Jellem.description }}
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- FAJ -->
-        <div class="modal fade" id="fajModal" tabindex="-1" aria-labelledby="fajModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="fajModalLabel"><b>{{ Faj.name }}</b></h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                       <p v-for="des, index in Faj.description" :key="'D' + index">{{ des }}</p>
-                       <p> <b>Különleges képességek </b></p>
-                       <p v-for="special, index in Faj.specials" :key="'S' + index">{{ special }}</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- KASZT -->
-        <div class="modal fade" id="kasztModal" tabindex="-1" aria-labelledby="kasztModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="kasztModalLabel">{{ Kaszt.name }}</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <magus-kaszt-preview :kaszt="Kaszt" />
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </template>
 
 <script>
     import { mapGetters } from 'vuex';
-    import MagusKasztPreview from './MagusKasztPreview.vue';
+    import MagusBaseData from './MagusBaseData.vue';
+    import MagusKincsek from './MagusKincsek.vue';
+    import MagusEquipment from './MagusEquipment.vue';
+    import MagusHarcertek from './MagusHarcertek.vue';
+    import MagusEletero from './MagusEletero.vue';
+
     export default {
         components: {
-           MagusKasztPreview
+           MagusBaseData,
+           MagusKincsek,
+           MagusEquipment,
+           MagusHarcertek,
+           MagusEletero,
         },
         props: {
             magusCharacter: Object,
         },
         data() {
             return {
-                //tulajdonsag modositok
                 eroMod: 0,
                 gyorsMod: 0,
                 ugyMod: 0,
@@ -680,26 +414,6 @@
                 intMod: 0,
                 akMod: 0,
                 asztMod: 0,
-                //kincsek
-                rez: 0,
-                ezust: 0,
-                arany: 0,
-                mithrill: 0,
-                dragako: 0,
-                egyebb: [],
-                loading: false,
-                egyebb_text: '',
-                rez_input: 0,
-                ezust_input: 0,
-                arany_input: 0,
-                mithrill_input: 0,
-                dragako_input: 0,
-                //felszereles
-                felszereles: [],
-                equip_loading: false,
-                input_felszereles: '',
-                input_quantity: 1,
-                input_where: '',
             }
         },
 
@@ -729,7 +443,7 @@
                     return {name: 'Not selected', description: 'Not selected'}
                 }
             },
-             Faj() {
+            Faj() {
                  let race = 'HUMAN';
                  if (this.magusCharacter) {
                      race = this.magusCharacter.Faj;
@@ -1000,116 +714,9 @@
                     this.asztMod = 0;
                 }
             },
-            modKincsek(rez, ezust, arany, mithrill, dragako, mod) {
-                if (mod === '+') {
-                    this.rez += rez;
-                    this.ezust += ezust;
-                    this.arany  += arany;
-                    this.mithrill += mithrill;
-                    this.dragako += dragako;
-                    if (this.egyebb_text !== '') {
-                        this.egyebb.push(this.egyebb_text);
-                    }
-                }
-                if (mod === '-') {
-                    if (this.rez > 0) {
-                        this.rez -= rez;
-                    }
-                     if (this.ezust > 0) {
-                        this.ezust -= ezust;
-                    }
-                     if (this.arany > 0) {
-                        this.arany -= arany;
-                    }
-                     if (this.mithrill > 0) {
-                        this.mithrill -= mithrill;
-                    }
-                     if (this.dragako > 0) {
-                        this.dragako -= dragako;
-                    }
-                }
-                this.egyebb_text = '';
-               this.saveKincsek();
-            },
-            removeEgyebbKincs(index) {
-                this.egyebb.splice(index, 1);
-                this.saveKincsek();
-            },
-            submitVagyon() {
-                this.modKincsek(parseInt(this.rez_input), parseInt(this.ezust_input), parseInt(this.arany_input), parseInt(this.mithrill_input), parseInt(this.dragako_input), '+');
-                this.rez_input = 0;
-                this.ezust_input = 0;
-                this.arany_input = 0;
-                this.mithrill_input = 0;
-                this.dragako_input = 0;
-            },
-            saveKincsek() {
-                let data = {
-                    rez: this.rez,
-                    ezust: this.ezust,
-                    arany: this.arany,
-                    mithrill: this.mithrill,
-                    dragako: this.dragako,
-                    egyebb: this.egyebb
-                };
-
-
-
-                //axios to enpoint 
-
-
-
-            },
-            addQuantToEquipment(index) {
-                this.felszereles[index].quantity ++;
-                //menteni
-            },
-            removeQuantFromEquipment(index) {
-                if (this.felszereles[index].quantity === 1) {
-                    this.felszereles.splice(index, 1);
-                } else {
-                    this.felszereles[index].quantity --;
-                }
-                //menteni
-            },
-            addNewEquipment() {
-                if (this.input_felszereles !== '' && this.input_where !== '') {
-                    let newEquip = {
-                        name: this.input_felszereles,
-                        quantity: this.input_quantity,
-                        where: this.input_where
-                    }
-                    this.felszereles.push(newEquip);
-                    this.input_felszereles = '';
-                    this.input_quantity = 1;
-                    this.input_where = '';
-
-                    //menteni
-                }
-            },
-            saveEquipment() {
-                let data = {
-                    felszereles: this.felszereles
-                }
-
-
-
-                //axioas to endpoint
-
-
-            }
         },
         mounted() {
-            if (this.magusCharacter) {
-                this.rez = this.magusCharacter.Kincsek.rez;
-                this.ezust = this.magusCharacter.Kincsek.ezust;
-                this.arany = this.magusCharacter.Kincsek.arany;
-                this.mithrill = this.magusCharacter.Kincsek.mithrill;
-                this.dragako = this.magusCharacter.Kincsek.dragako;
-                this.egyebb = this.magusCharacter.Kincsek.egyebb;
-                this.felszereles = this.magusCharacter.Felszereles.felszereles;
-            }
-            console.log('Component mounted.')
+
         }
     }
 </script>
