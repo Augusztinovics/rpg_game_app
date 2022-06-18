@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import MagusCharacterSheet from './common/MagusCharacterSheet.vue'
+    import MagusCharacterSheet from './magus/MagusCharacterSheet.vue'
     export default {
          components: {
             MagusCharacterSheet
