@@ -50,8 +50,10 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations, mapActions } from 'vuex';
 export default {
     props: {
+        id: Number,
         Equipment: Object,
     },
     data() {
@@ -63,10 +65,21 @@ export default {
             input_where: '',
         }
     },
+    computed: {
+        ...mapGetters('currentCharacter', {
+            magusCharacter: 'magusCharacter',
+        }),
+    },
     methods: {
+         ...mapMutations('currentCharacter', {
+            updateFelszereles: 'updateFelszereles'
+        }),
+        ...mapActions('currentCharacter', {
+            save: 'save'
+        }),
         addQuantToEquipment(index) {
                 this.felszereles[index].quantity ++;
-                //menteni
+                this.saveEquipment();
         },
         removeQuantFromEquipment(index) {
             if (this.felszereles[index].quantity === 1) {
@@ -74,7 +87,7 @@ export default {
             } else {
                 this.felszereles[index].quantity --;
             }
-            //menteni
+            this.saveEquipment();
         },
         addNewEquipment() {
             if (this.input_felszereles !== '' && this.input_where !== '') {
@@ -88,19 +101,15 @@ export default {
                 this.input_quantity = 1;
                 this.input_where = '';
 
-                //menteni
+                this.saveEquipment();
             }
         },
         saveEquipment() {
             let data = {
                 felszereles: this.felszereles
             }
-
-
-
-            //axioas to endpoint
-
-
+            this.updateFelszereles(data);
+            this.save();
         }
     },
     mounted() {

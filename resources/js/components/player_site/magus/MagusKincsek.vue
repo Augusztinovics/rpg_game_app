@@ -3,6 +3,7 @@
         <div class="text-center border-bottom border-secondary">
                 <h4>Kincsek</h4>
                 <button class="btn btn-success my-3" type="button" :disabled="loading" data-bs-toggle="modal" data-bs-target="#vagyonModal">Vagyon hozzáadása</button>
+                <button class="btn btn-danger my-3 ms-2" type="button" :disabled="loading" data-bs-toggle="modal" data-bs-target="#vagyonKifizetesModal">Vagyon kifizetése</button>
         </div>
         <div class="row">
             <div class="col text-center">
@@ -124,14 +125,46 @@
                 </div>
             </div>
         </div>
+
+         <!-- Kincsek vagyon kifizetes input modal -->
+        <div class="modal fade" id="vagyonKifizetesModal" tabindex="-1" aria-labelledby="vagyonKifizetesModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="vagyonKifizetesModalLabel">Uj vagyon</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <div class="modal-body">
+                    <label for="rez">Réz:</label>
+                    <input type="number" class="form-control" id="rez" v-model="rez_input">
+                    <label for="ezust">Ezüst:</label>
+                    <input type="number" class="form-control" id="ezust" v-model="ezust_input">
+                    <label for="arany">Arany:</label>
+                    <input type="number" class="form-control" id="arany" v-model="arany_input">
+                    <label for="mithrill">Mithrill:</label>
+                    <input type="number" class="form-control" id="mithrill" v-model="mithrill_input">
+                    <label for="dragako">Drágakő:</label>
+                    <input type="number" class="form-control" id="dragako" v-model="dragako_input">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"  @click="submitVagyonKifizetes" data-bs-dismiss="modal">Save changes</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kifizetes Error Modal -->
+        <div v-if="fizetesError" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Nincs elég pénz!!!</strong> Egy vagy több bevitt összeg lefedésére nincs elegendő vagyon!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" @click="fizetesError=false" aria-label="Close"></button>
+        </div>
     </div>
 </template>
 
 <script>
+import { mapGetters, mapMutations, mapActions } from 'vuex';
 export default {
-    props: {
-            Kincsek: Object,
-        },
     data() {
         return {
             rez: 0,
@@ -147,9 +180,21 @@ export default {
             arany_input: 0,
             mithrill_input: 0,
             dragako_input: 0,
+            fizetesError: false,
         }
     },
+    computed: {
+        ...mapGetters('currentCharacter', {
+            magusCharacter: 'magusCharacter',
+        }),
+    },
     methods: {
+        ...mapMutations('currentCharacter', {
+            updateKincsek: 'updateKincsek'
+        }),
+        ...mapActions('currentCharacter', {
+            save: 'save'
+        }),
         modKincsek(rez, ezust, arany, mithrill, dragako, mod) {
             if (mod === '+') {
                 this.rez += rez;
@@ -193,6 +238,23 @@ export default {
             this.mithrill_input = 0;
             this.dragako_input = 0;
         },
+        submitVagyonKifizetes() {
+            if (parseInt(this.rez_input) > this.rez || parseInt(this.ezust_input)> this.ezust || parseInt(this.arany_input) > this.arany || parseInt(this.mithrill_input) > this.mithrill || parseInt(this.dragako_input) > this.dragako) {
+                this.rez_input = 0;
+                this.ezust_input = 0;
+                this.arany_input = 0;
+                this.mithrill_input = 0;
+                this.dragako_input = 0;
+                this.fizetesError = true;
+            } else {
+                this.modKincsek(parseInt(this.rez_input), parseInt(this.ezust_input), parseInt(this.arany_input), parseInt(this.mithrill_input), parseInt(this.dragako_input), '-');
+                this.rez_input = 0;
+                this.ezust_input = 0;
+                this.arany_input = 0;
+                this.mithrill_input = 0;
+                this.dragako_input = 0;
+            }
+        },
         saveKincsek() {
             let data = {
                 rez: this.rez,
@@ -202,22 +264,17 @@ export default {
                 dragako: this.dragako,
                 egyebb: this.egyebb
             };
-
-
-
-            //axios to enpoint 
-
-
-
+            this.updateKincsek(data);
+            this.save();
         },
     },
     mounted() {
-        this.rez = this.Kincsek.rez;
-        this.ezust = this.Kincsek.ezust;
-        this.arany = this.Kincsek.arany;
-        this.mithrill = this.Kincsek.mithrill;
-        this.dragako = this.Kincsek.dragako;
-        this.egyebb = this.Kincsek.egyebb;  
+        this.rez = this.magusCharacter.Kincsek.rez;
+        this.ezust = this.magusCharacter.Kincsek.ezust;
+        this.arany = this.magusCharacter.Kincsek.arany;
+        this.mithrill = this.magusCharacter.Kincsek.mithrill;
+        this.dragako = this.magusCharacter.Kincsek.dragako;
+        this.egyebb = this.magusCharacter.Kincsek.egyebb;  
     }  
 }
 </script>

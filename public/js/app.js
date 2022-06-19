@@ -5528,134 +5528,7 @@ __webpack_require__.r(__webpack_exports__);
     MagusCharacterSheet: _magus_MagusCharacterSheet_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
-    return {
-      magusCharacter: {
-        ERO: 17,
-        GYORS: 3,
-        UGY: 3,
-        ALLO: 3,
-        EG: 3,
-        SZEP: 3,
-        INT: 3,
-        AK: 3,
-        ASZT: 3,
-        Nev: 'A karakter neve',
-        Kaszt: 'HARCOS',
-        Faj: 'ELF',
-        Jellem: 'R',
-        Vallas: '',
-        Szimbolum: 'Hold',
-        Szulofold: 'Gorvick',
-        Iskola: 'Zsoldos',
-        Szint: 1,
-        FpSzint: 10,
-        AktEp: 6,
-        AktFp: 12,
-        KeSzint: 1,
-        TeSzint: 2,
-        VeSzint: 2,
-        CeSzint: 0,
-        HmLeft: 0,
-        KpLeft: 0,
-        KpPrecentLeft: 0,
-        FegyverhasznalatAlap: [],
-        FegyverhasznalatMester: [],
-        FegyverdobasAlap: [],
-        FegyverdobasMester: [],
-        Nyelvismeret: [],
-        Szakma: [],
-        Pszi: {
-          learned: false,
-          atlevel: 0,
-          level: 'Af'
-        },
-        szazalekosKepzetsegek: {
-          maszas: {
-            precent: 0,
-            precentAdded: 0,
-            kpAdded: 0
-          },
-          eses: {
-            precent: 0,
-            precentAdded: 0,
-            kpAdded: 0
-          },
-          ugras: {
-            precent: 0,
-            precentAdded: 0,
-            kpAdded: 0
-          },
-          lopakodas: {
-            precent: 0,
-            precentAdded: 0,
-            kpAdded: 0
-          },
-          rejtozes: {
-            precent: 0,
-            precentAdded: 0,
-            kpAdded: 0
-          },
-          koteltanc: {
-            precent: 0,
-            precentAdded: 0,
-            kpAdded: 0
-          },
-          zsebmetszes: {
-            precent: 0,
-            precentAdded: 0,
-            kpAdded: 0
-          },
-          csabdafelfedezes: {
-            precent: 0,
-            precentAdded: 0,
-            kpAdded: 0
-          },
-          zarnyitas: {
-            precent: 0,
-            precentAdded: 0,
-            kpAdded: 0
-          },
-          titkosajto: {
-            precent: 0,
-            precentAdded: 0,
-            kpAdded: 0
-          }
-        },
-        LearnedSkills: [],
-        Pancel: {
-          name: '',
-          equipped: false,
-          mgt: 0,
-          sfe: 0
-        },
-        Pajzs: {
-          name: '',
-          eqiupped: false,
-          ve: 0,
-          mgt: 0
-        },
-        Fegyverek: [{
-          name: 'HOSSZUKARD',
-          rightHand: false,
-          leftHand: false
-        }],
-        Kincsek: {
-          rez: 10,
-          ezust: 2,
-          arany: 0,
-          mithrill: 0,
-          dragako: 0,
-          egyebb: ['ezust serleg', 'disztanyer']
-        },
-        Felszereles: {
-          felszereles: [{
-            name: 'Hálózsák',
-            quantity: 1,
-            where: 'Táska alatt'
-          }]
-        }
-      }
-    };
+    return {};
   },
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -6220,13 +6093,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -6240,9 +6106,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     MagusEquipment: _MagusEquipment_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     MagusHarcertek: _MagusHarcertek_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     MagusEletero: _MagusEletero_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
-  },
-  props: {
-    magusCharacter: Object
   },
   data: function data() {
     return {
@@ -6258,7 +6121,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   //COMPUTED----------------------------------
-  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapGetters)('magusAligments', {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapGetters)('currentCharacter', {
+    magusCharacter: 'magusCharacter'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapGetters)('magusAligments', {
     aligment: 'aligment'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapGetters)('magusRaces', {
     race: 'race'
@@ -6384,38 +6249,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       return AlapAszt + this.Faj.ASZT + this.asztMod;
-    },
-    maxEp: function maxEp() {
-      var epMod = 0;
-
-      if (this.egeszseg > 10) {
-        epMod = this.egeszseg - 10;
-      }
-
-      return this.Kaszt.Epalap + epMod;
-    },
-    maxFp: function maxFp() {
-      var akMod = 0;
-      var alloMod = 0;
-      var szintMod = 0;
-
-      if (this.akarat > 10) {
-        akMod = this.akarat - 10;
-      }
-
-      ;
-
-      if (this.allokepesseg > 10) {
-        alloMod = this.allokepesseg - 10;
-      }
-
-      ;
-
-      if (this.magusCharacter) {
-        szintMod = this.magusCharacter.FpSzint;
-      }
-
-      return this.Kaszt.Fpalap + akMod + alloMod + szintMod;
     },
     hmSzint: function hmSzint() {
       return this.Kaszt.HmSzint + this.Kaszt.KESzintKotelezo + this.Kaszt.TESzintKotelezo + this.Kaszt.VESzintKotelezo + this.Kaszt.CESzintKotelezo;
@@ -6674,6 +6507,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -6723,30 +6563,149 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {
-    maxEp: Number,
-    aktEp: Number,
-    maxFp: Number,
-    aktFp: Number,
-    fpSzint: String,
-    sfe: Number
-  },
   data: function data() {
     return {
       aktualisFp: 0,
       aktualisEp: 0,
+      fpSzint: '',
+      sfe: 0,
       inputFp: 0,
-      inputEp: 0
+      inputEp: 0,
+      halott: false
     };
   },
-  methods: {
-    sebzesGyogyul: function sebzesGyogyul(mod) {},
-    teljesGyogyul: function teljesGyogyul() {}
-  },
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
+    magusCharacter: 'magusCharacter'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusClasses', {
+    magusKaszt: 'magusClass'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusRaces', {
+    race: 'race'
+  })), {}, {
+    Kaszt: function Kaszt() {
+      return this.magusKaszt(this.magusCharacter.Kaszt);
+    },
+    Faj: function Faj() {
+      return this.race(this.magusCharacter.Faj);
+    },
+    egeszseg: function egeszseg() {
+      return this.magusCharacter.EG + this.Faj.EG + this.magusCharacter.egMod;
+    },
+    akaratero: function akaratero() {
+      return this.magusCharacter.AK + this.Faj.AK + this.magusCharacter.akMod;
+    },
+    allokepesseg: function allokepesseg() {
+      return this.magusCharacter.ALLO + this.Faj.ALLO + this.magusCharacter.alloMod;
+    },
+    maxFp: function maxFp() {
+      var akMod = 0;
+      var alloMod = 0;
+
+      if (this.akaratero > 10) {
+        akMod = this.akaratero - 10;
+      }
+
+      ;
+
+      if (this.allokepesseg > 10) {
+        alloMod = this.allokepesseg - 10;
+      }
+
+      ;
+      return this.Kaszt.Fpalap + akMod + alloMod + this.magusCharacter.FpSzint;
+    },
+    maxEp: function maxEp() {
+      var epMod = 0;
+
+      if (this.egeszseg > 10) {
+        epMod = this.egeszseg - 10;
+      }
+
+      return this.Kaszt.Epalap + epMod;
+    }
+  }),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
+    updateEletero: 'updateEletero'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
+    save: 'save'
+  })), {}, {
+    sebzesGyogyul: function sebzesGyogyul(mod) {
+      if (mod === '+') {
+        if (this.inputFp !== 0 || this.inputFp !== '') {
+          this.aktualisFp += parseInt(this.inputFp);
+
+          if (this.aktualisFp > this.maxFp) {
+            this.aktualisFp = this.maxFp;
+          }
+        }
+
+        if (this.inputEp !== 0 || this.inputEp !== '') {
+          this.aktualisEp += parseInt(this.inputEp);
+
+          if (this.aktualisEp > this.maxEp) {
+            this.aktualisEp = this.maxEp;
+          }
+        }
+
+        if (this.aktualisFp > 0 && this.aktualisEp > 0) {
+          this.halott = false;
+        }
+      }
+
+      if (mod === '-') {
+        var Fpsp = 0;
+        var Epsp = 0;
+
+        if (this.inputFp !== 0 || this.inputFp !== '') {
+          Fpsp = parseInt(this.inputFp);
+        }
+
+        if (this.inputEp !== 0 || this.inputEp !== '') {
+          Epsp = parseInt(this.inputEp);
+        }
+
+        if (Fpsp > this.aktualisFp) {
+          Epsp += Fpsp - this.aktualisFp;
+          Fpsp = this.aktualisFp;
+        }
+
+        this.aktualisFp -= Fpsp;
+        this.aktualisEp -= Epsp;
+
+        if (this.aktualisFp <= 0 || this.aktualisEp <= 0) {
+          this.halott = true;
+        }
+      }
+
+      this.inputFp = 0;
+      this.inputEp = 0;
+      this.saveEletero();
+    },
+    teljesGyogyul: function teljesGyogyul() {
+      this.aktualisFp = this.maxFp;
+      this.aktualisEp = this.maxEp;
+      this.halott = false;
+      this.inputFp = 0;
+      this.inputEp = 0;
+      this.saveEletero();
+    },
+    saveEletero: function saveEletero() {
+      this.updateEletero({
+        AktFp: this.aktualisFp,
+        AktEp: this.aktualisEp
+      });
+      this.save();
+    }
+  }),
   mounted: function mounted() {
-    this.aktualisFp = this.aktFp;
-    this.aktualisEp = this.aktEp;
+    this.fpSzint = this.Kaszt.FpSzint;
+    this.aktualisFp = this.magusCharacter.AktFp;
+    this.aktualisEp = this.magusCharacter.AktEp;
+
+    if (this.aktualisFp <= 0 || this.aktualisEp <= 0) {
+      this.halott = true;
+    }
   }
 });
 
@@ -6763,6 +6722,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -6814,8 +6780,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
+    id: Number,
     Equipment: Object
   },
   data: function data() {
@@ -6827,17 +6795,26 @@ __webpack_require__.r(__webpack_exports__);
       input_where: ''
     };
   },
-  methods: {
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
+    magusCharacter: 'magusCharacter'
+  })),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
+    updateFelszereles: 'updateFelszereles'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
+    save: 'save'
+  })), {}, {
     addQuantToEquipment: function addQuantToEquipment(index) {
-      this.felszereles[index].quantity++; //menteni
+      this.felszereles[index].quantity++;
+      this.saveEquipment();
     },
     removeQuantFromEquipment: function removeQuantFromEquipment(index) {
       if (this.felszereles[index].quantity === 1) {
         this.felszereles.splice(index, 1);
       } else {
         this.felszereles[index].quantity--;
-      } //menteni
+      }
 
+      this.saveEquipment();
     },
     addNewEquipment: function addNewEquipment() {
       if (this.input_felszereles !== '' && this.input_where !== '') {
@@ -6849,15 +6826,18 @@ __webpack_require__.r(__webpack_exports__);
         this.felszereles.push(newEquip);
         this.input_felszereles = '';
         this.input_quantity = 1;
-        this.input_where = ''; //menteni
+        this.input_where = '';
+        this.saveEquipment();
       }
     },
     saveEquipment: function saveEquipment() {
       var data = {
         felszereles: this.felszereles
-      }; //axioas to endpoint
+      };
+      this.updateFelszereles(data);
+      this.save();
     }
-  },
+  }),
   mounted: function mounted() {
     this.felszereles = this.Equipment.felszereles;
   }
@@ -6995,6 +6975,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -7124,10 +7111,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {
-    Kincsek: Object
-  },
   data: function data() {
     return {
       rez: 0,
@@ -7142,10 +7162,18 @@ __webpack_require__.r(__webpack_exports__);
       ezust_input: 0,
       arany_input: 0,
       mithrill_input: 0,
-      dragako_input: 0
+      dragako_input: 0,
+      fizetesError: false
     };
   },
-  methods: {
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
+    magusCharacter: 'magusCharacter'
+  })),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
+    updateKincsek: 'updateKincsek'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
+    save: 'save'
+  })), {}, {
     modKincsek: function modKincsek(rez, ezust, arany, mithrill, dragako, mod) {
       if (mod === '+') {
         this.rez += rez;
@@ -7196,6 +7224,23 @@ __webpack_require__.r(__webpack_exports__);
       this.mithrill_input = 0;
       this.dragako_input = 0;
     },
+    submitVagyonKifizetes: function submitVagyonKifizetes() {
+      if (parseInt(this.rez_input) > this.rez || parseInt(this.ezust_input) > this.ezust || parseInt(this.arany_input) > this.arany || parseInt(this.mithrill_input) > this.mithrill || parseInt(this.dragako_input) > this.dragako) {
+        this.rez_input = 0;
+        this.ezust_input = 0;
+        this.arany_input = 0;
+        this.mithrill_input = 0;
+        this.dragako_input = 0;
+        this.fizetesError = true;
+      } else {
+        this.modKincsek(parseInt(this.rez_input), parseInt(this.ezust_input), parseInt(this.arany_input), parseInt(this.mithrill_input), parseInt(this.dragako_input), '-');
+        this.rez_input = 0;
+        this.ezust_input = 0;
+        this.arany_input = 0;
+        this.mithrill_input = 0;
+        this.dragako_input = 0;
+      }
+    },
     saveKincsek: function saveKincsek() {
       var data = {
         rez: this.rez,
@@ -7204,16 +7249,18 @@ __webpack_require__.r(__webpack_exports__);
         mithrill: this.mithrill,
         dragako: this.dragako,
         egyebb: this.egyebb
-      }; //axios to enpoint 
+      };
+      this.updateKincsek(data);
+      this.save();
     }
-  },
+  }),
   mounted: function mounted() {
-    this.rez = this.Kincsek.rez;
-    this.ezust = this.Kincsek.ezust;
-    this.arany = this.Kincsek.arany;
-    this.mithrill = this.Kincsek.mithrill;
-    this.dragako = this.Kincsek.dragako;
-    this.egyebb = this.Kincsek.egyebb;
+    this.rez = this.magusCharacter.Kincsek.rez;
+    this.ezust = this.magusCharacter.Kincsek.ezust;
+    this.arany = this.magusCharacter.Kincsek.arany;
+    this.mithrill = this.magusCharacter.Kincsek.mithrill;
+    this.dragako = this.magusCharacter.Kincsek.dragako;
+    this.egyebb = this.magusCharacter.Kincsek.egyebb;
   }
 });
 
@@ -7310,24 +7357,377 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/magus/magusAligments */ "./resources/js/store/modules/magus/magusAligments.js");
 /* harmony import */ var _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/magus/magusRaces */ "./resources/js/store/modules/magus/magusRaces.js");
 /* harmony import */ var _modules_magus_magusClasses__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/magus/magusClasses */ "./resources/js/store/modules/magus/magusClasses.js");
+/* harmony import */ var _modules_magus_currentCharacter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/magus/currentCharacter */ "./resources/js/store/modules/magus/currentCharacter.js");
 
 
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_3__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_4__["default"]);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_4__["default"].Store({
+
+vue__WEBPACK_IMPORTED_MODULE_4__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_5__["default"]);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_5__["default"].Store({
   modules: {
     magusAligments: _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__["default"],
     magusRaces: _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__["default"],
-    magusClasses: _modules_magus_magusClasses__WEBPACK_IMPORTED_MODULE_2__["default"]
+    magusClasses: _modules_magus_magusClasses__WEBPACK_IMPORTED_MODULE_2__["default"],
+    currentCharacter: _modules_magus_currentCharacter__WEBPACK_IMPORTED_MODULE_3__["default"]
   }
 }));
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/magus/currentCharacter.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/store/modules/magus/currentCharacter.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**-------------------------------------------
+ * 
+ * STORE FOR MAGUS ALIGMENTS
+ * 
+ * -------------------------------------------
+ */
+var state = {
+  magusCharacter: {
+    id: 1,
+    ERO: 17,
+    GYORS: 3,
+    UGY: 3,
+    ALLO: 3,
+    EG: 3,
+    SZEP: 3,
+    INT: 3,
+    AK: 3,
+    ASZT: 3,
+    eroMod: 0,
+    gyorsMod: 0,
+    ugyMod: 0,
+    alloMod: 0,
+    egMod: 0,
+    szepMod: 0,
+    intMod: 0,
+    akMod: 0,
+    asztMod: 0,
+    Nev: 'A karakter neve',
+    Kaszt: 'HARCOS',
+    Faj: 'ELF',
+    Jellem: 'R',
+    Vallas: '',
+    Szimbolum: 'Hold',
+    Szulofold: 'Gorvick',
+    Iskola: 'Zsoldos',
+    Szint: 1,
+    FpSzint: 10,
+    AktEp: 6,
+    AktFp: 12,
+    KeSzint: 1,
+    TeSzint: 2,
+    VeSzint: 2,
+    CeSzint: 0,
+    HmLeft: 0,
+    KpLeft: 0,
+    KpPrecentLeft: 0,
+    FegyverhasznalatAlap: [],
+    FegyverhasznalatMester: [],
+    FegyverdobasAlap: [],
+    FegyverdobasMester: [],
+    Nyelvismeret: [],
+    Szakma: [],
+    Pszi: {
+      learned: false,
+      atlevel: 0,
+      level: 'Af',
+      maxPszi: 0,
+      psziPointLevel: 0,
+      currentPszi: 0
+    },
+    szazalekosKepzetsegek: {
+      maszas: {
+        precent: 0,
+        precentAdded: 0,
+        kpAdded: 0
+      },
+      eses: {
+        precent: 0,
+        precentAdded: 0,
+        kpAdded: 0
+      },
+      ugras: {
+        precent: 0,
+        precentAdded: 0,
+        kpAdded: 0
+      },
+      lopakodas: {
+        precent: 0,
+        precentAdded: 0,
+        kpAdded: 0
+      },
+      rejtozes: {
+        precent: 0,
+        precentAdded: 0,
+        kpAdded: 0
+      },
+      koteltanc: {
+        precent: 0,
+        precentAdded: 0,
+        kpAdded: 0
+      },
+      zsebmetszes: {
+        precent: 0,
+        precentAdded: 0,
+        kpAdded: 0
+      },
+      csabdafelfedezes: {
+        precent: 0,
+        precentAdded: 0,
+        kpAdded: 0
+      },
+      zarnyitas: {
+        precent: 0,
+        precentAdded: 0,
+        kpAdded: 0
+      },
+      titkosajto: {
+        precent: 0,
+        precentAdded: 0,
+        kpAdded: 0
+      }
+    },
+    LearnedSkills: [],
+    Pancel: {
+      name: '',
+      equipped: false,
+      mgt: 0,
+      sfe: 0,
+      currentSfe: 0
+    },
+    Pajzs: {
+      name: '',
+      eqiupped: false,
+      ve: 0,
+      mgt: 0
+    },
+    Fegyverek: [{
+      name: 'HOSSZUKARD',
+      rightHand: false,
+      leftHand: false
+    }],
+    Kincsek: {
+      rez: 10,
+      ezust: 2,
+      arany: 0,
+      mithrill: 0,
+      dragako: 0,
+      egyebb: ['ezust serleg', 'disztanyer']
+    },
+    Felszereles: {
+      felszereles: [{
+        name: 'Hálózsák',
+        quantity: 1,
+        where: 'Táska alatt'
+      }]
+    }
+  }
+};
+var getters = {
+  magusCharacter: function magusCharacter(state) {
+    return state.magusCharacter;
+  }
+};
+var mutations = {
+  updateEletero: function updateEletero(state, payload) {
+    state.magusCharacter.AktFp = payload.AktFp;
+    state.magusCharacter.AktEp = payload.AktEp;
+  },
+  updateEroMod: function updateEroMod(state, mod) {
+    if (mod === '+') {
+      state.magusCharacter.eroMod++;
+    }
+
+    ;
+
+    if (mod === '-') {
+      state.magusCharacter.eroMod--;
+    }
+
+    ;
+
+    if (mod === '0') {
+      state.magusCharacter.eroMod = 0;
+    }
+  },
+  updateGyorsMod: function updateGyorsMod(state, mod) {
+    if (mod === '+') {
+      state.magusCharacter.gyorsMod++;
+    }
+
+    ;
+
+    if (mod === '-') {
+      state.magusCharacter.gyorsMod--;
+    }
+
+    ;
+
+    if (mod === '0') {
+      state.magusCharacter.gyorsMod = 0;
+    }
+  },
+  updateUgyMod: function updateUgyMod(state, mod) {
+    if (mod === '+') {
+      state.magusCharacter.ugyMod++;
+    }
+
+    ;
+
+    if (mod === '-') {
+      state.magusCharacter.ugyMod--;
+    }
+
+    ;
+
+    if (mod === '0') {
+      state.magusCharacter.ugyMod = 0;
+    }
+  },
+  updateAlloMod: function updateAlloMod(state, mod) {
+    if (mod === '+') {
+      state.magusCharacter.alloMod++;
+    }
+
+    ;
+
+    if (mod === '-') {
+      state.magusCharacter.alloMod--;
+    }
+
+    ;
+
+    if (mod === '0') {
+      state.magusCharacter.alloMod = 0;
+    }
+  },
+  updateEgMod: function updateEgMod(state, mod) {
+    if (mod === '+') {
+      state.magusCharacter.egMod++;
+    }
+
+    ;
+
+    if (mod === '-') {
+      state.magusCharacter.egMod--;
+    }
+
+    ;
+
+    if (mod === '0') {
+      state.magusCharacter.egMod = 0;
+    }
+  },
+  updateSzepMod: function updateSzepMod(state, mod) {
+    if (mod === '+') {
+      state.magusCharacter.szepMod++;
+    }
+
+    ;
+
+    if (mod === '-') {
+      state.magusCharacter.szepMod--;
+    }
+
+    ;
+
+    if (mod === '0') {
+      state.magusCharacter.szepMod = 0;
+    }
+  },
+  updateIntMod: function updateIntMod(state, mod) {
+    if (mod === '+') {
+      state.magusCharacter.intMod++;
+    }
+
+    ;
+
+    if (mod === '-') {
+      state.magusCharacter.intMod--;
+    }
+
+    ;
+
+    if (mod === '0') {
+      state.magusCharacter.intMod = 0;
+    }
+  },
+  updateAkMod: function updateAkMod(state, mod) {
+    if (mod === '+') {
+      state.magusCharacter.akMod++;
+    }
+
+    ;
+
+    if (mod === '-') {
+      state.magusCharacter.akMod--;
+    }
+
+    ;
+
+    if (mod === '0') {
+      state.magusCharacter.akMod = 0;
+    }
+  },
+  updateAsztMod: function updateAsztMod(state, mod) {
+    if (mod === '+') {
+      state.magusCharacter.asztMod++;
+    }
+
+    ;
+
+    if (mod === '-') {
+      state.magusCharacter.asztMod--;
+    }
+
+    ;
+
+    if (mod === '0') {
+      state.magusCharacter.asztMod = 0;
+    }
+  },
+  updateKincsek: function updateKincsek(state, payload) {
+    state.magusCharacter.Kincsek.rez = payload.rez;
+    state.magusCharacter.Kincsek.ezust = payload.ezust;
+    state.magusCharacter.Kincsek.arany = payload.arany;
+    state.magusCharacter.Kincsek.mithrill = payload.mithrill;
+    state.magusCharacter.Kincsek.dragako = payload.dragako;
+    state.magusCharacter.Kincsek.egyebb = payload.egyebb;
+  },
+  updateFelszereles: function updateFelszereles(state, felszereles) {
+    state.magusCharacter.Felszereles = felszereles;
+  }
+};
+var actions = {
+  save: function save(context) {
+    console.log('SAVING');
+    console.log(context.state.magusCharacter);
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
 
 /***/ }),
 
@@ -31913,11 +32313,7 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "container-fluid" },
-    [
-      _c("magus-character-sheet", {
-        attrs: { magusCharacter: _vm.magusCharacter },
-      }),
-    ],
+    [_c("magus-character-sheet")],
     1
   )
 }
@@ -32744,18 +33140,7 @@ var render = function () {
         _c(
           "div",
           { staticClass: " bg-light border border-secondary rounded mb-4 p-3" },
-          [
-            _c("magus-eletero", {
-              attrs: {
-                maxEp: _vm.maxEp,
-                aktEp: _vm.magusCharacter.AktEp,
-                maxFp: _vm.maxFp,
-                aktFp: _vm.magusCharacter.AktFp,
-                fpSzint: _vm.Kaszt.FpSzint,
-                sfe: 0,
-              },
-            }),
-          ],
+          [_c("magus-eletero")],
           1
         ),
         _vm._v(" "),
@@ -32905,7 +33290,7 @@ var render = function () {
     _c(
       "div",
       { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
-      [_c("magus-kincsek", { attrs: { Kincsek: _vm.magusCharacter.Kincsek } })],
+      [_c("magus-kincsek")],
       1
     ),
     _vm._v(" "),
@@ -32914,7 +33299,10 @@ var render = function () {
       { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
       [
         _c("magus-equipment", {
-          attrs: { Equipment: _vm.magusCharacter.Felszereles },
+          attrs: {
+            Equipment: _vm.magusCharacter.Felszereles,
+            id: _vm.magusCharacter.id,
+          },
         }),
       ],
       1
@@ -33521,7 +33909,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { class: { "bg-danger": _vm.halott } }, [
     _c("h4", { staticClass: "text-center mt-2" }, [_vm._v("Életerő")]),
     _vm._v(" "),
     _vm._m(0),
@@ -34276,6 +34664,20 @@ var render = function () {
         },
         [_vm._v("Vagyon hozzáadása")]
       ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-danger my-3 ms-2",
+          attrs: {
+            type: "button",
+            disabled: _vm.loading,
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#vagyonKifizetesModal",
+          },
+        },
+        [_vm._v("Vagyon kifizetése")]
+      ),
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
@@ -34759,6 +35161,200 @@ var render = function () {
         ]),
       ]
     ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "vagyonKifizetesModal",
+          tabindex: "-1",
+          "aria-labelledby": "vagyonKifizetesModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("label", { attrs: { for: "rez" } }, [_vm._v("Réz:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.rez_input,
+                    expression: "rez_input",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "rez" },
+                domProps: { value: _vm.rez_input },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.rez_input = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "ezust" } }, [_vm._v("Ezüst:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.ezust_input,
+                    expression: "ezust_input",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "ezust" },
+                domProps: { value: _vm.ezust_input },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.ezust_input = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "arany" } }, [_vm._v("Arany:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.arany_input,
+                    expression: "arany_input",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "arany" },
+                domProps: { value: _vm.arany_input },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.arany_input = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "mithrill" } }, [
+                _vm._v("Mithrill:"),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.mithrill_input,
+                    expression: "mithrill_input",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "mithrill" },
+                domProps: { value: _vm.mithrill_input },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.mithrill_input = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "dragako" } }, [_vm._v("Drágakő:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.dragako_input,
+                    expression: "dragako_input",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "dragako" },
+                domProps: { value: _vm.dragako_input },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.dragako_input = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.submitVagyonKifizetes },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _vm.fizetesError
+      ? _c(
+          "div",
+          {
+            staticClass: "alert alert-danger alert-dismissible fade show",
+            attrs: { role: "alert" },
+          },
+          [
+            _c("strong", [_vm._v("Nincs elég pénz!!!")]),
+            _vm._v(
+              " Egy vagy több bevitt összeg lefedésére nincs elegendő vagyon!\n        "
+            ),
+            _c("button", {
+              staticClass: "btn-close",
+              attrs: {
+                type: "button",
+                "data-bs-dismiss": "alert",
+                "aria-label": "Close",
+              },
+              on: {
+                click: function ($event) {
+                  _vm.fizetesError = false
+                },
+              },
+            }),
+          ]
+        )
+      : _vm._e(),
   ])
 }
 var staticRenderFns = [
@@ -34791,6 +35387,30 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "vagyonModalLabel" } },
+        [_vm._v("Uj vagyon")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        {
+          staticClass: "modal-title",
+          attrs: { id: "vagyonKifizetesModalLabel" },
+        },
         [_vm._v("Uj vagyon")]
       ),
       _vm._v(" "),

@@ -54,14 +54,7 @@
 
                <!-- ------eletero--------- -->
                <div class=" bg-light border border-secondary rounded mb-4 p-3">
-                   <magus-eletero 
-                        :maxEp="maxEp"
-                        :aktEp="magusCharacter.AktEp"
-                        :maxFp="maxFp"
-                        :aktFp="magusCharacter.AktFp"
-                        :fpSzint="Kaszt.FpSzint"
-                        :sfe="0"
-                   />
+                   <magus-eletero />
                </div>
 
                 <!-- Pszi kepzetseg -->    
@@ -349,12 +342,12 @@
 
         <!-- kincsek -->
         <div class="bg-light border border-secondary rounded mb-4 p-3">
-            <magus-kincsek :Kincsek="magusCharacter.Kincsek" />
+            <magus-kincsek />
         </div>
 
         <!-- felszereles -->
         <div class="bg-light border border-secondary rounded mb-4 p-3">
-            <magus-equipment :Equipment="magusCharacter.Felszereles" />
+            <magus-equipment :Equipment="magusCharacter.Felszereles" :id="magusCharacter.id" />
         </div>
 
         <!-- egyebb -->
@@ -400,9 +393,6 @@
            MagusHarcertek,
            MagusEletero,
         },
-        props: {
-            magusCharacter: Object,
-        },
         data() {
             return {
                 eroMod: 0,
@@ -419,6 +409,9 @@
 
         //COMPUTED----------------------------------
         computed: {
+             ...mapGetters('currentCharacter', {
+                 magusCharacter: 'magusCharacter'
+            }),
             ...mapGetters('magusAligments', {
                  aligment: 'aligment'
             }),
@@ -519,28 +512,6 @@
                     AlapAszt = this.magusCharacter.ASZT
                 }
                 return AlapAszt + this.Faj.ASZT + this.asztMod;
-            },
-            maxEp() {
-                let epMod = 0;
-                if (this.egeszseg > 10) {
-                    epMod = this.egeszseg - 10;
-                }
-                return this.Kaszt.Epalap + epMod;
-            },
-            maxFp() {
-                let akMod = 0;
-                let alloMod = 0;
-                let szintMod = 0;
-                if (this.akarat > 10) {
-                    akMod = this.akarat - 10;
-                };
-                if (this.allokepesseg > 10) {
-                    alloMod = this.allokepesseg - 10;
-                };
-                if (this.magusCharacter) {
-                    szintMod = this.magusCharacter.FpSzint;
-                }
-                return this.Kaszt.Fpalap + akMod + alloMod + szintMod;
             },
             hmSzint() {
                 return this.Kaszt.HmSzint + this.Kaszt.KESzintKotelezo + this.Kaszt.TESzintKotelezo + this.Kaszt.VESzintKotelezo + this.Kaszt.CESzintKotelezo;
