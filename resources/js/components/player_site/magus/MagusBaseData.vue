@@ -1,16 +1,16 @@
 <template>
     <div>
         <h4 class="text-center mt-5 border-bottom border-secondary">Karakter adatai</h4>
-        <p class="fs-4 border-bottom border-secondary mt-5"><span class="fw-bolder me-2">Név: </span><span>{{ Nev }}</span></p>
+        <p class="fs-4 border-bottom border-secondary mt-5"><span class="fw-bolder me-2">Név: </span><span>{{ magusCharacter.Nev }}</span></p>
         <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Kaszt: </span><span>{{ Kaszt.name }}</span><button type="button" class="btn btn-outline-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#kasztModal">i</button></p>
         <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Faj: </span><span>{{ Faj.name }}</span><button type="button" class="btn btn-outline-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#fajModal">i</button></p>
         <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Jellem: </span><span>{{ Jellem.name }}</span> <button v-if="Jellem.name !== ''" type="button" class="btn btn-outline-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#jellemModal">i</button></p>
-        <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Vallás: </span><span>{{ Vallas }}</span></p>
-        <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Szimbólum: </span><span>{{ Szimbolum }}</span></p>
-        <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Szülőföld: </span><span>{{ Szulofold }}</span></p>
-        <p class="fs-4 border-bottom border-secondary mb-5"><span class="fw-bolder me-2">Iskola: </span><span>{{ Iskola }}</span></p>
+        <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Vallás: </span><span>{{ magusCharacter.Vallas }}</span></p>
+        <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Szimbólum: </span><span>{{ magusCharacter.Szimbolum }}</span></p>
+        <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Szülőföld: </span><span>{{ magusCharacter.Szulofold }}</span></p>
+        <p class="fs-4 border-bottom border-secondary mb-5"><span class="fw-bolder me-2">Iskola: </span><span>{{ magusCharacter.Iskola }}</span></p>
         <div class="my-5 text-center">
-            <p class="border border-secondary p-3 fs-1 fw-bolder">{{ Szint }}</p>
+            <p class="border border-secondary p-3 fs-1 fw-bolder">{{ magusCharacter.Szint }}</p>
             <p class="fs-3 mt-2">Tapasztalati szint</p>
         </div>
 
@@ -81,18 +81,10 @@ export default {
     components: {
            MagusKasztPreview
         },
-    props: {
-            Nev: String,
-            MagusClass: String,
-            Race: String,
-            Aligment: String,
-            Vallas: String,
-            Szimbolum: String,
-            Szulofold: String,
-            Iskola: String,
-            Szint: Number,
-        },
     computed: {
+        ...mapGetters('currentCharacter', {
+            magusCharacter: 'magusCharacter',
+        }),
         ...mapGetters('magusAligments', {
                 aligment: 'aligment'
         }),
@@ -103,26 +95,18 @@ export default {
             magusKaszt: 'magusClass'
         }),
         Jellem() {
-            let jellem = this.aligment(this.Aligment);
+            let jellem = this.aligment(this.magusCharacter.Jellem);
             if (jellem) {
                 return jellem
             } else {
                 return {name: 'Not selected', description: 'Not selected'}
             }
         },
-        Faj() {
-            let race = 'HUMAN';
-            if (this.Race) {
-                race = this.Race;
-            }
-            return this.race(race);
+        Faj() {  
+            return this.race(this.magusCharacter.Faj);
         },
         Kaszt() {
-            let kaszt = 'HARCOS';
-            if (this.MagusClass) {
-                kaszt = this.MagusClass;
-            }
-            return this.magusKaszt(kaszt);
+            return this.magusKaszt(this.magusCharacter.Kaszt);
         },
     }
 }

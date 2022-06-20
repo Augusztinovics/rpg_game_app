@@ -5537,6 +5537,169 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusAtributes.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusAtributes.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  computed: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
+    magusCharacter: 'magusCharacter'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusRaces', {
+    race: 'race'
+  })), {}, {
+    Faj: function Faj() {
+      return this.race(this.magusCharacter.Faj);
+    },
+    ero: function ero() {
+      return this.magusCharacter.ERO + this.Faj.ERO + this.magusCharacter.eroMod;
+    },
+    gyorsasag: function gyorsasag() {
+      return this.magusCharacter.GYORS + this.Faj.GYORS + this.magusCharacter.gyorsMod;
+    },
+    ugyesseg: function ugyesseg() {
+      return this.magusCharacter.UGY + this.Faj.UGY + this.magusCharacter.ugyMod;
+    },
+    allokepesseg: function allokepesseg() {
+      return this.magusCharacter.ALLO + this.Faj.ALLO + this.magusCharacter.alloMod;
+    },
+    egeszseg: function egeszseg() {
+      return this.magusCharacter.EG + this.Faj.EG + this.magusCharacter.egMod;
+    },
+    szepseg: function szepseg() {
+      return this.magusCharacter.SZEP + this.Faj.SZEP + this.magusCharacter.szepMod;
+    },
+    inteligencia: function inteligencia() {
+      return this.magusCharacter.INT + this.Faj.INT + this.magusCharacter.intMod;
+    },
+    akarat: function akarat() {
+      return this.magusCharacter.AK + this.Faj.AK + this.magusCharacter.akMod;
+    },
+    asztral: function asztral() {
+      return this.magusCharacter.ASZT + this.Faj.ASZT + this.magusCharacter.asztMod;
+    },
+    spMod: function spMod() {
+      var sp = 0;
+
+      if (this.ero > 16) {
+        sp = this.ero - 16;
+      }
+
+      return '+' + sp.toString();
+    }
+  }),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
+    updateEroMod: 'updateEroMod',
+    updateGyorsMod: 'updateGyorsMod',
+    updateUgyMod: 'updateUgyMod',
+    updateAlloMod: 'updateAlloMod',
+    updateEgMod: 'updateEgMod',
+    updateSzepMod: 'updateSzepMod',
+    updateIntMod: 'updateIntMod',
+    updateAkMod: 'updateAkMod',
+    updateAsztMod: 'updateAsztMod'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
+    save: 'save'
+  })), {}, {
+    ModEro: function ModEro(mod) {
+      this.updateEroMod(mod);
+      this.save();
+    },
+    ModGyors: function ModGyors(mod) {
+      this.updateGyorsMod(mod);
+      this.save();
+    },
+    ModUgy: function ModUgy(mod) {
+      this.updateUgyMod(mod);
+      this.save();
+    },
+    ModAllo: function ModAllo(mod) {
+      this.updateAlloMod(mod);
+      this.save();
+    },
+    ModEg: function ModEg(mod) {
+      this.updateEgMod(mod);
+      this.save();
+    },
+    ModSzep: function ModSzep(mod) {
+      this.updateSzepMod(mod);
+      this.save();
+    },
+    ModInt: function ModInt(mod) {
+      this.updateIntMod(mod);
+      this.save();
+    },
+    ModAk: function ModAk(mod) {
+      this.updateAkMod(mod);
+      this.save();
+    },
+    ModAszt: function ModAszt(mod) {
+      this.updateAsztMod(mod);
+      this.save();
+    }
+  })
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusBaseData.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusBaseData.vue?vue&type=script&lang=js& ***!
@@ -5638,18 +5801,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {
     MagusKasztPreview: _MagusKasztPreview_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: {
-    Nev: String,
-    MagusClass: String,
-    Race: String,
-    Aligment: String,
-    Vallas: String,
-    Szimbolum: String,
-    Szulofold: String,
-    Iskola: String,
-    Szint: Number
-  },
-  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusAligments', {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('currentCharacter', {
+    magusCharacter: 'magusCharacter'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusAligments', {
     aligment: 'aligment'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusRaces', {
     race: 'race'
@@ -5657,7 +5811,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     magusKaszt: 'magusClass'
   })), {}, {
     Jellem: function Jellem() {
-      var jellem = this.aligment(this.Aligment);
+      var jellem = this.aligment(this.magusCharacter.Jellem);
 
       if (jellem) {
         return jellem;
@@ -5669,22 +5823,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     },
     Faj: function Faj() {
-      var race = 'HUMAN';
-
-      if (this.Race) {
-        race = this.Race;
-      }
-
-      return this.race(race);
+      return this.race(this.magusCharacter.Faj);
     },
     Kaszt: function Kaszt() {
-      var kaszt = 'HARCOS';
-
-      if (this.MagusClass) {
-        kaszt = this.MagusClass;
-      }
-
-      return this.magusKaszt(kaszt);
+      return this.magusKaszt(this.magusCharacter.Kaszt);
     }
   })
 });
@@ -5702,12 +5844,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _MagusBaseData_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusBaseData.vue */ "./resources/js/components/player_site/magus/MagusBaseData.vue");
 /* harmony import */ var _MagusKincsek_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusKincsek.vue */ "./resources/js/components/player_site/magus/MagusKincsek.vue");
 /* harmony import */ var _MagusEquipment_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MagusEquipment.vue */ "./resources/js/components/player_site/magus/MagusEquipment.vue");
 /* harmony import */ var _MagusHarcertek_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MagusHarcertek.vue */ "./resources/js/components/player_site/magus/MagusHarcertek.vue");
 /* harmony import */ var _MagusEletero_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MagusEletero.vue */ "./resources/js/components/player_site/magus/MagusEletero.vue");
+/* harmony import */ var _MagusAtributes_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MagusAtributes.vue */ "./resources/js/components/player_site/magus/MagusAtributes.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -6043,56 +6186,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -6105,40 +6199,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     MagusKincsek: _MagusKincsek_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     MagusEquipment: _MagusEquipment_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     MagusHarcertek: _MagusHarcertek_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    MagusEletero: _MagusEletero_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    MagusEletero: _MagusEletero_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    MagusAtributes: _MagusAtributes_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   data: function data() {
-    return {
-      eroMod: 0,
-      gyorsMod: 0,
-      ugyMod: 0,
-      alloMod: 0,
-      egMod: 0,
-      szepMod: 0,
-      intMod: 0,
-      akMod: 0,
-      asztMod: 0
-    };
+    return {};
   },
   //COMPUTED----------------------------------
-  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapGetters)('currentCharacter', {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_6__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapGetters)('magusAligments', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_6__.mapGetters)('magusAligments', {
     aligment: 'aligment'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapGetters)('magusRaces', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_6__.mapGetters)('magusRaces', {
     race: 'race'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_5__.mapGetters)('magusClasses', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_6__.mapGetters)('magusClasses', {
     magusKaszt: 'magusClass'
   })), {}, {
-    spMod: function spMod() {
-      var sp = 0;
-
-      if (this.ero > 16) {
-        sp = this.ero - 16;
-      }
-
-      return '+' + sp.toString();
-    },
     Jellem: function Jellem() {
       var jellem = this.aligment(this.magusCharacter.Jellem);
 
@@ -6170,85 +6246,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this.magusKaszt(kaszt);
     },
     ero: function ero() {
-      var AlapEro = 0;
-
-      if (this.magusCharacter) {
-        AlapEro = this.magusCharacter.ERO;
-      }
-
-      return AlapEro + this.Faj.ERO + this.eroMod;
+      return this.magusCharacter.ERO + this.Faj.ERO + this.eroMod;
     },
     gyorsasag: function gyorsasag() {
-      var AlapGyors = 0;
-
-      if (this.magusCharacter) {
-        AlapGyors = this.magusCharacter.GYORS;
-      }
-
-      return AlapGyors + this.Faj.GYORS + this.gyorsMod;
+      return this.magusCharacter.GYORS + this.Faj.GYORS + this.magusCharacter.gyorsMod;
     },
     ugyesseg: function ugyesseg() {
-      var AlapUgy = 0;
-
-      if (this.magusCharacter) {
-        AlapUgy = this.magusCharacter.UGY;
-      }
-
-      return AlapUgy + this.Faj.UGY + this.ugyMod;
-    },
-    allokepesseg: function allokepesseg() {
-      var AlapAllo = 0;
-
-      if (this.magusCharacter) {
-        AlapAllo = this.magusCharacter.ALLO;
-      }
-
-      return AlapAllo + this.Faj.ALLO + this.alloMod;
-    },
-    egeszseg: function egeszseg() {
-      var AlapEg = 0;
-
-      if (this.magusCharacter) {
-        AlapEg = this.magusCharacter.EG;
-      }
-
-      return AlapEg + this.Faj.EG + this.egMod;
-    },
-    szepseg: function szepseg() {
-      var AlapSzep = 0;
-
-      if (this.magusCharacter) {
-        AlapSzep = this.magusCharacter.SZEP;
-      }
-
-      return AlapSzep + this.Faj.SZEP + this.szepMod;
-    },
-    inteligencia: function inteligencia() {
-      var AlapInt = 0;
-
-      if (this.magusCharacter) {
-        AlapInt = this.magusCharacter.INT;
-      }
-
-      return AlapInt + this.Faj.INT + this.intMod;
-    },
-    akarat: function akarat() {
-      var AlapAk = 0;
-
-      if (this.magusCharacter) {
-        AlapAk = this.magusCharacter.AK;
-      }
-
-      return AlapAk + this.Faj.AK + this.akMod;
-    },
-    asztral: function asztral() {
-      var AlapAszt = 0;
-
-      if (this.magusCharacter) {
-        AlapAszt = this.magusCharacter.ASZT;
-      }
-
-      return AlapAszt + this.Faj.ASZT + this.asztMod;
+      return this.magusCharacter.UGY + this.Faj.UGY + this.magusCharacter.ugyMod;
     },
     hmSzint: function hmSzint() {
       return this.Kaszt.HmSzint + this.Kaszt.KESzintKotelezo + this.Kaszt.TESzintKotelezo + this.Kaszt.VESzintKotelezo + this.Kaszt.CESzintKotelezo;
@@ -6336,161 +6340,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }),
   //METHODS-------------------------------------
-  methods: {
-    ModEro: function ModEro(mod) {
-      if (mod === '+') {
-        this.eroMod++;
-      }
-
-      ;
-
-      if (mod === '-') {
-        this.eroMod--;
-      }
-
-      ;
-
-      if (mod === '0') {
-        this.eroMod = 0;
-      }
-    },
-    ModGyors: function ModGyors(mod) {
-      if (mod === '+') {
-        this.gyorsMod++;
-      }
-
-      ;
-
-      if (mod === '-') {
-        this.gyorsMod--;
-      }
-
-      ;
-
-      if (mod === '0') {
-        this.gyorsMod = 0;
-      }
-    },
-    ModUgy: function ModUgy(mod) {
-      if (mod === '+') {
-        this.ugyMod++;
-      }
-
-      ;
-
-      if (mod === '-') {
-        this.ugyMod--;
-      }
-
-      ;
-
-      if (mod === '0') {
-        this.ugyMod = 0;
-      }
-    },
-    ModAllo: function ModAllo(mod) {
-      if (mod === '+') {
-        this.alloMod++;
-      }
-
-      ;
-
-      if (mod === '-') {
-        this.alloMod--;
-      }
-
-      ;
-
-      if (mod === '0') {
-        this.alloMod = 0;
-      }
-    },
-    ModEg: function ModEg(mod) {
-      if (mod === '+') {
-        this.egMod++;
-      }
-
-      ;
-
-      if (mod === '-') {
-        this.egMod--;
-      }
-
-      ;
-
-      if (mod === '0') {
-        this.egMod = 0;
-      }
-    },
-    ModSzep: function ModSzep(mod) {
-      if (mod === '+') {
-        this.szepMod++;
-      }
-
-      ;
-
-      if (mod === '-') {
-        this.szepMod--;
-      }
-
-      ;
-
-      if (mod === '0') {
-        this.szepMod = 0;
-      }
-    },
-    ModInt: function ModInt(mod) {
-      if (mod === '+') {
-        this.intMod++;
-      }
-
-      ;
-
-      if (mod === '-') {
-        this.intMod--;
-      }
-
-      ;
-
-      if (mod === '0') {
-        this.intMod = 0;
-      }
-    },
-    ModAk: function ModAk(mod) {
-      if (mod === '+') {
-        this.akMod++;
-      }
-
-      ;
-
-      if (mod === '-') {
-        this.akMod--;
-      }
-
-      ;
-
-      if (mod === '0') {
-        this.akMod = 0;
-      }
-    },
-    ModAszt: function ModAszt(mod) {
-      if (mod === '+') {
-        this.asztMod++;
-      }
-
-      ;
-
-      if (mod === '-') {
-        this.asztMod--;
-      }
-
-      ;
-
-      if (mod === '0') {
-        this.asztMod = 0;
-      }
-    }
-  },
+  methods: {},
   mounted: function mounted() {}
 });
 
@@ -31132,6 +30982,45 @@ component.options.__file = "resources/js/components/player_site/MagusCharacterCr
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/magus/MagusAtributes.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusAtributes.vue ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusAtributes_vue_vue_type_template_id_56350247___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusAtributes.vue?vue&type=template&id=56350247& */ "./resources/js/components/player_site/magus/MagusAtributes.vue?vue&type=template&id=56350247&");
+/* harmony import */ var _MagusAtributes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusAtributes.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/magus/MagusAtributes.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MagusAtributes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusAtributes_vue_vue_type_template_id_56350247___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusAtributes_vue_vue_type_template_id_56350247___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/player_site/magus/MagusAtributes.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/magus/MagusBaseData.vue":
 /*!*********************************************************************!*\
   !*** ./resources/js/components/player_site/magus/MagusBaseData.vue ***!
@@ -31485,6 +31374,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/magus/MagusAtributes.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusAtributes.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusAtributes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusAtributes.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusAtributes.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusAtributes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/magus/MagusBaseData.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************!*\
   !*** ./resources/js/components/player_site/magus/MagusBaseData.vue?vue&type=script&lang=js& ***!
@@ -31691,6 +31596,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterCreate_vue_vue_type_template_id_1e958d2e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterCreate_vue_vue_type_template_id_1e958d2e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusCharacterCreate.vue?vue&type=template&id=1e958d2e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/MagusCharacterCreate.vue?vue&type=template&id=1e958d2e&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusAtributes.vue?vue&type=template&id=56350247&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusAtributes.vue?vue&type=template&id=56350247& ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusAtributes_vue_vue_type_template_id_56350247___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusAtributes_vue_vue_type_template_id_56350247___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusAtributes_vue_vue_type_template_id_56350247___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusAtributes.vue?vue&type=template&id=56350247& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusAtributes.vue?vue&type=template&id=56350247&");
 
 
 /***/ }),
@@ -32324,6 +32246,545 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusAtributes.vue?vue&type=template&id=56350247&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusAtributes.vue?vue&type=template&id=56350247& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-4" }, [
+      _c("h3", { staticClass: "my-4" }, [
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-danger btn-sm me-2",
+            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+            on: {
+              click: function ($event) {
+                return _vm.ModEro("-")
+              },
+            },
+          },
+          [_c("b", [_vm._v("-")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-dark btn-lg",
+            attrs: { title: "Visszaálitani a tulajdonságot eredeti értékére" },
+            on: {
+              click: function ($event) {
+                return _vm.ModEro("0")
+              },
+            },
+          },
+          [_c("b", [_vm._v(_vm._s(_vm.ero))])]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-success btn-sm ms-2",
+            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+            on: {
+              click: function ($event) {
+                return _vm.ModEro("+")
+              },
+            },
+          },
+          [_c("b", [_vm._v("+")])]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "my-4" }, [
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-danger btn-sm me-2",
+            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+            on: {
+              click: function ($event) {
+                return _vm.ModGyors("-")
+              },
+            },
+          },
+          [_c("b", [_vm._v("-")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-dark btn-lg",
+            attrs: { title: "Visszaálitani a tulajdonságot eredeti értékére" },
+            on: {
+              click: function ($event) {
+                return _vm.ModGyors("0")
+              },
+            },
+          },
+          [_c("b", [_vm._v(_vm._s(_vm.gyorsasag))])]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-success btn-sm ms-2",
+            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+            on: {
+              click: function ($event) {
+                return _vm.ModGyors("+")
+              },
+            },
+          },
+          [_c("b", [_vm._v("+")])]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "my-4" }, [
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-danger btn-sm me-2",
+            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+            on: {
+              click: function ($event) {
+                return _vm.ModUgy("-")
+              },
+            },
+          },
+          [_c("b", [_vm._v("-")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-dark btn-lg",
+            attrs: { title: "Visszaálitani a tulajdonságot eredeti értékére" },
+            on: {
+              click: function ($event) {
+                return _vm.ModUgy("0")
+              },
+            },
+          },
+          [_c("b", [_vm._v(_vm._s(_vm.ugyesseg))])]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-success btn-sm ms-2",
+            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+            on: {
+              click: function ($event) {
+                return _vm.ModUgy("+")
+              },
+            },
+          },
+          [_c("b", [_vm._v("+")])]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "my-4" }, [
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-danger btn-sm me-2",
+            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+            on: {
+              click: function ($event) {
+                return _vm.ModAllo("-")
+              },
+            },
+          },
+          [_c("b", [_vm._v("-")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-dark btn-lg",
+            attrs: { title: "Visszaálitani a tulajdonságot eredeti értékére" },
+            on: {
+              click: function ($event) {
+                return _vm.ModAllo("0")
+              },
+            },
+          },
+          [_c("b", [_vm._v(_vm._s(_vm.allokepesseg))])]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-success btn-sm ms-2",
+            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+            on: {
+              click: function ($event) {
+                return _vm.ModAllo("+")
+              },
+            },
+          },
+          [_c("b", [_vm._v("+")])]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "my-4" }, [
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-danger btn-sm me-2",
+            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+            on: {
+              click: function ($event) {
+                return _vm.ModEg("-")
+              },
+            },
+          },
+          [_c("b", [_vm._v("-")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-dark btn-lg",
+            attrs: { title: "Visszaálitani a tulajdonságot eredeti értékére" },
+            on: {
+              click: function ($event) {
+                return _vm.ModEg("0")
+              },
+            },
+          },
+          [_c("b", [_vm._v(_vm._s(_vm.egeszseg))])]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-success btn-sm ms-2",
+            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+            on: {
+              click: function ($event) {
+                return _vm.ModEg("+")
+              },
+            },
+          },
+          [_c("b", [_vm._v("+")])]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "my-4" }, [
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-danger btn-sm me-2",
+            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+            on: {
+              click: function ($event) {
+                return _vm.ModSzep("-")
+              },
+            },
+          },
+          [_c("b", [_vm._v("-")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-dark btn-lg",
+            attrs: { title: "Visszaálitani a tulajdonságot eredeti értékére" },
+            on: {
+              click: function ($event) {
+                return _vm.ModSzep("0")
+              },
+            },
+          },
+          [_c("b", [_vm._v(_vm._s(_vm.szepseg))])]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-success btn-sm ms-2",
+            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+            on: {
+              click: function ($event) {
+                return _vm.ModSzep("+")
+              },
+            },
+          },
+          [_c("b", [_vm._v("+")])]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "my-4" }, [
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-danger btn-sm me-2",
+            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+            on: {
+              click: function ($event) {
+                return _vm.ModInt("-")
+              },
+            },
+          },
+          [_c("b", [_vm._v("-")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-dark btn-lg",
+            attrs: { title: "Visszaálitani a tulajdonságot eredeti értékére" },
+            on: {
+              click: function ($event) {
+                return _vm.ModInt("0")
+              },
+            },
+          },
+          [_c("b", [_vm._v(_vm._s(_vm.inteligencia))])]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-success btn-sm ms-2",
+            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+            on: {
+              click: function ($event) {
+                return _vm.ModInt("+")
+              },
+            },
+          },
+          [_c("b", [_vm._v("+")])]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "my-4" }, [
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-danger btn-sm me-2",
+            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+            on: {
+              click: function ($event) {
+                return _vm.ModAk("-")
+              },
+            },
+          },
+          [_c("b", [_vm._v("-")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-dark btn-lg",
+            attrs: { title: "Visszaálitani a tulajdonságot eredeti értékére" },
+            on: {
+              click: function ($event) {
+                return _vm.ModAk("0")
+              },
+            },
+          },
+          [_c("b", [_vm._v(_vm._s(_vm.akarat))])]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-success btn-sm ms-2",
+            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+            on: {
+              click: function ($event) {
+                return _vm.ModAk("+")
+              },
+            },
+          },
+          [_c("b", [_vm._v("+")])]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "my-4" }, [
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-danger btn-sm me-2",
+            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+            on: {
+              click: function ($event) {
+                return _vm.ModAszt("-")
+              },
+            },
+          },
+          [_c("b", [_vm._v("-")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-dark btn-lg",
+            attrs: { title: "Visszaálitani a tulajdonságot eredeti értékére" },
+            on: {
+              click: function ($event) {
+                return _vm.ModAszt("0")
+              },
+            },
+          },
+          [_c("b", [_vm._v(_vm._s(_vm.asztral))])]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-success btn-sm ms-2",
+            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+            on: {
+              click: function ($event) {
+                return _vm.ModAszt("+")
+              },
+            },
+          },
+          [_c("b", [_vm._v("+")])]
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-3" }, [
+      _c("div", {}, [
+        _c("div", { staticClass: "border border-secondary rounded my-4" }, [
+          _c("p", { staticClass: "mb-3 p-1" }, [
+            _vm._v("Sp: "),
+            _c("span", [_vm._v(_vm._s(_vm.spMod))]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _vm._m(3),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-5 text-wrap" }, [
+      _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
+        _vm._v("Erő "),
+      ]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
+        _vm._v("Gyorsaság "),
+      ]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
+        _vm._v("Ügyesség "),
+      ]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
+        _vm._v("Állóképesség "),
+      ]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
+        _vm._v("Egészség "),
+      ]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
+        _vm._v("Szépség "),
+      ]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
+        _vm._v("Inteligencia "),
+      ]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
+        _vm._v("Akaraterő "),
+      ]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
+        _vm._v("Asztrál "),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "border border-secondary rounded my-4" }, [
+      _c("p", { staticClass: "mb-3 p-1" }, [
+        _vm._v("Mod: "),
+        _c("span", [_vm._v(" +1")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "border border-secondary rounded my-4" }, [
+      _c("p", { staticClass: "mb-3 p-1" }, [
+        _vm._v("Mod: "),
+        _c("span", [_vm._v(" 0")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "border border-warning rounded my-5" }, [
+      _c("p", { staticClass: " p-2" }, [_c("b", [_vm._v("*Figyelem!!!")])]),
+      _vm._v(" "),
+      _c("p", { staticClass: " p-2" }, [
+        _vm._v("A "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-danger btn-sm me-2",
+            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+          },
+          [_c("b", [_vm._v("-")])]
+        ),
+        _vm._v(" és "),
+        _c(
+          "span",
+          {
+            staticClass: "btn btn-outline-success btn-sm ms-2",
+            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+          },
+          [_c("b", [_vm._v("+")])]
+        ),
+        _vm._v(
+          " gombok segitségével csak ideiglenesen lehet növelni vagy csökkenteni a tulajdonságot. A tulajdonság értékére kattintva, vagy a lap ujratöltésénél visszaáll az eredeti értékére."
+        ),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusBaseData.vue?vue&type=template&id=7b4bbf49&":
 /*!*******************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusBaseData.vue?vue&type=template&id=7b4bbf49& ***!
@@ -32349,7 +32810,7 @@ var render = function () {
     _vm._v(" "),
     _c("p", { staticClass: "fs-4 border-bottom border-secondary mt-5" }, [
       _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Név: ")]),
-      _c("span", [_vm._v(_vm._s(_vm.Nev))]),
+      _c("span", [_vm._v(_vm._s(_vm.magusCharacter.Nev))]),
     ]),
     _vm._v(" "),
     _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
@@ -32408,27 +32869,27 @@ var render = function () {
     _vm._v(" "),
     _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
       _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Vallás: ")]),
-      _c("span", [_vm._v(_vm._s(_vm.Vallas))]),
+      _c("span", [_vm._v(_vm._s(_vm.magusCharacter.Vallas))]),
     ]),
     _vm._v(" "),
     _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
       _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Szimbólum: ")]),
-      _c("span", [_vm._v(_vm._s(_vm.Szimbolum))]),
+      _c("span", [_vm._v(_vm._s(_vm.magusCharacter.Szimbolum))]),
     ]),
     _vm._v(" "),
     _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
       _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Szülőföld: ")]),
-      _c("span", [_vm._v(_vm._s(_vm.Szulofold))]),
+      _c("span", [_vm._v(_vm._s(_vm.magusCharacter.Szulofold))]),
     ]),
     _vm._v(" "),
     _c("p", { staticClass: "fs-4 border-bottom border-secondary mb-5" }, [
       _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Iskola: ")]),
-      _c("span", [_vm._v(_vm._s(_vm.Iskola))]),
+      _c("span", [_vm._v(_vm._s(_vm.magusCharacter.Iskola))]),
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "my-5 text-center" }, [
       _c("p", { staticClass: "border border-secondary p-3 fs-1 fw-bolder" }, [
-        _vm._v(_vm._s(_vm.Szint)),
+        _vm._v(_vm._s(_vm.magusCharacter.Szint)),
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "fs-3 mt-2" }, [_vm._v("Tapasztalati szint")]),
@@ -32691,448 +33152,8 @@ var render = function () {
     _c(
       "div",
       { staticClass: "bg-light border border-secondary rounded mb-3 p-3" },
-      [
-        _c("div", { staticClass: "row" }, [
-          _vm._m(1),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-4" }, [
-            _c("h3", { staticClass: "my-4" }, [
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-danger btn-sm me-2",
-                  attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModEro("-")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v("-")])]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-dark btn-lg",
-                  attrs: {
-                    title: "Visszaálitani a tulajdonságot eredeti értékére",
-                  },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModEro("0")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v(_vm._s(_vm.ero))])]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-success btn-sm ms-2",
-                  attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModEro("+")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v("+")])]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("h3", { staticClass: "my-4" }, [
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-danger btn-sm me-2",
-                  attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModGyors("-")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v("-")])]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-dark btn-lg",
-                  attrs: {
-                    title: "Visszaálitani a tulajdonságot eredeti értékére",
-                  },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModGyors("0")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v(_vm._s(_vm.gyorsasag))])]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-success btn-sm ms-2",
-                  attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModGyors("+")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v("+")])]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("h3", { staticClass: "my-4" }, [
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-danger btn-sm me-2",
-                  attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModUgy("-")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v("-")])]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-dark btn-lg",
-                  attrs: {
-                    title: "Visszaálitani a tulajdonságot eredeti értékére",
-                  },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModUgy("0")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v(_vm._s(_vm.ugyesseg))])]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-success btn-sm ms-2",
-                  attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModUgy("+")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v("+")])]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("h3", { staticClass: "my-4" }, [
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-danger btn-sm me-2",
-                  attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModAllo("-")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v("-")])]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-dark btn-lg",
-                  attrs: {
-                    title: "Visszaálitani a tulajdonságot eredeti értékére",
-                  },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModAllo("0")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v(_vm._s(_vm.allokepesseg))])]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-success btn-sm ms-2",
-                  attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModAllo("+")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v("+")])]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("h3", { staticClass: "my-4" }, [
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-danger btn-sm me-2",
-                  attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModEg("-")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v("-")])]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-dark btn-lg",
-                  attrs: {
-                    title: "Visszaálitani a tulajdonságot eredeti értékére",
-                  },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModEg("0")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v(_vm._s(_vm.egeszseg))])]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-success btn-sm ms-2",
-                  attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModEg("+")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v("+")])]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("h3", { staticClass: "my-4" }, [
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-danger btn-sm me-2",
-                  attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModSzep("-")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v("-")])]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-dark btn-lg",
-                  attrs: {
-                    title: "Visszaálitani a tulajdonságot eredeti értékére",
-                  },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModSzep("0")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v(_vm._s(_vm.szepseg))])]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-success btn-sm ms-2",
-                  attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModSzep("+")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v("+")])]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("h3", { staticClass: "my-4" }, [
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-danger btn-sm me-2",
-                  attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModInt("-")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v("-")])]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-dark btn-lg",
-                  attrs: {
-                    title: "Visszaálitani a tulajdonságot eredeti értékére",
-                  },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModInt("0")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v(_vm._s(_vm.inteligencia))])]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-success btn-sm ms-2",
-                  attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModInt("+")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v("+")])]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("h3", { staticClass: "my-4" }, [
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-danger btn-sm me-2",
-                  attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModAk("-")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v("-")])]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-dark btn-lg",
-                  attrs: {
-                    title: "Visszaálitani a tulajdonságot eredeti értékére",
-                  },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModAk("0")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v(_vm._s(_vm.akarat))])]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-success btn-sm ms-2",
-                  attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModAk("+")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v("+")])]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("h3", { staticClass: "my-4" }, [
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-danger btn-sm me-2",
-                  attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModAszt("-")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v("-")])]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-dark btn-lg",
-                  attrs: {
-                    title: "Visszaálitani a tulajdonságot eredeti értékére",
-                  },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModAszt("0")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v(_vm._s(_vm.asztral))])]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  staticClass: "btn btn-outline-success btn-sm ms-2",
-                  attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.ModAszt("+")
-                    },
-                  },
-                },
-                [_c("b", [_vm._v("+")])]
-              ),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-3" }, [
-            _c("div", {}, [
-              _c(
-                "div",
-                { staticClass: "border border-secondary rounded my-4" },
-                [
-                  _c("p", { staticClass: "mb-3 p-1" }, [
-                    _vm._v("Sp: "),
-                    _c("span", [_vm._v(_vm._s(_vm.spMod))]),
-                  ]),
-                ]
-              ),
-              _vm._v(" "),
-              _vm._m(2),
-              _vm._v(" "),
-              _vm._m(3),
-              _vm._v(" "),
-              _vm._m(4),
-            ]),
-          ]),
-        ]),
-      ]
+      [_c("magus-atributes")],
+      1
     ),
     _vm._v(" "),
     _c("div", { staticClass: "row justify-content-evenly" }, [
@@ -33144,32 +33165,18 @@ var render = function () {
           1
         ),
         _vm._v(" "),
-        _vm._m(5),
+        _vm._m(1),
         _vm._v(" "),
-        _vm._m(6),
+        _vm._m(2),
         _vm._v(" "),
-        _vm._m(7),
+        _vm._m(3),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-lg" }, [
         _c(
           "div",
           { staticClass: "bg-light border border-secondary rounded mb-5 p-3" },
-          [
-            _c("magus-base-data", {
-              attrs: {
-                Nev: _vm.magusCharacter.Nev,
-                MagusClass: _vm.magusCharacter.Kaszt,
-                Race: _vm.magusCharacter.Faj,
-                Aligment: _vm.magusCharacter.Jellem,
-                Vallas: _vm.magusCharacter.Vallas,
-                Szimbolum: _vm.magusCharacter.Szimbolum,
-                Szulofold: _vm.magusCharacter.Szulofold,
-                Iskola: _vm.magusCharacter.Iskola,
-                Szint: _vm.magusCharacter.Szint,
-              },
-            }),
-          ],
+          [_c("magus-base-data")],
           1
         ),
         _vm._v(" "),
@@ -33193,9 +33200,9 @@ var render = function () {
           ]
         ),
         _vm._v(" "),
-        _vm._m(8),
+        _vm._m(4),
         _vm._v(" "),
-        _vm._m(9),
+        _vm._m(5),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-lg" }, [
@@ -33275,17 +33282,17 @@ var render = function () {
           1
         ),
         _vm._v(" "),
-        _vm._m(10),
+        _vm._m(6),
         _vm._v(" "),
-        _vm._m(11),
+        _vm._m(7),
       ]),
     ]),
     _vm._v(" "),
-    _vm._m(12),
+    _vm._m(8),
     _vm._v(" "),
-    _vm._m(13),
+    _vm._m(9),
     _vm._v(" "),
-    _vm._m(14),
+    _vm._m(10),
     _vm._v(" "),
     _c(
       "div",
@@ -33324,9 +33331,9 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _vm._m(15),
+      _vm._m(11),
       _vm._v(" "),
-      _vm._m(16),
+      _vm._m(12),
     ]),
   ])
 }
@@ -33337,102 +33344,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center p-4" }, [
       _c("h2", { staticClass: "text-white" }, [_vm._v("magus karakterlap")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-5 text-wrap" }, [
-      _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
-        _vm._v("Erő "),
-      ]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
-        _vm._v("Gyorsaság "),
-      ]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
-        _vm._v("Ügyesség "),
-      ]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
-        _vm._v("Állóképesség "),
-      ]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
-        _vm._v("Egészség "),
-      ]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
-        _vm._v("Szépség "),
-      ]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
-        _vm._v("Inteligencia "),
-      ]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
-        _vm._v("Akaraterő "),
-      ]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
-        _vm._v("Asztrál "),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "border border-secondary rounded my-4" }, [
-      _c("p", { staticClass: "mb-3 p-1" }, [
-        _vm._v("Mod: "),
-        _c("span", [_vm._v(" +1")]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "border border-secondary rounded my-4" }, [
-      _c("p", { staticClass: "mb-3 p-1" }, [
-        _vm._v("Mod: "),
-        _c("span", [_vm._v(" 0")]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "border border-warning rounded my-5" }, [
-      _c("p", { staticClass: " p-2" }, [_c("b", [_vm._v("*Figyelem!!!")])]),
-      _vm._v(" "),
-      _c("p", { staticClass: " p-2" }, [
-        _vm._v("A "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-danger btn-sm me-2",
-            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-          },
-          [_c("b", [_vm._v("-")])]
-        ),
-        _vm._v(" és "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-success btn-sm ms-2",
-            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-          },
-          [_c("b", [_vm._v("+")])]
-        ),
-        _vm._v(
-          " gombok segitségével csak ideiglenesen lehet növelni vagy csökkenteni a tulajdonságot. A tulajdonság értékére kattintva, vagy a lap ujratöltésénél visszaáll az eredeti értékére."
-        ),
-      ]),
     ])
   },
   function () {
