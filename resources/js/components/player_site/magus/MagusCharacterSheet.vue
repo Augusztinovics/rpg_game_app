@@ -130,8 +130,8 @@
                    <magus-harcertek 
                         :moduleName="'Kezdeményező érték (KÉ)'"
                         :alap="Kaszt.KEalap"
-                        :osztotHm="magusCharacter.KeSzint + Kaszt.KESzintKotelezo"
-                        :aktualis="11"
+                        :osztotHm="keOsztott"
+                        :aktualis="keOsz"
                         :fegyverNelkul="keAlap"
                         :modositok="[]"
                    />
@@ -141,8 +141,8 @@
                     <magus-harcertek 
                         :moduleName="'Támadó érték (TÉ)'"
                         :alap="Kaszt.TEalap"
-                        :osztotHm="magusCharacter.TeSzint + Kaszt.TESzintKotelezo"
-                        :aktualis="11"
+                        :osztotHm="teOsztott"
+                        :aktualis="teOsz"
                         :fegyverNelkul="teAlap"
                         :modositok="[]"
                    />
@@ -152,8 +152,8 @@
                     <magus-harcertek 
                         :moduleName="'Védő érték (VÉ)'"
                         :alap="Kaszt.VEalap"
-                        :osztotHm="magusCharacter.VeSzint + Kaszt.VESzintKotelezo"
-                        :aktualis="11"
+                        :osztotHm="veOsztott"
+                        :aktualis="veOsz"
                         :fegyverNelkul="veAlap"
                         :modositok="[]"
                    />
@@ -163,8 +163,8 @@
                    <magus-harcertek 
                         :moduleName="'Célzó érték (CÉ)'"
                         :alap="ceFaj"
-                        :osztotHm="magusCharacter.CeSzint + Kaszt.CESzintKotelezo"
-                        :aktualis="11"
+                        :osztotHm="ceOsztott"
+                        :aktualis="ceOsz"
                         :fegyverNelkul="ceAlap"
                         :modositok="[]"
                    />
@@ -172,19 +172,7 @@
 
                <!-- viselt pajzs tipus -->
                 <div class="bg-light border border-secondary rounded mb-4 p-3">
-                    <div>
-                        <h4 class="text-center mt-2 pb-3 border-bottom border-secondary">Viselt pajzs tipusa</h4>
-                        <p>Kis kerek fapajzs</p>
-                    </div>
-                </div>
-
-                <!-- viselt pajzs erteke -->
-                <div class="bg-light border border-secondary rounded mb-4 p-3">
-                    <div>
-                        <h4 class="text-center mt-2 pb-3 border-bottom border-secondary">Viselt pajzs módositói</h4>
-                        <p class="fs-5"><span class="fw-bolder me-2">Pajzs VÉ: </span><span>0</span></p>
-                        <p class="fs-5"><span class="fw-bolder me-2">Sebzés: </span><span>0</span></p>
-                    </div>
+                    <magus-shield />
                 </div>
            </div>
         </div>
@@ -335,6 +323,7 @@
     import MagusHarcertek from './MagusHarcertek.vue';
     import MagusEletero from './MagusEletero.vue';
     import MagusAtributes from './MagusAtributes.vue';
+    import MagusShield from './MagusShield.vue';
 
     export default {
         components: {
@@ -344,6 +333,7 @@
            MagusHarcertek,
            MagusEletero,
            MagusAtributes,
+           MagusShield,
         },
         data() {
             return {
@@ -389,13 +379,13 @@
                 return this.magusKaszt(kaszt);
             },
             ero() {
-                return this.magusCharacter.ERO + this.Faj.ERO + this.eroMod;
+                return this.magusCharacter.ERO + this.Faj.ERO + this.magusCharacter.eroMod;
             },
             gyorsasag() {
-                return this.magusCharacter.GYORS + this.Faj.GYORS + this.magusCharacter.gyorsMod;
+                return this.magusCharacter.GYORS + this.Faj.GYORS + this.magusCharacter.gyorsMod - this.magusCharacter.MgtMod;
             },
             ugyesseg() {
-                return this.magusCharacter.UGY + this.Faj.UGY + this.magusCharacter.ugyMod;
+                return this.magusCharacter.UGY + this.Faj.UGY + this.magusCharacter.ugyMod - this.magusCharacter.MgtMod;
             },
             hmSzint() {
                 return this.Kaszt.HmSzint + this.Kaszt.KESzintKotelezo + this.Kaszt.TESzintKotelezo + this.Kaszt.VESzintKotelezo + this.Kaszt.CESzintKotelezo;
@@ -418,6 +408,12 @@
                 }
                 return this.Kaszt.KEalap + (this.Kaszt.KESzintKotelezo * this.magusCharacter.Szint) + this.magusCharacter.KeSzint + gyorsMod + ugyMod;
             },
+            keOsz() {
+                return this.keAlap + this.magusCharacter.KeMod;
+            },
+            keOsztott() {
+                return this.magusCharacter.KeSzint + (this.Kaszt.KESzintKotelezo * this.magusCharacter.Szint);
+            },
             teAlap() {
                 let gyorsMod = 0;
                 let ugyMod = 0;
@@ -433,7 +429,13 @@
                 }
                 return this.Kaszt.TEalap + (this.Kaszt.TESzintKotelezo * this.magusCharacter.Szint) + this.magusCharacter.TeSzint + gyorsMod + ugyMod + eroMod;
             },
-             veAlap() {
+            teOsz() {
+                return this.teAlap + this.magusCharacter.TeMod;
+            },
+            teOsztott() {
+                return this.magusCharacter.TeSzint + (this.Kaszt.TESzintKotelezo * this.magusCharacter.Szint);
+            },
+            veAlap() {
                 let gyorsMod = 0;
                 let ugyMod = 0;
                 if (this.gyorsasag > 10) {
@@ -443,6 +445,12 @@
                     ugyMod = this.ugyesseg - 10;
                 }
                 return this.Kaszt.VEalap + (this.Kaszt.VESzintKotelezo * this.magusCharacter.Szint) + this.magusCharacter.VeSzint + gyorsMod + ugyMod;
+            },
+            veOsz() {
+                return this.veAlap + this.magusCharacter.VeMod;
+            },
+            veOsztott() {
+                return this.magusCharacter.VeSzint + (this.Kaszt.VESzintKotelezo * this.magusCharacter.Szint);
             },
             ceAlap() {
                 let ugyMod = 0;
@@ -456,6 +464,12 @@
                     ce = this.Kaszt.CEalap;
                 }
                 return ce + (this.Kaszt.CESzintKotelezo * this.magusCharacter.Szint) + this.magusCharacter.CeSzint + ugyMod;
+            },
+            ceOsz() {
+                return this.ceAlap + this.magusCharacter.CeMod;
+            },
+            ceOsztott() {
+                return this.magusCharacter.CeSzint + (this.Kaszt.CESzintKotelezo * this.magusCharacter.Szint);
             },
             ceFaj() {
                 let ce = 0;

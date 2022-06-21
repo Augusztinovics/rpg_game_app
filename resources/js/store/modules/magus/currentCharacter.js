@@ -25,6 +25,8 @@
         intMod: 0,
         akMod: 0,
         asztMod: 0,
+        SpMod: 0,
+        MgtMod: 0,
         Nev: 'A karakter neve',
         Kaszt: 'HARCOS',
         Faj: 'ELF',
@@ -41,6 +43,10 @@
         TeSzint: 2,
         VeSzint: 2,
         CeSzint: 0,
+        KeMod: 0,
+        TeMod: 0,
+        VeMod: 20,
+        CeMod: 0,
         HmLeft: 0,
         KpLeft: 0,
         KpPrecentLeft: 0,
@@ -57,6 +63,7 @@
             maxPszi: 0,
             psziPointLevel: 0,
             currentPszi: 0,
+            school: '',
         },
         szazalekosKepzetsegek: {
             maszas: {
@@ -110,19 +117,18 @@
                 kpAdded: 0,
             },
         },
-        LearnedSkills:[],
+        LearnedSkills:{
+            af: [],
+            mf: []
+        },
         Pancel: {
-            name: '',
+            id: '',
             equipped: false,
-            mgt: 0,
-            sfe: 0,
             currentSfe: 0,
         },
         Pajzs: {
-            name: '',
-            eqiupped: false,
-            ve: 0,
-            mgt: 0,
+            id: 'PAJZS_KICSI',
+            equipped: true,
         },
         Fegyverek: [
             {
@@ -153,6 +159,22 @@
 const getters = {
     magusCharacter: (state) => {
         return state.magusCharacter;
+    },
+    haveLearnedSkill: (state) => (skillId) => {
+        let have = false;
+        let level = 'nincs megtanulva';
+        if (state.magusCharacter.LearnedSkills.af.includes(skillId)) {
+            have = true;
+            level = 'Af';
+        }
+        if (state.magusCharacter.LearnedSkills.mf.includes(skillId)) {
+            have = true;
+            level = 'Mf';
+        }
+        return {
+            have: have,
+            level: level
+        }
     },
 };
 const mutations = {
@@ -259,6 +281,12 @@ const mutations = {
             state.magusCharacter.asztMod = 0;
         }
     },
+    updateSp(state, sp) {
+        state.magusCharacter.SpMod = sp;
+    },
+    updateMgtMod(state, mgt) {
+        state.magusCharacter.MgtMod += mgt;
+    },
     updateKincsek(state, payload) {
         state.magusCharacter.Kincsek.rez = payload.rez;
         state.magusCharacter.Kincsek.ezust = payload.ezust;
@@ -269,7 +297,25 @@ const mutations = {
     },
     updateFelszereles(state, felszereles) {
         state.magusCharacter.Felszereles = felszereles;
-    }
+    },
+    updateShieldType(state, shieldId) {
+        state.magusCharacter.Pajzs.id = shieldId;
+    },
+    updateShieldEquip(state, equipped) {
+        state.magusCharacter.Pajzs.equipped = equipped;
+    },
+    updateKeMod(state, ke) {
+        state.magusCharacter.KeMod += ke;
+    },
+    updateTeMod(state, te) {
+        state.magusCharacter.TeMod += te;
+    },
+    updateVeMod(state, ve) {
+        state.magusCharacter.VeMod += ve;
+    },
+    updateCeMod(state, ce) {
+        state.magusCharacter.CeMod += ce;
+    },
 };
 const actions = {
     save(context) {

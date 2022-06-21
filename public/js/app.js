@@ -5643,7 +5643,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         sp = this.ero - 16;
       }
 
+      this.ModSp(sp);
       return '+' + sp.toString();
+    },
+    mgt: function mgt() {
+      if (this.magusCharacter.MgtMod == 0) {
+        return '0';
+      } else {
+        return '-' + this.magusCharacter.MgtMod.toString();
+      }
     }
   }),
   methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
@@ -5655,7 +5663,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     updateSzepMod: 'updateSzepMod',
     updateIntMod: 'updateIntMod',
     updateAkMod: 'updateAkMod',
-    updateAsztMod: 'updateAsztMod'
+    updateAsztMod: 'updateAsztMod',
+    updateSp: 'updateSp'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
     save: 'save'
   })), {}, {
@@ -5693,6 +5702,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     ModAszt: function ModAszt(mod) {
       this.updateAsztMod(mod);
+      this.save();
+    },
+    ModSp: function ModSp(sp) {
+      this.updateSp(sp);
       this.save();
     }
   })
@@ -5844,13 +5857,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _MagusBaseData_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusBaseData.vue */ "./resources/js/components/player_site/magus/MagusBaseData.vue");
 /* harmony import */ var _MagusKincsek_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusKincsek.vue */ "./resources/js/components/player_site/magus/MagusKincsek.vue");
 /* harmony import */ var _MagusEquipment_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MagusEquipment.vue */ "./resources/js/components/player_site/magus/MagusEquipment.vue");
 /* harmony import */ var _MagusHarcertek_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MagusHarcertek.vue */ "./resources/js/components/player_site/magus/MagusHarcertek.vue");
 /* harmony import */ var _MagusEletero_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MagusEletero.vue */ "./resources/js/components/player_site/magus/MagusEletero.vue");
 /* harmony import */ var _MagusAtributes_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MagusAtributes.vue */ "./resources/js/components/player_site/magus/MagusAtributes.vue");
+/* harmony import */ var _MagusShield_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./MagusShield.vue */ "./resources/js/components/player_site/magus/MagusShield.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -6174,18 +6188,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -6200,19 +6203,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     MagusEquipment: _MagusEquipment_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     MagusHarcertek: _MagusHarcertek_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     MagusEletero: _MagusEletero_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    MagusAtributes: _MagusAtributes_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    MagusAtributes: _MagusAtributes_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    MagusShield: _MagusShield_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   data: function data() {
     return {};
   },
   //COMPUTED----------------------------------
-  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_6__.mapGetters)('currentCharacter', {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_7__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_6__.mapGetters)('magusAligments', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_7__.mapGetters)('magusAligments', {
     aligment: 'aligment'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_6__.mapGetters)('magusRaces', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_7__.mapGetters)('magusRaces', {
     race: 'race'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_6__.mapGetters)('magusClasses', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_7__.mapGetters)('magusClasses', {
     magusKaszt: 'magusClass'
   })), {}, {
     Jellem: function Jellem() {
@@ -6246,13 +6250,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this.magusKaszt(kaszt);
     },
     ero: function ero() {
-      return this.magusCharacter.ERO + this.Faj.ERO + this.eroMod;
+      return this.magusCharacter.ERO + this.Faj.ERO + this.magusCharacter.eroMod;
     },
     gyorsasag: function gyorsasag() {
-      return this.magusCharacter.GYORS + this.Faj.GYORS + this.magusCharacter.gyorsMod;
+      return this.magusCharacter.GYORS + this.Faj.GYORS + this.magusCharacter.gyorsMod - this.magusCharacter.MgtMod;
     },
     ugyesseg: function ugyesseg() {
-      return this.magusCharacter.UGY + this.Faj.UGY + this.magusCharacter.ugyMod;
+      return this.magusCharacter.UGY + this.Faj.UGY + this.magusCharacter.ugyMod - this.magusCharacter.MgtMod;
     },
     hmSzint: function hmSzint() {
       return this.Kaszt.HmSzint + this.Kaszt.KESzintKotelezo + this.Kaszt.TESzintKotelezo + this.Kaszt.VESzintKotelezo + this.Kaszt.CESzintKotelezo;
@@ -6278,6 +6282,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       return this.Kaszt.KEalap + this.Kaszt.KESzintKotelezo * this.magusCharacter.Szint + this.magusCharacter.KeSzint + gyorsMod + ugyMod;
     },
+    keOsz: function keOsz() {
+      return this.keAlap + this.magusCharacter.KeMod;
+    },
+    keOsztott: function keOsztott() {
+      return this.magusCharacter.KeSzint + this.Kaszt.KESzintKotelezo * this.magusCharacter.Szint;
+    },
     teAlap: function teAlap() {
       var gyorsMod = 0;
       var ugyMod = 0;
@@ -6297,6 +6307,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       return this.Kaszt.TEalap + this.Kaszt.TESzintKotelezo * this.magusCharacter.Szint + this.magusCharacter.TeSzint + gyorsMod + ugyMod + eroMod;
     },
+    teOsz: function teOsz() {
+      return this.teAlap + this.magusCharacter.TeMod;
+    },
+    teOsztott: function teOsztott() {
+      return this.magusCharacter.TeSzint + this.Kaszt.TESzintKotelezo * this.magusCharacter.Szint;
+    },
     veAlap: function veAlap() {
       var gyorsMod = 0;
       var ugyMod = 0;
@@ -6310,6 +6326,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       return this.Kaszt.VEalap + this.Kaszt.VESzintKotelezo * this.magusCharacter.Szint + this.magusCharacter.VeSzint + gyorsMod + ugyMod;
+    },
+    veOsz: function veOsz() {
+      return this.veAlap + this.magusCharacter.VeMod;
+    },
+    veOsztott: function veOsztott() {
+      return this.magusCharacter.VeSzint + this.Kaszt.VESzintKotelezo * this.magusCharacter.Szint;
     },
     ceAlap: function ceAlap() {
       var ugyMod = 0;
@@ -6326,6 +6348,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       return ce + this.Kaszt.CESzintKotelezo * this.magusCharacter.Szint + this.magusCharacter.CeSzint + ugyMod;
+    },
+    ceOsz: function ceOsz() {
+      return this.ceAlap + this.magusCharacter.CeMod;
+    },
+    ceOsztott: function ceOsztott() {
+      return this.magusCharacter.CeSzint + this.Kaszt.CESzintKotelezo * this.magusCharacter.Szint;
     },
     ceFaj: function ceFaj() {
       var ce = 0;
@@ -7116,6 +7144,195 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusShield.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusShield.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      selectedShieldId: ''
+    };
+  },
+  computed: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
+    magusCharacter: 'magusCharacter',
+    haveLearnedSkill: 'haveLearnedSkill'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusShields', {
+    shields: 'shields',
+    shield: 'shield'
+  })), {}, {
+    haveShield: function haveShield() {
+      return this.magusCharacter.Pajzs.id == '' ? false : true;
+    },
+    currentShield: function currentShield() {
+      return this.shield(this.magusCharacter.Pajzs.id);
+    },
+    haveShieldSkill: function haveShieldSkill() {
+      return this.haveLearnedSkill('PAJZS_HASZNALAT');
+    },
+    haveShieldEquiped: function haveShieldEquiped() {
+      return this.magusCharacter.Pajzs.equipped;
+    },
+    haveShieldEquipedText: function haveShieldEquipedText() {
+      return this.haveShieldEquiped ? ' Harcra kész ' : ' Nincs kézbe véve ';
+    },
+    selectedShieldName: function selectedShieldName() {
+      if (this.selectedShieldId == '') {
+        return 'Nem kell pajzs';
+      } else {
+        return this.shield(this.selectedShieldId).name;
+      }
+    }
+  }),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
+    updateVeMod: 'updateVeMod',
+    updateShieldType: 'updateShieldType',
+    updateShieldEquip: 'updateShieldEquip',
+    updateMgtMod: 'updateMgtMod'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
+    save: 'save'
+  })), {}, {
+    equipUnequip: function equipUnequip() {
+      if (this.magusCharacter.Pajzs.equipped) {
+        this.updateShieldEquip(false);
+        this.updateVeMod(this.currentShield.Ve * -1);
+        this.updateMgtMod(this.currentShield.Mgt * -1);
+        this.save();
+      } else {
+        this.updateShieldEquip(true);
+        this.updateVeMod(this.currentShield.Ve);
+        this.updateMgtMod(this.currentShield.Mgt);
+        this.save();
+      }
+    },
+    unequip: function unequip() {
+      if (this.haveShield && this.magusCharacter.Pajzs.equipped) {
+        this.updateShieldEquip(false);
+        this.updateVeMod(this.currentShield.Ve * -1);
+        this.updateMgtMod(this.currentShield.Mgt * -1);
+        this.save();
+      }
+    },
+    selectShield: function selectShield(id) {
+      this.selectedShieldId = id;
+    },
+    submitShield: function submitShield() {
+      this.updateShieldType(this.selectedShieldId);
+      this.save();
+    }
+  })
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -7207,25 +7424,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/magus/magusAligments */ "./resources/js/store/modules/magus/magusAligments.js");
 /* harmony import */ var _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/magus/magusRaces */ "./resources/js/store/modules/magus/magusRaces.js");
 /* harmony import */ var _modules_magus_magusClasses__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/magus/magusClasses */ "./resources/js/store/modules/magus/magusClasses.js");
 /* harmony import */ var _modules_magus_currentCharacter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/magus/currentCharacter */ "./resources/js/store/modules/magus/currentCharacter.js");
+/* harmony import */ var _modules_magus_magusShields__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/magus/magusShields */ "./resources/js/store/modules/magus/magusShields.js");
 
 
 
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_4__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_5__["default"]);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_5__["default"].Store({
+
+vue__WEBPACK_IMPORTED_MODULE_5__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_6__["default"]);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_6__["default"].Store({
   modules: {
     magusAligments: _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__["default"],
     magusRaces: _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__["default"],
     magusClasses: _modules_magus_magusClasses__WEBPACK_IMPORTED_MODULE_2__["default"],
-    currentCharacter: _modules_magus_currentCharacter__WEBPACK_IMPORTED_MODULE_3__["default"]
+    currentCharacter: _modules_magus_currentCharacter__WEBPACK_IMPORTED_MODULE_3__["default"],
+    magusShields: _modules_magus_magusShields__WEBPACK_IMPORTED_MODULE_4__["default"]
   }
 }));
 
@@ -7269,6 +7489,8 @@ var state = {
     intMod: 0,
     akMod: 0,
     asztMod: 0,
+    SpMod: 0,
+    MgtMod: 0,
     Nev: 'A karakter neve',
     Kaszt: 'HARCOS',
     Faj: 'ELF',
@@ -7285,6 +7507,10 @@ var state = {
     TeSzint: 2,
     VeSzint: 2,
     CeSzint: 0,
+    KeMod: 0,
+    TeMod: 0,
+    VeMod: 20,
+    CeMod: 0,
     HmLeft: 0,
     KpLeft: 0,
     KpPrecentLeft: 0,
@@ -7300,7 +7526,8 @@ var state = {
       level: 'Af',
       maxPszi: 0,
       psziPointLevel: 0,
-      currentPszi: 0
+      currentPszi: 0,
+      school: ''
     },
     szazalekosKepzetsegek: {
       maszas: {
@@ -7354,19 +7581,18 @@ var state = {
         kpAdded: 0
       }
     },
-    LearnedSkills: [],
+    LearnedSkills: {
+      af: [],
+      mf: []
+    },
     Pancel: {
-      name: '',
+      id: '',
       equipped: false,
-      mgt: 0,
-      sfe: 0,
       currentSfe: 0
     },
     Pajzs: {
-      name: '',
-      eqiupped: false,
-      ve: 0,
-      mgt: 0
+      id: 'PAJZS_KICSI',
+      equipped: true
     },
     Fegyverek: [{
       name: 'HOSSZUKARD',
@@ -7393,6 +7619,27 @@ var state = {
 var getters = {
   magusCharacter: function magusCharacter(state) {
     return state.magusCharacter;
+  },
+  haveLearnedSkill: function haveLearnedSkill(state) {
+    return function (skillId) {
+      var have = false;
+      var level = 'nincs megtanulva';
+
+      if (state.magusCharacter.LearnedSkills.af.includes(skillId)) {
+        have = true;
+        level = 'Af';
+      }
+
+      if (state.magusCharacter.LearnedSkills.mf.includes(skillId)) {
+        have = true;
+        level = 'Mf';
+      }
+
+      return {
+        have: have,
+        level: level
+      };
+    };
   }
 };
 var mutations = {
@@ -7553,6 +7800,12 @@ var mutations = {
       state.magusCharacter.asztMod = 0;
     }
   },
+  updateSp: function updateSp(state, sp) {
+    state.magusCharacter.SpMod = sp;
+  },
+  updateMgtMod: function updateMgtMod(state, mgt) {
+    state.magusCharacter.MgtMod += mgt;
+  },
   updateKincsek: function updateKincsek(state, payload) {
     state.magusCharacter.Kincsek.rez = payload.rez;
     state.magusCharacter.Kincsek.ezust = payload.ezust;
@@ -7563,6 +7816,24 @@ var mutations = {
   },
   updateFelszereles: function updateFelszereles(state, felszereles) {
     state.magusCharacter.Felszereles = felszereles;
+  },
+  updateShieldType: function updateShieldType(state, shieldId) {
+    state.magusCharacter.Pajzs.id = shieldId;
+  },
+  updateShieldEquip: function updateShieldEquip(state, equipped) {
+    state.magusCharacter.Pajzs.equipped = equipped;
+  },
+  updateKeMod: function updateKeMod(state, ke) {
+    state.magusCharacter.KeMod += ke;
+  },
+  updateTeMod: function updateTeMod(state, te) {
+    state.magusCharacter.TeMod += te;
+  },
+  updateVeMod: function updateVeMod(state, ve) {
+    state.magusCharacter.VeMod += ve;
+  },
+  updateCeMod: function updateCeMod(state, ce) {
+    state.magusCharacter.CeMod += ce;
   }
 };
 var actions = {
@@ -7915,6 +8186,83 @@ var getters = {
       return (_state$races$find = state.races.find(function (r) {
         return r.id === id;
       })) !== null && _state$races$find !== void 0 ? _state$races$find : state.races[0];
+    };
+  }
+};
+var mutations = {};
+var actions = {};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/magus/magusShields.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/store/modules/magus/magusShields.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var state = {
+  shields: [{
+    id: 'PAJZS_KICSI',
+    name: 'Kis pajzs',
+    TamKor: '1',
+    Ve: 20,
+    Mgt: 0,
+    Sp: {
+      name: 'k6',
+      damage: [1, 6]
+    },
+    weight: '1kg',
+    price: '6 ezüst',
+    description: 'A pjzs ugyan elsősorban a védelmet szolgálja, egyes helyzetekben azonban kiélezik a peremét. A másik, gyakoribb támadási mód a pajzzsal, mikor mikor lapjával megütik, vagy megtaszitják az ellenfelet. Kis pajzsnak nevezzük a hozzávetőleg fél méter átmérőjű, álltalában kerek pajszokat'
+  }, {
+    id: 'PAJZS_KOZEPES',
+    name: 'Közepes pajzs',
+    TamKor: '1',
+    Ve: 35,
+    Mgt: 1,
+    Sp: {
+      name: 'k6',
+      damage: [1, 6]
+    },
+    weight: '3kg',
+    price: '1 arany 6 ezüst',
+    description: 'A pjzs ugyan elsősorban a védelmet szolgálja, egyes helyzetekben azonban kiélezik a peremét. A másik, gyakoribb támadási mód a pajzzsal, mikor mikor lapjával megütik, vagy megtaszitják az ellenfelet. A közepes pajzsok hosszúkásak és a felsőtestet védik, azaz kb egy méteresek.'
+  }, {
+    id: 'PAJZS_NAGY',
+    name: 'Nagy pajzs',
+    TamKor: '1/2',
+    Ve: 50,
+    Mgt: 5,
+    Sp: {
+      name: 'k6',
+      damage: [1, 6]
+    },
+    weight: '6kg',
+    price: '6 arany',
+    description: 'A pjzs ugyan elsősorban a védelmet szolgálja, egyes helyzetekben azonban kiélezik a peremét. A másik, gyakoribb támadási mód a pajzzsal, mikor mikor lapjával megütik, vagy megtaszitják az ellenfelet. A nagy pajzsok embermagasak és a nehézvértezetű lovagok felszereléséhez tartoznak. Gyakran használnak ilyet a számszerijászok is fedezékként.'
+  }]
+};
+var getters = {
+  shields: function shields() {
+    return state.shields;
+  },
+  shield: function shield(state) {
+    return function (id) {
+      return state.shields.find(function (s) {
+        return s.id === id;
+      });
     };
   }
 };
@@ -31294,6 +31642,45 @@ component.options.__file = "resources/js/components/player_site/magus/MagusKincs
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/magus/MagusShield.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusShield.vue ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusShield_vue_vue_type_template_id_5e02fb17___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusShield.vue?vue&type=template&id=5e02fb17& */ "./resources/js/components/player_site/magus/MagusShield.vue?vue&type=template&id=5e02fb17&");
+/* harmony import */ var _MagusShield_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusShield.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/magus/MagusShield.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MagusShield_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusShield_vue_vue_type_template_id_5e02fb17___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusShield_vue_vue_type_template_id_5e02fb17___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/player_site/magus/MagusShield.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/PlayerSite.vue?vue&type=script&lang=js&":
 /*!*************************************************************************!*\
   !*** ./resources/js/components/PlayerSite.vue?vue&type=script&lang=js& ***!
@@ -31499,6 +31886,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKincsek_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusKincsek.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusKincsek.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKincsek_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusShield.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusShield.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusShield_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusShield.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusShield.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusShield_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -31732,6 +32135,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKincsek_vue_vue_type_template_id_3c4f70a8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKincsek_vue_vue_type_template_id_3c4f70a8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusKincsek.vue?vue&type=template&id=3c4f70a8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusKincsek.vue?vue&type=template&id=3c4f70a8&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusShield.vue?vue&type=template&id=5e02fb17&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusShield.vue?vue&type=template&id=5e02fb17& ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusShield_vue_vue_type_template_id_5e02fb17___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusShield_vue_vue_type_template_id_5e02fb17___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusShield_vue_vue_type_template_id_5e02fb17___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusShield.vue?vue&type=template&id=5e02fb17& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusShield.vue?vue&type=template&id=5e02fb17&");
 
 
 /***/ }),
@@ -32672,11 +33092,21 @@ var render = function () {
           ]),
         ]),
         _vm._v(" "),
+        _c("div", { staticClass: "border border-secondary rounded my-4" }, [
+          _c("p", { staticClass: "mb-3 p-1" }, [
+            _vm._v("Mod: "),
+            _c("span", [_vm._v(" " + _vm._s(_vm.mgt))]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "border border-secondary rounded my-4" }, [
+          _c("p", { staticClass: "mb-3 p-1" }, [
+            _vm._v("Mod: "),
+            _c("span", [_vm._v(" " + _vm._s(_vm.mgt))]),
+          ]),
+        ]),
+        _vm._v(" "),
         _vm._m(1),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _vm._m(3),
       ]),
     ]),
   ])
@@ -32728,28 +33158,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "border border-secondary rounded my-4" }, [
-      _c("p", { staticClass: "mb-3 p-1" }, [
-        _vm._v("Mod: "),
-        _c("span", [_vm._v(" +1")]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "border border-secondary rounded my-4" }, [
-      _c("p", { staticClass: "mb-3 p-1" }, [
-        _vm._v("Mod: "),
-        _c("span", [_vm._v(" 0")]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "border border-warning rounded my-5" }, [
       _c("p", { staticClass: " p-2" }, [_c("b", [_vm._v("*Figyelem!!!")])]),
       _vm._v(" "),
@@ -32773,7 +33181,7 @@ var staticRenderFns = [
           [_c("b", [_vm._v("+")])]
         ),
         _vm._v(
-          " gombok segitségével csak ideiglenesen lehet növelni vagy csökkenteni a tulajdonságot. A tulajdonság értékére kattintva, vagy a lap ujratöltésénél visszaáll az eredeti értékére."
+          " gombok segitségével ideiglenesen lehet növelni vagy csökkenteni a tulajdonságot. A tulajdonság értékére kattintva visszaáll az eredeti értékére."
         ),
       ]),
     ])
@@ -33214,9 +33622,8 @@ var render = function () {
               attrs: {
                 moduleName: "Kezdeményező érték (KÉ)",
                 alap: _vm.Kaszt.KEalap,
-                osztotHm:
-                  _vm.magusCharacter.KeSzint + _vm.Kaszt.KESzintKotelezo,
-                aktualis: 11,
+                osztotHm: _vm.keOsztott,
+                aktualis: _vm.keOsz,
                 fegyverNelkul: _vm.keAlap,
                 modositok: [],
               },
@@ -33233,9 +33640,8 @@ var render = function () {
               attrs: {
                 moduleName: "Támadó érték (TÉ)",
                 alap: _vm.Kaszt.TEalap,
-                osztotHm:
-                  _vm.magusCharacter.TeSzint + _vm.Kaszt.TESzintKotelezo,
-                aktualis: 11,
+                osztotHm: _vm.teOsztott,
+                aktualis: _vm.teOsz,
                 fegyverNelkul: _vm.teAlap,
                 modositok: [],
               },
@@ -33252,9 +33658,8 @@ var render = function () {
               attrs: {
                 moduleName: "Védő érték (VÉ)",
                 alap: _vm.Kaszt.VEalap,
-                osztotHm:
-                  _vm.magusCharacter.VeSzint + _vm.Kaszt.VESzintKotelezo,
-                aktualis: 11,
+                osztotHm: _vm.veOsztott,
+                aktualis: _vm.veOsz,
                 fegyverNelkul: _vm.veAlap,
                 modositok: [],
               },
@@ -33271,9 +33676,8 @@ var render = function () {
               attrs: {
                 moduleName: "Célzó érték (CÉ)",
                 alap: _vm.ceFaj,
-                osztotHm:
-                  _vm.magusCharacter.CeSzint + _vm.Kaszt.CESzintKotelezo,
-                aktualis: 11,
+                osztotHm: _vm.ceOsztott,
+                aktualis: _vm.ceOsz,
                 fegyverNelkul: _vm.ceAlap,
                 modositok: [],
               },
@@ -33282,17 +33686,20 @@ var render = function () {
           1
         ),
         _vm._v(" "),
-        _vm._m(6),
-        _vm._v(" "),
-        _vm._m(7),
+        _c(
+          "div",
+          { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+          [_c("magus-shield")],
+          1
+        ),
       ]),
     ]),
     _vm._v(" "),
+    _vm._m(6),
+    _vm._v(" "),
+    _vm._m(7),
+    _vm._v(" "),
     _vm._m(8),
-    _vm._v(" "),
-    _vm._m(9),
-    _vm._v(" "),
-    _vm._m(10),
     _vm._v(" "),
     _c(
       "div",
@@ -33331,9 +33738,9 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _vm._m(11),
+      _vm._m(9),
       _vm._v(" "),
-      _vm._m(12),
+      _vm._m(10),
     ]),
   ])
 }
@@ -33533,62 +33940,6 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("p", { staticClass: "fs-5" }, [
             _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("SFÉ: ")]),
-            _c("span", [_vm._v("0")]),
-          ]),
-        ]),
-      ]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
-      [
-        _c("div", [
-          _c(
-            "h4",
-            {
-              staticClass:
-                "text-center mt-2 pb-3 border-bottom border-secondary",
-            },
-            [_vm._v("Viselt pajzs tipusa")]
-          ),
-          _vm._v(" "),
-          _c("p", [_vm._v("Kis kerek fapajzs")]),
-        ]),
-      ]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
-      [
-        _c("div", [
-          _c(
-            "h4",
-            {
-              staticClass:
-                "text-center mt-2 pb-3 border-bottom border-secondary",
-            },
-            [_vm._v("Viselt pajzs módositói")]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "fs-5" }, [
-            _c("span", { staticClass: "fw-bolder me-2" }, [
-              _vm._v("Pajzs VÉ: "),
-            ]),
-            _c("span", [_vm._v("0")]),
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "fs-5" }, [
-            _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Sebzés: ")]),
             _c("span", [_vm._v("0")]),
           ]),
         ]),
@@ -35333,6 +35684,400 @@ var staticRenderFns = [
           "aria-label": "Close",
         },
       }),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusShield.vue?vue&type=template&id=5e02fb17&":
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusShield.vue?vue&type=template&id=5e02fb17& ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "h4",
+      { staticClass: "text-center mt-2 pb-3 border-bottom border-secondary" },
+      [_vm._v("Használható pajzs")]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "d-grid text-center mb-3" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success my-3",
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#shieldModal",
+          },
+          on: { click: _vm.unequip },
+        },
+        [_vm._v("Pajzs módositása")]
+      ),
+    ]),
+    _vm._v(" "),
+    _vm.haveShield
+      ? _c("div", { staticClass: " border-top border-secondary my-2" }, [
+          _c("p", [
+            _c("span", { staticClass: "fs-5 fw-bolder me-2" }, [
+              _vm._v(_vm._s(_vm.currentShield.name)),
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success btn-sm ms-2",
+                attrs: {
+                  type: "button",
+                  "data-bs-toggle": "modal",
+                  "data-bs-target": "#shieldInfoModal",
+                },
+              },
+              [_vm._v("i")]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _c("span", { staticClass: "fw-bolder me-2" }, [
+              _vm._v("Állapot: "),
+            ]),
+            _c("span", [_vm._v(_vm._s(_vm.haveShieldEquipedText))]),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success btn-sm ms-2",
+                on: { click: _vm.equipUnequip },
+              },
+              [_vm._v("Változtat")]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _c("span", { staticClass: "fw-bolder me-2" }, [
+              _vm._v("Használat szintje: "),
+            ]),
+            _vm._v(_vm._s(_vm.haveShieldSkill.level)),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _c("span", { staticClass: "fw-bolder me-2" }, [
+              _vm._v("Esetleges támadások száma: "),
+            ]),
+            _vm._v(_vm._s(_vm.currentShield.TamKor)),
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "fs-5" }, [
+            _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Sebzés: ")]),
+            _c("span", [_vm._v(_vm._s(_vm.currentShield.Sp.name))]),
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "fs-5" }, [
+            _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("MGT: ")]),
+            _c("span", [_vm._v(_vm._s(_vm.currentShield.Mgt))]),
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "fs-5" }, [
+            _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("VÉ: ")]),
+            _c("span", [_vm._v(_vm._s(_vm.currentShield.Ve))]),
+          ]),
+        ])
+      : _c("div", { staticClass: " border-top border-secondary my-2" }, [
+          _c("p", { staticClass: "p-2" }, [
+            _vm._v("A karakter nem rendelkezik pajzsal"),
+          ]),
+        ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "shieldModal",
+          tabindex: "-1",
+          "aria-labelledby": "shieldModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _vm.haveShield
+                ? _c("div", [
+                    _c("h4", [_vm._v("Jelenleg meglévő pajzs:")]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _c("span", { staticClass: "fs-5 fw-bolder me-2" }, [
+                        _vm._v(_vm._s(_vm.currentShield.name)),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-success btn-sm ms-2",
+                          attrs: {
+                            type: "button",
+                            "data-bs-toggle": "modal",
+                            "data-bs-target": "#shieldInfoModal",
+                          },
+                        },
+                        [_vm._v("i")]
+                      ),
+                    ]),
+                  ])
+                : _c("div"),
+              _vm._v(" "),
+              _c("h4", [_vm._v("Pajzs választási lehetőségek")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Figyelem, ha vásárolsz pajzsot annak értékét külön le kell vonni a kincseid közül!"
+                ),
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "d-grid text-center" },
+                [
+                  _c("div", { staticClass: "my-2" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-dark",
+                        on: {
+                          click: function ($event) {
+                            return _vm.selectShield("")
+                          },
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                            Nem akarok pajzsot\n                        "
+                        ),
+                      ]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.shields, function (pajzs, index) {
+                    return _c("div", { key: index, staticClass: "my-2" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-dark",
+                          on: {
+                            click: function ($event) {
+                              return _vm.selectShield(pajzs.id)
+                            },
+                          },
+                        },
+                        [
+                          _c("p", { staticClass: "fs-5 fw-bolder" }, [
+                            _vm._v(_vm._s(pajzs.name)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v(" " + _vm._s(pajzs.description))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("MGT: " + _vm._s(pajzs.Mgt))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("VÉ: " + _vm._s(pajzs.Ve))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Súly: " + _vm._s(pajzs.weight))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Érték: " + _vm._s(pajzs.price))]),
+                        ]
+                      ),
+                    ])
+                  }),
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "text-center bg-info text-black mt-3 border border-primary rounded",
+                },
+                [
+                  _c("h4", { staticClass: "mt-2" }, [_vm._v("A választás:")]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(_vm.selectedShieldName))]),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.submitShield },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "shieldInfoModal",
+          tabindex: "-1",
+          "aria-labelledby": "shieldInfoModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "modal-dialog modal-dialog-centered modal-dialog-scrollable",
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "shieldInfoModalLabel" },
+                  },
+                  [_vm._v(_vm._s(_vm.currentShield.name))]
+                ),
+                _vm._v(" "),
+                _c("button", {
+                  staticClass: "btn-close",
+                  attrs: {
+                    type: "button",
+                    "data-bs-dismiss": "modal",
+                    "aria-label": "Close",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("p", [_vm._v(" " + _vm._s(_vm.currentShield.description))]),
+                _vm._v(" "),
+                _c("p", [
+                  _c("span", { staticClass: "fw-bolder me-2" }, [
+                    _vm._v("Esetleges támadások száma: "),
+                  ]),
+                  _vm._v(_vm._s(_vm.currentShield.TamKor)),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "fs-5" }, [
+                  _c("span", { staticClass: "fw-bolder me-2" }, [
+                    _vm._v("Sebzés: "),
+                  ]),
+                  _c("span", [_vm._v(_vm._s(_vm.currentShield.Sp.name))]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "fs-5" }, [
+                  _c("span", { staticClass: "fw-bolder me-2" }, [
+                    _vm._v("MGT: "),
+                  ]),
+                  _c("span", [_vm._v(_vm._s(_vm.currentShield.Mgt))]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "fs-5" }, [
+                  _c("span", { staticClass: "fw-bolder me-2" }, [
+                    _vm._v("VÉ: "),
+                  ]),
+                  _c("span", [_vm._v(_vm._s(_vm.currentShield.Ve))]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "fs-5" }, [
+                  _c("span", { staticClass: "fw-bolder me-2" }, [
+                    _vm._v("Súlya: "),
+                  ]),
+                  _c("span", [_vm._v(_vm._s(_vm.currentShield.weight))]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "fs-5" }, [
+                  _c("span", { staticClass: "fw-bolder me-2" }, [
+                    _vm._v("Értéke: "),
+                  ]),
+                  _c("span", [_vm._v(_vm._s(_vm.currentShield.price))]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _vm._m(1),
+            ]),
+          ]
+        ),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "shieldModalLabel" } },
+        [_vm._v("Pajzs választása")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Close")]
+      ),
     ])
   },
 ]

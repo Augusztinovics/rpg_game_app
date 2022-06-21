@@ -28,14 +28,14 @@
                             <p class="mb-3 p-1">Sp: <span>{{ spMod }}</span></p>
                         </div>            
                         <div class="border border-secondary rounded my-4">
-                            <p class="mb-3 p-1">Mod: <span> +1</span></p>
+                            <p class="mb-3 p-1">Mod: <span> {{ mgt }}</span></p>
                         </div>
                         <div class="border border-secondary rounded my-4">
-                            <p class="mb-3 p-1">Mod: <span> 0</span></p>
+                            <p class="mb-3 p-1">Mod: <span> {{ mgt }}</span></p>
                         </div>
                         <div class="border border-warning rounded my-5">
                             <p class=" p-2"><b>*Figyelem!!!</b></p>
-                            <p class=" p-2">A <span title="Ideiglenesen csökkentsd a tulajdonságot" class="btn btn-outline-danger btn-sm me-2"><b>-</b></span> és <span title="Ideiglenesen növeld a tulajdonságot" class="btn btn-outline-success btn-sm ms-2"><b>+</b></span> gombok segitségével csak ideiglenesen lehet növelni vagy csökkenteni a tulajdonságot. A tulajdonság értékére kattintva, vagy a lap ujratöltésénél visszaáll az eredeti értékére.</p> 
+                            <p class=" p-2">A <span title="Ideiglenesen csökkentsd a tulajdonságot" class="btn btn-outline-danger btn-sm me-2"><b>-</b></span> és <span title="Ideiglenesen növeld a tulajdonságot" class="btn btn-outline-success btn-sm ms-2"><b>+</b></span> gombok segitségével ideiglenesen lehet növelni vagy csökkenteni a tulajdonságot. A tulajdonság értékére kattintva visszaáll az eredeti értékére.</p> 
                         </div>
                     </div>   
                 </div> 
@@ -87,8 +87,16 @@ export default {
             if (this.ero > 16) {
                 sp = this.ero - 16;
             }
+            this.ModSp(sp);
             return '+' + sp.toString();
         },
+        mgt() {
+            if (this.magusCharacter.MgtMod == 0) {
+                return '0';
+            } else {
+                return '-' + this.magusCharacter.MgtMod.toString();
+            }       
+        }
     },
     methods: {
         ...mapMutations('currentCharacter', {
@@ -101,6 +109,7 @@ export default {
             updateIntMod: 'updateIntMod',
             updateAkMod: 'updateAkMod',
             updateAsztMod: 'updateAsztMod',
+            updateSp: 'updateSp',
         }),
         ...mapActions('currentCharacter', {
             save: 'save'
@@ -141,6 +150,10 @@ export default {
             this.updateAsztMod(mod);
             this.save();
         },
+        ModSp(sp) {
+            this.updateSp(sp);
+            this.save();
+        }
     },
     
 }
