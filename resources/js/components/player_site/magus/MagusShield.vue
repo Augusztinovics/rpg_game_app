@@ -145,12 +145,16 @@
                 if (this.magusCharacter.Pajzs.equipped) {
                     this.updateShieldEquip(false);
                     this.updateVeMod(this.currentShield.Ve * -1);
-                    this.updateMgtMod(this.currentShield.Mgt * -1);
+                    if (this.haveShieldSkill('PAJZS_HASZNALAT').level != 'Mf'){
+                        this.updateMgtMod(this.currentShield.Mgt * -1);
+                    } 
                     this.save();
                 } else {
                     this.updateShieldEquip(true);
                     this.updateVeMod(this.currentShield.Ve);
-                    this.updateMgtMod(this.currentShield.Mgt);
+                   if (this.haveShieldSkill('PAJZS_HASZNALAT').level != 'Mf'){
+                        this.updateMgtMod(this.currentShield.Mgt);
+                    } 
                     this.save();
                 }
             },
@@ -158,7 +162,9 @@
                 if (this.haveShield && this.magusCharacter.Pajzs.equipped) {
                     this.updateShieldEquip(false);
                     this.updateVeMod(this.currentShield.Ve * -1);
-                    this.updateMgtMod(this.currentShield.Mgt * -1);
+                    if (this.haveShieldSkill('PAJZS_HASZNALAT').level != 'Mf'){
+                        this.updateMgtMod(this.currentShield.Mgt * -1);
+                    } 
                     this.save();
                 }              
             },

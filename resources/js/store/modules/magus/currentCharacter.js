@@ -1,6 +1,6 @@
 /**-------------------------------------------
  * 
- * STORE FOR MAGUS ALIGMENTS
+ * STORE FOR CURRENT MAGUS CHARACTER
  * 
  * -------------------------------------------
  */
