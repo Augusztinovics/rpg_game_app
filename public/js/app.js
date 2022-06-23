@@ -5537,6 +5537,241 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      selectedArmorId: ''
+    };
+  },
+  computed: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
+    magusCharacter: 'magusCharacter',
+    haveLearnedSkill: 'haveLearnedSkill'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusArmors', {
+    armors: 'armors',
+    armor: 'armor'
+  })), {}, {
+    haveArmor: function haveArmor() {
+      return this.magusCharacter.Pancel.id == '' ? false : true;
+    },
+    currentArmor: function currentArmor() {
+      return this.armor(this.magusCharacter.Pancel.id);
+    },
+    haveArmorSkill: function haveArmorSkill() {
+      return this.haveLearnedSkill('PANCEL_VISELET');
+    },
+    haveArmorEquiped: function haveArmorEquiped() {
+      return this.magusCharacter.Pancel.equipped;
+    },
+    haveArmorEquipedText: function haveArmorEquipedText() {
+      return this.haveArmorEquiped ? ' Felöltve ' : ' Nem viseli ';
+    },
+    selectedArmorName: function selectedArmorName() {
+      if (this.selectedArmorId == '') {
+        return 'Nem kell páncél';
+      } else {
+        return this.armor(this.selectedArmorId).name;
+      }
+    },
+    currentArmorSfe: function currentArmorSfe() {
+      return this.magusCharacter.Pancel.currentSfe;
+    },
+    LightArmors: function LightArmors() {
+      return this.armors.filter(function (t) {
+        return t.type === 'L';
+      });
+    }
+  }),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
+    updateArmorType: 'updateArmorType',
+    updateArmorEquip: 'updateArmorEquip',
+    updateCurrentSfe: 'updateCurrentSfe',
+    updateSfeDamage: 'updateSfeDamage',
+    updateMgtMod: 'updateMgtMod'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
+    save: 'save'
+  })), {}, {
+    equipUnequip: function equipUnequip() {
+      if (this.magusCharacter.Pancel.equipped) {
+        this.updateArmorEquip(false);
+
+        if (this.haveArmorSkill.level != 'Mf') {
+          this.updateMgtMod(this.currentArmor.Mgt * -1);
+        }
+
+        this.save();
+      } else {
+        this.updateArmorEquip(true);
+
+        if (this.haveArmorSkill.level != 'Mf') {
+          this.updateMgtMod(this.currentArmor.Mgt);
+        }
+
+        this.save();
+      }
+    },
+    unequip: function unequip() {
+      if (this.haveArmor && this.magusCharacter.Pancel.equipped) {
+        this.updateArmorEquip(false);
+
+        if (this.haveArmorSkill.level != 'Mf') {
+          this.updateMgtMod(this.currentArmor.Mgt * -1);
+        }
+
+        this.save();
+      }
+    },
+    selectArmor: function selectArmor(id) {
+      this.selectedArmorId = id;
+    },
+    submitArmor: function submitArmor() {
+      this.updateArmorType(this.selectedArmorId);
+      this.updateCurrentSfe(this.armor(this.selectedArmorId).Sfe);
+      this.save();
+    },
+    restoreSfe: function restoreSfe() {
+      this.updateCurrentSfe(this.currentArmor.Sfe);
+      this.save();
+    },
+    damageSfe: function damageSfe() {
+      this.updateSfeDamage();
+      this.save();
+    }
+  })
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusAtributes.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusAtributes.vue?vue&type=script&lang=js& ***!
@@ -5857,7 +6092,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _MagusBaseData_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusBaseData.vue */ "./resources/js/components/player_site/magus/MagusBaseData.vue");
 /* harmony import */ var _MagusKincsek_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusKincsek.vue */ "./resources/js/components/player_site/magus/MagusKincsek.vue");
 /* harmony import */ var _MagusEquipment_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MagusEquipment.vue */ "./resources/js/components/player_site/magus/MagusEquipment.vue");
@@ -5865,6 +6100,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MagusEletero_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MagusEletero.vue */ "./resources/js/components/player_site/magus/MagusEletero.vue");
 /* harmony import */ var _MagusAtributes_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MagusAtributes.vue */ "./resources/js/components/player_site/magus/MagusAtributes.vue");
 /* harmony import */ var _MagusShield_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./MagusShield.vue */ "./resources/js/components/player_site/magus/MagusShield.vue");
+/* harmony import */ var _MagusArmor_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./MagusArmor.vue */ "./resources/js/components/player_site/magus/MagusArmor.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -6175,19 +6411,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -6204,19 +6428,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     MagusHarcertek: _MagusHarcertek_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     MagusEletero: _MagusEletero_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     MagusAtributes: _MagusAtributes_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    MagusShield: _MagusShield_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+    MagusShield: _MagusShield_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    MagusArmor: _MagusArmor_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   data: function data() {
     return {};
   },
   //COMPUTED----------------------------------
-  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_7__.mapGetters)('currentCharacter', {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_8__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_7__.mapGetters)('magusAligments', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_8__.mapGetters)('magusAligments', {
     aligment: 'aligment'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_7__.mapGetters)('magusRaces', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_8__.mapGetters)('magusRaces', {
     race: 'race'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_7__.mapGetters)('magusClasses', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_8__.mapGetters)('magusClasses', {
     magusKaszt: 'magusClass'
   })), {}, {
     Jellem: function Jellem() {
@@ -6448,7 +6673,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       aktualisFp: 0,
       aktualisEp: 0,
       fpSzint: '',
-      sfe: 0,
       inputFp: 0,
       inputEp: 0,
       halott: false
@@ -7304,12 +7528,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (this.magusCharacter.Pajzs.equipped) {
         this.updateShieldEquip(false);
         this.updateVeMod(this.currentShield.Ve * -1);
-        this.updateMgtMod(this.currentShield.Mgt * -1);
+
+        if (this.haveShieldSkill.level != 'Mf') {
+          this.updateMgtMod(this.currentShield.Mgt * -1);
+        }
+
         this.save();
       } else {
         this.updateShieldEquip(true);
         this.updateVeMod(this.currentShield.Ve);
-        this.updateMgtMod(this.currentShield.Mgt);
+
+        if (this.haveShieldSkill.level != 'Mf') {
+          this.updateMgtMod(this.currentShield.Mgt);
+        }
+
         this.save();
       }
     },
@@ -7317,7 +7549,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (this.haveShield && this.magusCharacter.Pajzs.equipped) {
         this.updateShieldEquip(false);
         this.updateVeMod(this.currentShield.Ve * -1);
-        this.updateMgtMod(this.currentShield.Mgt * -1);
+
+        if (this.haveShieldSkill.level != 'Mf') {
+          this.updateMgtMod(this.currentShield.Mgt * -1);
+        }
+
         this.save();
       }
     },
@@ -7424,13 +7660,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/magus/magusAligments */ "./resources/js/store/modules/magus/magusAligments.js");
 /* harmony import */ var _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/magus/magusRaces */ "./resources/js/store/modules/magus/magusRaces.js");
 /* harmony import */ var _modules_magus_magusClasses__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/magus/magusClasses */ "./resources/js/store/modules/magus/magusClasses.js");
 /* harmony import */ var _modules_magus_currentCharacter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/magus/currentCharacter */ "./resources/js/store/modules/magus/currentCharacter.js");
 /* harmony import */ var _modules_magus_magusShields__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/magus/magusShields */ "./resources/js/store/modules/magus/magusShields.js");
+/* harmony import */ var _modules_magus_magusArmors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/magus/magusArmors */ "./resources/js/store/modules/magus/magusArmors.js");
 
 
 
@@ -7438,14 +7675,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_5__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_6__["default"]);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_6__["default"].Store({
+
+vue__WEBPACK_IMPORTED_MODULE_6__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_7__["default"]);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_7__["default"].Store({
   modules: {
     magusAligments: _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__["default"],
     magusRaces: _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__["default"],
     magusClasses: _modules_magus_magusClasses__WEBPACK_IMPORTED_MODULE_2__["default"],
     currentCharacter: _modules_magus_currentCharacter__WEBPACK_IMPORTED_MODULE_3__["default"],
-    magusShields: _modules_magus_magusShields__WEBPACK_IMPORTED_MODULE_4__["default"]
+    magusShields: _modules_magus_magusShields__WEBPACK_IMPORTED_MODULE_4__["default"],
+    magusArmors: _modules_magus_magusArmors__WEBPACK_IMPORTED_MODULE_5__["default"]
   }
 }));
 
@@ -7464,7 +7703,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /**-------------------------------------------
  * 
- * STORE FOR MAGUS ALIGMENTS
+ * STORE FOR CURRENT MAGUS CHARACTER
  * 
  * -------------------------------------------
  */
@@ -7586,9 +7825,9 @@ var state = {
       mf: []
     },
     Pancel: {
-      id: '',
+      id: 'BOR_SZEGECSELT',
       equipped: false,
-      currentSfe: 0
+      currentSfe: 1
     },
     Pajzs: {
       id: 'PAJZS_KICSI',
@@ -7834,6 +8073,20 @@ var mutations = {
   },
   updateCeMod: function updateCeMod(state, ce) {
     state.magusCharacter.CeMod += ce;
+  },
+  updateArmorType: function updateArmorType(state, armorId) {
+    state.magusCharacter.Pancel.id = armorId;
+  },
+  updateArmorEquip: function updateArmorEquip(state, equipped) {
+    state.magusCharacter.Pancel.equipped = equipped;
+  },
+  updateCurrentSfe: function updateCurrentSfe(state, sfe) {
+    state.magusCharacter.Pancel.currentSfe = sfe;
+  },
+  updateSfeDamage: function updateSfeDamage(state) {
+    if (state.magusCharacter.Pancel.currentSfe > 0) {
+      state.magusCharacter.Pancel.currentSfe--;
+    }
   }
 };
 var actions = {
@@ -7928,6 +8181,369 @@ var getters = {
   aligment: function aligment(state) {
     return function (id) {
       return state.aligments.find(function (a) {
+        return a.id === id;
+      });
+    };
+  }
+};
+var mutations = {};
+var actions = {};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/magus/magusArmors.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/store/modules/magus/magusArmors.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**-------------------------------------------
+ * 
+ * STORE FOR MAGUS ARMORS
+ * 
+ * -------------------------------------------
+ */
+var state = {
+  armors: [{
+    id: 'POSZTO',
+    name: 'Posztó vért',
+    material: 'szövet vagy puha bőr',
+    type: 'L',
+    typeName: 'könnyű vért',
+    Sfe: 1,
+    Mgt: 0,
+    weight: '5 kg',
+    price: '1 ezüst',
+    description: 'A posztóvért a szegényebb gyalogosok viselete. Vastag posztóból vagy puha bőrből készül, és valamenyire felfogja az ütéseket. A lábat combközépig vagy térdig fedi, a kart könyékig.'
+  }, {
+    id: 'BOR_SZEGECSELT',
+    name: 'Kivert bőr vért',
+    material: 'bőr vas szegecsekkel',
+    type: 'L',
+    typeName: 'könnyű vért',
+    Sfe: 1,
+    Mgt: 0,
+    weight: '8 kg',
+    price: '4 ezüst',
+    description: 'A kivert bőrpáncél puha, de vastag bőrből készül, amit szegecsekkel vernek ki. A felkart és a combot is fedi. Gyakran a combokra rálógó rész középen fel van hasitva, hogy lovagolni lehessen benne.'
+  }, {
+    id: 'BOR_KEMENY',
+    name: 'Keményitett bőr vért',
+    material: 'bőr',
+    type: 'L',
+    typeName: 'könnyű vért',
+    Sfe: 2,
+    Mgt: 2,
+    weight: '7 kg',
+    price: '5 ezüst',
+    description: 'A keményitett bőrpáncél vagy bőr mellvért olajban kifőzött, vastag bőrből készül, amely az eljárás hatására megkeményedik. Általában csak a felsőtestet védi, mert meglehetősen merev.'
+  }, {
+    id: 'BOR_GYURUS',
+    name: 'Gyűrűspáncél',
+    material: 'bőr vagy szövet, vas karikákkal',
+    type: 'L',
+    typeName: 'könnyű vért',
+    Sfe: 1,
+    Mgt: 1,
+    weight: '12 kg',
+    price: '2 arany',
+    description: 'A gyűrűspáncél a posztóvért továbbfejlesztett változata, ahol a posztóra vagy bőrre kivülről fém karikákat varrnak. A kivert bőrhöz hasonlóan a combot és a felkart is védi.'
+  }, {
+    id: 'BRIGANTIN',
+    name: 'Brigantin',
+    material: 'Szövet vagy bőr vas lemezekkel',
+    type: 'L',
+    typeName: 'könnyű vért',
+    Sfe: 3,
+    Mgt: 2,
+    weight: '15 kg',
+    price: '4 arany',
+    description: 'A brigantin alapja szintén a posztóvért, de itt két vékonyabb réteg közé varrnak fém lapocskákat. A felsőtestet védi.'
+  }, {
+    id: 'LANCING',
+    name: 'Láncing',
+    material: 'vas',
+    type: 'L',
+    typeName: 'könnyű vért',
+    Sfe: 2,
+    Mgt: 1,
+    weight: '20 kg',
+    price: '10 arany',
+    description: 'A láncing egymásba bújtatott kis fémkarikák összesége, mintha csak valaki láncból készitett volna szövetet. Álltalában a felsőtestet és a felkart védi, de egyes változatai egészen csuklóig, illetve térdig lenyúlnak. Gyakran készitenek láncból egyébb, ruhadarabokat utánzó páncélokat is, például nadrágot, csuklyát vagy kesztyűt.'
+  }, {
+    id: 'SODRONY_FEM',
+    name: 'Vas sodronying',
+    material: 'vas',
+    type: 'L',
+    typeName: 'könnyű vért',
+    Sfe: 3,
+    Mgt: 1,
+    weight: '20 kg',
+    price: '12 arany',
+    description: 'A sodronying sokban hasonlit a láncinghez, de a láncszemek itt finomabbak, és az egymásra szőtt láncok meg vannak tekeredve, igy az egész láncszövet vastagabb, miáltal jobban véd.'
+  }, {
+    id: 'SODRONY_ABIT',
+    name: 'Abitacél sodronying',
+    material: 'abitacél',
+    type: 'L',
+    typeName: 'könnyű vért',
+    Sfe: 4,
+    Mgt: 0,
+    weight: '12 kg',
+    price: '30 arany',
+    description: 'A sodronying sokban hasonlit a láncinghez, de a láncszemek itt finomabbak, és az egymásra szőtt láncok meg vannak tekeredve, igy az egész láncszövet vastagabb, miáltal jobban véd.'
+  }, {
+    id: 'SODRONY_MIT',
+    name: 'Mithrill sodronying',
+    material: 'mithrill',
+    type: 'L',
+    typeName: 'könnyű vért',
+    Sfe: 5,
+    Mgt: 0,
+    weight: '10 kg',
+    price: '1200 arany',
+    description: 'A sodronying sokban hasonlit a láncinghez, de a láncszemek itt finomabbak, és az egymásra szőtt láncok meg vannak tekeredve, igy az egész láncszövet vastagabb, miáltal jobban véd.'
+  }, {
+    id: 'PIKKELY_FEM',
+    name: 'Vas pikkelyvért',
+    material: 'vas',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 3,
+    Mgt: 2,
+    weight: '16 kg',
+    price: '20 arany',
+    description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősitenek.'
+  }, {
+    id: 'PIKKELY_BRONZ',
+    name: 'Bronz pikkelyvért',
+    material: 'bronz',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 2,
+    Mgt: 2,
+    weight: '18 kg',
+    price: '16 arany',
+    description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősitenek.'
+  }, {
+    id: 'PIKKELY_ABIT',
+    name: 'Abitacél pikkelyvért',
+    material: 'abitacél',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 4,
+    Mgt: 1,
+    weight: '7 kg',
+    price: '50 arany',
+    description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősitenek.'
+  }, {
+    id: 'PIKKELY_MIT',
+    name: 'Mithrill pikkelyvért',
+    material: 'mithrill',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 5,
+    Mgt: 0,
+    weight: '5 kg',
+    price: '2000 arany',
+    description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősitenek.'
+  }, {
+    id: 'LEMEZ_FEM',
+    name: 'Vas lemezvértezet',
+    material: 'vas',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 3,
+    Mgt: 3,
+    weight: '16 kg',
+    price: '40 arany',
+    description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek álltalában téglalap alakúak, és úgy vannak meghajlitva, hogy kövessék a test vonalát. A válnál az ivelt lemezek átfedik egymást, szijakkal kapcsolódnak, igy nagyobb mozgásszabadságot bisztositanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást bisztosit.'
+  }, {
+    id: 'LEMEZ_BRONZ',
+    name: 'Bronz lemezvértezet',
+    material: 'bronz',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 2,
+    Mgt: 3,
+    weight: '18 kg',
+    price: '30 arany',
+    description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek álltalában téglalap alakúak, és úgy vannak meghajlitva, hogy kövessék a test vonalát. A válnál az ivelt lemezek átfedik egymást, szijakkal kapcsolódnak, igy nagyobb mozgásszabadságot bisztositanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást bisztosit.'
+  }, {
+    id: 'LEMEZ_ABIT',
+    name: 'Abitacél lemezvértezet',
+    material: 'abitacél',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 4,
+    Mgt: 2,
+    weight: '7 kg',
+    price: '100 arany',
+    description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek álltalában téglalap alakúak, és úgy vannak meghajlitva, hogy kövessék a test vonalát. A válnál az ivelt lemezek átfedik egymást, szijakkal kapcsolódnak, igy nagyobb mozgásszabadságot bisztositanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást bisztosit.'
+  }, {
+    id: 'LEMEZ_MIT',
+    name: 'Mithrill lemezvértezet',
+    material: 'mithrill',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 5,
+    Mgt: 1,
+    weight: '5 kg',
+    price: '4000 arany',
+    description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek álltalában téglalap alakúak, és úgy vannak meghajlitva, hogy kövessék a test vonalát. A válnál az ivelt lemezek átfedik egymást, szijakkal kapcsolódnak, igy nagyobb mozgásszabadságot bisztositanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást bisztosit.'
+  }, {
+    id: 'MELL_FEM',
+    name: 'Vas mellvért',
+    material: 'vas',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 4,
+    Mgt: 4,
+    weight: '18 kg',
+    price: '80 arany',
+    description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Álltalában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.'
+  }, {
+    id: 'MELL_BRONZ',
+    name: 'Bronz mellvért',
+    material: 'bronz',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 3,
+    Mgt: 4,
+    weight: '20 kg',
+    price: '60 arany',
+    description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Álltalában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.'
+  }, {
+    id: 'MELL_ABIT',
+    name: 'Abitacél mellvért',
+    material: 'abitacél',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 5,
+    Mgt: 2,
+    weight: '8 kg',
+    price: '200 arany',
+    description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Álltalában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.'
+  }, {
+    id: 'MELL_MIT',
+    name: 'Mithrill mellvért',
+    material: 'mithrill',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 6,
+    Mgt: 1,
+    weight: '6 kg',
+    price: '8000 arany',
+    description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Álltalában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.'
+  }, {
+    id: 'FEL_FEM',
+    name: 'Vas félvértezet',
+    material: 'vas',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 5,
+    Mgt: 6,
+    weight: '30 kg',
+    price: '120 arany',
+    description: 'A félvértezett mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szijakkal kapcsolódó lemezek összesége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvértel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.'
+  }, {
+    id: 'FEL_BRONZ',
+    name: 'Bronz félvértezet',
+    material: 'bronz',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 4,
+    Mgt: 6,
+    weight: '35 kg',
+    price: '100 arany',
+    description: 'A félvértezett mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szijakkal kapcsolódó lemezek összesége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvértel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.'
+  }, {
+    id: 'FEL_ABIT',
+    name: 'Abitacél félvértezet',
+    material: 'abitacél',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 6,
+    Mgt: 4,
+    weight: '12 kg',
+    price: '300 arany',
+    description: 'A félvértezett mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szijakkal kapcsolódó lemezek összesége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvértel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.'
+  }, {
+    id: 'FEL_MIT',
+    name: 'Mithrill félvértezett',
+    material: 'mithrill',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 7,
+    Mgt: 3,
+    weight: '8 kg',
+    price: '12000 arany',
+    description: 'A félvértezett mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szijakkal kapcsolódó lemezek összesége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvértel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.'
+  }, {
+    id: 'TELJES_FEM',
+    name: 'Vas teljes vértezet',
+    material: 'vas',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 6,
+    Mgt: 8,
+    weight: '35 kg',
+    price: '200 arany',
+    description: 'A teljes vértezet egész testet beboritó fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvértel együtt használják, ami megfelelő kipárnázást bisztosit. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.'
+  }, {
+    id: 'TELJES_BRONZ',
+    name: 'Bronz teljes vértezet',
+    material: 'bronz',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 5,
+    Mgt: 8,
+    weight: '40 kg',
+    price: '160 arany',
+    description: 'A teljes vértezet egész testet beboritó fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvértel együtt használják, ami megfelelő kipárnázást bisztosit. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.'
+  }, {
+    id: 'TELJES_ABIT',
+    name: 'Abitacél teljes vértezet',
+    material: 'abitacél',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 7,
+    Mgt: 6,
+    weight: '15 kg',
+    price: '500 arany',
+    description: 'A teljes vértezet egész testet beboritó fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvértel együtt használják, ami megfelelő kipárnázást bisztosit. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.'
+  }, {
+    id: 'TELJES_MIT',
+    name: 'Mithrill teljes vértezet',
+    material: 'mithrill',
+    type: 'H',
+    typeName: 'Nehéz vért',
+    Sfe: 8,
+    Mgt: 4,
+    weight: '10 kg',
+    price: '20000 arany',
+    description: 'A teljes vértezet egész testet beboritó fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvértel együtt használják, ami megfelelő kipárnázást bisztosit. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.'
+  }]
+};
+var getters = {
+  armors: function armors() {
+    return state.armors;
+  },
+  armor: function armor(state) {
+    return function (id) {
+      return state.armors.find(function (a) {
         return a.id === id;
       });
     };
@@ -8212,6 +8828,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/**-------------------------------------------
+ * 
+ * STORE FOR MAGUS SHIELDS
+ * 
+ * -------------------------------------------
+ */
 var state = {
   shields: [{
     id: 'PAJZS_KICSI',
@@ -31330,6 +31952,45 @@ component.options.__file = "resources/js/components/player_site/MagusCharacterCr
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/magus/MagusArmor.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusArmor.vue ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusArmor_vue_vue_type_template_id_501c4c01___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusArmor.vue?vue&type=template&id=501c4c01& */ "./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=template&id=501c4c01&");
+/* harmony import */ var _MagusArmor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusArmor.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MagusArmor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusArmor_vue_vue_type_template_id_501c4c01___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusArmor_vue_vue_type_template_id_501c4c01___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/player_site/magus/MagusArmor.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/magus/MagusAtributes.vue":
 /*!**********************************************************************!*\
   !*** ./resources/js/components/player_site/magus/MagusAtributes.vue ***!
@@ -31761,6 +32422,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusArmor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusArmor.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusArmor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/magus/MagusAtributes.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************!*\
   !*** ./resources/js/components/player_site/magus/MagusAtributes.vue?vue&type=script&lang=js& ***!
@@ -31999,6 +32676,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterCreate_vue_vue_type_template_id_1e958d2e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterCreate_vue_vue_type_template_id_1e958d2e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusCharacterCreate.vue?vue&type=template&id=1e958d2e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/MagusCharacterCreate.vue?vue&type=template&id=1e958d2e&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=template&id=501c4c01&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=template&id=501c4c01& ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusArmor_vue_vue_type_template_id_501c4c01___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusArmor_vue_vue_type_template_id_501c4c01___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusArmor_vue_vue_type_template_id_501c4c01___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusArmor.vue?vue&type=template&id=501c4c01& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=template&id=501c4c01&");
 
 
 /***/ }),
@@ -32660,6 +33354,491 @@ var render = function () {
   )
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=template&id=501c4c01&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=template&id=501c4c01& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "h4",
+      { staticClass: "text-center mt-2 pb-3 border-bottom border-secondary" },
+      [_vm._v("Páncél")]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "d-grid text-center mb-3" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success my-3",
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#armorModal",
+          },
+          on: { click: _vm.unequip },
+        },
+        [_vm._v("Páncél módositása")]
+      ),
+    ]),
+    _vm._v(" "),
+    _vm.haveArmor
+      ? _c("div", { staticClass: " border-top border-secondary my-2" }, [
+          _c("p", [
+            _c("span", { staticClass: "fs-5 fw-bolder me-2" }, [
+              _vm._v(_vm._s(_vm.currentArmor.name)),
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success btn-sm ms-2",
+                attrs: {
+                  type: "button",
+                  "data-bs-toggle": "modal",
+                  "data-bs-target": "#armorInfoModal",
+                },
+              },
+              [_vm._v("i")]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _c("span", { staticClass: "fw-bolder me-2" }, [
+              _vm._v("Állapot: "),
+            ]),
+            _c("span", [_vm._v(_vm._s(_vm.haveArmorEquipedText))]),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success btn-sm ms-2",
+                on: { click: _vm.equipUnequip },
+              },
+              [_vm._v("Változtat")]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _c("span", { staticClass: "fw-bolder me-2" }, [
+              _vm._v("Használat szintje: "),
+            ]),
+            _vm._v(_vm._s(_vm.haveArmorSkill.level)),
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "fs-5" }, [
+            _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("SFÉ: ")]),
+            _c("span", [_vm._v(_vm._s(_vm.currentArmor.Sfe))]),
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "fs-5" }, [
+            _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("MGT: ")]),
+            _c("span", [_vm._v(_vm._s(_vm.currentArmor.Mgt))]),
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "fs-5" }, [
+            _c("span", { staticClass: "fw-bolder me-2" }, [
+              _vm._v("Aktuális SFÉ: "),
+            ]),
+            _c("span", [_vm._v(_vm._s(_vm.currentArmorSfe))]),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-danger btn-sm ms-2",
+                on: { click: _vm.damageSfe },
+              },
+              [_vm._v("SFÉ rongálódás")]
+            ),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success btn-sm ms-2",
+                on: { click: _vm.restoreSfe },
+              },
+              [_vm._v("Megjavitva")]
+            ),
+          ]),
+        ])
+      : _c("div", { staticClass: " border-top border-secondary my-2" }, [
+          _c("p", { staticClass: "p-2" }, [
+            _vm._v("A karakter nem rendelkezik páncéllal"),
+          ]),
+        ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "armorModal",
+          tabindex: "-1",
+          "aria-labelledby": "armorModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _vm.haveArmor
+                ? _c("div", [
+                    _c("h4", [_vm._v("Jelenleg meglévő páncél:")]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _c("span", { staticClass: "fs-5 fw-bolder me-2" }, [
+                        _vm._v(_vm._s(_vm.currentArmor.name)),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-success btn-sm ms-2",
+                          attrs: {
+                            type: "button",
+                            "data-bs-toggle": "modal",
+                            "data-bs-target": "#armorInfoModal",
+                          },
+                        },
+                        [_vm._v("i")]
+                      ),
+                    ]),
+                  ])
+                : _c("div"),
+              _vm._v(" "),
+              _c("h4", [_vm._v("Páncél választási lehetőségek")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Figyelem, ha vásárolsz páncélt annak értékét külön le kell vonni a kincseid közül!"
+                ),
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Ha nem rendelkezel pácél viselet képzetséggel, csak könnyű páncélt viselhetsz"
+                ),
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v("Páncél viselet : " + _vm._s(_vm.haveArmorSkill.level)),
+              ]),
+              _vm._v(" "),
+              _vm.haveArmorSkill.have
+                ? _c(
+                    "div",
+                    { staticClass: "d-grid text-center" },
+                    [
+                      _c("div", { staticClass: "my-2" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-outline-dark",
+                            on: {
+                              click: function ($event) {
+                                return _vm.selectArmor("")
+                              },
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                                Nem akarok páncélt\r\n                            "
+                            ),
+                          ]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.armors, function (pancel, index) {
+                        return _c("div", { key: index, staticClass: "my-2" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-outline-dark",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.selectArmor(pancel.id)
+                                },
+                              },
+                            },
+                            [
+                              _c("p", { staticClass: "fs-5 fw-bolder" }, [
+                                _vm._v(_vm._s(pancel.name)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(" " + _vm._s(pancel.description)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v("Anyag: " + _vm._s(pancel.material)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v("MGT: " + _vm._s(pancel.Mgt))]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v("SFÉ: " + _vm._s(pancel.Sfe))]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v("Súly: " + _vm._s(pancel.weight)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v("Érték: " + _vm._s(pancel.price)),
+                              ]),
+                            ]
+                          ),
+                        ])
+                      }),
+                    ],
+                    2
+                  )
+                : _c(
+                    "div",
+                    { staticClass: "d-grid text-center" },
+                    [
+                      _c("div", { staticClass: "my-2" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-outline-dark",
+                            on: {
+                              click: function ($event) {
+                                return _vm.selectArmor("")
+                              },
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                                Nem akarok páncélt\r\n                            "
+                            ),
+                          ]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.LightArmors, function (pancel, index) {
+                        return _c("div", { key: index, staticClass: "my-2" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-outline-dark",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.selectArmor(pancel.id)
+                                },
+                              },
+                            },
+                            [
+                              _c("p", { staticClass: "fs-5 fw-bolder" }, [
+                                _vm._v(_vm._s(pancel.name)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(" " + _vm._s(pancel.description)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v("Anyag: " + _vm._s(pancel.material)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v("MGT: " + _vm._s(pancel.Mgt))]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v("SFÉ: " + _vm._s(pancel.Sfe))]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v("Súly: " + _vm._s(pancel.weight)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v("Érték: " + _vm._s(pancel.price)),
+                              ]),
+                            ]
+                          ),
+                        ])
+                      }),
+                    ],
+                    2
+                  ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "text-center bg-info text-black mt-3 border border-primary rounded",
+                },
+                [
+                  _c("h4", { staticClass: "mt-2" }, [_vm._v("A választás:")]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(_vm.selectedArmorName))]),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.submitArmor },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "armorInfoModal",
+          tabindex: "-1",
+          "aria-labelledby": "armorInfoModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "modal-dialog modal-dialog-centered modal-dialog-scrollable",
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "armorInfoModalLabel" },
+                  },
+                  [_vm._v(_vm._s(_vm.currentArmor.name))]
+                ),
+                _vm._v(" "),
+                _c("button", {
+                  staticClass: "btn-close",
+                  attrs: {
+                    type: "button",
+                    "data-bs-dismiss": "modal",
+                    "aria-label": "Close",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("p", [_vm._v(" " + _vm._s(_vm.currentArmor.description))]),
+                _vm._v(" "),
+                _c("p", { staticClass: "fs-5" }, [
+                  _c("span", { staticClass: "fw-bolder me-2" }, [
+                    _vm._v("Anyag: "),
+                  ]),
+                  _c("span", [_vm._v(_vm._s(_vm.currentArmor.material))]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "fs-5" }, [
+                  _c("span", { staticClass: "fw-bolder me-2" }, [
+                    _vm._v("MGT: "),
+                  ]),
+                  _c("span", [_vm._v(_vm._s(_vm.currentArmor.Mgt))]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "fs-5" }, [
+                  _c("span", { staticClass: "fw-bolder me-2" }, [
+                    _vm._v("SFÉ: "),
+                  ]),
+                  _c("span", [_vm._v(_vm._s(_vm.currentArmor.Sfe))]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "fs-5" }, [
+                  _c("span", { staticClass: "fw-bolder me-2" }, [
+                    _vm._v("Súlya: "),
+                  ]),
+                  _c("span", [_vm._v(_vm._s(_vm.currentArmor.weight))]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "fs-5" }, [
+                  _c("span", { staticClass: "fw-bolder me-2" }, [
+                    _vm._v("Értéke: "),
+                  ]),
+                  _c("span", [_vm._v(_vm._s(_vm.currentArmor.price))]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _vm._m(1),
+            ]),
+          ]
+        ),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "armorModalLabel" } },
+        [_vm._v("Páncél választása")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Close")]
+      ),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -33608,9 +34787,12 @@ var render = function () {
           ]
         ),
         _vm._v(" "),
-        _vm._m(4),
-        _vm._v(" "),
-        _vm._m(5),
+        _c(
+          "div",
+          { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+          [_c("magus-armor")],
+          1
+        ),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-lg" }, [
@@ -33695,11 +34877,11 @@ var render = function () {
       ]),
     ]),
     _vm._v(" "),
+    _vm._m(4),
+    _vm._v(" "),
+    _vm._m(5),
+    _vm._v(" "),
     _vm._m(6),
-    _vm._v(" "),
-    _vm._m(7),
-    _vm._v(" "),
-    _vm._m(8),
     _vm._v(" "),
     _c(
       "div",
@@ -33738,9 +34920,9 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _vm._m(9),
+      _vm._m(7),
       _vm._v(" "),
-      _vm._m(10),
+      _vm._m(8),
     ]),
   ])
 }
@@ -33882,67 +35064,6 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("p", [_vm._v("0")]),
-      ]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
-      [
-        _c("div", [
-          _c(
-            "h4",
-            {
-              staticClass:
-                "text-center mt-2 pb-3 border-bottom border-secondary",
-            },
-            [_vm._v("Viselt páncél tipus")]
-          ),
-          _vm._v(" "),
-          _c("p", [_vm._v("Szegecselt bőr vért")]),
-        ]),
-      ]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
-      [
-        _c("div", [
-          _c(
-            "h4",
-            {
-              staticClass:
-                "text-center mt-2 pb-3 border-bottom border-secondary",
-            },
-            [_vm._v("Viselt páncél módositói")]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "fs-5" }, [
-            _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("MGT: ")]),
-            _c("span", [_vm._v("0")]),
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "fs-5" }, [
-            _c("span", { staticClass: "fw-bolder me-2" }, [
-              _vm._v("Max SFÉ: "),
-            ]),
-            _c("span", [_vm._v("0")]),
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "fs-5" }, [
-            _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("SFÉ: ")]),
-            _c("span", [_vm._v("0")]),
-          ]),
-        ]),
       ]
     )
   },

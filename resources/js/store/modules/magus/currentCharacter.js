@@ -122,9 +122,9 @@
             mf: []
         },
         Pancel: {
-            id: '',
+            id: 'BOR_SZEGECSELT',
             equipped: false,
-            currentSfe: 0,
+            currentSfe: 1,
         },
         Pajzs: {
             id: 'PAJZS_KICSI',
@@ -316,6 +316,20 @@ const mutations = {
     updateCeMod(state, ce) {
         state.magusCharacter.CeMod += ce;
     },
+    updateArmorType(state, armorId) {
+        state.magusCharacter.Pancel.id = armorId;
+    },
+    updateArmorEquip(state, equipped) {
+        state.magusCharacter.Pancel.equipped = equipped;
+    },
+    updateCurrentSfe(state, sfe) {
+        state.magusCharacter.Pancel.currentSfe = sfe;
+    },
+    updateSfeDamage(state) {
+        if (state.magusCharacter.Pancel.currentSfe > 0) {
+            state.magusCharacter.Pancel.currentSfe --;
+        }
+    }
 };
 const actions = {
     save(context) {

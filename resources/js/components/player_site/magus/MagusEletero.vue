@@ -55,7 +55,6 @@ export default {
             aktualisFp: 0,
             aktualisEp: 0,
             fpSzint: '',
-            sfe: 0,
             inputFp: 0,
             inputEp: 0,
             halott: false,

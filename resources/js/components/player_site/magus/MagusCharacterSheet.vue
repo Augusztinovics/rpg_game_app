@@ -106,20 +106,7 @@
 
                 <!-- viselt pancel tipusa -->
                 <div class="bg-light border border-secondary rounded mb-4 p-3">
-                    <div>
-                        <h4 class="text-center mt-2 pb-3 border-bottom border-secondary">Viselt páncél tipus</h4>
-                        <p>Szegecselt bőr vért</p>
-                    </div>
-                </div>
-
-                 <!-- viselt pancel ertekei -->
-                <div class="bg-light border border-secondary rounded mb-4 p-3">
-                    <div>
-                        <h4 class="text-center mt-2 pb-3 border-bottom border-secondary">Viselt páncél módositói</h4>
-                        <p class="fs-5"><span class="fw-bolder me-2">MGT: </span><span>0</span></p>
-                        <p class="fs-5"><span class="fw-bolder me-2">Max SFÉ: </span><span>0</span></p>
-                        <p class="fs-5"><span class="fw-bolder me-2">SFÉ: </span><span>0</span></p>
-                    </div>
+                    <magus-armor />
                 </div>
 
            </div>
@@ -324,6 +311,7 @@
     import MagusEletero from './MagusEletero.vue';
     import MagusAtributes from './MagusAtributes.vue';
     import MagusShield from './MagusShield.vue';
+    import MagusArmor from './MagusArmor.vue';
 
     export default {
         components: {
@@ -334,6 +322,7 @@
            MagusEletero,
            MagusAtributes,
            MagusShield,
+           MagusArmor,
         },
         data() {
             return {

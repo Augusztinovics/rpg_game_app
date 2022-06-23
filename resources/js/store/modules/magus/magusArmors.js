@@ -5,7 +5,7 @@
  * -------------------------------------------
  */
 const state = {
-    armorss: [
+    armors: [
         {
             id: 'POSZTO',
             name: 'Posztó vért',
@@ -358,10 +358,10 @@ const state = {
 };
 const getters = {
     armors: () => {
-        return state.shields;
+        return state.armors;
     },
     armor: (state) => (id) => {
-        return state.shields.find(a => a.id === id);
+        return state.armors.find(a => a.id === id);
     }
 };
 const mutations = {};
