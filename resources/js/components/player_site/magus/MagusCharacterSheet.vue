@@ -166,43 +166,7 @@
 
         <!-- fegyverek -->
         <div class="bg-light border border-secondary rounded mb-4 p-3">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col-1">Kézben</th>
-                        <th scope="col-4">Fegyver</th>
-                        <th scope="col-1">Tám/kör</th>
-                        <th scope="col-1">KÉ</th>
-                        <th scope="col-1">TÉ</th>
-                        <th scope="col-1">VÉ</th>
-                        <th scope="col-1">CÉ</th>
-                        <th scope="col-2">Sebzés</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row" class="bg-success"></th>
-                        <td>Hosszu kard</td>
-                        <td>1</td>
-                        <td>7</td>
-                        <td>14</td>
-                        <td>16</td>
-                        <td>0</td>
-                        <td>k10</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>Tőr</td>
-                        <td>2</td>
-                        <td>10</td>
-                        <td>2</td>
-                        <td>7</td>
-                        <td>0</td>
-                        <td>k6</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
+           <magus-wepon />
         </div>
 
         <!-- kepzetsegek -->
@@ -312,6 +276,7 @@
     import MagusAtributes from './MagusAtributes.vue';
     import MagusShield from './MagusShield.vue';
     import MagusArmor from './MagusArmor.vue';
+    import MagusWepon from './MagusWepon.vue';
 
     export default {
         components: {
@@ -323,6 +288,7 @@
            MagusAtributes,
            MagusShield,
            MagusArmor,
+           MagusWepon,
         },
         data() {
             return {

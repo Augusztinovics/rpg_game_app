@@ -130,13 +130,14 @@
             id: 'PAJZS_KICSI',
             equipped: true,
         },
-        Fegyverek: [
-            {
-                name: 'HOSSZUKARD',
-                rightHand: false,
-                leftHand: false,
-            }
+        FegyverekKozelharci: [
+            'KARD_HOSSZU',   
         ],
+        FegyverekTavolsagi: [
+            'IJ_ROVID',  
+        ],
+        LeftHand:'PAJZS_KICSI',
+        RightHand: 'KARD_HOSSZU',
         Kincsek: {
             rez: 10,
             ezust: 2,
@@ -329,6 +330,18 @@ const mutations = {
         if (state.magusCharacter.Pancel.currentSfe > 0) {
             state.magusCharacter.Pancel.currentSfe --;
         }
+    },
+    updateLeftHand(state, equipment) {
+        state.magusCharacter.LeftHand = equipment;
+    },
+    updateRightHand(state, equipment) {
+        state.magusCharacter.RightHand = equipment;
+    },
+    updateWeapons(state, weapons) {
+        state.magusCharacter.FegyverekKozelharci = weapons;
+    },
+    updateRangedWeapons(state, ranged) {
+        state.magusCharacter.FegyverekTavolsagi = ranged;
     }
 };
 const actions = {

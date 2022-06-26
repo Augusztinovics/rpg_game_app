@@ -6092,7 +6092,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _MagusBaseData_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusBaseData.vue */ "./resources/js/components/player_site/magus/MagusBaseData.vue");
 /* harmony import */ var _MagusKincsek_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusKincsek.vue */ "./resources/js/components/player_site/magus/MagusKincsek.vue");
 /* harmony import */ var _MagusEquipment_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MagusEquipment.vue */ "./resources/js/components/player_site/magus/MagusEquipment.vue");
@@ -6101,6 +6101,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MagusAtributes_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MagusAtributes.vue */ "./resources/js/components/player_site/magus/MagusAtributes.vue");
 /* harmony import */ var _MagusShield_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./MagusShield.vue */ "./resources/js/components/player_site/magus/MagusShield.vue");
 /* harmony import */ var _MagusArmor_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./MagusArmor.vue */ "./resources/js/components/player_site/magus/MagusArmor.vue");
+/* harmony import */ var _MagusWepon_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./MagusWepon.vue */ "./resources/js/components/player_site/magus/MagusWepon.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -6375,42 +6376,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -6429,19 +6395,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     MagusEletero: _MagusEletero_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     MagusAtributes: _MagusAtributes_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
     MagusShield: _MagusShield_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
-    MagusArmor: _MagusArmor_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+    MagusArmor: _MagusArmor_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    MagusWepon: _MagusWepon_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
   data: function data() {
     return {};
   },
   //COMPUTED----------------------------------
-  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_8__.mapGetters)('currentCharacter', {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_9__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_8__.mapGetters)('magusAligments', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_9__.mapGetters)('magusAligments', {
     aligment: 'aligment'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_8__.mapGetters)('magusRaces', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_9__.mapGetters)('magusRaces', {
     race: 'race'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_8__.mapGetters)('magusClasses', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_9__.mapGetters)('magusClasses', {
     magusKaszt: 'magusClass'
   })), {}, {
     Jellem: function Jellem() {
@@ -7520,7 +7487,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     updateVeMod: 'updateVeMod',
     updateShieldType: 'updateShieldType',
     updateShieldEquip: 'updateShieldEquip',
-    updateMgtMod: 'updateMgtMod'
+    updateMgtMod: 'updateMgtMod',
+    updateLeftHand: 'updateLeftHand'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
     save: 'save'
   })), {}, {
@@ -7528,6 +7496,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (this.magusCharacter.Pajzs.equipped) {
         this.updateShieldEquip(false);
         this.updateVeMod(this.currentShield.Ve * -1);
+        this.updateLeftHand('');
 
         if (this.haveShieldSkill.level != 'Mf') {
           this.updateMgtMod(this.currentShield.Mgt * -1);
@@ -7535,8 +7504,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
         this.save();
       } else {
+        this.$root.$emit('emptyLeftWeapon');
         this.updateShieldEquip(true);
         this.updateVeMod(this.currentShield.Ve);
+        this.updateLeftHand(this.currentShield.id);
 
         if (this.haveShieldSkill.level != 'Mf') {
           this.updateMgtMod(this.currentShield.Mgt);
@@ -7549,6 +7520,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (this.haveShield && this.magusCharacter.Pajzs.equipped) {
         this.updateShieldEquip(false);
         this.updateVeMod(this.currentShield.Ve * -1);
+        this.updateLeftHand('');
 
         if (this.haveShieldSkill.level != 'Mf') {
           this.updateMgtMod(this.currentShield.Mgt * -1);
@@ -7564,7 +7536,351 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.updateShieldType(this.selectedShieldId);
       this.save();
     }
-  })
+  }),
+  created: function created() {
+    var _this = this;
+
+    this.$root.$on('emptyLeftShield', function () {
+      _this.unequip();
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      kozelharci: [],
+      tav: [],
+      selectedWeaponId: '',
+      selectedRangedId: ''
+    };
+  },
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
+    magusCharacter: 'magusCharacter',
+    haveLearnedSkill: 'haveLearnedSkill'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusWeapons', {
+    weapons: 'weapons',
+    weapon: 'weapon',
+    rangedWeapons: 'rangedWeapons',
+    rangedWeapon: 'rangedWeapon'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusShields', {
+    shield: 'shield'
+  })), {}, {
+    haveLeftHandEquip: function haveLeftHandEquip() {
+      if (this.magusCharacter.LeftHand == '') {
+        return false;
+      } else {
+        return true;
+      }
+    },
+    haveRightHandEquip: function haveRightHandEquip() {
+      if (this.magusCharacter.RightHand == '') {
+        return false;
+      } else {
+        return true;
+      }
+    },
+    leftHandText: function leftHandText() {
+      if (this.haveLeftHandEquip) {
+        var leftShield = this.shield(this.magusCharacter.LeftHand);
+        var leftWeapon = this.weapon(this.magusCharacter.LeftHand);
+        var leftRanged = this.rangedWeapon(this.magusCharacter.LeftHand);
+
+        if (leftShield) {
+          return leftShield.name;
+        } else if (leftWeapon) {
+          return leftWeapon.name;
+        } else if (leftRanged) {
+          return leftRanged.name;
+        } else {
+          return 'semmi';
+        }
+      } else {
+        return 'semmi';
+      }
+    },
+    rightHandText: function rightHandText() {
+      if (this.haveRightHandEquip) {
+        var rightShield = this.shield(this.magusCharacter.RightHand);
+        var rightWeapon = this.weapon(this.magusCharacter.RightHand);
+        var rightRanged = this.rangedWeapon(this.magusCharacter.RightHand);
+
+        if (rightShield) {
+          return rightShield.name;
+        } else if (rightWeapon) {
+          return rightWeapon.name;
+        } else if (rightRanged) {
+          return rightRanged.name;
+        } else {
+          return 'semmi';
+        }
+      } else {
+        return 'semmi';
+      }
+    },
+    availableWeapon: function availableWeapon() {
+      var _this = this;
+
+      var avWeapons = [];
+      this.magusCharacter.FegyverekKozelharci.forEach(function (item) {
+        var elem = _this.weapon(item);
+
+        avWeapons.push(elem);
+      });
+      return avWeapons;
+    },
+    availableRangedWeapon: function availableRangedWeapon() {
+      var _this2 = this;
+
+      var rangWeapons = [];
+      this.magusCharacter.FegyverekTavolsagi.forEach(function (item) {
+        var elem = _this2.rangedWeapon(item);
+
+        rangWeapons.push(elem);
+      });
+      return rangWeapons;
+    },
+    selectedWeaponName: function selectedWeaponName() {
+      if (this.selectedWeaponId == '') {
+        return '';
+      } else {
+        return this.weapon(this.selectedWeaponId).name;
+      }
+    },
+    selectedRangedWeaponName: function selectedRangedWeaponName() {
+      if (this.selectedRangedId == '') {
+        return '';
+      } else {
+        return this.rangedWeapon(this.selectedRangedId).name;
+      }
+    }
+  }),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
+    updateKeMod: 'updateKeMod',
+    updateTeMod: 'updateTeMod',
+    updateVeMod: 'updateVeMod',
+    updateCeMod: 'updateCeMod',
+    updateWeapons: 'updateWeapons',
+    updateRangedWeapons: 'updateRangedWeapons',
+    updateRightHand: 'updateRightHand',
+    updateLeftHand: 'updateLeftHand'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
+    save: 'save'
+  })), {}, {
+    removeWeapon: function removeWeapon(index) {
+      if (this.magusCharacter.LeftHand == this.kozelharci[index] || this.magusCharacter.RightHand == this.kozelharci[index]) {} else {
+        this.kozelharci.splice(index, 1);
+        this.updateWeapons(this.kozelharci);
+        this.save();
+      }
+    },
+    removeRanged: function removeRanged(index) {
+      if (this.magusCharacter.LeftHand == this.tav[index] || this.magusCharacter.RightHand == this.tav[index]) {} else {
+        this.tav.splice(index, 1);
+        this.updateRangedWeapons(this.tav);
+        this.save();
+      }
+    },
+    selectWeapon: function selectWeapon(id) {
+      this.selectedWeaponId = id;
+    },
+    selectRangedWeapon: function selectRangedWeapon(id) {
+      this.selectedRangedId = id;
+    },
+    submitWeapon: function submitWeapon() {
+      if (this.selectedWeaponId != '') {
+        this.kozelharci.push(this.selectedWeaponId);
+        this.updateWeapons(this.kozelharci);
+        this.selectedWeaponId = '';
+        this.save();
+      }
+    },
+    submitRangedWeapon: function submitRangedWeapon() {
+      if (this.selectedRangedId != '') {
+        this.tav.push(this.selectedRangedId);
+        this.updateRangedWeapons(this.tav);
+        this.selectedRangedId = '';
+        this.save();
+      }
+    }
+  }),
+  mounted: function mounted() {
+    this.kozelharci = this.magusCharacter.FegyverekKozelharci;
+    this.tav = this.magusCharacter.FegyverekTavolsagi;
+  }
 });
 
 /***/ }),
@@ -7660,14 +7976,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/magus/magusAligments */ "./resources/js/store/modules/magus/magusAligments.js");
 /* harmony import */ var _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/magus/magusRaces */ "./resources/js/store/modules/magus/magusRaces.js");
 /* harmony import */ var _modules_magus_magusClasses__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/magus/magusClasses */ "./resources/js/store/modules/magus/magusClasses.js");
 /* harmony import */ var _modules_magus_currentCharacter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/magus/currentCharacter */ "./resources/js/store/modules/magus/currentCharacter.js");
 /* harmony import */ var _modules_magus_magusShields__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/magus/magusShields */ "./resources/js/store/modules/magus/magusShields.js");
 /* harmony import */ var _modules_magus_magusArmors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/magus/magusArmors */ "./resources/js/store/modules/magus/magusArmors.js");
+/* harmony import */ var _modules_magus_magusWeapons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/magus/magusWeapons */ "./resources/js/store/modules/magus/magusWeapons.js");
 
 
 
@@ -7676,15 +7993,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_6__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_7__["default"]);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_7__["default"].Store({
+
+vue__WEBPACK_IMPORTED_MODULE_7__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_8__["default"]);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_8__["default"].Store({
   modules: {
     magusAligments: _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__["default"],
     magusRaces: _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__["default"],
     magusClasses: _modules_magus_magusClasses__WEBPACK_IMPORTED_MODULE_2__["default"],
     currentCharacter: _modules_magus_currentCharacter__WEBPACK_IMPORTED_MODULE_3__["default"],
     magusShields: _modules_magus_magusShields__WEBPACK_IMPORTED_MODULE_4__["default"],
-    magusArmors: _modules_magus_magusArmors__WEBPACK_IMPORTED_MODULE_5__["default"]
+    magusArmors: _modules_magus_magusArmors__WEBPACK_IMPORTED_MODULE_5__["default"],
+    magusWeapons: _modules_magus_magusWeapons__WEBPACK_IMPORTED_MODULE_6__["default"]
   }
 }));
 
@@ -7833,11 +8152,10 @@ var state = {
       id: 'PAJZS_KICSI',
       equipped: true
     },
-    Fegyverek: [{
-      name: 'HOSSZUKARD',
-      rightHand: false,
-      leftHand: false
-    }],
+    FegyverekKozelharci: ['KARD_HOSSZU'],
+    FegyverekTavolsagi: ['IJ_ROVID'],
+    LeftHand: 'PAJZS_KICSI',
+    RightHand: 'KARD_HOSSZU',
     Kincsek: {
       rez: 10,
       ezust: 2,
@@ -8087,6 +8405,18 @@ var mutations = {
     if (state.magusCharacter.Pancel.currentSfe > 0) {
       state.magusCharacter.Pancel.currentSfe--;
     }
+  },
+  updateLeftHand: function updateLeftHand(state, equipment) {
+    state.magusCharacter.LeftHand = equipment;
+  },
+  updateRightHand: function updateRightHand(state, equipment) {
+    state.magusCharacter.RightHand = equipment;
+  },
+  updateWeapons: function updateWeapons(state, weapons) {
+    state.magusCharacter.FegyverekKozelharci = weapons;
+  },
+  updateRangedWeapons: function updateRangedWeapons(state, ranged) {
+    state.magusCharacter.FegyverekTavolsagi = ranged;
   }
 };
 var actions = {
@@ -8788,7 +9118,7 @@ var state = {
       level: '10%',
       kp: 0
     }],
-    description: ['']
+    description: ['Mágikus beavatkozás eredménye képpen létrejött faj, melynek egyedei az orkok legértékesebb tulajdonságait csillogtatják: a makacsságig menő kitartást, a természetes, állati inteligenciát, a kérhetetlen vadságot - ezúttal az emberiség céljai érdekében.', 'Az udvari - másnéven nemesitett - orkok Északon jelentek meg, első osztaguk egy ottani hatalmasság szolgálatában állt. A világhir, azaz inkább a koronás fők divathóbortja akkor kapta szárnyára őket, mikor kemény küzdelemben megmentették a szorongatott nagyúr életét.', 'Alkotóik, mikor magasabb inteligenciával ruházták fel őket, csak bizonyos problémák kiküszöbölésére törekedtek, nem szenteltek elég figyelmet az igy létrhivott új faj asztrális és mentális adotságainak növekedésével. Az emberi értelemben vett érzelmek a természetes körülmények közt élő közönséges orkoknál sem mennek ritkaságszámba, az udvari orkok gondolkodásvilága azonban annyira kifinomult, hogy ideális táptalajt jelentet az öncélú lelki folyamatok -pl. szépelgés, melankólia - számára is. Bármely udvari ork képes bonyolult gondolatfüzéreit akár egy álló héten át is gombolyitani, mielőtt rászánná magát, hogy végkövetkeztetéseit egy arra alkalmasnak látszó emberrel megossza. Ha megteszi, rendszerint csalódás az osztályrésze: gondolatai hiába magvasak, szinte minden esetben sok ezer éve ismertek már, réges rég papirra vetette őket azóta elporlat tollforgatók. Az udvari orkok kisebbrendűség érzése allighanem épp e szerencsétlen fáziseltolódás következménye. Filozófiáról, művészetekről egyszerűen képtelenek újat mondani alkotójuknak, az embernek - azt pedig, hogy személyiségük, személyük is értékek hordozója lehet, nemigen tudják felfogni.', 'Az udvari orkok az Északi szövetség országaiban mindenütt megtalálhatók, ám uraik kiséretében Ynev majd minden tájára eljuthatnak. Az utóbbi évszázadban vált álltalánossá az a gyakorlat, hogy a főnemesek a kiemelkedő képességű udvari orkjaikat tanittatják, netán szélnek is eresztik - ekkor jelentek meg a kontinensen a kalandkeresők között.', 'A kalandozók nem sokat adnak a külsőre, annál többet a belső értékekre: társaságuk ideális a gátlásoktól gyötört, melankóliára hajlamos udvari orkok számára, akiket bizonyos idő elteltével bisztosan helyre ráznak. Egy-egy kalandozócsapat roppant vegyes összetételű lehet - Erion csapszékeiben hallani történeteket olyan vitézi különitményről, melynek vezetője és esze udvari orkként kezdte pályafutását.', 'Az udvari orkok átlagos testmagassága 180 cm, szőrzetük világosabb árnyalatú Káosz teremtette társaiknál, arcukon és nyakukon kimondottan ritkás - és jó hogy az, mert a boldogtalanokat még ez is szégyenérzettel tölti el. Ha egy udvari ork kalandozó társai nem ügyelnek eléggé, ha a férfiak nem tartják állandóan maguknál a borotvájukat, egy reggel azon vehetik észre magukat, hogy egy csupasz képű szörnyeteg az utitársuk. Az udvari orkok szeme savószinű, ritkábban földbarna. Kinosan tiszták - egy természetes állapotú, közönséges ork éppúgy undorral tölti el őket, mint az embereket. Az igazi orkokhoz fűződő viszonyuk egyébbként is sajátságos: mindkét faj képviselőji saját torzképüknek tekintik a másikat. Az udvari orkok azért gyűlölik a vadon élőket, mert őket teszik felelőssé az emberek előitéleteiért - a vadon élő orkok pedig faja minden -amúgy kétes- értékének árulóját látja az udvariban. Keveredés a két faj között sosem fordul elő.']
   }]
 };
 var getters = {
@@ -8884,6 +9214,1061 @@ var getters = {
     return function (id) {
       return state.shields.find(function (s) {
         return s.id === id;
+      });
+    };
+  }
+};
+var mutations = {};
+var actions = {};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/magus/magusWeapons.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/store/modules/magus/magusWeapons.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**-------------------------------------------
+ * 
+ * STORE FOR MAGUS WEAPONS
+ * 
+ * -------------------------------------------
+ */
+var state = {
+  weapons: [{
+    id: 'BUZOGANY_SHADLEKI',
+    name: 'Buzogány, shadleki',
+    TamKor: '1',
+    Type: 'Szúró/vágófegyver',
+    Ke: 8,
+    Te: 13,
+    Ve: 14,
+    Ce: 0,
+    Sp: {
+      name: 'k6+1',
+      damage: [2, 7]
+    },
+    weight: '1,8 kg',
+    price: '1 arany 3 ezüst',
+    description: 'A shadleki buzogány Shadon egy tartományában kifejlesztett, négy baltaéllel és vaskos heggyel ellátot páncélnyitogató eszköz - inkább vágó-, mintsem zúzófegyver.'
+  }, {
+    id: 'CSATABARD_EGYKEZES',
+    name: 'Csatabárd, egykezes',
+    TamKor: '1',
+    Type: 'Szúró/vágófegyver',
+    Ke: 5,
+    Te: 12,
+    Ve: 11,
+    Ce: 0,
+    Sp: {
+      name: 'k10',
+      damage: [1, 10]
+    },
+    weight: '2 kg',
+    price: '6 ezüst',
+    description: 'A csatabárd a balta harcban használt rokona. Egy hoszabb rövidebb fa nyélhez erősitenek egy vagy akár két éles pengét.Az egykezes változat fél méteres. A törpék kedvenc fegyvere.'
+  }, {
+    id: 'CSATABARD_KETKEZES',
+    name: 'Csatabárd, kétkezes',
+    TamKor: '1/2',
+    Type: 'Szúró/vágófegyver',
+    Ke: 0,
+    Te: 8,
+    Ve: 6,
+    Ce: 0,
+    Sp: {
+      name: '3k6',
+      damage: [3, 18]
+    },
+    weight: '5 kg',
+    price: '2 arany',
+    description: 'A csatabárd a balta harcban használt rokona. Egy hoszabb rövidebb fa nyélhez erősitenek egy vagy akár két éles pengét.A kétkezes változat egy méteres. A törpék kedvenc fegyvere.'
+  }, {
+    id: 'CSATACSAKANY',
+    name: 'Csatacsákány',
+    TamKor: '1',
+    Type: 'Szúró/vágófegyver',
+    Ke: 5,
+    Te: 11,
+    Ve: 8,
+    Ce: 0,
+    Sp: {
+      name: 'k10',
+      damage: [1, 10]
+    },
+    weight: '2,5 kg',
+    price: '8 ezüst',
+    description: 'A csatacsákány, más néven fokos sokban hasonlit a közönséges csákányhoz, ám feje jóval rövidebb, úgy egyarasznyi. Gyakran két hegyel látják el.'
+  }, {
+    id: 'HAJITOBARD',
+    name: 'Hajitóbárd',
+    TamKor: '2',
+    Type: 'Szúró/vágófegyver',
+    Ke: 9,
+    Te: 10,
+    Ve: 7,
+    Ce: 0,
+    Sp: {
+      name: 'k6',
+      damage: [1, 6]
+    },
+    weight: '1,2 kg',
+    price: '1 ezüst',
+    description: 'A hajitóbárd két fő változatban készül, az egyik egy teljesen hagyományos kisbalta, a másik -gyakoribb- változat teljes egészében fémből készül.'
+  }, {
+    id: 'KARD_ROVID',
+    name: 'Kard, rövid',
+    TamKor: '1',
+    Type: 'Szúró/vágófegyver',
+    Ke: 9,
+    Te: 12,
+    Ve: 14,
+    Ce: 0,
+    Sp: {
+      name: 'k6+1',
+      damage: [2, 7]
+    },
+    weight: '1 kg',
+    price: '1 arany',
+    description: 'A rövidkard 40-60 cm hosszú, egyenes pengéje mindkét oldalon ki van élezve. Gyakran ijászok második fegyvere.'
+  }, {
+    id: 'KARD_HOSSZU',
+    name: 'Kard, hosszú',
+    TamKor: '1',
+    Type: 'Szúró/vágófegyver',
+    Ke: 6,
+    Te: 14,
+    Ve: 16,
+    Ce: 0,
+    Sp: {
+      name: 'k10',
+      damage: [1, 10]
+    },
+    weight: '1,5 kg',
+    price: '1 arany 5 ezüst',
+    description: 'A hosszúkard pengéje 60-80 cm-es, egyenes és kétélű. Álltalában gyalogos katonák fő fegyvere.'
+  }, {
+    id: 'KARD_MASFELKEZES',
+    name: 'Kard, másfélkezes',
+    TamKor: '1',
+    Type: 'Szúró/vágófegyver',
+    Ke: 4,
+    Te: 13,
+    Ve: 12,
+    Ce: 0,
+    Sp: {
+      name: '2k6',
+      damage: [2, 12]
+    },
+    weight: '2 kg',
+    price: '2 arany 5 ezüst',
+    description: 'A másfélkezes kard a hosszúkardhoz hasonló, pengéje egyenes, kétélű, ám markolata hozávetőlegesen kétszer olyan hosszú, hogy két kézzel is lehessen fogni.'
+  }, {
+    id: 'KARD_LOVAGI',
+    name: 'Kard, lovagi',
+    TamKor: '1',
+    Type: 'Szúró/vágófegyver',
+    Ke: 2,
+    Te: 10,
+    Ve: 7,
+    Ce: 0,
+    Sp: {
+      name: '2k6+2',
+      damage: [4, 14]
+    },
+    weight: '3,5 kg',
+    price: '3 arany',
+    description: 'A lovagi kard a lovagok kedvenc fegyvere. Egyenes, kétélű pengéje 80-120 cm hosszú. A vége lekerekitett, vagy igen tompa szögben csúcsos. Keresztvasa gyakran S alakú.'
+  }, {
+    id: 'KARD_PALLOS',
+    name: 'Kard, pallos',
+    TamKor: '1/2',
+    Type: 'Szúró/vágófegyver',
+    Ke: 0,
+    Te: 6,
+    Ve: 2,
+    Ce: 0,
+    Sp: {
+      name: '3k6+2',
+      damage: [5, 20]
+    },
+    weight: '7 kg',
+    price: '5 arany',
+    description: 'A pallos szintén lovagi fegyver, hossza nem ritkán eléri a két métert, amiből az egyenes, kétélű penge 160 cm. Két kézzel forgatják.'
+  }, {
+    id: 'KARD_SZABLYA',
+    name: 'Kard, szablya',
+    TamKor: '1',
+    Type: 'Szúró/vágófegyver',
+    Ke: 7,
+    Te: 15,
+    Ve: 17,
+    Ce: 0,
+    Sp: {
+      name: 'k6+2',
+      damage: [3, 8]
+    },
+    weight: '1,5 kg',
+    price: '1 arany 6 ezüst',
+    description: 'A szablya pengéje 60-80 cm hosszú és enyhén hajlitott. Csak a külső iv van kiélezve. Ivelése miatt sokkal jobban lehet vele vágni, mint az egyenes kardokkal -szúrásra, döfésre ritkán használják.'
+  }, {
+    id: 'KARD_DZSENN_SZABLYA',
+    name: 'Kard, dzsenn szablya',
+    TamKor: '1',
+    Type: 'Szúró/vágófegyver',
+    Ke: 9,
+    Te: 20,
+    Ve: 17,
+    Ce: 0,
+    Sp: {
+      name: 'k6+3',
+      damage: [4, 9]
+    },
+    weight: '0,5 kg',
+    price: '120 arany',
+    description: 'A dzsenn szablya szokatlanul keskeny és hosszú, ivelt pengéjű, mágikus úton készitett, ám mágikus tulajdonságokkal nem rendelkező fegyver. Gyakorlatilag törhetetlen.'
+  }, {
+    id: 'KARD_JATAGAN',
+    name: 'Kard, jatagán',
+    TamKor: '1',
+    Type: 'Szúró/vágófegyver',
+    Ke: 7,
+    Te: 14,
+    Ve: 14,
+    Ce: 0,
+    Sp: {
+      name: 'k6+2',
+      damage: [3, 8]
+    },
+    weight: '0,8 kg',
+    price: '1 arany 4 ezüst',
+    description: 'A jatagán elnyújtott S alakot formázó, egyélű pengéje rővid, a kiszélesedő hegy ráadás pengéje visszahúzáskor mélyit a seben'
+  }, {
+    id: 'KARD_HANDZSAR',
+    name: 'Kard, handzsár',
+    TamKor: '1',
+    Type: 'Szúró/vágófegyver',
+    Ke: 6,
+    Te: 14,
+    Ve: 15,
+    Ce: 0,
+    Sp: {
+      name: 'k6+3',
+      damage: [4, 9]
+    },
+    weight: '2 kg',
+    price: '1 arany 5 ezüst',
+    description: 'A handzsár a dzsadok kedvelt fegyvere. Erősen ivelt, csak a külső éle van kifenve. Jellegzetessége, hogy a penge a keresztvasnál allig tenyérnyi, a hegynél viszont jó másféltenyérnyi széles.'
+  }, {
+    id: 'KARD_FEJVADASZ',
+    name: 'Kard, fejvadász',
+    TamKor: '1',
+    Type: 'Szúró/vágófegyver',
+    Ke: 8,
+    Te: 16,
+    Ve: 16,
+    Ce: 0,
+    Sp: {
+      name: 'k6+2',
+      damage: [3, 8]
+    },
+    weight: '0,8 kg',
+    price: '2 arany',
+    description: 'A fejvadászkard speciális, kétmarkolatú fegyver, Gorviktól Kránig szinte mindenütt alkalmazzák. Hossza személyre szabott, alsó, úgynevezett tonfa-markolatnál fogva, az alkarra szoritva épp könyékig ér. Külső élre és hegyre fenik.'
+  }, {
+    id: 'KARD_SLAN',
+    name: 'Kard, slan',
+    TamKor: '1',
+    Type: 'Szúró/vágófegyver',
+    Ke: 8,
+    Te: 20,
+    Ve: 12,
+    Ce: 0,
+    Sp: {
+      name: 'k10+2',
+      damage: [3, 12]
+    },
+    weight: '1,4 kg',
+    price: '100 arany',
+    description: 'A Slan kard a kardművész fegyvere. Keskeny enyhén ivelt pengéjének csak a külső ivét fenik ki. Hossza 1,1 méter amiből 30 cm a markolat. Keresztvasa kicsi, kör alakú. Különleges kovácsolási eljárással készül, nagyon nehezen törik, borotvaélles.'
+  }, {
+    id: 'KARD_KIGYO',
+    name: 'Kard, kigyó',
+    TamKor: '1',
+    Type: 'Szúró/vágófegyver',
+    Ke: 6,
+    Te: 14,
+    Ve: 15,
+    Ce: 0,
+    Sp: {
+      name: 'k10',
+      damage: [1, 10]
+    },
+    weight: '1,4 kg',
+    price: '6 arany',
+    description: 'A kigyókard szinte kizárólag a Tharr-papok fegyvertárában lelhető fel. Hossza 1,1 méter, kétélű pengéje enyhén hullámos. Egykezes fegyver.'
+  }, {
+    id: 'KES',
+    name: 'Kés',
+    TamKor: '2',
+    Type: 'Szúró/vágófegyver',
+    Ke: 10,
+    Te: 4,
+    Ve: 0,
+    Ce: 0,
+    Sp: {
+      name: 'k5',
+      damage: [1, 5]
+    },
+    weight: '0,2 kg',
+    price: '50 réz',
+    description: 'A kés, bár nem fegyvernek készült, szükség esetén azzá válhat. A legfontosabb részletek, amelyek a tőrtől megkülönböztetik: nincs kereszvasa, és álltalában egyélű.'
+  }, {
+    id: 'MARA_SEQUOR',
+    name: 'Mara-sequor',
+    TamKor: '1',
+    Type: 'Szúró/vágófegyver',
+    Ke: 7,
+    Te: 16,
+    Ve: 14,
+    Ce: 0,
+    Sp: {
+      name: '2k6+2',
+      damage: [3, 14]
+    },
+    weight: '1 kg',
+    price: '2 arany',
+    description: 'A mara-sequor 1 méter hosszúságú, enyhe ivben hajló, hegyénél kétélű, belső pengére fent vágókard. Hagyományos kráni fejvadászeszköz-lásd még sequor.'
+  }, {
+    id: 'RAMIERA',
+    name: 'Ramiera',
+    TamKor: '2',
+    Type: 'Szúró/vágófegyver',
+    Ke: 8,
+    Te: 17,
+    Ve: 14,
+    Ce: 0,
+    Sp: {
+      name: 'k6+1',
+      damage: [2, 7]
+    },
+    weight: '0,8 kg',
+    price: '2 arany',
+    description: 'A ramiera jó 40 cm hosszúságú, levélkeresztbetszetű, keskeny, kétélű és tűhegyes szúrófegyver, a gorviki fejvadászok és orgyilkosok kedvenc eszköze.'
+  }, {
+    id: 'SEQUOR',
+    name: 'Sequor',
+    TamKor: '2',
+    Type: 'Szúró/vágófegyver',
+    Ke: 8,
+    Te: 13,
+    Ve: 16,
+    Ce: 0,
+    Sp: {
+      name: 'k6+2',
+      damage: [3, 8]
+    },
+    weight: '0,4 kg',
+    price: '1 arany 3 ezüst',
+    description: 'A sequor erősen görbitett pengéjű, kétélű és borotvaéles vágótőr. Krán fejvadászainak hagyományos fegyvere. Rajtuk kivül szinte csak egy yllinori embervadász-iskola beavatottai alkalmazzák.'
+  }, {
+    id: 'SLAN_CSILLAG',
+    name: 'Slan csillag',
+    TamKor: '3',
+    Type: 'Szúró/vágófegyver',
+    Ke: 10,
+    Te: 4,
+    Ve: 0,
+    Ce: 0,
+    Sp: {
+      name: 'k3',
+      damage: [1, 3]
+    },
+    weight: '0,1 kg',
+    price: '40 réz',
+    description: 'A Slan csillag lapos, sokágú tenyérnyi fémlap, kiválóan lehet dobni.Általában 3-8 csúcsa van.'
+  }, {
+    id: 'TOR',
+    name: 'Tőr',
+    TamKor: '2',
+    Type: 'Szúró/vágófegyver',
+    Ke: 10,
+    Te: 8,
+    Ve: 2,
+    Ce: 0,
+    Sp: {
+      name: 'k6',
+      damage: [1, 6]
+    },
+    weight: '0,3 kg',
+    price: '1 ezüst',
+    description: 'A tőr a legáltalánosabb fegyver szerte Yneven. Rengeteg különböző formája van, de pengéje nem haladja meg a 40 cm-t. Legtöbbször kétélű.'
+  }, {
+    id: 'TOR_DOBO',
+    name: 'Tőr, dobó',
+    TamKor: '2',
+    Type: 'Szúró/vágófegyver',
+    Ke: 10,
+    Te: 11,
+    Ve: 2,
+    Ce: 0,
+    Sp: {
+      name: 'k6',
+      damage: [1, 6]
+    },
+    weight: '0,5 kg',
+    price: '1 ezüst 50 réz',
+    description: 'A dobótőr különlegesen kiképzett tőr, aminek súlyelosztása jó dobhatóságot tesz lehetővé. Kétélű. Keresztvasa kicsi vagy egyáltalán nincs is. Gyakran egyetlen fémdarabból készül, és nem vonják be külön a markolatott.'
+  }, {
+    id: 'TOR_SLAN',
+    name: 'Tőr, slan',
+    TamKor: '2',
+    Type: 'Szúró/vágófegyver',
+    Ke: 9,
+    Te: 14,
+    Ve: 6,
+    Ce: 0,
+    Sp: {
+      name: 'k6+2',
+      damage: [3, 8]
+    },
+    weight: '0,8 kg',
+    price: '70 arany',
+    description: 'A Slan tőr sokban hasonlit a Slan kardra, csak rövidebb. Felépitésében inkább kardra, mint tőrre emlékeztet, de pengéje hossza nem haladja meg a 40 cm-t.'
+  }, {
+    id: 'TORKARD',
+    name: 'Tőrkard',
+    TamKor: '2',
+    Type: 'Szúró/vágófegyver',
+    Ke: 9,
+    Te: 12,
+    Ve: 14,
+    Ce: 0,
+    Sp: {
+      name: 'k6+2',
+      damage: [3, 8]
+    },
+    weight: '0,8 kg',
+    price: '2 arany',
+    description: 'A tőrkard vagy rapir pengéje 80 cm hosszú, keskeny és egyenes. Mindkét oldalán ki van élezve, de főleg döfésre használják. Keskeny pengéje kivételes hajlékonyságot tesz lehetővé, ezért is terjedt el vivóeszközként. Keresztvasa diszes, a markolatot gyakran kosár védi.'
+  }, {
+    id: 'BOT_HOSSZU',
+    name: 'Bot, hosszú',
+    TamKor: '1',
+    Type: 'Zúzófegyver',
+    Ke: 4,
+    Te: 10,
+    Ve: 16,
+    Ce: 0,
+    Sp: {
+      name: 'k5',
+      damage: [1, 5]
+    },
+    weight: '1,2 kg',
+    price: '50 réz',
+    description: 'A botot, mint fegyvert, Ynev-szerte alkalmazzák, bár általában lenézik használóját. Niarén és Enoszukén kivül inkább csak furkósbotot forgatnak, ami lehet akár egy frissen vágot husáng is - az előbb emlitett országok harcművészei viszont tökélyre fejlesztették a botok használatának tudományát.'
+  }, {
+    id: 'BOT_ROVID',
+    name: 'Bot, rövid',
+    TamKor: '1',
+    Type: 'Zúzófegyver',
+    Ke: 9,
+    Te: 9,
+    Ve: 17,
+    Ce: 0,
+    Sp: {
+      name: 'k3',
+      damage: [1, 3]
+    },
+    weight: '0,7 kg',
+    price: '30 réz',
+    description: 'A botot, mint fegyvert, Ynev-szerte alkalmazzák, bár általában lenézik használóját. Niarén és Enoszukén kivül inkább csak furkósbotot forgatnak, ami lehet akár egy frissen vágot husáng is - az előbb emlitett országok harcművészei viszont tökélyre fejlesztették a botok használatának tudományát.'
+  }, {
+    id: 'BOT_FURKOS',
+    name: 'Bot, furkós',
+    TamKor: '1',
+    Type: 'Zúzófegyver',
+    Ke: 2,
+    Te: 7,
+    Ve: 14,
+    Ce: 0,
+    Sp: {
+      name: 'k6',
+      damage: [1, 6]
+    },
+    weight: '1,3 kg',
+    price: 'ingyen',
+    description: 'A botot, mint fegyvert, Ynev-szerte alkalmazzák, bár általában lenézik használóját. Niarén és Enoszukén kivül inkább csak furkósbotot forgatnak, ami lehet akár egy frissen vágot husáng is - az előbb emlitett országok harcművészei viszont tökélyre fejlesztették a botok használatának tudományát.'
+  }, {
+    id: 'BUZOGANY_EGYKEZES',
+    name: 'Buzogány, egykezes',
+    TamKor: '1',
+    Type: 'Zúzófegyver',
+    Ke: 7,
+    Te: 11,
+    Ve: 12,
+    Ce: 0,
+    Sp: {
+      name: 'k6',
+      damage: [1, 6]
+    },
+    weight: '2 kg',
+    price: '8 ezüst',
+    description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
+  }, {
+    id: 'BUZOGANY_KETKEZES',
+    name: 'Buzogány, kétkezes',
+    TamKor: '1/2',
+    Type: 'Zúzófegyver',
+    Ke: 0,
+    Te: 7,
+    Ve: 6,
+    Ce: 0,
+    Sp: {
+      name: '3k6',
+      damage: [3, 18]
+    },
+    weight: '3 kg',
+    price: '1 arany 2 ezüst',
+    description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
+  }, {
+    id: 'BUZOGANY_TUSKES',
+    name: 'Buzogány, tüskés',
+    TamKor: '1',
+    Type: 'Zúzófegyver',
+    Ke: 7,
+    Te: 12,
+    Ve: 13,
+    Ce: 0,
+    Sp: {
+      name: 'k6+2',
+      damage: [3, 8]
+    },
+    weight: '2 kg',
+    price: '1 arany',
+    description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
+  }, {
+    id: 'BUZOGANY_TOLLAS',
+    name: 'Buzogány, tollas',
+    TamKor: '1',
+    Type: 'Zúzófegyver',
+    Ke: 7,
+    Te: 12,
+    Ve: 13,
+    Ce: 0,
+    Sp: {
+      name: 'k6+1',
+      damage: [2, 7]
+    },
+    weight: '2 kg',
+    price: '1 arany 1 ezüst',
+    description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
+  }, {
+    id: 'BUZOGANY_LANCOS',
+    name: 'Buzogány, láncos',
+    TamKor: '1',
+    Type: 'Zúzófegyver',
+    Ke: 4,
+    Te: 13,
+    Ve: 11,
+    Ce: 0,
+    Sp: {
+      name: 'k6+3',
+      damage: [4, 9]
+    },
+    weight: '2 kg',
+    price: '1 arany 2 ezüst',
+    description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
+  }, {
+    id: 'CSEPHADARO',
+    name: 'Cséphadaró',
+    TamKor: '1',
+    Type: 'Zúzófegyver',
+    Ke: 1,
+    Te: 6,
+    Ve: 5,
+    Ce: 0,
+    Sp: {
+      name: 'k6+1',
+      damage: [2, 7]
+    },
+    weight: '2,5 kg',
+    price: '7 ezüst',
+    description: 'A cséphadaró a láncos buzogány távoli rokona. Egy hosszú nyélre lánc segitségével egy fél méteres fa- vagy vasnehezéket erősitenek. Néha a nehezéket szögekkel is kiverik.'
+  }, {
+    id: 'HARCIKALAPACS',
+    name: 'Harcikalapács',
+    TamKor: '1',
+    Type: 'Zúzófegyver',
+    Ke: 5,
+    Te: 10,
+    Ve: 8,
+    Ce: 0,
+    Sp: {
+      name: 'k6+2',
+      damage: [3, 8]
+    },
+    weight: '3 kg',
+    price: '8 ezüst',
+    description: 'A harcikalapács a csatacsákány rokona, de itt a hegy nagyon tompa, vagy teljesen elmarad. Törpék kedvelt fegyvere.'
+  }, {
+    id: 'ALABARD',
+    name: 'Alabárd',
+    TamKor: '1/2',
+    Type: 'Szálfegyver',
+    Ke: 1,
+    Te: 14,
+    Ve: 15,
+    Ce: 0,
+    Sp: {
+      name: '2k6+2',
+      damage: [3, 14]
+    },
+    weight: '3 kg',
+    price: '5 arany',
+    description: 'Az alabárdnak rengeteg különböző formája ismert. Egyes példányok döfésre, mások vágásra, megint mások zúzásra szolgálnak. Igen gyakori, hogy az egyes pengeelemeket keverik, igen különös formákat létrehozva. Hoszuk is változó, 2-4 méter közti lehet.'
+  }, {
+    id: 'DARDA',
+    name: 'Dárda/hajitódárda',
+    TamKor: '1',
+    Type: 'Szálfegyver',
+    Ke: 8,
+    Te: 13,
+    Ve: 5,
+    Ce: 0,
+    Sp: {
+      name: 'k6+1',
+      damage: [2, 7]
+    },
+    weight: '1,5 kg',
+    price: '5 ezüst',
+    description: 'A dárda rövid, másfél méteres nyelén keskeny, hegyes penge helyeszkedik el, melynek gyakorta még éle sincs. Súlyelosztása miatt kiválóan dobható.'
+  }, {
+    id: 'KOPJA_KONNYU',
+    name: 'Kopja, könnyű',
+    TamKor: '1',
+    Type: 'Szálfegyver',
+    Ke: 2,
+    Te: 11,
+    Ve: 12,
+    Ce: 0,
+    Sp: {
+      name: 'k10',
+      damage: [1, 10]
+    },
+    weight: '2 kg',
+    price: '9 ezüst',
+    description: 'A könnyű kopját lovasok és gyalogosok egyaránt használják. Nyele 2-3 méteres, feje keskeny hegybe végződik. A fej alá gyakorta zászlót is erősitenek.'
+  }, {
+    id: 'KOPJA_LOVAS',
+    name: 'Kopja, lovas',
+    TamKor: '1/2',
+    Type: 'Szálfegyver',
+    Ke: 1,
+    Te: 15,
+    Ve: 0,
+    Ce: 0,
+    Sp: {
+      name: 'k6',
+      damage: [1, 6]
+    },
+    weight: '3,5 kg',
+    price: '1 arany',
+    description: 'A lovaskopja kizárólag a könnyűlovasság fegyvere. Hossza 3-4 méter, feje viszont rövidebb, mint a könnyű kopjáé. A nyélre gyakran külön kézvédő tárcsát húznak.'
+  }, {
+    id: 'KOPJA_NEHEZLOVAS',
+    name: 'Kopja, nehézlovas',
+    TamKor: '1/3',
+    Type: 'Szálfegyver',
+    Ke: 0,
+    Te: 16,
+    Ve: 0,
+    Ce: 0,
+    Sp: {
+      name: '2k10',
+      damage: [2, 20]
+    },
+    weight: '5 kg',
+    price: '1 arany 5 ezüst',
+    description: 'A nehézlovas kopja jellegzetes lovagi fegyver. Hossza akár az öt métert is elérheti, enyhén kúpos alakú. A kézvédő itt már a kopja fájából van kifaragva.'
+  }, {
+    id: 'LANDZSA',
+    name: 'Lándzsa',
+    TamKor: '1',
+    Type: 'Szálfegyver',
+    Ke: 4,
+    Te: 12,
+    Ve: 12,
+    Ce: 0,
+    Sp: {
+      name: 'k10',
+      damage: [1, 10]
+    },
+    weight: '2 kg',
+    price: '8 ezüst',
+    description: 'A lándzsa a szerte Yneven megtalálható fegyverek egyike - bár minden vidéken más és más az alakja. Feje mindég szélesebb a dárda és kopja fejénél, nyele 2-2,5 méter hosszú. Főleg döfésre használják.'
+  }, {
+    id: 'SZIGONY',
+    name: 'Szigony',
+    TamKor: '1',
+    Type: 'Szálfegyver',
+    Ke: 4,
+    Te: 15,
+    Ve: 10,
+    Ce: 0,
+    Sp: {
+      name: 'k10+1',
+      damage: [2, 11]
+    },
+    weight: '2 kg',
+    price: '5 ezüst',
+    description: 'A szigony a halásznépek egész különleges lándzsája. Hegye olyan keskeny, akár a nyél, és visszahajló tüskék sorakoznak rajta, ami megneheziti eltávolitását a sebből. Másik változatában a hegye két- vagy háromfelé ágazik szét.'
+  }, {
+    id: 'BOLA',
+    name: 'Bola',
+    TamKor: '1',
+    Type: 'Egyébb fegyverek',
+    Ke: 2,
+    Te: 10,
+    Ve: 2,
+    Ce: 0,
+    Sp: {
+      name: 'k5',
+      damage: [1, 5]
+    },
+    weight: '0,8 kg',
+    price: '40 réz',
+    description: 'A bola három rövid kötél- vagy szijdarab, ezeket a szijakat egyik végükön egymáshoz, a másikon ökölnyi nehezékhez rögzitik. A csomónál megfogva, megpörgetve és elhajitva sikeres Támadás esetén a kötelek ( szijak ) az álldozat valamelyik testrészére ( kivátképp a nyak a cél ) tekerednek, a feltekeredő súlyok pedig kábitó, nem ritkán halálos ütést mérnek rá. Az ellenfél -ha egyáltalán talpon marad- a továbbiakban 15-el csökkent VÉ-vel küzd, hisz mozgása nehézkesebbé válik.'
+  }, {
+    id: 'DOBOHALO',
+    name: 'Dobóháló',
+    TamKor: '1/3',
+    Type: 'Egyébb fegyverek',
+    Ke: 1,
+    Te: 8,
+    Ve: 4,
+    Ce: 0,
+    Sp: {
+      name: '0',
+      damage: [0, 0]
+    },
+    weight: '1 kg',
+    price: '3 ezüst',
+    description: 'A dobóháló az abasziszi gladiátorok egyik közkedvelt fegyvere. A hozzávetőleg egy-két négyzetméteres, nem túl sürü szövésű hálót a baljukba tartják összefogva. A megfelelő pillanatban elhajitva a hálót, az a szélére erősitett sulyok hatására kibomlik, az ellenfélre terül, aki minden heves mozdulatával csak jobban belegabalyodik. A háló közepén akad egy külső kötél, amelynek végét a gladiátor mindvégig a kezében tartja. Sikeres támadásnál ezzel még jobban ráhurkolja a hálót az ellenfelére, sikertelen támadásnál ezzel ránthatja vissza fegyverét egy esetleges újrabróbálkozás reményében.A második és az összes többi támadásnál a támadó TÉ-jéből 15 levonódik - mivel hálója egyszer kibomlott már, és harc közben csak tessék -lássék lehet feltekerni. Ugynezen okból a hálóval legfeljebb minden harmadik körben kisérelhet meg támadást a használója. Ha a támadás sikeres, az ellenfél VÉ-je 40-el csökken.'
+  }, {
+    id: 'GAROTT',
+    name: 'Garott',
+    TamKor: '1',
+    Type: 'Egyébb fegyverek',
+    Ke: 0,
+    Te: 5,
+    Ve: -20,
+    Ce: 0,
+    Sp: {
+      name: 'k10',
+      damage: [1, 10]
+    },
+    weight: '0,1 kg',
+    price: '1 ezüst',
+    description: 'A garott vagy fojtóhurok jellegzetes orrgyilkos fegyver. Nem más, mint egy hozzávetőleg 60-80 centiméteres acélhuzal, két végén foggantyúval. A támadó álldozata háta mögé osonva hurkot vett annak nyakába és addig szoritja, mig az meg nem fullad, vagy át nem vágja a torkát a vékony huzal. Az álldozat körönkénk 1k10-Sp-t veszit, mig meg nem hall-vagy ki nem szabadul. Szabadságra igen kicsi az esélye, hiszen szorongatot helyzete miatt kevesett tehet, csak az alábbi levonásokkal támadhat sikeres Akaraterőbróba után: Gyorsaság -5, Ügyesség -5, KÉ -10, TÉ -15, VÉ -20.Persze a támadó sajátossan kiszolgáltatott helyzetben van, mig a gyilkosság elkövetésére öszpontosit, ezért az ő VÉ-je is 20-szal csökken. Ha az álldozat sikeres támadást hajt végre támadója ellen, akkor annak kell Akaraterő próbát tennie, vajon sikerül-e továbbra is kitartania. Természetesen ez a fegyver csakis és kizárólag hátulról és meglepetésszerűen alkalmazható ( azaz csakis ha a Kezdeményezés a támadóé ), nyilt közelharcban semmi haszna. TÉ-je is csak a hátbatámadásra vonatkozik. Túlütés esetén az első körben -és csakis akkor - a garott Ép-t is sebezhet, a hirtelen rántás következtében.'
+  }, {
+    id: 'HARITOTOR',
+    name: 'Háritótőr',
+    TamKor: '2',
+    Type: 'Egyébb fegyverek',
+    Ke: 8,
+    Te: 4,
+    Ve: 19,
+    Ce: 0,
+    Sp: {
+      name: 'k6',
+      damage: [1, 6]
+    },
+    weight: '0,3 kg',
+    price: '2 ezüst',
+    description: 'A háritótőr egy különlegessen széles keresztvasú tőr, amit a vivó álltalában bal kézben forgat, felfogva vele ellenfele csapásait. A markolatot kosár védi. A háritótőr támadásra is használható, bár pengéje gyakran csak hegyes, éle nincs.'
+  }, {
+    id: 'KORBACS',
+    name: 'Korbács',
+    TamKor: '2',
+    Type: 'Egyébb fegyverek',
+    Ke: 4,
+    Te: 6,
+    Ve: 0,
+    Ce: 0,
+    Sp: {
+      name: 'k3',
+      damage: [1, 3]
+    },
+    weight: '0,5 kg',
+    price: '1 ezüst 20 réz',
+    description: 'A korbács sok helyen fenyitő eszköz. Egy-másfélméteres fonott bőrszij, vég tüskékkel, nehezékekkel kirakva. Túlütésnél nem sebez Ép-t, hanem kétszeres mennyiségű Fp-t, tekintettel arra, hogy ez az eszköz elsősorban kinozásra készült.'
+  }, {
+    id: 'LASSZO',
+    name: 'Lasszó',
+    TamKor: '1/3',
+    Type: 'Egyébb fegyverek',
+    Ke: 0,
+    Te: 1,
+    Ve: 0,
+    Ce: 0,
+    Sp: {
+      name: '0',
+      damage: [0, 0]
+    },
+    weight: '0,6 kg',
+    price: '80 réz',
+    description: 'A lasszót a legtöbb nép felfedezte magának, bár harcban ritkán használják, hiszen két kéz kell hozzá, védekezésre pedig teljesen alkalmatlan. Ha viszont sikeres támadást hajtanak végre vele, az álldozat Vé-je a továbbiakban 20-szal csökken.'
+  }, {
+    id: 'OSTOR',
+    name: 'Ostor',
+    TamKor: '2',
+    Type: 'Egyébb fegyverek',
+    Ke: 3,
+    Te: 6,
+    Ve: 0,
+    Ce: 0,
+    Sp: {
+      name: 'k2',
+      damage: [1, 2]
+    },
+    weight: '0,6 kg',
+    price: '1 ezüst',
+    description: 'Az ostor nem csak lovak ösztönzésére használható, de harcban és mászásban egyaránt nagy segitség. Harci értéke nem sebzésében rejlik, hanem abban, hogy rátekeredik ellenfelére, megbénitva vagy lefegyverezve azt. Sikeres támadás esetén áldozata Vé-je 15-el csökken.'
+  }, {
+    id: 'OKOL',
+    name: 'Ököl',
+    TamKor: '2',
+    Type: 'Egyébb fegyverek',
+    Ke: 3,
+    Te: 4,
+    Ve: 0,
+    Ce: 0,
+    Sp: {
+      name: 'k2',
+      damage: [1, 2]
+    },
+    weight: '0',
+    price: '0',
+    description: 'Az ököl egy régi mondás szerint mindég kéznél van. Ha más fegyver nincs, ez is megteszi. Igazán mesteri használói a harcművészek. Más nem is okozhat vele Ép sebzést, még túlütés esetén sem.'
+  }, {
+    id: 'VASOKOL',
+    name: 'Vasököl',
+    TamKor: '2',
+    Type: 'Egyébb fegyverek',
+    Ke: 9,
+    Te: 5,
+    Ve: 2,
+    Ce: 0,
+    Sp: {
+      name: 'k3',
+      damage: [1, 3]
+    },
+    weight: '0,2 kg',
+    price: '1 ezüst',
+    description: 'A vasököl egy ovális fémdarab, amit megmarkolva jóval nagyobbakat lehet ütni, mint puszta kézzel. Egyes helyeken szögekkel is kiverik.'
+  }],
+  rangedWeapons: [{
+    id: 'FUVOCSO',
+    name: 'Fúvócső',
+    TamKor: '3',
+    Ke: 8,
+    Tav: 30,
+    Ce: 7,
+    Sp: {
+      name: '1',
+      damage: [1, 1]
+    },
+    weight: '0,2 kg',
+    price: '6 ezüst',
+    description: 'A fúvócső tűlövedékek kilövésére alkalmas. Lesből, méreggel használják, nyilt harcban vajmi kevés előnye van.'
+  }, {
+    id: 'IJ_ROVID',
+    name: 'Ij, rövid',
+    TamKor: '2',
+    Ke: 5,
+    Tav: 90,
+    Ce: 4,
+    Sp: {
+      name: 'k6',
+      damage: [1, 6]
+    },
+    weight: '0,6 kg',
+    price: '3 arany',
+    description: 'A rövid és a hosszú ijak csak méretükben különböznek, felépitésük ugynolyan. Mindkettő egyszeresen hajlitott. Mivel a hosszú ij fája jobban hajlik, nagyobb erővel repiti a vesszőt.'
+  }, {
+    id: 'IJ_HOSSZU',
+    name: 'Ij, hosszú',
+    TamKor: '2',
+    Ke: 4,
+    Tav: 110,
+    Ce: 6,
+    Sp: {
+      name: 'k6+1',
+      damage: [2, 7]
+    },
+    weight: '0,7 kg',
+    price: '3 arany 5 ezüst',
+    description: 'A rövid és a hosszú ijak csak méretükben különböznek, felépitésük ugynolyan. Mindkettő egyszeresen hajlitott. Mivel a hosszú ij fája jobban hajlik, nagyobb erővel repiti a vesszőt.'
+  }, {
+    id: 'IJ_VISSZACSAPO',
+    name: 'Ij, visszacsapó',
+    TamKor: '2',
+    Ke: 3,
+    Tav: 180,
+    Ce: 8,
+    Sp: {
+      name: 'k10',
+      damage: [1, 10]
+    },
+    weight: '0,8 kg',
+    price: '25 arany',
+    description: 'A visszacsapó vagy nomád ij lényegesen különbözik a rövid- hosszú ijaktól. Rétegzett fából, csontból és esetenként fémből készül. Kétszeresen hajlitott, igy lényegesen nagyobb rugalmas erő halmozódik föl benne.'
+  }, {
+    id: 'IJ_ELF',
+    name: 'Ij, elf',
+    TamKor: '2',
+    Ke: 6,
+    Tav: 120,
+    Ce: 10,
+    Sp: {
+      name: '2k6',
+      damage: [2, 12]
+    },
+    weight: '0,7 kg',
+    price: '120 arany',
+    description: 'Az elf ij mágikus úton készitett, enyhe mágikus hatású fegyver. A hatás főként felhúzáskor érvényesül, és a lendülethez, lövéstávhoz viszonyitva csekély erőfeszitést követel -preciziós célzásra kiválóan alkalmas.'
+  }, {
+    id: 'NYILPUSKA_AQUIR',
+    name: 'Nyilpuska, aquir',
+    TamKor: '2',
+    Ke: 5,
+    Tav: 35,
+    Ce: 18,
+    Sp: {
+      name: 'k5',
+      damage: [1, 5]
+    },
+    weight: '2 kg',
+    price: '1000 arany',
+    description: 'Az aquir nyilpuska viszonylag apró, egykezes fegyver. Avatatlan kézben nem érvényesülnek különleges képességei - készitői birtokában, mágikus adotságai révén a pusztitás maga. Értékét elméleti és gyakorlati megszerezhetetlensége adja.'
+  }, {
+    id: 'NYILPUSKA_KEZI',
+    name: 'Nzilpuska, kézi',
+    TamKor: '2',
+    Ke: 3,
+    Tav: 30,
+    Ce: 14,
+    Sp: {
+      name: 'k3',
+      damage: [1, 3]
+    },
+    weight: '2 kg',
+    price: '20 arany',
+    description: 'A kézi nyilpuska a nyilpuskák népes családjának legkisebb tagja. Hossza nem haladja meg a fél métert. Inkább csak mérgezésre, az ellenfél megzavarására használják, komoly csatákban nem. Kézi erővel is felajzható.'
+  }, {
+    id: 'NYILPUSKA_KAHREI',
+    name: 'Nyilpuska, kahrei',
+    TamKor: '3',
+    Ke: 9,
+    Tav: 30,
+    Ce: 13,
+    Sp: {
+      name: 'k3',
+      damage: [1, 3]
+    },
+    weight: '3 kg',
+    price: '80 arany',
+    description: 'A kahrei nyilpuska a kézi nyilpuska továbbfejlesztett változata. Valamivel nagyobb, és a lőcsatorna fölött egy 10-12 vesszőt tartalmazó tár helyeszkedik el. A felhúzás és az újratöltés egyetlen kar megrántásával történik, ami igen nagy tűzgyorsaságot tesz lehetővé.'
+  }, {
+    id: 'NYILPUSKA_KONNYU',
+    name: 'Nyilpuska, könnyű',
+    TamKor: '1',
+    Ke: 2,
+    Tav: 50,
+    Ce: 16,
+    Sp: {
+      name: 'k6+1',
+      damage: [2, 7]
+    },
+    weight: '3,5 kg',
+    price: '8 arany',
+    description: 'A könnyű nyilpuska hossza hozzávetőleg egy méter, felajzásához már támasz szükséges.'
+  }, {
+    id: 'NYILPUSKA_NEHEZ',
+    name: 'Nyilpuska, nehéz',
+    TamKor: '1/3',
+    Ke: 0,
+    Tav: 60,
+    Ce: 15,
+    Sp: {
+      name: 'k10+2',
+      damage: [3, 12]
+    },
+    weight: '6 kg',
+    price: '12 arany',
+    description: 'A nehéz nyilpuska már inkább csatatéri fegyver, semmint kalandozói eszköz. Hossza a másfél métert is meghaladhatja, felajzásához támasz és motolla szükséges, minek következtében ritkán lehet vala lőni.'
+  }, {
+    id: 'NYILPUSKA_SHADONI',
+    name: 'Nyilpuska, shadoni páncéltörő',
+    TamKor: '1/5',
+    Ke: 0,
+    Tav: 80,
+    Ce: 17,
+    Sp: {
+      name: '2k10',
+      damage: [2, 20]
+    },
+    weight: '8 kg',
+    price: '40 arany',
+    description: 'A shadoni páncéltörő nyilpuska már-már ostromfegyver. Álltalában két ember kezeli. Felajzásához motolla, a lövéshez külön támaszték kell. Hossza nem ritkán eléri a két métert.'
+  }, {
+    id: 'PARITTYA',
+    name: 'Parittya',
+    TamKor: '2',
+    Ke: 2,
+    Tav: 100,
+    Ce: 1,
+    Sp: {
+      name: 'k5',
+      damage: [1, 5]
+    },
+    weight: '0,1 kg',
+    price: '30 réz',
+    description: 'A parittya egy hosszú bőrszij, kiszélesedő középső részel, ide kerül a kő. A félbehajtott szijat megforgatva, majd az egyik végét elengedve veti ki a követ a parittyás.'
+  }]
+};
+var getters = {
+  weapons: function weapons() {
+    return state.weapons;
+  },
+  weapon: function weapon(state) {
+    return function (id) {
+      return state.weapons.find(function (w) {
+        return w.id === id;
+      });
+    };
+  },
+  rangedWeapons: function rangedWeapons() {
+    return state.rangedWeapons;
+  },
+  rangedWeapon: function rangedWeapon(state) {
+    return function (id) {
+      return state.rangedWeapons.find(function (r) {
+        return r.id === id;
       });
     };
   }
@@ -13945,6 +15330,54 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n.row.content[data-v-ce2fa2e4] {height: 450px}\n.sidenav[data-v-ce2fa2e4] {\n  padding-top: 20px;\n  background-color: #f1f1f1;\n  height: 100%;\n}\n@media screen and (max-width: 767px) {\n.sidenav[data-v-ce2fa2e4] {\n    height: auto;\n    padding: 15px;\n}\n.row.content[data-v-ce2fa2e4] {height:auto;}\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=style&index=0&id=501c4c01&scoped=true&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=style&index=0&id=501c4c01&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.smooth[data-v-501c4c01]{\n    scroll-behavior: smooth;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=style&index=0&id=6608e283&scoped=true&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=style&index=0&id=6608e283&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.smooth[data-v-6608e283]{\n    scroll-behavior: smooth;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31476,6 +32909,66 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=style&index=0&id=501c4c01&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=style&index=0&id=501c4c01&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusArmor_vue_vue_type_style_index_0_id_501c4c01_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusArmor.vue?vue&type=style&index=0&id=501c4c01&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=style&index=0&id=501c4c01&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusArmor_vue_vue_type_style_index_0_id_501c4c01_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusArmor_vue_vue_type_style_index_0_id_501c4c01_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=style&index=0&id=6608e283&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=style&index=0&id=6608e283&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusWepon_vue_vue_type_style_index_0_id_6608e283_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusWepon.vue?vue&type=style&index=0&id=6608e283&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=style&index=0&id=6608e283&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusWepon_vue_vue_type_style_index_0_id_6608e283_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusWepon_vue_vue_type_style_index_0_id_6608e283_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -31963,23 +33456,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _MagusArmor_vue_vue_type_template_id_501c4c01___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusArmor.vue?vue&type=template&id=501c4c01& */ "./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=template&id=501c4c01&");
+/* harmony import */ var _MagusArmor_vue_vue_type_template_id_501c4c01_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusArmor.vue?vue&type=template&id=501c4c01&scoped=true& */ "./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=template&id=501c4c01&scoped=true&");
 /* harmony import */ var _MagusArmor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusArmor.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _MagusArmor_vue_vue_type_style_index_0_id_501c4c01_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MagusArmor.vue?vue&type=style&index=0&id=501c4c01&scoped=true&lang=css& */ "./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=style&index=0&id=501c4c01&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _MagusArmor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _MagusArmor_vue_vue_type_template_id_501c4c01___WEBPACK_IMPORTED_MODULE_0__.render,
-  _MagusArmor_vue_vue_type_template_id_501c4c01___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _MagusArmor_vue_vue_type_template_id_501c4c01_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusArmor_vue_vue_type_template_id_501c4c01_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  null,
+  "501c4c01",
   null
   
 )
@@ -32342,6 +33837,47 @@ component.options.__file = "resources/js/components/player_site/magus/MagusShiel
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/magus/MagusWepon.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusWepon.vue ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusWepon_vue_vue_type_template_id_6608e283_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusWepon.vue?vue&type=template&id=6608e283&scoped=true& */ "./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=template&id=6608e283&scoped=true&");
+/* harmony import */ var _MagusWepon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusWepon.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=script&lang=js&");
+/* harmony import */ var _MagusWepon_vue_vue_type_style_index_0_id_6608e283_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MagusWepon.vue?vue&type=style&index=0&id=6608e283&scoped=true&lang=css& */ "./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=style&index=0&id=6608e283&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _MagusWepon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusWepon_vue_vue_type_template_id_6608e283_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusWepon_vue_vue_type_template_id_6608e283_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "6608e283",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/player_site/magus/MagusWepon.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/PlayerSite.vue?vue&type=script&lang=js&":
 /*!*************************************************************************!*\
   !*** ./resources/js/components/PlayerSite.vue?vue&type=script&lang=js& ***!
@@ -32582,6 +34118,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusWepon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusWepon.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusWepon_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css&":
 /*!******************************************************************************************************************!*\
   !*** ./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css& ***!
@@ -32591,6 +34143,32 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatBox_vue_vue_type_style_index_0_id_ce2fa2e4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=style&index=0&id=501c4c01&scoped=true&lang=css&":
+/*!***************************************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=style&index=0&id=501c4c01&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusArmor_vue_vue_type_style_index_0_id_501c4c01_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader/dist/cjs.js!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusArmor.vue?vue&type=style&index=0&id=501c4c01&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=style&index=0&id=501c4c01&scoped=true&lang=css&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=style&index=0&id=6608e283&scoped=true&lang=css&":
+/*!***************************************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=style&index=0&id=6608e283&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusWepon_vue_vue_type_style_index_0_id_6608e283_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader/dist/cjs.js!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusWepon.vue?vue&type=style&index=0&id=6608e283&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=style&index=0&id=6608e283&scoped=true&lang=css&");
 
 
 /***/ }),
@@ -32680,19 +34258,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=template&id=501c4c01&":
-/*!*************************************************************************************************!*\
-  !*** ./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=template&id=501c4c01& ***!
-  \*************************************************************************************************/
+/***/ "./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=template&id=501c4c01&scoped=true&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=template&id=501c4c01&scoped=true& ***!
+  \*************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusArmor_vue_vue_type_template_id_501c4c01___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusArmor_vue_vue_type_template_id_501c4c01___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusArmor_vue_vue_type_template_id_501c4c01_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusArmor_vue_vue_type_template_id_501c4c01_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusArmor_vue_vue_type_template_id_501c4c01___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusArmor.vue?vue&type=template&id=501c4c01& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=template&id=501c4c01&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusArmor_vue_vue_type_template_id_501c4c01_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusArmor.vue?vue&type=template&id=501c4c01&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=template&id=501c4c01&scoped=true&");
 
 
 /***/ }),
@@ -32846,6 +34424,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusShield_vue_vue_type_template_id_5e02fb17___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusShield_vue_vue_type_template_id_5e02fb17___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusShield.vue?vue&type=template&id=5e02fb17& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusShield.vue?vue&type=template&id=5e02fb17&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=template&id=6608e283&scoped=true&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=template&id=6608e283&scoped=true& ***!
+  \*************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusWepon_vue_vue_type_template_id_6608e283_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusWepon_vue_vue_type_template_id_6608e283_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusWepon_vue_vue_type_template_id_6608e283_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusWepon.vue?vue&type=template&id=6608e283&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=template&id=6608e283&scoped=true&");
 
 
 /***/ }),
@@ -33360,10 +34955,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=template&id=501c4c01&":
-/*!****************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=template&id=501c4c01& ***!
-  \****************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=template&id=501c4c01&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=template&id=501c4c01&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -33484,7 +35079,7 @@ var render = function () {
     _c(
       "div",
       {
-        staticClass: "modal fade",
+        staticClass: "modal fade smooth",
         attrs: {
           id: "armorModal",
           tabindex: "-1",
@@ -33548,9 +35143,10 @@ var render = function () {
                     [
                       _c("div", { staticClass: "my-2" }, [
                         _c(
-                          "button",
+                          "a",
                           {
                             staticClass: "btn btn-outline-dark",
+                            attrs: { href: "#end" },
                             on: {
                               click: function ($event) {
                                 return _vm.selectArmor("")
@@ -33568,9 +35164,10 @@ var render = function () {
                       _vm._l(_vm.armors, function (pancel, index) {
                         return _c("div", { key: index, staticClass: "my-2" }, [
                           _c(
-                            "button",
+                            "a",
                             {
                               staticClass: "btn btn-outline-dark",
+                              attrs: { href: "#end" },
                               on: {
                                 click: function ($event) {
                                   return _vm.selectArmor(pancel.id)
@@ -33614,9 +35211,10 @@ var render = function () {
                     [
                       _c("div", { staticClass: "my-2" }, [
                         _c(
-                          "button",
+                          "a",
                           {
                             staticClass: "btn btn-outline-dark",
+                            attrs: { href: "#end" },
                             on: {
                               click: function ($event) {
                                 return _vm.selectArmor("")
@@ -33634,9 +35232,10 @@ var render = function () {
                       _vm._l(_vm.LightArmors, function (pancel, index) {
                         return _c("div", { key: index, staticClass: "my-2" }, [
                           _c(
-                            "button",
+                            "a",
                             {
                               staticClass: "btn btn-outline-dark",
+                              attrs: { href: "#end" },
                               on: {
                                 click: function ($event) {
                                   return _vm.selectArmor(pancel.id)
@@ -33680,6 +35279,7 @@ var render = function () {
                 {
                   staticClass:
                     "text-center bg-info text-black mt-3 border border-primary rounded",
+                  attrs: { id: "end" },
                 },
                 [
                   _c("h4", { staticClass: "mt-2" }, [_vm._v("A választás:")]),
@@ -34877,11 +36477,16 @@ var render = function () {
       ]),
     ]),
     _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+      [_c("magus-wepon")],
+      1
+    ),
+    _vm._v(" "),
     _vm._m(4),
     _vm._v(" "),
     _vm._m(5),
-    _vm._v(" "),
-    _vm._m(6),
     _vm._v(" "),
     _c(
       "div",
@@ -34920,9 +36525,9 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _vm._m(7),
+      _vm._m(6),
       _vm._v(" "),
-      _vm._m(8),
+      _vm._m(7),
     ]),
   ])
 }
@@ -35064,76 +36669,6 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("p", [_vm._v("0")]),
-      ]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
-      [
-        _c("table", { staticClass: "table table-striped" }, [
-          _c("thead", [
-            _c("tr", [
-              _c("th", { attrs: { scope: "col-1" } }, [_vm._v("Kézben")]),
-              _vm._v(" "),
-              _c("th", { attrs: { scope: "col-4" } }, [_vm._v("Fegyver")]),
-              _vm._v(" "),
-              _c("th", { attrs: { scope: "col-1" } }, [_vm._v("Tám/kör")]),
-              _vm._v(" "),
-              _c("th", { attrs: { scope: "col-1" } }, [_vm._v("KÉ")]),
-              _vm._v(" "),
-              _c("th", { attrs: { scope: "col-1" } }, [_vm._v("TÉ")]),
-              _vm._v(" "),
-              _c("th", { attrs: { scope: "col-1" } }, [_vm._v("VÉ")]),
-              _vm._v(" "),
-              _c("th", { attrs: { scope: "col-1" } }, [_vm._v("CÉ")]),
-              _vm._v(" "),
-              _c("th", { attrs: { scope: "col-2" } }, [_vm._v("Sebzés")]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("tbody", [
-            _c("tr", [
-              _c("th", { staticClass: "bg-success", attrs: { scope: "row" } }),
-              _vm._v(" "),
-              _c("td", [_vm._v("Hosszu kard")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("1")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("7")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("14")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("16")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("k10")]),
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", { attrs: { scope: "row" } }),
-              _vm._v(" "),
-              _c("td", [_vm._v("Tőr")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("2")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("10")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("2")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("7")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("0")]),
-              _vm._v(" "),
-              _c("td", [_vm._v("k6")]),
-            ]),
-          ]),
-        ]),
       ]
     )
   },
@@ -37199,6 +38734,512 @@ var staticRenderFns = [
         },
         [_vm._v("Close")]
       ),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=template&id=6608e283&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=template&id=6608e283&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "h4",
+      { staticClass: "text-center mt-2 pb-3 border-bottom border-secondary" },
+      [_vm._v("Fegyverek")]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "p-2 m-2 border-bottom border-secondary" }, [
+      _c("h5", { staticClass: "ms-2 mt-2 pb-3" }, [
+        _vm._v("Kézben tartott fegyverek:"),
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "ms-2" }, [
+        _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Jobb kéz: ")]),
+        _vm._v(_vm._s(_vm.rightHandText)),
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "ms-2" }, [
+        _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Bal kéz: ")]),
+        _vm._v(_vm._s(_vm.leftHandText)),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "mt-3" }, [
+      _c("h5", { staticClass: "text-center" }, [
+        _vm._v("Közelharci fegyverek"),
+      ]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("table", { staticClass: "table table-striped" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.availableWeapon, function (fegyver, index) {
+            return _c("tr", { key: "W" + index }, [
+              _c("td", [_vm._v(_vm._s(fegyver.name))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(fegyver.TamKor))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(fegyver.Ke))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(fegyver.Te))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(fegyver.Ve))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(fegyver.Sp.name))]),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-danger btn-sm ms-1",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function ($event) {
+                        return _vm.removeWeapon(index)
+                      },
+                    },
+                  },
+                  [_vm._v("-")]
+                ),
+              ]),
+            ])
+          }),
+          0
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "mt-3" }, [
+      _c("h5", { staticClass: "text-center" }, [_vm._v("Távolsági fegyverek")]),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _c("table", { staticClass: "table table-striped" }, [
+        _vm._m(3),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.availableRangedWeapon, function (ij, index) {
+            return _c("tr", { key: "R" + index }, [
+              _c("td", [_vm._v(_vm._s(ij.name))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(ij.TamKor))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(ij.Ke))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(ij.Ce))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(ij.Tav) + " méter")]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(ij.Sp.name))]),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-danger btn-sm ms-1",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function ($event) {
+                        return _vm.removeRanged(index)
+                      },
+                    },
+                  },
+                  [_vm._v("-")]
+                ),
+              ]),
+            ])
+          }),
+          0
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade smooth",
+        attrs: {
+          id: "weaponModal",
+          tabindex: "-1",
+          "aria-labelledby": "weaponModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog modal-dialog-centered modal-lg" },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(4),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("h4", [_vm._v("Közelharci fegyverek")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Figyelem, ha vásárolsz fegyvert annak értékét külön le kell vonni a kincseid közül!"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "d-grid text-center" },
+                  _vm._l(_vm.weapons, function (fegyver, index) {
+                    return _c("div", { key: index, staticClass: "my-2" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-dark",
+                          attrs: { href: "#endW" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.selectWeapon(fegyver.id)
+                            },
+                          },
+                        },
+                        [
+                          _c("p", { staticClass: "fs-5 fw-bolder" }, [
+                            _vm._v(_vm._s(fegyver.name)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v(" " + _vm._s(fegyver.description))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Tipus: " + _vm._s(fegyver.Type))]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Tám/kör: " + _vm._s(fegyver.TamKor)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("KÉ: " + _vm._s(fegyver.Ke))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("TÉ: " + _vm._s(fegyver.Te))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("VÉ: " + _vm._s(fegyver.Ve))]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Sebzés: " + _vm._s(fegyver.Sp.name)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Súly: " + _vm._s(fegyver.weight))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Érték: " + _vm._s(fegyver.price))]),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("hr"),
+                    ])
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "text-center bg-info text-black mt-3 border border-primary rounded",
+                    attrs: { id: "endW" },
+                  },
+                  [
+                    _c("h4", { staticClass: "mt-2" }, [_vm._v("A választás:")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.selectedWeaponName))]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button", "data-bs-dismiss": "modal" },
+                    on: { click: _vm.submitWeapon },
+                  },
+                  [_vm._v("Save changes")]
+                ),
+              ]),
+            ]),
+          ]
+        ),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade smooth",
+        attrs: {
+          id: "rangedModal",
+          tabindex: "-1",
+          "aria-labelledby": "rangedModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog modal-dialog-centered modal-lg" },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(5),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("h4", [_vm._v("Távolsági fegyverek")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Figyelem, ha vásárolsz fegyvert annak értékét külön le kell vonni a kincseid közül!"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "d-grid text-center" },
+                  _vm._l(_vm.rangedWeapons, function (ij, index) {
+                    return _c(
+                      "div",
+                      { key: "R" + index, staticClass: "my-2" },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-outline-dark",
+                            attrs: { href: "#endR" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.selectRangedWeapon(ij.id)
+                              },
+                            },
+                          },
+                          [
+                            _c("p", { staticClass: "fs-5 fw-bolder" }, [
+                              _vm._v(_vm._s(ij.name)),
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [_vm._v(" " + _vm._s(ij.description))]),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Tám/kör: " + _vm._s(ij.TamKor))]),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("KÉ: " + _vm._s(ij.Ke))]),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("CÉ: " + _vm._s(ij.Ce))]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _vm._v("Táv: " + _vm._s(ij.Tav) + " méter"),
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Sebzés: " + _vm._s(ij.Sp.name))]),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Súly: " + _vm._s(ij.weight))]),
+                            _vm._v(" "),
+                            _c("p", [_vm._v("Érték: " + _vm._s(ij.price))]),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("hr"),
+                      ]
+                    )
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "text-center bg-info text-black mt-3 border border-primary rounded",
+                    attrs: { id: "endR" },
+                  },
+                  [
+                    _c("h4", { staticClass: "mt-2" }, [_vm._v("A választás:")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.selectedRangedWeaponName))]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button", "data-bs-dismiss": "modal" },
+                    on: { click: _vm.submitRangedWeapon },
+                  },
+                  [_vm._v("Save changes")]
+                ),
+              ]),
+            ]),
+          ]
+        ),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-grid text-center mb-3" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success my-3",
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#weaponModal",
+          },
+        },
+        [_vm._v("Fegyver hozzáadása")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Fegyver")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Tám/kör")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("KÉ")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("TÉ")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("VÉ")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Sebzés")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("-")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-grid text-center mb-3" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success my-3",
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#rangedModal",
+          },
+        },
+        [_vm._v("Fegyver hozzáadása")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Fegyver")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Tám/kör")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("KÉ")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("CÉ")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Táv")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Sebzés")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("-")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "weaponModalLabel" } },
+        [_vm._v("Közelharci fegyver választása")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "rangedModalLabel" } },
+        [_vm._v("Távolsági fegyver választása")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
     ])
   },
 ]

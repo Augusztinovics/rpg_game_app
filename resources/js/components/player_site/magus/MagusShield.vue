@@ -137,6 +137,7 @@
                 updateShieldType: 'updateShieldType',
                 updateShieldEquip: 'updateShieldEquip',
                 updateMgtMod: 'updateMgtMod',
+                updateLeftHand: 'updateLeftHand',
             }),
             ...mapActions('currentCharacter', {
                 save: 'save'
@@ -145,13 +146,16 @@
                 if (this.magusCharacter.Pajzs.equipped) {
                     this.updateShieldEquip(false);
                     this.updateVeMod(this.currentShield.Ve * -1);
+                    this.updateLeftHand('');
                     if (this.haveShieldSkill.level != 'Mf'){
                         this.updateMgtMod(this.currentShield.Mgt * -1);
                     } 
                     this.save();
                 } else {
+                    this.$root.$emit('emptyLeftWeapon');
                     this.updateShieldEquip(true);
                     this.updateVeMod(this.currentShield.Ve);
+                    this.updateLeftHand(this.currentShield.id);
                    if (this.haveShieldSkill.level != 'Mf'){
                         this.updateMgtMod(this.currentShield.Mgt);
                     } 
@@ -162,6 +166,7 @@
                 if (this.haveShield && this.magusCharacter.Pajzs.equipped) {
                     this.updateShieldEquip(false);
                     this.updateVeMod(this.currentShield.Ve * -1);
+                    this.updateLeftHand('');
                     if (this.haveShieldSkill.level != 'Mf'){
                         this.updateMgtMod(this.currentShield.Mgt * -1);
                     } 
@@ -176,6 +181,9 @@
                 this.save();
             }
         },
+        created() {
+            this.$root.$on('emptyLeftShield', () => {this.unequip();});
+        }
        
     }
 </script>

@@ -17,7 +17,7 @@
         </div>
 
         <!-- Pajzs modositas modal -->
-        <div class="modal fade" id="armorModal" tabindex="-1" aria-labelledby="armorModalLabel" aria-hidden="true">
+        <div class="modal fade smooth" id="armorModal" tabindex="-1" aria-labelledby="armorModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -37,12 +37,12 @@
                     <p>Páncél viselet : {{ haveArmorSkill.level }}</p>
                     <div v-if="haveArmorSkill.have" class="d-grid text-center">
                         <div class="my-2">
-                            <button class="btn btn-outline-dark" @click="selectArmor('')">
+                            <a class="btn btn-outline-dark" href="#end" @click="selectArmor('')">
                                 Nem akarok páncélt
-                            </button>
+                            </a>
                         </div>
                         <div v-for="pancel, index in armors" :key="index" class="my-2">
-                            <button class="btn btn-outline-dark" @click="selectArmor(pancel.id)">
+                            <a class="btn btn-outline-dark" href="#end" @click="selectArmor(pancel.id)">
                                 <p class="fs-5 fw-bolder">{{ pancel.name }}</p>
                                 <p> {{ pancel.description }}</p>
                                 <p>Anyag: {{ pancel.material }}</p>
@@ -50,17 +50,17 @@
                                 <p>SFÉ: {{ pancel.Sfe}}</p>
                                 <p>Súly: {{ pancel.weight }}</p>
                                 <p>Érték: {{ pancel.price }}</p>
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <div v-else class="d-grid text-center">
                          <div class="my-2">
-                            <button class="btn btn-outline-dark" @click="selectArmor('')">
+                            <a class="btn btn-outline-dark" href="#end" @click="selectArmor('')">
                                 Nem akarok páncélt
-                            </button>
+                            </a>
                         </div>
                         <div v-for="pancel, index in LightArmors" :key="index" class="my-2">
-                            <button class="btn btn-outline-dark" @click="selectArmor(pancel.id)">
+                            <a class="btn btn-outline-dark" href="#end" @click="selectArmor(pancel.id)">
                                 <p class="fs-5 fw-bolder">{{ pancel.name }}</p>
                                 <p> {{ pancel.description }}</p>
                                 <p>Anyag: {{ pancel.material }}</p>
@@ -68,10 +68,10 @@
                                 <p>SFÉ: {{ pancel.Sfe}}</p>
                                 <p>Súly: {{ pancel.weight }}</p>
                                 <p>Érték: {{ pancel.price }}</p>
-                            </button>
+                            </a>
                         </div>
                     </div>
-                    <div class="text-center bg-info text-black mt-3 border border-primary rounded">
+                    <div class="text-center bg-info text-black mt-3 border border-primary rounded" id="end">
                         <h4 class="mt-2">A választás:</h4>
                         <p>{{ selectedArmorName }}</p>
                     </div>
@@ -211,3 +211,9 @@
        
     }
 </script>
+
+<style scoped>
+    .smooth{
+        scroll-behavior: smooth;
+    }
+</style>
