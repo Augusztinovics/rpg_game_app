@@ -7730,7 +7730,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter',
-    haveLearnedSkill: 'haveLearnedSkill'
+    haveLearnedSkill: 'haveLearnedSkill',
+    weaponSkillLevel: 'weaponSkillLevel',
+    throwWeaponSkillLevel: 'throwWeaponSkillLevel'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusWeapons', {
     weapons: 'weapons',
     weapon: 'weapon',
@@ -7753,42 +7755,52 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return true;
       }
     },
-    leftHandText: function leftHandText() {
+    leftHandEquip: function leftHandEquip() {
       if (this.haveLeftHandEquip) {
         var leftShield = this.shield(this.magusCharacter.LeftHand);
         var leftWeapon = this.weapon(this.magusCharacter.LeftHand);
         var leftRanged = this.rangedWeapon(this.magusCharacter.LeftHand);
 
         if (leftShield) {
-          return leftShield.name;
+          return leftShield;
         } else if (leftWeapon) {
-          return leftWeapon.name;
+          return leftWeapon;
         } else if (leftRanged) {
-          return leftRanged.name;
+          return leftRanged;
         } else {
-          return 'semmi';
+          return {
+            name: 'semmi',
+            Cat: 'X'
+          };
         }
       } else {
-        return 'semmi';
+        return {
+          name: 'semmi',
+          Cat: 'X'
+        };
       }
     },
-    rightHandText: function rightHandText() {
+    rightHandEquip: function rightHandEquip() {
       if (this.haveRightHandEquip) {
         var rightShield = this.shield(this.magusCharacter.RightHand);
         var rightWeapon = this.weapon(this.magusCharacter.RightHand);
         var rightRanged = this.rangedWeapon(this.magusCharacter.RightHand);
 
         if (rightShield) {
-          return rightShield.name;
+          return rightShield;
         } else if (rightWeapon) {
-          return rightWeapon.name;
+          return rightWeapon;
         } else if (rightRanged) {
-          return rightRanged.name;
+          return rightRanged;
         } else {
-          return 'semmi';
+          return {
+            name: 'semmi'
+          };
         }
       } else {
-        return 'semmi';
+        return {
+          name: 'semmi'
+        };
       }
     },
     availableWeapon: function availableWeapon() {
@@ -7826,6 +7838,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       } else {
         return this.rangedWeapon(this.selectedRangedId).name;
       }
+    },
+    haveTwoHandedFightSkill: function haveTwoHandedFightSkill() {
+      return this.haveLearnedSkill('KETKEZES_HARC');
+    },
+    LeftHandId: function LeftHandId() {
+      return this.magusCharacter.LeftHand;
+    },
+    rightHandId: function rightHandId() {
+      return this.magusCharacter.RightHand;
     }
   }),
   methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
@@ -7874,6 +7895,244 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.updateRangedWeapons(this.tav);
         this.selectedRangedId = '';
         this.save();
+      }
+    },
+    unequipLeft: function unequipLeft() {
+      if (this.haveLeftHandEquip) {
+        if (this.leftHandEquip.Cat == 'S') {
+          this.$root.$emit('emptyLeftShield');
+          return;
+        }
+
+        if (this.leftHandEquip.Cat != 'X') {
+          if (this.leftHandEquip.Cat == 'W') {
+            //two handed weapon, need emty both hand
+            if (this.leftHandEquip.Hand == 2) {
+              var skillLevel = this.weaponSkillLevel(this.LeftHandId);
+
+              if (skillLevel == 'Na') {
+                this.updateKeMod(this.leftHandEquip.Ke * -1 + 10);
+                this.updateTeMod(this.leftHandEquip.Te * -1 + 25);
+                this.updateVeMod(this.leftHandEquip.Ve * -1 + 20);
+                this.updateLeftHand('');
+                this.updateRightHand('');
+                this.save();
+                return;
+              }
+
+              if (skillLevel == 'Af') {
+                this.updateKeMod(this.leftHandEquip.Ke * -1);
+                this.updateTeMod(this.leftHandEquip.Te * -1);
+                this.updateVeMod(this.leftHandEquip.Ve * -1);
+                this.updateLeftHand('');
+                this.updateRightHand('');
+                this.save();
+                return;
+              }
+
+              if (skillLevel == 'Mf') {
+                this.updateKeMod(this.leftHandEquip.Ke * -1 - 10);
+                this.updateTeMod(this.leftHandEquip.Te * -1 - 25);
+                this.updateVeMod(this.leftHandEquip.Ve * -1 - 20);
+                this.updateLeftHand('');
+                this.updateRightHand('');
+                this.save();
+                return;
+              }
+            } else {
+              //one handed weapon, just left hand empty
+              var weponSkillLevel = this.weaponSkillLevel(this.LeftHandId);
+
+              if (this.haveTwoHandedFightSkill.have) {
+                //two weapon fighting skill jus Ve added
+                if (this.haveTwoHandedFightSkill.level == 'Af') {
+                  if (weponSkillLevel == 'Na') {
+                    this.updateVeMod(this.leftHandEquip.Ve * -1 + 20);
+                    this.updateLeftHand('');
+                    this.save();
+                    return;
+                  }
+
+                  if (weponSkillLevel == 'Af') {
+                    this.updateVeMod(this.leftHandEquip.Ve * -1);
+                    this.updateLeftHand('');
+                    this.save();
+                    return;
+                  }
+
+                  if (weponSkillLevel == 'Mf') {
+                    this.updateVeMod(this.leftHandEquip.Ve * -1 - 20);
+                    this.updateLeftHand('');
+                    this.save();
+                    return;
+                  }
+                } else {
+                  if (weponSkillLevel == 'Na') {
+                    this.updateKeMod(this.leftHandEquip.Ke * -1 + 10);
+                    this.updateTeMod(this.leftHandEquip.Te * -1 + 25);
+                    this.updateVeMod(this.leftHandEquip.Ve * -1 + 20);
+                    this.updateLeftHand('');
+                    this.save();
+                    return;
+                  }
+
+                  if (weponSkillLevel == 'Af') {
+                    this.updateKeMod(this.leftHandEquip.Ke * -1);
+                    this.updateTeMod(this.leftHandEquip.Te * -1);
+                    this.updateVeMod(this.leftHandEquip.Ve * -1);
+                    this.updateLeftHand('');
+                    this.save();
+                    return;
+                  }
+
+                  if (weponSkillLevel == 'Mf') {
+                    this.updateKeMod(this.leftHandEquip.Ke * -1 - 10);
+                    this.updateTeMod(this.leftHandEquip.Te * -1 - 25);
+                    this.updateVeMod(this.leftHandEquip.Ve * -1 - 20);
+                    this.updateLeftHand('');
+                    this.save();
+                    return;
+                  }
+                }
+              } else {
+                //no two weapon fighting skill, the caracter just holded the weapon
+                this.updateLeftHand('');
+                this.save();
+                return;
+              }
+            }
+          }
+
+          if (this.leftHandEquip.Cat == 'R') {
+            var rangedSkillLevel = this.weaponSkillLevel(this.LeftHandId);
+
+            if (rangedSkillLevel == 'Na') {
+              this.updateKeMod(this.leftHandEquip.Ke * -1 + 10);
+              this.updateCeMod(this.leftHandEquip.Ce * -1 + 25);
+              this.updateLeftHand('');
+              this.updateRightHand('');
+              this.save();
+              return;
+            }
+
+            if (rangedSkillLevel == 'Af') {
+              this.updateKeMod(this.leftHandEquip.Ke * -1);
+              this.updateCeMod(this.leftHandEquip.Ce * -1);
+              this.updateLeftHand('');
+              this.updateRightHand('');
+              this.save();
+              return;
+            }
+
+            if (rangedSkillLevel == 'Mf') {
+              this.updateKeMod(this.leftHandEquip.Ke * -1 - 10);
+              this.updateCeMod(this.leftHandEquip.Ce * -1 - 25);
+              this.updateLeftHand('');
+              this.updateRightHand('');
+              this.save();
+              return;
+            }
+          }
+        }
+      }
+    },
+    unequipRight: function unequipRight() {
+      if (this.haveRightHandEquip) {
+        if (this.leftHandEquip.Cat != 'X') {
+          if (this.leftHandEquip.Cat == 'W') {
+            var skillLevel = this.weaponSkillLevel(this.LeftHandId); //two handed weapon, need emty both hand
+
+            if (this.leftHandEquip.Hand == 2) {
+              if (skillLevel == 'Na') {
+                this.updateKeMod(this.leftHandEquip.Ke * -1 + 10);
+                this.updateTeMod(this.leftHandEquip.Te * -1 + 25);
+                this.updateVeMod(this.leftHandEquip.Ve * -1 + 20);
+                this.updateLeftHand('');
+                this.updateRightHand('');
+                this.save();
+                return;
+              }
+
+              if (skillLevel == 'Af') {
+                this.updateKeMod(this.leftHandEquip.Ke * -1);
+                this.updateTeMod(this.leftHandEquip.Te * -1);
+                this.updateVeMod(this.leftHandEquip.Ve * -1);
+                this.updateLeftHand('');
+                this.updateRightHand('');
+                this.save();
+                return;
+              }
+
+              if (skillLevel == 'Mf') {
+                this.updateKeMod(this.leftHandEquip.Ke * -1 - 10);
+                this.updateTeMod(this.leftHandEquip.Te * -1 - 25);
+                this.updateVeMod(this.leftHandEquip.Ve * -1 - 20);
+                this.updateLeftHand('');
+                this.updateRightHand('');
+                this.save();
+                return;
+              }
+            } else {
+              if (skillLevel == 'Na') {
+                this.updateKeMod(this.leftHandEquip.Ke * -1 + 10);
+                this.updateTeMod(this.leftHandEquip.Te * -1 + 25);
+                this.updateVeMod(this.leftHandEquip.Ve * -1 + 20);
+                this.updateRightHand('');
+                this.save();
+                return;
+              }
+
+              if (skillLevel == 'Af') {
+                this.updateKeMod(this.leftHandEquip.Ke * -1);
+                this.updateTeMod(this.leftHandEquip.Te * -1);
+                this.updateVeMod(this.leftHandEquip.Ve * -1);
+                this.updateRightHand('');
+                this.save();
+                return;
+              }
+
+              if (skillLevel == 'Mf') {
+                this.updateKeMod(this.leftHandEquip.Ke * -1 - 10);
+                this.updateTeMod(this.leftHandEquip.Te * -1 - 25);
+                this.updateVeMod(this.leftHandEquip.Ve * -1 - 20);
+                this.updateRightHand('');
+                this.save();
+                return;
+              }
+            }
+          }
+
+          if (this.leftHandEquip.Cat == 'R') {
+            var rangedSkillLevel = this.weaponSkillLevel(this.LeftHandId);
+
+            if (rangedSkillLevel == 'Na') {
+              this.updateKeMod(this.leftHandEquip.Ke * -1 + 10);
+              this.updateCeMod(this.leftHandEquip.Ce * -1 + 25);
+              this.updateLeftHand('');
+              this.updateRightHand('');
+              this.save();
+              return;
+            }
+
+            if (rangedSkillLevel == 'Af') {
+              this.updateKeMod(this.leftHandEquip.Ke * -1);
+              this.updateCeMod(this.leftHandEquip.Ce * -1);
+              this.updateLeftHand('');
+              this.updateRightHand('');
+              this.save();
+              return;
+            }
+
+            if (rangedSkillLevel == 'Mf') {
+              this.updateKeMod(this.leftHandEquip.Ke * -1 - 10);
+              this.updateCeMod(this.leftHandEquip.Ce * -1 - 25);
+              this.updateLeftHand('');
+              this.updateRightHand('');
+              this.save();
+              return;
+            }
+          }
+        }
       }
     }
   }),
@@ -8196,6 +8455,36 @@ var getters = {
         have: have,
         level: level
       };
+    };
+  },
+  weaponSkillLevel: function weaponSkillLevel(state) {
+    return function (weaponId) {
+      var level = 'Na';
+
+      if (state.magusCharacter.FegyverhasznalatAlap.includes(weaponId)) {
+        level = 'Af';
+      }
+
+      if (state.magusCharacter.FegyverhasznalatMester.includes(weaponId)) {
+        level = 'Mf';
+      }
+
+      return level;
+    };
+  },
+  throwWeaponSkillLevel: function throwWeaponSkillLevel(state) {
+    return function (weaponId) {
+      var level = 'Na';
+
+      if (state.magusCharacter.FegyverdobasAlap.includes(weaponId)) {
+        level = 'Af';
+      }
+
+      if (state.magusCharacter.FegyverdobasMester.includes(weaponId)) {
+        level = 'Mf';
+      }
+
+      return level;
     };
   }
 };
@@ -9169,6 +9458,7 @@ var state = {
     id: 'PAJZS_KICSI',
     name: 'Kis pajzs',
     TamKor: '1',
+    Cat: 'S',
     Ve: 20,
     Mgt: 0,
     Sp: {
@@ -9182,6 +9472,7 @@ var state = {
     id: 'PAJZS_KOZEPES',
     name: 'Közepes pajzs',
     TamKor: '1',
+    Cat: 'S',
     Ve: 35,
     Mgt: 1,
     Sp: {
@@ -9195,6 +9486,7 @@ var state = {
     id: 'PAJZS_NAGY',
     name: 'Nagy pajzs',
     TamKor: '1/2',
+    Cat: 'S',
     Ve: 50,
     Mgt: 5,
     Sp: {
@@ -9253,6 +9545,8 @@ var state = {
     name: 'Buzogány, shadleki',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 8,
     Te: 13,
     Ve: 14,
@@ -9269,6 +9563,8 @@ var state = {
     name: 'Csatabárd, egykezes',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 5,
     Te: 12,
     Ve: 11,
@@ -9285,6 +9581,8 @@ var state = {
     name: 'Csatabárd, kétkezes',
     TamKor: '1/2',
     Type: 'Szúró/vágófegyver',
+    Hand: 2,
+    Cat: 'W',
     Ke: 0,
     Te: 8,
     Ve: 6,
@@ -9301,6 +9599,8 @@ var state = {
     name: 'Csatacsákány',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 5,
     Te: 11,
     Ve: 8,
@@ -9317,6 +9617,8 @@ var state = {
     name: 'Hajitóbárd',
     TamKor: '2',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 9,
     Te: 10,
     Ve: 7,
@@ -9333,6 +9635,8 @@ var state = {
     name: 'Kard, rövid',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 9,
     Te: 12,
     Ve: 14,
@@ -9349,6 +9653,8 @@ var state = {
     name: 'Kard, hosszú',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 6,
     Te: 14,
     Ve: 16,
@@ -9365,6 +9671,8 @@ var state = {
     name: 'Kard, másfélkezes',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 4,
     Te: 13,
     Ve: 12,
@@ -9381,6 +9689,8 @@ var state = {
     name: 'Kard, lovagi',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 2,
     Te: 10,
     Ve: 7,
@@ -9397,6 +9707,8 @@ var state = {
     name: 'Kard, pallos',
     TamKor: '1/2',
     Type: 'Szúró/vágófegyver',
+    Hand: 2,
+    Cat: 'W',
     Ke: 0,
     Te: 6,
     Ve: 2,
@@ -9413,6 +9725,8 @@ var state = {
     name: 'Kard, szablya',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 7,
     Te: 15,
     Ve: 17,
@@ -9429,6 +9743,8 @@ var state = {
     name: 'Kard, dzsenn szablya',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 9,
     Te: 20,
     Ve: 17,
@@ -9445,6 +9761,8 @@ var state = {
     name: 'Kard, jatagán',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 7,
     Te: 14,
     Ve: 14,
@@ -9461,6 +9779,8 @@ var state = {
     name: 'Kard, handzsár',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 6,
     Te: 14,
     Ve: 15,
@@ -9477,6 +9797,8 @@ var state = {
     name: 'Kard, fejvadász',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 8,
     Te: 16,
     Ve: 16,
@@ -9493,6 +9815,8 @@ var state = {
     name: 'Kard, slan',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 8,
     Te: 20,
     Ve: 12,
@@ -9509,6 +9833,8 @@ var state = {
     name: 'Kard, kigyó',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 6,
     Te: 14,
     Ve: 15,
@@ -9525,6 +9851,8 @@ var state = {
     name: 'Kés',
     TamKor: '2',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 10,
     Te: 4,
     Ve: 0,
@@ -9541,6 +9869,8 @@ var state = {
     name: 'Mara-sequor',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 7,
     Te: 16,
     Ve: 14,
@@ -9557,6 +9887,8 @@ var state = {
     name: 'Ramiera',
     TamKor: '2',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 8,
     Te: 17,
     Ve: 14,
@@ -9573,6 +9905,8 @@ var state = {
     name: 'Sequor',
     TamKor: '2',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 8,
     Te: 13,
     Ve: 16,
@@ -9589,6 +9923,8 @@ var state = {
     name: 'Slan csillag',
     TamKor: '3',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 10,
     Te: 4,
     Ve: 0,
@@ -9605,6 +9941,8 @@ var state = {
     name: 'Tőr',
     TamKor: '2',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 10,
     Te: 8,
     Ve: 2,
@@ -9621,6 +9959,8 @@ var state = {
     name: 'Tőr, dobó',
     TamKor: '2',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 10,
     Te: 11,
     Ve: 2,
@@ -9637,6 +9977,8 @@ var state = {
     name: 'Tőr, slan',
     TamKor: '2',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 9,
     Te: 14,
     Ve: 6,
@@ -9653,6 +9995,8 @@ var state = {
     name: 'Tőrkard',
     TamKor: '2',
     Type: 'Szúró/vágófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 9,
     Te: 12,
     Ve: 14,
@@ -9669,6 +10013,8 @@ var state = {
     name: 'Bot, hosszú',
     TamKor: '1',
     Type: 'Zúzófegyver',
+    Hand: 2,
+    Cat: 'W',
     Ke: 4,
     Te: 10,
     Ve: 16,
@@ -9685,6 +10031,8 @@ var state = {
     name: 'Bot, rövid',
     TamKor: '1',
     Type: 'Zúzófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 9,
     Te: 9,
     Ve: 17,
@@ -9701,6 +10049,8 @@ var state = {
     name: 'Bot, furkós',
     TamKor: '1',
     Type: 'Zúzófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 2,
     Te: 7,
     Ve: 14,
@@ -9717,6 +10067,8 @@ var state = {
     name: 'Buzogány, egykezes',
     TamKor: '1',
     Type: 'Zúzófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 7,
     Te: 11,
     Ve: 12,
@@ -9733,6 +10085,8 @@ var state = {
     name: 'Buzogány, kétkezes',
     TamKor: '1/2',
     Type: 'Zúzófegyver',
+    Hand: 2,
+    Cat: 'W',
     Ke: 0,
     Te: 7,
     Ve: 6,
@@ -9749,6 +10103,8 @@ var state = {
     name: 'Buzogány, tüskés',
     TamKor: '1',
     Type: 'Zúzófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 7,
     Te: 12,
     Ve: 13,
@@ -9765,6 +10121,8 @@ var state = {
     name: 'Buzogány, tollas',
     TamKor: '1',
     Type: 'Zúzófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 7,
     Te: 12,
     Ve: 13,
@@ -9781,6 +10139,8 @@ var state = {
     name: 'Buzogány, láncos',
     TamKor: '1',
     Type: 'Zúzófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 4,
     Te: 13,
     Ve: 11,
@@ -9797,6 +10157,8 @@ var state = {
     name: 'Cséphadaró',
     TamKor: '1',
     Type: 'Zúzófegyver',
+    Hand: 2,
+    Cat: 'W',
     Ke: 1,
     Te: 6,
     Ve: 5,
@@ -9813,6 +10175,8 @@ var state = {
     name: 'Harcikalapács',
     TamKor: '1',
     Type: 'Zúzófegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 5,
     Te: 10,
     Ve: 8,
@@ -9829,6 +10193,8 @@ var state = {
     name: 'Alabárd',
     TamKor: '1/2',
     Type: 'Szálfegyver',
+    Hand: 2,
+    Cat: 'W',
     Ke: 1,
     Te: 14,
     Ve: 15,
@@ -9845,6 +10211,8 @@ var state = {
     name: 'Dárda/hajitódárda',
     TamKor: '1',
     Type: 'Szálfegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 8,
     Te: 13,
     Ve: 5,
@@ -9861,6 +10229,8 @@ var state = {
     name: 'Kopja, könnyű',
     TamKor: '1',
     Type: 'Szálfegyver',
+    Hand: 2,
+    Cat: 'W',
     Ke: 2,
     Te: 11,
     Ve: 12,
@@ -9877,6 +10247,8 @@ var state = {
     name: 'Kopja, lovas',
     TamKor: '1/2',
     Type: 'Szálfegyver',
+    Hand: 2,
+    Cat: 'W',
     Ke: 1,
     Te: 15,
     Ve: 0,
@@ -9893,6 +10265,8 @@ var state = {
     name: 'Kopja, nehézlovas',
     TamKor: '1/3',
     Type: 'Szálfegyver',
+    Hand: 2,
+    Cat: 'W',
     Ke: 0,
     Te: 16,
     Ve: 0,
@@ -9909,6 +10283,8 @@ var state = {
     name: 'Lándzsa',
     TamKor: '1',
     Type: 'Szálfegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 4,
     Te: 12,
     Ve: 12,
@@ -9925,6 +10301,8 @@ var state = {
     name: 'Szigony',
     TamKor: '1',
     Type: 'Szálfegyver',
+    Hand: 1,
+    Cat: 'W',
     Ke: 4,
     Te: 15,
     Ve: 10,
@@ -9941,6 +10319,8 @@ var state = {
     name: 'Bola',
     TamKor: '1',
     Type: 'Egyébb fegyverek',
+    Hand: 1,
+    Cat: 'W',
     Ke: 2,
     Te: 10,
     Ve: 2,
@@ -9957,6 +10337,8 @@ var state = {
     name: 'Dobóháló',
     TamKor: '1/3',
     Type: 'Egyébb fegyverek',
+    Hand: 1,
+    Cat: 'W',
     Ke: 1,
     Te: 8,
     Ve: 4,
@@ -9973,6 +10355,8 @@ var state = {
     name: 'Garott',
     TamKor: '1',
     Type: 'Egyébb fegyverek',
+    Hand: 2,
+    Cat: 'W',
     Ke: 0,
     Te: 5,
     Ve: -20,
@@ -9989,6 +10373,8 @@ var state = {
     name: 'Háritótőr',
     TamKor: '2',
     Type: 'Egyébb fegyverek',
+    Hand: 1,
+    Cat: 'W',
     Ke: 8,
     Te: 4,
     Ve: 19,
@@ -10005,6 +10391,8 @@ var state = {
     name: 'Korbács',
     TamKor: '2',
     Type: 'Egyébb fegyverek',
+    Hand: 1,
+    Cat: 'W',
     Ke: 4,
     Te: 6,
     Ve: 0,
@@ -10021,6 +10409,8 @@ var state = {
     name: 'Lasszó',
     TamKor: '1/3',
     Type: 'Egyébb fegyverek',
+    Hand: 1,
+    Cat: 'W',
     Ke: 0,
     Te: 1,
     Ve: 0,
@@ -10037,6 +10427,8 @@ var state = {
     name: 'Ostor',
     TamKor: '2',
     Type: 'Egyébb fegyverek',
+    Hand: 1,
+    Cat: 'W',
     Ke: 3,
     Te: 6,
     Ve: 0,
@@ -10053,6 +10445,8 @@ var state = {
     name: 'Ököl',
     TamKor: '2',
     Type: 'Egyébb fegyverek',
+    Hand: 1,
+    Cat: 'W',
     Ke: 3,
     Te: 4,
     Ve: 0,
@@ -10069,6 +10463,8 @@ var state = {
     name: 'Vasököl',
     TamKor: '2',
     Type: 'Egyébb fegyverek',
+    Hand: 1,
+    Cat: 'W',
     Ke: 9,
     Te: 5,
     Ve: 2,
@@ -10085,6 +10481,7 @@ var state = {
     id: 'FUVOCSO',
     name: 'Fúvócső',
     TamKor: '3',
+    Cat: 'R',
     Ke: 8,
     Tav: 30,
     Ce: 7,
@@ -10099,6 +10496,7 @@ var state = {
     id: 'IJ_ROVID',
     name: 'Ij, rövid',
     TamKor: '2',
+    Cat: 'R',
     Ke: 5,
     Tav: 90,
     Ce: 4,
@@ -10113,6 +10511,7 @@ var state = {
     id: 'IJ_HOSSZU',
     name: 'Ij, hosszú',
     TamKor: '2',
+    Cat: 'R',
     Ke: 4,
     Tav: 110,
     Ce: 6,
@@ -10127,6 +10526,7 @@ var state = {
     id: 'IJ_VISSZACSAPO',
     name: 'Ij, visszacsapó',
     TamKor: '2',
+    Cat: 'R',
     Ke: 3,
     Tav: 180,
     Ce: 8,
@@ -10141,6 +10541,7 @@ var state = {
     id: 'IJ_ELF',
     name: 'Ij, elf',
     TamKor: '2',
+    Cat: 'R',
     Ke: 6,
     Tav: 120,
     Ce: 10,
@@ -10155,6 +10556,7 @@ var state = {
     id: 'NYILPUSKA_AQUIR',
     name: 'Nyilpuska, aquir',
     TamKor: '2',
+    Cat: 'R',
     Ke: 5,
     Tav: 35,
     Ce: 18,
@@ -10169,6 +10571,7 @@ var state = {
     id: 'NYILPUSKA_KEZI',
     name: 'Nzilpuska, kézi',
     TamKor: '2',
+    Cat: 'R',
     Ke: 3,
     Tav: 30,
     Ce: 14,
@@ -10183,6 +10586,7 @@ var state = {
     id: 'NYILPUSKA_KAHREI',
     name: 'Nyilpuska, kahrei',
     TamKor: '3',
+    Cat: 'R',
     Ke: 9,
     Tav: 30,
     Ce: 13,
@@ -10197,6 +10601,7 @@ var state = {
     id: 'NYILPUSKA_KONNYU',
     name: 'Nyilpuska, könnyű',
     TamKor: '1',
+    Cat: 'R',
     Ke: 2,
     Tav: 50,
     Ce: 16,
@@ -10211,6 +10616,7 @@ var state = {
     id: 'NYILPUSKA_NEHEZ',
     name: 'Nyilpuska, nehéz',
     TamKor: '1/3',
+    Cat: 'R',
     Ke: 0,
     Tav: 60,
     Ce: 15,
@@ -10225,6 +10631,7 @@ var state = {
     id: 'NYILPUSKA_SHADONI',
     name: 'Nyilpuska, shadoni páncéltörő',
     TamKor: '1/5',
+    Cat: 'R',
     Ke: 0,
     Tav: 80,
     Ce: 17,
@@ -10239,6 +10646,7 @@ var state = {
     id: 'PARITTYA',
     name: 'Parittya',
     TamKor: '2',
+    Cat: 'R',
     Ke: 2,
     Tav: 100,
     Ce: 1,
@@ -38773,12 +39181,12 @@ var render = function () {
       _vm._v(" "),
       _c("p", { staticClass: "ms-2" }, [
         _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Jobb kéz: ")]),
-        _vm._v(_vm._s(_vm.rightHandText)),
+        _vm._v(_vm._s(_vm.rightHandEquip.name)),
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "ms-2" }, [
         _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Bal kéz: ")]),
-        _vm._v(_vm._s(_vm.leftHandText)),
+        _vm._v(_vm._s(_vm.leftHandEquip.name)),
       ]),
     ]),
     _vm._v(" "),

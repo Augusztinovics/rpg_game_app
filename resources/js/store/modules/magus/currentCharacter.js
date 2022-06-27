@@ -177,6 +177,26 @@ const getters = {
             level: level
         }
     },
+    weaponSkillLevel: (state) => (weaponId) => {
+        let level = 'Na';
+        if (state.magusCharacter.FegyverhasznalatAlap.includes(weaponId)) {
+            level = 'Af';
+        }
+        if (state.magusCharacter.FegyverhasznalatMester.includes(weaponId)) {
+            level = 'Mf';
+        }
+        return level;
+    },
+    throwWeaponSkillLevel: (state) => (weaponId) => {
+        let level = 'Na';
+        if (state.magusCharacter.FegyverdobasAlap.includes(weaponId)) {
+            level = 'Af';
+        }
+        if (state.magusCharacter.FegyverdobasMester.includes(weaponId)) {
+            level = 'Mf';
+        }
+        return level;
+    }
 };
 const mutations = {
     updateEletero(state, payload) {

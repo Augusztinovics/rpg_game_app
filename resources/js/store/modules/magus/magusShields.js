@@ -10,6 +10,7 @@ const state = {
             id: 'PAJZS_KICSI',
             name: 'Kis pajzs',
             TamKor: '1',
+            Cat: 'S',
             Ve: 20,
             Mgt: 0,
             Sp: {
@@ -24,6 +25,7 @@ const state = {
             id: 'PAJZS_KOZEPES',
             name: 'Közepes pajzs',
             TamKor: '1',
+            Cat: 'S',
             Ve: 35,
             Mgt: 1,
             Sp: {
@@ -38,6 +40,7 @@ const state = {
             id: 'PAJZS_NAGY',
             name: 'Nagy pajzs',
             TamKor: '1/2',
+            Cat: 'S',
             Ve: 50,
             Mgt: 5,
             Sp: {
