@@ -7718,6 +7718,89 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -7725,7 +7808,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       kozelharci: [],
       tav: [],
       selectedWeaponId: '',
-      selectedRangedId: ''
+      selectedRangedId: '',
+      inputRightWeapon: '',
+      inputLeftWeapon: '',
+      inputRanged: ''
     };
   },
   computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
@@ -7941,33 +8027,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               }
             } else {
               //one handed weapon, just left hand empty
-              var weponSkillLevel = this.weaponSkillLevel(this.LeftHandId);
+              var _weponSkillLevel = this.weaponSkillLevel(this.LeftHandId);
 
               if (this.haveTwoHandedFightSkill.have) {
                 //two weapon fighting skill jus Ve added
                 if (this.haveTwoHandedFightSkill.level == 'Af') {
-                  if (weponSkillLevel == 'Na') {
+                  if (_weponSkillLevel == 'Na') {
                     this.updateVeMod(this.leftHandEquip.Ve * -1 + 20);
                     this.updateLeftHand('');
                     this.save();
                     return;
                   }
 
-                  if (weponSkillLevel == 'Af') {
+                  if (_weponSkillLevel == 'Af') {
                     this.updateVeMod(this.leftHandEquip.Ve * -1);
                     this.updateLeftHand('');
                     this.save();
                     return;
                   }
 
-                  if (weponSkillLevel == 'Mf') {
+                  if (_weponSkillLevel == 'Mf') {
                     this.updateVeMod(this.leftHandEquip.Ve * -1 - 20);
                     this.updateLeftHand('');
                     this.save();
                     return;
                   }
                 } else {
-                  if (weponSkillLevel == 'Na') {
+                  if (_weponSkillLevel == 'Na') {
                     this.updateKeMod(this.leftHandEquip.Ke * -1 + 10);
                     this.updateTeMod(this.leftHandEquip.Te * -1 + 25);
                     this.updateVeMod(this.leftHandEquip.Ve * -1 + 20);
@@ -7976,7 +8062,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     return;
                   }
 
-                  if (weponSkillLevel == 'Af') {
+                  if (_weponSkillLevel == 'Af') {
                     this.updateKeMod(this.leftHandEquip.Ke * -1);
                     this.updateTeMod(this.leftHandEquip.Te * -1);
                     this.updateVeMod(this.leftHandEquip.Ve * -1);
@@ -7985,7 +8071,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     return;
                   }
 
-                  if (weponSkillLevel == 'Mf') {
+                  if (_weponSkillLevel == 'Mf') {
                     this.updateKeMod(this.leftHandEquip.Ke * -1 - 10);
                     this.updateTeMod(this.leftHandEquip.Te * -1 - 25);
                     this.updateVeMod(this.leftHandEquip.Ve * -1 - 20);
@@ -8038,15 +8124,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     unequipRight: function unequipRight() {
       if (this.haveRightHandEquip) {
-        if (this.leftHandEquip.Cat != 'X') {
-          if (this.leftHandEquip.Cat == 'W') {
-            var skillLevel = this.weaponSkillLevel(this.LeftHandId); //two handed weapon, need emty both hand
+        if (this.rightHandEquip.Cat != 'X') {
+          if (this.rightHandEquip.Cat == 'W') {
+            var skillLevel = this.weaponSkillLevel(this.rightHandId); //two handed weapon, need emty both hand
 
-            if (this.leftHandEquip.Hand == 2) {
+            if (this.rightHandEquip.Hand == 2) {
               if (skillLevel == 'Na') {
-                this.updateKeMod(this.leftHandEquip.Ke * -1 + 10);
-                this.updateTeMod(this.leftHandEquip.Te * -1 + 25);
-                this.updateVeMod(this.leftHandEquip.Ve * -1 + 20);
+                this.updateKeMod(this.rightHandEquip.Ke * -1 + 10);
+                this.updateTeMod(this.rightHandEquip.Te * -1 + 25);
+                this.updateVeMod(this.rightHandEquip.Ve * -1 + 20);
                 this.updateLeftHand('');
                 this.updateRightHand('');
                 this.save();
@@ -8054,9 +8140,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               }
 
               if (skillLevel == 'Af') {
-                this.updateKeMod(this.leftHandEquip.Ke * -1);
-                this.updateTeMod(this.leftHandEquip.Te * -1);
-                this.updateVeMod(this.leftHandEquip.Ve * -1);
+                this.updateKeMod(this.rightHandEquip.Ke * -1);
+                this.updateTeMod(this.rightHandEquip.Te * -1);
+                this.updateVeMod(this.rightHandEquip.Ve * -1);
                 this.updateLeftHand('');
                 this.updateRightHand('');
                 this.save();
@@ -8064,9 +8150,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               }
 
               if (skillLevel == 'Mf') {
-                this.updateKeMod(this.leftHandEquip.Ke * -1 - 10);
-                this.updateTeMod(this.leftHandEquip.Te * -1 - 25);
-                this.updateVeMod(this.leftHandEquip.Ve * -1 - 20);
+                this.updateKeMod(this.rightHandEquip.Ke * -1 - 10);
+                this.updateTeMod(this.rightHandEquip.Te * -1 - 25);
+                this.updateVeMod(this.rightHandEquip.Ve * -1 - 20);
                 this.updateLeftHand('');
                 this.updateRightHand('');
                 this.save();
@@ -8074,27 +8160,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               }
             } else {
               if (skillLevel == 'Na') {
-                this.updateKeMod(this.leftHandEquip.Ke * -1 + 10);
-                this.updateTeMod(this.leftHandEquip.Te * -1 + 25);
-                this.updateVeMod(this.leftHandEquip.Ve * -1 + 20);
+                this.updateKeMod(this.rightHandEquip.Ke * -1 + 10);
+                this.updateTeMod(this.rightHandEquip.Te * -1 + 25);
+                this.updateVeMod(this.rightHandEquip.Ve * -1 + 20);
                 this.updateRightHand('');
                 this.save();
                 return;
               }
 
               if (skillLevel == 'Af') {
-                this.updateKeMod(this.leftHandEquip.Ke * -1);
-                this.updateTeMod(this.leftHandEquip.Te * -1);
-                this.updateVeMod(this.leftHandEquip.Ve * -1);
+                this.updateKeMod(this.rightHandEquip.Ke * -1);
+                this.updateTeMod(this.rightHandEquip.Te * -1);
+                this.updateVeMod(this.rightHandEquip.Ve * -1);
                 this.updateRightHand('');
                 this.save();
                 return;
               }
 
               if (skillLevel == 'Mf') {
-                this.updateKeMod(this.leftHandEquip.Ke * -1 - 10);
-                this.updateTeMod(this.leftHandEquip.Te * -1 - 25);
-                this.updateVeMod(this.leftHandEquip.Ve * -1 - 20);
+                this.updateKeMod(this.rightHandEquip.Ke * -1 - 10);
+                this.updateTeMod(this.rightHandEquip.Te * -1 - 25);
+                this.updateVeMod(this.rightHandEquip.Ve * -1 - 20);
                 this.updateRightHand('');
                 this.save();
                 return;
@@ -8102,12 +8188,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
 
-          if (this.leftHandEquip.Cat == 'R') {
-            var rangedSkillLevel = this.weaponSkillLevel(this.LeftHandId);
+          if (this.rightHandEquip.Cat == 'R') {
+            var rangedSkillLevel = this.weaponSkillLevel(this.rightHandId);
 
             if (rangedSkillLevel == 'Na') {
-              this.updateKeMod(this.leftHandEquip.Ke * -1 + 10);
-              this.updateCeMod(this.leftHandEquip.Ce * -1 + 25);
+              this.updateKeMod(this.rightHandEquip.Ke * -1 + 10);
+              this.updateCeMod(this.rightHandEquip.Ce * -1 + 25);
               this.updateLeftHand('');
               this.updateRightHand('');
               this.save();
@@ -8115,8 +8201,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
 
             if (rangedSkillLevel == 'Af') {
-              this.updateKeMod(this.leftHandEquip.Ke * -1);
-              this.updateCeMod(this.leftHandEquip.Ce * -1);
+              this.updateKeMod(this.rightHandEquip.Ke * -1);
+              this.updateCeMod(this.rightHandEquip.Ce * -1);
               this.updateLeftHand('');
               this.updateRightHand('');
               this.save();
@@ -8124,14 +8210,231 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
 
             if (rangedSkillLevel == 'Mf') {
-              this.updateKeMod(this.leftHandEquip.Ke * -1 - 10);
-              this.updateCeMod(this.leftHandEquip.Ce * -1 - 25);
+              this.updateKeMod(this.rightHandEquip.Ke * -1 - 10);
+              this.updateCeMod(this.rightHandEquip.Ce * -1 - 25);
               this.updateLeftHand('');
               this.updateRightHand('');
               this.save();
               return;
             }
           }
+        }
+      }
+    },
+    equipLeftWeapon: function equipLeftWeapon() {
+      if (this.inputLeftWeapon != '') {
+        var equippingLeftWeapon = this.weapon(this.inputLeftWeapon);
+        var skillLevel = this.weaponSkillLevel(this.inputLeftWeapon);
+
+        if (equippingLeftWeapon.Hand == 2) {
+          this.unequipRight();
+
+          if (skillLevel == 'Na') {
+            this.updateKeMod(equippingLeftWeapon.Ke - 10);
+            this.updateTeMod(equippingLeftWeapon.Te - 25);
+            this.updateVeMod(equippingLeftWeapon.Ve - 20);
+            this.updateLeftHand(this.inputLeftWeapon);
+            this.updateRightHand(this.inputLeftWeapon);
+            this.inputLeftWeapon = '';
+            this.save();
+            return;
+          }
+
+          if (skillLevel == 'Af') {
+            this.updateKeMod(equippingLeftWeapon.Ke);
+            this.updateTeMod(equippingLeftWeapon.Te);
+            this.updateVeMod(equippingLeftWeapon.Ve);
+            this.updateLeftHand(this.inputLeftWeapon);
+            this.updateRightHand(this.inputLeftWeapon);
+            this.inputLeftWeapon = '';
+            this.save();
+            return;
+          }
+
+          if (skillLevel == 'Mf') {
+            this.updateKeMod(equippingLeftWeapon.Ke + 10);
+            this.updateTeMod(equippingLeftWeapon.Te + 25);
+            this.updateVeMod(equippingLeftWeapon.Ve + 20);
+            this.updateLeftHand(this.inputLeftWeapon);
+            this.updateRightHand(this.inputLeftWeapon);
+            this.inputLeftWeapon = '';
+            this.save();
+            return;
+          }
+        } else {
+          if (this.haveTwoHandedFightSkill.have) {
+            if (this.haveTwoHandedFightSkill.level == 'Af') {
+              if (weponSkillLevel == 'Na') {
+                this.updateKeMod(equippingLeftWeapon.Ke - 10);
+                this.updateTeMod(equippingLeftWeapon.Te - 25);
+                this.updateVeMod(equippingLeftWeapon.Ve - 20);
+                this.updateLeftHand(this.inputLeftWeapon);
+                this.inputLeftWeapon = '';
+                this.save();
+                return;
+              }
+
+              if (weponSkillLevel == 'Af') {
+                this.updateKeMod(equippingLeftWeapon.Ke);
+                this.updateTeMod(equippingLeftWeapon.Te);
+                this.updateVeMod(equippingLeftWeapon.Ve);
+                this.updateLeftHand(this.inputLeftWeapon);
+                this.inputLeftWeapon = '';
+                this.save();
+                return;
+              }
+
+              if (weponSkillLevel == 'Mf') {
+                this.updateKeMod(equippingLeftWeapon.Ke + 10);
+                this.updateTeMod(equippingLeftWeapon.Te + 25);
+                this.updateVeMod(equippingLeftWeapon.Ve + 20);
+                this.updateLeftHand(this.inputLeftWeapon);
+                this.inputLeftWeapon = '';
+                this.save();
+                return;
+              }
+            } else {
+              if (weponSkillLevel == 'Na') {
+                this.updateVeMod(equippingLeftWeapon.Ve - 20);
+                this.updateLeftHand(this.inputLeftWeapon);
+                this.inputLeftWeapon = '';
+                this.save();
+                return;
+              }
+
+              if (weponSkillLevel == 'Af') {
+                this.updateVeMod(equippingLeftWeapon.Ve);
+                this.updateLeftHand(this.inputLeftWeapon);
+                this.inputLeftWeapon = '';
+                this.save();
+                return;
+              }
+
+              if (weponSkillLevel == 'Mf') {
+                this.updateVeMod(equippingLeftWeapon.Ve + 20);
+                this.updateLeftHand(this.inputLeftWeapon);
+                this.inputLeftWeapon = '';
+                this.save();
+                return;
+              }
+            }
+          } else {
+            this.updateLeftHand(this.inputLeftWeapon);
+            this.inputLeftWeapon = '';
+            this.save();
+            return;
+          }
+        }
+      }
+    },
+    equipRightWeapon: function equipRightWeapon() {
+      if (this.inputRightWeapon != '') {
+        var equippingRightWeapon = this.weapon(this.inputRightWeapon);
+        var skillLevel = this.weaponSkillLevel(this.inputRightWeapon);
+
+        if (equippingRightWeapon.Hand == 2) {
+          this.unequipLeft();
+
+          if (skillLevel == 'Na') {
+            this.updateKeMod(equippingRightWeapon.Ke - 10);
+            this.updateTeMod(equippingRightWeapon.Te - 25);
+            this.updateVeMod(equippingRightWeapon.Ve - 20);
+            this.updateLeftHand(this.inputRightWeapon);
+            this.updateRightHand(this.inputRightWeapon);
+            this.inputRightWeapon = '';
+            this.save();
+            return;
+          }
+
+          if (skillLevel == 'Af') {
+            this.updateKeMod(equippingRightWeapon.Ke);
+            this.updateTeMod(equippingRightWeapon.Te);
+            this.updateVeMod(equippingRightWeapon.Ve);
+            this.updateLeftHand(this.inputRightWeapon);
+            this.updateRightHand(this.inputRightWeapon);
+            this.inputRightWeapon = '';
+            this.save();
+            return;
+          }
+
+          if (skillLevel == 'Mf') {
+            this.updateKeMod(equippingRightWeapon.Ke + 10);
+            this.updateTeMod(equippingRightWeapon.Te + 25);
+            this.updateVeMod(equippingRightWeapon.Ve + 20);
+            this.updateLeftHand(this.inputRightWeapon);
+            this.updateRightHand(this.inputRightWeapon);
+            this.inputRightWeapon = '';
+            this.save();
+            return;
+          }
+        } else {
+          if (skillLevel == 'Na') {
+            this.updateKeMod(equippingRightWeapon.Ke - 10);
+            this.updateTeMod(equippingRightWeapon.Te - 25);
+            this.updateVeMod(equippingRightWeapon.Ve - 20);
+            this.updateRightHand(this.inputRightWeapon);
+            this.inputRightWeapon = '';
+            this.save();
+            return;
+          }
+
+          if (skillLevel == 'Af') {
+            this.updateKeMod(equippingRightWeapon.Ke);
+            this.updateTeMod(equippingRightWeapon.Te);
+            this.updateVeMod(equippingRightWeapon.Ve);
+            this.updateRightHand(this.inputRightWeapon);
+            this.inputRightWeapon = '';
+            this.save();
+            return;
+          }
+
+          if (skillLevel == 'Mf') {
+            this.updateKeMod(equippingRightWeapon.Ke + 10);
+            this.updateTeMod(equippingRightWeapon.Te + 25);
+            this.updateVeMod(equippingRightWeapon.Ve + 20);
+            this.updateRightHand(this.inputRightWeapon);
+            this.inputRightWeapon = '';
+            this.save();
+            return;
+          }
+        }
+      }
+    },
+    equipRangedWeapon: function equipRangedWeapon() {
+      if (this.inputRanged != '') {
+        this.unequipRight();
+        this.unequipLeft();
+        var equippingRanged = this.rangedWeapon(this.inputRanged);
+        var rangedSkillLevel = this.weaponSkillLevel(this.inputRanged);
+
+        if (rangedSkillLevel == 'Na') {
+          this.updateKeMod(equippingRanged.Ke - 10);
+          this.updateCeMod(equippingRanged.Ce - 25);
+          this.updateLeftHand(this.inputRanged);
+          this.updateRightHand(this.inputRanged);
+          this.inputRanged = '';
+          this.save();
+          return;
+        }
+
+        if (rangedSkillLevel == 'Af') {
+          this.updateKeMod(equippingRanged.Ke);
+          this.updateCeMod(equippingRanged.Ce);
+          this.updateLeftHand(this.inputRanged);
+          this.updateRightHand(this.inputRanged);
+          this.inputRanged = '';
+          this.save();
+          return;
+        }
+
+        if (rangedSkillLevel == 'Mf') {
+          this.updateKeMod(equippingRanged.Ke + 10);
+          this.updateCeMod(equippingRanged.Ce + 25);
+          this.updateLeftHand(this.inputRanged);
+          this.updateRightHand(this.inputRanged);
+          this.inputRanged = '';
+          this.save();
+          return;
         }
       }
     }
@@ -8331,7 +8634,7 @@ var state = {
     HmLeft: 0,
     KpLeft: 0,
     KpPrecentLeft: 0,
-    FegyverhasznalatAlap: [],
+    FegyverhasznalatAlap: ['KARD_HOSSZU'],
     FegyverhasznalatMester: [],
     FegyverdobasAlap: [],
     FegyverdobasMester: [],
@@ -8414,7 +8717,7 @@ var state = {
     FegyverekKozelharci: ['KARD_HOSSZU'],
     FegyverekTavolsagi: ['IJ_ROVID'],
     LeftHand: 'PAJZS_KICSI',
-    RightHand: 'KARD_HOSSZU',
+    RightHand: '',
     Kincsek: {
       rez: 10,
       ezust: 2,
@@ -10480,6 +10783,7 @@ var state = {
   rangedWeapons: [{
     id: 'FUVOCSO',
     name: 'Fúvócső',
+    Hand: 2,
     TamKor: '3',
     Cat: 'R',
     Ke: 8,
@@ -10495,6 +10799,7 @@ var state = {
   }, {
     id: 'IJ_ROVID',
     name: 'Ij, rövid',
+    Hand: 2,
     TamKor: '2',
     Cat: 'R',
     Ke: 5,
@@ -10510,6 +10815,7 @@ var state = {
   }, {
     id: 'IJ_HOSSZU',
     name: 'Ij, hosszú',
+    Hand: 2,
     TamKor: '2',
     Cat: 'R',
     Ke: 4,
@@ -10525,6 +10831,7 @@ var state = {
   }, {
     id: 'IJ_VISSZACSAPO',
     name: 'Ij, visszacsapó',
+    Hand: 2,
     TamKor: '2',
     Cat: 'R',
     Ke: 3,
@@ -10540,6 +10847,7 @@ var state = {
   }, {
     id: 'IJ_ELF',
     name: 'Ij, elf',
+    Hand: 2,
     TamKor: '2',
     Cat: 'R',
     Ke: 6,
@@ -10555,6 +10863,7 @@ var state = {
   }, {
     id: 'NYILPUSKA_AQUIR',
     name: 'Nyilpuska, aquir',
+    Hand: 2,
     TamKor: '2',
     Cat: 'R',
     Ke: 5,
@@ -10570,6 +10879,7 @@ var state = {
   }, {
     id: 'NYILPUSKA_KEZI',
     name: 'Nzilpuska, kézi',
+    Hand: 2,
     TamKor: '2',
     Cat: 'R',
     Ke: 3,
@@ -10585,6 +10895,7 @@ var state = {
   }, {
     id: 'NYILPUSKA_KAHREI',
     name: 'Nyilpuska, kahrei',
+    Hand: 2,
     TamKor: '3',
     Cat: 'R',
     Ke: 9,
@@ -10600,6 +10911,7 @@ var state = {
   }, {
     id: 'NYILPUSKA_KONNYU',
     name: 'Nyilpuska, könnyű',
+    Hand: 2,
     TamKor: '1',
     Cat: 'R',
     Ke: 2,
@@ -10615,6 +10927,7 @@ var state = {
   }, {
     id: 'NYILPUSKA_NEHEZ',
     name: 'Nyilpuska, nehéz',
+    Hand: 2,
     TamKor: '1/3',
     Cat: 'R',
     Ke: 0,
@@ -10630,6 +10943,7 @@ var state = {
   }, {
     id: 'NYILPUSKA_SHADONI',
     name: 'Nyilpuska, shadoni páncéltörő',
+    Hand: 2,
     TamKor: '1/5',
     Cat: 'R',
     Ke: 0,
@@ -10645,6 +10959,7 @@ var state = {
   }, {
     id: 'PARITTYA',
     name: 'Parittya',
+    Hand: 2,
     TamKor: '2',
     Cat: 'R',
     Ke: 2,
@@ -39179,14 +39494,67 @@ var render = function () {
         _vm._v("Kézben tartott fegyverek:"),
       ]),
       _vm._v(" "),
-      _c("p", { staticClass: "ms-2" }, [
-        _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Jobb kéz: ")]),
-        _vm._v(_vm._s(_vm.rightHandEquip.name)),
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "ms-2" }, [
-        _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Bal kéz: ")]),
-        _vm._v(_vm._s(_vm.leftHandEquip.name)),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col" }, [
+          _c("p", { staticClass: "ms-2" }, [
+            _c("span", { staticClass: "fw-bolder me-2" }, [
+              _vm._v("Jobb kéz: "),
+            ]),
+            _vm._v(_vm._s(_vm.rightHandEquip.name)),
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "ms-2" }, [
+            _c("span", { staticClass: "fw-bolder me-2" }, [
+              _vm._v("Bal kéz: "),
+            ]),
+            _vm._v(_vm._s(_vm.leftHandEquip.name)),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success my-3",
+              attrs: {
+                type: "button",
+                "data-bs-toggle": "modal",
+                "data-bs-target": "#rightWeaponModal",
+              },
+              on: { click: _vm.unequipRight },
+            },
+            [_vm._v("Fegyver jobb kézbe vétele")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success my-3",
+              attrs: {
+                type: "button",
+                "data-bs-toggle": "modal",
+                "data-bs-target": "#leftWeaponModal",
+              },
+              on: { click: _vm.unequipLeft },
+            },
+            [_vm._v("Fegyver bal kézbe vétele")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success my-3",
+              attrs: {
+                type: "button",
+                "data-bs-toggle": "modal",
+                "data-bs-target": "#rangedWeaponModal",
+              },
+            },
+            [_vm._v("Lőfegyver kézbe vétele")]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }),
       ]),
     ]),
     _vm._v(" "),
@@ -39523,6 +39891,267 @@ var render = function () {
         ),
       ]
     ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "leftWeaponModal",
+          tabindex: "-1",
+          "aria-labelledby": "leftWeaponModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(6),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.inputLeftWeapon,
+                      expression: "inputLeftWeapon",
+                    },
+                  ],
+                  staticClass: "form-select",
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.inputLeftWeapon = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                  },
+                },
+                [
+                  _c("option", { attrs: { disabled: "", value: "" } }, [
+                    _vm._v("Please select one"),
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.kozelharci, function (fegyver, index) {
+                    return _c(
+                      "option",
+                      { key: "LW" + index, domProps: { value: fegyver } },
+                      [_vm._v(_vm._s(_vm.weapon(fegyver).name))]
+                    )
+                  }),
+                ],
+                2
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.equipLeftWeapon },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "rightWeaponModal",
+          tabindex: "-1",
+          "aria-labelledby": "rightWeaponModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(7),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.inputRightWeapon,
+                      expression: "inputRightWeapon",
+                    },
+                  ],
+                  staticClass: "form-select",
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.inputRightWeapon = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                  },
+                },
+                [
+                  _c("option", { attrs: { disabled: "", value: "" } }, [
+                    _vm._v("Please select one"),
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.kozelharci, function (fegyver, index) {
+                    return _c(
+                      "option",
+                      { key: "RW" + index, domProps: { value: fegyver } },
+                      [_vm._v(_vm._s(_vm.weapon(fegyver).name))]
+                    )
+                  }),
+                ],
+                2
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.equipRightWeapon },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "rangedWeaponModal",
+          tabindex: "-1",
+          "aria-labelledby": "rangedWeaponModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(8),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.inputRanged,
+                      expression: "inputRanged",
+                    },
+                  ],
+                  staticClass: "form-select",
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.inputRanged = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                  },
+                },
+                [
+                  _c("option", { attrs: { disabled: "", value: "" } }, [
+                    _vm._v("Please select one"),
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.tav, function (celzo, index) {
+                    return _c(
+                      "option",
+                      { key: "RW" + index, domProps: { value: celzo } },
+                      [_vm._v(_vm._s(_vm.rangedWeapon(celzo).name))]
+                    )
+                  }),
+                ],
+                2
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.equipRangedWeapon },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
   ])
 }
 var staticRenderFns = [
@@ -39638,6 +40267,69 @@ var staticRenderFns = [
         "h5",
         { staticClass: "modal-title", attrs: { id: "rangedModalLabel" } },
         [_vm._v("Távolsági fegyver választása")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "leftWeaponModalLabel" } },
+        [_vm._v("Fegyver választása")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "rightWeaponModalLabel" } },
+        [_vm._v("Fegyver választása")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "rangedWeaponModalLabel" } },
+        [_vm._v("Fegyver választása")]
       ),
       _vm._v(" "),
       _c("button", {

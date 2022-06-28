@@ -50,7 +50,7 @@
         HmLeft: 0,
         KpLeft: 0,
         KpPrecentLeft: 0,
-        FegyverhasznalatAlap: [],
+        FegyverhasznalatAlap: ['KARD_HOSSZU'],
         FegyverhasznalatMester: [],
         FegyverdobasAlap: [],
         FegyverdobasMester: [],
@@ -137,7 +137,7 @@
             'IJ_ROVID',  
         ],
         LeftHand:'PAJZS_KICSI',
-        RightHand: 'KARD_HOSSZU',
+        RightHand: '',
         Kincsek: {
             rez: 10,
             ezust: 2,

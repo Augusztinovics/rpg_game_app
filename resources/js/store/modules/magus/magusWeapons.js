@@ -999,6 +999,7 @@
         {
             id: 'FUVOCSO',
             name: 'Fúvócső',
+            Hand: 2,
             TamKor: '3',
             Cat: 'R',
             Ke: 8,
@@ -1015,6 +1016,7 @@
         {
             id: 'IJ_ROVID',
             name: 'Ij, rövid',
+            Hand: 2,
             TamKor: '2',
             Cat: 'R',
             Ke: 5,
@@ -1031,6 +1033,7 @@
         {
             id: 'IJ_HOSSZU',
             name: 'Ij, hosszú',
+            Hand: 2,
             TamKor: '2',
             Cat: 'R',
             Ke: 4,
@@ -1047,6 +1050,7 @@
         {
             id: 'IJ_VISSZACSAPO',
             name: 'Ij, visszacsapó',
+            Hand: 2,
             TamKor: '2',
             Cat: 'R',
             Ke: 3,
@@ -1063,6 +1067,7 @@
         {
             id: 'IJ_ELF',
             name: 'Ij, elf',
+            Hand: 2,
             TamKor: '2',
             Cat: 'R',
             Ke: 6,
@@ -1079,6 +1084,7 @@
         {
             id: 'NYILPUSKA_AQUIR',
             name: 'Nyilpuska, aquir',
+            Hand: 2,
             TamKor: '2',
             Cat: 'R',
             Ke: 5,
@@ -1095,6 +1101,7 @@
         {
             id: 'NYILPUSKA_KEZI',
             name: 'Nzilpuska, kézi',
+            Hand: 2,
             TamKor: '2',
             Cat: 'R',
             Ke: 3,
@@ -1111,6 +1118,7 @@
         {
             id: 'NYILPUSKA_KAHREI',
             name: 'Nyilpuska, kahrei',
+            Hand: 2,
             TamKor: '3',
             Cat: 'R',
             Ke: 9,
@@ -1127,6 +1135,7 @@
         {
             id: 'NYILPUSKA_KONNYU',
             name: 'Nyilpuska, könnyű',
+            Hand: 2,
             TamKor: '1',
             Cat: 'R',
             Ke: 2,
@@ -1143,6 +1152,7 @@
         {
             id: 'NYILPUSKA_NEHEZ',
             name: 'Nyilpuska, nehéz',
+            Hand: 2,
             TamKor: '1/3',
             Cat: 'R',
             Ke: 0,
@@ -1159,6 +1169,7 @@
         {
             id: 'NYILPUSKA_SHADONI',
             name: 'Nyilpuska, shadoni páncéltörő',
+            Hand: 2,
             TamKor: '1/5',
             Cat: 'R',
             Ke: 0,
@@ -1175,6 +1186,7 @@
         {
             id: 'PARITTYA',
             name: 'Parittya',
+            Hand: 2,
             TamKor: '2',
             Cat: 'R',
             Ke: 2,

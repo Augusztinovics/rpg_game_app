@@ -3,8 +3,21 @@
         <h4 class="text-center mt-2 pb-3 border-bottom border-secondary">Fegyverek</h4>
         <div class="p-2 m-2 border-bottom border-secondary">
             <h5 class="ms-2 mt-2 pb-3">Kézben tartott fegyverek:</h5>
-            <p class="ms-2"><span class="fw-bolder me-2">Jobb kéz: </span>{{ rightHandEquip.name }}</p>
-            <p class="ms-2"><span class="fw-bolder me-2">Bal kéz: </span>{{ leftHandEquip.name }}</p>
+            <div class="row">
+                <div class="col">
+                    <p class="ms-2"><span class="fw-bolder me-2">Jobb kéz: </span>{{ rightHandEquip.name }}</p>
+                    <p class="ms-2"><span class="fw-bolder me-2">Bal kéz: </span>{{ leftHandEquip.name }}</p>
+                </div>
+                <div class="col">
+                    <button class="btn btn-success my-3" type="button" data-bs-toggle="modal" @click="unequipRight" data-bs-target="#rightWeaponModal">Fegyver jobb kézbe vétele</button>
+                     <button class="btn btn-success my-3" type="button" data-bs-toggle="modal" @click="unequipLeft" data-bs-target="#leftWeaponModal">Fegyver bal kézbe vétele</button>
+                      <button class="btn btn-success my-3" type="button" data-bs-toggle="modal" data-bs-target="#rangedWeaponModal">Lőfegyver kézbe vétele</button>
+                </div>
+                <div class="col">
+
+                </div>
+            </div>
+            
         </div>
         <div class="mt-3">
             <h5 class="text-center">Közelharci fegyverek</h5>
@@ -147,6 +160,76 @@
                 </div>
             </div>
         </div>
+
+        <!-- Left hand weapon equip modal -->
+         <div class="modal fade" id="leftWeaponModal" tabindex="-1" aria-labelledby="leftWeaponModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="leftWeaponModalLabel">Fegyver választása</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <div class="modal-body">
+                    <select class="form-select" v-model="inputLeftWeapon">
+                        <option disabled value="">Please select one</option>
+                        <option v-for="fegyver, index in kozelharci" :key="'LW' + index" :value="fegyver">{{ weapon(fegyver).name }}</option>                      
+                    </select>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"  @click="equipLeftWeapon" data-bs-dismiss="modal">Save changes</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+         <!-- Right hand weapon equip modal -->
+         <div class="modal fade" id="rightWeaponModal" tabindex="-1" aria-labelledby="rightWeaponModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="rightWeaponModalLabel">Fegyver választása</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <div class="modal-body">
+                    <select class="form-select" v-model="inputRightWeapon">
+                        <option disabled value="">Please select one</option>
+                        <option v-for="fegyver, index in kozelharci" :key="'RW' + index" :value="fegyver">{{ weapon(fegyver).name }}</option>                      
+                    </select>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"  @click="equipRightWeapon" data-bs-dismiss="modal">Save changes</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+         <!-- Ranged weapon equip modal -->
+         <div class="modal fade" id="rangedWeaponModal" tabindex="-1" aria-labelledby="rangedWeaponModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="rangedWeaponModalLabel">Fegyver választása</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <div class="modal-body">
+                    <select class="form-select" v-model="inputRanged">
+                        <option disabled value="">Please select one</option>
+                        <option v-for="celzo, index in tav" :key="'RW' + index" :value="celzo">{{ rangedWeapon(celzo).name }}</option>                      
+                    </select>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"  @click="equipRangedWeapon" data-bs-dismiss="modal">Save changes</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -159,6 +242,9 @@ export default {
             tav: [],
             selectedWeaponId: '',
             selectedRangedId: '',
+            inputRightWeapon: '',
+            inputLeftWeapon: '',
+            inputRanged: '',
         }
     },
     computed: {
@@ -450,33 +536,33 @@ export default {
         },
          unequipRight() {
             if (this.haveRightHandEquip) {
-                if (this.leftHandEquip.Cat != 'X') {
-                    if (this.leftHandEquip.Cat == 'W') {
-                        let skillLevel = this.weaponSkillLevel(this.LeftHandId);
+                if (this.rightHandEquip.Cat != 'X') {
+                    if (this.rightHandEquip.Cat == 'W') {
+                        let skillLevel = this.weaponSkillLevel(this.rightHandId);
                         //two handed weapon, need emty both hand
-                        if (this.leftHandEquip.Hand == 2) { 
+                        if (this.rightHandEquip.Hand == 2) { 
                             if (skillLevel == 'Na') {
-                                this.updateKeMod((this.leftHandEquip.Ke * -1) + 10);
-                                this.updateTeMod((this.leftHandEquip.Te * -1) + 25);
-                                this.updateVeMod((this.leftHandEquip.Ve * -1) + 20);
+                                this.updateKeMod((this.rightHandEquip.Ke * -1) + 10);
+                                this.updateTeMod((this.rightHandEquip.Te * -1) + 25);
+                                this.updateVeMod((this.rightHandEquip.Ve * -1) + 20);
                                 this.updateLeftHand('');
                                 this.updateRightHand('');
                                 this.save();
                                 return;
                             }
                             if (skillLevel == 'Af') {
-                                this.updateKeMod(this.leftHandEquip.Ke * -1);
-                                this.updateTeMod(this.leftHandEquip.Te * -1);
-                                this.updateVeMod(this.leftHandEquip.Ve * -1);
+                                this.updateKeMod(this.rightHandEquip.Ke * -1);
+                                this.updateTeMod(this.rightHandEquip.Te * -1);
+                                this.updateVeMod(this.rightHandEquip.Ve * -1);
                                 this.updateLeftHand('');
                                 this.updateRightHand('');
                                 this.save();
                                 return;
                             }
                              if (skillLevel == 'Mf') {
-                                this.updateKeMod((this.leftHandEquip.Ke * -1) - 10);
-                                this.updateTeMod((this.leftHandEquip.Te * -1) - 25);
-                                this.updateVeMod((this.leftHandEquip.Ve * -1) - 20);
+                                this.updateKeMod((this.rightHandEquip.Ke * -1) - 10);
+                                this.updateTeMod((this.rightHandEquip.Te * -1) - 25);
+                                this.updateVeMod((this.rightHandEquip.Ve * -1) - 20);
                                 this.updateLeftHand('');
                                 this.updateRightHand('');
                                 this.save();
@@ -484,52 +570,52 @@ export default {
                             }
                         } else {
                            if (skillLevel == 'Na') {
-                                this.updateKeMod((this.leftHandEquip.Ke * -1) + 10);
-                                this.updateTeMod((this.leftHandEquip.Te * -1) + 25);
-                                this.updateVeMod((this.leftHandEquip.Ve * -1) + 20);
+                                this.updateKeMod((this.rightHandEquip.Ke * -1) + 10);
+                                this.updateTeMod((this.rightHandEquip.Te * -1) + 25);
+                                this.updateVeMod((this.rightHandEquip.Ve * -1) + 20);
                                 this.updateRightHand('');
                                 this.save();
                                 return;
                             }
                             if (skillLevel == 'Af') {
-                                this.updateKeMod(this.leftHandEquip.Ke * -1);
-                                this.updateTeMod(this.leftHandEquip.Te * -1);
-                                this.updateVeMod(this.leftHandEquip.Ve * -1);
+                                this.updateKeMod(this.rightHandEquip.Ke * -1);
+                                this.updateTeMod(this.rightHandEquip.Te * -1);
+                                this.updateVeMod(this.rightHandEquip.Ve * -1);
                                 this.updateRightHand('');
                                 this.save();
                                 return;
                             }
                              if (skillLevel == 'Mf') {
-                                this.updateKeMod((this.leftHandEquip.Ke * -1) - 10);
-                                this.updateTeMod((this.leftHandEquip.Te * -1) - 25);
-                                this.updateVeMod((this.leftHandEquip.Ve * -1) - 20);
+                                this.updateKeMod((this.rightHandEquip.Ke * -1) - 10);
+                                this.updateTeMod((this.rightHandEquip.Te * -1) - 25);
+                                this.updateVeMod((this.rightHandEquip.Ve * -1) - 20);
                                 this.updateRightHand('');
                                 this.save();
                                 return;
                             }
                         }
                     }
-                    if (this.leftHandEquip.Cat == 'R') {
-                        let rangedSkillLevel = this.weaponSkillLevel(this.LeftHandId);
+                    if (this.rightHandEquip.Cat == 'R') {
+                        let rangedSkillLevel = this.weaponSkillLevel(this.rightHandId);
                         if (rangedSkillLevel == 'Na') {
-                            this.updateKeMod((this.leftHandEquip.Ke * -1) + 10);
-                            this.updateCeMod((this.leftHandEquip.Ce * -1) + 25);
+                            this.updateKeMod((this.rightHandEquip.Ke * -1) + 10);
+                            this.updateCeMod((this.rightHandEquip.Ce * -1) + 25);
                             this.updateLeftHand('');
                             this.updateRightHand('');
                             this.save();
                             return;
                         }
                         if (rangedSkillLevel == 'Af') {
-                            this.updateKeMod(this.leftHandEquip.Ke * -1);
-                            this.updateCeMod(this.leftHandEquip.Ce * -1);
+                            this.updateKeMod(this.rightHandEquip.Ke * -1);
+                            this.updateCeMod(this.rightHandEquip.Ce * -1);
                             this.updateLeftHand('');
                             this.updateRightHand('');
                             this.save();
                             return;
                         }
                         if (rangedSkillLevel == 'Mf') {
-                            this.updateKeMod((this.leftHandEquip.Ke * -1) - 10);
-                            this.updateCeMod((this.leftHandEquip.Ce * -1) - 25);
+                            this.updateKeMod((this.rightHandEquip.Ke * -1) - 10);
+                            this.updateCeMod((this.rightHandEquip.Ce * -1) - 25);
                             this.updateLeftHand('');
                             this.updateRightHand('');
                             this.save();
@@ -538,6 +624,207 @@ export default {
                     }
                 }
                 
+            }
+        },
+        equipLeftWeapon() {
+            if (this.inputLeftWeapon != '') {
+                let equippingLeftWeapon = this.weapon(this.inputLeftWeapon);
+                let skillLevel = this.weaponSkillLevel(this.inputLeftWeapon);
+                if (equippingLeftWeapon.Hand == 2) {
+                    this.unequipRight(); 
+                    if (skillLevel == 'Na') {
+                        this.updateKeMod(equippingLeftWeapon.Ke - 10);
+                        this.updateTeMod(equippingLeftWeapon.Te - 25);
+                        this.updateVeMod(equippingLeftWeapon.Ve - 20);
+                        this.updateLeftHand(this.inputLeftWeapon);
+                        this.updateRightHand(this.inputLeftWeapon);
+                        this.inputLeftWeapon = '';
+                        this.save();
+                        return;
+                    }
+                    if (skillLevel == 'Af') {
+                        this.updateKeMod(equippingLeftWeapon.Ke);
+                        this.updateTeMod(equippingLeftWeapon.Te);
+                        this.updateVeMod(equippingLeftWeapon.Ve);
+                        this.updateLeftHand(this.inputLeftWeapon);
+                        this.updateRightHand(this.inputLeftWeapon);
+                        this.inputLeftWeapon = '';
+                        this.save();
+                        return;
+                    }
+                        if (skillLevel == 'Mf') {
+                        this.updateKeMod(equippingLeftWeapon.Ke + 10);
+                        this.updateTeMod(equippingLeftWeapon.Te + 25);
+                        this.updateVeMod(equippingLeftWeapon.Ve + 20);
+                        this.updateLeftHand(this.inputLeftWeapon);
+                        this.updateRightHand(this.inputLeftWeapon);
+                        this.inputLeftWeapon = '';
+                        this.save();
+                        return;
+                    }
+                } else {
+                    if (this.haveTwoHandedFightSkill.have) {
+                        if (this.haveTwoHandedFightSkill.level == 'Af') {
+                            if (weponSkillLevel == 'Na') {
+                                this.updateKeMod(equippingLeftWeapon.Ke  - 10);
+                                this.updateTeMod(equippingLeftWeapon.Te  - 25);
+                                this.updateVeMod(equippingLeftWeapon.Ve  - 20);
+                                this.updateLeftHand(this.inputLeftWeapon);
+                                this.inputLeftWeapon = '';
+                                this.save();
+                                return;
+                            }
+                            if (weponSkillLevel == 'Af') {
+                                this.updateKeMod(equippingLeftWeapon.Ke);
+                                this.updateTeMod(equippingLeftWeapon.Te);
+                                this.updateVeMod(equippingLeftWeapon.Ve);
+                                this.updateLeftHand(this.inputLeftWeapon);
+                                this.inputLeftWeapon = '';
+                                this.save();
+                                return;
+                            }
+                            if (weponSkillLevel == 'Mf') {
+                                this.updateKeMod(equippingLeftWeapon.Ke + 10);
+                                this.updateTeMod(equippingLeftWeapon.Te + 25);
+                                this.updateVeMod(equippingLeftWeapon.Ve + 20);
+                                this.updateLeftHand(this.inputLeftWeapon);
+                                this.inputLeftWeapon = '';
+                                this.save();
+                                return;
+                            }
+                        } else {
+                            if (weponSkillLevel == 'Na') {
+                                this.updateVeMod(equippingLeftWeapon.Ve  - 20);
+                                this.updateLeftHand(this.inputLeftWeapon);
+                                this.inputLeftWeapon = '';
+                                this.save();
+                                return;
+                            }
+                            if (weponSkillLevel == 'Af') {
+                                this.updateVeMod(equippingLeftWeapon.Ve );
+                                this.updateLeftHand(this.inputLeftWeapon);
+                                this.inputLeftWeapon = '';
+                                this.save();
+                                return;
+                            }
+                            if (weponSkillLevel == 'Mf') {
+                                this.updateVeMod(equippingLeftWeapon.Ve + 20);
+                                this.updateLeftHand(this.inputLeftWeapon);
+                                this.inputLeftWeapon = '';
+                                this.save();
+                                return;
+                            }
+                        }
+                    } else {
+                        this.updateLeftHand(this.inputLeftWeapon);
+                        this.inputLeftWeapon = '';
+                        this.save();
+                        return;
+                    }
+                }
+            }
+        },
+        equipRightWeapon() {
+            if (this.inputRightWeapon != '') {
+                let equippingRightWeapon = this.weapon(this.inputRightWeapon);
+                let skillLevel = this.weaponSkillLevel(this.inputRightWeapon);
+                if (equippingRightWeapon.Hand == 2) {
+                    this.unequipLeft(); 
+                    if (skillLevel == 'Na') {
+                        this.updateKeMod(equippingRightWeapon.Ke - 10);
+                        this.updateTeMod(equippingRightWeapon.Te - 25);
+                        this.updateVeMod(equippingRightWeapon.Ve - 20);
+                        this.updateLeftHand(this.inputRightWeapon);
+                        this.updateRightHand(this.inputRightWeapon);
+                        this.inputRightWeapon = '';
+                        this.save();
+                        return;
+                    }
+                    if (skillLevel == 'Af') {
+                        this.updateKeMod(equippingRightWeapon.Ke);
+                        this.updateTeMod(equippingRightWeapon.Te);
+                        this.updateVeMod(equippingRightWeapon.Ve);
+                        this.updateLeftHand(this.inputRightWeapon);
+                        this.updateRightHand(this.inputRightWeapon);
+                        this.inputRightWeapon = '';
+                        this.save();
+                        return;
+                    }
+                        if (skillLevel == 'Mf') {
+                        this.updateKeMod(equippingRightWeapon.Ke + 10);
+                        this.updateTeMod(equippingRightWeapon.Te + 25);
+                        this.updateVeMod(equippingRightWeapon.Ve + 20);
+                        this.updateLeftHand(this.inputRightWeapon);
+                        this.updateRightHand(this.inputRightWeapon);
+                        this.inputRightWeapon = '';
+                        this.save();
+                        return;
+                    }
+                } else {
+                    if (skillLevel == 'Na') {
+                        this.updateKeMod(equippingRightWeapon.Ke - 10);
+                        this.updateTeMod(equippingRightWeapon.Te - 25);
+                        this.updateVeMod(equippingRightWeapon.Ve - 20);
+                        this.updateRightHand(this.inputRightWeapon);
+                        this.inputRightWeapon = '';
+                        this.save();
+                        return;
+                    }
+                    if (skillLevel == 'Af') {
+                        this.updateKeMod(equippingRightWeapon.Ke);
+                        this.updateTeMod(equippingRightWeapon.Te);
+                        this.updateVeMod(equippingRightWeapon.Ve);
+                        this.updateRightHand(this.inputRightWeapon);
+                        this.inputRightWeapon = '';
+                        this.save();
+                        return;
+                    }
+                        if (skillLevel == 'Mf') {
+                        this.updateKeMod(equippingRightWeapon.Ke + 10);
+                        this.updateTeMod(equippingRightWeapon.Te + 25);
+                        this.updateVeMod(equippingRightWeapon.Ve + 20);
+                        this.updateRightHand(this.inputRightWeapon);
+                        this.inputRightWeapon = '';
+                        this.save();
+                        return;
+                    }
+                }
+            }
+        },
+        equipRangedWeapon() {
+            if (this.inputRanged != '') {
+                this.unequipRight();
+                this.unequipLeft();
+                let equippingRanged = this.rangedWeapon(this.inputRanged);
+                let rangedSkillLevel = this.weaponSkillLevel(this.inputRanged);
+                if (rangedSkillLevel == 'Na') {
+                    this.updateKeMod(equippingRanged.Ke - 10);
+                    this.updateCeMod(equippingRanged.Ce - 25);
+                    this.updateLeftHand(this.inputRanged);
+                    this.updateRightHand(this.inputRanged);
+                    this.inputRanged = '';
+                    this.save();
+                    return;
+                }
+                if (rangedSkillLevel == 'Af') {
+                    this.updateKeMod(equippingRanged.Ke);
+                    this.updateCeMod(equippingRanged.Ce);
+                    this.updateLeftHand(this.inputRanged);
+                    this.updateRightHand(this.inputRanged);
+                    this.inputRanged = '';
+                    this.save();
+                    return;
+                }
+                if (rangedSkillLevel == 'Mf') {
+                    this.updateKeMod(equippingRanged.Ke + 10);
+                    this.updateCeMod(equippingRanged.Ce + 25);
+                    this.updateLeftHand(this.inputRanged);
+                    this.updateRightHand(this.inputRanged);
+                    this.inputRanged = '';
+                    this.save();
+                    return;
+                }
+
             }
         }
     },
