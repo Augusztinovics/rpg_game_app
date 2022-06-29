@@ -437,9 +437,9 @@ export default {
                                 return;
                             }
                              if (skillLevel == 'Mf') {
-                                this.updateKeMod((this.leftHandEquip.Ke * -1) - 10);
-                                this.updateTeMod((this.leftHandEquip.Te * -1) - 25);
-                                this.updateVeMod((this.leftHandEquip.Ve * -1) - 20);
+                                this.updateKeMod((this.leftHandEquip.Ke * -1) - 5);
+                                this.updateTeMod((this.leftHandEquip.Te * -1) - 10);
+                                this.updateVeMod((this.leftHandEquip.Ve * -1) - 10);
                                 this.updateLeftHand('');
                                 this.updateRightHand('');
                                 this.save();
@@ -452,7 +452,7 @@ export default {
                                 //two weapon fighting skill jus Ve added
                                 if (this.haveTwoHandedFightSkill.level == 'Af') {
                                     if (weponSkillLevel == 'Na') {
-                                        this.updateVeMod((this.leftHandEquip.Ve * -1) + 20);
+                                        this.updateVeMod((this.leftHandEquip.Ve * -1) + 30);
                                         this.updateLeftHand('');
                                         this.save();
                                         return;
@@ -464,7 +464,7 @@ export default {
                                         return;
                                     }
                                     if (weponSkillLevel == 'Mf') {
-                                        this.updateVeMod((this.leftHandEquip.Ve * -1) - 20);
+                                        this.updateVeMod((this.leftHandEquip.Ve * -1) - 10);
                                         this.updateLeftHand('');
                                         this.save();
                                         return;
@@ -487,9 +487,9 @@ export default {
                                         return;
                                     }
                                     if (weponSkillLevel == 'Mf') {
-                                        this.updateKeMod((this.leftHandEquip.Ke * -1) - 10);
-                                        this.updateTeMod((this.leftHandEquip.Te * -1) - 25);
-                                        this.updateVeMod((this.leftHandEquip.Ve * -1) - 20);
+                                        this.updateKeMod((this.leftHandEquip.Ke * -1) - 5);
+                                        this.updateTeMod((this.leftHandEquip.Te * -1) - 10);
+                                        this.updateVeMod((this.leftHandEquip.Ve * -1) - 10);
                                         this.updateLeftHand('');
                                         this.save();
                                         return;
@@ -507,7 +507,7 @@ export default {
                         let rangedSkillLevel = this.weaponSkillLevel(this.LeftHandId);
                         if (rangedSkillLevel == 'Na') {
                             this.updateKeMod((this.leftHandEquip.Ke * -1) + 10);
-                            this.updateCeMod((this.leftHandEquip.Ce * -1) + 25);
+                            this.updateCeMod((this.leftHandEquip.Ce * -1) + 30);
                             this.updateLeftHand('');
                             this.updateRightHand('');
                             this.save();
@@ -522,8 +522,8 @@ export default {
                             return;
                         }
                         if (rangedSkillLevel == 'Mf') {
-                            this.updateKeMod((this.leftHandEquip.Ke * -1) - 10);
-                            this.updateCeMod((this.leftHandEquip.Ce * -1) - 25);
+                            this.updateKeMod((this.leftHandEquip.Ke * -1) - 5);
+                            this.updateCeMod((this.leftHandEquip.Ce * -1) - 10);
                             this.updateLeftHand('');
                             this.updateRightHand('');
                             this.save();
@@ -560,9 +560,9 @@ export default {
                                 return;
                             }
                              if (skillLevel == 'Mf') {
-                                this.updateKeMod((this.rightHandEquip.Ke * -1) - 10);
-                                this.updateTeMod((this.rightHandEquip.Te * -1) - 25);
-                                this.updateVeMod((this.rightHandEquip.Ve * -1) - 20);
+                                this.updateKeMod((this.rightHandEquip.Ke * -1) - 5);
+                                this.updateTeMod((this.rightHandEquip.Te * -1) - 10);
+                                this.updateVeMod((this.rightHandEquip.Ve * -1) - 10);
                                 this.updateLeftHand('');
                                 this.updateRightHand('');
                                 this.save();
@@ -586,9 +586,9 @@ export default {
                                 return;
                             }
                              if (skillLevel == 'Mf') {
-                                this.updateKeMod((this.rightHandEquip.Ke * -1) - 10);
-                                this.updateTeMod((this.rightHandEquip.Te * -1) - 25);
-                                this.updateVeMod((this.rightHandEquip.Ve * -1) - 20);
+                                this.updateKeMod((this.rightHandEquip.Ke * -1) - 5);
+                                this.updateTeMod((this.rightHandEquip.Te * -1) - 10);
+                                this.updateVeMod((this.rightHandEquip.Ve * -1) - 10);
                                 this.updateRightHand('');
                                 this.save();
                                 return;
@@ -599,7 +599,7 @@ export default {
                         let rangedSkillLevel = this.weaponSkillLevel(this.rightHandId);
                         if (rangedSkillLevel == 'Na') {
                             this.updateKeMod((this.rightHandEquip.Ke * -1) + 10);
-                            this.updateCeMod((this.rightHandEquip.Ce * -1) + 25);
+                            this.updateCeMod((this.rightHandEquip.Ce * -1) + 30);
                             this.updateLeftHand('');
                             this.updateRightHand('');
                             this.save();
@@ -614,8 +614,8 @@ export default {
                             return;
                         }
                         if (rangedSkillLevel == 'Mf') {
-                            this.updateKeMod((this.rightHandEquip.Ke * -1) - 10);
-                            this.updateCeMod((this.rightHandEquip.Ce * -1) - 25);
+                            this.updateKeMod((this.rightHandEquip.Ke * -1) - 5);
+                            this.updateCeMod((this.rightHandEquip.Ce * -1) - 10);
                             this.updateLeftHand('');
                             this.updateRightHand('');
                             this.save();
@@ -653,9 +653,9 @@ export default {
                         return;
                     }
                         if (skillLevel == 'Mf') {
-                        this.updateKeMod(equippingLeftWeapon.Ke + 10);
-                        this.updateTeMod(equippingLeftWeapon.Te + 25);
-                        this.updateVeMod(equippingLeftWeapon.Ve + 20);
+                        this.updateKeMod(equippingLeftWeapon.Ke + 5);
+                        this.updateTeMod(equippingLeftWeapon.Te + 10);
+                        this.updateVeMod(equippingLeftWeapon.Ve + 10);
                         this.updateLeftHand(this.inputLeftWeapon);
                         this.updateRightHand(this.inputLeftWeapon);
                         this.inputLeftWeapon = '';
@@ -684,9 +684,9 @@ export default {
                                 return;
                             }
                             if (weponSkillLevel == 'Mf') {
-                                this.updateKeMod(equippingLeftWeapon.Ke + 10);
-                                this.updateTeMod(equippingLeftWeapon.Te + 25);
-                                this.updateVeMod(equippingLeftWeapon.Ve + 20);
+                                this.updateKeMod(equippingLeftWeapon.Ke + 5);
+                                this.updateTeMod(equippingLeftWeapon.Te + 10);
+                                this.updateVeMod(equippingLeftWeapon.Ve + 10);
                                 this.updateLeftHand(this.inputLeftWeapon);
                                 this.inputLeftWeapon = '';
                                 this.save();
@@ -708,7 +708,7 @@ export default {
                                 return;
                             }
                             if (weponSkillLevel == 'Mf') {
-                                this.updateVeMod(equippingLeftWeapon.Ve + 20);
+                                this.updateVeMod(equippingLeftWeapon.Ve + 10);
                                 this.updateLeftHand(this.inputLeftWeapon);
                                 this.inputLeftWeapon = '';
                                 this.save();
@@ -751,9 +751,9 @@ export default {
                         return;
                     }
                         if (skillLevel == 'Mf') {
-                        this.updateKeMod(equippingRightWeapon.Ke + 10);
-                        this.updateTeMod(equippingRightWeapon.Te + 25);
-                        this.updateVeMod(equippingRightWeapon.Ve + 20);
+                        this.updateKeMod(equippingRightWeapon.Ke + 5);
+                        this.updateTeMod(equippingRightWeapon.Te + 10);
+                        this.updateVeMod(equippingRightWeapon.Ve + 10);
                         this.updateLeftHand(this.inputRightWeapon);
                         this.updateRightHand(this.inputRightWeapon);
                         this.inputRightWeapon = '';
@@ -780,9 +780,9 @@ export default {
                         return;
                     }
                         if (skillLevel == 'Mf') {
-                        this.updateKeMod(equippingRightWeapon.Ke + 10);
-                        this.updateTeMod(equippingRightWeapon.Te + 25);
-                        this.updateVeMod(equippingRightWeapon.Ve + 20);
+                        this.updateKeMod(equippingRightWeapon.Ke + 5);
+                        this.updateTeMod(equippingRightWeapon.Te + 10);
+                        this.updateVeMod(equippingRightWeapon.Ve + 10);
                         this.updateRightHand(this.inputRightWeapon);
                         this.inputRightWeapon = '';
                         this.save();
@@ -799,7 +799,7 @@ export default {
                 let rangedSkillLevel = this.weaponSkillLevel(this.inputRanged);
                 if (rangedSkillLevel == 'Na') {
                     this.updateKeMod(equippingRanged.Ke - 10);
-                    this.updateCeMod(equippingRanged.Ce - 25);
+                    this.updateCeMod(equippingRanged.Ce - 30);
                     this.updateLeftHand(this.inputRanged);
                     this.updateRightHand(this.inputRanged);
                     this.inputRanged = '';
@@ -816,8 +816,8 @@ export default {
                     return;
                 }
                 if (rangedSkillLevel == 'Mf') {
-                    this.updateKeMod(equippingRanged.Ke + 10);
-                    this.updateCeMod(equippingRanged.Ce + 25);
+                    this.updateKeMod(equippingRanged.Ke + 5);
+                    this.updateCeMod(equippingRanged.Ce + 10);
                     this.updateLeftHand(this.inputRanged);
                     this.updateRightHand(this.inputRanged);
                     this.inputRanged = '';
