@@ -8,6 +8,7 @@ import currentCharacter from './modules/magus/currentCharacter';
 import magusShields from './modules/magus/magusShields';
 import magusArmors from './modules/magus/magusArmors';
 import magusWeapons from './modules/magus/magusWeapons';
+import magusSkills from './modules/magus/magusSkills';
 
 Vue.use(Vuex);
 
@@ -20,5 +21,6 @@ export default new Vuex.Store({
         magusShields,
         magusArmors,
         magusWeapons,
+        magusSkills,
     }
 })
