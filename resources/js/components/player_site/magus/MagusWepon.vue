@@ -10,8 +10,8 @@
                 </div>
                 <div class="col">
                     <button class="btn btn-success my-3" type="button" data-bs-toggle="modal" @click="unequipRight" data-bs-target="#rightWeaponModal">Fegyver jobb kézbe vétele</button>
-                     <button class="btn btn-success my-3" type="button" data-bs-toggle="modal" @click="unequipLeft" data-bs-target="#leftWeaponModal">Fegyver bal kézbe vétele</button>
-                      <button class="btn btn-success my-3" type="button" data-bs-toggle="modal" data-bs-target="#rangedWeaponModal">Lőfegyver kézbe vétele</button>
+                    <button class="btn btn-success my-3" type="button" data-bs-toggle="modal" @click="unequipLeft" data-bs-target="#leftWeaponModal">Fegyver bal kézbe vétele</button>
+                    <button class="btn btn-success my-3" type="button" data-bs-toggle="modal" data-bs-target="#rangedWeaponModal">Lőfegyver kézbe vétele</button>
                 </div>
                 <div class="col">
 

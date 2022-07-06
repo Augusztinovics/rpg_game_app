@@ -169,26 +169,7 @@
            <magus-wepon />
         </div>
 
-        <!-- kepzetsegek -->
-        <div class="row justify-content-evenly">
-            <div class="col-sm-4">
-                <div class="bg-light border border-secondary rounded mb-4 p-3">
-                    <div class="row">
-                        <div class="col">
-                            <p>Képzetség</p>
-                            <p>pontok</p>
-                        </div>
-                        <div class="col border-end border-secondary">
-                            <h3>9</h3>
-                        </div>
-                        <div class="col">
-                            <p>KP/szint</p>
-                            <p>11</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8">
+        <!-- <div class="col-sm-8">
                 <div class="bg-light border border-secondary rounded mb-4 p-3">
                     <div class="row">
                         <div class="col-3">
@@ -200,33 +181,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+        </div> -->
 
         <!-- kepzetseg tablazat -->
          <div class="bg-light border border-secondary rounded mb-4 p-3">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col-8">Képzettség</th>
-                        <th scope="col">KP</th>
-                        <th scope="col">Szint</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Fegyverhasználat ( hosszukard )</td>
-                        <td>3</td>
-                        <td>Af</td>
-                    </tr>
-                    <tr>
-                        <td>Futás</td>
-                        <td>2</td>
-                        <td>Af</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
+             <magus-skills />
         </div>
 
         <!-- kincsek -->
@@ -277,6 +236,7 @@
     import MagusShield from './MagusShield.vue';
     import MagusArmor from './MagusArmor.vue';
     import MagusWepon from './MagusWepon.vue';
+    import MagusSkills from './MagusSkills.vue';
 
     export default {
         components: {
@@ -289,6 +249,7 @@
            MagusShield,
            MagusArmor,
            MagusWepon,
+           MagusSkills,
         },
         data() {
             return {
