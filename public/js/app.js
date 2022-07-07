@@ -7586,9 +7586,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter',
     haveLearnedSkill: 'haveLearnedSkill'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusClasses', {
@@ -7598,6 +7612,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusSkills', {
     skill: 'skill',
     skillPrecent: 'skillPrecent'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusWeapons', {
+    weapon: 'weapon',
+    rangedWeapon: 'rangedWeapon'
   })), {}, {
     Faj: function Faj() {
       var race = 'HUMAN';
@@ -7631,6 +7648,176 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     charactersPrecentSkills: function charactersPrecentSkills() {
       return this.magusCharacter.szazalekosKepzetsegek;
+    },
+    characterSkills: function characterSkills() {
+      var _this = this;
+
+      var skillSet = []; //fegyverhasznalat af
+
+      if (this.magusCharacter.FegyverhasznalatAlap.length > 0) {
+        var fegyverekAf = [];
+        this.magusCharacter.FegyverhasznalatAlap.forEach(function (fegyverAf) {
+          if (!_this.magusCharacter.FegyverhasznalatMester.includes(fegyverAf)) {
+            if (_this.weapon(fegyverAf)) {
+              fegyverekAf.push(_this.weapon(fegyverAf).name);
+            } else if (_this.rangedWeapon(fegyverAf)) {
+              fegyverekAf.push(_this.rangedWeapon(fegyverAf).name);
+            }
+          }
+        });
+
+        if (fegyverekAf.length > 0) {
+          var afWeaponSkillName = fegyverekAf.length + " Fegyverhasználat ( " + fegyverekAf.join(", ") + " )";
+          var afWeaponSkill = {
+            skillName: afWeaponSkillName,
+            kp: '3',
+            level: 'Af'
+          };
+          skillSet.push(afWeaponSkill);
+        }
+      } //fegyverhasznalat mf
+
+
+      if (this.magusCharacter.FegyverhasznalatMester.length > 0) {
+        var fegyverekMf = [];
+        this.magusCharacter.FegyverhasznalatMester.forEach(function (fegyverMf) {
+          if (_this.weapon(fegyverMf)) {
+            fegyverekMf.push(_this.weapon(fegyverMf).name);
+          } else if (_this.rangedWeapon(fegyverMf)) {
+            fegyverekMf.push(_this.rangedWeapon(fegyverMf).name);
+          }
+        });
+
+        if (fegyverekMf.length > 0) {
+          var mfWeaponSkillName = fegyverekMf.length + " Fegyverhasználat ( " + fegyverekMf.join(", ") + " )";
+          var mfWeaponSkill = {
+            skillName: mfWeaponSkillName,
+            kp: '30',
+            level: 'Mf'
+          };
+          skillSet.push(mfWeaponSkill);
+        }
+      } //fegyverdobas af
+
+
+      if (this.magusCharacter.FegyverdobasAlap.length > 0) {
+        var fegyveredkAf = [];
+        this.magusCharacter.FegyverdobasAlap.forEach(function (fegyverdAf) {
+          if (!_this.magusCharacter.FegyverdobasMester.includes(fegyverdAf)) {
+            if (_this.weapon(fegyverdAf)) {
+              fegyveredkAf.push(_this.weapon(fegyverdAf).name);
+            }
+          }
+        });
+
+        if (fegyveredkAf.length > 0) {
+          var afWeapondSkillName = fegyveredkAf.length + " Fegyver dobása ( " + fegyveredkAf.join(", ") + " )";
+          var afWeapondSkill = {
+            skillName: afWeapondSkillName,
+            kp: '4',
+            level: 'Af'
+          };
+          skillSet.push(afWeapondSkill);
+        }
+      } //fegyverdobas mf
+
+
+      if (this.magusCharacter.FegyverdobasMester.length > 0) {
+        var fegyverekdMf = [];
+        this.magusCharacter.FegyverdobasMester.forEach(function (fegyverdMf) {
+          if (_this.weapon(fegyverdMf)) {
+            fegyverekdMf.push(_this.weapon(fegyverdMf).name);
+          }
+        });
+
+        if (fegyverekdMf.length > 0) {
+          var mfWeapondSkillName = fegyverekdMf.length + " Fegyver dobása ( " + fegyverekdMf.join(", ") + " )";
+          var mfWeapondSkill = {
+            skillName: mfWeapondSkillName,
+            kp: '40',
+            level: 'Mf'
+          };
+          skillSet.push(mfWeapondSkill);
+        }
+      } //nyelv af
+
+
+      if (this.magusCharacter.NyelvismeretAf.length > 0) {
+        var nyelvAfName = this.magusCharacter.NyelvismeretAf.length + "Nyelvismeret ( " + this.magusCharacter.NyelvismeretAf.join(", ") + " )";
+        var nyelvSkillAf = {
+          skillName: nyelvAfName,
+          kp: '1-5',
+          level: 'Af'
+        };
+        skillSet.push(nyelvSkillAf);
+      } //nyelv mf
+
+
+      if (this.magusCharacter.NyelvismeretMf.length > 0) {
+        var nyelvMfName = this.magusCharacter.NyelvismeretMf.length + "Nyelvismeret ( " + this.magusCharacter.NyelvismeretMf.join(", ") + " )";
+        var nyelvSkillMf = {
+          skillName: nyelvMfName,
+          kp: '20',
+          level: 'Mf'
+        };
+        skillSet.push(nyelvSkillMf);
+      } //szakma af
+
+
+      if (this.magusCharacter.SzakmaAf.length > 0) {
+        var szakmaAfName = this.magusCharacter.SzakmaAf.length + "Szakma ( " + this.magusCharacter.SzakmaAf.join(", ") + " )";
+        var szakmaSkillAf = {
+          skillName: szakmaAfName,
+          kp: '2',
+          level: 'Af'
+        };
+        skillSet.push(szakmaSkillAf);
+      } //szakma mf
+
+
+      if (this.magusCharacter.SzakmaMf.length > 0) {
+        var szakmaMfName = this.magusCharacter.SzakmaMf.length + "Szakma ( " + this.magusCharacter.SzakmaMf.join(", ") + " )";
+        var szakmaSkillMf = {
+          skillName: szakmaMfName,
+          kp: '15',
+          level: 'Mf'
+        };
+        skillSet.push(szakmaSkillMf);
+      } //az osszes tobbi af
+
+
+      if (this.magusCharacter.LearnedSkills.af.length > 0) {
+        this.magusCharacter.LearnedSkills.af.forEach(function (currentSkill) {
+          var theSkill = _this.skill(currentSkill);
+
+          if (theSkill) {
+            var skillData = {
+              skillName: theSkill.name,
+              kp: theSkill.KpAf,
+              level: 'Af'
+            };
+            skillSet.push(skillData);
+          }
+        });
+      } //az osszes tobbi mf
+
+
+      if (this.magusCharacter.LearnedSkills.mf.length > 0) {
+        this.magusCharacter.LearnedSkills.mf.forEach(function (currentSkill) {
+          var theSkill = _this.skill(currentSkill);
+
+          if (theSkill) {
+            var skillData = {
+              skillName: theSkill.name,
+              kp: theSkill.KpMf,
+              level: 'Mf'
+            };
+            skillSet.push(skillData);
+          }
+        });
+      }
+
+      return skillSet;
     }
   }),
   methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {})), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
@@ -8737,8 +8924,10 @@ var state = {
     FegyverhasznalatMester: [],
     FegyverdobasAlap: [],
     FegyverdobasMester: [],
-    Nyelvismeret: [],
-    Szakma: [],
+    NyelvismeretAf: [],
+    NyelvismeretMf: [],
+    SzakmaAf: ['suszter'],
+    SzakmaMf: [],
     Pszi: {
       learned: false,
       atlevel: 0,
@@ -8801,8 +8990,8 @@ var state = {
       }
     },
     LearnedSkills: {
-      af: [],
-      mf: []
+      af: ['FUTAS', 'HANGUTANZAS'],
+      mf: ['TANC']
     },
     Pancel: {
       id: 'BOR_SZEGECSELT',
@@ -40139,9 +40328,38 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "row mt-3" }, [
-      _c("div", {
-        staticClass: "col pb-3 border-bottom border-end border-secondary",
-      }),
+      _c(
+        "div",
+        { staticClass: "col pb-3 border-bottom border-end border-secondary" },
+        [
+          _c(
+            "h4",
+            {
+              staticClass:
+                "text-center mt-2 pb-3 border-bottom border-secondary",
+            },
+            [_vm._v("Képzetség Tábla")]
+          ),
+          _vm._v(" "),
+          _c("table", { staticClass: "table table-striped" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.characterSkills, function (charSkill, index) {
+                return _c("tr", { key: "S" + index }, [
+                  _c("td", [_vm._v(_vm._s(charSkill.skillName))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(charSkill.kp))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(charSkill.level))]),
+                ])
+              }),
+              0
+            ),
+          ]),
+        ]
+      ),
       _vm._v(" "),
       _c(
         "div",
@@ -40157,7 +40375,7 @@ var render = function () {
           ),
           _vm._v(" "),
           _c("table", { staticClass: "table table-striped" }, [
-            _vm._m(1),
+            _vm._m(2),
             _vm._v(" "),
             _c(
               "tbody",
@@ -40193,6 +40411,20 @@ var staticRenderFns = [
         { staticClass: "btn btn-success my-3", attrs: { type: "button" } },
         [_vm._v("Új képzettség tanulása")]
       ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col-8" } }, [_vm._v("Képzettség")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("KP")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Szint")]),
+      ]),
     ])
   },
   function () {

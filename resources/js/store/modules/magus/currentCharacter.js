@@ -54,8 +54,10 @@
         FegyverhasznalatMester: [],
         FegyverdobasAlap: [],
         FegyverdobasMester: [],
-        Nyelvismeret: [],
-        Szakma: [],
+        NyelvismeretAf: [],
+        NyelvismeretMf: [],
+        SzakmaAf: ['suszter'],
+        SzakmaMf: [],
         Pszi: {
             learned: false,
             atlevel: 0,
@@ -118,8 +120,8 @@
             },
         },
         LearnedSkills:{
-            af: [],
-            mf: []
+            af: ['FUTAS', 'HANGUTANZAS'],
+            mf: ['TANC']
         },
         Pancel: {
             id: 'BOR_SZEGECSELT',
