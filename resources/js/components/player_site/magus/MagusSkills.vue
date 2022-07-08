@@ -37,7 +37,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="charSkill, index in characterSkills" :key="'S' + index">
-                            <td>{{ charSkill.skillName }}</td>
+                            <td>{{ charSkill.skillName }}<button type="button" @click="skillInfo(charSkill.id)" class="btn btn-outline-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#skillModal">i</button></td>
                             <td>{{ charSkill.kp }}</td>
                             <td>{{ charSkill.level }}</td>
                         </tr>
@@ -58,7 +58,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="precSkill, key in charactersPrecentSkills" :key="key">
-                            <td>{{ skillPrecent(key).name }}</td>
+                            <td>{{ skillPrecent(key).name }}<button type="button" @click="skillPrecInfo(key)" class="btn btn-outline-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#skillpModal">i</button></td>
                             <td>{{ precSkill.kpAdded }}</td>
                             <td>{{ precSkill.precentAdded }}</td>
                             <td>{{ sumSkillPrecent(precSkill.precent) }}</td>
@@ -67,12 +67,60 @@
                 </table> 
             </div>
         </div>
+
+          <!-- -----Info Modals------- -->
+
+          <!-- Skills -->
+        <div class="modal fade" id="skillModal" tabindex="-1" aria-labelledby="skillModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="skillModalLabel">{{ skill(infoSkillId).name }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{ skill(infoSkillId).description }}</p>
+                        <p>Alapfok:</p>
+                        <p>{{ skill(infoSkillId).Af }}</p>
+                        <p>Mesterfok:</p>
+                        <p>{{ skill(infoSkillId).Mf }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+          <!-- Skill Precent -->
+        <div class="modal fade" id="skillpModal" tabindex="-1" aria-labelledby="skillpModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="skillpModalLabel">{{ skillPrecent(infoSkillPrecId).name }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{ skillPrecent(infoSkillPrecId).description }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 import { mapGetters, mapMutations, mapActions } from 'vuex';
 export default {
+    data() {
+            return {
+               infoSkillId: 'FEGYVER_HASZNALAT',
+               infoSkillPrecId: 'maszas',
+            }
+        },
     computed: {
         ...mapGetters('currentCharacter', {
             magusCharacter: 'magusCharacter',
@@ -138,7 +186,7 @@ export default {
                 });
                 if (fegyverekAf.length > 0) {
                     let afWeaponSkillName = fegyverekAf.length + " Fegyverhasználat ( " + fegyverekAf.join(", ") + " )";
-                    let afWeaponSkill = {skillName: afWeaponSkillName, kp: '3', level: 'Af'};
+                    let afWeaponSkill = {id: 'FEGYVER_HASZNALAT', skillName: afWeaponSkillName, kp: '3', level: 'Af'};
                     skillSet.push(afWeaponSkill);
                 }    
             }
@@ -155,7 +203,7 @@ export default {
                 });
                 if (fegyverekMf.length > 0) {
                     let mfWeaponSkillName = fegyverekMf.length + " Fegyverhasználat ( " + fegyverekMf.join(", ") + " )";
-                    let mfWeaponSkill = {skillName: mfWeaponSkillName, kp: '30', level: 'Mf'};
+                    let mfWeaponSkill = {id: 'FEGYVER_HASZNALAT', skillName: mfWeaponSkillName, kp: '30', level: 'Mf'};
                     skillSet.push(mfWeaponSkill);
                 }    
             }
@@ -171,7 +219,7 @@ export default {
                 });
                 if (fegyveredkAf.length > 0) {
                     let afWeapondSkillName = fegyveredkAf.length + " Fegyver dobása ( " + fegyveredkAf.join(", ") + " )";
-                    let afWeapondSkill = {skillName: afWeapondSkillName, kp: '4', level: 'Af'};
+                    let afWeapondSkill = {id: 'FEGYVER_DOBAS', skillName: afWeapondSkillName, kp: '4', level: 'Af'};
                     skillSet.push(afWeapondSkill);
                 }    
             }
@@ -185,32 +233,32 @@ export default {
                 });
                 if (fegyverekdMf.length > 0) {
                     let mfWeapondSkillName = fegyverekdMf.length + " Fegyver dobása ( " + fegyverekdMf.join(", ") + " )";
-                    let mfWeapondSkill = {skillName: mfWeapondSkillName, kp: '40', level: 'Mf'};
+                    let mfWeapondSkill = {id: 'FEGYVER_DOBAS', skillName: mfWeapondSkillName, kp: '40', level: 'Mf'};
                     skillSet.push(mfWeapondSkill);
                 }    
             }
             //nyelv af
             if (this.magusCharacter.NyelvismeretAf.length > 0) {
                 let nyelvAfName = this.magusCharacter.NyelvismeretAf.length + "Nyelvismeret ( " + this.magusCharacter.NyelvismeretAf.join(", ") + " )";
-                let nyelvSkillAf = {skillName: nyelvAfName, kp: '1-5', level: 'Af'}
+                let nyelvSkillAf = {id: 'NYELVISMERET', skillName: nyelvAfName, kp: '1-5', level: 'Af'}
                 skillSet.push(nyelvSkillAf);
             }
             //nyelv mf
             if (this.magusCharacter.NyelvismeretMf.length > 0) {
                 let nyelvMfName = this.magusCharacter.NyelvismeretMf.length + "Nyelvismeret ( " + this.magusCharacter.NyelvismeretMf.join(", ") + " )";
-                let nyelvSkillMf = {skillName: nyelvMfName, kp: '20', level: 'Mf'}
+                let nyelvSkillMf = {id: 'NYELVISMERET', skillName: nyelvMfName, kp: '20', level: 'Mf'}
                 skillSet.push(nyelvSkillMf);
             }
             //szakma af
             if (this.magusCharacter.SzakmaAf.length > 0) {
                 let szakmaAfName = this.magusCharacter.SzakmaAf.length + "Szakma ( " + this.magusCharacter.SzakmaAf.join(", ") + " )";
-                let szakmaSkillAf = {skillName: szakmaAfName, kp: '2', level: 'Af'}
+                let szakmaSkillAf = {id: 'SZAKMA', skillName: szakmaAfName, kp: '2', level: 'Af'}
                 skillSet.push(szakmaSkillAf);
             }
             //szakma mf
             if (this.magusCharacter.SzakmaMf.length > 0) {
                 let szakmaMfName = this.magusCharacter.SzakmaMf.length + "Szakma ( " + this.magusCharacter.SzakmaMf.join(", ") + " )";
-                let szakmaSkillMf = {skillName: szakmaMfName, kp: '15', level: 'Mf'}
+                let szakmaSkillMf = {id: 'SZAKMA', skillName: szakmaMfName, kp: '15', level: 'Mf'}
                 skillSet.push(szakmaSkillMf);
             }
             //az osszes tobbi af
@@ -218,7 +266,7 @@ export default {
                 this.magusCharacter.LearnedSkills.af.forEach(currentSkill => {
                     let theSkill = this.skill(currentSkill);
                     if (theSkill) {
-                        let skillData = {skillName: theSkill.name, kp: theSkill.KpAf, level: 'Af'};
+                        let skillData = {id: currentSkill, skillName: theSkill.name, kp: theSkill.KpAf, level: 'Af'};
                         skillSet.push(skillData);
                     }
                 });
@@ -228,7 +276,7 @@ export default {
                 this.magusCharacter.LearnedSkills.mf.forEach(currentSkill => {
                     let theSkill = this.skill(currentSkill);
                     if (theSkill) {
-                        let skillData = {skillName: theSkill.name, kp: theSkill.KpMf, level: 'Mf'};
+                        let skillData = {id: currentSkill, skillName: theSkill.name, kp: theSkill.KpMf, level: 'Mf'};
                         skillSet.push(skillData);
                     }
                 });
@@ -246,6 +294,12 @@ export default {
         }),
         sumSkillPrecent(prec) {
             return this.ugyessegModosito + prec;
+        },
+        skillInfo(id) {
+            this.infoSkillId = id;
+        },
+        skillPrecInfo(id) {
+            this.infoSkillPrecId = id;
         }
     },
 }

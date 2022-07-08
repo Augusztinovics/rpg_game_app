@@ -7600,8 +7600,56 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      infoSkillId: 'FEGYVER_HASZNALAT',
+      infoSkillPrecId: 'maszas'
+    };
+  },
   computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter',
     haveLearnedSkill: 'haveLearnedSkill'
@@ -7669,6 +7717,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (fegyverekAf.length > 0) {
           var afWeaponSkillName = fegyverekAf.length + " Fegyverhasználat ( " + fegyverekAf.join(", ") + " )";
           var afWeaponSkill = {
+            id: 'FEGYVER_HASZNALAT',
             skillName: afWeaponSkillName,
             kp: '3',
             level: 'Af'
@@ -7691,6 +7740,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (fegyverekMf.length > 0) {
           var mfWeaponSkillName = fegyverekMf.length + " Fegyverhasználat ( " + fegyverekMf.join(", ") + " )";
           var mfWeaponSkill = {
+            id: 'FEGYVER_HASZNALAT',
             skillName: mfWeaponSkillName,
             kp: '30',
             level: 'Mf'
@@ -7713,6 +7763,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (fegyveredkAf.length > 0) {
           var afWeapondSkillName = fegyveredkAf.length + " Fegyver dobása ( " + fegyveredkAf.join(", ") + " )";
           var afWeapondSkill = {
+            id: 'FEGYVER_DOBAS',
             skillName: afWeapondSkillName,
             kp: '4',
             level: 'Af'
@@ -7733,6 +7784,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (fegyverekdMf.length > 0) {
           var mfWeapondSkillName = fegyverekdMf.length + " Fegyver dobása ( " + fegyverekdMf.join(", ") + " )";
           var mfWeapondSkill = {
+            id: 'FEGYVER_DOBAS',
             skillName: mfWeapondSkillName,
             kp: '40',
             level: 'Mf'
@@ -7745,6 +7797,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (this.magusCharacter.NyelvismeretAf.length > 0) {
         var nyelvAfName = this.magusCharacter.NyelvismeretAf.length + "Nyelvismeret ( " + this.magusCharacter.NyelvismeretAf.join(", ") + " )";
         var nyelvSkillAf = {
+          id: 'NYELVISMERET',
           skillName: nyelvAfName,
           kp: '1-5',
           level: 'Af'
@@ -7756,6 +7809,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (this.magusCharacter.NyelvismeretMf.length > 0) {
         var nyelvMfName = this.magusCharacter.NyelvismeretMf.length + "Nyelvismeret ( " + this.magusCharacter.NyelvismeretMf.join(", ") + " )";
         var nyelvSkillMf = {
+          id: 'NYELVISMERET',
           skillName: nyelvMfName,
           kp: '20',
           level: 'Mf'
@@ -7767,6 +7821,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (this.magusCharacter.SzakmaAf.length > 0) {
         var szakmaAfName = this.magusCharacter.SzakmaAf.length + "Szakma ( " + this.magusCharacter.SzakmaAf.join(", ") + " )";
         var szakmaSkillAf = {
+          id: 'SZAKMA',
           skillName: szakmaAfName,
           kp: '2',
           level: 'Af'
@@ -7778,6 +7833,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (this.magusCharacter.SzakmaMf.length > 0) {
         var szakmaMfName = this.magusCharacter.SzakmaMf.length + "Szakma ( " + this.magusCharacter.SzakmaMf.join(", ") + " )";
         var szakmaSkillMf = {
+          id: 'SZAKMA',
           skillName: szakmaMfName,
           kp: '15',
           level: 'Mf'
@@ -7792,6 +7848,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
           if (theSkill) {
             var skillData = {
+              id: currentSkill,
               skillName: theSkill.name,
               kp: theSkill.KpAf,
               level: 'Af'
@@ -7808,6 +7865,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
           if (theSkill) {
             var skillData = {
+              id: currentSkill,
               skillName: theSkill.name,
               kp: theSkill.KpMf,
               level: 'Mf'
@@ -7825,6 +7883,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   })), {}, {
     sumSkillPrecent: function sumSkillPrecent(prec) {
       return this.ugyessegModosito + prec;
+    },
+    skillInfo: function skillInfo(id) {
+      this.infoSkillId = id;
+    },
+    skillPrecInfo: function skillPrecInfo(id) {
+      this.infoSkillPrecId = id;
     }
   })
 });
@@ -40348,7 +40412,26 @@ var render = function () {
               "tbody",
               _vm._l(_vm.characterSkills, function (charSkill, index) {
                 return _c("tr", { key: "S" + index }, [
-                  _c("td", [_vm._v(_vm._s(charSkill.skillName))]),
+                  _c("td", [
+                    _vm._v(_vm._s(charSkill.skillName)),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-success btn-sm ms-2",
+                        attrs: {
+                          type: "button",
+                          "data-bs-toggle": "modal",
+                          "data-bs-target": "#skillModal",
+                        },
+                        on: {
+                          click: function ($event) {
+                            return _vm.skillInfo(charSkill.id)
+                          },
+                        },
+                      },
+                      [_vm._v("i")]
+                    ),
+                  ]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(charSkill.kp))]),
                   _vm._v(" "),
@@ -40381,7 +40464,26 @@ var render = function () {
               "tbody",
               _vm._l(_vm.charactersPrecentSkills, function (precSkill, key) {
                 return _c("tr", { key: key }, [
-                  _c("td", [_vm._v(_vm._s(_vm.skillPrecent(key).name))]),
+                  _c("td", [
+                    _vm._v(_vm._s(_vm.skillPrecent(key).name)),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-success btn-sm ms-2",
+                        attrs: {
+                          type: "button",
+                          "data-bs-toggle": "modal",
+                          "data-bs-target": "#skillpModal",
+                        },
+                        on: {
+                          click: function ($event) {
+                            return _vm.skillPrecInfo(key)
+                          },
+                        },
+                      },
+                      [_vm._v("i")]
+                    ),
+                  ]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(precSkill.kpAdded))]),
                   _vm._v(" "),
@@ -40398,6 +40500,122 @@ var render = function () {
         ]
       ),
     ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "skillModal",
+          tabindex: "-1",
+          "aria-labelledby": "skillModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "modal-dialog modal-dialog-centered modal-dialog-scrollable",
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "skillModalLabel" },
+                  },
+                  [_vm._v(_vm._s(_vm.skill(_vm.infoSkillId).name))]
+                ),
+                _vm._v(" "),
+                _c("button", {
+                  staticClass: "btn-close",
+                  attrs: {
+                    type: "button",
+                    "data-bs-dismiss": "modal",
+                    "aria-label": "Close",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("p", [
+                  _vm._v(_vm._s(_vm.skill(_vm.infoSkillId).description)),
+                ]),
+                _vm._v(" "),
+                _c("p", [_vm._v("Alapfok:")]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(_vm.skill(_vm.infoSkillId).Af))]),
+                _vm._v(" "),
+                _c("p", [_vm._v("Mesterfok:")]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(_vm.skill(_vm.infoSkillId).Mf))]),
+              ]),
+              _vm._v(" "),
+              _vm._m(3),
+            ]),
+          ]
+        ),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "skillpModal",
+          tabindex: "-1",
+          "aria-labelledby": "skillpModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "modal-dialog modal-dialog-centered modal-dialog-scrollable",
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "skillpModalLabel" },
+                  },
+                  [_vm._v(_vm._s(_vm.skillPrecent(_vm.infoSkillPrecId).name))]
+                ),
+                _vm._v(" "),
+                _c("button", {
+                  staticClass: "btn-close",
+                  attrs: {
+                    type: "button",
+                    "data-bs-dismiss": "modal",
+                    "aria-label": "Close",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("p", [
+                  _vm._v(
+                    _vm._s(_vm.skillPrecent(_vm.infoSkillPrecId).description)
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _vm._m(4),
+            ]),
+          ]
+        ),
+      ]
+    ),
   ])
 }
 var staticRenderFns = [
@@ -40441,6 +40659,36 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Összesen %")]),
       ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Close")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Close")]
+      ),
     ])
   },
 ]
