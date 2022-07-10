@@ -15,7 +15,7 @@
                 <p>Max Fp</p>
                 <p class="border-bottom border-secondary">{{ maxFp }}</p>
                 <p>Fp/szint</p>
-                <p>{{ fpSzint }}</p>
+                <p>{{ fpSzint.name }}</p>
             </div>
         </div>
         <p class="border-top border-secondary">Akt Fp</p>

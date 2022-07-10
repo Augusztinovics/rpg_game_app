@@ -48,8 +48,8 @@
         VeMod: 20,
         CeMod: 0,
         HmLeft: 0,
-        KpLeft: 0,
-        KpPrecentLeft: 0,
+        KpLeft: 1,
+        KpPrecentLeft: 3,
         FegyverhasznalatAlap: ['KARD_HOSSZU'],
         FegyverhasznalatMester: [],
         FegyverdobasAlap: [],
@@ -364,6 +364,15 @@ const mutations = {
     },
     updateRangedWeapons(state, ranged) {
         state.magusCharacter.FegyverekTavolsagi = ranged;
+    },
+    updateKpLeftDown(state, kp) {
+        state.magusCharacter.KpLeft -= kp;
+    },
+    updateKpPrecLeftDown(state, kpprec) {
+        state.magusCharacter.KpPrecentLeft -= kpprec;
+    },
+    updatePrecentSkills(state, precSkills) {
+        state.magusCharacter.szazalekosKepzetsegek = precSkills;
     }
 };
 const actions = {

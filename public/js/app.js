@@ -6933,6 +6933,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -6984,12 +7003,124 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     kaszt: Object
   },
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusSkills', {
+    skill: 'skill',
+    skillPrecent: 'skillPrecent'
+  })),
+  methods: {
+    characterSkills: function characterSkills(set) {
+      var _this = this;
+
+      var skillSet = []; //fegyverhasznalat af
+
+      if (set.FegyverhasznalatAlap > 0) {
+        var afWeaponSkill = set.FegyverhasznalatAlap + 'Fegyverhasználat Af';
+        skillSet.push(afWeaponSkill);
+      } //fegyverhasznalat mf
+
+
+      if (set.FegyverhasznalatMester > 0) {
+        var mfWeaponSkill = set.FegyverhasznalatMester + 'Fegyverhasználat Mf';
+        skillSet.push(mfWeaponSkill);
+      } //fegyverdobas af
+
+
+      if (set.FegyverdobasAlap > 0) {
+        var afWeapondSkill = set.FegyverdobasAlap + 'Fegyver dobása Af';
+        skillSet.push(afWeapondSkill);
+      } //fegyverdobas mf
+
+
+      if (set.FegyverdobasMester > 0) {
+        var mfWeapondSkill = set.FegyverdobasMester + 'Fegyver dobása Mf';
+        skillSet.push(mfWeapondSkill);
+      } //nyelv af
+
+
+      if (set.NyelvismeretAf > 0) {
+        var nyelvSkillAf = set.NyelvismeretAf + 'Nyelvismeret Af';
+        skillSet.push(nyelvSkillAf);
+      } //nyelv mf
+
+
+      if (set.NyelvismeretMf > 0) {
+        var nyelvSkillMf = set.NyelvismeretMf + 'Nyelvismeret Mf';
+        skillSet.push(nyelvSkillMf);
+      } //szakma af
+
+
+      if (set.SzakmaAf > 0) {
+        var szakmaSkillAf = set.SzakmaAf + 'Szakma Af';
+        skillSet.push(szakmaSkillAf);
+      } //szakma mf
+
+
+      if (set.SzakmaMf > 0) {
+        var szakmaSkillMf = set.SzakmaMf + 'Szakma Mf';
+        skillSet.push(szakmaSkillMf);
+      } //az osszes tobbi af
+
+
+      if (set.af.length > 0) {
+        set.af.forEach(function (currentSkill) {
+          var theSkill = _this.skill(currentSkill);
+
+          if (theSkill) {
+            var skillData = theSkill.name + ' Af';
+            skillSet.push(skillData);
+          }
+        });
+      } //az osszes tobbi mf
+
+
+      if (set.mf.length > 0) {
+        set.mf.forEach(function (currentSkill) {
+          var theSkill = _this.skill(currentSkill);
+
+          if (theSkill) {
+            var skillData = theSkill.name + ' Mf';
+            skillSet.push(skillData);
+          }
+        });
+      } //szazalekosok
+
+
+      for (var _i = 0, _Object$entries = Object.entries(set.precent); _i < _Object$entries.length; _i++) {
+        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+            key = _Object$entries$_i[0],
+            prec = _Object$entries$_i[1];
+
+        if (prec > 0) {
+          var precSkill = this.skillPrecent(key).name + ': ' + prec + '%';
+          skillSet.push(precSkill);
+        }
+      }
+
+      return skillSet;
+    }
   }
 });
 
@@ -7878,7 +8009,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return skillSet;
     }
   }),
-  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {})), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
+    updateKpLeftDown: 'updateKpLeftDown',
+    updateKpPrecLeftDown: 'updateKpPrecLeftDown',
+    updatePrecentSkills: 'updatePrecentSkills'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
     save: 'save'
   })), {}, {
     sumSkillPrecent: function sumSkillPrecent(prec) {
@@ -7889,6 +8024,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     skillPrecInfo: function skillPrecInfo(id) {
       this.infoSkillPrecId = id;
+    },
+    addKpToPrecentSkill: function addKpToPrecentSkill(key) {
+      var precentSkillSet = this.charactersPrecentSkills;
+      precentSkillSet[key].precent += 3;
+      precentSkillSet[key].kpAdded += 1;
+      this.updateKpLeftDown(1);
+      this.updatePrecentSkills(precentSkillSet);
+      this.save();
+    },
+    addPrecentToPrecentSkill: function addPrecentToPrecentSkill(key) {
+      var precentSkillSet = this.charactersPrecentSkills;
+      precentSkillSet[key].precent += 1;
+      precentSkillSet[key].precentAdded += 1;
+      this.updateKpPrecLeftDown(1);
+      this.updatePrecentSkills(precentSkillSet);
+      this.save();
     }
   })
 });
@@ -8982,8 +9133,8 @@ var state = {
     VeMod: 20,
     CeMod: 0,
     HmLeft: 0,
-    KpLeft: 0,
-    KpPrecentLeft: 0,
+    KpLeft: 1,
+    KpPrecentLeft: 3,
     FegyverhasznalatAlap: ['KARD_HOSSZU'],
     FegyverhasznalatMester: [],
     FegyverdobasAlap: [],
@@ -9361,6 +9512,15 @@ var mutations = {
   },
   updateRangedWeapons: function updateRangedWeapons(state, ranged) {
     state.magusCharacter.FegyverekTavolsagi = ranged;
+  },
+  updateKpLeftDown: function updateKpLeftDown(state, kp) {
+    state.magusCharacter.KpLeft -= kp;
+  },
+  updateKpPrecLeftDown: function updateKpPrecLeftDown(state, kpprec) {
+    state.magusCharacter.KpPrecentLeft -= kpprec;
+  },
+  updatePrecentSkills: function updatePrecentSkills(state, precSkills) {
+    state.magusCharacter.szazalekosKepzetsegek = precSkills;
   }
 };
 var actions = {
@@ -9857,15 +10017,42 @@ var state = {
   classes: [{
     id: 'HARCOS',
     name: 'Harcos',
-    ERO: 'k6+12+kf',
-    GYORS: '2k6+6+kf',
-    UGY: '2k6+6+kf',
-    ALLO: 'k10+8+kf',
-    EG: 'k10+10',
-    SZEP: '3k6x2',
-    INT: '3k6x2',
-    AK: '2k6+6',
-    ASZT: '3k6x2',
+    ERO: {
+      name: 'k6+12+kf',
+      sp: [13, 18, 1]
+    },
+    GYORS: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    UGY: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    ALLO: {
+      name: 'k10+8+kf',
+      sp: [9, 18, 1]
+    },
+    EG: {
+      name: 'k10+10',
+      sp: [11, 20, 0]
+    },
+    SZEP: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    INT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    AK: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    ASZT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
     KEalap: 9,
     TEalap: 20,
     VEalap: 75,
@@ -9877,17 +10064,64 @@ var state = {
     HmSzint: 5,
     Epalap: 7,
     Fpalap: 6,
-    FpSzint: 'k6+4',
+    FpSzint: {
+      name: 'k6+4',
+      sp: [5, 10]
+    },
     Kpalap: 10,
     KpSzint: 14,
     Mpalap: 0,
     MpSzint: 0,
-    skills: [{
-      name: 'fegyverhasznalat',
-      level: 'Af',
-      kp: 0
-    }],
-    skillsOtherLevel: {},
+    skillsFirstLevel: {
+      FegyverhasznalatAlap: 3,
+      FegyverhasznalatMester: 0,
+      FegyverdobasAlap: 0,
+      FegyverdobasMester: 0,
+      NyelvismeretAf: 0,
+      NyelvismeretMf: 0,
+      SzakmaAf: 0,
+      SzakmaMf: 0,
+      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
+      mf: [],
+      precent: {
+        maszas: 15,
+        eses: 20,
+        ugras: 10,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 0,
+        zarnyitas: 0,
+        titkosajto: 0
+      }
+    },
+    skillsOtherLevel: {
+      6: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['HADVEZETES'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      }
+    },
     TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
     description: ['A harcosok kasztjába azokat az elsődleges fegyverforgatásra kitanitott karaktereket soroljuk, akik jóval többek, mint egyszerű katonák, de nem részesültek lovagi nevelésben, sem gladiátori kiképzésben, és nem is valamilyen fejvadászklán berkeiben nőttek fel.A harcos messze a legnépesebb karakterkaszt: tagjai között találunk kalandorokat, kalandozókat, testőröket, magányos zsoldosokat, sőt uralkodókat is.', 'A harcosok azok, akik a fegyverforgatáson túl a legkülönfélébb dolgokhoz értenek. Akad közöttük olyan, aki jártas a mágiában, aki tolvajként is megállná a helyét, mint ahogy olyan is, aki ostoba, de erős, akár egy Keleti Barbár.', 'Ahány tája Ynevnek, annyifélék a harcosok.', 'A keleti barbárok testi erejükről, súlyos fegyvereikről ismertek.Nem hordanak páncélt, olykor ruhát sem, csak egyetlen ágyékkötőt. Eszük kevés, de birnak egyfajta józan, természetes erkölcsiséggel - és hihetetlen szakértelemmel forgatják kétkezes kardjukat, bárdjukat', 'Gorvik hegyvidékének lakói örökös viszálykodásban, családi háborúságban állnak egymással.Súlyos prémekkel védekeznek a hideg ellen, és bőrvértekkel társaik keskeny, tűhegyes kardjaival szemben. Nem idegen tőlük a hátulról, lesből támadás, a méreg használata, s a ravaszkodás sem.', 'Yllinorban, Mogorva Chei országában mérhetetlenül magas a harcos kasztúak száma. Úgy tartják sehol másutt nem élnek annyian mint itt. Könnyű láncinget viselnek, hosszú kardot, egykezes csatabárdot, csatacsákányt forgatnak. Kiváló lovasok - azt beszélik az utca túloldalára is lóval járnak - és ugyanilyen remek céllövészek. Hosszú, szarulemezekből ragasztott, visszacsapó ijakat használnak. Lelkes odaadással éltetik királyukat és istennőjüket.', 'A Pyarron környéki várakban, általában egy-egy lovagrend árnyékában léteznek harcos rendek, mely nem kizárólag a fegyverforgatásban jeleskednek, hanem a különféle tudományokban is. Ők álltalában a lovagokéhoz hasonló életet élnek, nehézvértezetet és nehézfegyvereket viselnek, mégsem lovagok, inkább azok kisérői, tanácsnokai, testőrei.'],
     harcertek: 'A harcosok harcértékei az egyik legkedvezőbb a magus kasztjai közül. Egyedül a gladiátorok különb fegyverforgatók náluk, és a Harcművészek olyankor, amikor Pszi-képességükhöz folyamodnak. Egy harcos kasztú karakter KÉ alapja 9, TÉ alapja 20, VÉ alapja 75, CÉ alapja 0, továbbá minden tapasztalati szinten ( már az elsőn is ) 11 Harcérték Módositót kap. Ezt tetszése szerint szétoszthatja KÉ-je, TÉ-je, VÉ-je és CÉ-je között, azonban TÉ-jére és VÉ-jére köteles minden szinten 3-3 pontot álldozni ( a rendszer autómatikusan levonja ). Az zllinori származású harcos karakter CÉ-jét is köteles minden Tapasztalati Szinten 3-mal növelni.',
@@ -9957,7 +10191,22 @@ var state = {
     forbittenClasses: [],
     CE: 0,
     specials: [],
-    skills: [],
+    skills: {
+      af: [],
+      mf: [],
+      precent: {
+        maszas: 0,
+        eses: 0,
+        ugras: 0,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 0,
+        zarnyitas: 0,
+        titkosajto: 0
+      }
+    },
     description: ['Az emberek Ynev legelterjetebb népe. Nem rendelkeznek semilyen különleges képességgel, a kasztok és leirások átlaga rájuk vonatkozik. Átlag életkoruk ugy 60-70 év.']
   }, {
     id: 'ELF',
@@ -9974,19 +10223,22 @@ var state = {
     forbittenClasses: ['LOVAG', 'TOLVAJ', 'PAP', 'PAPLOVAG', 'HARCMUVESZ', 'KARDMUVESZ', 'BOSZORKANY', 'BOSZORKANYMESTER', 'TUZVARAZSLO'],
     CE: 20,
     specials: ['Kétszer jobb hallás', 'Két és félszer jobb látás', 'Infralátás 50 méterig', 'Nekromancia érzékenység -8'],
-    skills: [{
-      name: 'Lovaglás',
-      level: 'MF',
-      kp: 0
-    }, {
-      name: 'Erdőjárás',
-      level: 'MF',
-      kp: 0
-    }, {
-      name: 'Idomitás',
-      level: 'MF',
-      kp: 0
-    }],
+    skills: {
+      af: [],
+      mf: ['LOVAGLAS', 'IDOMITAS', 'ERDOJARAS'],
+      precent: {
+        maszas: 0,
+        eses: 0,
+        ugras: 0,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 0,
+        zarnyitas: 0,
+        titkosajto: 0
+      }
+    },
     description: ['Az elfeket két különböző csoportba oszthatjuk: a közönséges elfekre - akiknek jó néhány alfaja létezik, és az óelfekre. Miután a MAGUS rendszerében csak közönséges elffel lehet játszani, ezért itt és most csak rájuk térünk ki.', 'Negyvenezer éve még csak Dél-Zneven léteztek elfek. Származásukat illetően csupán legendáikra hagyatkozhatunk - a legtöbb bölcs Larion szigetét tartja őshazájuknak. A kráni Sötét Hatalom megjelenése után a Délen virágzó elf birodalom hanyatlásnak indult. Életterük egyre szűkült, némely csoportjaik a fenyegetés elől Északra menekültek, mig a délen maradottak beszorultak Tzsson Larba, hogy azután onnan is tovább meneküljenek Lasmosiüfélszigetre. Itt élnek ma is, Elfendelnek nevezett királyságukban. Északra költözött társaik szerencsésebbnek bizonyultak: a Nyugati-óceán partjától a kontinens belsejéig húzódó komor erdőségekben - távol majd minden emberi civilizációtól - telepedtek meg. Birodalmukat Sirenar Szövetség néven jegyzik az ynevi bölcsek.', 'Az elf elzárkózásra hajlamos, a világot csöndes méltóságal szemlélő nép - egyes feltételezések szerint a lélekvándorlás egy magasabb lépcsőfokát jelentik. Mérhetelenül hosszú ideig élnek az embernépekhez képest, s ez gondolkodásmódjukra, és viselkedésükre egyaránt rányomja bélyegét. Türelmesek, emberi mércével gyönyörűek, bölcsességük, felhalmozott tudásuk elképesztő. A természet gyermekei, mindenki másnál jobban ismerik az élővilágot, tisztelettel és végtelen megbecsüléssel közelitenek hozzá. Városaik, településeik erdők mélyén állnak, követ csak elvétve használnak felépitésükhöz, ám művészetük és hozzáértésük folytán a fából készült házaik vetekednek a leggondosabban, legpazarabban megépitett kőpalotával is. Idejük nagy részét elmélkedéssel, művészeteik gyakorlásával töltik, de az univerzum legkitűnőbb ijászai is egyben, s nem kétséges: náluk jobb lovasokat még nem hordott hátán Ynev. Testfelépitésük, mozgásuk inkább könnyed és légies, mint erőtől duzzadó, de gyorsak akár a szarvas, és kézügyességük is párját ritkitja. Bőrük halovány, hajuk aranyszőke, szemük borostyánszinű vagy mélykék. Mindent összevetve csodálatos nép ez: egyedi- bárhova is vetődjenek Yneven - csodálatot, olykor azonban, a babonaságok, előitéletek miatt, félelmet váltanak ki más fajok szülötteiből. Közönbös azonban senki sem marad irántuk.', 'Nyugodt, türelmes életüket, megszokott környezetüket nem szivessen hagyják el, az embernépek mentalitása teljesen idegen tőlük. Nyiltak és egyenesek, igaztalanságon, vagy hazugságon nem kaphatja őket még ellenségeik sem. Jellemük az Élet és a Rend értékeinek leghivebb tükre. Hogy olykor rosz hirüket keltik, arról kizárólag az emberi civilizációban nevelkedett - s attól megrontott - fajtársaik tehetnek, akiket - bár látszólag mindenben azonosak elf birodalmakban élő társaikkal - gondolkodását, erkölcseit már eltorzitotta a fiatalabb népek kultúrája.', 'Igazi elfek csak igen ritkán kapják el a kalandozó-kórt, igy a legtöbb elf kalandozó valamelyik emberbirodalomból, annak elf közösségéből származik. Noha nem zárható ki, hogy az ősi földön élők némelyikében is kiváncsiság ebred a születésük óta jócskán megváltozott külvilág iránt, ennek valószinűsége egy az ezerhez.', 'Bármilyen eltorzult is az emberek közt nevelkedett elfek értékrendje, némely ösztönüket sosem vetkőzik le. Minden elf - származzon bárhonnét - nehezen viseli a kővárosokat, s a csillagos eget jobban kedveli fedél gyanánt, mint a cserepes tetőt. Az Élet szeretete ott fészkell bennük, s -legyenek bár rettenthetetlen harcosok, netán hires gladiátorok - az öncélú pusztitás, a kegyetlenség távol áll tőlük. A természet egyébb teremtményeivel kialakult évezredes jó kapcsolat sem múlik el nyomtalanul: nincs az az elf, aki tétlenül tűrné, hogy egy állatot megkinozzanak, vagy egy ligetet fölöslegesen kivágjanak. Ez persze kölcsönös, az erdő-mező vadjai ösztönös bizalommal viseltetnek irányukban, s ha egy nekivadult lovat, vagy örjöngő kutyát kell lecsillapitani, azt elfeknél jobban senki sem képes teljesiteni.', 'Az elfek természetétől leginkább a feketemágia - Nekromancia - esik távol, ezért az efféle varázslatoknak kevésbé birnak ellenszegülni, mint mások.']
   }, {
     id: 'HALF_ELF',
@@ -10003,15 +10255,22 @@ var state = {
     forbittenClasses: ['PAP', 'PAPLOVAG', 'TUZVARAZSLO'],
     CE: 10,
     specials: ['Másfélszer jobb hallás', 'Kiváló futó', 'Infralátás 10 méterig', 'Nekromancia érzékenység -6'],
-    skills: [{
-      name: 'Lovaglás',
-      level: 'MF',
-      kp: 0
-    }, {
-      name: 'Idomitás',
-      level: 'MF',
-      kp: 0
-    }],
+    skills: {
+      af: [],
+      mf: ['LOVAGLAS', 'IDOMITAS'],
+      precent: {
+        maszas: 0,
+        eses: 0,
+        ugras: 0,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 0,
+        zarnyitas: 0,
+        titkosajto: 0
+      }
+    },
     description: ['A félelfek Ynev legkülönösebb jellemű lényei. Egyik szülőjük elf, mig a másik ember, s ez a kettőség egész - igen hosszú - életük során végigkiséri őket. Igazán nem képesek beilleszkedni egyik nép világába sem - az embereknek túlságosan elfek, az elfeknek túlságosan emberek. Gondolkodásmódjukban közelebb állnak az emberekhez - noha mindég egyfajta töprengő, a világ dolgain merengő hozzáállás jellemzi őket -, külsejük azonban magán hordozza elfőseik örökségét. Légiesebbek, könnyedebbek mint az emberek - igaz, az elfeknél erősebb testalkatúak -,vonásaik megnyerőek, hajuk szőke, olykor ezüstszin, szemük legtöbbször ibolyakék. Állandóan nyughatatlanok. Egyszer egy Dorani bölcs azt találta állitani róluk, hogy örökké helyüket keresik a világban, s ez kissé profán általánositás, van benn némi igazság. Igen sok kalandozó kerül ki közülük, ennek oka nyilván a fenti tényekben keresendő. A két faj számtalan kitünő tulajdonságát egyesiti, ám vég nélkül - önmaguk számára is megmafyarázhatatlan - elégedetlenségük olyan átok, mely megakadályozza őket abban, hogy népük döntő befolyásolással birjon a világ sorsának alakitásában. A természet furcsa fintora, hogy két félelf utódja is félelf lesz, sőt egy flelf és egy tisztavérú elf frigyéből is csak félelf születhet. Félelf és ember kapcsolatából mindég ember születik.', 'A félelfek is rajongva szeretik a természetet és az élőlényeket, noha korántsem olyan töretlen a kapcsolatuk vele, mint tisztavérű társaiké. Éltalában az Élet és a Rend erkölcsei szerint élik életüket, noha találhatunk köztük velejéig romlott, önmaguktól és a világtól megkeseredett gyilkosokat is. Hazudni hamar megtanultak, ám a barátság szentségét még a legelvetemültebbek sem gyalázzák meg.', 'A félelfek természetétől - akárcsak elf szüleikétől - leginkább a Nekromancia esik távol, ezért az efféle varázslatoknak kevésbé birnak ellenszegülni, mint mások.']
   }, {
     id: 'TORPE',
@@ -10028,15 +10287,22 @@ var state = {
     forbittenClasses: ['FEJVADASZ', 'LOVAG', 'BARD', 'PAPLOVAG', 'HARCMUVESZ', 'KARDMUVESZ', 'BOSZORKANY', 'BOSZORKANYMESTER', 'TUZVARAZSLO'],
     CE: 0,
     specials: ['Infralátás 30 méter', 'Kiválló időérzék', 'Föld alatt mélységérzett - 2 méter pontosság', '+-5 év pontossággal meghatározza egy épület korát'],
-    skills: [{
-      name: 'Csabdafelfedezés',
-      level: '35%',
-      kp: 0
-    }, {
-      name: 'Titkosajtó keresés',
-      level: '30%',
-      kp: 0
-    }],
+    skills: {
+      af: [],
+      mf: [],
+      precent: {
+        maszas: 0,
+        eses: 0,
+        ugras: 0,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 35,
+        zarnyitas: 0,
+        titkosajto: 30
+      }
+    },
     description: ['A törpék Beriquelről érkeztek, a P.sz. 1200-as években. Hamarosan barátságot kötöttek az Északi Szövetség népeivel, akik eleinte ugyan különösnek találták ezt az apró termetű fajt, mely szokásában és gondolkodásában igen elüt az embertől - ám rövidesen rádöbbentek, milyen kemény harcosokra, milyen hű barátokra tettek szert.', 'Való igaz: a törpéknél, az épitészet, a statika szerelmeseinél keresve sem találni rendithetetlenebb társakat. Életük egész tartalma alatt az állandóságot a nyugalmat keresik - ám mivel Ynev és a valóság talaján is két lábbal állnak, pontosan felmérik, hogy az állandósághoy, a nyugalomhoz és a kényelemhez munkára, vagyonra, vagyis kiemelkedetségre van szükség.', 'Az átlag fölé emelkedés egyik módja: maradandót alkotni. Aki látot már törpék épitette palotát, netán megfordult a Tarini-hegység mélyén kialakitott barlangvárosaik valamelyikében, tudja, miként viszonyulnak ehhez a kérdéshez. Épületeik, hidjaik bámulatosan szilárdak, századokig, sőt, akár ezredévekig is dacolnak az idővel. A törpék azonban nem csak az épitészet terén alkottak nagyot. Erről azok mondhatnának bővebbet, akik viseltek már ütközetben törpék álltal kovácsolt páncélt, láncinget és pajzsot, vagy küzdöttek már tarini csadabárddal nem tarini vértbe öltözött szerencsétlenekkel.', 'A kiemelkedés másik bevett módja a katonáskodás - s Tarin törpéi nagy számban élnek ezzel a lehetőséggel. Az Északi Szövetség ármádiájának gyalogos derékhadát adják háború idején, de rettegést keltenek az ellenség szivében villámgyors mozgású rackla-lovasaik is.Feljebbvalóik parancsát mindenkor képességeik legjavát adva teljesitik. Ha nem természetes akadály álja útjukat, szétrombolják, legyen az fatörzsek torlasza, vagy roppant kövekből rakott fal, ha szorult helyzetbe kerülnek, utolsó törpéig harcolnak, megadni sosem szokták magukat. Valamennyi törpe harcos számára adott az előmenetel lehetősége, hadijelvényeik alatt nincs más mérce, csak a rátermettség.', 'Azok a törpék akik a fejüket kalandozásra adják, a harmadik megoldás mellett teszik le voksukat, mely kockázat tekintetében vetekszik ugyan a másodikkal, viszont gyorsabb - és bisztosabb - kiemelkedést tesz lehetővé az elsőnél. Északon gyakorta látható, az aranyaikat elmélyülten számoló törpe kalandozók. Erionnál meszebbre azonban nem szivesen merészkednek, mert Dél emberközpontú birodalmai nem igazán az ő izlésüknek valók.', 'Ha további nyugodt életük anyagi/erkölcsi feltételeit biztositva látják, visszavonulnak otthonukba, melyet - minden tartozékával együtt - egy royzomák elszántságával védenek. Előfordul persze, hogy egy - kezdetben csak anyagi érdekből kalandozó - törpe a nagyvilág, a kötetlen munka és a kockázat szerelmesévé válik, s egész hosszú ( kb 800 év ) életét ennek szenteli.', 'A törpék átlagos testmagassága 130 cm, alkatuk tömbszerű, nagy erőkifejtésre képesek, kitartásuk párját ritkitja. Arcuk széles, gyakorta - de nem mindég - szakáll ékiti. Szemük sötét árnyalatú, az egészen ősi, beriqueli vérvonal képviselőié azonban gleccserkék is lehet. Rendszerint csak egyszer házasodnak, a hűség fogalmának, az emberektől eltérő módon, csak egy változatát, a sirig tartót ismerik.']
   }, {
     id: 'HALF_ORK',
@@ -10053,15 +10319,22 @@ var state = {
     forbittenClasses: ['LOVAG', 'BARD', 'PAPLOVAG', 'HARCMUVESZ', 'KARDMUVESZ', 'BOSZORKANY', 'TUZVARAZSLO', 'VARAZSLO'],
     CE: 0,
     specials: ['Infralátás 15 méterig', 'Föld alatti mélységérzett - 4 méter pontosság', 'Ötször jobb szaglás'],
-    skills: [{
-      name: 'Csabdafelfedezés',
-      level: '20%',
-      kp: 0
-    }, {
-      name: 'Titkosajtó keresés',
-      level: '10%',
-      kp: 0
-    }],
+    skills: {
+      af: [],
+      mf: [],
+      precent: {
+        maszas: 0,
+        eses: 0,
+        ugras: 0,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 20,
+        zarnyitas: 0,
+        titkosajto: 10
+      }
+    },
     description: ['Mágikus beavatkozás eredménye képpen létrejött faj, melynek egyedei az orkok legértékesebb tulajdonságait csillogtatják: a makacsságig menő kitartást, a természetes, állati inteligenciát, a kérhetetlen vadságot - ezúttal az emberiség céljai érdekében.', 'Az udvari - másnéven nemesitett - orkok Északon jelentek meg, első osztaguk egy ottani hatalmasság szolgálatában állt. A világhir, azaz inkább a koronás fők divathóbortja akkor kapta szárnyára őket, mikor kemény küzdelemben megmentették a szorongatott nagyúr életét.', 'Alkotóik, mikor magasabb inteligenciával ruházták fel őket, csak bizonyos problémák kiküszöbölésére törekedtek, nem szenteltek elég figyelmet az igy létrhivott új faj asztrális és mentális adotságainak növekedésével. Az emberi értelemben vett érzelmek a természetes körülmények közt élő közönséges orkoknál sem mennek ritkaságszámba, az udvari orkok gondolkodásvilága azonban annyira kifinomult, hogy ideális táptalajt jelentet az öncélú lelki folyamatok -pl. szépelgés, melankólia - számára is. Bármely udvari ork képes bonyolult gondolatfüzéreit akár egy álló héten át is gombolyitani, mielőtt rászánná magát, hogy végkövetkeztetéseit egy arra alkalmasnak látszó emberrel megossza. Ha megteszi, rendszerint csalódás az osztályrésze: gondolatai hiába magvasak, szinte minden esetben sok ezer éve ismertek már, réges rég papirra vetette őket azóta elporlat tollforgatók. Az udvari orkok kisebbrendűség érzése allighanem épp e szerencsétlen fáziseltolódás következménye. Filozófiáról, művészetekről egyszerűen képtelenek újat mondani alkotójuknak, az embernek - azt pedig, hogy személyiségük, személyük is értékek hordozója lehet, nemigen tudják felfogni.', 'Az udvari orkok az Északi szövetség országaiban mindenütt megtalálhatók, ám uraik kiséretében Ynev majd minden tájára eljuthatnak. Az utóbbi évszázadban vált álltalánossá az a gyakorlat, hogy a főnemesek a kiemelkedő képességű udvari orkjaikat tanittatják, netán szélnek is eresztik - ekkor jelentek meg a kontinensen a kalandkeresők között.', 'A kalandozók nem sokat adnak a külsőre, annál többet a belső értékekre: társaságuk ideális a gátlásoktól gyötört, melankóliára hajlamos udvari orkok számára, akiket bizonyos idő elteltével bisztosan helyre ráznak. Egy-egy kalandozócsapat roppant vegyes összetételű lehet - Erion csapszékeiben hallani történeteket olyan vitézi különitményről, melynek vezetője és esze udvari orkként kezdte pályafutását.', 'Az udvari orkok átlagos testmagassága 180 cm, szőrzetük világosabb árnyalatú Káosz teremtette társaiknál, arcukon és nyakukon kimondottan ritkás - és jó hogy az, mert a boldogtalanokat még ez is szégyenérzettel tölti el. Ha egy udvari ork kalandozó társai nem ügyelnek eléggé, ha a férfiak nem tartják állandóan maguknál a borotvájukat, egy reggel azon vehetik észre magukat, hogy egy csupasz képű szörnyeteg az utitársuk. Az udvari orkok szeme savószinű, ritkábban földbarna. Kinosan tiszták - egy természetes állapotú, közönséges ork éppúgy undorral tölti el őket, mint az embereket. Az igazi orkokhoz fűződő viszonyuk egyébbként is sajátságos: mindkét faj képviselőji saját torzképüknek tekintik a másikat. Az udvari orkok azért gyűlölik a vadon élőket, mert őket teszik felelőssé az emberek előitéleteiért - a vadon élő orkok pedig faja minden -amúgy kétes- értékének árulóját látja az udvariban. Keveredés a két faj között sosem fordul elő.']
   }]
 };
@@ -38455,7 +38728,7 @@ var render = function () {
         _vm._v(" "),
         _c("p", [_vm._v("Fp/szint")]),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.fpSzint))]),
+        _c("p", [_vm._v(_vm._s(_vm.fpSzint.name))]),
       ]),
     ]),
     _vm._v(" "),
@@ -38965,29 +39238,84 @@ var render = function () {
     "div",
     { staticClass: "container-fluid" },
     [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("p", [_vm._v("ERŐ: " + _vm._s(_vm.kaszt.ERO.name))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("GYORSASÁG: " + _vm._s(_vm.kaszt.GYORS.name))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("ÜGYESSÉG: " + _vm._s(_vm.kaszt.UGY.name))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("ÁLLÓKÉPESSÉG: " + _vm._s(_vm.kaszt.ALLO.name))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("EGÉSZSÉG: " + _vm._s(_vm.kaszt.EG.name))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("SZÉPSÉG: " + _vm._s(_vm.kaszt.SZEP.name))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("INTELIGENCIA: " + _vm._s(_vm.kaszt.INT.name))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("AKARATERŐ: " + _vm._s(_vm.kaszt.AK.name))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("ASZTRÁL: " + _vm._s(_vm.kaszt.ASZT.name))]),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
       _vm._l(_vm.kaszt.description, function (des, index) {
         return _c("p", { key: index }, [_vm._v(_vm._s(des))])
       }),
       _vm._v(" "),
-      _vm._m(0),
+      _vm._m(2),
       _vm._v(" "),
       _c("p", [_vm._v(_vm._s(_vm.kaszt.harcertek))]),
       _vm._v(" "),
-      _vm._m(1),
+      _vm._m(3),
       _vm._v(" "),
       _c("p", [_vm._v(_vm._s(_vm.kaszt.eletero))]),
       _vm._v(" "),
-      _vm._m(2),
+      _vm._m(4),
       _vm._v(" "),
       _c("p", [_vm._v(_vm._s(_vm.kaszt.kepzetsegek))]),
       _vm._v(" "),
-      _vm._m(3),
+      _vm._m(5),
+      _vm._v(" "),
+      _vm._l(
+        _vm.characterSkills(_vm.kaszt.skillsFirstLevel),
+        function (skillFirstLevel, index) {
+          return _c("p", { key: "FL" + index }, [
+            _vm._v(_vm._s(skillFirstLevel)),
+          ])
+        }
+      ),
+      _vm._v(" "),
+      _vm._m(6),
+      _vm._v(" "),
+      _vm._l(_vm.kaszt.skillsOtherLevel, function (skillsAther, key) {
+        return _c(
+          "div",
+          { key: "TSZ" + key },
+          [
+            _c("p", [_c("b", [_vm._v("TSZ: " + _vm._s(key))])]),
+            _vm._v(" "),
+            _vm._l(
+              _vm.characterSkills(skillsAther),
+              function (skillLevels, index) {
+                return _c("p", { key: key + index }, [
+                  _vm._v(_vm._s(skillLevels)),
+                ])
+              }
+            ),
+          ],
+          2
+        )
+      }),
+      _vm._v(" "),
+      _vm._m(7),
       _vm._v(" "),
       _c("p", [_vm._v(_vm._s(_vm.kaszt.tapasztalat))]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col text-center" }, [
-          _vm._m(4),
+          _vm._m(8),
           _vm._v(" "),
           _c("p", [
             _c("span", [_vm._v(_vm._s(_vm.kaszt.TpSzint[0][0]))]),
@@ -39062,7 +39390,7 @@ var render = function () {
           ]),
         ]),
         _vm._v(" "),
-        _vm._m(5),
+        _vm._m(9),
       ]),
       _vm._v(" "),
       _c("p", [
@@ -39085,6 +39413,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Tulajdonságok:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Leirás")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("p", [_c("b", [_vm._v("Harcérték")])])
   },
   function () {
@@ -39098,6 +39438,18 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [_c("b", [_vm._v("Képzetségek")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Képzetségek első szinten:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Képzetségek további szinteken:")])])
   },
   function () {
     var _vm = this
@@ -40485,9 +40837,43 @@ var render = function () {
                     ),
                   ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(precSkill.kpAdded))]),
+                  _c("td", [
+                    _vm._v(_vm._s(precSkill.kpAdded)),
+                    _vm.kpLeft > 0
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-outline-success btn-sm ms-2",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.addKpToPrecentSkill(key)
+                              },
+                            },
+                          },
+                          [_vm._v("+")]
+                        )
+                      : _vm._e(),
+                  ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(precSkill.precentAdded))]),
+                  _c("td", [
+                    _vm._v(_vm._s(precSkill.precentAdded)),
+                    _vm.kpPrecentLeft > 0
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-outline-success btn-sm ms-2",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.addPrecentToPrecentSkill(key)
+                              },
+                            },
+                          },
+                          [_vm._v("+")]
+                        )
+                      : _vm._e(),
+                  ]),
                   _vm._v(" "),
                   _c("td", [
                     _vm._v(_vm._s(_vm.sumSkillPrecent(precSkill.precent))),

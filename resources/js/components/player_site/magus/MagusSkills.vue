@@ -59,8 +59,8 @@
                     <tbody>
                         <tr v-for="precSkill, key in charactersPrecentSkills" :key="key">
                             <td>{{ skillPrecent(key).name }}<button type="button" @click="skillPrecInfo(key)" class="btn btn-outline-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#skillpModal">i</button></td>
-                            <td>{{ precSkill.kpAdded }}</td>
-                            <td>{{ precSkill.precentAdded }}</td>
+                            <td>{{ precSkill.kpAdded }}<button v-if="kpLeft > 0" type="button" @click="addKpToPrecentSkill(key)" class="btn btn-outline-success btn-sm ms-2">+</button></td>
+                            <td>{{ precSkill.precentAdded }}<button v-if="kpPrecentLeft > 0" type="button" @click="addPrecentToPrecentSkill(key)" class="btn btn-outline-success btn-sm ms-2">+</button></td>
                             <td>{{ sumSkillPrecent(precSkill.precent) }}</td>
                         </tr>
                     </tbody>
@@ -287,7 +287,9 @@ export default {
     },
     methods: {
         ...mapMutations('currentCharacter', {
-            
+            updateKpLeftDown: 'updateKpLeftDown',
+            updateKpPrecLeftDown: 'updateKpPrecLeftDown',
+            updatePrecentSkills: 'updatePrecentSkills'
         }),
         ...mapActions('currentCharacter', {
                 save: 'save'
@@ -300,7 +302,23 @@ export default {
         },
         skillPrecInfo(id) {
             this.infoSkillPrecId = id;
-        }
+        },
+        addKpToPrecentSkill(key) {
+            let precentSkillSet = this.charactersPrecentSkills;
+            precentSkillSet[key].precent += 3;
+            precentSkillSet[key].kpAdded += 1;
+            this.updateKpLeftDown(1);
+            this.updatePrecentSkills(precentSkillSet);
+            this.save();
+        },
+        addPrecentToPrecentSkill(key) {
+            let precentSkillSet = this.charactersPrecentSkills;
+            precentSkillSet[key].precent += 1;
+            precentSkillSet[key].precentAdded += 1;
+            this.updateKpPrecLeftDown(1);
+            this.updatePrecentSkills(precentSkillSet);
+            this.save();
+        },
     },
 }
 </script>
