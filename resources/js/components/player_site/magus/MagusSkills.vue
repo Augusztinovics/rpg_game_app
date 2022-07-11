@@ -17,7 +17,7 @@
                     <p>{{ KpSzint }}</p>
                 </div>
                 <div class="col">
-                    <button class="btn btn-success my-3" type="button" >Új képzettség tanulása</button>
+                    <button v-if="kpLeft > 0" class="btn btn-success my-3" type="button" data-bs-toggle="modal" data-bs-target="#newSkillModal">Új képzettség tanulása</button>
                 </div>
             </div>
         </div>
@@ -67,6 +67,23 @@
                 </table> 
             </div>
         </div>
+        <!-- new skill modal -->
+        <div class="modal fade" id="newSkillModal" tabindex="-1" aria-labelledby="newSkillModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="newSkillModalLabel">Új képzetség tanulása</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <magus-learn-skill />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
           <!-- -----Info Modals------- -->
 
@@ -114,7 +131,11 @@
 
 <script>
 import { mapGetters, mapMutations, mapActions } from 'vuex';
+import MagusLearnSkill from './MagusLearnSkill.vue';
 export default {
+    components: {
+        MagusLearnSkill
+    },
     data() {
             return {
                infoSkillId: 'FEGYVER_HASZNALAT',

@@ -48,7 +48,7 @@
         VeMod: 20,
         CeMod: 0,
         HmLeft: 0,
-        KpLeft: 1,
+        KpLeft: 14,
         KpPrecentLeft: 3,
         FegyverhasznalatAlap: ['KARD_HOSSZU'],
         FegyverhasznalatMester: [],

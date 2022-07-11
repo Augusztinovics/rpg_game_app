@@ -7428,6 +7428,166 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusLearnSkill.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusLearnSkill.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
+    magusCharacter: 'magusCharacter'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusSkills', {
+    skills: 'skills'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusWeapons', {
+    weapons: 'weapons',
+    rangedWeapons: 'rangedWeapons'
+  })), {}, {
+    kpLeft: function kpLeft() {
+      return this.magusCharacter.KpLeft;
+    },
+    learnedWeaponsList: function learnedWeaponsList() {
+      return this.magusCharacter.FegyverhasznalatAlap;
+    },
+    learnedSkills: function learnedSkills() {
+      return this.magusCharacter.LearnedSkills.af;
+    },
+    availablleSkills: function availablleSkills() {
+      var _this = this;
+
+      return this.skills.filter(function (s) {
+        return !_this.learnedSkills.includes(s.id) && s.KpAf <= _this.kpLeft;
+      });
+    },
+    availableWeapons: function availableWeapons() {
+      var _this2 = this;
+
+      return this.weapons.filter(function (w) {
+        return !_this2.learnedWeaponsList.includes(w.id);
+      });
+    },
+    availableRangedWeapons: function availableRangedWeapons() {
+      var _this3 = this;
+
+      return this.rangedWeapons.filter(function (r) {
+        return !_this3.learnedWeaponsList.includes(r.id);
+      });
+    }
+  }),
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
+    updateKpLeftDown: 'updateKpLeftDown'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
+    save: 'save'
+  }))
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusShield.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusShield.vue?vue&type=script&lang=js& ***!
@@ -7652,7 +7812,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _MagusLearnSkill_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusLearnSkill.vue */ "./resources/js/components/player_site/magus/MagusLearnSkill.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -7773,25 +7934,46 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    MagusLearnSkill: _MagusLearnSkill_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {
       infoSkillId: 'FEGYVER_HASZNALAT',
       infoSkillPrecId: 'maszas'
     };
   },
-  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter',
     haveLearnedSkill: 'haveLearnedSkill'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusClasses', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusClasses', {
     magusKaszt: 'magusClass'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusRaces', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusRaces', {
     race: 'race'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusSkills', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusSkills', {
     skill: 'skill',
     skillPrecent: 'skillPrecent'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusWeapons', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusWeapons', {
     weapon: 'weapon',
     rangedWeapon: 'rangedWeapon'
   })), {}, {
@@ -8009,11 +8191,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return skillSet;
     }
   }),
-  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapMutations)('currentCharacter', {
     updateKpLeftDown: 'updateKpLeftDown',
     updateKpPrecLeftDown: 'updateKpPrecLeftDown',
     updatePrecentSkills: 'updatePrecentSkills'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)('currentCharacter', {
     save: 'save'
   })), {}, {
     sumSkillPrecent: function sumSkillPrecent(prec) {
@@ -9133,7 +9315,7 @@ var state = {
     VeMod: 20,
     CeMod: 0,
     HmLeft: 0,
-    KpLeft: 1,
+    KpLeft: 14,
     KpPrecentLeft: 3,
     FegyverhasznalatAlap: ['KARD_HOSSZU'],
     FegyverhasznalatMester: [],
@@ -35689,6 +35871,45 @@ component.options.__file = "resources/js/components/player_site/magus/MagusKincs
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/magus/MagusLearnSkill.vue":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusLearnSkill.vue ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusLearnSkill_vue_vue_type_template_id_6a3855ca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusLearnSkill.vue?vue&type=template&id=6a3855ca& */ "./resources/js/components/player_site/magus/MagusLearnSkill.vue?vue&type=template&id=6a3855ca&");
+/* harmony import */ var _MagusLearnSkill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusLearnSkill.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/magus/MagusLearnSkill.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MagusLearnSkill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusLearnSkill_vue_vue_type_template_id_6a3855ca___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusLearnSkill_vue_vue_type_template_id_6a3855ca___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/player_site/magus/MagusLearnSkill.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/magus/MagusShield.vue":
 /*!*******************************************************************!*\
   !*** ./resources/js/components/player_site/magus/MagusShield.vue ***!
@@ -36032,6 +36253,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/magus/MagusLearnSkill.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusLearnSkill.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusLearnSkill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusLearnSkill.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusLearnSkill.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusLearnSkill_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/magus/MagusShield.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************!*\
   !*** ./resources/js/components/player_site/magus/MagusShield.vue?vue&type=script&lang=js& ***!
@@ -36353,6 +36590,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKincsek_vue_vue_type_template_id_3c4f70a8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusKincsek_vue_vue_type_template_id_3c4f70a8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusKincsek.vue?vue&type=template&id=3c4f70a8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusKincsek.vue?vue&type=template&id=3c4f70a8&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusLearnSkill.vue?vue&type=template&id=6a3855ca&":
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusLearnSkill.vue?vue&type=template&id=6a3855ca& ***!
+  \******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusLearnSkill_vue_vue_type_template_id_6a3855ca___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusLearnSkill_vue_vue_type_template_id_6a3855ca___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusLearnSkill_vue_vue_type_template_id_6a3855ca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusLearnSkill.vue?vue&type=template&id=6a3855ca& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusLearnSkill.vue?vue&type=template&id=6a3855ca&");
 
 
 /***/ }),
@@ -40302,6 +40556,471 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusLearnSkill.vue?vue&type=template&id=6a3855ca&":
+/*!*********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusLearnSkill.vue?vue&type=template&id=6a3855ca& ***!
+  \*********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "tab-content", attrs: { id: "nav-tabContent" } }, [
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade show active",
+          attrs: {
+            id: "nav-af",
+            role: "tabpanel",
+            "aria-labelledby": "nav-af-tab",
+          },
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "accordion",
+              attrs: { id: "accordionPanelsStayOpenExample" },
+            },
+            _vm._l(_vm.availablleSkills, function (skil) {
+              return _c(
+                "div",
+                { key: skil.id, staticClass: "accordion-item" },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass: "accordion-header",
+                      attrs: { id: skil.id + "-heading" },
+                    },
+                    [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "accordion-button collapsed",
+                          attrs: {
+                            type: "button",
+                            "data-bs-toggle": "collapse",
+                            "data-bs-target": "#" + skil.id,
+                            "aria-expanded": "false",
+                            "aria-controls": skil.id,
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(skil.name) +
+                              "\n                        "
+                          ),
+                        ]
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "accordion-collapse collapse",
+                      attrs: {
+                        id: skil.id,
+                        "aria-labelledby": skil.id + "-heading",
+                      },
+                    },
+                    [
+                      _c("div", { staticClass: "accordion-body" }, [
+                        _vm._m(1, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(skil.description))]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("b", [_vm._v("Af ")]),
+                          _vm._v("Kp: " + _vm._s(skil.KpAf)),
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(skil.Af))]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("b", [_vm._v("Mf ")]),
+                          _vm._v("Kp: " + _vm._s(skil.KpMf)),
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(skil.Mf))]),
+                        _vm._v(" "),
+                        skil.id == "FEGYVER_HASZNALAT"
+                          ? _c("div", [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "card bg-success text-white text-center",
+                                },
+                                [
+                                  _c("div", { staticClass: "card-body" }, [
+                                    _c("p", { staticClass: "h3" }, [
+                                      _vm._v(
+                                        "Új fegyver alapfokú ismeretének elsajátitása " +
+                                          _vm._s(skil.KpAf) +
+                                          " KP-ért"
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "select",
+                                      {
+                                        staticClass:
+                                          "form-select form-select-lg mb-3",
+                                        attrs: {
+                                          "aria-label": "weapon-select",
+                                        },
+                                      },
+                                      [
+                                        _c(
+                                          "option",
+                                          {
+                                            attrs: {
+                                              selected: "",
+                                              value: "",
+                                              disabled: "",
+                                            },
+                                          },
+                                          [_vm._v("Választj fegyvert")]
+                                        ),
+                                        _vm._v(" "),
+                                        _vm._l(
+                                          _vm.availableWeapons,
+                                          function (weapon) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: weapon.id,
+                                                domProps: { value: weapon.id },
+                                              },
+                                              [_vm._v(_vm._s(weapon.name))]
+                                            )
+                                          }
+                                        ),
+                                        _vm._v(" "),
+                                        _vm._l(
+                                          _vm.availableRangedWeapons,
+                                          function (ranged) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: ranged.id,
+                                                domProps: { value: ranged.id },
+                                              },
+                                              [_vm._v(_vm._s(ranged.name))]
+                                            )
+                                          }
+                                        ),
+                                      ],
+                                      2
+                                    ),
+                                    _vm._v(" "),
+                                    _vm._m(2, true),
+                                  ]),
+                                ]
+                              ),
+                            ])
+                          : skil.id == "FEGYVER_DOBAS"
+                          ? _c("div", [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "card bg-success text-white text-center",
+                                },
+                                [
+                                  _c("div", { staticClass: "card-body" }, [
+                                    _c("p", { staticClass: "h3" }, [
+                                      _vm._v(
+                                        "Új fegyverdobás alapfokú ismeretének elsajátitása " +
+                                          _vm._s(skil.KpAf) +
+                                          " KP-ért"
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "select",
+                                      {
+                                        staticClass:
+                                          "form-select form-select-lg mb-3",
+                                        attrs: {
+                                          "aria-label": "weapon-select",
+                                        },
+                                      },
+                                      [
+                                        _c(
+                                          "option",
+                                          {
+                                            attrs: {
+                                              selected: "",
+                                              value: "",
+                                              disabled: "",
+                                            },
+                                          },
+                                          [_vm._v("Választj fegyvert")]
+                                        ),
+                                        _vm._v(" "),
+                                        _vm._l(
+                                          _vm.availableWeapons,
+                                          function (weapon) {
+                                            return _c(
+                                              "option",
+                                              {
+                                                key: weapon.id,
+                                                domProps: { value: weapon.id },
+                                              },
+                                              [_vm._v(_vm._s(weapon.name))]
+                                            )
+                                          }
+                                        ),
+                                      ],
+                                      2
+                                    ),
+                                    _vm._v(" "),
+                                    _vm._m(3, true),
+                                  ]),
+                                ]
+                              ),
+                            ])
+                          : skil.id == "NYELVISMERET"
+                          ? _c("div", [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "card bg-success text-white text-center",
+                                },
+                                [
+                                  _c("div", { staticClass: "card-body" }, [
+                                    _c("p", { staticClass: "h3" }, [
+                                      _vm._v(
+                                        "Új nyelv tanulása " +
+                                          _vm._s(skil.KpAf) +
+                                          " KP-ért"
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      staticClass:
+                                        "form-control form-control-lg",
+                                      attrs: {
+                                        type: "text",
+                                        placeholder:
+                                          "ird be a megtanulni kivánt nyelvet",
+                                        "aria-label": "language input",
+                                      },
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(4, true),
+                                  ]),
+                                ]
+                              ),
+                            ])
+                          : skil.id == "SZAKMA"
+                          ? _c("div", [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "card bg-success text-white text-center",
+                                },
+                                [
+                                  _c("div", { staticClass: "card-body" }, [
+                                    _c("p", { staticClass: "h3" }, [
+                                      _vm._v(
+                                        "Új szakma tanulása " +
+                                          _vm._s(skil.KpAf) +
+                                          " KP-ért"
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      staticClass:
+                                        "form-control form-control-lg",
+                                      attrs: {
+                                        type: "text",
+                                        placeholder:
+                                          "ird be a megtanulni kivánt szakmát",
+                                        "aria-label": "skill input",
+                                      },
+                                    }),
+                                    _vm._v(" "),
+                                    _vm._m(5, true),
+                                  ]),
+                                ]
+                              ),
+                            ])
+                          : _c("div", [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "card bg-success text-white text-center",
+                                },
+                                [
+                                  _c("div", { staticClass: "card-body" }, [
+                                    _c("p", { staticClass: "h3" }, [
+                                      _vm._v(
+                                        _vm._s(skil.name) +
+                                          " elsajátitása " +
+                                          _vm._s(skil.KpAf) +
+                                          " KP-ért"
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _vm._m(6, true),
+                                  ]),
+                                ]
+                              ),
+                            ]),
+                      ]),
+                    ]
+                  ),
+                ]
+              )
+            }),
+            0
+          ),
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "tab-pane fade",
+        attrs: {
+          id: "nav-mf",
+          role: "tabpanel",
+          "aria-labelledby": "nav-mf-tab",
+        },
+      }),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("nav", [
+      _c(
+        "div",
+        {
+          staticClass: "nav nav-tabs",
+          attrs: { id: "nav-tab", role: "tablist" },
+        },
+        [
+          _c(
+            "button",
+            {
+              staticClass: "nav-link active",
+              attrs: {
+                id: "nav-home-tab",
+                "data-bs-toggle": "tab",
+                "data-bs-target": "#nav-af",
+                type: "button",
+                role: "tab",
+                "aria-controls": "nav-af",
+                "aria-selected": "true",
+              },
+            },
+            [_vm._v("Alapfokú képzetség tanulása")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "nav-profile-tab",
+                "data-bs-toggle": "tab",
+                "data-bs-target": "#nav-mf",
+                type: "button",
+                role: "tab",
+                "aria-controls": "nav-mf",
+                "aria-selected": "false",
+              },
+            },
+            [_vm._v("Mesterfokre fejlesztés")]
+          ),
+        ]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Leirás:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("button", { staticClass: "btn btn-primary btn-lg" }, [
+        _vm._v("Megtanul"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("button", { staticClass: "btn btn-primary btn-lg" }, [
+        _vm._v("Megtanul"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("button", { staticClass: "btn btn-primary btn-lg mt-2" }, [
+        _vm._v("Megtanul"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("button", { staticClass: "btn btn-primary btn-lg mt-2" }, [
+        _vm._v("Megtanul"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("button", { staticClass: "btn btn-primary btn-lg" }, [
+        _vm._v("Megtanul"),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusShield.vue?vue&type=template&id=5e02fb17&":
 /*!*****************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusShield.vue?vue&type=template&id=5e02fb17& ***!
@@ -40739,7 +41458,22 @@ var render = function () {
           _c("p", [_vm._v(_vm._s(_vm.KpSzint))]),
         ]),
         _vm._v(" "),
-        _vm._m(0),
+        _c("div", { staticClass: "col" }, [
+          _vm.kpLeft > 0
+            ? _c(
+                "button",
+                {
+                  staticClass: "btn btn-success my-3",
+                  attrs: {
+                    type: "button",
+                    "data-bs-toggle": "modal",
+                    "data-bs-target": "#newSkillModal",
+                  },
+                },
+                [_vm._v("Új képzettség tanulása")]
+              )
+            : _vm._e(),
+        ]),
       ]),
     ]),
     _vm._v(" "),
@@ -40758,7 +41492,7 @@ var render = function () {
           ),
           _vm._v(" "),
           _c("table", { staticClass: "table table-striped" }, [
-            _vm._m(1),
+            _vm._m(0),
             _vm._v(" "),
             _c(
               "tbody",
@@ -40810,7 +41544,7 @@ var render = function () {
           ),
           _vm._v(" "),
           _c("table", { staticClass: "table table-striped" }, [
-            _vm._m(2),
+            _vm._m(1),
             _vm._v(" "),
             _c(
               "tbody",
@@ -40892,6 +41626,42 @@ var render = function () {
       {
         staticClass: "modal fade",
         attrs: {
+          id: "newSkillModal",
+          tabindex: "-1",
+          "aria-labelledby": "newSkillModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl",
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "modal-body" },
+                [_c("magus-learn-skill")],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(3),
+            ]),
+          ]
+        ),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
           id: "skillModal",
           tabindex: "-1",
           "aria-labelledby": "skillModalLabel",
@@ -40941,7 +41711,7 @@ var render = function () {
                 _c("p", [_vm._v(_vm._s(_vm.skill(_vm.infoSkillId).Mf))]),
               ]),
               _vm._v(" "),
-              _vm._m(3),
+              _vm._m(4),
             ]),
           ]
         ),
@@ -40996,7 +41766,7 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _vm._m(4),
+              _vm._m(5),
             ]),
           ]
         ),
@@ -41005,18 +41775,6 @@ var render = function () {
   ])
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-success my-3", attrs: { type: "button" } },
-        [_vm._v("Új képzettség tanulása")]
-      ),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -41045,6 +41803,42 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Összesen %")]),
       ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "newSkillModalLabel" } },
+        [_vm._v("Új képzetség tanulása")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Close")]
+      ),
     ])
   },
   function () {
