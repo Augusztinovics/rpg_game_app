@@ -7538,8 +7538,109 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      newWeapon: '',
+      newThrowWeapon: '',
+      newLanguage: '',
+      newCraft: '',
+      weaponMf: '',
+      trowWeaponMf: '',
+      languageMf: '',
+      craftMf: ''
+    };
+  },
   computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusSkills', {
@@ -7554,8 +7655,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     learnedWeaponsList: function learnedWeaponsList() {
       return this.magusCharacter.FegyverhasznalatAlap;
     },
+    learnedWeaponsListMf: function learnedWeaponsListMf() {
+      return this.magusCharacter.FegyverhasznalatMester;
+    },
+    learnedTrowWeaponsList: function learnedTrowWeaponsList() {
+      return this.magusCharacter.FegyverdobasAlap;
+    },
+    learnedTrowWeaponsListMf: function learnedTrowWeaponsListMf() {
+      return this.magusCharacter.FegyverdobasMester;
+    },
+    learnedLanguages: function learnedLanguages() {
+      return this.magusCharacter.NyelvismeretAf;
+    },
+    learnedLanguagesMf: function learnedLanguagesMf() {
+      return this.magusCharacter.NyelvismeretMf;
+    },
+    learnedCrafts: function learnedCrafts() {
+      return this.magusCharacter.SzakmaAf;
+    },
+    learnedCraftsMf: function learnedCraftsMf() {
+      return this.magusCharacter.SzakmaMf;
+    },
     learnedSkills: function learnedSkills() {
       return this.magusCharacter.LearnedSkills.af;
+    },
+    learnedSkillsMf: function learnedSkillsMf() {
+      return this.magusCharacter.LearnedSkills.mf;
     },
     availablleSkills: function availablleSkills() {
       var _this = this;
@@ -7577,13 +7702,176 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this.rangedWeapons.filter(function (r) {
         return !_this3.learnedWeaponsList.includes(r.id);
       });
+    },
+    availableTrowWeapons: function availableTrowWeapons() {
+      var _this4 = this;
+
+      return this.weapons.filter(function (w) {
+        return !_this4.learnedTrowWeaponsList.includes(w.id);
+      });
+    },
+    availableWeaponsMf: function availableWeaponsMf() {
+      var _this5 = this;
+
+      return this.weapons.filter(function (w) {
+        return _this5.learnedWeaponsList.includes(w.id);
+      });
+    },
+    availableRangedWeaponsMf: function availableRangedWeaponsMf() {
+      var _this6 = this;
+
+      return this.rangedWeapons.filter(function (r) {
+        return _this6.learnedWeaponsList.includes(r.id);
+      });
+    },
+    availableTrowWeaponsMf: function availableTrowWeaponsMf() {
+      var _this7 = this;
+
+      return this.weapons.filter(function (w) {
+        return _this7.learnedTrowWeaponsList.includes(w.id);
+      });
+    },
+    skillsToUpgrade: function skillsToUpgrade() {
+      var _this8 = this;
+
+      var upgradeableSkills = [];
+
+      if (this.learnedWeaponsList.length > 0) {
+        upgradeableSkills.push('FEGYVER_HASZNALAT');
+      }
+
+      if (this.learnedTrowWeaponsList.length > 0) {
+        upgradeableSkills.push('FEGYVER_DOBAS');
+      }
+
+      if (this.learnedLanguages.length > 0) {
+        upgradeableSkills.push('NYELVISMERET');
+      }
+
+      if (this.learnedCrafts.length > 0) {
+        upgradeableSkills.push('SZAKMA');
+      }
+
+      if (this.learnedSkills.length > 0) {
+        upgradeableSkills = upgradeableSkills.concat(this.learnedSkills);
+      }
+
+      console.log(upgradeableSkills);
+      return this.skills.filter(function (s) {
+        return upgradeableSkills.includes(s.id) && s.KpMf <= _this8.kpLeft;
+      });
     }
   }),
-  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
-    updateKpLeftDown: 'updateKpLeftDown'
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
+    updateKpLeftDown: 'updateKpLeftDown',
+    updateWeaposAf: 'updateWeaposAf',
+    updateWeaposMf: 'updateWeaposMf',
+    updateThrowWeaposAf: 'updateThrowWeaposAf',
+    updateThrowWeaposMf: 'updateThrowWeaposMf',
+    updateLanguageAf: 'updateLanguageAf',
+    updateLanguageMf: 'updateLanguageMf',
+    updateCraftAf: 'updateCraftAf',
+    updateCraftMf: 'updateCraftMf',
+    updateSkillsAf: 'updateSkillsAf',
+    updateSkillsMf: 'updateSkillsMf'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
     save: 'save'
-  }))
+  })), {}, {
+    addNewWeaponSkillAf: function addNewWeaponSkillAf() {
+      if (this.newWeapon != '') {
+        var learnedWeaponList = this.learnedWeaponsList;
+        learnedWeaponList.push(this.newWeapon);
+        this.updateWeaposAf(learnedWeaponList);
+        this.updateKpLeftDown(3);
+        this.save();
+        this.newWeapon = '';
+      }
+    },
+    addNewWeaponThrowSkillAf: function addNewWeaponThrowSkillAf() {
+      if (this.newThrowWeapon != '') {
+        var learnedTrowWeaponList = this.learnedTrowWeaponsList;
+        learnedTrowWeaponList.push(this.newThrowWeapon);
+        this.updateThrowWeaposAf(learnedTrowWeaponList);
+        this.updateKpLeftDown(4);
+        this.save();
+        this.newThrowWeapon = '';
+      }
+    },
+    addNewLanguageAf: function addNewLanguageAf() {
+      if (this.newLanguage != '') {
+        var learnedLanguageList = this.learnedLanguages;
+        learnedLanguageList.push(this.newLanguage);
+        this.updateLanguageAf(learnedLanguageList);
+        this.updateKpLeftDown(3);
+        this.save();
+        this.newLanguage = '';
+      }
+    },
+    addNewCraftAf: function addNewCraftAf() {
+      if (this.newCraft != '') {
+        var learnedCraftList = this.learnedCrafts;
+        learnedCraftList.push(this.newCraft);
+        this.updateCraftAf(learnedCraftList);
+        this.updateKpLeftDown(2);
+        this.save();
+        this.newCraft = '';
+      }
+    },
+    addNewSkill: function addNewSkill(id, kp) {
+      var learnedSkillList = this.learnedSkills;
+      learnedSkillList.push(id);
+      this.updateSkillsAf(learnedSkillList);
+      this.updateKpLeftDown(kp);
+      this.save();
+    },
+    upgradeWeaponSkillMf: function upgradeWeaponSkillMf() {
+      if (this.weaponMf != '') {
+        var learnedWeaponListMf = this.learnedWeaponsListMf;
+        learnedWeaponListMf.push(this.weaponMf);
+        this.updateWeaposMf(learnedWeaponListMf);
+        this.updateKpLeftDown(30);
+        this.save();
+        this.weaponMf = '';
+      }
+    },
+    upgradeWeaponThrowSkillMf: function upgradeWeaponThrowSkillMf() {
+      if (this.trowWeaponMf != '') {
+        var learnedTrowWeaponListMf = this.learnedTrowWeaponsListMf;
+        learnedTrowWeaponListMf.push(this.trowWeaponMf);
+        this.updateThrowWeaposMf(learnedTrowWeaponListMf);
+        this.updateKpLeftDown(40);
+        this.save();
+        this.trowWeaponMf = '';
+      }
+    },
+    upgradeLanguageMf: function upgradeLanguageMf() {
+      if (this.languageMf != '') {
+        var learnedLanguageListMf = this.learnedLanguagesMf;
+        learnedLanguageListMf.push(this.languageMf);
+        this.updateLanguageMf(learnedLanguageListMf);
+        this.updateKpLeftDown(20);
+        this.save();
+        this.languageMf = '';
+      }
+    },
+    upgradeCraftMf: function upgradeCraftMf() {
+      if (this.craftMf != '') {
+        var learnedCraftListMf = this.learnedCraftsMf;
+        learnedCraftListMf.push(this.craftMf);
+        this.updateCraftMf(learnedCraftListMf);
+        this.updateKpLeftDown(15);
+        this.save();
+        this.craftMf = '';
+      }
+    },
+    upgradeSkillMf: function upgradeSkillMf(id, kp) {
+      var learnedSkillListMf = this.learnedSkillsMf;
+      learnedSkillListMf.push(id);
+      this.updateSkillsMf(learnedSkillListMf);
+      this.updateKpLeftDown(kp);
+      this.save();
+    }
+  })
 });
 
 /***/ }),
@@ -9315,7 +9603,7 @@ var state = {
     VeMod: 20,
     CeMod: 0,
     HmLeft: 0,
-    KpLeft: 14,
+    KpLeft: 100,
     KpPrecentLeft: 3,
     FegyverhasznalatAlap: ['KARD_HOSSZU'],
     FegyverhasznalatMester: [],
@@ -9703,6 +9991,36 @@ var mutations = {
   },
   updatePrecentSkills: function updatePrecentSkills(state, precSkills) {
     state.magusCharacter.szazalekosKepzetsegek = precSkills;
+  },
+  updateWeaposAf: function updateWeaposAf(state, weaponsAf) {
+    state.magusCharacter.FegyverhasznalatAlap = weaponsAf;
+  },
+  updateWeaposMf: function updateWeaposMf(state, weaponsMf) {
+    state.magusCharacter.FegyverhasznalatMester = weaponsMf;
+  },
+  updateThrowWeaposAf: function updateThrowWeaposAf(state, weaponsThrowAf) {
+    state.magusCharacter.FegyverdobasAlap = weaponsThrowAf;
+  },
+  updateThrowWeaposMf: function updateThrowWeaposMf(state, weaponsThrowMf) {
+    state.magusCharacter.FegyverdobasMester = weaponsThrowMf;
+  },
+  updateLanguageAf: function updateLanguageAf(state, languageAf) {
+    state.magusCharacter.NyelvismeretAf = languageAf;
+  },
+  updateLanguageMf: function updateLanguageMf(state, languageMf) {
+    state.magusCharacter.NyelvismeretMf = languageMf;
+  },
+  updateCraftAf: function updateCraftAf(state, craftAf) {
+    state.magusCharacter.SzakmaAf = craftAf;
+  },
+  updateCraftMf: function updateCraftMf(state, craftMf) {
+    state.magusCharacter.SzakmaMf = craftMf;
+  },
+  updateSkillsAf: function updateSkillsAf(state, skillsAf) {
+    state.magusCharacter.LearnedSkills.af = skillsAf;
+  },
+  updateSkillsMf: function updateSkillsMf(state, skillsMf) {
+    state.magusCharacter.LearnedSkills.mf = skillsMf;
   }
 };
 var actions = {
@@ -40678,10 +40996,41 @@ var render = function () {
                                     _c(
                                       "select",
                                       {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.newWeapon,
+                                            expression: "newWeapon",
+                                          },
+                                        ],
                                         staticClass:
                                           "form-select form-select-lg mb-3",
                                         attrs: {
                                           "aria-label": "weapon-select",
+                                        },
+                                        on: {
+                                          change: function ($event) {
+                                            var $$selectedVal =
+                                              Array.prototype.filter
+                                                .call(
+                                                  $event.target.options,
+                                                  function (o) {
+                                                    return o.selected
+                                                  }
+                                                )
+                                                .map(function (o) {
+                                                  var val =
+                                                    "_value" in o
+                                                      ? o._value
+                                                      : o.value
+                                                  return val
+                                                })
+                                            _vm.newWeapon = $event.target
+                                              .multiple
+                                              ? $$selectedVal
+                                              : $$selectedVal[0]
+                                          },
                                         },
                                       },
                                       [
@@ -40728,7 +41077,25 @@ var render = function () {
                                       2
                                     ),
                                     _vm._v(" "),
-                                    _vm._m(2, true),
+                                    _c("p", [
+                                      _vm._v(
+                                        "Rendelkezésre álló Kp: " +
+                                          _vm._s(_vm.kpLeft)
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-primary btn-lg",
+                                          on: {
+                                            click: _vm.addNewWeaponSkillAf,
+                                          },
+                                        },
+                                        [_vm._v("Megtanul")]
+                                      ),
+                                    ]),
                                   ]),
                                 ]
                               ),
@@ -40754,10 +41121,41 @@ var render = function () {
                                     _c(
                                       "select",
                                       {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: _vm.newThrowWeapon,
+                                            expression: "newThrowWeapon",
+                                          },
+                                        ],
                                         staticClass:
                                           "form-select form-select-lg mb-3",
                                         attrs: {
                                           "aria-label": "weapon-select",
+                                        },
+                                        on: {
+                                          change: function ($event) {
+                                            var $$selectedVal =
+                                              Array.prototype.filter
+                                                .call(
+                                                  $event.target.options,
+                                                  function (o) {
+                                                    return o.selected
+                                                  }
+                                                )
+                                                .map(function (o) {
+                                                  var val =
+                                                    "_value" in o
+                                                      ? o._value
+                                                      : o.value
+                                                  return val
+                                                })
+                                            _vm.newThrowWeapon = $event.target
+                                              .multiple
+                                              ? $$selectedVal
+                                              : $$selectedVal[0]
+                                          },
                                         },
                                       },
                                       [
@@ -40774,12 +41172,12 @@ var render = function () {
                                         ),
                                         _vm._v(" "),
                                         _vm._l(
-                                          _vm.availableWeapons,
+                                          _vm.availableTrowWeapons,
                                           function (weapon) {
                                             return _c(
                                               "option",
                                               {
-                                                key: weapon.id,
+                                                key: "T" + weapon.id,
                                                 domProps: { value: weapon.id },
                                               },
                                               [_vm._v(_vm._s(weapon.name))]
@@ -40790,7 +41188,25 @@ var render = function () {
                                       2
                                     ),
                                     _vm._v(" "),
-                                    _vm._m(3, true),
+                                    _c("p", [
+                                      _vm._v(
+                                        "Rendelkezésre álló Kp: " +
+                                          _vm._s(_vm.kpLeft)
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-primary btn-lg",
+                                          on: {
+                                            click: _vm.addNewWeaponThrowSkillAf,
+                                          },
+                                        },
+                                        [_vm._v("Megtanul")]
+                                      ),
+                                    ]),
                                   ]),
                                 ]
                               ),
@@ -40814,6 +41230,14 @@ var render = function () {
                                     ]),
                                     _vm._v(" "),
                                     _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.newLanguage,
+                                          expression: "newLanguage",
+                                        },
+                                      ],
                                       staticClass:
                                         "form-control form-control-lg",
                                       attrs: {
@@ -40822,9 +41246,35 @@ var render = function () {
                                           "ird be a megtanulni kivánt nyelvet",
                                         "aria-label": "language input",
                                       },
+                                      domProps: { value: _vm.newLanguage },
+                                      on: {
+                                        input: function ($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.newLanguage = $event.target.value
+                                        },
+                                      },
                                     }),
                                     _vm._v(" "),
-                                    _vm._m(4, true),
+                                    _c("p", [
+                                      _vm._v(
+                                        "Rendelkezésre álló Kp: " +
+                                          _vm._s(_vm.kpLeft)
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "btn btn-primary btn-lg mt-2",
+                                          on: { click: _vm.addNewLanguageAf },
+                                        },
+                                        [_vm._v("Megtanul")]
+                                      ),
+                                    ]),
                                   ]),
                                 ]
                               ),
@@ -40848,6 +41298,14 @@ var render = function () {
                                     ]),
                                     _vm._v(" "),
                                     _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.newCraft,
+                                          expression: "newCraft",
+                                        },
+                                      ],
                                       staticClass:
                                         "form-control form-control-lg",
                                       attrs: {
@@ -40856,9 +41314,35 @@ var render = function () {
                                           "ird be a megtanulni kivánt szakmát",
                                         "aria-label": "skill input",
                                       },
+                                      domProps: { value: _vm.newCraft },
+                                      on: {
+                                        input: function ($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.newCraft = $event.target.value
+                                        },
+                                      },
                                     }),
                                     _vm._v(" "),
-                                    _vm._m(5, true),
+                                    _c("p", [
+                                      _vm._v(
+                                        "Rendelkezésre álló Kp: " +
+                                          _vm._s(_vm.kpLeft)
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "btn btn-primary btn-lg mt-2",
+                                          on: { click: _vm.addNewCraftAf },
+                                        },
+                                        [_vm._v("Megtanul")]
+                                      ),
+                                    ]),
                                   ]),
                                 ]
                               ),
@@ -40881,7 +41365,30 @@ var render = function () {
                                       ),
                                     ]),
                                     _vm._v(" "),
-                                    _vm._m(6, true),
+                                    _c("p", [
+                                      _vm._v(
+                                        "Rendelkezésre álló Kp: " +
+                                          _vm._s(_vm.kpLeft)
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-primary btn-lg",
+                                          on: {
+                                            click: function ($event) {
+                                              return _vm.addNewSkill(
+                                                skil.id,
+                                                skil.KpAf
+                                              )
+                                            },
+                                          },
+                                        },
+                                        [_vm._v("Megtanul")]
+                                      ),
+                                    ]),
                                   ]),
                                 ]
                               ),
@@ -40897,14 +41404,629 @@ var render = function () {
         ]
       ),
       _vm._v(" "),
-      _c("div", {
-        staticClass: "tab-pane fade",
-        attrs: {
-          id: "nav-mf",
-          role: "tabpanel",
-          "aria-labelledby": "nav-mf-tab",
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade",
+          attrs: {
+            id: "nav-mf",
+            role: "tabpanel",
+            "aria-labelledby": "nav-mf-tab",
+          },
         },
-      }),
+        [
+          _vm.skillsToUpgrade.length > 0
+            ? _c(
+                "div",
+                _vm._l(_vm.skillsToUpgrade, function (skilmf) {
+                  return _c(
+                    "div",
+                    { key: skilmf.id, staticClass: "accordion-item" },
+                    [
+                      _c(
+                        "h2",
+                        {
+                          staticClass: "accordion-header",
+                          attrs: { id: skilmf.id + "-heading" },
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "accordion-button collapsed",
+                              attrs: {
+                                type: "button",
+                                "data-bs-toggle": "collapse",
+                                "data-bs-target": "#" + skilmf.id,
+                                "aria-expanded": "false",
+                                "aria-controls": skilmf.id,
+                              },
+                            },
+                            [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(skilmf.name) +
+                                  "\n                        "
+                              ),
+                            ]
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "accordion-collapse collapse",
+                          attrs: {
+                            id: skilmf.id,
+                            "aria-labelledby": skilmf.id + "-heading",
+                          },
+                        },
+                        [
+                          _c("div", { staticClass: "accordion-body" }, [
+                            _vm._m(2, true),
+                            _vm._v(" "),
+                            _c("p", [_vm._v(_vm._s(skilmf.description))]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c("b", [_vm._v("Af ")]),
+                              _vm._v("Kp: " + _vm._s(skilmf.KpAf)),
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [_vm._v(_vm._s(skilmf.Af))]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c("b", [_vm._v("Mf ")]),
+                              _vm._v("Kp: " + _vm._s(skilmf.KpMf)),
+                            ]),
+                            _vm._v(" "),
+                            _c("p", [_vm._v(_vm._s(skilmf.Mf))]),
+                            _vm._v(" "),
+                            skilmf.id == "FEGYVER_HASZNALAT"
+                              ? _c("div", [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "card bg-success text-white text-center",
+                                    },
+                                    [
+                                      _c("div", { staticClass: "card-body" }, [
+                                        _c("p", { staticClass: "h3" }, [
+                                          _vm._v(
+                                            "Fegyverhasználat mesterfokra fejlesztése " +
+                                              _vm._s(skilmf.KpMf) +
+                                              " KP-ért"
+                                          ),
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "select",
+                                          {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.weaponMf,
+                                                expression: "weaponMf",
+                                              },
+                                            ],
+                                            staticClass:
+                                              "form-select form-select-lg mb-3",
+                                            attrs: {
+                                              "aria-label": "weapon-select",
+                                            },
+                                            on: {
+                                              change: function ($event) {
+                                                var $$selectedVal =
+                                                  Array.prototype.filter
+                                                    .call(
+                                                      $event.target.options,
+                                                      function (o) {
+                                                        return o.selected
+                                                      }
+                                                    )
+                                                    .map(function (o) {
+                                                      var val =
+                                                        "_value" in o
+                                                          ? o._value
+                                                          : o.value
+                                                      return val
+                                                    })
+                                                _vm.weaponMf = $event.target
+                                                  .multiple
+                                                  ? $$selectedVal
+                                                  : $$selectedVal[0]
+                                              },
+                                            },
+                                          },
+                                          [
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  selected: "",
+                                                  value: "",
+                                                  disabled: "",
+                                                },
+                                              },
+                                              [_vm._v("Választj fegyvert")]
+                                            ),
+                                            _vm._v(" "),
+                                            _vm._l(
+                                              _vm.availableWeaponsMf,
+                                              function (weaponMf) {
+                                                return _c(
+                                                  "option",
+                                                  {
+                                                    key: "MF" + weaponMf.id,
+                                                    domProps: {
+                                                      value: weaponMf.id,
+                                                    },
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(weaponMf.name)
+                                                    ),
+                                                  ]
+                                                )
+                                              }
+                                            ),
+                                            _vm._v(" "),
+                                            _vm._l(
+                                              _vm.availableRangedWeaponsMf,
+                                              function (rangedMf) {
+                                                return _c(
+                                                  "option",
+                                                  {
+                                                    key: "MF" + rangedMf.id,
+                                                    domProps: {
+                                                      value: rangedMf.id,
+                                                    },
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(rangedMf.name)
+                                                    ),
+                                                  ]
+                                                )
+                                              }
+                                            ),
+                                          ],
+                                          2
+                                        ),
+                                        _vm._v(" "),
+                                        _c("p", [
+                                          _vm._v(
+                                            "Rendelkezésre álló Kp: " +
+                                              _vm._s(_vm.kpLeft)
+                                          ),
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("p", [
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "btn btn-primary btn-lg",
+                                              on: {
+                                                click: _vm.upgradeWeaponSkillMf,
+                                              },
+                                            },
+                                            [_vm._v("Megtanul")]
+                                          ),
+                                        ]),
+                                      ]),
+                                    ]
+                                  ),
+                                ])
+                              : skilmf.id == "FEGYVER_DOBAS"
+                              ? _c("div", [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "card bg-success text-white text-center",
+                                    },
+                                    [
+                                      _c("div", { staticClass: "card-body" }, [
+                                        _c("p", { staticClass: "h3" }, [
+                                          _vm._v(
+                                            "Fegyverdobás mesterfokra fejlesztése " +
+                                              _vm._s(skilmf.KpMf) +
+                                              " KP-ért"
+                                          ),
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "select",
+                                          {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.trowWeaponMf,
+                                                expression: "trowWeaponMf",
+                                              },
+                                            ],
+                                            staticClass:
+                                              "form-select form-select-lg mb-3",
+                                            attrs: {
+                                              "aria-label": "weapon-select",
+                                            },
+                                            on: {
+                                              change: function ($event) {
+                                                var $$selectedVal =
+                                                  Array.prototype.filter
+                                                    .call(
+                                                      $event.target.options,
+                                                      function (o) {
+                                                        return o.selected
+                                                      }
+                                                    )
+                                                    .map(function (o) {
+                                                      var val =
+                                                        "_value" in o
+                                                          ? o._value
+                                                          : o.value
+                                                      return val
+                                                    })
+                                                _vm.trowWeaponMf = $event.target
+                                                  .multiple
+                                                  ? $$selectedVal
+                                                  : $$selectedVal[0]
+                                              },
+                                            },
+                                          },
+                                          [
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  selected: "",
+                                                  value: "",
+                                                  disabled: "",
+                                                },
+                                              },
+                                              [_vm._v("Választj fegyvert")]
+                                            ),
+                                            _vm._v(" "),
+                                            _vm._l(
+                                              _vm.availableTrowWeaponsMf,
+                                              function (weaponMf) {
+                                                return _c(
+                                                  "option",
+                                                  {
+                                                    key: "TMF" + weaponMf.id,
+                                                    domProps: {
+                                                      value: weaponMf.id,
+                                                    },
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(weaponMf.name)
+                                                    ),
+                                                  ]
+                                                )
+                                              }
+                                            ),
+                                          ],
+                                          2
+                                        ),
+                                        _vm._v(" "),
+                                        _c("p", [
+                                          _vm._v(
+                                            "Rendelkezésre álló Kp: " +
+                                              _vm._s(_vm.kpLeft)
+                                          ),
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("p", [
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "btn btn-primary btn-lg",
+                                              on: {
+                                                click:
+                                                  _vm.upgradeWeaponThrowSkillMf,
+                                              },
+                                            },
+                                            [_vm._v("Megtanul")]
+                                          ),
+                                        ]),
+                                      ]),
+                                    ]
+                                  ),
+                                ])
+                              : skilmf.id == "NYELVISMERET"
+                              ? _c("div", [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "card bg-success text-white text-center",
+                                    },
+                                    [
+                                      _c("div", { staticClass: "card-body" }, [
+                                        _c("p", { staticClass: "h3" }, [
+                                          _vm._v(
+                                            "Nyelv tanulása " +
+                                              _vm._s(skilmf.KpMf) +
+                                              " KP-ért"
+                                          ),
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "select",
+                                          {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.languageMf,
+                                                expression: "languageMf",
+                                              },
+                                            ],
+                                            staticClass:
+                                              "form-select form-select-lg mb-3",
+                                            attrs: {
+                                              "aria-label": "weapon-select",
+                                            },
+                                            on: {
+                                              change: function ($event) {
+                                                var $$selectedVal =
+                                                  Array.prototype.filter
+                                                    .call(
+                                                      $event.target.options,
+                                                      function (o) {
+                                                        return o.selected
+                                                      }
+                                                    )
+                                                    .map(function (o) {
+                                                      var val =
+                                                        "_value" in o
+                                                          ? o._value
+                                                          : o.value
+                                                      return val
+                                                    })
+                                                _vm.languageMf = $event.target
+                                                  .multiple
+                                                  ? $$selectedVal
+                                                  : $$selectedVal[0]
+                                              },
+                                            },
+                                          },
+                                          [
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  selected: "",
+                                                  value: "",
+                                                  disabled: "",
+                                                },
+                                              },
+                                              [_vm._v("Választj nyelvet")]
+                                            ),
+                                            _vm._v(" "),
+                                            _vm._l(
+                                              _vm.learnedLanguages,
+                                              function (language, index) {
+                                                return _c(
+                                                  "option",
+                                                  {
+                                                    key: "L" + index,
+                                                    domProps: {
+                                                      value: language,
+                                                    },
+                                                  },
+                                                  [_vm._v(_vm._s(language))]
+                                                )
+                                              }
+                                            ),
+                                          ],
+                                          2
+                                        ),
+                                        _vm._v(" "),
+                                        _c("p", [
+                                          _vm._v(
+                                            "Rendelkezésre álló Kp: " +
+                                              _vm._s(_vm.kpLeft)
+                                          ),
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("p", [
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "btn btn-primary btn-lg mt-2",
+                                              on: {
+                                                click: _vm.upgradeLanguageMf,
+                                              },
+                                            },
+                                            [_vm._v("Megtanul")]
+                                          ),
+                                        ]),
+                                      ]),
+                                    ]
+                                  ),
+                                ])
+                              : skilmf.id == "SZAKMA"
+                              ? _c("div", [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "card bg-success text-white text-center",
+                                    },
+                                    [
+                                      _c("div", { staticClass: "card-body" }, [
+                                        _c("p", { staticClass: "h3" }, [
+                                          _vm._v(
+                                            "Szakma tanulása " +
+                                              _vm._s(skilmf.KpMf) +
+                                              " KP-ért"
+                                          ),
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "select",
+                                          {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.craftMf,
+                                                expression: "craftMf",
+                                              },
+                                            ],
+                                            staticClass:
+                                              "form-select form-select-lg mb-3",
+                                            attrs: {
+                                              "aria-label": "weapon-select",
+                                            },
+                                            on: {
+                                              change: function ($event) {
+                                                var $$selectedVal =
+                                                  Array.prototype.filter
+                                                    .call(
+                                                      $event.target.options,
+                                                      function (o) {
+                                                        return o.selected
+                                                      }
+                                                    )
+                                                    .map(function (o) {
+                                                      var val =
+                                                        "_value" in o
+                                                          ? o._value
+                                                          : o.value
+                                                      return val
+                                                    })
+                                                _vm.craftMf = $event.target
+                                                  .multiple
+                                                  ? $$selectedVal
+                                                  : $$selectedVal[0]
+                                              },
+                                            },
+                                          },
+                                          [
+                                            _c(
+                                              "option",
+                                              {
+                                                attrs: {
+                                                  selected: "",
+                                                  value: "",
+                                                  disabled: "",
+                                                },
+                                              },
+                                              [_vm._v("Választj szakmát")]
+                                            ),
+                                            _vm._v(" "),
+                                            _vm._l(
+                                              _vm.learnedCrafts,
+                                              function (craft, index) {
+                                                return _c(
+                                                  "option",
+                                                  {
+                                                    key: "C" + index,
+                                                    domProps: { value: craft },
+                                                  },
+                                                  [_vm._v(_vm._s(craft))]
+                                                )
+                                              }
+                                            ),
+                                          ],
+                                          2
+                                        ),
+                                        _vm._v(" "),
+                                        _c("p", [
+                                          _vm._v(
+                                            "Rendelkezésre álló Kp: " +
+                                              _vm._s(_vm.kpLeft)
+                                          ),
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("p", [
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "btn btn-primary btn-lg mt-2",
+                                              on: { click: _vm.upgradeCraftMf },
+                                            },
+                                            [_vm._v("Megtanul")]
+                                          ),
+                                        ]),
+                                      ]),
+                                    ]
+                                  ),
+                                ])
+                              : _c("div", [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "card bg-success text-white text-center",
+                                    },
+                                    [
+                                      _c("div", { staticClass: "card-body" }, [
+                                        _c("p", { staticClass: "h3" }, [
+                                          _vm._v(
+                                            _vm._s(skilmf.name) +
+                                              " mesterfokra fejlesztése " +
+                                              _vm._s(skilmf.KpMf) +
+                                              " KP-ért"
+                                          ),
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("p", [
+                                          _vm._v(
+                                            "Rendelkezésre álló Kp: " +
+                                              _vm._s(_vm.kpLeft)
+                                          ),
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("p", [
+                                          _c(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "btn btn-primary btn-lg",
+                                              on: {
+                                                click: function ($event) {
+                                                  return _vm.upgradeSkillMf(
+                                                    skilmf.id,
+                                                    skilmf.KpMf
+                                                  )
+                                                },
+                                              },
+                                            },
+                                            [_vm._v("Megtanul")]
+                                          ),
+                                        ]),
+                                      ]),
+                                    ]
+                                  ),
+                                ]),
+                          ]),
+                        ]
+                      ),
+                    ]
+                  )
+                }),
+                0
+              )
+            : _c("div", { staticClass: "text-center" }, [
+                _c("p", [
+                  _vm._v(
+                    "Nincs elég kp egyetlen képzettség mesterfokre fejlesztésére sem"
+                  ),
+                ]),
+              ]),
+        ]
+      ),
     ]),
   ])
 }
@@ -40968,51 +42090,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", [
-      _c("button", { staticClass: "btn btn-primary btn-lg" }, [
-        _vm._v("Megtanul"),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _c("button", { staticClass: "btn btn-primary btn-lg" }, [
-        _vm._v("Megtanul"),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _c("button", { staticClass: "btn btn-primary btn-lg mt-2" }, [
-        _vm._v("Megtanul"),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _c("button", { staticClass: "btn btn-primary btn-lg mt-2" }, [
-        _vm._v("Megtanul"),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _c("button", { staticClass: "btn btn-primary btn-lg" }, [
-        _vm._v("Megtanul"),
-      ]),
-    ])
+    return _c("p", [_c("b", [_vm._v("Leirás:")])])
   },
 ]
 render._withStripped = true

@@ -48,7 +48,7 @@
         VeMod: 20,
         CeMod: 0,
         HmLeft: 0,
-        KpLeft: 14,
+        KpLeft: 100,
         KpPrecentLeft: 3,
         FegyverhasznalatAlap: ['KARD_HOSSZU'],
         FegyverhasznalatMester: [],
@@ -373,7 +373,37 @@ const mutations = {
     },
     updatePrecentSkills(state, precSkills) {
         state.magusCharacter.szazalekosKepzetsegek = precSkills;
-    }
+    }, 
+    updateWeaposAf(state, weaponsAf) {
+        state.magusCharacter.FegyverhasznalatAlap = weaponsAf;
+    },
+    updateWeaposMf(state, weaponsMf) {
+        state.magusCharacter.FegyverhasznalatMester = weaponsMf;
+    },
+    updateThrowWeaposAf(state, weaponsThrowAf) {
+        state.magusCharacter.FegyverdobasAlap = weaponsThrowAf;
+    },
+    updateThrowWeaposMf(state, weaponsThrowMf) {
+        state.magusCharacter.FegyverdobasMester = weaponsThrowMf;
+    },
+    updateLanguageAf(state, languageAf) {
+        state.magusCharacter.NyelvismeretAf = languageAf;
+    },
+    updateLanguageMf(state, languageMf) {
+        state.magusCharacter.NyelvismeretMf = languageMf;
+    },
+    updateCraftAf(state, craftAf) {
+        state.magusCharacter.SzakmaAf = craftAf;
+    },
+    updateCraftMf(state, craftMf) {
+        state.magusCharacter.SzakmaMf = craftMf;
+    },
+    updateSkillsAf(state, skillsAf) {
+        state.magusCharacter.LearnedSkills.af = skillsAf;
+    },
+    updateSkillsMf(state, skillsMf) {
+        state.magusCharacter.LearnedSkills.mf = skillsMf;
+    },
 };
 const actions = {
     save(context) {
