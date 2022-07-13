@@ -8,7 +8,7 @@
     weapons: [
         {
             id: 'BUZOGANY_SHADLEKI',
-            name: 'Buzogány, shadleki',
+            name: 'Shadleki buzogány',
             TamKor: '1',
             Type: 'Szúró/vágófegyver',
             Hand: 1,
@@ -27,7 +27,7 @@
         },
         {
             id: 'CSATABARD_EGYKEZES',
-            name: 'Csatabárd, egykezes',
+            name: 'Egykezes csatabárd',
             TamKor: '1',
             Type: 'Szúró/vágófegyver',
             Hand: 1,
@@ -46,7 +46,7 @@
         },
         {
             id: 'CSATABARD_KETKEZES',
-            name: 'Csatabárd, kétkezes',
+            name: 'Kétkezes csatabárd',
             TamKor: '1/2',
             Type: 'Szúró/vágófegyver',
             Hand: 2,
@@ -103,7 +103,7 @@
         },
         {
             id: 'KARD_ROVID',
-            name: 'Kard, rövid',
+            name: 'Rövidkard',
             TamKor: '1',
             Type: 'Szúró/vágófegyver',
             Hand: 1,
@@ -122,7 +122,7 @@
         },
         {
             id: 'KARD_HOSSZU',
-            name: 'Kard, hosszú',
+            name: 'Hosszúkard',
             TamKor: '1',
             Type: 'Szúró/vágófegyver',
             Hand: 1,
@@ -141,7 +141,7 @@
         },
         {
             id: 'KARD_MASFELKEZES',
-            name: 'Kard, másfélkezes',
+            name: 'Másfélkezes kard',
             TamKor: '1',
             Type: 'Szúró/vágófegyver',
             Hand: 1,
@@ -160,7 +160,7 @@
         },
         {
             id: 'KARD_LOVAGI',
-            name: 'Kard, lovagi',
+            name: 'Lovagkard',
             TamKor: '1',
             Type: 'Szúró/vágófegyver',
             Hand: 1,
@@ -179,7 +179,7 @@
         },
         {
             id: 'KARD_PALLOS',
-            name: 'Kard, pallos',
+            name: 'Pallos',
             TamKor: '1/2',
             Type: 'Szúró/vágófegyver',
             Hand: 2,
@@ -198,7 +198,7 @@
         },
         {
             id: 'KARD_SZABLYA',
-            name: 'Kard, szablya',
+            name: 'Szablya',
             TamKor: '1',
             Type: 'Szúró/vágófegyver',
             Hand: 1,
@@ -217,7 +217,7 @@
         },
         {
             id: 'KARD_DZSENN_SZABLYA',
-            name: 'Kard, dzsenn szablya',
+            name: 'Dzsenn szablya',
             TamKor: '1',
             Type: 'Szúró/vágófegyver',
             Hand: 1,
@@ -236,7 +236,7 @@
         },
         {
             id: 'KARD_JATAGAN',
-            name: 'Kard, jatagán',
+            name: 'Jatagán',
             TamKor: '1',
             Type: 'Szúró/vágófegyver',
             Hand: 1,
@@ -255,7 +255,7 @@
         },
         {
             id: 'KARD_HANDZSAR',
-            name: 'Kard, handzsár',
+            name: 'Handzsár',
             TamKor: '1',
             Type: 'Szúró/vágófegyver',
             Hand: 1,
@@ -274,7 +274,7 @@
         },
         {
             id: 'KARD_FEJVADASZ',
-            name: 'Kard, fejvadász',
+            name: 'Fejvadászkard',
             TamKor: '1',
             Type: 'Szúró/vágófegyver',
             Hand: 1,
@@ -293,7 +293,7 @@
         },
         {
             id: 'KARD_SLAN',
-            name: 'Kard, slan',
+            name: 'Slan kard',
             TamKor: '1',
             Type: 'Szúró/vágófegyver',
             Hand: 1,
@@ -312,7 +312,7 @@
         },
         {
             id: 'KARD_KIGYO',
-            name: 'Kard, kigyó',
+            name: 'Kigyó kard',
             TamKor: '1',
             Type: 'Szúró/vágófegyver',
             Hand: 1,
@@ -445,7 +445,7 @@
         },
         {
             id: 'TOR_DOBO',
-            name: 'Tőr, dobó',
+            name: 'Dobótőr',
             TamKor: '2',
             Type: 'Szúró/vágófegyver',
             Hand: 1,
@@ -464,7 +464,7 @@
         },
         {
             id: 'TOR_SLAN',
-            name: 'Tőr, slan',
+            name: 'Slantőr',
             TamKor: '2',
             Type: 'Szúró/vágófegyver',
             Hand: 1,
@@ -502,7 +502,7 @@
         },
         {
             id: 'BOT_HOSSZU',
-            name: 'Bot, hosszú',
+            name: 'Hosszú bot',
             TamKor: '1',
             Type: 'Zúzófegyver',
             Hand: 2,
@@ -521,7 +521,7 @@
         },
         {
             id: 'BOT_ROVID',
-            name: 'Bot, rövid',
+            name: 'Rövid bot',
             TamKor: '1',
             Type: 'Zúzófegyver',
             Hand: 1,
@@ -540,7 +540,7 @@
         },
         {
             id: 'BOT_FURKOS',
-            name: 'Bot, furkós',
+            name: 'Furkósbot',
             TamKor: '1',
             Type: 'Zúzófegyver',
             Hand: 1,
@@ -559,7 +559,7 @@
         },
         {
             id: 'BUZOGANY_EGYKEZES',
-            name: 'Buzogány, egykezes',
+            name: 'Egykezes buzogány',
             TamKor: '1',
             Type: 'Zúzófegyver',
             Hand: 1,
@@ -578,7 +578,7 @@
         },
         {
             id: 'BUZOGANY_KETKEZES',
-            name: 'Buzogány, kétkezes',
+            name: 'Kétkezes buzogány',
             TamKor: '1/2',
             Type: 'Zúzófegyver',
             Hand: 2,
@@ -597,7 +597,7 @@
         },
         {
             id: 'BUZOGANY_TUSKES',
-            name: 'Buzogány, tüskés',
+            name: 'Tüskés buzogány',
             TamKor: '1',
             Type: 'Zúzófegyver',
             Hand: 1,
@@ -616,7 +616,7 @@
         },
         {
             id: 'BUZOGANY_TOLLAS',
-            name: 'Buzogány, tollas',
+            name: 'Tollas buzogány',
             TamKor: '1',
             Type: 'Zúzófegyver',
             Hand: 1,
@@ -635,7 +635,7 @@
         },
         {
             id: 'BUZOGANY_LANCOS',
-            name: 'Buzogány, láncos',
+            name: 'Láncos buzogány',
             TamKor: '1',
             Type: 'Zúzófegyver',
             Hand: 1,
@@ -730,7 +730,7 @@
         },
         {
             id: 'KOPJA_KONNYU',
-            name: 'Kopja, könnyű',
+            name: 'Könnyűkopja',
             TamKor: '1',
             Type: 'Szálfegyver',
             Hand: 2,
@@ -749,7 +749,7 @@
         },
         {
             id: 'KOPJA_LOVAS',
-            name: 'Kopja, lovas',
+            name: 'Lovaskopja',
             TamKor: '1/2',
             Type: 'Szálfegyver',
             Hand: 2,
@@ -768,7 +768,7 @@
         },
         {
             id: 'KOPJA_NEHEZLOVAS',
-            name: 'Kopja, nehézlovas',
+            name: 'Nehézlovas kopja',
             TamKor: '1/3',
             Type: 'Szálfegyver',
             Hand: 2,
@@ -1015,7 +1015,7 @@
         },
         {
             id: 'IJ_ROVID',
-            name: 'Ij, rövid',
+            name: 'Rövidij',
             Hand: 2,
             TamKor: '2',
             Cat: 'R',
@@ -1032,7 +1032,7 @@
         },
         {
             id: 'IJ_HOSSZU',
-            name: 'Ij, hosszú',
+            name: 'Hosszúij',
             Hand: 2,
             TamKor: '2',
             Cat: 'R',
@@ -1049,7 +1049,7 @@
         },
         {
             id: 'IJ_VISSZACSAPO',
-            name: 'Ij, visszacsapó',
+            name: 'Visszacsapóij',
             Hand: 2,
             TamKor: '2',
             Cat: 'R',
@@ -1066,7 +1066,7 @@
         },
         {
             id: 'IJ_ELF',
-            name: 'Ij, elf',
+            name: 'Elf ij',
             Hand: 2,
             TamKor: '2',
             Cat: 'R',
@@ -1083,7 +1083,7 @@
         },
         {
             id: 'NYILPUSKA_AQUIR',
-            name: 'Nyilpuska, aquir',
+            name: 'Aquir nyilpuska',
             Hand: 2,
             TamKor: '2',
             Cat: 'R',
@@ -1100,7 +1100,7 @@
         },
         {
             id: 'NYILPUSKA_KEZI',
-            name: 'Nzilpuska, kézi',
+            name: 'Kézi nyilpuska',
             Hand: 2,
             TamKor: '2',
             Cat: 'R',
@@ -1117,7 +1117,7 @@
         },
         {
             id: 'NYILPUSKA_KAHREI',
-            name: 'Nyilpuska, kahrei',
+            name: 'Kahrei nyilpuska',
             Hand: 2,
             TamKor: '3',
             Cat: 'R',
@@ -1134,7 +1134,7 @@
         },
         {
             id: 'NYILPUSKA_KONNYU',
-            name: 'Nyilpuska, könnyű',
+            name: 'Könnyű nyilpuska',
             Hand: 2,
             TamKor: '1',
             Cat: 'R',
@@ -1151,7 +1151,7 @@
         },
         {
             id: 'NYILPUSKA_NEHEZ',
-            name: 'Nyilpuska, nehéz',
+            name: 'Nehéz nyilpuska',
             Hand: 2,
             TamKor: '1/3',
             Cat: 'R',
@@ -1168,7 +1168,7 @@
         },
         {
             id: 'NYILPUSKA_SHADONI',
-            name: 'Nyilpuska, shadoni páncéltörő',
+            name: 'Shadoni páncéltörő nyilpuska',
             Hand: 2,
             TamKor: '1/5',
             Cat: 'R',

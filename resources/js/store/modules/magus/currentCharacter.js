@@ -47,7 +47,7 @@
         TeMod: 0,
         VeMod: 20,
         CeMod: 0,
-        HmLeft: 0,
+        HmLeft: 5,
         KpLeft: 100,
         KpPrecentLeft: 3,
         FegyverhasznalatAlap: ['KARD_HOSSZU'],
@@ -198,7 +198,7 @@ const getters = {
             level = 'Mf';
         }
         return level;
-    }
+    },
 };
 const mutations = {
     updateEletero(state, payload) {
@@ -403,6 +403,24 @@ const mutations = {
     },
     updateSkillsMf(state, skillsMf) {
         state.magusCharacter.LearnedSkills.mf = skillsMf;
+    },
+    updatePszi(state, pszi) {
+        state.magusCharacter.Pszi = pszi;
+    },
+    updateHmLeft(state) {
+        state.magusCharacter.HmLeft --;
+    },
+    updateKeSzint(state) {
+        state.magusCharacter.KeSzint ++;
+    },
+    updateTeSzint(state) {
+        state.magusCharacter.TeSzint ++;
+    },
+    updateVeSzint(state) {
+        state.magusCharacter.VeSzint ++;
+    },
+    updateCeSzint(state) {
+        state.magusCharacter.CeSzint ++;
     },
 };
 const actions = {

@@ -6336,6 +6336,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -6887,6 +6891,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -6909,6 +6920,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     moduleName: String,
@@ -6916,8 +6932,51 @@ __webpack_require__.r(__webpack_exports__);
     osztotHm: Number,
     aktualis: Number,
     fegyverNelkul: Number,
-    modositok: Array
-  }
+    modositok: Array,
+    id: String
+  },
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
+    magusCharacter: 'magusCharacter'
+  })), {}, {
+    hmLeft: function hmLeft() {
+      return this.magusCharacter.HmLeft;
+    }
+  }),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
+    updateHmLeft: 'updateHmLeft',
+    updateKeSzint: 'updateKeSzint',
+    updateTeSzint: 'updateTeSzint',
+    updateVeSzint: 'updateVeSzint',
+    updateCeSzint: 'updateCeSzint'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
+    save: 'save'
+  })), {}, {
+    updateHms: function updateHms() {
+      if (this.id == 'KE') {
+        this.updateKeSzint();
+        this.updateHmLeft();
+        this.save();
+      }
+
+      if (this.id == 'TE') {
+        this.updateTeSzint();
+        this.updateHmLeft();
+        this.save();
+      }
+
+      if (this.id == 'VE') {
+        this.updateVeSzint();
+        this.updateHmLeft();
+        this.save();
+      }
+
+      if (this.id == 'CE') {
+        this.updateCeSzint();
+        this.updateHmLeft();
+        this.save();
+      }
+    }
+  })
 });
 
 /***/ }),
@@ -7649,6 +7708,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     weapons: 'weapons',
     rangedWeapons: 'rangedWeapons'
   })), {}, {
+    pszi: function pszi() {
+      return this.magusCharacter.Pszi;
+    },
     kpLeft: function kpLeft() {
       return this.magusCharacter.KpLeft;
     },
@@ -7714,51 +7776,71 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this5 = this;
 
       return this.weapons.filter(function (w) {
-        return _this5.learnedWeaponsList.includes(w.id);
+        return _this5.learnedWeaponsList.includes(w.id) && !_this5.learnedWeaponsListMf.includes(w.id);
       });
     },
     availableRangedWeaponsMf: function availableRangedWeaponsMf() {
       var _this6 = this;
 
       return this.rangedWeapons.filter(function (r) {
-        return _this6.learnedWeaponsList.includes(r.id);
+        return _this6.learnedWeaponsList.includes(r.id) && !_this6.learnedWeaponsListMf.includes(r.id);
       });
     },
     availableTrowWeaponsMf: function availableTrowWeaponsMf() {
       var _this7 = this;
 
       return this.weapons.filter(function (w) {
-        return _this7.learnedTrowWeaponsList.includes(w.id);
+        return _this7.learnedTrowWeaponsList.includes(w.id) && !_this7.learnedWeaponsListMf.includes(w.id);
+      });
+    },
+    upgradebleLanguages: function upgradebleLanguages() {
+      var _this8 = this;
+
+      return this.learnedLanguages.filter(function (l) {
+        return !_this8.learnedLanguagesMf.includes(l);
+      });
+    },
+    upgradebleCraftes: function upgradebleCraftes() {
+      var _this9 = this;
+
+      return this.learnedCrafts.filter(function (c) {
+        return !_this9.learnedCraftsMf.includes(c);
+      });
+    },
+    upgradebleSkillsMf: function upgradebleSkillsMf() {
+      var _this10 = this;
+
+      return this.learnedSkills.filter(function (s) {
+        return !_this10.learnedSkillsMf.includes(s);
       });
     },
     skillsToUpgrade: function skillsToUpgrade() {
-      var _this8 = this;
+      var _this11 = this;
 
       var upgradeableSkills = [];
 
-      if (this.learnedWeaponsList.length > 0) {
+      if (this.availableWeaponsMf.length > 0 || this.availableRangedWeaponsMf.length > 0) {
         upgradeableSkills.push('FEGYVER_HASZNALAT');
       }
 
-      if (this.learnedTrowWeaponsList.length > 0) {
+      if (this.availableTrowWeaponsMf.length > 0) {
         upgradeableSkills.push('FEGYVER_DOBAS');
       }
 
-      if (this.learnedLanguages.length > 0) {
+      if (this.upgradebleLanguages.length > 0) {
         upgradeableSkills.push('NYELVISMERET');
       }
 
-      if (this.learnedCrafts.length > 0) {
+      if (this.upgradebleCraftes.length > 0) {
         upgradeableSkills.push('SZAKMA');
       }
 
-      if (this.learnedSkills.length > 0) {
-        upgradeableSkills = upgradeableSkills.concat(this.learnedSkills);
+      if (this.upgradebleSkillsMf.length > 0) {
+        upgradeableSkills = upgradeableSkills.concat(this.upgradebleSkillsMf);
       }
 
-      console.log(upgradeableSkills);
       return this.skills.filter(function (s) {
-        return upgradeableSkills.includes(s.id) && s.KpMf <= _this8.kpLeft;
+        return upgradeableSkills.includes(s.id) && s.KpMf <= _this11.kpLeft;
       });
     }
   }),
@@ -7773,7 +7855,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     updateCraftAf: 'updateCraftAf',
     updateCraftMf: 'updateCraftMf',
     updateSkillsAf: 'updateSkillsAf',
-    updateSkillsMf: 'updateSkillsMf'
+    updateSkillsMf: 'updateSkillsMf',
+    updatePszi: 'updatePszi'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
     save: 'save'
   })), {}, {
@@ -7822,6 +7905,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       learnedSkillList.push(id);
       this.updateSkillsAf(learnedSkillList);
       this.updateKpLeftDown(kp);
+
+      if (id == 'PSZI') {
+        var psiSkill = this.pszi;
+        psiSkill.learned = true;
+        psiSkill.atlevel = this.magusCharacter.Szint;
+        psiSkill.level = 'Af';
+        psiSkill.school = 'Pyarroni';
+        psiSkill.maxPszi += 4;
+        psiSkill.psziPointLevel = 3;
+        psiSkill.currentPszi += 4;
+        this.updatePszi(psiSkill);
+      }
+
       this.save();
     },
     upgradeWeaponSkillMf: function upgradeWeaponSkillMf() {
@@ -7869,6 +7965,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       learnedSkillListMf.push(id);
       this.updateSkillsMf(learnedSkillListMf);
       this.updateKpLeftDown(kp);
+
+      if (id == 'PSZI') {
+        var psiSkill = this.pszi;
+        psiSkill.level = 'Mf';
+        psiSkill.maxPszi += 5;
+        psiSkill.psziPointLevel = 4;
+        psiSkill.currentPszi += 5;
+        this.updatePszi(psiSkill);
+      }
+
       this.save();
     }
   })
@@ -9602,7 +9708,7 @@ var state = {
     TeMod: 0,
     VeMod: 20,
     CeMod: 0,
-    HmLeft: 0,
+    HmLeft: 5,
     KpLeft: 100,
     KpPrecentLeft: 3,
     FegyverhasznalatAlap: ['KARD_HOSSZU'],
@@ -10021,6 +10127,24 @@ var mutations = {
   },
   updateSkillsMf: function updateSkillsMf(state, skillsMf) {
     state.magusCharacter.LearnedSkills.mf = skillsMf;
+  },
+  updatePszi: function updatePszi(state, pszi) {
+    state.magusCharacter.Pszi = pszi;
+  },
+  updateHmLeft: function updateHmLeft(state) {
+    state.magusCharacter.HmLeft--;
+  },
+  updateKeSzint: function updateKeSzint(state) {
+    state.magusCharacter.KeSzint++;
+  },
+  updateTeSzint: function updateTeSzint(state) {
+    state.magusCharacter.TeSzint++;
+  },
+  updateVeSzint: function updateVeSzint(state) {
+    state.magusCharacter.VeSzint++;
+  },
+  updateCeSzint: function updateCeSzint(state) {
+    state.magusCharacter.CeSzint++;
   }
 };
 var actions = {
@@ -11513,7 +11637,7 @@ __webpack_require__.r(__webpack_exports__);
 var state = {
   weapons: [{
     id: 'BUZOGANY_SHADLEKI',
-    name: 'Buzogány, shadleki',
+    name: 'Shadleki buzogány',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
     Hand: 1,
@@ -11531,7 +11655,7 @@ var state = {
     description: 'A shadleki buzogány Shadon egy tartományában kifejlesztett, négy baltaéllel és vaskos heggyel ellátot páncélnyitogató eszköz - inkább vágó-, mintsem zúzófegyver.'
   }, {
     id: 'CSATABARD_EGYKEZES',
-    name: 'Csatabárd, egykezes',
+    name: 'Egykezes csatabárd',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
     Hand: 1,
@@ -11549,7 +11673,7 @@ var state = {
     description: 'A csatabárd a balta harcban használt rokona. Egy hoszabb rövidebb fa nyélhez erősitenek egy vagy akár két éles pengét.Az egykezes változat fél méteres. A törpék kedvenc fegyvere.'
   }, {
     id: 'CSATABARD_KETKEZES',
-    name: 'Csatabárd, kétkezes',
+    name: 'Kétkezes csatabárd',
     TamKor: '1/2',
     Type: 'Szúró/vágófegyver',
     Hand: 2,
@@ -11603,7 +11727,7 @@ var state = {
     description: 'A hajitóbárd két fő változatban készül, az egyik egy teljesen hagyományos kisbalta, a másik -gyakoribb- változat teljes egészében fémből készül.'
   }, {
     id: 'KARD_ROVID',
-    name: 'Kard, rövid',
+    name: 'Rövidkard',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
     Hand: 1,
@@ -11621,7 +11745,7 @@ var state = {
     description: 'A rövidkard 40-60 cm hosszú, egyenes pengéje mindkét oldalon ki van élezve. Gyakran ijászok második fegyvere.'
   }, {
     id: 'KARD_HOSSZU',
-    name: 'Kard, hosszú',
+    name: 'Hosszúkard',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
     Hand: 1,
@@ -11639,7 +11763,7 @@ var state = {
     description: 'A hosszúkard pengéje 60-80 cm-es, egyenes és kétélű. Álltalában gyalogos katonák fő fegyvere.'
   }, {
     id: 'KARD_MASFELKEZES',
-    name: 'Kard, másfélkezes',
+    name: 'Másfélkezes kard',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
     Hand: 1,
@@ -11657,7 +11781,7 @@ var state = {
     description: 'A másfélkezes kard a hosszúkardhoz hasonló, pengéje egyenes, kétélű, ám markolata hozávetőlegesen kétszer olyan hosszú, hogy két kézzel is lehessen fogni.'
   }, {
     id: 'KARD_LOVAGI',
-    name: 'Kard, lovagi',
+    name: 'Lovagkard',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
     Hand: 1,
@@ -11675,7 +11799,7 @@ var state = {
     description: 'A lovagi kard a lovagok kedvenc fegyvere. Egyenes, kétélű pengéje 80-120 cm hosszú. A vége lekerekitett, vagy igen tompa szögben csúcsos. Keresztvasa gyakran S alakú.'
   }, {
     id: 'KARD_PALLOS',
-    name: 'Kard, pallos',
+    name: 'Pallos',
     TamKor: '1/2',
     Type: 'Szúró/vágófegyver',
     Hand: 2,
@@ -11693,7 +11817,7 @@ var state = {
     description: 'A pallos szintén lovagi fegyver, hossza nem ritkán eléri a két métert, amiből az egyenes, kétélű penge 160 cm. Két kézzel forgatják.'
   }, {
     id: 'KARD_SZABLYA',
-    name: 'Kard, szablya',
+    name: 'Szablya',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
     Hand: 1,
@@ -11711,7 +11835,7 @@ var state = {
     description: 'A szablya pengéje 60-80 cm hosszú és enyhén hajlitott. Csak a külső iv van kiélezve. Ivelése miatt sokkal jobban lehet vele vágni, mint az egyenes kardokkal -szúrásra, döfésre ritkán használják.'
   }, {
     id: 'KARD_DZSENN_SZABLYA',
-    name: 'Kard, dzsenn szablya',
+    name: 'Dzsenn szablya',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
     Hand: 1,
@@ -11729,7 +11853,7 @@ var state = {
     description: 'A dzsenn szablya szokatlanul keskeny és hosszú, ivelt pengéjű, mágikus úton készitett, ám mágikus tulajdonságokkal nem rendelkező fegyver. Gyakorlatilag törhetetlen.'
   }, {
     id: 'KARD_JATAGAN',
-    name: 'Kard, jatagán',
+    name: 'Jatagán',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
     Hand: 1,
@@ -11747,7 +11871,7 @@ var state = {
     description: 'A jatagán elnyújtott S alakot formázó, egyélű pengéje rővid, a kiszélesedő hegy ráadás pengéje visszahúzáskor mélyit a seben'
   }, {
     id: 'KARD_HANDZSAR',
-    name: 'Kard, handzsár',
+    name: 'Handzsár',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
     Hand: 1,
@@ -11765,7 +11889,7 @@ var state = {
     description: 'A handzsár a dzsadok kedvelt fegyvere. Erősen ivelt, csak a külső éle van kifenve. Jellegzetessége, hogy a penge a keresztvasnál allig tenyérnyi, a hegynél viszont jó másféltenyérnyi széles.'
   }, {
     id: 'KARD_FEJVADASZ',
-    name: 'Kard, fejvadász',
+    name: 'Fejvadászkard',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
     Hand: 1,
@@ -11783,7 +11907,7 @@ var state = {
     description: 'A fejvadászkard speciális, kétmarkolatú fegyver, Gorviktól Kránig szinte mindenütt alkalmazzák. Hossza személyre szabott, alsó, úgynevezett tonfa-markolatnál fogva, az alkarra szoritva épp könyékig ér. Külső élre és hegyre fenik.'
   }, {
     id: 'KARD_SLAN',
-    name: 'Kard, slan',
+    name: 'Slan kard',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
     Hand: 1,
@@ -11801,7 +11925,7 @@ var state = {
     description: 'A Slan kard a kardművész fegyvere. Keskeny enyhén ivelt pengéjének csak a külső ivét fenik ki. Hossza 1,1 méter amiből 30 cm a markolat. Keresztvasa kicsi, kör alakú. Különleges kovácsolási eljárással készül, nagyon nehezen törik, borotvaélles.'
   }, {
     id: 'KARD_KIGYO',
-    name: 'Kard, kigyó',
+    name: 'Kigyó kard',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
     Hand: 1,
@@ -11927,7 +12051,7 @@ var state = {
     description: 'A tőr a legáltalánosabb fegyver szerte Yneven. Rengeteg különböző formája van, de pengéje nem haladja meg a 40 cm-t. Legtöbbször kétélű.'
   }, {
     id: 'TOR_DOBO',
-    name: 'Tőr, dobó',
+    name: 'Dobótőr',
     TamKor: '2',
     Type: 'Szúró/vágófegyver',
     Hand: 1,
@@ -11945,7 +12069,7 @@ var state = {
     description: 'A dobótőr különlegesen kiképzett tőr, aminek súlyelosztása jó dobhatóságot tesz lehetővé. Kétélű. Keresztvasa kicsi vagy egyáltalán nincs is. Gyakran egyetlen fémdarabból készül, és nem vonják be külön a markolatott.'
   }, {
     id: 'TOR_SLAN',
-    name: 'Tőr, slan',
+    name: 'Slantőr',
     TamKor: '2',
     Type: 'Szúró/vágófegyver',
     Hand: 1,
@@ -11981,7 +12105,7 @@ var state = {
     description: 'A tőrkard vagy rapir pengéje 80 cm hosszú, keskeny és egyenes. Mindkét oldalán ki van élezve, de főleg döfésre használják. Keskeny pengéje kivételes hajlékonyságot tesz lehetővé, ezért is terjedt el vivóeszközként. Keresztvasa diszes, a markolatot gyakran kosár védi.'
   }, {
     id: 'BOT_HOSSZU',
-    name: 'Bot, hosszú',
+    name: 'Hosszú bot',
     TamKor: '1',
     Type: 'Zúzófegyver',
     Hand: 2,
@@ -11999,7 +12123,7 @@ var state = {
     description: 'A botot, mint fegyvert, Ynev-szerte alkalmazzák, bár általában lenézik használóját. Niarén és Enoszukén kivül inkább csak furkósbotot forgatnak, ami lehet akár egy frissen vágot husáng is - az előbb emlitett országok harcművészei viszont tökélyre fejlesztették a botok használatának tudományát.'
   }, {
     id: 'BOT_ROVID',
-    name: 'Bot, rövid',
+    name: 'Rövid bot',
     TamKor: '1',
     Type: 'Zúzófegyver',
     Hand: 1,
@@ -12017,7 +12141,7 @@ var state = {
     description: 'A botot, mint fegyvert, Ynev-szerte alkalmazzák, bár általában lenézik használóját. Niarén és Enoszukén kivül inkább csak furkósbotot forgatnak, ami lehet akár egy frissen vágot husáng is - az előbb emlitett országok harcművészei viszont tökélyre fejlesztették a botok használatának tudományát.'
   }, {
     id: 'BOT_FURKOS',
-    name: 'Bot, furkós',
+    name: 'Furkósbot',
     TamKor: '1',
     Type: 'Zúzófegyver',
     Hand: 1,
@@ -12035,7 +12159,7 @@ var state = {
     description: 'A botot, mint fegyvert, Ynev-szerte alkalmazzák, bár általában lenézik használóját. Niarén és Enoszukén kivül inkább csak furkósbotot forgatnak, ami lehet akár egy frissen vágot husáng is - az előbb emlitett országok harcművészei viszont tökélyre fejlesztették a botok használatának tudományát.'
   }, {
     id: 'BUZOGANY_EGYKEZES',
-    name: 'Buzogány, egykezes',
+    name: 'Egykezes buzogány',
     TamKor: '1',
     Type: 'Zúzófegyver',
     Hand: 1,
@@ -12053,7 +12177,7 @@ var state = {
     description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
   }, {
     id: 'BUZOGANY_KETKEZES',
-    name: 'Buzogány, kétkezes',
+    name: 'Kétkezes buzogány',
     TamKor: '1/2',
     Type: 'Zúzófegyver',
     Hand: 2,
@@ -12071,7 +12195,7 @@ var state = {
     description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
   }, {
     id: 'BUZOGANY_TUSKES',
-    name: 'Buzogány, tüskés',
+    name: 'Tüskés buzogány',
     TamKor: '1',
     Type: 'Zúzófegyver',
     Hand: 1,
@@ -12089,7 +12213,7 @@ var state = {
     description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
   }, {
     id: 'BUZOGANY_TOLLAS',
-    name: 'Buzogány, tollas',
+    name: 'Tollas buzogány',
     TamKor: '1',
     Type: 'Zúzófegyver',
     Hand: 1,
@@ -12107,7 +12231,7 @@ var state = {
     description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
   }, {
     id: 'BUZOGANY_LANCOS',
-    name: 'Buzogány, láncos',
+    name: 'Láncos buzogány',
     TamKor: '1',
     Type: 'Zúzófegyver',
     Hand: 1,
@@ -12197,7 +12321,7 @@ var state = {
     description: 'A dárda rövid, másfél méteres nyelén keskeny, hegyes penge helyeszkedik el, melynek gyakorta még éle sincs. Súlyelosztása miatt kiválóan dobható.'
   }, {
     id: 'KOPJA_KONNYU',
-    name: 'Kopja, könnyű',
+    name: 'Könnyűkopja',
     TamKor: '1',
     Type: 'Szálfegyver',
     Hand: 2,
@@ -12215,7 +12339,7 @@ var state = {
     description: 'A könnyű kopját lovasok és gyalogosok egyaránt használják. Nyele 2-3 méteres, feje keskeny hegybe végződik. A fej alá gyakorta zászlót is erősitenek.'
   }, {
     id: 'KOPJA_LOVAS',
-    name: 'Kopja, lovas',
+    name: 'Lovaskopja',
     TamKor: '1/2',
     Type: 'Szálfegyver',
     Hand: 2,
@@ -12233,7 +12357,7 @@ var state = {
     description: 'A lovaskopja kizárólag a könnyűlovasság fegyvere. Hossza 3-4 méter, feje viszont rövidebb, mint a könnyű kopjáé. A nyélre gyakran külön kézvédő tárcsát húznak.'
   }, {
     id: 'KOPJA_NEHEZLOVAS',
-    name: 'Kopja, nehézlovas',
+    name: 'Nehézlovas kopja',
     TamKor: '1/3',
     Type: 'Szálfegyver',
     Hand: 2,
@@ -12466,7 +12590,7 @@ var state = {
     description: 'A fúvócső tűlövedékek kilövésére alkalmas. Lesből, méreggel használják, nyilt harcban vajmi kevés előnye van.'
   }, {
     id: 'IJ_ROVID',
-    name: 'Ij, rövid',
+    name: 'Rövidij',
     Hand: 2,
     TamKor: '2',
     Cat: 'R',
@@ -12482,7 +12606,7 @@ var state = {
     description: 'A rövid és a hosszú ijak csak méretükben különböznek, felépitésük ugynolyan. Mindkettő egyszeresen hajlitott. Mivel a hosszú ij fája jobban hajlik, nagyobb erővel repiti a vesszőt.'
   }, {
     id: 'IJ_HOSSZU',
-    name: 'Ij, hosszú',
+    name: 'Hosszúij',
     Hand: 2,
     TamKor: '2',
     Cat: 'R',
@@ -12498,7 +12622,7 @@ var state = {
     description: 'A rövid és a hosszú ijak csak méretükben különböznek, felépitésük ugynolyan. Mindkettő egyszeresen hajlitott. Mivel a hosszú ij fája jobban hajlik, nagyobb erővel repiti a vesszőt.'
   }, {
     id: 'IJ_VISSZACSAPO',
-    name: 'Ij, visszacsapó',
+    name: 'Visszacsapóij',
     Hand: 2,
     TamKor: '2',
     Cat: 'R',
@@ -12514,7 +12638,7 @@ var state = {
     description: 'A visszacsapó vagy nomád ij lényegesen különbözik a rövid- hosszú ijaktól. Rétegzett fából, csontból és esetenként fémből készül. Kétszeresen hajlitott, igy lényegesen nagyobb rugalmas erő halmozódik föl benne.'
   }, {
     id: 'IJ_ELF',
-    name: 'Ij, elf',
+    name: 'Elf ij',
     Hand: 2,
     TamKor: '2',
     Cat: 'R',
@@ -12530,7 +12654,7 @@ var state = {
     description: 'Az elf ij mágikus úton készitett, enyhe mágikus hatású fegyver. A hatás főként felhúzáskor érvényesül, és a lendülethez, lövéstávhoz viszonyitva csekély erőfeszitést követel -preciziós célzásra kiválóan alkalmas.'
   }, {
     id: 'NYILPUSKA_AQUIR',
-    name: 'Nyilpuska, aquir',
+    name: 'Aquir nyilpuska',
     Hand: 2,
     TamKor: '2',
     Cat: 'R',
@@ -12546,7 +12670,7 @@ var state = {
     description: 'Az aquir nyilpuska viszonylag apró, egykezes fegyver. Avatatlan kézben nem érvényesülnek különleges képességei - készitői birtokában, mágikus adotságai révén a pusztitás maga. Értékét elméleti és gyakorlati megszerezhetetlensége adja.'
   }, {
     id: 'NYILPUSKA_KEZI',
-    name: 'Nzilpuska, kézi',
+    name: 'Kézi nyilpuska',
     Hand: 2,
     TamKor: '2',
     Cat: 'R',
@@ -12562,7 +12686,7 @@ var state = {
     description: 'A kézi nyilpuska a nyilpuskák népes családjának legkisebb tagja. Hossza nem haladja meg a fél métert. Inkább csak mérgezésre, az ellenfél megzavarására használják, komoly csatákban nem. Kézi erővel is felajzható.'
   }, {
     id: 'NYILPUSKA_KAHREI',
-    name: 'Nyilpuska, kahrei',
+    name: 'Kahrei nyilpuska',
     Hand: 2,
     TamKor: '3',
     Cat: 'R',
@@ -12578,7 +12702,7 @@ var state = {
     description: 'A kahrei nyilpuska a kézi nyilpuska továbbfejlesztett változata. Valamivel nagyobb, és a lőcsatorna fölött egy 10-12 vesszőt tartalmazó tár helyeszkedik el. A felhúzás és az újratöltés egyetlen kar megrántásával történik, ami igen nagy tűzgyorsaságot tesz lehetővé.'
   }, {
     id: 'NYILPUSKA_KONNYU',
-    name: 'Nyilpuska, könnyű',
+    name: 'Könnyű nyilpuska',
     Hand: 2,
     TamKor: '1',
     Cat: 'R',
@@ -12594,7 +12718,7 @@ var state = {
     description: 'A könnyű nyilpuska hossza hozzávetőleg egy méter, felajzásához már támasz szükséges.'
   }, {
     id: 'NYILPUSKA_NEHEZ',
-    name: 'Nyilpuska, nehéz',
+    name: 'Nehéz nyilpuska',
     Hand: 2,
     TamKor: '1/3',
     Cat: 'R',
@@ -12610,7 +12734,7 @@ var state = {
     description: 'A nehéz nyilpuska már inkább csatatéri fegyver, semmint kalandozói eszköz. Hossza a másfél métert is meghaladhatja, felajzásához támasz és motolla szükséges, minek következtében ritkán lehet vala lőni.'
   }, {
     id: 'NYILPUSKA_SHADONI',
-    name: 'Nyilpuska, shadoni páncéltörő',
+    name: 'Shadoni páncéltörő nyilpuska',
     Hand: 2,
     TamKor: '1/5',
     Cat: 'R',
@@ -38943,6 +39067,7 @@ var render = function () {
                 aktualis: _vm.keOsz,
                 fegyverNelkul: _vm.keAlap,
                 modositok: [],
+                id: "KE",
               },
             }),
           ],
@@ -38961,6 +39086,7 @@ var render = function () {
                 aktualis: _vm.teOsz,
                 fegyverNelkul: _vm.teAlap,
                 modositok: [],
+                id: "TE",
               },
             }),
           ],
@@ -38979,6 +39105,7 @@ var render = function () {
                 aktualis: _vm.veOsz,
                 fegyverNelkul: _vm.veAlap,
                 modositok: [],
+                id: "VE",
               },
             }),
           ],
@@ -38997,6 +39124,7 @@ var render = function () {
                 aktualis: _vm.ceOsz,
                 fegyverNelkul: _vm.ceAlap,
                 modositok: [],
+                id: "CE",
               },
             }),
           ],
@@ -39745,6 +39873,24 @@ var render = function () {
       _c("h4", { staticClass: "text-center mt-2" }, [
         _vm._v(_vm._s(_vm.moduleName)),
       ]),
+      _vm._v(" "),
+      _vm.hmLeft > 0
+        ? _c("div", { staticClass: "text-center my-4" }, [
+            _c("p", [
+              _c("b", [_vm._v(_vm._s(_vm.hmLeft) + " HM szétosztható")]),
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success",
+                attrs: { type: "button" },
+                on: { click: _vm.updateHms },
+              },
+              [_c("b", [_vm._v("+")])]
+            ),
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col border-end border-secondary" }, [

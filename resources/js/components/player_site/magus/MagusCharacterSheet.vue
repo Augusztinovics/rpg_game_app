@@ -121,6 +121,7 @@
                         :aktualis="keOsz"
                         :fegyverNelkul="keAlap"
                         :modositok="[]"
+                        :id="'KE'"
                    />
                </div>
 
@@ -132,6 +133,7 @@
                         :aktualis="teOsz"
                         :fegyverNelkul="teAlap"
                         :modositok="[]"
+                        :id="'TE'"
                    />
                </div>
 
@@ -143,6 +145,7 @@
                         :aktualis="veOsz"
                         :fegyverNelkul="veAlap"
                         :modositok="[]"
+                        :id="'VE'"
                    />
                </div>
 
@@ -154,6 +157,7 @@
                         :aktualis="ceOsz"
                         :fegyverNelkul="ceAlap"
                         :modositok="[]"
+                        :id="'CE'"
                    />
                </div>
 

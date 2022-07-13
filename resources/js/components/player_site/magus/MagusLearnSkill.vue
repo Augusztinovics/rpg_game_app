@@ -205,6 +205,9 @@ export default {
             weapons: 'weapons',
             rangedWeapons: 'rangedWeapons',
         }),
+        pszi() {
+            return this.magusCharacter.Pszi;
+        },
         kpLeft() {
             return this.magusCharacter.KpLeft;
         },
@@ -252,32 +255,41 @@ export default {
         },
 
         availableWeaponsMf() {
-            return this.weapons.filter(w => this.learnedWeaponsList.includes(w.id));
+            return this.weapons.filter(w => this.learnedWeaponsList.includes(w.id) && !this.learnedWeaponsListMf.includes(w.id));
         },
         availableRangedWeaponsMf() {
-            return this.rangedWeapons.filter(r => this.learnedWeaponsList.includes(r.id));
+            return this.rangedWeapons.filter(r => this.learnedWeaponsList.includes(r.id) && !this.learnedWeaponsListMf.includes(r.id));
         },
         availableTrowWeaponsMf() {
-            return this.weapons.filter(w => this.learnedTrowWeaponsList.includes(w.id));
+            return this.weapons.filter(w => this.learnedTrowWeaponsList.includes(w.id) && !this.learnedWeaponsListMf.includes(w.id));
+        },
+        upgradebleLanguages() {
+            return this.learnedLanguages.filter(l => !this.learnedLanguagesMf.includes(l));
+        },
+        upgradebleCraftes() {
+            return this.learnedCrafts.filter(c => !this.learnedCraftsMf.includes(c));
+        },
+        upgradebleSkillsMf() {
+            return this.learnedSkills.filter(s => !this.learnedSkillsMf.includes(s));
         },
         skillsToUpgrade() {
             let upgradeableSkills = [];
-            if (this.learnedWeaponsList.length > 0) {
+            if (this.availableWeaponsMf.length > 0 || this.availableRangedWeaponsMf.length > 0) {
                 upgradeableSkills.push('FEGYVER_HASZNALAT');
             }
-            if (this.learnedTrowWeaponsList.length > 0) {
+            if (this.availableTrowWeaponsMf.length > 0) {
                 upgradeableSkills.push('FEGYVER_DOBAS');
             }
-            if (this.learnedLanguages.length > 0) {
+            if (this.upgradebleLanguages.length > 0) {
                 upgradeableSkills.push('NYELVISMERET');
             }
-            if (this.learnedCrafts.length > 0) {
+            if (this.upgradebleCraftes.length > 0) {
                 upgradeableSkills.push('SZAKMA');
             }
-            if (this.learnedSkills.length > 0) {
-                upgradeableSkills = upgradeableSkills.concat(this.learnedSkills);
+            if (this.upgradebleSkillsMf.length > 0) {
+                upgradeableSkills = upgradeableSkills.concat(this.upgradebleSkillsMf);
             }
-            console.log(upgradeableSkills);
+            
             return this.skills.filter(s => upgradeableSkills.includes(s.id) && s.KpMf <= this.kpLeft);
         }
     },
@@ -294,6 +306,7 @@ export default {
             updateCraftMf: 'updateCraftMf',
             updateSkillsAf: 'updateSkillsAf',
             updateSkillsMf: 'updateSkillsMf',
+            updatePszi: 'updatePszi',
         }),
         ...mapActions('currentCharacter', {
                 save: 'save'
@@ -343,6 +356,17 @@ export default {
             learnedSkillList.push(id);
             this.updateSkillsAf(learnedSkillList);
             this.updateKpLeftDown(kp);
+            if (id == 'PSZI') {
+                let psiSkill = this.pszi;
+                psiSkill.learned = true;
+                psiSkill.atlevel = this.magusCharacter.Szint;
+                psiSkill.level = 'Af';
+                psiSkill.school = 'Pyarroni';
+                psiSkill.maxPszi += 4;
+                psiSkill.psziPointLevel = 3;
+                psiSkill.currentPszi += 4;
+                this.updatePszi(psiSkill); 
+            }
             this.save();
         },
 
@@ -391,6 +415,14 @@ export default {
             learnedSkillListMf.push(id);
             this.updateSkillsMf(learnedSkillListMf);
             this.updateKpLeftDown(kp);
+            if (id == 'PSZI') {
+                let psiSkill = this.pszi;
+                psiSkill.level = 'Mf';
+                psiSkill.maxPszi += 5;
+                psiSkill.psziPointLevel = 4;
+                psiSkill.currentPszi += 5;
+                this.updatePszi(psiSkill); 
+            }
             this.save();
         }
     },
