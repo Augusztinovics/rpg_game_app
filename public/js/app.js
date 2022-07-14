@@ -6043,16 +6043,139 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     MagusKasztPreview: _MagusKasztPreview_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
+  data: function data() {
+    return {
+      inputName: '',
+      inputJellem: '',
+      inputVallas: '',
+      inputSzimbolum: '',
+      inputSzulofold: '',
+      inputIskola: ''
+    };
+  },
   computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusAligments', {
-    aligment: 'aligment'
+    aligment: 'aligment',
+    aligments: 'aligments'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusRaces', {
     race: 'race'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusClasses', {
@@ -6075,8 +6198,81 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     Kaszt: function Kaszt() {
       return this.magusKaszt(this.magusCharacter.Kaszt);
+    },
+    szint: function szint() {
+      return this.magusCharacter.Szint;
+    },
+    characterName: function characterName() {
+      return this.magusCharacter.Nev;
+    },
+    vallas: function vallas() {
+      return this.magusCharacter.Vallas;
+    },
+    szimbolum: function szimbolum() {
+      return this.magusCharacter.Szimbolum;
+    },
+    szulofold: function szulofold() {
+      return this.magusCharacter.Szulofold;
+    },
+    iskola: function iskola() {
+      return this.magusCharacter.Iskola;
     }
-  })
+  }),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapMutations)('currentCharacter', {
+    updateName: 'updateName',
+    updateJellem: 'updateJellem',
+    updateVallas: 'updateVallas',
+    updateSzulofold: 'updateSzulofold',
+    updateIskola: 'updateIskola',
+    updateSzimbolum: 'updateSzimbolum'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)('currentCharacter', {
+    save: 'save'
+  })), {}, {
+    updateNewName: function updateNewName() {
+      if (this.inputName != '') {
+        this.updateName(this.inputName);
+        this.save();
+      }
+    },
+    updateNewJellem: function updateNewJellem() {
+      if (this.inputJellem != '') {
+        this.updateJellem(this.inputJellem);
+        this.save();
+      }
+    },
+    updateNewVallas: function updateNewVallas() {
+      if (this.inputVallas != '') {
+        this.updateVallas(this.inputVallas);
+        this.save();
+      }
+    },
+    updateNewSzulofold: function updateNewSzulofold() {
+      if (this.inputSzulofold != '') {
+        this.updateSzulofold(this.inputSzulofold);
+        this.save();
+      }
+    },
+    updateNewSzimbolum: function updateNewSzimbolum() {
+      if (this.inputSzimbolum != '') {
+        this.updateSzimbolum(this.inputSzimbolum);
+        this.save();
+      }
+    },
+    updateNewIskola: function updateNewIskola() {
+      if (this.inputIskola != '') {
+        this.updateIskola(this.inputIskola);
+        this.save();
+      }
+    }
+  }),
+  mounted: function mounted() {
+    this.inputName = this.characterName;
+    this.inputJellem = this.Jellem.id;
+    this.inputVallas = this.vallas;
+    this.inputSzimbolum = this.szimbolum;
+    this.inputSzulofold = this.szulofold;
+    this.inputIskola = this.iskola;
+  }
 });
 
 /***/ }),
@@ -10145,6 +10341,24 @@ var mutations = {
   },
   updateCeSzint: function updateCeSzint(state) {
     state.magusCharacter.CeSzint++;
+  },
+  updateName: function updateName(state, nev) {
+    state.magusCharacter.Nev = nev;
+  },
+  updateJellem: function updateJellem(state, jellemId) {
+    state.magusCharacter.Jellem = jellemId;
+  },
+  updateVallas: function updateVallas(state, vallas) {
+    state.magusCharacter.Vallas = vallas;
+  },
+  updateSzulofold: function updateSzulofold(state, szulofold) {
+    state.magusCharacter.Szulofold = szulofold;
+  },
+  updateIskola: function updateIskola(state, iskola) {
+    state.magusCharacter.Iskola = iskola;
+  },
+  updateSzimbolum: function updateSzimbolum(state, szimbolum) {
+    state.magusCharacter.Szimbolum = szimbolum;
   }
 };
 var actions = {
@@ -38656,7 +38870,8 @@ var render = function () {
     _vm._v(" "),
     _c("p", { staticClass: "fs-4 border-bottom border-secondary mt-5" }, [
       _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Név: ")]),
-      _c("span", [_vm._v(_vm._s(_vm.magusCharacter.Nev))]),
+      _c("span", [_vm._v(_vm._s(_vm.characterName))]),
+      _vm._m(0),
     ]),
     _vm._v(" "),
     _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
@@ -38711,31 +38926,36 @@ var render = function () {
             [_vm._v("i")]
           )
         : _vm._e(),
+      _vm._m(1),
     ]),
     _vm._v(" "),
     _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
       _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Vallás: ")]),
-      _c("span", [_vm._v(_vm._s(_vm.magusCharacter.Vallas))]),
+      _c("span", [_vm._v(_vm._s(_vm.vallas))]),
+      _vm._m(2),
     ]),
     _vm._v(" "),
     _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
       _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Szimbólum: ")]),
-      _c("span", [_vm._v(_vm._s(_vm.magusCharacter.Szimbolum))]),
+      _c("span", [_vm._v(_vm._s(_vm.szimbolum))]),
+      _vm._m(3),
     ]),
     _vm._v(" "),
     _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
       _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Szülőföld: ")]),
-      _c("span", [_vm._v(_vm._s(_vm.magusCharacter.Szulofold))]),
+      _c("span", [_vm._v(_vm._s(_vm.szulofold))]),
+      _vm._m(4),
     ]),
     _vm._v(" "),
     _c("p", { staticClass: "fs-4 border-bottom border-secondary mb-5" }, [
       _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Iskola: ")]),
-      _c("span", [_vm._v(_vm._s(_vm.magusCharacter.Iskola))]),
+      _c("span", [_vm._v(_vm._s(_vm.iskola))]),
+      _vm._m(5),
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "my-5 text-center" }, [
       _c("p", { staticClass: "border border-secondary p-3 fs-1 fw-bolder" }, [
-        _vm._v(_vm._s(_vm.magusCharacter.Szint)),
+        _vm._v(_vm._s(_vm.szint)),
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "fs-3 mt-2" }, [_vm._v("Tapasztalati szint")]),
@@ -38789,7 +39009,7 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _vm._m(0),
+              _vm._m(6),
             ]),
           ]
         ),
@@ -38844,7 +39064,7 @@ var render = function () {
                     return _c("p", { key: "D" + index }, [_vm._v(_vm._s(des))])
                   }),
                   _vm._v(" "),
-                  _vm._m(1),
+                  _vm._m(7),
                   _vm._v(" "),
                   _vm._l(_vm.Faj.specials, function (special, index) {
                     return _c("p", { key: "S" + index }, [
@@ -38855,7 +39075,7 @@ var render = function () {
                 2
               ),
               _vm._v(" "),
-              _vm._m(2),
+              _vm._m(8),
             ]),
           ]
         ),
@@ -38909,15 +39129,536 @@ var render = function () {
                 1
               ),
               _vm._v(" "),
-              _vm._m(3),
+              _vm._m(9),
             ]),
           ]
         ),
       ]
     ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "nevModal",
+          tabindex: "-1",
+          "aria-labelledby": "nevModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(10),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputName,
+                    expression: "inputName",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", id: "egyebb-text" },
+                domProps: { value: _vm.inputName },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inputName = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.updateNewName },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "jellemUpdateModal",
+          tabindex: "-1",
+          "aria-labelledby": "jellemUpdateModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(11),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.inputJellem,
+                      expression: "inputJellem",
+                    },
+                  ],
+                  staticClass: "form-select form-select-lg mb-3",
+                  attrs: { "aria-label": "weapon-select" },
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.inputJellem = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                  },
+                },
+                _vm._l(_vm.aligments, function (jel) {
+                  return _c(
+                    "option",
+                    { key: jel.id, domProps: { value: jel.id } },
+                    [_vm._v(_vm._s(jel.name))]
+                  )
+                }),
+                0
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.updateNewJellem },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "vallasModal",
+          tabindex: "-1",
+          "aria-labelledby": "vallasModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(12),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputVallas,
+                    expression: "inputVallas",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", id: "egyebb-text" },
+                domProps: { value: _vm.inputVallas },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inputVallas = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.updateNewVallas },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "szimbolumModal",
+          tabindex: "-1",
+          "aria-labelledby": "szimbolumModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(13),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputSzimbolum,
+                    expression: "inputSzimbolum",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", id: "egyebb-text" },
+                domProps: { value: _vm.inputSzimbolum },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inputSzimbolum = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.updateNewSzimbolum },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "szulofoldModal",
+          tabindex: "-1",
+          "aria-labelledby": "szulofoldModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(14),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputSzulofold,
+                    expression: "inputSzulofold",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", id: "egyebb-text" },
+                domProps: { value: _vm.inputSzulofold },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inputSzulofold = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.updateNewSzulofold },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "iskolaModal",
+          tabindex: "-1",
+          "aria-labelledby": "iskolaModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(15),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputIskola,
+                    expression: "inputIskola",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", id: "egyebb-text" },
+                domProps: { value: _vm.inputIskola },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inputIskola = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.updateNewIskola },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#nevModal",
+          },
+        },
+        [_vm._v("Változtat")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#jellemUpdateModal",
+          },
+        },
+        [_vm._v("Változtat")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#vallasModal",
+          },
+        },
+        [_vm._v("Változtat")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#szimbolumModal",
+          },
+        },
+        [_vm._v("Változtat")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#szulofoldModal",
+          },
+        },
+        [_vm._v("Változtat")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#iskolaModal",
+          },
+        },
+        [_vm._v("Változtat")]
+      ),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -38967,6 +39708,130 @@ var staticRenderFns = [
         },
         [_vm._v("Close")]
       ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title", attrs: { id: "nevModalLabel" } }, [
+        _vm._v("Uj név megadása"),
+      ]),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "jellemUpdateModalLabel" } },
+        [_vm._v("Uj jellem megadása")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "vallasModalLabel" } },
+        [_vm._v("Uj vallás megadása")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "szimbolumModalLabel" } },
+        [_vm._v("Uj szimbólum megadása")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "szulofoldModalLabel" } },
+        [_vm._v("Uj szülőföld megadása")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "iskolaModalLabel" } },
+        [_vm._v("Uj iskola megadása")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
     ])
   },
 ]

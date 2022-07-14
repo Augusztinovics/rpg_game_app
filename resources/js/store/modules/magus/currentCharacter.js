@@ -422,6 +422,24 @@ const mutations = {
     updateCeSzint(state) {
         state.magusCharacter.CeSzint ++;
     },
+    updateName(state, nev) {
+        state.magusCharacter.Nev = nev;
+    },
+    updateJellem(state, jellemId) {
+        state.magusCharacter.Jellem = jellemId;
+    },
+    updateVallas(state, vallas) {
+        state.magusCharacter.Vallas = vallas;
+    },
+    updateSzulofold(state, szulofold) {
+        state.magusCharacter.Szulofold = szulofold;
+    },
+    updateIskola(state, iskola) {
+        state.magusCharacter.Iskola = iskola;
+    },
+    updateSzimbolum(state, szimbolum) {
+        state.magusCharacter.Szimbolum = szimbolum;
+    },
 };
 const actions = {
     save(context) {
