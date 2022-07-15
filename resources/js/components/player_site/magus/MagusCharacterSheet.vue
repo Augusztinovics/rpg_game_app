@@ -212,8 +212,7 @@
             </div>
             <div class="col">
                 <div class="bg-light border border-secondary rounded mb-4 p-3">
-                    <h4>A Karakter leirása</h4>
-                    <p>majd egyszer ha lesz karakter</p>
+                    <magus-character-descript />
                 </div>
             </div>
             <div class="col">
@@ -241,6 +240,7 @@
     import MagusArmor from './MagusArmor.vue';
     import MagusWepon from './MagusWepon.vue';
     import MagusSkills from './MagusSkills.vue';
+    import MagusCharacterDescript from './MagusCharacterDescript.vue';
 
     export default {
         components: {
@@ -254,6 +254,7 @@
            MagusArmor,
            MagusWepon,
            MagusSkills,
+           MagusCharacterDescript,
         },
         data() {
             return {

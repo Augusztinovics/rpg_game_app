@@ -157,6 +157,7 @@
                 }
             ]
         },
+        description: '',
     }
 };
 const getters = {
@@ -201,6 +202,9 @@ const getters = {
     },
 };
 const mutations = {
+    updateDescription(state, des) {
+        state.magusCharacter.description = des;
+    },
     updateEletero(state, payload) {
         state.magusCharacter.AktFp = payload.AktFp;
         state.magusCharacter.AktEp = payload.AktEp;
