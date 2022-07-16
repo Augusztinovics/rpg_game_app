@@ -158,6 +158,7 @@
             ]
         },
         description: '',
+        notes: [],
     }
 };
 const getters = {
@@ -202,6 +203,9 @@ const getters = {
     },
 };
 const mutations = {
+    updateNotes(state, note) {
+        state.magusCharacter.notes = note;
+    },
     updateDescription(state, des) {
         state.magusCharacter.description = des;
     },

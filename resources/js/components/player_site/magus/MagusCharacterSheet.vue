@@ -225,6 +225,11 @@
             </div>
         </div>
 
+        <!-- notes -->
+        <div class="bg-light border border-secondary rounded mb-4 p-3">
+            <magus-notes />
+        </div>
+        <p>.</p>
     </div>
 </template>
 
@@ -241,6 +246,7 @@
     import MagusWepon from './MagusWepon.vue';
     import MagusSkills from './MagusSkills.vue';
     import MagusCharacterDescript from './MagusCharacterDescript.vue';
+    import MagusNotes from './MagusNotes.vue';
 
     export default {
         components: {
@@ -255,6 +261,7 @@
            MagusWepon,
            MagusSkills,
            MagusCharacterDescript,
+           MagusNotes,
         },
         data() {
             return {

@@ -6366,7 +6366,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _MagusBaseData_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusBaseData.vue */ "./resources/js/components/player_site/magus/MagusBaseData.vue");
 /* harmony import */ var _MagusKincsek_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusKincsek.vue */ "./resources/js/components/player_site/magus/MagusKincsek.vue");
 /* harmony import */ var _MagusEquipment_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MagusEquipment.vue */ "./resources/js/components/player_site/magus/MagusEquipment.vue");
@@ -6378,6 +6378,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MagusWepon_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./MagusWepon.vue */ "./resources/js/components/player_site/magus/MagusWepon.vue");
 /* harmony import */ var _MagusSkills_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./MagusSkills.vue */ "./resources/js/components/player_site/magus/MagusSkills.vue");
 /* harmony import */ var _MagusCharacterDescript_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./MagusCharacterDescript.vue */ "./resources/js/components/player_site/magus/MagusCharacterDescript.vue");
+/* harmony import */ var _MagusNotes_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./MagusNotes.vue */ "./resources/js/components/player_site/magus/MagusNotes.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -6614,6 +6615,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 
@@ -6638,19 +6645,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     MagusArmor: _MagusArmor_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
     MagusWepon: _MagusWepon_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
     MagusSkills: _MagusSkills_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
-    MagusCharacterDescript: _MagusCharacterDescript_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
+    MagusCharacterDescript: _MagusCharacterDescript_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
+    MagusNotes: _MagusNotes_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
   },
   data: function data() {
     return {};
   },
   //COMPUTED----------------------------------
-  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_11__.mapGetters)('currentCharacter', {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_12__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_11__.mapGetters)('magusAligments', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_12__.mapGetters)('magusAligments', {
     aligment: 'aligment'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_11__.mapGetters)('magusRaces', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_12__.mapGetters)('magusRaces', {
     race: 'race'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_11__.mapGetters)('magusClasses', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_12__.mapGetters)('magusClasses', {
     magusKaszt: 'magusClass'
   })), {}, {
     Jellem: function Jellem() {
@@ -8251,6 +8259,94 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.updatePszi(psiSkill);
       }
 
+      this.save();
+    }
+  })
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusNotes.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusNotes.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      inputNote: ''
+    };
+  },
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
+    magusCharacter: 'magusCharacter'
+  })), {}, {
+    notes: function notes() {
+      return this.magusCharacter.notes;
+    }
+  }),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
+    updateNotes: 'updateNotes'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
+    save: 'save'
+  })), {}, {
+    saveNote: function saveNote() {
+      if (this.inputNote != '') {
+        var currentNotes = this.notes;
+        currentNotes.push(this.inputNote);
+        this.updateNotes(currentNotes);
+        this.save();
+        this.inputNote = '';
+      }
+    },
+    deleteNote: function deleteNote(index) {
+      var currentNotes = this.notes;
+      currentNotes.splice(index, 1);
+      this.updateNotes(currentNotes);
       this.save();
     }
   })
@@ -10088,7 +10184,8 @@ var state = {
         where: 'Táska alatt'
       }]
     },
-    description: ''
+    description: '',
+    notes: []
   }
 };
 var getters = {
@@ -10148,6 +10245,9 @@ var getters = {
   }
 };
 var mutations = {
+  updateNotes: function updateNotes(state, note) {
+    state.magusCharacter.notes = note;
+  },
   updateDescription: function updateDescription(state, des) {
     state.magusCharacter.description = des;
   },
@@ -36689,6 +36789,45 @@ component.options.__file = "resources/js/components/player_site/magus/MagusLearn
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/magus/MagusNotes.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusNotes.vue ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusNotes_vue_vue_type_template_id_013ba883___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusNotes.vue?vue&type=template&id=013ba883& */ "./resources/js/components/player_site/magus/MagusNotes.vue?vue&type=template&id=013ba883&");
+/* harmony import */ var _MagusNotes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusNotes.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/magus/MagusNotes.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MagusNotes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusNotes_vue_vue_type_template_id_013ba883___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusNotes_vue_vue_type_template_id_013ba883___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/player_site/magus/MagusNotes.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/magus/MagusShield.vue":
 /*!*******************************************************************!*\
   !*** ./resources/js/components/player_site/magus/MagusShield.vue ***!
@@ -37064,6 +37203,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/magus/MagusNotes.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusNotes.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusNotes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusNotes.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusNotes.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusNotes_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/magus/MagusShield.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************!*\
   !*** ./resources/js/components/player_site/magus/MagusShield.vue?vue&type=script&lang=js& ***!
@@ -37419,6 +37574,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusLearnSkill_vue_vue_type_template_id_6a3855ca___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusLearnSkill_vue_vue_type_template_id_6a3855ca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusLearnSkill.vue?vue&type=template&id=6a3855ca& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusLearnSkill.vue?vue&type=template&id=6a3855ca&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusNotes.vue?vue&type=template&id=013ba883&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusNotes.vue?vue&type=template&id=013ba883& ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusNotes_vue_vue_type_template_id_013ba883___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusNotes_vue_vue_type_template_id_013ba883___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusNotes_vue_vue_type_template_id_013ba883___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusNotes.vue?vue&type=template&id=013ba883& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusNotes.vue?vue&type=template&id=013ba883&");
 
 
 /***/ }),
@@ -40365,6 +40537,15 @@ var render = function () {
       _vm._v(" "),
       _vm._m(4),
     ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+      [_c("magus-notes")],
+      1
+    ),
+    _vm._v(" "),
+    _c("p", [_vm._v(".")]),
   ])
 }
 var staticRenderFns = [
@@ -43391,6 +43572,170 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [_c("b", [_vm._v("Leirás:")])])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusNotes.vue?vue&type=template&id=013ba883&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusNotes.vue?vue&type=template&id=013ba883& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.notes, function (note, index) {
+          return _c("p", { key: "K" + index, staticClass: "ms-2" }, [
+            _vm._v(_vm._s(note) + " "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-danger btn-sm ms-2",
+                attrs: { type: "button" },
+                on: {
+                  click: function ($event) {
+                    return _vm.deleteNote(index)
+                  },
+                },
+              },
+              [_vm._v("-")]
+            ),
+          ])
+        }),
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "noteModal",
+          tabindex: "-1",
+          "aria-labelledby": "noteModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputNote,
+                    expression: "inputNote",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", id: "egyebb-text" },
+                domProps: { value: _vm.inputNote },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inputNote = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.saveNote },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "text-center py-2 border-bottom border-secondary my-2" },
+      [
+        _c("h4", [_vm._v("Jegyzetek")]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-success mt-2",
+            attrs: {
+              type: "button",
+              "data-bs-toggle": "modal",
+              "data-bs-target": "#noteModal",
+            },
+          },
+          [_vm._v("Uj jegyzet hozzáadása")]
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "noteModalLabel" } },
+        [_vm._v("Uj jegyzet")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
   },
 ]
 render._withStripped = true
