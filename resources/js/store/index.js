@@ -9,6 +9,9 @@ import magusShields from './modules/magus/magusShields';
 import magusArmors from './modules/magus/magusArmors';
 import magusWeapons from './modules/magus/magusWeapons';
 import magusSkills from './modules/magus/magusSkills';
+import magusPsiPyarroni from './modules/magus/magusPsiPyarroni';
+import magusPsiSlan from './modules/magus/magusPsiSlan';
+import magusPsiKyr from './modules/magus/magusPsiKyr';
 
 Vue.use(Vuex);
 
@@ -22,5 +25,8 @@ export default new Vuex.Store({
         magusArmors,
         magusWeapons,
         magusSkills,
+        magusPsiPyarroni,
+        magusPsiSlan,
+        magusPsiKyr,
     }
 })
