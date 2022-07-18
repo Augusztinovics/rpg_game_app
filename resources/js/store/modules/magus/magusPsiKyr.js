@@ -13,7 +13,7 @@
             ME: '',
             medTime: '',
             activeTime: '',
-            description: '',
+            description: [],
         },
         {
             name: '',
@@ -22,7 +22,7 @@
             ME: '',
             medTime: '',
             activeTime: '',
-            description: '',
+            description: [],
         },
         {
             name: '',
@@ -31,7 +31,7 @@
             ME: '',
             medTime: '',
             activeTime: '',
-            description: '',
+            description: [],
         },
         {
             name: '',
@@ -40,7 +40,7 @@
             ME: '',
             medTime: '',
             activeTime: '',
-            description: '',
+            description: [],
         },
         {
             name: '',
@@ -49,7 +49,7 @@
             ME: '',
             medTime: '',
             activeTime: '',
-            description: '',
+            description: [],
         },
         {
             name: '',
@@ -58,7 +58,7 @@
             ME: '',
             medTime: '',
             activeTime: '',
-            description: '',
+            description: [],
         },
         {
             name: '',
@@ -67,7 +67,7 @@
             ME: '',
             medTime: '',
             activeTime: '',
-            description: '',
+            description: [],
         },
         {
             name: '',
@@ -76,7 +76,7 @@
             ME: '',
             medTime: '',
             activeTime: '',
-            description: '',
+            description: [],
         },
     ],
 };
