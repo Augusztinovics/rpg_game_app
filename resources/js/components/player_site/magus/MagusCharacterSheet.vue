@@ -19,47 +19,7 @@
 
                 <!-- Pszi kepzetseg -->    
                 <div class="bg-light border border-secondary rounded mb-3 p-3">
-                   <h4 class="text-center mt-2">Pszi képzetség</h4>
-                   <p>Iskola tipusa<span></span></p>
-                   <p>Használat foka<span></span></p>
-                   <p>Használat szintje<span></span></p>
-                   <div class="row">
-                       <div class="col  border-end border-secondary">
-                           <p>Pszi/szint</p>
-                           <p></p>
-                       </div>
-                        <div class="col">
-                            <p>Max pszi pont</p>
-                            <p></p>
-                        </div>
-                   </div>
-                   <p class="border-top border-secondary">Akt pszi pont</p>
-                   <p></p>
-                </div>
-
-                <!-- pszi pajzsok -->
-                <div class=" bg-light border border-secondary rounded mb-3 p-3">
-                   <h4 class="text-center mt-2">Pszi pajzok</h4>
-                   <div class="row">
-                       <div class="col border-end border-secondary">
-                           <p>ASZTRÁL</p>
-                           <p>Statikus</p>
-                           <p class="border-bottom border-secondary">8</p>
-                           <p>Dinamikus</p>
-                           <p class="border-bottom border-secondary">8</p>
-                           <p>ME</p>
-                           <p>8</p>
-                       </div>
-                        <div class="col">
-                            <p>MENTÁL</p>
-                            <p>Statikus</p>
-                           <p class="border-bottom border-secondary">8</p>
-                           <p>Dinamikus</p>
-                           <p class="border-bottom border-secondary">8</p>
-                           <p>ME</p>
-                           <p>8</p>
-                        </div>
-                   </div>          
+                    <magus-psi />        
                </div>
 
                 <!-- mana -->
@@ -247,6 +207,7 @@
     import MagusSkills from './MagusSkills.vue';
     import MagusCharacterDescript from './MagusCharacterDescript.vue';
     import MagusNotes from './MagusNotes.vue';
+    import MagusPsi from './MagusPsi.vue';
 
     export default {
         components: {
@@ -262,6 +223,7 @@
            MagusSkills,
            MagusCharacterDescript,
            MagusNotes,
+           MagusPsi,
         },
         data() {
             return {

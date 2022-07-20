@@ -6366,7 +6366,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _MagusBaseData_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusBaseData.vue */ "./resources/js/components/player_site/magus/MagusBaseData.vue");
 /* harmony import */ var _MagusKincsek_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusKincsek.vue */ "./resources/js/components/player_site/magus/MagusKincsek.vue");
 /* harmony import */ var _MagusEquipment_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MagusEquipment.vue */ "./resources/js/components/player_site/magus/MagusEquipment.vue");
@@ -6379,6 +6379,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MagusSkills_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./MagusSkills.vue */ "./resources/js/components/player_site/magus/MagusSkills.vue");
 /* harmony import */ var _MagusCharacterDescript_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./MagusCharacterDescript.vue */ "./resources/js/components/player_site/magus/MagusCharacterDescript.vue");
 /* harmony import */ var _MagusNotes_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./MagusNotes.vue */ "./resources/js/components/player_site/magus/MagusNotes.vue");
+/* harmony import */ var _MagusPsi_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./MagusPsi.vue */ "./resources/js/components/player_site/magus/MagusPsi.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -6580,46 +6581,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -6646,19 +6608,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     MagusWepon: _MagusWepon_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
     MagusSkills: _MagusSkills_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
     MagusCharacterDescript: _MagusCharacterDescript_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
-    MagusNotes: _MagusNotes_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
+    MagusNotes: _MagusNotes_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
+    MagusPsi: _MagusPsi_vue__WEBPACK_IMPORTED_MODULE_12__["default"]
   },
   data: function data() {
     return {};
   },
   //COMPUTED----------------------------------
-  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_12__.mapGetters)('currentCharacter', {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_13__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_12__.mapGetters)('magusAligments', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_13__.mapGetters)('magusAligments', {
     aligment: 'aligment'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_12__.mapGetters)('magusRaces', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_13__.mapGetters)('magusRaces', {
     race: 'race'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_12__.mapGetters)('magusClasses', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_13__.mapGetters)('magusClasses', {
     magusKaszt: 'magusClass'
   })), {}, {
     Jellem: function Jellem() {
@@ -8354,6 +8317,288 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusPsi.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusPsi.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      inputPsiUse: 0,
+      allPyarroni: false
+    };
+  },
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
+    magusCharacter: 'magusCharacter'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusRaces', {
+    race: 'race'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusPsiPyarroni', {
+    pyarronPsi: 'pyarronPsi',
+    availablePyarronPsi: 'availablePyarronPsi'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusPsiSlan', {
+    slanPsi: 'slanPsi',
+    availableSlanPsi: 'availableSlanPsi'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusPsiKyr', {
+    kyrPsi: 'kyrPsi',
+    availableKyrPsi: 'availableKyrPsi'
+  })), {}, {
+    Faj: function Faj() {
+      var race = 'HUMAN';
+
+      if (this.magusCharacter) {
+        race = this.magusCharacter.Faj;
+      }
+
+      return this.race(race);
+    },
+    KasztId: function KasztId() {
+      return this.magusCharacter.Kaszt;
+    },
+    psiSkill: function psiSkill() {
+      return this.magusCharacter.Pszi;
+    },
+    levelOfUse: function levelOfUse() {
+      if (this.psiSkill.learned) {
+        var tsz = this.magusCharacter.Szint;
+        var psiTsz = this.psiSkill.atlevel;
+        return tsz - psiTsz + 1;
+      } else {
+        return 0;
+      }
+    },
+    AME: function AME() {
+      return this.psiSkill.staticAsztral + this.psiSkill.dinamicAsztarl + this.asztralBase;
+    },
+    MME: function MME() {
+      return this.psiSkill.staticMental + this.psiSkill.dinamicMental + this.mentalBase;
+    },
+    akarat: function akarat() {
+      return this.magusCharacter.AK + this.Faj.AK + this.magusCharacter.akMod;
+    },
+    mentalBase: function mentalBase() {
+      var mmod = 0;
+
+      if (this.akarat > 10) {
+        mmod = this.akarat - 10;
+      }
+
+      return mmod;
+    },
+    asztral: function asztral() {
+      return this.magusCharacter.ASZT + this.Faj.ASZT + this.magusCharacter.asztMod;
+    },
+    asztralBase: function asztralBase() {
+      var amod = 0;
+
+      if (this.asztral > 10) {
+        amod = this.asztral - 10;
+      }
+
+      return amod;
+    },
+    availablePsi: function availablePsi() {
+      var dinamicPsi = this.psiSkill.dinamicAsztarl + this.psiSkill.dinamicMental;
+      return this.psiSkill.maxPszi - dinamicPsi;
+    },
+    pyarroniPsiList: function pyarroniPsiList() {
+      if (this.allPyarroni) {
+        return this.pyarronPsi;
+      } else {
+        return this.availablePyarronPsi(this.availablePsi);
+      }
+    }
+  }),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
+    updateCurrentPsiPoint: 'updateCurrentPsiPoint',
+    updateStaticAsztral: 'updateStaticAsztral',
+    updateStaticMental: 'updateStaticMental'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
+    save: 'save'
+  })), {}, {
+    changeCurrentPsi: function changeCurrentPsi(value) {
+      var maxPsi = this.availablePsi;
+      var curPsi = this.psiSkill.currentPszi;
+      var changedPsi = curPsi + value;
+
+      if (changedPsi >= 0 && changedPsi <= maxPsi) {
+        this.updateCurrentPsiPoint(changedPsi);
+        this.save();
+      }
+    },
+    refreshPsi: function refreshPsi() {
+      this.updateCurrentPsiPoint(this.availablePsi);
+      this.save();
+    },
+    submitPsiUse: function submitPsiUse() {
+      if (parseInt(this.inputPsiUse) <= this.availablePsi && parseInt(this.inputPsiUse) > 0) {
+        var updatedPsi = this.availablePsi - parseInt(this.inputPsiUse);
+        this.inputPsiUse = 0;
+        this.updateCurrentPsiPoint(updatedPsi);
+        this.save();
+      }
+    },
+    buildStaticAsztral: function buildStaticAsztral() {
+      this.updateStaticAsztral(this.psiSkill.maxPszi);
+      this.save();
+    },
+    buildStaticMental: function buildStaticMental() {
+      this.updateStaticMental(this.psiSkill.maxPszi);
+      this.save();
+    },
+    destroyStaticAsztral: function destroyStaticAsztral() {
+      this.updateStaticAsztral(0);
+      this.save();
+    },
+    destroyStaticMental: function destroyStaticMental() {
+      this.updateStaticMental(0);
+      this.save();
+    }
+  })
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusShield.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusShield.vue?vue&type=script&lang=js& ***!
@@ -9984,8 +10229,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/magus/magusAligments */ "./resources/js/store/modules/magus/magusAligments.js");
 /* harmony import */ var _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/magus/magusRaces */ "./resources/js/store/modules/magus/magusRaces.js");
 /* harmony import */ var _modules_magus_magusClasses__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/magus/magusClasses */ "./resources/js/store/modules/magus/magusClasses.js");
@@ -9994,6 +10239,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_magus_magusArmors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/magus/magusArmors */ "./resources/js/store/modules/magus/magusArmors.js");
 /* harmony import */ var _modules_magus_magusWeapons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/magus/magusWeapons */ "./resources/js/store/modules/magus/magusWeapons.js");
 /* harmony import */ var _modules_magus_magusSkills__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/magus/magusSkills */ "./resources/js/store/modules/magus/magusSkills.js");
+/* harmony import */ var _modules_magus_magusPsiPyarroni__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/magus/magusPsiPyarroni */ "./resources/js/store/modules/magus/magusPsiPyarroni.js");
+/* harmony import */ var _modules_magus_magusPsiSlan__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/magus/magusPsiSlan */ "./resources/js/store/modules/magus/magusPsiSlan.js");
+/* harmony import */ var _modules_magus_magusPsiKyr__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/magus/magusPsiKyr */ "./resources/js/store/modules/magus/magusPsiKyr.js");
 
 
 
@@ -10004,8 +10252,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_8__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_9__["default"]);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_9__["default"].Store({
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_11__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_12__["default"]);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_12__["default"].Store({
   modules: {
     magusAligments: _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__["default"],
     magusRaces: _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -10014,7 +10265,10 @@ vue__WEBPACK_IMPORTED_MODULE_8__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_9_
     magusShields: _modules_magus_magusShields__WEBPACK_IMPORTED_MODULE_4__["default"],
     magusArmors: _modules_magus_magusArmors__WEBPACK_IMPORTED_MODULE_5__["default"],
     magusWeapons: _modules_magus_magusWeapons__WEBPACK_IMPORTED_MODULE_6__["default"],
-    magusSkills: _modules_magus_magusSkills__WEBPACK_IMPORTED_MODULE_7__["default"]
+    magusSkills: _modules_magus_magusSkills__WEBPACK_IMPORTED_MODULE_7__["default"],
+    magusPsiPyarroni: _modules_magus_magusPsiPyarroni__WEBPACK_IMPORTED_MODULE_8__["default"],
+    magusPsiSlan: _modules_magus_magusPsiSlan__WEBPACK_IMPORTED_MODULE_9__["default"],
+    magusPsiKyr: _modules_magus_magusPsiKyr__WEBPACK_IMPORTED_MODULE_10__["default"]
   }
 }));
 
@@ -10094,11 +10348,15 @@ var state = {
     Pszi: {
       learned: false,
       atlevel: 0,
-      level: 'Af',
+      level: '',
       maxPszi: 0,
       psziPointLevel: 0,
       currentPszi: 0,
-      school: ''
+      school: '',
+      staticAsztral: 0,
+      staticMental: 0,
+      dinamicAsztarl: 0,
+      dinamicMental: 0
     },
     szazalekosKepzetsegek: {
       maszas: {
@@ -10510,6 +10768,15 @@ var mutations = {
   },
   updatePszi: function updatePszi(state, pszi) {
     state.magusCharacter.Pszi = pszi;
+  },
+  updateCurrentPsiPoint: function updateCurrentPsiPoint(state, psiPoint) {
+    state.magusCharacter.Pszi.currentPszi = psiPoint;
+  },
+  updateStaticAsztral: function updateStaticAsztral(state, saszt) {
+    state.magusCharacter.Pszi.staticAsztral = saszt;
+  },
+  updateStaticMental: function updateStaticMental(state, sment) {
+    state.magusCharacter.Pszi.staticMental = sment;
   },
   updateHmLeft: function updateHmLeft(state) {
     state.magusCharacter.HmLeft--;
@@ -11164,6 +11431,402 @@ var getters = {
       return (_state$classes$find = state.classes.find(function (r) {
         return r.id === id;
       })) !== null && _state$classes$find !== void 0 ? _state$classes$find : state.classes[0];
+    };
+  }
+};
+var mutations = {};
+var actions = {};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/magus/magusPsiKyr.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/store/modules/magus/magusPsiKyr.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**-------------------------------------------
+ * 
+ * STORE FOR MAGUS PSI KYR
+ * 
+ * -------------------------------------------
+ */
+var state = {
+  kyrPsi: [{
+    name: 'Energiagyűjtés',
+    psiPoint: 1,
+    psiPointText: '1 Pszi-pont / 10 Mana vagy 5 Mana vagy 3 Mana',
+    ME: '-',
+    medTime: '1 óra vagy 2 kör vagy 5 szegmens',
+    activeTime: '-',
+    description: ['A Kyr metódus legalapvetőbb diszciplinája, a varázslók tudományának az alapja. Segitségével a varázsló elméjébe gyűjtheti a világegyetemet átható mágikus energiákat ( Mana-pont ), az energiát melyből varázslatait létrehozza. Természetesen egyszerre maximum annyit, amenyit befogadni képes. Erről a mennyiségről a Tapasztalati Szint fügvényében a max Mana-pont tudósit. Az Energiagyűjtés leegyszerűsitve nem más, mint a Pszi-pontok Mana-pontokra váltása - a váltószám az Energiagyűjtés alkalmazott módszerétől függ. Itt csak a három alapvető módszert ismertetjük: a Meditációs formula, a Kivonás és a Kisajtolás.', 'A meditációs formula ( 1 Pszi-pont = 10 Mp ) alkalmazásához a varázslónaka Meditációs Varázskörben kell tartózkodnia ( ennek elkészitése 18 Mp-ba kerül és 30 percbe tellik ) és ott 1 óra hosszan transzállapotban meditálni. Már ebből is látszik, hogy ennél a módszernél jelentős előkészületekre van szükség, s a varázsló másfél óra hosszatt helyhez van kötva. Mégis, a varázslók, ha idejük és a körülmények engedik, ehhez az energiagyűjtési módszerhez folyamodnak, mert igy juthatnak a legtöbb mágikus energiához (Mp) a legkevesebb pszi-pontért. Ha a meditáció bármely okból félbeszakad, az Energiagyűjtés sikertelen lesz, s a felhasznált pszi-pontok is elvesznek. Mitöbb a varázsló elméjéből elillan a már korábban begyűjtött energia is, azaz Mana-pontjainak száma nullára zuhan. Ha az 1 órás meditáció zavartalanul véget ér, azzal a varázsló sikeresen gyűjtötte az elméjébe a kivánt mennyiségű mágikus energiát. Tizszer annyi Mana-pontot kap, mint ahány pszi-pontot a diszciplina alkalmazására forditott, tehát a meditációs formula alkalmazásával 1 pszi-pontért 10 Mana-pont jár.', 'Kivonáshoz ( 1 pszi-pont 3 Mp ) a varázslók olyankor folyamodnak, ha kifogytak az elmélyükben tárolt energiákból, és sürgősen utánpótlásra van szükségük. A sietségért cserébe a kisebb hatékonysággal fizetnek - a módszer a pszi-pontok valóságos pazarlása! Ellenben csak 2 körig tart, és sem Transz, sem Meditációs Varázskör nem kell hozzá: azaz semmiféle előkészületet nem igényel, mindössze némi öszpontositást. Közben a varázsló sétálhat, léptethet a lován, de nem harcolhat, varázsolhat, s nem alkalmazhat más diszciplinát. A módszer alkalmazásakor a varázsló kivonja a környezetéből a többletenergiákat, mindenhonnan csak keveset és csak a felesleget- nem árt senkinek és semminek. Kivonással háromszor annyi Mana-ponthoz jut, mint amennyi pzsi-pontot a diszciplinára álldozott, tehát 1 pszi-pontért 3 Mana-pontot nyer.', 'A Kisajtolás ( 1 pszi-pont = 5 Mp )természetéből fakadóan fekete mágia! Alkalmazásakor a varázsló nem a felesleget vonja el környezetétől, hanem kisajtol abból annyi energiát amennyit csak képes. A folyamat eredményeképpen a varázsló Zónájában ( 20m sugarú gömb ) a növények elszáradnak ( csak 20 Mp felett ) és az élőlények kinzó fájdalmat éreznek egész testükben. A fájdalom nem jár sebbel, de Fp vesztést okoz a varázsló Zónájában tartózkodó összes lénynek. A veszteség minden megkezdett 20 Mp után K6 ( Fp pl: 20 Mp = K6 Fp, 25 Mp = 2K6 Fp, 70 Mp = 4K6 Fp ). Az álldozat ilyen módon Ép-t soha nem veszithett. A Kisajtolás 5 szegmens alatt elvégezhető, és 5-ször annyi Mp-ot eredményez, mint amennyi pszi-pontot a varázsló a diszciplinára elhasznált, vagyis 1 pszi-pontért 5 Mana-pont jár. A leirtak kivételével a Kisajtolás módszere teljesen azonos a Kivonással.']
+  }, {
+    name: 'Transz',
+    psiPoint: 1,
+    psiPointText: '1 Pszi-pont',
+    ME: '-',
+    medTime: '10 perc',
+    activeTime: 'fentartható',
+    description: ['A diszciplina segitségével a végrehajtó transzállapotba kerülhet. Hogy ez megtörténjen, tiz percig mozdulatlanul meditál, teljes szellemével a Transz elérésére öszpontosit. Ez alatt nem végezhet fizikai vagy szellemi tevékenységet, mozdulatlanul áll, vagy ül, netán fekszik.', 'Transzba lassú mozdulatokkal képes mozogni, akár egy sétáló lovat is megülni, vagy gyalogolni, mágikus jeleket rajzolni, beszélni, irni, de nem képes fürge mozdulatokra, közelharcra és a transztól eltérő öszpontositásra. Maga a végrehajtó bármikor visszatérhet normális tudatállapotba, más azonban nehezen képes kizökkenteni. A transzba lévő emberhez hiába bezsélnek, rázzák, öntik nyakon vizzel, a Transz csak Fp, vagy Ép vesztést okozó zavarás hatására szakad meg.', 'A transzállapot feltétlenül szükséges egyes mágikus tanok gyakorlásánál ( pl Jelmágia ), s ilyenkor a varázslók ezen diszciplinához folyamodnak. Egyetlen pszi-pont felhasználásával a végrehajtó korlátlan ideig transzállapotba kerülhet. Természetesen léteznek más módszerek is a transzállapot elérésére, mint például a koplalás, kántálás, törzsi tánc - ám ezek a javasasszonyok, boszorkányok, sámánok fegyvertárába tartoznak. Transzállapotban az ember testi funkciói lelassulnak, igy jóval ( ötször ) hosszabb időt képes kibirni evés, ivás vagy levegővétel nélkül.']
+  }, {
+    name: 'Láthatatlanság Észlelése',
+    psiPoint: 5,
+    psiPointText: '5 Pszi-pont / E',
+    ME: '-',
+    medTime: '2 szegmens',
+    activeTime: '5 kör',
+    description: ['A diszciplina végrehajtója öt körön keresztül látja a mágikusan láthatatlanná tett tárgyakat és élőlényeket. Természetesen csak azokat, emelyeknél a diszciplina erőssége meghaladja a láthatatlanság erősségét. Hasonlóképpen a Leplezett varázslatok esetében: az alkalmazó megpillantja a láthatatlanná tett mágikus hatásokat, varázslatokat. Alapesetben a diszciplina erőssége 1, de dupla vagy tripla mennyiségű pszi-pont felhasználásával töbszörözhető. Ugyanez igaz az 5 körös időtartamra is.']
+  }, {
+    name: 'Asztrálszem',
+    psiPoint: 3,
+    psiPointText: '3 Pszi-pont + 1 pszi-pont / 3E',
+    ME: 'asztrál',
+    medTime: '3 szegmens',
+    activeTime: 'azonnali',
+    description: ['A diszciplina mások érzelmeinek, indulatainak kifürkésére alkalmas. Segitségével át lehet látni az Asztrális Pajzson is. Bármilyen erősitésű Asztrális Szemmel tekintünk valakire, egyet mindenképpen és bisztosan megtudhatunk: az illető érzelmi kiegyensúlyozottságának mértékét, másként szólva Asztrálját. Ezen túl az álldozat jogosult Asztrális Mágiaellenállásra.', 'Abban az esetben, ha a kiszemelt álldozat Mágiaellenállása sikeres, az alkalmazó csak a legnyilvánvalóbb érzelmekről szerez tudomást - melyek általában már puszta emberismerettel is felismerhetők. Kimagaslóan erős érzelmekről van itt szó: ilyen a heves szerelem, a vak gyűlölet, a szamuráj hűsége vagy az éppen fellángoló szexuális vágy. Mindezeknek is csupán létére derül fény, a céljukra, arra, hogy az illető kinek vagy minek az irányában érez, arra nem. Erre a diszciplina alkalmazója legfeljebb következtethet: például kitalálja, hogy a pap vak hűsége istene felé irányul.', 'Ha az álldozat elvéti Asztrális Mágiaellenállását, világossá válik az érzelem célja is, mitöbb a kevésbé nyilvávaló érzelmek is napvilágra kerülnek. Persze az Asztrálszem egyszeri használata nem egyenlő az álldozat érzelmi életének teljes feltérképezésével. Segitségével megpillantható öt nyilvánvaló, három álltalános vagy egy titkos érzelem. Legutóbbiról akkor beszélünk ha valaki öszpontosit arra, hogy lelke mélyén elrejtsen egy érzelmet illetve indulatot - egyszerre legfeljebb kettővel teheti.', 'A Szem alkalmazója vagy a KM-re bizza, hogy mesélje el, mi az amit lát, vagy célirányosan kérdezhet is. Felteheti a kérdést, hogy a diszciplina álldozata miként érez meghatározott személyek vagy eszmék irányába. Kérheti az öt legnyilvánvalóbb érzelmek felsorolását, vagy tudakozódhat egy esetleges titkos érzelem felől. A választól függetlenül, a kérdést annyiszor ismételheti meg, ahányszor a felsorolt feltételek lehetővé teszik.', 'A diszciplina egyszerre egyetlen személy ellen használható, és a feltüntetett 3 szegmens alatt a teljes információcsere lezajlik. Ez idő alatt az alkalmazó meditativ tudatállapotba kell, hogy legyen.', 'A diszciplina másik alkalmazási módja, amikor az alkalmazó az Asztrálszem tekintetével nem egy valakit vesz alaposan szemügyre, hanem a 3 szegmens alatt gyorsan körbepásztáz. Ilyenkor megtudhatja a közelbe tartózkodó - legfeljebb 10 személy Asztrál Képességének értékét, de érzelmeiket s azok célját nem fürkészheti ki.', 'Az alkalmazásra szánt minden egyes további pzsi-pont - a feltüntetett 3-on felül - nem egyel, hanem 3-al növeli a diszciplina erősségét. Az Asztrálszem használatáról a diszciplina álldozata nem szerez tudomást.']
+  }, {
+    name: 'Mentálszem',
+    psiPoint: 5,
+    psiPointText: '5 Pszi-pont + 1 pszi-pont / 2 E',
+    ME: 'mentál',
+    medTime: '5 szegmens',
+    activeTime: 'azonnali',
+    description: ['A Mentálszem egyetlen személy gondolati életének minőségéről ad felvilágositást. Segitségével át lehet látni a Mentálpajzson, bár ilyenkor nem égbekiálltó az eredmény - de nem is lebecsülendő.', 'A Mentálszem használata ellen a kiszemelt áldozat Mentális Mágiaellenállásra jogosult. Ha ez sikeres, akkor az alkalmazó annyit tud meg róla, hogy figyelemreméltó elme-e, netán átlagos gondolkodó, vagy éppen afféle ostoba tuskó. Továbbá azt, hogy valakitől valakihez Mentá-fonál vezet. Hogy kitől kihez, az csak akkor derithető ki, ha az alkalmazó mindkét álldozatot szemügyre veszi Mentál Szemével.', 'Ha az álldozat elvéti Mágiaellenállását, az alkalmazó számszerűen tudomást szerez Intelligencia és Akaraterő Képességéről, valamint Kasztjáról valamint +- 1 eltéréssel Tapasztalati Szintjéről és Pszi használatának szintjéről.', 'A diszciplina egyszerre egyetlen személy ellen alkalmazható, és a feltüntetett 5 szegmens alatt a teljes információcsere lezajlik. Ez alatt az alkalmazó meditativ tudatállapotba kell, hogy legyen.', 'A diszciplina másik használati módja, mikor az alkalmazó a Mentál Szemmel nem egy valakit vesz alaposan szemügyre, hanem az 5 szegmens alatt gyorsan körbepásztáz. Olyenkor legfeljebb tiz, közelében tartózkodó személyről tudhatja meg azt, amit a sikeres Mágiaellenállás esetében irtunk le, de mást nem fürkészhet ki.', 'Az alkalmazásra szánt minden egyes további pszi-pont - a feltüntetett 5-ön felül - nem 1-gyel hanem 2-vel növeli a diszciplina erősségét. A Mentálszem használatáról a diszciplina áldozata nem szerez tudomást.']
+  }, {
+    name: 'Auraérzékelés',
+    psiPoint: 7,
+    psiPointText: '7 Pszi-pont + 1 pszi-pont / 2 E',
+    ME: 'asztrál és mentál',
+    medTime: '1 szegmens',
+    activeTime: '-',
+    description: ['Minden kifejlett lélekkel biró teremtmény kisugároz magából Személyes Aurát. Ez azon túl, hogy megvédi a lélek uralta testet a mágia bizonyos formáitól, messzemenően jellemzó az illetőre. Egy varázsló képes arra, hogy különleges érzékeivel szemügyre vegye az Aurát. Ha már máskor is látta és megjegyezte, az Aura alapján felismeri a lelket, bármely testben lakozik is. Képes érzékelni szembeötlő természetelleneségeket is, mint amikor emberi lélek állatban lakozik, vagy forditva. Továbbá meg tudja állapitani, hogy az illető milyen fajhoz tartozik.', 'Mivel azonban az Asztrál és Mentál Pajzsok az Aura köré épülnek fel, mindezen információkat csak akkor szerezheti meg, ha átlát a pajzsokon. Ezt csak ugy érheti el, hogy az Auraérzékelést annyira felerősiti, hogy áldozata elvétse külön-külön mind Asztrális, mind Mentális Mágiaellenállását.', 'Mindaddig, mig ez nem történik meg, a diszciplina csak a Pajzsok erősségéről szolgáltat adatokat. Nem számszerűen, hanem a következő felsorolás szerint elárulja, milyen nagyságrendű az illető Statikus és Dinamikus Asztrál- és Mentálpajzsa: NINCS: 0 E, GYENGE: 1-9 E, MÉRSÉKELT: 10-21 E, KÖZEPES: 22-34 E, ERŐS: 35-50 E, NAGYON ERŐS: 51+E', 'A diszciplinát előszeretettel használják alakjukat megváltoztatott személyek felismerésére, netán vélt azonosság vagy ennek ellenkezőjének tisztázására, mivel az Aura elváltoztatására nincs mód!', 'Az Auraérzékelésre szánt minden további pszi-pont - a leirt 7-en felül - nem eggyel, hanem 2-vel növeli a diszciplina erőségét.']
+  }, {
+    name: 'Mágikus Tekintet',
+    psiPoint: 4,
+    psiPointText: '4 Pszi-pont',
+    ME: 'akaraterőpróba',
+    medTime: '1 szegmens',
+    activeTime: 'még meg nem törik, vagy szakitsák',
+    description: ['A diszciplina az energiagyűjtés mellett a Kyr metódus másik csúcspontját jelenti. Kifejezetten újkeletű, bár évek alatt széleskörben elterjedt, kifejlesztése egy Ynev-szerte csak a Smaragd Uraként ismert pyarroni mágus nevéhez fűződik. Alapja az okult tan, miszerint az anyagi porhüvelyben a szem a legrövidebb út a lélek felé. Éppen ezért az alkalmazónak minden esetben a kiszemelt álldozat szemébe kell néznie.', 'Bárki, aki a diszciplina alkalmazójának a szemébe néz, Akaraterő-próbát köteles dobni, amit ha elvét, többé nem képes tekintetét a varázslóétól elszakitani. Bármit tehet, hátrálha, akár rá is támadhat az alkalmazóra, de nem cselekedhet semmi olyat, aminek következtében kiszabadulna a Mágikus Tekintet béklyójából. Vagyis nem helyezhet semmit az összekapcsolódó tekintet útjába, nem fordulhat és, nem léphet takarásba. A kapcsolat megtartása minden célja előtt való! A Mágikus Tekintettől csak akkor szabadulhat, ha az alkalmazó tekintetének elforditásával szabadon engedi, illetve ha harmadik személy akár egy pillanatra is akadályt gördit a két pillantás kereszttüzébe.', 'Ha az álldozat kiszabadul, a diszciplina időtartalma azonnal lejár, egyébbként percekig, órákig, de elméletileg akár a végtelenségig is tarthat.', 'A varázsló az a személy ellen, aki Mágikus Tekintetének rabja, magasabb hatásfokkal képes Asztrál-, és Mentálmágiát alkalmazni. Ami természetesen feltételezi, hogy a varázslat ideje alatt az álldozat nem szabadul. Hogy az emlitett magasabb hatásfok mit jelent, az a következő felsorolásból derül ki: 1.TSZ: +4E, 2.TSZ: +5E, 3.TSZ: +6E, 4.TSZ: +7E, 5.TSZ: +9E, 6.TSZ: +10E, 7.TSZ: +11E, 8.TSZ: +12E, 9.TSZ: +13E, 10.TSZ: +15E, 11.TSZ: +16E, 12.TSZ: +17E, 13.TSZ: +18E, 14.TSZ: +19E, 15.TSZ: +21E', 'A varázslat erősségéhez hozzáadandó az adott Tapasztalati Szinten ( TSZ ) tarozó +E ( erősség ) értéke. ( például: 4. TSZ-en, ha a varázslat erőssége 13, Mágikus Tekintet rabságában az Erősség 20-nak minősül ).', 'A varázslat létrejöttével - de még időtartalmának lejártával sem - az álldozat nem szabadul a Mágikus Tekintet bilincséből. Ez csak a fent emlitett esetekben történhet, addig a varázsló annyiszor varázsol rá a leirt kedvezményekkel, ahányszor csak jónak látja, illetve ameddig Mana-pontjai el nem fogynak.']
+  }, {
+    name: 'Pszi-ostrom',
+    psiPoint: 1,
+    psiPointText: 'minimum 1 Pszi-pont',
+    ME: '-',
+    medTime: '1 szegmens',
+    activeTime: 'változó',
+    description: ['Mindenben azonos az Álltalános Diszciplinákban leirt Pszi-ostrommal, ám ezzel 1 pszi-pontért 2 pszi-pont bontható le a Dinamikus, és 2 E rombolható le a statikus pajzsokból.']
+  }]
+};
+var getters = {
+  kyrPsi: function kyrPsi() {
+    return state.kyrPsi;
+  },
+  availableKyrPsi: function availableKyrPsi(state) {
+    return function (psi) {
+      return state.kyrPsi.filter(function (s) {
+        return s.psiPoint <= psi;
+      });
+    };
+  }
+};
+var mutations = {};
+var actions = {};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/magus/magusPsiPyarroni.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/store/modules/magus/magusPsiPyarroni.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**-------------------------------------------
+ * 
+ * STORE FOR MAGUS PSI PYARRONI 
+ * 
+ * -------------------------------------------
+ */
+var state = {
+  pyarronPsi: [{
+    name: 'Emlékfelidézés',
+    psiPoint: 1,
+    psiPointText: '1 Pszi-pont',
+    ME: 'mentális',
+    medTime: '2 kör',
+    activeTime: '3 év vagy 10 kör',
+    description: 'A diszciplina helyszinek, szövegek, vagy események megjegyzésében, illetve régi- egyébbként már elfelejtett - események felidézésében nyújt segitséget. Ha a Pszi-alkalmazó szeretne valamit úgy az elméjébe vésni, hogy arra később-minden részletében-visszaemlékezzen, akkor rövid ( két körig tartó ) meditációval mindegy beleégeti a kivánt dolgot az agyába. Ezek után az emlék még három éven át tökéletesen tisztán él benne, s minden különösebb erőfeszités ( vagy diszciplina alkalmazása ) nélkül felidézhető. Az emlék három év után ugyanúgy halványodni kezd, mint egy nem efféle beégetéssel szerzett kép. Ha a Pszi-alkalmazó olyan emléket kiván felidézni, melyet nem a fent emlitett módon tárol az agyában, akkor a diszciplina alkalmazásával erre is mód nyilik. Az igy felidézet emlék 10 körig tökéletesen éles lesz, ám utánna semmivé válik, s csak a diszciplina újboli alkalmazásával kerül elő megint. Mesterfokú alkalmazás esetén nem csak saját magunkba idézhetünk fel emléket, hanem másokban is.'
+  }, {
+    name: 'Ébredés ( Ébresztés )',
+    psiPoint: 0,
+    psiPointText: '-',
+    ME: 'mentál',
+    medTime: '1 kör',
+    activeTime: '-',
+    description: 'A Pszi-alkalmazó képes beprogramozni magát arra, hogy egy meghatározott időben minden külső befolyásolás nélkül felébredjen. Az önszugessziónak vagy arra kell irányulnia, hogy mennyi idő után szakadjon ki az állomból, vagy egy külső jelhez kell kapcsolódnia. Mivel az érzékszervek az álom alatt is mőködnek - noha normál esetben a gyenge ingereket a tudat figyelmenkivül hagyja - a diszciplina alkalmazója olyasféle jeleket határozhat meg ébredési pontnak, mint hajnali kakasszó, az Éjközép teljes sötétje, lova ideges horkantása, stb. A diszciplina nem mőködik, ha a karakter elájult, kábitószeres állomba merült, vagy valamely mentális támadás hatására kapcsolt ki tudata. Az alkalmazáshoz legalább egy pszi-pontal kell rendelkeznie.'
+  }, {
+    name: 'Érzékélesités ( Tompitás és Megzavarás )',
+    psiPoint: 2,
+    psiPointText: 'érzékszervekként 2 Pszi-pont',
+    ME: 'mentális',
+    medTime: '2 kör',
+    activeTime: '1 kör',
+    description: 'A Pszi-energiák lehetőséget nyújtanak arra, hogy felhasználásukkal az alapvető öt érzékszerv hatását növeljük vagy csökkentsük. A diszciplina arra ad módot, hogy a látást, hallást, szaglást, tapintást és izlelést akaratunk szerint befolyásoljuk. A Látás befolyásolásával nem csak élesithetjük a szemet ( esetleg elhomályosithatjuk ), hanem lehetőség nyilik a Megzavarására is. A látás élesitésével maximum megkétszereződik a látótávolság, tompitásával azonban vakság is okozható. Megzavarása esetén a szem nem tud kellőképp fókuszálni, igy felléphet kettőslátás, esetleg a távolság, vagy egy közeledő tárgy, lény sebességének felmérésében okozhat problémát. A valóságtól való eltérés 10% és 60% között mozoghat. A Hallás élesitése kétszeresére növeli a hallótávot, tompitása süketséget okozhat. Megzavarásánál a hangok távolságát esetleg irányát véti el a befolyásolt lény. Az eltérés megegyezik a látásnál leirtakkal. A Szaglás, Tapintás és az Izlelés felerősitése megkétszerezi ezen érzékszervek hatásfokát, tompitásuk az érzékszervek teljes kikapcsolásával is járhat. Megzavarásával elérhetjük, hogy más szag, anyagi minőség ( esetleg hőmérséklet ), vagy iz érződjék. A Megzavarás mértékének eldöntése a Kaland Mester feladata. FIGYELEM! A diszciplina nem alkalmas arra, hogy bármely érzékszerv befolyásolásával valós kárt okozzon. PL. Nem lehet a hőérzetet annyira felfokozni, ami már Fp vesztéssel jár. A diszciplina végrehajtása érzékszervenként 2 Pszi-pontba kerül, és hatását egy körig fejti ki. 4 Pszi-ponttért két érzékszervet lehet befolyásolni 1 körig, vagy egy érzékszervet 2 körig, stb.'
+  }, {
+    name: 'Fájdalomcsillapitás ( Kinozás )',
+    psiPoint: 1,
+    psiPointText: '1 Pszi-pont / Fp',
+    ME: 'asztrál',
+    medTime: '1 kör',
+    activeTime: 'végleges',
+    description: 'A diszciplina segitségével az agy fájdalomközpontjára gyakorolhatunk hatást. Lehetőség nyilik fájdalomérzet tompitására vagy keltésére. Miután nem gyógyit, vagy okoz valódi sebet, az Életerő Pontokra nincs befolyással. Csak Fp-ot adhatunk vissza, vagy vehetünk el. A Fp-ok teljes elvonásával - 0 Fp-ra kinzással - elérhetjük, hogy az álldozat elájuljon, ám igazi seb ekkor sem keletkezik rajta. Maximum Fp fölé sem magunkat, sem másokat nem juttathatunk, bármennyi Psz-pontot is álldoznánk rá. Asztráltesttel nem rendelkező lényekre a diszciplina hatástalan.'
+  }, {
+    name: 'Hatodik Érzék',
+    psiPoint: 5,
+    psiPointText: '5 Pszi-pont',
+    ME: '-',
+    medTime: '5 szegmens',
+    activeTime: '60 kör',
+    description: 'A Hatodik Érzék az agy azon különleges képességeit használja fel, mely lehetővé teszi, hogy, az idő szövedékén átszűrődő eseménymozaikokat ősszerendezve megérezze a közeljövőben bekövetkező történések irányát. A diszciplina alkalmazója megérzésekhez juthat az időtartam alatt. Ezek a megérzések semmiféle pontosságal nem birnak, csupán egy hamarosan bekövetkező eseményre figyelmeztetik a karaktert. A megérzések lehetnek rossz, vagy jó előjelűek. Rossz előérzetet kelt minden olyan történés, mely ártalmas lehet, vagy gonosz szándékkal cselekedték. Jó előérzethez juthat a diszciplina alkalmazója, ha az időtartal alatt semmiféle baj nem történik vele, illetve a rá váró események a javára válnak. A Hatodik Érzéknek két alkalmazásmódja lehetséges. Az első esetben a karakter csupán álltalánosságban kiváncsi az időtartam allatt bekövetkező események rá vonatkozó előjelére. Ennek tipikus példája, ha a karakter egy sötét barlang szájánál megtorpanva használja a diszciplinát. Amenyiben a barlangban ellenséges lények lapulnak, amelyek valamely módon a bisztonságára törnek a diszciplina időtartalma alatt, akkor a karaktert Rossz Előérzet fogja el. Nem tudja az okát, sőt a leselkedő veszedelem mértékét és pontos irányát sem ismeri, csupán arról szerez tudomást, hogy valami vár rá. Belépve a barlangba fokozódik Rossz Előérzete - ahogy az időben közeledik az ártalmas esemény -, majd a baj közvetlen megtörténte előtt egy pillanattal megérzi irányát is. Ha ez egy támadás volt, már nem érte a diszciplina alkalmazóját váratlanul, s ebben az esetben az ellenséges akció nem minősül Meglepetésnek. A Hatodik Érzék másik alkalmazási módja, ha a karakter arra kiváncsi, hogy az álltala végrehajtott cselekmény milyen hatással jár rá nézve. Ilyenkor a diszciplina alkalmazása után megkérdezheti a Kalandmesterét, hogy milyen előérzetei vannak, érdemes-e megtennie, amire készül. A válasz minden esetben annyi, hogy jó vagy rossz érzések ébrednek benne. Indoklás sosincs. Jellemző helyzet, mikor a karakter egy sirt kiván kibontani. Végrehajtja a diszciplinát, s megkérdezi a Kalandmestert érzéseiről. Ha a sirban élőhalott fekszik, a karakternek Rossz Előérzete támad. Ha a sirban semmi sincs ( legfeljebb egy porhadó tetem ), vagy a koporsó mélyén kincs hever, a karakterben Jó Előérzetek ébrednek. A diszciplina 5 Pszi-pontért 60 körig ( azaz 10 percig ) 10 Pszi-pontert 20 percig működik. Csak af felhasználás létezik.'
+  }, {
+    name: 'Képességjavitás ( Rontás )',
+    psiPoint: 1,
+    psiPointText: '+-1 = 1 Pszi, +-2 = 2 Pszi, +- 3 = 4 Pszi, +-4 = 8 Pszi, +-5 = 16 Pszi, +-6 = 32 Pszi',
+    ME: 'asztrál',
+    medTime: '2 kör',
+    activeTime: '6 kör',
+    description: 'Olykor - különleges vészhelyzetekben - az emberi fizikum látszólagos csodákra képes. Egy vadállattól megrémült gyermek hihetetlen gyorsasággal képes felkúszni egy sudár, ág nélküli fa törzsére, s miután a veszély elmúlt, nem csak azon csodálkozik, hogy miként sikerült ez neki, hanem gyakorta lemászni sem tud magától. Ez jellemző példája a Pszi akaratlan megnyilvánulásának, hisyen ilyenkor az agy szabadit fel a testben olyan erőforrásokat, melyek egyébbként nem hozzáférhető. A diszciplina ugyanezt képes végrehajtani, természetesen a tudat teljes irányitása alatt. A Pszi-erők segitségével a fizikai képességek - a Szépség kivételével - megváltoztathatók. A változtatás időleges, s a diszciplina időtartalmának lejárta után visszatérnek az eredeti értékek. Ugyanakkor lehetetlent nem szabad elvárnunk a Pszitől sem: egyik képességünket sem emelhetjük 20 fölé. FIGYELEM! Bármely képesség nullára - vagy nulla alá - csökkentése azonnali halálhoz vezet. A Képességjavitás az egyik legkedveltebb Álltalános Diszciplina. Gyakorta használják a Méregellenállás - az Egészség tiz feletti része - megnövelésére. Valójában hasznos minden olyan esetben, amikor Képességpróbára kényszerülünk, hiszen az adott pillanatban valóban erősebbek, gyorsabbak, egészségesebbek vagy ügyesebbek leszünk. Nem szabad elfelejteni, hogy ha harc folyamán megnöveljük Egészségünket - és egy csapást csak az igy nyert Ép-okkal éltük túl -, amint a diszciplina hatása elmúlik, a nyert Ép-k is semmivé lesznek, s ebbe akár bele is halhatunk. Ha Rontással az ellenfelünk Egészségét annyira lecsökkentjük, hogy ettől elvesziti maradék Ép-jeit, akkor meghal. Hiába jönnek vissza az Ép-k a diszciplina hatásának megszűnésével, a lélek nem költözik vissza a halott testbe.'
+  }, {
+    name: 'Roham ( Megfékezés )',
+    psiPoint: 1,
+    psiPointText: '1 Pszi-pont = +2 TÉ',
+    ME: 'asztrál',
+    medTime: '1 szegmens',
+    activeTime: '1 támadás',
+    description: 'A diszciplina alkalmazója egyetlen csapásra összpontositva, teste és elméje minden tartalékát kiadja egy lerohanásszerű támadásba. Az alkalmazó, mély torokhangú kiáltás kiséretében hajtja végre a rohamot. A diszciplina felemészti az alkalmazó összes aktuális Pszi-pontját, beleértve a Dinamikus Pajzsba tároltakat is. Ez azt jelenti, hogy a támadó kénytelen felhasználni minden Pszi-pontot, amivel rendelkezik, s az ebből nyert energia hozzáadódik a Támadó Értékéhez. 1 Pszi-pont +2 TÉ-t jelent. ( Azaz 5 Pszi-pont felhasználása esetén +10 van a TÉ-n ). Amennyiben az ellenfél nem ugyanazt a diszciplinát alkalmazza, a kezdeményezés autómatikusan a Roham alkalmazóját illeti, kezdeményező dobás nélkül. Megfékezés esetén a diszciplina végrehajtója ezzel a módszerrel megakasztja, megzavarja támadóját, az elveszti a kezdeményezést, és a fenti módon kiszámolt érték levonódik Támadó Értékéből. Ez a diszciplina olykor igen hasznos lehet, ám nem szabad figyelmen kivül hagyni veszélyét: agyunk feltöltődéséig képtelenek leszünk bármiféle Pszi-alkalmazásra és elménket is csak Statikus Pajsz védi.'
+  }, {
+    name: 'Telekinézis',
+    psiPoint: 2,
+    psiPointText: '2 Pszi-pont / 1 kg',
+    ME: '-',
+    medTime: '1 szegmens',
+    activeTime: '1 kör',
+    description: 'Agyi energiáink segitségével kisebb tárgyakat mozgathatunk látótávolságon belül. Elfordithatunk a zárba egy kulcsot, tőlünk távol heverő fegyvert magunkhoz húzhatjuk, vagy észrevétlenül elcsnhetünk az ékszerész műhelyből némi drágaságot. A diszciplina alkalmazása taglejtéseket nem igényel, pusztán a mozgatni kivánt tárgyon kell tartani tekintetünket. Amint elfordulunk, vagy valami eltakarja a tárgyat, az mozdulatlanná válik, esetleg - ha a levegőben vol - lepottyan. A Telekinézis csak lassú mozgatásra alkalmas - egy futó ember sebességénél nagyobbat nem érhetünk el vele - ezért ily módon fegyvert dobni, vagy sebesülést okozni szinte lehetetlen. A diszciplina kifejti hatását mágikus tárgyakra is. 2 Pszi-pont felhasználásával 1 kg súlyú tárgy mozgatható 1 körig, 4 Pszi-pont rááldozásával mozgathatunk 1 kg-os tárgyat 2 körig vagy 2 kg-os tárgyt 1 körig, stb.'
+  }, {
+    name: 'Telepátia ( Gondolatátvitel )',
+    psiPoint: 2,
+    psiPointText: '2 Pszi-pont 1 kör, ha látják egymást, 1 Pszi-pont 1 szegmens, ha nem',
+    ME: 'mentál',
+    medTime: '3 kör',
+    activeTime: 'változó',
+    description: 'Az egyik legősibb alkalmazás, más néven Gondolatátvitel. Az Álltalános Diszciplinák azon kivétele, amely igazán csak mesterfokon használható. Segitségével gondolati úton lehet beszélgetni, vagy a Pszi alkalmazó álltal felidézett képeket közölni. A Telepátia csak Pszi képzettséggel rendelkezők között működik. Alapfokon az alkalmazó nem tud beszélgetést kezdeményezni, sőt válaszolni sem, csupán a hozzá intézet gondolati üzenetet venni. A diszciplina mesterfokú alkalmazása ad módott arra, hoy a Gondolatátvitelt meginditsa, és - két mesterfokú alkalmazó esetében - válaszoljon a kérdésekre. A Telepátia alkalmazásához a Gondolatátvitel megkezdőjének tökéletesen ismernie kell a gondolatokat fogadó személyt - ebben az esetben a távolság nem számit - vagy látni kell azt. Amennyiben a Telepátija résztvevői látják egymást,  csupán 2 Pszi-pontba kerül az 1 körig tartó gondolatátvitel. Ha nem látják egymást 1 szegmensenként kerül 1 Pszi-pontba. A Pszi pontok növelésével egyenlő arányban növelhető a diszciplina időtartalma is. Egyszerre legfeljebb két elme kapcsolódhat össze Telepátiával, tehát a gondolati úton történő beszélgetésbe nem lehet harmadik részről sem beleszólni, sem azt lehalgatni. Az egyetlen olyan Diszciplina, mely megtalálja a módját, hogy átszivárogjon a Statikus Pajzson, noha a Dinamikus Pajzs ezt is feltartóztatja. Ha ezy efféle pajzsot viselőnek küldenek Telepátiával üzenetet, az csak azt fogja érzékelni, hogy kapcsolatot keresnek vele. Amennyiben fogadni kivánja az üzenetet 1 szegmenses koncentrációval át kell rendeznie Dinamikus Pajzsát, és a kapcsolat létrejöhet. A Dinamikus Pajzsot nem kell megszüntetnie, elméje nem válik védtelenné a gondolatátvitel időtartalmára. A Telepátia megvalósulásakor nem rést nyit a tudatát óvó pajzson, hanem átrendezi azt, ezért nincs arra mód, hogy a kapcsolat megszületésének pillanatában valaki - akár a Gondolatátvitel kedvezményezője - egy másik, ügyes diszciplina hatásával kedveskedjen az üzenetet fogadónak. A Telepátia mindég csak annak a Pszi-alkalmazónak kerül Psz-pontjába, aki a gondolat közlést kezdeményezte.'
+  }, {
+    name: 'Testhőmérséklet Növelés ( Hűtés )',
+    psiPoint: 1,
+    psiPointText: '5 fokonként 1 Pszi-pont',
+    ME: 'mentál',
+    medTime: '6 kör',
+    activeTime: '1 óra',
+    description: 'A diszciplina alkalmazója képes saját - mesterfokon más testének hőmérsékletét növelni vagy csökkenteni. Igy lehetőség nyilik a vizes ruhát megszáritani magán, vagy egy lángoló házból kimenekülnie égési sérülések nélkül. Minden felhasznált Pszi-pontal 5 fokkal képes megváltoztatni a testhőmérsékletet. Az ötven fok fölé emelt testhő hat kör után ájulást eredményez, hosszabb távon halállal jár. A húsz fokra csökkent testhőmérséglet Tetszhalálhoz vezet- ilyen formában még egy felkészületlen szervezet is képes életben maradni néhány hónapig - , húsz fok alá csökkent testhő maradandó egészségkárosodással jár, mig a negyedórát meghaladó 5 fok alatti állapot visszafordithatatlan folyamatot indit el a szervezetben, és az áldozat meghal. A diszciplina lehetőséget ad arra, hogy 1 Pszi-pontért 5 fokkal eltérő hőmérségletet 1 óráig fentartsa, 2 Pszi-pontért az 5 fokos befolyásolás 2 óráig, vagy a 10 fokos változtatást 1 órán keresztül bisztositsa, stb.'
+  }, {
+    name: 'Pszi-lökés',
+    psiPoint: 1,
+    psiPointText: '1 Pszi-pont / 1 kg',
+    ME: '-',
+    medTime: '1 szegmens',
+    activeTime: '-',
+    description: 'Más néven energialökés. A mágiához legközelebb álló, alapvető diszciplina. Használata során a Pszi-alkalmazó kis mennyiségű mágikus energiát gyűjt magába, ám mivel tárolására nem késziti fel a módszer, azonnal ki is áramlik belőle. A Pszi-lökés irányitható, gyenge szél fuvallat formájában nyilvánul meg. Taszitó ereje használt Pszi-pontonként 1 kg. Apróbb dolgok felboritására, arrébb lökésére szokták használni, olykor - kellő erővel alkalmazva - tárgyak vagy emberek egyensúlyi helyzetét lehet megszüntetni vele.'
+  }, {
+    name: 'Statikus Pszi Pajzs',
+    psiPoint: 1,
+    psiPointText: 'minimum 1',
+    ME: '-',
+    medTime: '90 kör',
+    activeTime: 'még le nem bontják',
+    description: 'A Pszi-pajzsok hivatottak megvédeni az elmét mágikus és Pszi befolyások ellen. A Pszi-alkalmazó agyi energiáiból erőteret épit tudata köré, melyen a tudati támadások fenakadhatnak. A Statikus Pajzs egyfajta állandó védelem, ami mindaddig óvja a tudatot, amig alkalmazója meg nem szünteti, vagy valaki le nem Rombolja. A Statikus Pajzs erőssége annyi, ahány Pszi-pontból épitették. Gyakorlati hatása abban nyilvánul meg, hogy a pajzs erősségét hozzáadjuk a Tudatalatti Mágiaellenálláshoz és igy dobjuk a ME-t. Két különböző Statikus Pajzs létezik: asztrális és mentális. Az Asztrál Pajzs az asztrális támadások ME-ához adódik hozzá, ,ig a Mentális Pajzs a mentális ME-hoz. A Statikus Pajzs, miután felépült, többé nem befolyásolható: Pszi-pontokat sem hozzáadni sem elvonni nem lehetséges. Védő hatását akkor is kifejti, ha a Pszi-alkalmazó alszik, eszméletlen vagy bármilyen egyébb okból öntudatlan, hiszen immár az elmétől függetlenül működik. Lebontani is csak újabb 90 körön át tartó meditációval lehet., vagy Pszi-ostrommal. A Statikus Pajzshoz felhasznált pszi-pontok a későbbiekben nem számitanak bele az aktuális pszi-pontok számába. Ez azt jelenti, hogy az alkalmazó megteheti, hogy egy békés napon az összes Pszi-pontját Statikus Pajzsok emelésére forditja, majd pihenés után ismét maximális pszi-pontjaira támaszkodhat-noh tudatát már védik a Statikus Pajzsok. Minden elme köré legfeljebb egy asztrális, és egy mentális Statikus Pajzs épithető. Statikus Pszi-pajzs, mesterfoku alkalmazással bárki elméje köré ( nem csak ember, de lélekkel rendelkező állat) épithető, ám a más elméje köré épitett pajzs, akárki épitette is ( harcművész, kardművész, vagy varázsló ), bárki álltal alkalmazott Pszi-ostrommal lebontható.'
+  }, {
+    name: 'Dinamikus Pszi-pajzs',
+    psiPoint: 1,
+    psiPointText: 'minimum 1 Pszi-pont',
+    ME: '-',
+    medTime: '30 kör',
+    activeTime: 'mig eszméletét nem veszti',
+    description: 'A Statikus Pajzsokre épithető egyetlen újabb védelmi réteg, az úgynevezett Dinamikus Pajzs. A 30 körig tartó meditáció után a Dinamikus Pajzs megmearad mindaddig, mig az alkalmazó meg nem szünteti, vagy Pszi-ostrommal le nem bontják. Felépitése után - ellentétben a Statikus Pajzsal- bármikor további pszi-pontok adhatók hozzá ( azaz erősihető ), vagy vonhatók ki belőle. Ez minden alkalommal 1 körig tartó, rövid, meditativ koncentrációt igényel. Erőssége minden esetben megegyezik az épp benne tárolt pszi-pontok mennyiségével, ám az aktuális psziüpontok számánál sosem lehet több. A Dinamikus Pajzsokban tárolt pszi-pontok beleszámitanak a karakter aktuális pszi-pontjaiba, azaz az asztrális és mentális Dinamikus Pajszokba működő pszi-pontok és a diszciplinákra felhasználható pontok összesége a karakter max pszi-pontja. Fentartása folyamatos gyenge koncentrációt igényel, amir a pszi-alkalmazó szinte bármilyen esetben képes - kivéve, ha alszik, eszméletlen vagy bármely egyébb okból öntudatlan. Ha az elmét valamilyen erős sok éri, akárcsak egy pillanatra is, vagy a tudatot megbénitják, a Dinamikus Pajzs azonnal lebomlik. A Dinamikus Pajzsnak éppúgy két fajtája létezik, mint a Statikusnak ( sztrál és mentál ), és erőssége is éppúgy adódik hozzá a ME-hoz. Előnye a statikus pjzshoz képest, hogy a benne tárolt pszi energia bármikor hozzáférhető, s felhasználható egyébb diszciplinák alkalmazásához vagy Pszi-ostrom folytatásához. Hátránya, hogy a Dinamikus Pajzs lebontásával a támadó nem csak közelebb jutott az elméhez, hanem az alkalmazót a diszciplinákra felhasználható pszi-pontjai nagy részétől ( a Dinamikus Pajzsban tároltaktól ) is megfosztotta. Dinamikus Pajzs más elméje köré nem épithető.'
+  }, {
+    name: 'Pszi-ostrom',
+    psiPoint: 1,
+    psiPointText: 'minimum 1 pszi-pont',
+    ME: '-',
+    medTime: '1 szegmens',
+    activeTime: '-',
+    description: 'A tudat védelmére felépitett Pszi-pajzsok megsemisitésére szolgáló diszciplina, mely csak mesterfokon alkalmazható. Két különböző tipusa létezik: Pszi-rombolás és Pszi-bontás. Pszi rombolással a Statikus Pajzsokat lehet megszüntetni. A Statikus Pajzsok nem bonthatók Pszi-pontonként-egyszerre kell lerombolni őket. Ez a következőképpen történik: A diszciplina alkalmazója meghatározza, hogy a romboláshoz hány pszi-pontot kiván felhasználni. Ennyi lesz a Rombolás erőssége. Ha ez nagyobb egyenlő, mint a pajzs erőssége a pajzs megszűnik, ha kisebb akkor a Romboláshoz használt psziüpontok elvésznek, de a pajzs teljes erősségében megmarad. A Rombolás nem árt a Dinamikus Pajzsoknak. A Dinamikus Pajzsok kiiktatására a Bontás szolgál. Segitségével akár pszi-pontonként is rombolható a Dinamikus Pajzs. Ilyenkor a Bontáshoz használt pszi-pontok mennyiségével megegyező pszi-pont bomlik le a Dinamikus Pajzsból. Bontással nem támadható Statikus Pajzs. A Pszi alapfokú alkalmazói nem érzékelik, ha egy elmét pajzsok védenek. Mesterfokon már gyenge ( pszi-pontot nem igénylő ) koncentrációval megállapitható, ha a tudatot övezi valamiféle védelem. Azt azonban, hogy Statikus vagy Dinamikus pajzsok működnek, csak a Kzr metódus alkalmazói tudhatják. A Pszi-ostrom folytatója következtethet a pajzsok tipusaira, hizsen pontosan érzékeli, ha az Ostrom valamely fajtája sikerrel jár, vagy a felhasznált energiák nem ütköztek ellenállásba.'
+  }]
+};
+var getters = {
+  pyarronPsi: function pyarronPsi() {
+    return state.pyarronPsi;
+  },
+  availablePyarronPsi: function availablePyarronPsi(state) {
+    return function (psi) {
+      return state.pyarronPsi.filter(function (s) {
+        return s.psiPoint <= psi;
+      });
+    };
+  }
+};
+var mutations = {};
+var actions = {};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/magus/magusPsiSlan.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/store/modules/magus/magusPsiSlan.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**-------------------------------------------
+ * 
+ * STORE FOR MAGUS PSI SLAN
+ * 
+ * -------------------------------------------
+ */
+var state = {
+  slanPsi: [{
+    name: 'Aranyharang',
+    psiPoint: 1,
+    psiPointText: '1 pszi-pont / 1 SFÉ',
+    ME: '-',
+    medTime: '1 kör',
+    activeTime: '2 kör',
+    description: 'A tudat test feletti tökéletes uralma nyilvánul meg ebben a diszciplinában. Segitségével az alkalmazó képessé válik testét élő páncéllá alakitani. Ezt izomzata átrendezésével, és pszi-energiák kisugárzásával éri el. Az Aranyharang éppolyan SFÉ-t ad alkalmazójának, mint akármelyik páncél. A diszciplina az egyik legnehezebben elsajátitható, és legveszedelmesebb pszi-alkalmazási módszer. Éppen ezért az alkalmazó nem használhatja korlátlanul: maximális értéke megegyezik az alkalmazó Tapasztalati Szintjével. Ez gyakorlatban azt jelenti, hogy az Aranyharang SFÉ-je soha nem lehet nagyobb mint az alkalmazó Tapasztalati Szintje. Az időtartam sem növelhető a végtelenségig, ha ugyanis valaki túllépi a 3kör/TSZ hatásrt, akkor az Állóképessége ideiglenesen csökken annyival, amennyivel túllépte. A csökkenés ideje annyi lesz, amennyi ideig a diszciplina hatása alatt állt. Ha egy 1. szintű harcművész 6 körig alkalmazott Aranyharangot, akkor 3 körrel lépte túl a határt, tehát a következő 6 körre -3 járul az Állóképességéhez. 1 Pszi-pontért 1-es SFÉ nyerhető 2 körre, 2 pszi-pontért 2-es SFÉ 2 körre, vagy 1-es SFÉ 4 körre, stb.'
+  }, {
+    name: 'Belső Idő',
+    psiPoint: 10,
+    psiPointText: '10 Pszi-pont',
+    ME: '-',
+    medTime: '1 szegmens',
+    activeTime: '1 szegmens',
+    description: 'A Slan Pszi alkalmazásának tökélyre vitele. A diszciplina alkalmazója képes saját belső idejét annyira lelassitani, hogy minden-a valóságban-egy szegmensnyi időt egy teljes körnek érzékel. Ez lehetőséget nyújt az alkalmazónak arra, hogy az eseményeket jobban végiggondolva mérlegeljen, s hogy az eltelt valós idő helyett, saját belső ideje szerint használjon diszciplinákat. Mindamellett a Slan-út Belső Ideje nemcsak a gondolati folyamatokat gyorsitja fel, hanem a diszciplina alkalmazójának a testét is, igy az alkalmazónak minden szempontból egy teljes köre van cselekedni-akár harcolni is-, mig a külvilág számára csupán egz szegmens telik el. A külső szemlélő érzékei szinte követhetetlen gyorsaságúnak találja a diszciplina alkalmazóját-az időtartam alatt a Kezdeményezés minden esetben a Belső Idővel felgyorsitott Slant illeti. A használat során az alkalmazó képes kitérni mágikus lövedékek elől, a rálőtt nyilvesszőket akár puszta kézzel is megfoghatja, és lehetetlen meglepetésszerű támadást intézni ellene. Rendkivül megerőltető diszciplina. Az Időtartam lejárta után az alkalmazó annyi körig kényszerül pihenni, ahány kört - szegmenst- a hatás alatt töltött. A pihenő alatt semmiféle pszi-tevékenységet nem fojtathat, a pajzsok fentartásán kivül, és bármilyen megerőltető tevékenység ( pl harc ) csak -25-ös módositóval végezhető-ez harc esetén a KÉ-re, TÉ-re, VÉ-re és CÉ-re egyszerre vonatkozik. 10 pszi-pont fellhasználásával a valós idő 1 szegmense lassitható le, 20 pszi-pontért már 2 szegmens, stb.'
+  }, {
+    name: 'Chi-harc',
+    psiPoint: 1,
+    psiPointText: '1 Pszi-pont / kör',
+    ME: '-',
+    medTime: '1 szegmens',
+    activeTime: 'szintől függ',
+    description: 'A Chi-harc nem más, mint a harc- vagy kardművész azon tudása, mely segitségével a belső energiáit harc közben a teste szolgálatába állithatja. Ettől lesz több egyszerű pusztakezes verekedőnél és fegyverhasználónál-ez a harc művészete. A Chi-harc folyamán nem lehet meglepni az alkalmazót, és lehetetlen oly módon harcolni, hogy az ellenfél csak ártalmatlanná váljon. A Chi-harc hatékonysága 1.TSZ-TÁM/KÖR: 1-IDŐ: 1kör-TÉ,VÉ: +10-KÉ: +2-SP: +1 - 3.TSZ-TÁM/KÖR: 2-IDŐ: 1kör-TÉ,VÉ: +15-KÉ: +4-SP: +3 - 5.TSZ-TÁM/KÖR: 3-IDŐ: 2kör-TÉ,VÉ: +20-KÉ: +6-SP: +5 - 7.TSZ-TÁM/KÖR: 4-IDŐ: 2kör-TÉ,VÉ: +25-KÉ: +8-SP: +7 - 9.TSZ-TÁM/KÖR: 5-IDŐ: 3kör-TÉ,VÉ: +30-KÉ: +10-SP: +9 - 11.TSZ-TÁM/KÖR: 6-IDŐ: 4kör-TÉ,VÉ: +35-KÉ: +12-SP: +11 - 13.TSZ-TÁM/KÖR: 6-IDŐ: 5kör-TÉ,VÉ: +40-KÉ: +14-SP: +13 - 15.TSZ-TÁM/KÖR: 6-IDŐ: 6kör-TÉ,VÉ: +45-KÉ: +16-SP: +15 - 17.TSZ-TÁM/KÖR: 6-IDŐ: 7kör-TÉ,VÉ: +50-KÉ: +18-SP: +17 - 19.TSZ-TÁM/KÖR: 6-IDŐ: korlátlan-TÉ,VÉ: +50-KÉ: +18-SP: +19 - Minden ez utáni TSZ-en csupán a sebzés nől +1 el. Az-az 1-2 szinten 1 pszi-pont felhasználásával a diszciplina alkalmazója 1 körig képes a Chi-harcra, miálltal TÉ-je, VÉ-je 10-zel növekszik, KÉ-jéhez +2 adódik, mig sebzéséhez +1. További pszi-pontok ráforditásával csak az Időtartalmat lehet elnyújtani. A diszciplina alkalmazása nagyon megterheli a testet és szellemet. Ezért amikor a Chi-harc időtartalma lejár, a felhasználónak annyi időt kell pihenéssel töltenie, mint amennyi ideig volt a diszciplina hatása alatt. A pihenés ebben az esetben csupán annyit jelent, hogy a karakternek normál harcot kell folytatnia, de más diszciplinákat használhat. Pszi-pontok száma a Chi-harc meghosszabitására: +1kör=+4pszi - +2kör=+9pszi - +3kör=+16pszi - +4kör=25pszi - +5kör=+36pszi - +6kör=+49pszi. Chi-harcal egyidejűleg, csak a pajzsok fentartása és az Aranyharang használható, SEMMILYEN más diszciplina NEM használható.'
+  }, {
+    name: 'Érzékelhetetlenség',
+    psiPoint: 8,
+    psiPointText: '8 pszi-pont',
+    ME: '-',
+    medTime: '1 kör',
+    activeTime: '1 kör',
+    description: 'A diszciplina alkalmazója mozdulatlanná dermedve képes érzékelhetetlenné válni. Ebben az állapotban még a legélesebb érzékszervek számára sem fedezhető fel, és kikerül a Hatodik Érzék hatósugarából is. Az Érzékelhetetlenség folyamán semmilyen tevékenység ( mozgás, harc, pszi-alkalmazás vagy komunikáció ) nem végezhető. A Kyr metódus Auraérzékelés előtt is rejtve marad, csupán olyan Láthatatlanság-észleléssel fedezhető fel, amely legalább 4-es erőségű. 8 pszi-pont felhasználásával 1 körig alkalmazható a diszciplina, 16 pszi-pontért 2 körig, stb.'
+  }, {
+    name: 'Halálos Ujj',
+    psiPoint: 3,
+    psiPointText: '3 pszi-pont / 1 Ép',
+    ME: '-',
+    medTime: '1 szegmens',
+    activeTime: '24 óra',
+    description: 'A Pszi energiák koncentrált, romboló kisugárzásának módszere Yadegori Chunin nevéhez fűződik.A Halálos Ujjat-nevezik még Yadegori érintésének is- sokáig titkos tanitásként kezelték, csak nem rég jutott el Tiadlanba, ahol a legtöbb Slan iskola átvette és tanitani kezdte. A diszciplinát a legveszélyesebb pszi-alkalmazásnak tartják. Használatával időzitett belső sérülések okozhatók. Az alkalmazónak meg kell érintenie valamelyik mutatóujjával az ellenfelét. Ez harci szituációban sikeres támadást igényel. Az okozott sérülés az alkalmazó akarata szerint - de 24 órán belül eső - időpontban keletkezik, gyógyitása nem lehetséges. A diszciplina minden esetben Ép vesztést okoz, s a páncélok SFÉ-je nem vonódik le belőle, sőt az Aranyharang sem jelent védelmet hatása ellen. Nehézsége okán nem használható korlátlanul: minden TSZ-en csak 1 Ép sérülés okozható, mely 3 pszi-pont felhasználásába kerül. Masodik TSZ-en már 6 pszi-pont rááldozásával 2 Ép veszteség érhető el, stb.'
+  }, {
+    name: 'Jelentéktelenség',
+    psiPoint: 6,
+    psiPointText: '6 pszi-pint',
+    ME: '-',
+    medTime: '1 szegmens',
+    activeTime: '1 kör',
+    description: 'A Slan-ek életük nagy részét-mig ki nem kerülnek a kolostorból, vagy iskolából-csöndes önmagukba zárkózással, nyugalmas elmélyedéssel töltik. A szinte észrevétlen jelenlét, háttérbe húzódó viselkedés az effajta életmód egyik alapkövetelménye. Mindezt tökélyre fejlesztve, és a pszi-energiákat is segitségül hivva, a Slan-út alkalmazói elérték, hogy a teljes Jelentéktelenség aurájába burkolózanak. A diszciplina használatakor az alkalmazó nem tűnik fel a legéberebb őrnek, a legfigyelmesebb szemlélődőnek sem. A ráirányitott tekintet lesiklik róla, jelentéktelen, figyelmet nem érdemlő senkinek hat.A tudatos érzékeléssel persze felfedik és lelepleződik akkor is, ha a figyelmes szemlélő sikeres Intelligencia próbát dob.Ha azonban az alkalmazó már elhagyta a helyszint-ahol a diszciplina segitségével sikerült észrevétlen maradnia-hiába járt le a Jelentéktelenség időtartalma, nem ébred gyanú senkiben.Közönséges példája ennek, ha az alkalmazó úgy kiván halálos ellenségeinek táborában végighaladni, hogy észrevétlen maradjon. Ilyenkor a diszciplina segitségével Jelentéktelenné válik, s az őrök és táborlakók - sikeres Intelligencia Próba, vagy tudatos érzékelés hijján - nem figyelnek föl rá. Miután a tábort elhagyja, senkinek nem jut eszébe, hogy idegen járt közöttük. A diszciplina alkalmazása közben szólni, beszédbe elegyedni, vagy harcba bocsátkozni nem lehet- ez azonnali lelepleződéssel jár. A diszciplina értelmetlen alkalmazása is balul üthet ki: magányos emberhez odamenni, vagy hegyi óriások falujába besétálni-azaz bármi olyat tenni, amikor nincs mód a környezetben tartózkodókhoz való azonosulásra-nem vezethet sikerhez. A Jelentéktelenség 6 pszi-pontért 1 körig tartható fenn, 12 pszi-pontért 2 körig, stb.'
+  }, {
+    name: 'Levitáció',
+    psiPoint: 1,
+    psiPointText: '1 pszi-pont',
+    ME: '-',
+    medTime: '1 kör',
+    activeTime: '1 óra',
+    description: 'Meglehetőleg kevés gyakorlati alkalmazhatósággal biró diszciplina, ám a Slenek szertartásainak elengedhetetlen kelléke. Az emberi test súlyának teljes leküzdésére szolgál, alkalmazásával föld feletti lebegésre nyilik mód. 1 pszi-pont felhasználásával 1 órán keresztül lehet 1 méter magasságban lebegni, 2 pszi-pontért már két órán keresztül tartható fenn a diszciplina hatása. A Levitáció magassága nem növelhető, ám az alkalmazó bármekkora súlyt-amennyiben a teste korlátai elbirják-felemelésére képes. A diszciplina alkalmazása közben a Slan teste sebezhetetlenné válik bármely-nem mágikus-fegyverrel szemben. A diszciplina folyamatos koncentrációt igényel, közben fizikai támadás, vagy egyébb diszciplina használata nem lehetséges.'
+  }, {
+    name: 'Statikus Pszi-pajzs',
+    psiPoint: 1,
+    psiPointText: 'minimum 1',
+    ME: '-',
+    medTime: '90 kör',
+    activeTime: 'végleges',
+    description: 'A Slan-út alkalmazói által gerjesztett Statikus Pajzs felépitésében gyökeresen különbözik a Pyarroni módszer segitségével létrehozottól, ám működésében és alkalmazásában teljesen megegyezik azzal.A valódi különbség a végeredményben mutatkozik meg: a Slan-út Statikus Pszi-pajzsát senki nem képes lerombolni, csak maga az alkalmazó szüntetheti meg, és épitheti újra. Efféle pajzsot a Slan csak a saját elméje köré képes felhúzni.'
+  }, {
+    name: 'Testsúlyváltoztatás',
+    psiPoint: 1,
+    psiPointText: 'változó',
+    ME: '-',
+    medTime: '1 kör',
+    activeTime: '3 kör',
+    description: 'A diszciplina használatával a Pszi-alkalmazó képes saját testsúlyát megnövelni, vagy lecsökkenteni. Ezáltal képessé válik több emelet magasba felugrani, a havon futni anélkül, hogy mély nyomokat hagyna, esetleg gyorsabban úszni. A diszciplina alkalmazásával nem változtatható meg az alkalmazó álltal hordott, vagy viselt tárgyak súlya.A felhasznált pszi-pontok növelésével a diszciplina időtartalma is meghosszabitható. A változtatáshoz szükséges pszi-pontok: 1kg=1 pszi, 3kg=2 pszi, 5kg=4 pszi, 9kg=7 pszi, 13kg=10 pszi, 31kg=20 pszi, 2x=30 pszi, 3x=35 pszi. Háromszorosánál nagyobbra növelni, vagy harmadánálkevesebbre csökkenteni a testsúlyt bármennyi pszi-pont rááldozásával sem lehet.'
+  }, {
+    name: 'Tetszhalál',
+    psiPoint: 6,
+    psiPointText: '6 pszi-pont',
+    ME: '-',
+    medTime: '10 kör',
+    activeTime: '1 óra',
+    description: 'Az alkalmazás segitségével lehetőség nyilik a test élettani folyamatainak felfüggesztésére. Ilyenkor az alkalmazó semmiféle életjelet nem ad, nincs szüksége táplálékra vagy folyadékra, de még levegőre sem. Mozdulatlanná válik-olyan ez mint a halál dermetsége-és kihül, a tudati folyamatok megszűnnek, igy lebomlik a Dinamikus Pajzs, csak a Statikus marad meg. Ezzel szemben az Asztrál és Mentál test nem alszik, igy az alkalmazó továbbra sem lehet alanya a Természeti Anyagi Mágiájának. Az alkalmazónak előre el kell döntenie a Tetszhalál időtartalmát, mert nincs rá mód, hogy az Időtartam lejárta előtt fébeszakitsa a diszciplinát. Tetszhalál állapotában semmiféle fájdalom nem okozható, és a testet ért Ép sérülések feleződnek. Az egyetlen olyan diszciplina ez, melynek alkalmazása során valóban regenerálódik a test. Minden Tetszhalálban töltött óra alatt 1 Ép regenerálódik-azaz gyógyul magától-, és 10 Fp. Maximum fölé sem Ép, sem Fp nem emelkedhet. A szervezetbe került mérgek hatóideje háromszorosára lassul, ráadásul sebzésük is harmadolódik. A Tetszhalál felfedezése csak a Kyr metódus Auraérzékelésével lehetséges. A pszi-pontok megduplázásával az időtartam megkétszereződik, triplázásával megháromszorozódik, stb.'
+  }, {
+    name: 'Zavarás',
+    psiPoint: 20,
+    psiPointText: 'minimum 20 Pszi-pont',
+    ME: 'mentál',
+    medTime: '1 szegmens',
+    activeTime: '1 szegmens',
+    description: 'A Zavarás olyan rövid tudati csapás, mely képes kibillenteni ellenfelünket koncentrációjából, megzavarni meditációját, megtörni a Transzállapotot. A legtöbb Pszi-diszciplina azonnal megszakad, ha alkalmazója ellen sikeres Zavarást hajtottak végre. Kivételt csupán a Tetszhalál képez. Ahhoz, hogy sikeres legyen, a Zavaráshoz legalább eggyel több pszi-pontot kell mint amennyi a megzavarni kivánt személy mentális pajzsaiban ( statikus és dinamikus ) van, ám ha ez a feltétel teljesül, akkor nincs helye további TME-nek. A Zavarás nem bontja le a megzavart lény pajzsait, csupán keresztülférkőzik rajtuk, hatását még abban a szegmensben kifejti és megszűnik. Az álldozat sem abban a körben sem a következőben nem képes semmi olyasmit cselekedni, amely komoly koncentrációt igényel, azaz Pszit használni, vagy varázsolni.'
+  }]
+};
+var getters = {
+  slanPsi: function slanPsi() {
+    return state.slanPsi;
+  },
+  availableSlanPsi: function availableSlanPsi(state) {
+    return function (psi) {
+      return state.slanPsi.filter(function (s) {
+        return s.psiPoint <= psi;
+      });
     };
   }
 };
@@ -36828,6 +37491,45 @@ component.options.__file = "resources/js/components/player_site/magus/MagusNotes
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/magus/MagusPsi.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusPsi.vue ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusPsi_vue_vue_type_template_id_7f1b6488___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusPsi.vue?vue&type=template&id=7f1b6488& */ "./resources/js/components/player_site/magus/MagusPsi.vue?vue&type=template&id=7f1b6488&");
+/* harmony import */ var _MagusPsi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusPsi.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/magus/MagusPsi.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MagusPsi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusPsi_vue_vue_type_template_id_7f1b6488___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusPsi_vue_vue_type_template_id_7f1b6488___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/player_site/magus/MagusPsi.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/magus/MagusShield.vue":
 /*!*******************************************************************!*\
   !*** ./resources/js/components/player_site/magus/MagusShield.vue ***!
@@ -37219,6 +37921,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/magus/MagusPsi.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusPsi.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusPsi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusPsi.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusPsi.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusPsi_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/magus/MagusShield.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************!*\
   !*** ./resources/js/components/player_site/magus/MagusShield.vue?vue&type=script&lang=js& ***!
@@ -37591,6 +38309,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusNotes_vue_vue_type_template_id_013ba883___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusNotes_vue_vue_type_template_id_013ba883___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusNotes.vue?vue&type=template&id=013ba883& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusNotes.vue?vue&type=template&id=013ba883&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusPsi.vue?vue&type=template&id=7f1b6488&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusPsi.vue?vue&type=template&id=7f1b6488& ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusPsi_vue_vue_type_template_id_7f1b6488___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusPsi_vue_vue_type_template_id_7f1b6488___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusPsi_vue_vue_type_template_id_7f1b6488___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusPsi.vue?vue&type=template&id=7f1b6488& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusPsi.vue?vue&type=template&id=7f1b6488&");
 
 
 /***/ }),
@@ -40346,11 +41081,14 @@ var render = function () {
           1
         ),
         _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "bg-light border border-secondary rounded mb-3 p-3" },
+          [_c("magus-psi")],
+          1
+        ),
+        _vm._v(" "),
         _vm._m(1),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _vm._m(3),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-lg" }, [
@@ -40535,7 +41273,7 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _vm._m(4),
+      _vm._m(2),
     ]),
     _vm._v(" "),
     _c(
@@ -40556,100 +41294,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "text-center p-4" }, [
       _c("h2", { staticClass: "text-white" }, [_vm._v("magus karakterlap")]),
     ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "bg-light border border-secondary rounded mb-3 p-3" },
-      [
-        _c("h4", { staticClass: "text-center mt-2" }, [
-          _vm._v("Pszi képzetség"),
-        ]),
-        _vm._v(" "),
-        _c("p", [_vm._v("Iskola tipusa"), _c("span")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("Használat foka"), _c("span")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("Használat szintje"), _c("span")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col  border-end border-secondary" }, [
-            _c("p", [_vm._v("Pszi/szint")]),
-            _vm._v(" "),
-            _c("p"),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
-            _c("p", [_vm._v("Max pszi pont")]),
-            _vm._v(" "),
-            _c("p"),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "border-top border-secondary" }, [
-          _vm._v("Akt pszi pont"),
-        ]),
-        _vm._v(" "),
-        _c("p"),
-      ]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: " bg-light border border-secondary rounded mb-3 p-3" },
-      [
-        _c("h4", { staticClass: "text-center mt-2" }, [_vm._v("Pszi pajzok")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col border-end border-secondary" }, [
-            _c("p", [_vm._v("ASZTRÁL")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Statikus")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "border-bottom border-secondary" }, [
-              _vm._v("8"),
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Dinamikus")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "border-bottom border-secondary" }, [
-              _vm._v("8"),
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("ME")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("8")]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
-            _c("p", [_vm._v("MENTÁL")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Statikus")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "border-bottom border-secondary" }, [
-              _vm._v("8"),
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Dinamikus")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "border-bottom border-secondary" }, [
-              _vm._v("8"),
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("ME")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("8")]),
-          ]),
-        ]),
-      ]
-    )
   },
   function () {
     var _vm = this
@@ -43735,6 +44379,595 @@ var staticRenderFns = [
           "aria-label": "Close",
         },
       }),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusPsi.vue?vue&type=template&id=7f1b6488&":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusPsi.vue?vue&type=template&id=7f1b6488& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "border-bottom border-secondary mb-3" }, [
+      _c("h4", { staticClass: "text-center mt-2" }, [_vm._v("Pszi képzetség")]),
+      _vm._v(" "),
+      _vm.psiSkill.learned
+        ? _c("div", { staticClass: "d-grid text-center mb-3" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-success ms-2 mt-2",
+                attrs: {
+                  type: "button",
+                  "data-bs-toggle": "modal",
+                  "data-bs-target": "#pyarroniModal",
+                },
+              },
+              [_vm._v("Álltalános Diszciplinák")]
+            ),
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Iskola tipusa: "),
+        _c("span", [_vm._v(_vm._s(_vm.psiSkill.school))]),
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Használat foka: "),
+        _c("span", [_vm._v(_vm._s(_vm.psiSkill.level))]),
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Használat szintje: "),
+        _c("span", [_vm._v(_vm._s(_vm.levelOfUse))]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col  border-end border-secondary" }, [
+          _c("p", [_vm._v("Pszi/szint")]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.psiSkill.psziPointLevel))]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c("p", [_vm._v("Max pszi pont")]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.psiSkill.maxPszi))]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "border-top border-secondary" }, [
+        _vm._v("Akt pszi pont"),
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(_vm._s(_vm.psiSkill.currentPszi) + " "),
+        _vm.psiSkill.learned
+          ? _c("span", [
+              _vm.psiSkill.currentPszi > 0
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-danger btn-sm ms-2",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function ($event) {
+                          return _vm.changeCurrentPsi(-1)
+                        },
+                      },
+                    },
+                    [_vm._v("-1 Pszi Pont")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.psiSkill.currentPszi < _vm.availablePsi
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-success btn-sm ms-2",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function ($event) {
+                          return _vm.changeCurrentPsi(1)
+                        },
+                      },
+                    },
+                    [_vm._v("+1 Pszi Pont")]
+                  )
+                : _vm._e(),
+            ])
+          : _vm._e(),
+      ]),
+      _vm._v(" "),
+      _vm.psiSkill.learned
+        ? _c("div", { staticClass: "d-grid text-center mb-3" }, [
+            _vm.psiSkill.currentPszi > 0
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger ms-2",
+                    attrs: {
+                      type: "button",
+                      "data-bs-toggle": "modal",
+                      "data-bs-target": "#psiUseModal",
+                    },
+                  },
+                  [_vm._v("Pszi Pontok Használata")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.psiSkill.currentPszi < _vm.availablePsi
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success ms-2 mt-2",
+                    attrs: { type: "button" },
+                    on: { click: _vm.refreshPsi },
+                  },
+                  [_vm._v("Pszi Pontok Teljes Feltöltése")]
+                )
+              : _vm._e(),
+          ])
+        : _vm._e(),
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "psiUseModal",
+          tabindex: "-1",
+          "aria-labelledby": "psiUseModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("p", [
+                _vm._v(
+                  "Rendelkezésre álló pszi pontok: " + _vm._s(_vm.availablePsi)
+                ),
+              ]),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "psiInput" } }, [
+                _vm._v("Elhasználni kivánt pszi pontok mennyisége:"),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputPsiUse,
+                    expression: "inputPsiUse",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "number",
+                  id: "psiInput",
+                  min: "1",
+                  max: _vm.availablePsi,
+                },
+                domProps: { value: _vm.inputPsiUse },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inputPsiUse = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.submitPsiUse },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", [
+      _c("h4", { staticClass: "text-center mt-2" }, [_vm._v("Pszi pajzok")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col border-end border-secondary" }, [
+          _c("p", [_vm._v("ASZTRÁL")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Statikus")]),
+          _vm._v(" "),
+          _vm.psiSkill.learned
+            ? _c("p", [
+                _vm.psiSkill.staticAsztral > 0
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger ms-2 mt-2",
+                        attrs: { type: "button" },
+                        on: { click: _vm.destroyStaticAsztral },
+                      },
+                      [_vm._v("Lebont")]
+                    )
+                  : _vm._e(),
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.psiSkill.learned
+            ? _c("p", [
+                _vm.psiSkill.staticAsztral < _vm.psiSkill.maxPszi
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success ms-2 mt-2",
+                        attrs: { type: "button" },
+                        on: { click: _vm.buildStaticAsztral },
+                      },
+                      [_vm._v("Felépit")]
+                    )
+                  : _vm._e(),
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("p", { staticClass: "border-bottom border-secondary" }, [
+            _vm._v(_vm._s(_vm.psiSkill.staticAsztral)),
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Dinamikus")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "border-bottom border-secondary" }, [
+            _vm._v(_vm._s(_vm.psiSkill.dinamicAsztarl)),
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v("ME")]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.AME))]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c("p", [_vm._v("MENTÁL")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Statikus")]),
+          _vm._v(" "),
+          _vm.psiSkill.learned
+            ? _c("p", [
+                _vm.psiSkill.staticMental > 0
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger ms-2 mt-2",
+                        attrs: { type: "button" },
+                        on: { click: _vm.destroyStaticMental },
+                      },
+                      [_vm._v("Lebont")]
+                    )
+                  : _vm._e(),
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.psiSkill.learned
+            ? _c("p", [
+                _vm.psiSkill.staticMental < _vm.psiSkill.maxPszi
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success ms-2 mt-2",
+                        attrs: { type: "button" },
+                        on: { click: _vm.buildStaticMental },
+                      },
+                      [_vm._v("Felépit")]
+                    )
+                  : _vm._e(),
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("p", { staticClass: "border-bottom border-secondary" }, [
+            _vm._v(_vm._s(_vm.psiSkill.staticMental)),
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Dinamikus")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "border-bottom border-secondary" }, [
+            _vm._v(_vm._s(_vm.psiSkill.dinamicMental)),
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v("ME")]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.MME))]),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "pyarroniModal",
+          tabindex: "-1",
+          "aria-labelledby": "pyarroniModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl",
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c(
+                  "div",
+                  { staticClass: "p-3 border border-secondary rounded mb-2" },
+                  [
+                    _c("div", { staticClass: "form-check" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.allPyarroni,
+                            expression: "allPyarroni",
+                          },
+                        ],
+                        staticClass: "form-check-input",
+                        attrs: { type: "checkbox", id: "pyarroni_checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.allPyarroni)
+                            ? _vm._i(_vm.allPyarroni, null) > -1
+                            : _vm.allPyarroni,
+                        },
+                        on: {
+                          change: function ($event) {
+                            var $$a = _vm.allPyarroni,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.allPyarroni = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.allPyarroni = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.allPyarroni = $$c
+                            }
+                          },
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "form-check-label",
+                          attrs: { for: "pyarroni_checkbox" },
+                        },
+                        [
+                          _vm._v(
+                            "\n                                Összes diszciplina mutatása\n                            "
+                          ),
+                        ]
+                      ),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "accordion",
+                    attrs: { id: "accordionPanelsStayOpenExample" },
+                  },
+                  _vm._l(_vm.pyarroniPsiList, function (pyarroni, index) {
+                    return _c(
+                      "div",
+                      {
+                        key: "Pyarroni" + index,
+                        staticClass: "accordion-item",
+                      },
+                      [
+                        _c(
+                          "h2",
+                          {
+                            staticClass: "accordion-header",
+                            attrs: { id: "Pyarroni" + index + "-heading" },
+                          },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "accordion-button collapsed",
+                                attrs: {
+                                  type: "button",
+                                  "data-bs-toggle": "collapse",
+                                  "data-bs-target": "#" + "Pyarroni" + index,
+                                  "aria-expanded": "false",
+                                  "aria-controls": "Pyarroni" + index,
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(pyarroni.name) +
+                                    "\n                                "
+                                ),
+                              ]
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "accordion-collapse collapse",
+                            attrs: {
+                              id: "Pyarroni" + index,
+                              "aria-labelledby":
+                                "Pyarroni" + index + "-heading",
+                            },
+                          },
+                          [
+                            _c("div", { staticClass: "accordion-body" }, [
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v(_vm._s(pyarroni.psiPointText)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [_vm._v("ME: " + _vm._s(pyarroni.ME))]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v(
+                                    "A Meditáció Ideje: " +
+                                      _vm._s(pyarroni.medTime)
+                                  ),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v(
+                                    "Időtartam: " + _vm._s(pyarroni.activeTime)
+                                  ),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _vm._m(2, true),
+                              _vm._v(" "),
+                              _c("p", [_vm._v(_vm._s(pyarroni.description))]),
+                            ]),
+                          ]
+                        ),
+                      ]
+                    )
+                  }),
+                  0
+                ),
+              ]),
+              _vm._v(" "),
+              _vm._m(3),
+            ]),
+          ]
+        ),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "psiUseModalLabel" } },
+        [_vm._v("Pszi használata")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "pyarroniModalLabel" } },
+        [_vm._v("Pyarroni Pszi")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Leirás:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Close")]
+      ),
     ])
   },
 ]

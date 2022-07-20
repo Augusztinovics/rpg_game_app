@@ -32,7 +32,7 @@
 <script>
 import { mapGetters, mapMutations, mapActions } from 'vuex';
 export default {
-     data() {
+    data() {
         return {
             inputNote: '',
         }

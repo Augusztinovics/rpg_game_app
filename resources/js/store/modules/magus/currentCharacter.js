@@ -61,11 +61,15 @@
         Pszi: {
             learned: false,
             atlevel: 0,
-            level: 'Af',
+            level: '',
             maxPszi: 0,
             psziPointLevel: 0,
             currentPszi: 0,
             school: '',
+            staticAsztral: 0,
+            staticMental: 0,
+            dinamicAsztarl: 0,
+            dinamicMental: 0,
         },
         szazalekosKepzetsegek: {
             maszas: {
@@ -414,6 +418,15 @@ const mutations = {
     },
     updatePszi(state, pszi) {
         state.magusCharacter.Pszi = pszi;
+    },
+    updateCurrentPsiPoint(state, psiPoint) {
+        state.magusCharacter.Pszi.currentPszi = psiPoint;
+    },
+    updateStaticAsztral(state, saszt) {
+        state.magusCharacter.Pszi.staticAsztral = saszt;
+    },
+    updateStaticMental(state, sment) {
+        state.magusCharacter.Pszi.staticMental = sment;
     },
     updateHmLeft(state) {
         state.magusCharacter.HmLeft --;
