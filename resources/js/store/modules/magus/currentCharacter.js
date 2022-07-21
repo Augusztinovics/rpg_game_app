@@ -428,6 +428,12 @@ const mutations = {
     updateStaticMental(state, sment) {
         state.magusCharacter.Pszi.staticMental = sment;
     },
+    updateDinamicAsztral(state, daszt) {
+        state.magusCharacter.Pszi.dinamicAsztarl = daszt;
+    },
+    updateDinamicMental(state, dment) {
+        state.magusCharacter.Pszi.dinamicMental = dment;
+    },
     updateHmLeft(state) {
         state.magusCharacter.HmLeft --;
     },

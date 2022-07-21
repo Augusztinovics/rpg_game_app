@@ -8461,12 +8461,141 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       inputPsiUse: 0,
-      allPyarroni: false
+      inputDinamic: 1,
+      dinamicType: '',
+      dinamicModalTitle: '',
+      allPyarroni: false,
+      allSlan: false,
+      allKyr: false
     };
   },
   computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
@@ -8494,6 +8623,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     KasztId: function KasztId() {
       return this.magusCharacter.Kaszt;
+    },
+    IsSlan: function IsSlan() {
+      if (this.KasztId == 'HARCMUVESZ' || this.KasztId == 'KARDMUVESZ') {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    IsKyr: function IsKyr() {
+      if (this.KasztId == 'VARAZSLO') {
+        return true;
+      } else {
+        return false;
+      }
     },
     psiSkill: function psiSkill() {
       return this.magusCharacter.Pszi;
@@ -8545,14 +8688,30 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (this.allPyarroni) {
         return this.pyarronPsi;
       } else {
-        return this.availablePyarronPsi(this.availablePsi);
+        return this.availablePyarronPsi(this.psiSkill.currentPszi);
+      }
+    },
+    slanPsiList: function slanPsiList() {
+      if (this.allSlan) {
+        return this.slanPsi;
+      } else {
+        return this.availableSlanPsi(this.psiSkill.currentPszi);
+      }
+    },
+    kyrPsiList: function kyrPsiList() {
+      if (this.allKyr) {
+        return this.kyrPsi;
+      } else {
+        return this.availableKyrPsi(this.psiSkill.currentPszi);
       }
     }
   }),
   methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
     updateCurrentPsiPoint: 'updateCurrentPsiPoint',
     updateStaticAsztral: 'updateStaticAsztral',
-    updateStaticMental: 'updateStaticMental'
+    updateStaticMental: 'updateStaticMental',
+    updateDinamicAsztral: 'updateDinamicAsztral',
+    updateDinamicMental: 'updateDinamicMental'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
     save: 'save'
   })), {}, {
@@ -8593,6 +8752,136 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     destroyStaticMental: function destroyStaticMental() {
       this.updateStaticMental(0);
       this.save();
+    },
+    buildDinamicAsztral: function buildDinamicAsztral() {
+      if (parseInt(this.inputDinamic) > 0 && parseInt(this.inputDinamic) <= this.psiSkill.currentPszi) {
+        var newSkillPoint = this.psiSkill.currentPszi - parseInt(this.inputDinamic);
+        var currentDinamicE = this.psiSkill.dinamicAsztarl;
+        var updatedDinamic = currentDinamicE + parseInt(this.inputDinamic);
+        this.updateCurrentPsiPoint(newSkillPoint);
+        this.updateDinamicAsztral(updatedDinamic);
+        this.save();
+        this.inputDinamic = 1;
+      }
+    },
+    buildDinamicMental: function buildDinamicMental() {
+      if (parseInt(this.inputDinamic) > 0 && parseInt(this.inputDinamic) <= this.psiSkill.currentPszi) {
+        var newSkillPoint = this.psiSkill.currentPszi - parseInt(this.inputDinamic);
+        var currentDinamicE = this.psiSkill.dinamicMental;
+        var updatedDinamic = currentDinamicE + parseInt(this.inputDinamic);
+        this.updateCurrentPsiPoint(newSkillPoint);
+        this.updateDinamicMental(updatedDinamic);
+        this.save();
+        this.inputDinamic = 1;
+      }
+    },
+    retriveDinamicAsztral: function retriveDinamicAsztral() {
+      if (parseInt(this.inputDinamic) > 0 && parseInt(this.inputDinamic) <= this.psiSkill.dinamicAsztarl) {
+        var newSkillPoint = this.psiSkill.currentPszi + parseInt(this.inputDinamic);
+        var currentDinamicE = this.psiSkill.dinamicAsztarl;
+        var updatedDinamic = currentDinamicE - parseInt(this.inputDinamic);
+        this.updateCurrentPsiPoint(newSkillPoint);
+        this.updateDinamicAsztral(updatedDinamic);
+        this.save();
+        this.inputDinamic = 1;
+      }
+    },
+    retriveDinamicMental: function retriveDinamicMental() {
+      if (parseInt(this.inputDinamic) > 0 && parseInt(this.inputDinamic) <= this.psiSkill.dinamicMental) {
+        var newSkillPoint = this.psiSkill.currentPszi + parseInt(this.inputDinamic);
+        var currentDinamicE = this.psiSkill.dinamicMental;
+        var updatedDinamic = currentDinamicE - parseInt(this.inputDinamic);
+        this.updateCurrentPsiPoint(newSkillPoint);
+        this.updateDinamicMental(updatedDinamic);
+        this.save();
+        this.inputDinamic = 1;
+      }
+    },
+    destroyDinamicAsztral: function destroyDinamicAsztral() {
+      if (parseInt(this.inputDinamic) > 0 && parseInt(this.inputDinamic) <= this.psiSkill.dinamicAsztarl) {
+        var currentDinamicE = this.psiSkill.dinamicAsztarl;
+        var updatedDinamic = currentDinamicE - parseInt(this.inputDinamic);
+        this.updateDinamicAsztral(updatedDinamic);
+        this.save();
+        this.inputDinamic = 1;
+      }
+    },
+    destroyDinamicMental: function destroyDinamicMental() {
+      if (parseInt(this.inputDinamic) > 0 && parseInt(this.inputDinamic) <= this.psiSkill.dinamicMental) {
+        var currentDinamicE = this.psiSkill.dinamicMental;
+        var updatedDinamic = currentDinamicE - parseInt(this.inputDinamic);
+        this.updateDinamicMental(updatedDinamic);
+        this.save();
+        this.inputDinamic = 1;
+      }
+    },
+    switchUpdateDinamic: function switchUpdateDinamic() {
+      switch (this.dinamicType) {
+        case 'add_aszt':
+          this.buildDinamicAsztral();
+          this.dinamicType = '';
+          break;
+
+        case 'ret_aszt':
+          this.retriveDinamicAsztral();
+          this.dinamicType = '';
+          break;
+
+        case 'des_aszt':
+          this.destroyDinamicAsztral();
+          this.dinamicType = '';
+          break;
+
+        case 'add_ment':
+          this.buildDinamicMental();
+          this.dinamicType = '';
+          break;
+
+        case 'ret_ment':
+          this.retriveDinamicMental();
+          this.dinamicType = '';
+          break;
+
+        case 'des_ment':
+          this.destroyDinamicMental();
+          this.dinamicType = '';
+          break;
+
+        default: // code block
+
+      }
+    },
+    setDinamicType: function setDinamicType(type) {
+      this.dinamicType = type;
+
+      switch (type) {
+        case 'add_aszt':
+          this.dinamicModalTitle = 'Dinamikus Asztrál Pajzs Erősitése';
+          break;
+
+        case 'ret_aszt':
+          this.dinamicModalTitle = 'Dinamikus Asztrál Pajzsból való Pszi-pont kivonása';
+          break;
+
+        case 'des_aszt':
+          this.dinamicModalTitle = 'Dinamikus Asztrál Pajzs Bontása';
+          break;
+
+        case 'add_ment':
+          this.dinamicModalTitle = 'Dinamikus Mentál Pajzs Erősitése';
+          break;
+
+        case 'ret_ment':
+          this.dinamicModalTitle = 'Dinamikus Mentál Pajzsból való Pszi-pont kivonása';
+          break;
+
+        case 'des_ment':
+          this.dinamicModalTitle = 'Dinamikus Mentál Pajzs Bontása';
+          break;
+
+        default:
+          this.dinamicModalTitle = '';
+      }
     }
   })
 });
@@ -10777,6 +11066,12 @@ var mutations = {
   },
   updateStaticMental: function updateStaticMental(state, sment) {
     state.magusCharacter.Pszi.staticMental = sment;
+  },
+  updateDinamicAsztral: function updateDinamicAsztral(state, daszt) {
+    state.magusCharacter.Pszi.dinamicAsztarl = daszt;
+  },
+  updateDinamicMental: function updateDinamicMental(state, dment) {
+    state.magusCharacter.Pszi.dinamicMental = dment;
   },
   updateHmLeft: function updateHmLeft(state) {
     state.magusCharacter.HmLeft--;
@@ -44422,6 +44717,36 @@ var render = function () {
               },
               [_vm._v("Álltalános Diszciplinák")]
             ),
+            _vm._v(" "),
+            _vm.IsSlan
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success ms-2 mt-2",
+                    attrs: {
+                      type: "button",
+                      "data-bs-toggle": "modal",
+                      "data-bs-target": "#slanModal",
+                    },
+                  },
+                  [_vm._v("Slan Diszciplinák")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.IsKyr
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success ms-2 mt-2",
+                    attrs: {
+                      type: "button",
+                      "data-bs-toggle": "modal",
+                      "data-bs-target": "#kyrModal",
+                    },
+                  },
+                  [_vm._v("Kyr Diszciplinák")]
+                )
+              : _vm._e(),
           ])
         : _vm._e(),
       _vm._v(" "),
@@ -44656,6 +44981,71 @@ var render = function () {
           _vm._v(" "),
           _c("p", [_vm._v("Dinamikus")]),
           _vm._v(" "),
+          _vm.psiSkill.learned
+            ? _c("div", [
+                _vm.psiSkill.currentPszi > 0
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success ms-2 mt-2",
+                        attrs: {
+                          type: "button",
+                          "data-bs-toggle": "modal",
+                          "data-bs-target": "#dinamicModal",
+                        },
+                        on: {
+                          click: function ($event) {
+                            return _vm.setDinamicType("add_aszt")
+                          },
+                        },
+                      },
+                      [_vm._v("Erősités")]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.psiSkill.currentPszi < _vm.psiSkill.maxPszi &&
+                _vm.psiSkill.dinamicAsztarl > 0
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary ms-2 mt-2",
+                        attrs: {
+                          type: "button",
+                          "data-bs-toggle": "modal",
+                          "data-bs-target": "#dinamicModal",
+                        },
+                        on: {
+                          click: function ($event) {
+                            return _vm.setDinamicType("ret_aszt")
+                          },
+                        },
+                      },
+                      [_vm._v("Kivonás")]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.psiSkill.dinamicAsztarl > 0
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger ms-2 mt-2",
+                        attrs: {
+                          type: "button",
+                          "data-bs-toggle": "modal",
+                          "data-bs-target": "#dinamicModal",
+                        },
+                        on: {
+                          click: function ($event) {
+                            return _vm.setDinamicType("des_aszt")
+                          },
+                        },
+                      },
+                      [_vm._v("Bontás")]
+                    )
+                  : _vm._e(),
+              ])
+            : _vm._e(),
+          _vm._v(" "),
           _c("p", { staticClass: "border-bottom border-secondary" }, [
             _vm._v(_vm._s(_vm.psiSkill.dinamicAsztarl)),
           ]),
@@ -44708,6 +45098,71 @@ var render = function () {
           _vm._v(" "),
           _c("p", [_vm._v("Dinamikus")]),
           _vm._v(" "),
+          _vm.psiSkill.learned
+            ? _c("div", [
+                _vm.psiSkill.currentPszi > 0
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success ms-2 mt-2",
+                        attrs: {
+                          type: "button",
+                          "data-bs-toggle": "modal",
+                          "data-bs-target": "#dinamicModal",
+                        },
+                        on: {
+                          click: function ($event) {
+                            return _vm.setDinamicType("add_ment")
+                          },
+                        },
+                      },
+                      [_vm._v("Erősités")]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.psiSkill.currentPszi < _vm.psiSkill.maxPszi &&
+                _vm.psiSkill.dinamicMental > 0
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary ms-2 mt-2",
+                        attrs: {
+                          type: "button",
+                          "data-bs-toggle": "modal",
+                          "data-bs-target": "#dinamicModal",
+                        },
+                        on: {
+                          click: function ($event) {
+                            return _vm.setDinamicType("ret_ment")
+                          },
+                        },
+                      },
+                      [_vm._v("Kivonás")]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.psiSkill.dinamicMental > 0
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger ms-2 mt-2",
+                        attrs: {
+                          type: "button",
+                          "data-bs-toggle": "modal",
+                          "data-bs-target": "#dinamicModal",
+                        },
+                        on: {
+                          click: function ($event) {
+                            return _vm.setDinamicType("des_ment")
+                          },
+                        },
+                      },
+                      [_vm._v("Bontás")]
+                    )
+                  : _vm._e(),
+              ])
+            : _vm._e(),
+          _vm._v(" "),
           _c("p", { staticClass: "border-bottom border-secondary" }, [
             _vm._v(_vm._s(_vm.psiSkill.dinamicMental)),
           ]),
@@ -44718,6 +45173,104 @@ var render = function () {
         ]),
       ]),
     ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "dinamicModal",
+          tabindex: "-1",
+          "aria-labelledby": "dinamicModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _c("div", { staticClass: "modal-header" }, [
+              _c(
+                "h5",
+                {
+                  staticClass: "modal-title",
+                  attrs: { id: "dinamicModalLabel" },
+                },
+                [_vm._v(_vm._s(_vm.dinamicModalTitle))]
+              ),
+              _vm._v(" "),
+              _c("button", {
+                staticClass: "btn-close",
+                attrs: {
+                  type: "button",
+                  "data-bs-dismiss": "modal",
+                  "aria-label": "Close",
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("p", [
+                _vm._v(
+                  "Rendelkezésre álló pszi pontok: " + _vm._s(_vm.availablePsi)
+                ),
+              ]),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "inputDinamic" } }, [
+                _vm._v("Módositani kivánt pajzs erőssége:"),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputDinamic,
+                    expression: "inputDinamic",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "number",
+                  id: "inputDinamic",
+                  min: "1",
+                  max: _vm.availablePsi,
+                },
+                domProps: { value: _vm.inputDinamic },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inputDinamic = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.switchUpdateDinamic },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
     _vm._v(" "),
     _c(
       "div",
@@ -44904,6 +45457,374 @@ var render = function () {
         ),
       ]
     ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "slanModal",
+          tabindex: "-1",
+          "aria-labelledby": "slanModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl",
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(4),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c(
+                  "div",
+                  { staticClass: "p-3 border border-secondary rounded mb-2" },
+                  [
+                    _c("div", { staticClass: "form-check" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.allSlan,
+                            expression: "allSlan",
+                          },
+                        ],
+                        staticClass: "form-check-input",
+                        attrs: { type: "checkbox", id: "slan_checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.allSlan)
+                            ? _vm._i(_vm.allSlan, null) > -1
+                            : _vm.allSlan,
+                        },
+                        on: {
+                          change: function ($event) {
+                            var $$a = _vm.allSlan,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.allSlan = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.allSlan = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.allSlan = $$c
+                            }
+                          },
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "form-check-label",
+                          attrs: { for: "slan_checkbox" },
+                        },
+                        [
+                          _vm._v(
+                            "\n                                Összes diszciplina mutatása\n                            "
+                          ),
+                        ]
+                      ),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "accordion",
+                    attrs: { id: "accordionPanelsStayOpenExample" },
+                  },
+                  _vm._l(_vm.slanPsiList, function (slan, index) {
+                    return _c(
+                      "div",
+                      { key: "Slan" + index, staticClass: "accordion-item" },
+                      [
+                        _c(
+                          "h2",
+                          {
+                            staticClass: "accordion-header",
+                            attrs: { id: "Slan" + index + "-heading" },
+                          },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "accordion-button collapsed",
+                                attrs: {
+                                  type: "button",
+                                  "data-bs-toggle": "collapse",
+                                  "data-bs-target": "#" + "Slan" + index,
+                                  "aria-expanded": "false",
+                                  "aria-controls": "Slan" + index,
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(slan.name) +
+                                    "\n                                "
+                                ),
+                              ]
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "accordion-collapse collapse",
+                            attrs: {
+                              id: "Slan" + index,
+                              "aria-labelledby": "Slan" + index + "-heading",
+                            },
+                          },
+                          [
+                            _c("div", { staticClass: "accordion-body" }, [
+                              _c("p", [
+                                _c("b", [_vm._v(_vm._s(slan.psiPointText))]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [_vm._v("ME: " + _vm._s(slan.ME))]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v(
+                                    "A Meditáció Ideje: " + _vm._s(slan.medTime)
+                                  ),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v(
+                                    "Időtartam: " + _vm._s(slan.activeTime)
+                                  ),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _vm._m(5, true),
+                              _vm._v(" "),
+                              _c("p", [_vm._v(_vm._s(slan.description))]),
+                            ]),
+                          ]
+                        ),
+                      ]
+                    )
+                  }),
+                  0
+                ),
+              ]),
+              _vm._v(" "),
+              _vm._m(6),
+            ]),
+          ]
+        ),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "kyrModal",
+          tabindex: "-1",
+          "aria-labelledby": "kyrModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl",
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(7),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c(
+                  "div",
+                  { staticClass: "p-3 border border-secondary rounded mb-2" },
+                  [
+                    _c("div", { staticClass: "form-check" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.allKyr,
+                            expression: "allKyr",
+                          },
+                        ],
+                        staticClass: "form-check-input",
+                        attrs: { type: "checkbox", id: "kyr_checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.allKyr)
+                            ? _vm._i(_vm.allKyr, null) > -1
+                            : _vm.allKyr,
+                        },
+                        on: {
+                          change: function ($event) {
+                            var $$a = _vm.allKyr,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.allKyr = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.allKyr = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.allKyr = $$c
+                            }
+                          },
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "form-check-label",
+                          attrs: { for: "kyr_checkbox" },
+                        },
+                        [
+                          _vm._v(
+                            "\n                                Összes diszciplina mutatása\n                            "
+                          ),
+                        ]
+                      ),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "accordion",
+                    attrs: { id: "accordionPanelsStayOpenExample" },
+                  },
+                  _vm._l(_vm.kyrPsiList, function (kyr, index) {
+                    return _c(
+                      "div",
+                      { key: "Kyr" + index, staticClass: "accordion-item" },
+                      [
+                        _c(
+                          "h2",
+                          {
+                            staticClass: "accordion-header",
+                            attrs: { id: "Kyr" + index + "-heading" },
+                          },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "accordion-button collapsed",
+                                attrs: {
+                                  type: "button",
+                                  "data-bs-toggle": "collapse",
+                                  "data-bs-target": "#" + "Kyr" + index,
+                                  "aria-expanded": "false",
+                                  "aria-controls": "Kyr" + index,
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(kyr.name) +
+                                    "\n                                "
+                                ),
+                              ]
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "accordion-collapse collapse",
+                            attrs: {
+                              id: "Kyr" + index,
+                              "aria-labelledby": "Kyr" + index + "-heading",
+                            },
+                          },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "accordion-body" },
+                              [
+                                _c("p", [
+                                  _c("b", [_vm._v(_vm._s(kyr.psiPointText))]),
+                                ]),
+                                _vm._v(" "),
+                                _c("p", [
+                                  _c("b", [_vm._v("ME: " + _vm._s(kyr.ME))]),
+                                ]),
+                                _vm._v(" "),
+                                _c("p", [
+                                  _c("b", [
+                                    _vm._v(
+                                      "A Meditáció Ideje: " +
+                                        _vm._s(kyr.medTime)
+                                    ),
+                                  ]),
+                                ]),
+                                _vm._v(" "),
+                                _c("p", [
+                                  _c("b", [
+                                    _vm._v(
+                                      "Időtartam: " + _vm._s(kyr.activeTime)
+                                    ),
+                                  ]),
+                                ]),
+                                _vm._v(" "),
+                                _vm._m(8, true),
+                                _vm._v(" "),
+                                _vm._l(kyr.description, function (des, index) {
+                                  return _c("p", { key: "Des" + index }, [
+                                    _vm._v(_vm._s(des)),
+                                  ])
+                                }),
+                              ],
+                              2
+                            ),
+                          ]
+                        ),
+                      ]
+                    )
+                  }),
+                  0
+                ),
+              ]),
+              _vm._v(" "),
+              _vm._m(9),
+            ]),
+          ]
+        ),
+      ]
+    ),
   ])
 }
 var staticRenderFns = [
@@ -44938,6 +45859,88 @@ var staticRenderFns = [
         { staticClass: "modal-title", attrs: { id: "pyarroniModalLabel" } },
         [_vm._v("Pyarroni Pszi")]
       ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Leirás:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Close")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "slanModalLabel" } },
+        [_vm._v("Slan-út Pszi Diszciplinák")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Leirás:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Close")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title", attrs: { id: "kyrModalLabel" } }, [
+        _vm._v("Kyr-metódus Diszciplinái"),
+      ]),
       _vm._v(" "),
       _c("button", {
         staticClass: "btn-close",
