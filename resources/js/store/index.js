@@ -12,6 +12,7 @@ import magusSkills from './modules/magus/magusSkills';
 import magusPsiPyarroni from './modules/magus/magusPsiPyarroni';
 import magusPsiSlan from './modules/magus/magusPsiSlan';
 import magusPsiKyr from './modules/magus/magusPsiKyr';
+import magusBardSpells from './modules/magus/magusBardSpells';
 
 Vue.use(Vuex);
 
@@ -28,5 +29,6 @@ export default new Vuex.Store({
         magusPsiPyarroni,
         magusPsiSlan,
         magusPsiKyr,
+        magusBardSpells,
     }
 })

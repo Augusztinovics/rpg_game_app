@@ -291,7 +291,10 @@ export default {
             }
             
             return this.skills.filter(s => upgradeableSkills.includes(s.id) && s.KpMf <= this.kpLeft);
-        }
+        },
+        magia() {
+            return this.magusCharacter.Magia;
+        },
     },
     methods: {
         ...mapMutations('currentCharacter', {
@@ -307,9 +310,10 @@ export default {
             updateSkillsAf: 'updateSkillsAf',
             updateSkillsMf: 'updateSkillsMf',
             updatePszi: 'updatePszi',
+            updateMaxMp: 'updateMaxMp',
         }),
         ...mapActions('currentCharacter', {
-                save: 'save'
+            save: 'save'
         }),
         addNewWeaponSkillAf() {
             if (this.newWeapon != '') {
@@ -422,6 +426,11 @@ export default {
                 psiSkill.psziPointLevel = 4;
                 psiSkill.currentPszi += 5;
                 this.updatePszi(psiSkill); 
+            }
+            if (id == 'MAGIA_HASZNALAT') {
+                if (this.magia.maxMp == 0) {
+                    this.updateMaxMp(10);
+                }
             }
             this.save();
         }

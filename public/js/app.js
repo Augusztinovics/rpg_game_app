@@ -6366,7 +6366,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _MagusBaseData_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusBaseData.vue */ "./resources/js/components/player_site/magus/MagusBaseData.vue");
 /* harmony import */ var _MagusKincsek_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusKincsek.vue */ "./resources/js/components/player_site/magus/MagusKincsek.vue");
 /* harmony import */ var _MagusEquipment_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MagusEquipment.vue */ "./resources/js/components/player_site/magus/MagusEquipment.vue");
@@ -6380,6 +6380,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MagusCharacterDescript_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./MagusCharacterDescript.vue */ "./resources/js/components/player_site/magus/MagusCharacterDescript.vue");
 /* harmony import */ var _MagusNotes_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./MagusNotes.vue */ "./resources/js/components/player_site/magus/MagusNotes.vue");
 /* harmony import */ var _MagusPsi_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./MagusPsi.vue */ "./resources/js/components/player_site/magus/MagusPsi.vue");
+/* harmony import */ var _MagusMana_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./MagusMana.vue */ "./resources/js/components/player_site/magus/MagusMana.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -6553,34 +6554,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -6609,19 +6583,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     MagusSkills: _MagusSkills_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
     MagusCharacterDescript: _MagusCharacterDescript_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
     MagusNotes: _MagusNotes_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
-    MagusPsi: _MagusPsi_vue__WEBPACK_IMPORTED_MODULE_12__["default"]
+    MagusPsi: _MagusPsi_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
+    MagusMana: _MagusMana_vue__WEBPACK_IMPORTED_MODULE_13__["default"]
   },
   data: function data() {
     return {};
   },
   //COMPUTED----------------------------------
-  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_13__.mapGetters)('currentCharacter', {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_14__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_13__.mapGetters)('magusAligments', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_14__.mapGetters)('magusAligments', {
     aligment: 'aligment'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_13__.mapGetters)('magusRaces', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_14__.mapGetters)('magusRaces', {
     race: 'race'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_13__.mapGetters)('magusClasses', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_14__.mapGetters)('magusClasses', {
     magusKaszt: 'magusClass'
   })), {}, {
     Jellem: function Jellem() {
@@ -8089,6 +8064,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this.skills.filter(function (s) {
         return upgradeableSkills.includes(s.id) && s.KpMf <= _this11.kpLeft;
       });
+    },
+    magia: function magia() {
+      return this.magusCharacter.Magia;
     }
   }),
   methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
@@ -8103,7 +8081,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     updateCraftMf: 'updateCraftMf',
     updateSkillsAf: 'updateSkillsAf',
     updateSkillsMf: 'updateSkillsMf',
-    updatePszi: 'updatePszi'
+    updatePszi: 'updatePszi',
+    updateMaxMp: 'updateMaxMp'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
     save: 'save'
   })), {}, {
@@ -8222,6 +8201,348 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.updatePszi(psiSkill);
       }
 
+      if (id == 'MAGIA_HASZNALAT') {
+        if (this.magia.maxMp == 0) {
+          this.updateMaxMp(10);
+        }
+      }
+
+      this.save();
+    }
+  })
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusMana.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusMana.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      inputManaUse: 0,
+      showBardAll: false
+    };
+  },
+  computed: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
+    magusCharacter: 'magusCharacter'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusBardSpells', {
+    bardSpellDescription: 'bardSpellDescription',
+    bardDalMagia: 'bardDalMagia',
+    bardHangMagia: 'bardHangMagia',
+    bardFenyMagia: 'bardFenyMagia',
+    bardEgyebbMagia: 'bardEgyebbMagia'
+  })), {}, {
+    magia: function magia() {
+      return this.magusCharacter.Magia;
+    },
+    haveMagiaHasznalatMf: function haveMagiaHasznalatMf() {
+      return this.magusCharacter.LearnedSkills.mf.includes('MAGIA_HASZNALAT');
+    },
+    // Bard Spells
+    bardDalMagiaList: function bardDalMagiaList() {
+      var _this = this;
+
+      var dalList = this.bardDalMagia.spells;
+
+      if (this.showBardAll) {
+        return dalList;
+      } else {
+        return dalList.filter(function (s) {
+          return s.mana <= _this.magia.aktMp;
+        });
+      }
+    },
+    bardHangMagiaList: function bardHangMagiaList() {
+      var _this2 = this;
+
+      var hangList = this.bardHangMagia.spells;
+
+      if (this.showBardAll) {
+        return hangList;
+      } else {
+        return hangList.filter(function (s) {
+          return s.mana <= _this2.magia.aktMp;
+        });
+      }
+    },
+    bardFenyMagiaList: function bardFenyMagiaList() {
+      var _this3 = this;
+
+      var fenyList = this.bardFenyMagia.spells;
+
+      if (this.showBardAll) {
+        return fenyList;
+      } else {
+        return fenyList.filter(function (s) {
+          return s.mana <= _this3.magia.aktMp;
+        });
+      }
+    },
+    bardEgyebbMagiaList: function bardEgyebbMagiaList() {
+      var _this4 = this;
+
+      var egyebbList = this.bardEgyebbMagia.spells;
+
+      if (this.showBardAll) {
+        return egyebbList;
+      } else {
+        return egyebbList.filter(function (s) {
+          return s.mana <= _this4.magia.aktMp;
+        });
+      }
+    }
+  }),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
+    updateAktMp: 'updateAktMp',
+    updateMaxMp: 'updateMaxMp'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
+    save: 'save'
+  })), {}, {
+    submitManaUse: function submitManaUse() {
+      if (parseInt(this.inputManaUse) <= this.magia.aktMp && parseInt(this.inputManaUse) > 0) {
+        var updatedMana = this.magia.aktMp - parseInt(this.inputManaUse);
+        this.inputManaUse = 0;
+        this.updateAktMp(updatedMana);
+        this.save();
+      }
+    },
+    refreshMana: function refreshMana() {
+      this.updateAktMp(this.magia.maxMp);
       this.save();
     }
   })
@@ -10518,8 +10839,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/magus/magusAligments */ "./resources/js/store/modules/magus/magusAligments.js");
 /* harmony import */ var _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/magus/magusRaces */ "./resources/js/store/modules/magus/magusRaces.js");
 /* harmony import */ var _modules_magus_magusClasses__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/magus/magusClasses */ "./resources/js/store/modules/magus/magusClasses.js");
@@ -10531,6 +10852,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_magus_magusPsiPyarroni__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/magus/magusPsiPyarroni */ "./resources/js/store/modules/magus/magusPsiPyarroni.js");
 /* harmony import */ var _modules_magus_magusPsiSlan__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/magus/magusPsiSlan */ "./resources/js/store/modules/magus/magusPsiSlan.js");
 /* harmony import */ var _modules_magus_magusPsiKyr__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/magus/magusPsiKyr */ "./resources/js/store/modules/magus/magusPsiKyr.js");
+/* harmony import */ var _modules_magus_magusBardSpells__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/magus/magusBardSpells */ "./resources/js/store/modules/magus/magusBardSpells.js");
 
 
 
@@ -10544,8 +10866,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_11__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_12__["default"]);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_12__["default"].Store({
+
+vue__WEBPACK_IMPORTED_MODULE_12__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_13__["default"]);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_13__["default"].Store({
   modules: {
     magusAligments: _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__["default"],
     magusRaces: _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -10557,7 +10880,8 @@ vue__WEBPACK_IMPORTED_MODULE_11__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1
     magusSkills: _modules_magus_magusSkills__WEBPACK_IMPORTED_MODULE_7__["default"],
     magusPsiPyarroni: _modules_magus_magusPsiPyarroni__WEBPACK_IMPORTED_MODULE_8__["default"],
     magusPsiSlan: _modules_magus_magusPsiSlan__WEBPACK_IMPORTED_MODULE_9__["default"],
-    magusPsiKyr: _modules_magus_magusPsiKyr__WEBPACK_IMPORTED_MODULE_10__["default"]
+    magusPsiKyr: _modules_magus_magusPsiKyr__WEBPACK_IMPORTED_MODULE_10__["default"],
+    magusBardSpells: _modules_magus_magusBardSpells__WEBPACK_IMPORTED_MODULE_11__["default"]
   }
 }));
 
@@ -10732,7 +11056,15 @@ var state = {
       }]
     },
     description: '',
-    notes: []
+    notes: [],
+    Magia: {
+      maxMp: 0,
+      aktMp: 0,
+      mpLevel: {
+        text: '0',
+        range: [0, 0]
+      }
+    }
   }
 };
 var getters = {
@@ -11105,6 +11437,12 @@ var mutations = {
   },
   updateSzimbolum: function updateSzimbolum(state, szimbolum) {
     state.magusCharacter.Szimbolum = szimbolum;
+  },
+  updateMaxMp: function updateMaxMp(state, maxMp) {
+    state.magusCharacter.Magia.maxMp += maxMp;
+  },
+  updateAktMp: function updateAktMp(state, aktMp) {
+    state.magusCharacter.Magia.aktMp = aktMp;
   }
 };
 var actions = {
@@ -11565,6 +11903,960 @@ var getters = {
         return a.id === id;
       });
     };
+  }
+};
+var mutations = {};
+var actions = {};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/magus/magusBardSpells.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/store/modules/magus/magusBardSpells.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**-------------------------------------------
+ * 
+ * STORE FOR MAGUS BARD SPELLS
+ * 
+ * -------------------------------------------
+ */
+var state = {
+  bardSpellDescription: ['A BÁRD MANA-PONTJAI', 'A bárd mágiájának titkát hiába keresnénk Ynev beláthatatlan térségein: e kaszt képviselői Mana-pontjaikat-ellentétben az összes többi varászhasználó kaszttal-a Felsőbb Szférák, a csillagok energiájából meritik. Éjszakánként, mikor fények garmadája tündököl az égen, a bárdnak lehetősége nyillik arra, hogy ( maga választotta főhangszerén ) megszólaltassa a mitikus erők öszhangzatát. Az Öszhangzat megszólaltatása mindössze 18 kört vesz igénybe, ez idő alatt a bárd max Mp-jaira kerül. A bárd csak akkor képes az Öszhangzat segitségével Mana-pontokhoz jutni, ha a csillagfény szabad szemmel érzékelhető számára-borús ég alatt, zivatar sötétjében nem jutnak el hozzá az energiák.'],
+  bardSpells: {
+    dalMagia: {
+      name: 'Dalmágia',
+      description: ['Ynev bárdjai jártassak az Asztrál- és Mentálvarázslatok használatában, ám azokat csak egy különleges módszer, a Dalmágia segitségével képessek alkalmazni. Ennek gyakorlásához énekelniük, vagy muzsikálniuk kell, hogy a dallamok formába öntség, és célba juttassák, a varázslat bennük felgyúlt energiáit.', 'FIGYELEM! A bárd dalmágiája kizárólag élőlényekre hat! A varázslat eredményességének feltétele az is, hogy a kiszemelt alany hallja a dalt. Amenyiben a célpont süket, vagy - saját jól felfogott érdekében - fülének befogásával védekezik a mágia ellen, a dal hatástalan marad.', 'A bárdok egyszerre több lényre is alkalmazhatják a Dalmágia varázslatait, s a dal hatókörén belül ők határozhatják meg, ki legyen az, akire a dal varázslatként hat. A dal többi hallgatója nem érzékeli a dallamba ágyazott mágiát: értetlenül állnak majd társaik megváltozott viselkedése előtt. A bárdnak, mint fentebb emlitettük, énekelnie sem feltétlenül szükséges, elég, ha hangszerén játszik, a Dalmágia ez esetben is megidézhető.', 'Ritkán kerül sor arra, hogy egy bárd csatába használja a dalmágiát - ez alól talán csak a Bátorság dala jelent kivételt. A harcmező zaja ugyanis elnyomja a bárd énekét, s a Dalmágia varázslatainak hatótávolsága a felére csökken. A dalok mágiájának viszont kedvez a csend, melyben a dal messzire elhallatszik, s a hatótáv ennek hatására a kétszeresére nő.', 'Fontos, hogy a Dalmágia varázslatai tökéletesen összekapcsolódnak a bárd énekmondó, szórakoztató képességeivel. Hisz varázslataik mindaddig észrevétlenek maradhatnak, mig a hatás nyilvánvalóvá nem válik - ám ekkora sokszor már minden hiába. A Dalmágia álldozatait a bárd választhatja meg, tehát a varázslat hatókörén belül tartózkodók közül csak azokra vonatkozik a hatás, akiket a bárd célpontnak szemelt ki. A varázslat megidézéséhez szükséges idő sokszor megegyezik az Időtartammal - ennek oka, hogy a mágia csak addig hat, mig a bárd énekel. Előfordulhat az is, hogy a bárd énekének hatása továbbra is fennmarad, ilyen esetben álldozatonként változik, hogy mennyi idő szükséges a dal emlékének elűtéséhez.'],
+      spells: [{
+        name: 'Nyugalom dala',
+        typ: 'Asztrális',
+        mana: 1,
+        manaText: '1/célpont',
+        strenght: '5',
+        castTime: '1 perc',
+        effectTime: 'k6 kör',
+        effectRange: '10 láb sugarú kör',
+        resistance: 'Asztrális',
+        description: ['A bárd énekének hatására minden olyan lény, amely 10 láb sugarú körön belül tartózkodik, hallja a dalt, Mágiaellenállása pedig sikertelen, elveszti harci kedvét, megnyukszik. Ha ebben az állapotában megtámadják, újra a fegyveréhez kap, s harcolni kezd. Ekkor már nem nyugtatható meg a dallal, sőt az énekesre fog támadni, ha teheti. A bárdok ezzel a varázslattal igen óvatosan bánnak, hiszen a hatás könnyen ellenük forditható. A varázslat erőssége 4E-nként 1 Mana-pont felhasználásával növelhető, Időtartalma a bárd dalának ideje, illetve utánna még 1k6 kör.']
+      }, {
+        name: 'Álom dala',
+        typ: 'Mentális',
+        mana: 12,
+        manaText: '12/célpont',
+        strenght: '6',
+        castTime: '3 kör',
+        effectTime: '15 kör utánna természetes alvás',
+        effectRange: '10 láb sugarú kör',
+        resistance: 'Mentális',
+        description: ['Ennek az éneknek a hatására a bárd körül 10 lábnyi körzetben tartózkodó lények, ha Mágiaellenálásuk sikertelen, mély állomba merülnek. Az igazi alváshoz a bárd énekét legalább három körig kell hallaniuk, a hatás csak utánna jelentkezik. Ekkor a dalt halló lények elalszanak, s 15 körön át fel sem ébreszthetők, csak mágia segitségével. Utánna az alvás természetessé, az álldozatcsoport közönséges módon felrázhatóvá, fellocsolhatóvá válik. A varázslat erősitése 1E-nként 1 Mp-t igényel.']
+      }, {
+        name: 'Zavarodottság dala',
+        typ: 'Asztrális',
+        mana: 35,
+        manaText: '35',
+        strenght: '25',
+        castTime: '1 perc',
+        effectTime: 'végleges',
+        effectRange: '10 láb',
+        resistance: 'Asztrális',
+        description: ['Az egyik legerősebb érzelmekre ható dal, melyel a bárd rendelkezik. Minden érzelmet a visszájára fordithat az álldozatban, ha annak Mágiaellenállása sikertelen volt. Az eddigi szeretetből gyűlölet lesz, a félelemből bátorság, a barátságból ellenszenv és megforditva. Az álldozat 25%-ban beleőrül a hirtelen változásba, s ha nem, akkor is nehéz lesz uj önmagán kiigazodnia. Minden érzelme az ellentétére változott, de a semlegesek, vagy a közel semlegesek nem alakultak át. Egy társat tehát, akihez különösen erős indulatok, érzelmek nem fűzték, most sem fog szeretni vagy gyűlölni. A varázslat a leghétköznapibb érzelmekre is hat, ennek következménye a legkevésbé megfoghatók. Például az a Keleti Barbár harcos, aki eddig egy vagyont fizetett volna a vaddisznópörcért, most, most viszolyogva fogja a kocsmáros ölébe boritani azt. A varázslat 4 Mp-vel erősithető 1 E-nként, csak egy célpontra alkalmazható, a hatása pedig végleges. Megjegyezendő, hogy ha az álldozatra egy másik esetleg ugyanaz a bárd ezt a varázslatot még egyszer ráénekli, a célpont érzelmei eredeti állapotukba rendeződnek vissza.']
+      }, {
+        name: 'Bénitás dala',
+        typ: 'Mentális',
+        mana: 8,
+        manaText: '8/célpont',
+        strenght: '7',
+        castTime: '2+k6 kör',
+        effectTime: 'k6 kör',
+        effectRange: '10 láb sugarú kör',
+        resistance: 'Mentális',
+        description: ['A bárd dalának hatására minden 10 lábnyi körzetben tartózkodó lény gondolatainak középpontjába a mágikus zene kerül, s ettől teljesen mozdulatlanná válnak. Ehhez a dalt legalább két körig kell hallaniuk, s utánna Mágiaellenállást dobniuk - sikertelenség esetén k6 körig csak a bárd zenéjére figyelnek, s érzéketlenek lesznek minden más jelenség, benyomás iránt. Az igy elbájolt álldozatok, csak a mágia megszűnése után nyerik vissza uralmukat gondolataik felett, vagy abban az esetben, ha egy körben több mint 15 Sp-t sebeznek rajtuk. A dal erősitése 1E-nként 1 Mana-pontot igényel.']
+      }, {
+        name: 'Félelem dala',
+        typ: 'Asztrális',
+        mana: 4,
+        manaText: '4/lény',
+        strenght: '6',
+        castTime: '1 perc',
+        effectTime: 'a dal hossza',
+        effectRange: '10 láb sugarú kör',
+        resistance: 'Asztrális',
+        description: ['A dal félelmet ébreszt a bárd ellenségeinek szivébe. A bárd szövetségeseire a dal nem hat, igy ők a dal alatt is a bárd közelébe maradhatnak. Az ellenfelek, akik hallják a dalt, Mágiaellenállás dobására jogosultak, s ha elvétik, azonnal menekülni kezdenek az ének forrásától. A varázslat addig tart, mig a bárd énekel, erősiteni pedig 3E-nként 1 Mana-pontért lehet.']
+      }, {
+        name: 'Feledés dala',
+        typ: 'Mentális',
+        mana: 20,
+        manaText: '20',
+        strenght: '12',
+        castTime: '3 perc',
+        effectTime: 'egyszeri',
+        effectRange: '10 láb',
+        resistance: 'Mentális',
+        description: ['A dal segitségével egyetlen nap emlékeit törölheti ki álldozatából. Csak a nap dátumára kell koncentrálnia a varázslat alatt, a tartalmát nem szükséges ismernie. Az emlékek, ha a Mágiaellenállás sikertelen, teljesen elvesznek, s a nap üres foltként marad meg az álldozat emlékezetében. Tudni fogja, hogy a nap létezett, de ennél többet nem. Emlékei nem adhatók vissza, de társai elmagyarázhatják neki, mi is történt akkor. Hogy ezt elhiszi, vagy nem az egészen más kérdés. A varázslat Hatótávolsága 10 láb, erősitése 1E-nként 2 Mana-pontot igényel.']
+      }, {
+        name: 'Emlékek dala',
+        typ: 'Mentális',
+        mana: 25,
+        manaText: '25',
+        strenght: '12',
+        castTime: '3 perc',
+        effectTime: 'végleges',
+        effectRange: '10 láb',
+        resistance: 'Mentális',
+        description: ['A dal segitségével lehetségessé válik emlékek, élmények elhelyezése az álldozat elméjében. A varázslattal maximálisan egy napi emlék irható be a memóriába, de ehhez üres helyre van szükség. Ez lehet természetes felejtés, de előidézhető a Feledés dalával is. Igy egy nap teljesen átirhatóvá válik valaki emlékezetében. Ha nincs ennyi kiesett emlék, egy-egy napba legfeljebb plusz 15 perc illeszthető be a varázslattal. A varázslat maximális hatótávolsága 10 láb, erősitése pedig 1E-nként 3 Mana-pont segitségével történhet.']
+      }, {
+        name: 'Kinok dala',
+        typ: 'Mentális',
+        mana: 4,
+        manaText: '4/kör',
+        strenght: '25',
+        castTime: '1 kör',
+        effectTime: 'a dal hossza',
+        effectRange: 'hallótávolság',
+        resistance: 'Mentális',
+        description: ['A bárd ezen varázslattal fájdalmat okozhat mindazoknak, akik a dalt halják. A fájdalom borzalmas hasogató fejfájásként jelentkezik, majd kinhullámként seper végig az egész testen. A célpont Mágiaellenállásra jogosult a varázslat ellen. Amennyiben az ME dobás sikertelen, az álldozat 1k6 Sp-t veszit körönként. A dal annyi ideig tartható fenn, mig a bárd kivánja, s Mana-pontjai ezt lehetővé teszi. A hatósugár mindég a hallótávolsággal egyezik meg.', 'FIGYELEM! A dalt énekelni, nem bömbölni kell, igy a hatósugár - efféle módon - nem növelhető.']
+      }, {
+        name: 'Bájolás dala',
+        typ: 'Asztrális',
+        mana: 5,
+        manaText: '5/lény',
+        strenght: '6',
+        castTime: '1 perc',
+        effectTime: '2 óra',
+        effectRange: '10 láb sugarú kör',
+        resistance: 'Asztrális',
+        description: ['A dal segitségével a bárd 10 lábnyi körzeten belül minden hallgatóját barátjává teheti. Ha a hallgatók Mágiaellenállása sikertelen volt, követni, s lehetőségeik szerint segiteni fogják a bárdot. Ha a bárd - fegyverrel vagy mágiával - megtámadja őket, a varázslat hatása semmivé foszlik. Az elbájolt lények mindi igazat fognak válaszolni a bárd kérdéseire, s egy esetleges harmadik féllel vivot harcban is a védelmére kelnek. A varázslat hatóideje 2 óra, erősitése pedig 1E-nként 2 Mana-pont segitségével történhet.']
+      }, {
+        name: 'Halál dala',
+        typ: 'Asztrális',
+        mana: 45,
+        manaText: '45/lény',
+        strenght: '15',
+        castTime: '1 kör',
+        effectTime: 'végleges',
+        effectRange: '10 láb sugaró kör',
+        resistance: 'Asztrális',
+        description: ['A bárd legkegyetlenebb fegyvere a lant - szól a mondás Ynev-szerte. A Halál dala valóban pusztulást hozhat minden lényre, aki hallja. Ha a mágiaellenállás sikertelen, az álldozat Asztráltestét megsemmisitő csapás éri, s a lélek szétszakadásának sokkja halált okoz. A célpontnak a bárd 10 lábnyi körzetében kell tartózkodnia, s hallania kell a dalt. A varázslat 1E-nként 4 Mana-pont befektetésével erősithető.']
+      }, {
+        name: 'Bátorság dala',
+        typ: 'Asztrális',
+        mana: 7,
+        manaText: '7',
+        strenght: '5',
+        castTime: '1 kör',
+        effectTime: 'a dal hossza',
+        effectRange: '10 láb vagy 100 láb',
+        resistance: '-',
+        description: ['A bárd ezzel a varázslattal társainak harci kedvét növelheti. A varázslat 10 láb körzetben hatásos, s minden a bárdal szövetséges lényre hat. Minden olyan lény KÉ-je 5-tel, TÉ-je 15-tel nő, aki a varázslat pillanatában a dalt hallota, és a Hatótávon belül tartózkodott.', 'A varázslat másik alkalmazási módja esetén a Hatótáv 100 lábsugarú kör, melynek területén a dal szinte végigsöpör. Ez a bárddal szövetséges harcosoknak csak a harci kedvét, lelkesedését növeli, s Bátorságukhoz 3-at ad. Ideális varázslat csaták során. A távolság dalával kombinálva különösen ütőképessé válhat.']
+      }]
+    },
+    hangMagia: {
+      name: 'Hangmágia',
+      description: ['A megtévesztés ynevi művészei a bárdok, olyannyira, hogy Hang- és Fénymágiájukkal - mely ugyan semmiféle anyagi hatással nem bir - sokszor ütőképesebbek lehetnek, mint más mágiahasználók.', 'Kevés azon Hangmágiákhoz tartozó varázslatok száma, melyeket önálló alkalmazásra szántak. Ezen varázslatok inkább támogatást bisztositanak a Fénymágia illúzióinak, vagy a Dalmágia hatásait befolyásolják. Összefonódnak a más csoportba tartozó varázslatokkal, tökéletes egységet alkotva velük.'],
+      spells: [{
+        name: 'Távolság dala',
+        typ: 'Hangmágia',
+        mana: 10,
+        manaText: '10/szorzó',
+        strenght: '5',
+        castTime: '1 szegmens',
+        effectTime: 'a hangositott dal ideje',
+        effectRange: '-',
+        resistance: '-',
+        description: ['Ez a varázslat bármely daltipusú mágiával együtt alkalmazható. A Dalmágia hangerejét többszörösére növeli, igy a hatósugár is nő. A hatósugár 2, 3, 4-szeresére növelhető, méghozzá a kétszeres növelés 10, a háromszoros 20, a négyszeres 30 Mana-pontért stb. A varázslat hatóideje megegyezik a hangositott dal időtartalmával.']
+      }, {
+        name: 'Mágia dala',
+        typ: 'Hangmágia',
+        mana: 10,
+        manaText: '10',
+        strenght: '5',
+        castTime: '1 szegmens',
+        effectTime: 'mint az eredeti varázslat',
+        effectRange: '-',
+        resistance: '-',
+        description: ['Ez a dal lehetőséget ad a bárdnak arra, hogy nem daltipusú varázslatokat muzsikálás vagy éneklés leple alatt alkalmazzon. A két varázslat egyszerre lép működésbe, de a Mágia dala csak a másik varázslat megidézéséhez - és annak leplezéséhez - szükséges. Igy észrevétlenül varázsolhat a bárd akár nagy tömegekben is. hiszen a megfigyelők csak annyit tapasztalnak, hogy énekel.']
+      }, {
+        name: 'Dalegyesités',
+        typ: 'Hangmágia',
+        mana: 18,
+        manaText: '18',
+        strenght: '5',
+        castTime: '1 szegmens',
+        effectTime: 'mig a varázslatok tartanak',
+        effectRange: '-',
+        resistance: '-',
+        description: ['Ez a varázslat pusztán egy akkord, egy felütés, melynek segitségével két, különböző hatású dalból egy harmadik születik. A zene összetettebé, bonyolultabbá válik, a két varázslat pedig egyszerre alkalmazható. A varázslatok nem idézehtők meg egy azonos körben, először az egyik majd a másik jön létre. A kettő ezek után együtt működik. Ilyen módon konbinálható, például a Nyugtatás dala és az Álom dala- mely utóbbi hatásához e varázslat nélkül önmagában is több körre lenne szükség. A két együtesen ható varázslat minden tekintetben úgy működik, mindha a bárd egyenként használna őket. A Dalegyesitést a Mágia dalával együtt alkalmazva nem daltipusú varázslatok is működhetnek a fenti módon.']
+      }, {
+        name: 'Beszélő múlt',
+        typ: 'Hangmágia',
+        mana: 19,
+        manaText: '19',
+        strenght: '1',
+        castTime: '1 perc',
+        effectTime: '15 perc',
+        effectRange: '20 láb sugarú kör',
+        resistance: '-',
+        description: ['A varázslat segitségével a bárd hallhatja egy rég elhunyt személy legfontosabb szavait. Ez egyfajta tudatalatti kapcsolat a lélekkel, de nem kétirányú komunikáció, mivel a bárd nem ért a Nekromanciához. Csak olyan lényeges, a személyhez az idő táblatában is kötődő mondatokat hallhat, melyek az elhunyt legmaradandóbb gondolatai, legfontosabb felfedezései avagy észrevételei voltak. A varázslattal mármilyen egykor élt személy szóra birható, de az mindég saját anyanyelvén fog megszólalni, illetve azon a nyelven, melyen az eredeti szavakat kimondta. A varázslat hatóideje 15 perc, ennél hoszabban senki szavait nem lehet visszaidézni.']
+      }, {
+        name: 'Csend',
+        typ: 'Hangmágia',
+        mana: 10,
+        manaText: '10',
+        strenght: '8',
+        castTime: '1 kör',
+        effectTime: '1kör/szint',
+        effectRange: '8 láb sugarú kör',
+        resistance: '-',
+        description: ['A bárd ezzel a varázslattal minden hangot megszüntethet egy adott területen. Ez egy maximum 8 láb sugarú kör, melyen belül semmiféle hang nem lesz észlelhető. Ez a varázslók működését is megneheziti, hiszen a varázslataik hangkomponense mindaddig nem hallható, mig az adott területen belül tartózkodnak, igy minden varázslat megidézése kétszer annyi időbe kerül majd. A varázslat felhasználható lopakodáshoz is, hisz igy a bárd teljesen zaj nélkül közlekedhet. A varázslat hatóideje egy kör szintenkénet.']
+      }, {
+        name: 'Zajkeltés',
+        typ: 'Hangmágia',
+        mana: 1,
+        manaText: '1',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: '1 kör',
+        effectRange: '15 láb',
+        resistance: '-',
+        description: ['Ezzel a rövid ideig tartó varázslattal a bárd tetszőleges zajt idézhet fel egy kiválasztott irányból. A varázslat akkor hasznos, ha a szükséges hang csak egy ajtó nyikorgása, egy tárgy hangos puffanása vagy futó léptek dobogása a távolban. Ez sokkal kevésbé Manaigényes mintha a Hangteremtést használná. A Zajkeltés hossza maximális 1 kör lehet.']
+      }, {
+        name: 'Távoli üzenet',
+        typ: 'Hangmágia',
+        mana: 25,
+        manaText: '25',
+        strenght: '25',
+        castTime: '2 perc',
+        effectTime: 'egyszeri',
+        effectRange: 'korlátlan',
+        resistance: '-',
+        description: ['A varázslat segitségével a bárd kommunikálhat egy távoli személyel. A kivánt üzenet nem lehet hoszabb 2 percnél, de a távolság nincs megkötve. A bárdnak csak a személyre kell gondolnia, s elsuttogni az üzenetet. Az adott személy/lény lesz a célpont. és csak ő halja meg az elsuttogot szavakat.']
+      }, {
+        name: 'Mágikus hang',
+        typ: 'Hangmágia',
+        mana: 8,
+        manaText: '8',
+        strenght: '1',
+        castTime: '1 kör',
+        effectTime: 'végleges',
+        effectRange: 'érintés',
+        resistance: '-',
+        description: ['A varázslat egy láthatalan hangforrást teremt, mely 25 szó tárolására képes. A szöveget csak akkor mondja ki, ha bárd álltal meghatározott feltételek teljesülnek. Ezek lehetnek időponthoz, személyhez, eseményekhez köthetőek is. Ilzen feltétel lehet például, hogy a hang akkor szólaljon meg, ha valaki elhalad a hangforrás előtt, vagy ha valaki fegyvert ránt a hangforrás álltal őrzött teremben. A rejtett hangforrás legfeljebb kiáltás erősségű hangkibocsájtásra lehet képes, s nem csak beszéd hanem zene is tárolható benne. Ennek hossza 2 perc lehet, s a bárdnak elő kell játszania a később hallani kivánt motivumokat. A varázslat mindaddig várakozik, mig a megszabott feltétel nem teljesül.']
+      }, {
+        name: 'Nyelvzavarás',
+        typ: 'Hangmágia',
+        mana: 6,
+        manaText: '6',
+        strenght: '5',
+        castTime: '1 szegmens',
+        effectTime: 'perc/szint',
+        effectRange: '15 láb',
+        resistance: '-',
+        description: ['A bárd ezt a varázslatot bármely lény ellen használhatja. Hatására a személy, vagy kreatúra szavai más nyelven hangzanak el, mint amelyiken az illető kimondta őket. Hogy a jelenség még bizarabb és zavaróbb legyen, a forditás nyelve sem egységes, minden egyes szó más és más nyelven szólal meg. Ez lehetetlenné tehet mindenfajta kommunikációs kisérletet. A mágia ellen nincs ellenállás, mert kizárólag a hangot változtatja meg, ami a lénynek már nem része. A varázslat hatóideje egy perc szintenként, s a célpont legfeljebb 15 láb távolságban tartózkodhat a varázslat megidézésének pillanatában. A varázslat hatása Mágia szétoszlatásával megszüntethető.']
+      }, {
+        name: 'Hamis beszéd',
+        typ: 'Hangmágia',
+        mana: 7,
+        manaText: '7',
+        strenght: '2',
+        castTime: '1 szegmens',
+        effectTime: 'perc/szint',
+        effectRange: '15 láb',
+        resistance: '-',
+        description: ['Ezzel a varázslattal a bárd maga beszélhet a kiválasztott célpont helyett. Az álldozat elnémul, a hangok azonban - látszólag legalábbis - változatlanul felőle szólnak. A hihetőség kedvéért a bárdnak figyelnie kell az álldozatát, hiszen ha az beszél, tátog neki is mondani kell valamit, nehogy gyanút keltsen. Ha másik halgat, ajánlatos a bárdnak is hallgatnia. A beszélő, akinek a hangja semmivé enyészet, saját szavait fogja hallani, s a háttérbe nagyon halkan, a bárd beszédét is. A bárd hangja a sajátja marad, igy ha valaki ismeri az álldozat igazi hangját, könnyen rájöhet a csalásra. 8 Manapont befektetésével azonban a bárd ezt is megakadályozhatja: hangja ekkor az álldozatéhoz vállik hasonlatossá. Ennek feltétele az, hogy a bárd legalább egyszer hallja önállóan szólni az illetőt. A varázslat még igy is gyanussá válhat, ha a harmadik fél ismeri az álldozat hanghordozását vagy beszédstilusát, esetleg ért a szájról olvasáshoz. A varázslat hatótávolsága 15 láb, Időtartama 1 perc szintenként.']
+      }, {
+        name: 'Rejtett üzenet',
+        typ: 'Hangmágia',
+        mana: 5,
+        manaText: '5',
+        strenght: '1',
+        castTime: '2 perc',
+        effectTime: 'egyszeri',
+        effectRange: 'hallótávolság',
+        resistance: '-',
+        description: ['A varázslat segitségével a bárd hangosan üzenhet akár tömegben is, szavait csak az álltala kiválasztottak fogják megérteni. A mágia megidézése után a bárd 2 percen keresztül beszélhet, mondanivalója érthetetlen marad. Jóllehet hangosan szól, ám a betűk sorrendje teljesen felcserélődik. A bárd szintenként egy lényt kiválaszthat, aki a betűket hibátlan sorrendben hallja, az zavartalanul kapja meg az üzenetet. A varázslat hatósugara a hallótáv, ideje pedig a már emlitett 2 perc.']
+      }, {
+        name: 'Hangtanulmány',
+        typ: 'Hangmágia',
+        mana: 2,
+        manaText: '2',
+        strenght: '1',
+        castTime: '3 perc',
+        effectTime: 'végleges',
+        effectRange: '5 láb',
+        resistance: '-',
+        description: ['Szinte mindenben hasonlit a tanulmány nevű varázslathoz. Általa a tanulmányozott lény hangja lesz újra meg újra felhasználható. Ha a varázslatot a bárd konkrét személy hangjának elraktározására használja, kétszer kell megidéznie a varázslatot, ugyanúgy mint a Tanulmány esetén. A varázslat segitségével utánozható lesz a hangerősség, magasság és hanghordozás is, a stilus azonban nem. Ezt a bárdnak kell megtanulnia, el kell lesnie, minden misztikum nélkül. A varázslat folyamatos koncentrációt igényel, ideje 3 perc.']
+      }, {
+        name: 'Hangutánzás',
+        typ: 'Hangmágia',
+        mana: 4,
+        manaText: '4',
+        strenght: '1',
+        castTime: '3 szegmens',
+        effectTime: '15 perc/szint',
+        effectRange: '35 láb',
+        resistance: '-',
+        description: ['A varázslat hasonlit a lényteremtéshez, csak éppen hangal hajtja végre a bárd. A kiválasztott lény hangmintája tetszőleges pontból szólaltatható meg, s ez nemcsak hangszálak álltal keltett rezgések, de a lény álltal csapott egyébb zajokat is magába foglalja. A felfedezési esélyek megegyeznek a Lényteremtésben leirtakkal, s a Hangtanulmány varázslat is ugy hat rá, mint a Tanulmány a Lényteremtére. A varázslat bármilyen lény hangját létrehozhatja, s a bárdnak csak akkor kell rá koncentrálnia, ha a teremtett hang beszél. A bárd csak álltala ismert nyelveket használhat a varázslatban, s ennek szavait is meg kell formálnia elméjében, csak akkor kerülhetnek kimondásra. A varázslat 15 percig tartható fenn szintenként, hatótávolsága 35 láb, s a lényteremtéssel együtt alkalmazva mindég követi a megalkotott képet, ha a bárd úgy kivánja.']
+      }, {
+        name: 'Hangorkán',
+        typ: 'Hangmágia',
+        mana: 22,
+        manaText: '22',
+        strenght: '4',
+        castTime: '4 szegmens',
+        effectTime: '1 szegmens',
+        effectRange: '12 láb sugarú kör',
+        resistance: 'Állóképesség-próba',
+        description: ['A bárd ezzel a varázslattal hatalmas erejű hangot hoz létre, mely orkánként söpör végig a környéken, s még mérföldekkel távolabb is hallható. A varázslattal szemben minden hallószervel rendelkező élőlénynek Akaraterő-próbát kell tennie. Ha ez sikertelen 2k6 Sp-t veszitenek és örökre megsüketülnek. A sikeresen ellenállók csak k6 Sp-t veszitenek, s mindössze k10 percre válik hallásuk használhatatlanná. A 12-nél kevesebb maximális Fp-jű lények, ha talpon maradtak egyáltalán, menekülni kezdenek a borzalmas hang forrása elől, s 5 körig legjobb tudásuk szerint távolodnak a bárdtól. A varázslat hatóköre 12 láb, minden azon belül tartózkodó lényre hat - kivéve természetesen a bárdot.']
+      }, {
+        name: 'Hangcsapás',
+        typ: 'Hangmágia',
+        mana: 3,
+        manaText: '3',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: '1 szegmens',
+        effectRange: '50 láb',
+        resistance: '-',
+        description: ['A varázslattal a bárd szörnyű, metsző hangot hallat, mely bántja a közelében tartózkodók fülét, s több száz lábra is elhallatszik. A hangforrás szomszédságában, minden nem mágikus üvegtárgy és tükör szilánkokra törik. A varázslat 50 lábnyi körön belül bármilyen távolságban megidézhető, az üvegtörés hatósugara 10 láb + 1/2 láb szintenként. A hang egy szegmensen keresztül hallható.']
+      }, {
+        name: 'Hangidézés',
+        typ: 'Hangmágia',
+        mana: 8,
+        manaText: '8',
+        strenght: '1',
+        castTime: '5 kör',
+        effectTime: '2 perc/szint',
+        effectRange: '10 láb',
+        resistance: '-',
+        description: ['A bárd ezzel a varázslattal valamely rég történt esemény hangjait idézheti fel. Csak olyan események jöhetnek szóba, melyeknek a bárd fültanúja volt: a hangok az emlékezetéből származnak. A varázslat folyamatos koncentrálást igényel, tartalma alatt szokványos tevékenység nem végezhető - kivételt csak az éneklés és muzsikálás jelent, melyekre a bárd ilyen állapotban is képes. A varázslat segitségével a bárd, miközben hősi éneket dalol, megidézheti annak valódi hangjait is, ezzel szinesitve előadását. A varázslat hatóideje 2 perc szintenként.']
+      }, {
+        name: 'Bűvhangszer',
+        typ: 'Hangmágia',
+        mana: 4,
+        manaText: '4',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: '10 perc/szint',
+        effectRange: 'a bárd hangszere',
+        resistance: '-',
+        description: ['A bárd hangszerének hangját változtathatja e varázslat segitségével. A hangszer bármilyen, a bárd álltal ismert hangszer hangján megszólalhat, s tökéletesen utánozza azt. A bárd új hangokat, hangzást is létrehozhat, ha talál egy viszonyitási hangot, amiből a dallamskála létrejöhet. Lehet ez madárhang, vagy akár távoli, ismeretlen hangszer egy-egy dallamfoszlánya is. További Mana-pontok felhasználásával a hangzás megsokszorozható, avagy más hangszerek is szólhatnak a mű alatt. A megsokszorozás több zenész hatását idézi, s plusz szólamonként 2 Mana-pontba kerül. Ha a szólamot a bárd szeretné eltolni, azaz kánont létrehozni, erre is van módja, de ennek ára további két Mana-pont. Ha más hangszer is kapcsolódik a zenedarabba, ennek létrehozása 3 Mp, szólamhoz csatolása 2 Mp, ami összesen 5 Mp-t jelent. Ha az új hangszer szólama kánonban kerül felhasználásra, ez további 2 Mp, de az új eszköz szólamai is sokszorozhatóak 2 Mp-ért. Igy egy igazi, magas Tapasztalati Szintű bárd 10-15 ember helyett is játszhat több, egymástól különböző hangszeren, kánonhatást keltve. A varázslat hatóideje 10 perc szintenként.']
+      }, {
+        name: 'Hangteremtés',
+        typ: 'Hangmágia',
+        mana: 2,
+        manaText: '2',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: '5 perc/szint',
+        effectRange: '12 láb sugarú kör',
+        resistance: '-',
+        description: ['A varázslattal a bárd egy tetszőleges pontból hangot bocsájthat ki. Ez lehet a saját hangja, de bármilyen természetes, vagy mesterséges zaj is, esetleg más nyelvű beszéd, vagy állathang is. A kijelőlt hangforrásnak 12 láb sugarú körön belül kell lennie. Hangja nem lehet harsányabb a kiáltásnál, de ezt a megkötést leszámitva, a bárd azt tesz, amit akar. A varázslatra végig koncentrálnia kell, az Időtartam maximum 5 perc szintenként.']
+      }, {
+        name: 'Hangkivetités',
+        typ: 'Hangmágia',
+        mana: 6,
+        manaText: '6',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: '1 óra',
+        effectRange: '50 láb',
+        resistance: '-',
+        description: ['Hatása a Hangteremtés varázslatáéra emlékeztett, jellegében azonban különbözik attól. A bárd ebben az esetben nem teremt hangot, hanem saját és közvetlen környezetének hangjait vetiti ki más helyre. A varázslat önnmagában is használható, de különös előszeretettel alkalmazzák a bárdok a Fantom varázslattal együtt. Ekkor ugyanis a képhez a hang is megteremtődik, s az illúzió majdnem tökéletessé válik. Adódhatnak persze apróbb hibák, például az illuzió száraz úton halad, mialatt a bárd mély pocsolyába lép- ilyenkor ugyanis a locsanás hangjának is az illuzió lezs a forrása, s ez bizony gyanus lehet. A varázslat hatósugara 50 láb, Időtartama pedig 1 óra.']
+      }]
+    },
+    fenyMagia: {
+      name: 'Fénymágia',
+      description: ['A bárd varázslatainak többsége ebbe a csoportba tartozik. A varázslók álltal lenézett illuziók ezek, melynél veszedelmesebb fegyver kevés akad a mágiát nem ismerők ellen.', 'A Fénymágia az Elemi Mágia sajátos változata, mely a megidézett fényt nem elemi formájában idézi meg, hanem a bárd kivánta minta szerint alakitja át. Az erősitésnek nem kell negynak lennie, igy az illuziók viszonylag kevés Mana-pont befektetésével is kápráztatók lehetnek. A Fénymágia varázslatai sohasem hatnak másra, csak a fénysugarakra, igy minden álltaluk létrehozott kép valódi természete könnyen felismerhető, ha valaki megkiséri megérinteni őket. Keze ugyanis átsiklik a fényjátékon. Ám az illuzió felismerése nem jelenti azt, hogy a kép eltűnik. Az illuzió továbbra is ott marad, s a mögötte található tárgyakat eltakarja.', 'Az illúziók ellen leginkább a varázslók védettek, mert tapasztalatuk oly nagy a létező anyaggal kapcsolatos mágiában, hogy a Fénymágia álltal létrehozott képek nem tévesztik meg őket egykönnyen. Minden efféle varázslat felfedezésének esélye számukra 30%. Ha a varázsló megdobja ezt a százalékot, első pillantásra felismeri az apró pontatlanságokat a fény alkotta képben, s rájön illúzió voltára. Azoknál a varázslatoknál, ahol felfedezési esély szerepel, a varázslók 30%-a ehhez hozzáadódik.'],
+      spells: [{
+        name: 'Láthatatlanság',
+        typ: 'Fénymágia',
+        mana: 4,
+        manaText: '4',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: '1 óra',
+        effectRange: '-',
+        resistance: '-',
+        description: ['Ez a varázslat kétélű fegyver. Alkalmazásakor a bárd fizikális látással ( normál, infra, ultra ) nem felfedezhető. A fény egyszerűen átsiklik rajta, ebből adódik azonban kellemetlen következménye, hogy a bárd számára is láthatatlan lesz : nem képes érzékelni azt. Röviden szólva a varázslat idejére megvekul. A varázslat ideállis lehet rövid rejtőzködésre vagy olyan alkalommal, mikor a mozdulatlanság, a világtalanság nem okoz gondot az alkalmazónak. A varázslat maximum egy órán át tart, addig a bárdot csak hang, asztrális illetve mentális jelenlét alapján lehet felfedezni.']
+      }, {
+        name: 'Aura',
+        typ: 'Fénymágia',
+        mana: 3,
+        manaText: '3',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: '10 kör',
+        effectRange: '10 láb',
+        resistance: '-',
+        description: ['A bárd fénylő kontúrvonalat helyez el máson, avagy saját magán. Ha magára olvassa a varázslatot, a fény derengő, hatalmat sejtető aura lesz, mely sokkal erősebbnek, tökéletesebbnek mutatja őt. Szépsége időlegesen eggyel nő, s felépitése is megváltozhat. Ha a fényaura másra kerül, annak testét vékony, erős fénycsik öleli körül. Igy sötétben könnyebb eltalálni, VÉ-je 10-zel csökken kézi, illetve 20-szal dobó vagy célzófegyverek ellen. A fényaura világosban is segiti a támadást, az álldozat VÉ módositói feleződnek ( -5 közelharc, -10 távolsági ). Az aura 10 körig marad a kiválasztott lény körül, azután eltűnik.']
+      }, {
+        name: 'Vakság okozása',
+        typ: 'Fénymágia',
+        mana: 8,
+        manaText: '8',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: '3 kör',
+        effectRange: '10 láb',
+        resistance: '-',
+        description: ['A mágia meglehetősen erős, nincs ellene Mágiaellenállás. Lényege, hogy az áldozat szeme előtt egy hajszálnyival minden fényt kiolt - akár egy hártyavékony sötétségvarázs. Az álldozat csak a varázslat hatóidejének lejártával lesz képes újra látni. Az időtartam 3 kör, de 4 Mana-pontért ez további 3 körrel növelhető.']
+      }, {
+        name: 'Ködalak',
+        typ: 'Fénymágia',
+        mana: 4,
+        manaText: '4',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: '3 kör/szint',
+        effectRange: '-',
+        resistance: '-',
+        description: ['A varázslat hatására a bárd körvonalai elmopsódnak, ez jelentősen megzavarja ellenfeleit. Minden ellene irányzott támadás, ha azt kézi fegyverrel hajtsák végre, 15-tel, ha dobó vagy lőfegyverrel, 30-cal csökken. A varázslat hatóideje 3 kör szintenként, s a bárd csak önnön magára alkalmazhatja.']
+      }, {
+        name: 'Fantom',
+        typ: 'Fénymágia',
+        mana: 23,
+        manaText: '23',
+        strenght: '3',
+        castTime: '3 szegmens',
+        effectTime: '1 óra',
+        effectRange: '-',
+        resistance: '-',
+        description: ['A bár ezen varázslattal láthatatlanná válhat, ám képe mégsem tőnik el a szemlélők elől. Az önnön testéről visszaverődő vénysugarakat ugyanis áthelyezi a tér egy tetszőleges, ám 15 lábon belül eső pontjára. A bárd képe tehát ott jelenik meg. Az illuzió tökéletes és mindenben hiven követi a bárd mozdulatait. Figyelem! A mozdulatok nem hamisithatóak, s a hang is mindég a valódi bárd irányából érkezik. A bárd egyébbként bármely pillanatban belesétálhat saját illúzióképébe, a varázslatot ez nem befolyásolja. Igy, ha beszélni szeretne, a hang a megfelelő helyről jön majd. A varázslat hatóideje 1 óra. Az illúzió sohasem távolodhat el 15 lábnál meszebb létrehozójától.']
+      }, {
+        name: 'Hasonmás',
+        typ: 'Fénymágia',
+        mana: 6,
+        manaText: '6/hasonmás',
+        strenght: '2',
+        castTime: '2 szegmens',
+        effectTime: '5 kör',
+        effectRange: '-',
+        resistance: '-',
+        description: ['E varázslat segitségével a bárd létrehozhatja saját képének pontos mását, egy látványillúziót. A varázslat sokban hasonlit a Fantomhoz, ám fontos különbség, hogy a bárd e varázslat során maga is látható marad. Az összes létrejövő illuzió követni fogja minden mozdulatát, s tökéletesen megkülönböztethetetlen lesz tőle. A varázslattal 6 Mana-pontért egy hasonmás teremthető, s minden további 6 Mp-ért egy-egy. A hasonmások 5 körig léteznek, csak akkor tűnnek el, ha az időtartam lejár, vagy a bárd eloszlatja őket.']
+      }, {
+        name: 'Félelmes fegyver',
+        typ: 'Fénymágia',
+        mana: 3,
+        manaText: '3',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: '8 kör',
+        effectRange: 'fegyver',
+        resistance: '-',
+        description: ['A bárd egyik ravasz illúziója. Ha kardot ránt, s ráolvassa ezt a varázslatot, a fény kedve szerint táncol a pengén. A penge kéken dereng, avagy lángok övezik, netán ragyogóan fénylik. A sebzésre ez a fény nincs hatással, de az ellenfél harci kedvére annál inkább - igaz, csak akkor, ha még ismeretlen számára ez az illúzió. Amennyiben igy van és nem dobja meg Intelligenciapróbáját, bizonytalanul harcol majd tovább, TÉ-je, VÉ-je 5-tel csökken. A varázslat 8 körig tart, azután eloszlik. Ha a lény tudvalehetőleg retteg a kiválasztott anyagtól ( pl állatok a tűztől ), a módositók a következők szerint változnak: TÉ: -15, VÉ: -5']
+      }, {
+        name: 'Bűvharc',
+        typ: 'Fénymágia',
+        mana: 16,
+        manaText: '16',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: 'kör/szint',
+        effectRange: 'önmaga',
+        resistance: '-',
+        description: ['Összetett fénymágia, segitségével a bárd közelharcan zavarja meg ellenfelét. A varázslat hatása ugyanis a következő: a bárd fegyvert forgató keze láthatatlanná halványul, illúzióképe elválik a  valóságos kéztől, s harc közben egyéni életet él. Csak valós, végrehajtható mozgásokat végez, igy elég nehezen fedezhető fel a csalás. Az illúziókéz és fegyver nem okoz valódi sebzést, de a varázslat erre is megoldást kinál: az illuziófegyver akkor csap le, mikor a valóságos is célba talál. A harc igy meglehetősen érdekes lesz, hiszen az ellenfél mindég az illúziófegyver ellen védekezik, ám egészen máshonnansújt le rá a valódi. Ebből a hátrányból fakadóan a védekezőértéke a felére csökken. Ha rájön arra, hogy a fegyver és a kar csak illúzió, a VÉ-je háromnegyede lesz az eredetinek. JK esetében magának a játékosnak kell a trükköt felismernie, NJK-k -4-gyel Intelligenciapróbát dobhatnak. A varázslat hatóideje 1 kör szintenkénet.']
+      }, {
+        name: 'Szépségvarázs',
+        typ: 'Fénymágia',
+        mana: 12,
+        manaText: '12',
+        strenght: '2',
+        castTime: '1 kör',
+        effectTime: '6 óra',
+        effectRange: '-',
+        resistance: '-',
+        description: ['A varázslat segitségével a bárd elváltoztathatja külsejét, s rövid időre ugyan, de Szépségét 20-as értékre növelheti. A varázslat tisztán fényalapú illúzió, a felvett arc formáját a felhasználó nem befolyásolhatja. A varázslat minden alkalommal ugyanazt az arcot fogja létrehozni, mely az első alkalommal kialakul. A varázslat hatóideje 6 óra, de 8 Mana-pont befektetésével további 8 órával növelhető meg.']
+      }, {
+        name: 'Tárgy láthatatlanság',
+        typ: 'Fénymágia',
+        mana: 8,
+        manaText: '8',
+        strenght: '1',
+        castTime: '1 kör',
+        effectTime: '3 kör/szint',
+        effectRange: '12 láb',
+        resistance: '-',
+        description: ['A bárd ezzel a varázslattal eltüntethet tárgyakat, melyek 12 lábnyi körzetében találhatóak. A tárgynak csak a képe tűnik el, ezért továbbra is tapintható, hallható, érezhető lesz. Az illúzió segitségével egyszerűen elrejthető a tárgy a kutató tekintet elől, avagy bárki zavarba hozható, ha valamelyik ruhadarabja eltűnik. Ez lehetséges a személyes aura jelenlétében is, mert a bárd nem a ruhára varázsol, hanem az arról viszaverődő fényre. A tárgy nem lehet nagyobb 1x1x1 lábnál szintenként, s a varázslat egy tárgyra mondható rá. A bárd saját fegyverére is alkalmazhatja a varázslatot, ekkor az álltala megtámadott VÉ-je közelharcban 25-el csökken. Ám ha a bárd dobta vagy kilőtte a fegyvert, a módositó értéke -50-re változik. A távolság miatti VÉ nagysága nem változhat a láthatatlan lövedék miatt! A varázslat hatóideje 3 kör szintenként.']
+      }, {
+        name: 'Alakváltás',
+        typ: 'Fénymágia',
+        mana: 15,
+        manaText: '15',
+        strenght: '1',
+        castTime: '1 kör',
+        effectTime: '8 kör/szint',
+        effectRange: '-',
+        resistance: 'leirásban',
+        description: ['A bárd megváltoztathatja külsejét, de ez is csak látványillúzió lesz. A formának nem kell emberinek lennie, a nem, a testmagasság, a súly is szabadon változhat. Ha a bárd kokrét személy vonásait kivánja felvenni, erre is nyilik lehetőség, de ez nem 15 hanem 30 Mp-t igénylő művelet. A személy illúzióját az alakot ismerők 10%-ban ismerhetik fel, s mindegyikük külön dobást dobhat az illúzió felfedezésére. A hang is a bárd eredeti hangja lesz, igy ennek használata, ha a varázslatot más módszerekkel nem támogatják meg, mindenképpen felfedi az illúziót. Fontos, hogy az illúzió követhesse a bárd mozgását, igy hihető maradjon. Ezért a felvett alaknak egyetlen fejjel, és legfeljebb 4 végtaggal kell rendelkeznie. Az illúzióra igy nem kell folyamatosan koncentrálni, hiszen a kép saját mozgásmintáját követheti.', 'Amennyiben a felvett lény alakja a fent leirtaknak nem felel meg, az illúzió könnyen felfedezhető. A bárd a lény semmiféle tulajdonságát nem kapja meg, az átváltozás csak fényjáték lesz, semmi egyébb. Az illúzió annál hihetőbb minnél közelebb áll az utánzott lény az emberhez, s minnél többször vette fel az adott alakot a bárd a korábbiakban-hiszen utánozni kell a lény jellegzetes mozgásformáit ( kutya esetében például négykézlábra kell ereszkednie stb). Az első alkalommal felvett nem humanoid alak felfedezésének esélye 45%, ha bárd mozog 25%, ha mozdulatlan marad.A felfedezés esélye minden alkalommal 4%-al csökken, mig el nem éri az 5%-ot, ami minden nem humanoid alak illúziójának minimális felfedezési esélye. Minden megfigyelő külön dobásra jogosult a felfedezéshez. A varázslat hatóideje 8 kör szintenként.']
+      }, {
+        name: 'Tárgyalkotás',
+        typ: 'Fénymágia',
+        mana: 5,
+        manaText: '5',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: '3 perc/szint',
+        effectRange: 'érintés',
+        resistance: '-',
+        description: ['A varázslattal bármilyen tárgy illúziója létrehozható. A tárgy méretei nem haladhatják meg a 1/2 köblábnyi térfogatot szintenként, más kikötés nincs. A tárgy fegyver is lehet, de sebzést nem okozhat, hiszen anyagtalan. Az igy létrehozott tárgyak álltalában nem használhatóak eredeti céljaikra, kivétel ez alól a festmény vagy a tükör. A tárgyak bármilyen távolságba eltávolodhatnak a bárdtól, többet nem szükséges koncentrálni rájuk. A tárgyak szintenként 3 percig maradnak meg, azután semmivé oszlanak-minthogy igazából sosem léteztek.']
+      }, {
+        name: 'Tárgy átváltoztatás',
+        typ: 'Fénymágia',
+        mana: 6,
+        manaText: '6',
+        strenght: '1',
+        castTime: '2 szegmens',
+        effectTime: '1 nap/szint',
+        effectRange: 'érintés',
+        resistance: '-',
+        description: ['A varázslat hasonló a Tárgy alkotáshoz, de célja más. Létező tárgyra kell rámondani, mire annak anyagminősége, szine, kidolgozottsága látszatra átalakul. A tárgy mibenléte az illúzióval nem változtatható meg, azaz az asztal mindenképpen asztal marad, eredeti formáját megtartva. Anyaga viszont megváltoztatható a látvány erejéig. Az eddigi faasztal lehet pl kőből, vagy akár aranyból is. A tárgy maximális térfogata szintenként 2 köbláb lehet. Az illúzió viszonylag tartós, mivel szorosan kötődig a tárgy anyagi valóságához. Igy szintenként egy napig is fennmaradhat, ha a bárd úgy kivánja. Az átalakulás csak a látványt érinti, igy az érintés rögtön érzékelteti a csalást. De addig még annyi minden történhet...']
+      }, {
+        name: 'Fényvarázs',
+        typ: 'Fénymágia',
+        mana: 3,
+        manaText: '3',
+        strenght: '1',
+        castTime: '1 kör',
+        effectTime: 'perc/szint',
+        effectRange: '15 láb sugarú kör',
+        resistance: '-',
+        description: ['A varázslat segitségével a bárd a környezet fényviszonyait változtathatja meg, a teljes sötétségtől a verőfényig. A varázslat 15 láb sugarú körben hat, azon túl minden változatlan marad. A fényerőség, és a megvilágitó fény szine, forrása is megkötés nélkül változtatható, de e fény semmiféleképpen nem okozhat vakságot, nem sebezhet - legfeljebb a sötétség olyan kreatúráain, melyek érzékenyek a fényre.']
+      }, {
+        name: 'Fénysugár',
+        typ: 'Fénymágia',
+        mana: 9,
+        manaText: '9',
+        strenght: '3',
+        castTime: '2 kör',
+        effectTime: '3 kör/szint',
+        effectRange: '-',
+        resistance: '-',
+        description: ['A bárd ezzel a varázslattal hosszú fénycsóvát teremthet, melynek erőssége a Quiron-tenger hires világitótarnyaiéval is felveheti a versenyt. A fény forrása a bárd bal tenyere, innen a fény tölcsér alakban szóródik. A sugár hossza 50 láb, de a fényforrás tiszta időben több mérföldről is látható.']
+      }, {
+        name: 'Fókuszált fény',
+        typ: 'Fénymágia',
+        mana: 15,
+        manaText: '15',
+        strenght: '3',
+        castTime: '1 szegmens',
+        effectTime: 'kör/3 szint',
+        effectRange: '6 láb',
+        resistance: '-',
+        description: ['Azon kevés varázslatok egyike, mellyel a bárd közvetlen módon sebezheti meg ellenfelét. A környezet fényeinek energiáit a varázslat egyetlen pontba gyűjti össze, s ezzel gyilkos forróságot teremt. A fény minden gyúllékony anyagot lángra lobbant, amit ér. Élőlényeken 3k6 Sp-t sebez körönként. Segitségével a nem mágikus fémek is átvághatóak, egy kör alatt 1 mm x 1/2 láb x 1 mm fém párologtatható el. A varázslat három szintenként egy körig tart, s a fénypont helyét a bárd irányithatja.']
+      }, {
+        name: 'Képidézés',
+        typ: 'Fénymágia',
+        mana: 9,
+        manaText: '9',
+        strenght: '1',
+        castTime: '5 kör',
+        effectTime: 'perc/szint',
+        effectRange: '12 láb',
+        resistance: '-',
+        description: ['A Hangidézés párja, de ez a látvány megidézésére alkalmas. Az esemény részletei valósághűen, látványillúzióként jelennek meg, a bárd emlékezete alapján. A varázslat alatt koncentráció szükségeltetik, a felhasználó ebben az esetben is legfeljebb énekelhet, zenélhet, egyébb figyelmet igénylő cselekvésre képtelen. A bárd ily módon képekkel teheti lenyűgözőbbé előadását. A varázslat hatóideje 1 perc szintenként.']
+      }, {
+        name: 'Illúzió',
+        typ: 'Fénymágia',
+        mana: 4,
+        manaText: '4',
+        strenght: '1',
+        castTime: '3 szegmens',
+        effectTime: '15 perc szintenként',
+        effectRange: 'leirásban',
+        resistance: '-',
+        description: ['A bárd minden álltala elképzelt dolgot megjelenithet egy 1 x 1 láb területű, korlátlan magasságú oszlopban. A kép csupán fényillúzió, hangja, szaga, tapintása nincs. Az alapterület szintenként minden irányban 1/2 lábbal nő. Az illúzió az adott területen belül mozgatható a bárd kivánsága szerint, de ebben az esetben mindvégig koncentrálni kell rá. Ha az illúzió mozdulatlan, a bárdnak nem szükséges koncentrálnia, bármilyen más tevékenységet végezhet. A varázslat maximális időtartalma 15 perc szintenként. Amennyiben a bárd megszakitsa a koncentrációt a kép nem tűnik el, csak mozdulatlanná merevedik ott, ahol a koncentráció végeztével maradt. A bár később bármikor bekapcsolódhat a kép mozgatásába, további Mana-pont ráforditása nélkül. Az illúzió maximum 15 lábnyi távolságba idézhető meg.']
+      }, {
+        name: 'Lényalkotás',
+        typ: 'Fénymágia',
+        mana: 6,
+        manaText: '6',
+        strenght: '1',
+        castTime: '3 szegmens',
+        effectTime: '15 perc/szint',
+        effectRange: '12 láb',
+        resistance: '-',
+        description: ['A varázslattal valamilyen lény képe jelenithető meg. A lény lehet bármilyen szörny, elképzelt kreatúra, de akár humanoid is. A varázslat előnye az Illúzióval szemben, hogy a megalkotott lény mozgása nem korlátozódik 1 x 1 láb-as területre, hanem fennmaradásáig szabadon változtathatja helyét. Minden tekintetben valóságos lényre hasonlit, de csak a látvány szempontjából. Engedelmeskedik a bárd minden parancsának, melyeket elegendő gondolati úton megfogalmazni. Az illúzió hihetősége sokban múlik azon, hogy a bárd mennyire ismeri az adott lényt. Tanulmányozás nélkül a megteremtett lény leleplezési esélye 60% azok számára, akik már láttak ilyen kreatúrát, azoknak akik viszont még nem találkoztak hasonlóval, a felfedezés esélye mindössze 20%. A lény maximális testtérfogata szintenként 1 köbláb lehet. A fenmaradás ideje 15 perc szintenként, s nem szükséges koncentrálni az illúzió fentartásához.']
+      }, {
+        name: 'Illúziótalaj',
+        typ: 'Fénymágia',
+        mana: 6,
+        manaText: '6',
+        strenght: '2',
+        castTime: '5 szegmens',
+        effectTime: '10 perc/szint',
+        effectRange: 'leirásban',
+        resistance: '-',
+        description: ['Fényalapú illúzió, miként az egyszerű illúziók álltalában. Jelentősége méreteiben rejlik - a bárd 100 x 100 láb alapterületű talaj képét változtathatja meg. Az illúzióval mármilyen talajtipus képe létrehozható, legyen az tó, mocsár, legelő, kőút vagy ezek kombinációja. Az egyetlen hátránya az, hogy a befolyásolható magasság csupán 1/2 láb. Igy erdők, sziklafalak, hegyek ezzel a varázslattal nem teremthetők. Mindettől eltekintve kiválóan alkalmas pl csapdák elfedésére. A varázslat szintenként 10 percig marad fenn, aztán semmivé oszlik.']
+      }, {
+        name: 'Délibáb',
+        typ: 'Fénymágia',
+        mana: 12,
+        manaText: '12',
+        strenght: '3',
+        castTime: '1 perc',
+        effectTime: '1 óra',
+        effectRange: '5 mérföld',
+        resistance: '-',
+        description: ['A varázslat hasonló az illúziótalajhoz. Ez azonban nem a talajszintet változtatja meg, hanem egy hatalmas fügőleges területet hoz létre, melynek méretét a bárd határozhatja meg. A felőlet nagysága akár az egész horizont is lehet. A képnek nincsenek igazi dimenziói, igy érdemes a megfigyelőktől ugy 1-2 mérföldre elhelyezni. A kép bármilyen természetes formációt, várost, felhőket, napot is ábrázolhat. Fennmaradásának ideje 1 óra, s legfeljebb 5 mérföld távolságban hozható létre.']
+      }, {
+        name: 'Tanulmány',
+        typ: 'Fénymágia',
+        mana: 2,
+        manaText: '2',
+        strenght: '1',
+        castTime: '3 perc',
+        effectTime: 'végleges',
+        effectRange: '8 láb',
+        resistance: '-',
+        description: ['A bárd ezzel a varázslattal elméjébe vésheti a tanulmányozott lény alakját, mozgását, viselkedésének alapjait. Ennek segitségével a lényteremtés hatékonyabban alkalmazható. Ha egy lényt a bárd már tanulmányozott, minden felismerési esély feleződik megalkotásakor. Ha a bárd a faj egy másik egyedét is tanulmányozta egy másik alkalommal, a felismerési esély ismét feleződik, azaz az adott faj imitálásakor már negyedelődni fog, és igy tovább. A bárd ezzel a varázslattal és a Lényteremtéssel konkrét személyt vagy állatot is utánozhat. Ebben az esetben két izben kell tanulmánynak alávettnie, hogy a mágia alkalmazható legyen, a felfedezési esélyek azonban nem változnak. A felismerési esély felezéséhez két újabb tanulmány szükséges. A tanulmányozás ideje 3 perc, mialatt a bárdnak koncentrálnia kell a tanulmányozás tárgyára.']
+      }, {
+        name: 'Éjszakai látás',
+        typ: 'Fénymágia',
+        mana: 9,
+        manaText: '9',
+        strenght: '5',
+        castTime: '1 kör',
+        effectTime: '10 perc/szint',
+        effectRange: '-',
+        resistance: '-',
+        description: ['A varázslat nem infralátást ad a bárdnak, hanem valódi éjszakai látást. A bárd varázslata ugyanis felerősiti a szembe érkező fényt, igy bárhol, ahol minimális mennyiségű gény rendelkezésre áll, a bárd tökéletesen fog látni. Érzékelni fogja a tárgyak szinét is, látása sokkal kifinomultabb lesz mint hőlátás esetében. A varázslat sikeres működéséhez egy kevés fény mindenképpen szükséges, tökéletes sötétben nem működik. A varázslat időtartalma 10 perc szintenként, a látótávolság nappali fénynek felel meg.']
+      }, {
+        name: 'Vakon látás',
+        typ: 'Fénymágia',
+        mana: 35,
+        manaText: '35',
+        strenght: '15',
+        castTime: '3 kör',
+        effectTime: '5 perc/szint',
+        effectRange: '-',
+        resistance: '-',
+        description: ['A bárd ezen varázslata igen-igen összetett, s rendkivül jól alkalmazható több esetben is. Lehetővé teszi, hogy a bárd a szeme világa nélkül is ( pl bekötött szemmel ) is lássa környezetét. E tudomány a fény világának tökéletes ismeretén alapszik, s nagyából az infralátáshoz hasonlatos képet ad. Megalkotásában az Éjszakai látás is benne foglaltatik.']
+      }, {
+        name: 'Fénytánc',
+        typ: 'Fénymágia',
+        mana: 5,
+        manaText: '5',
+        strenght: '6',
+        castTime: '2 szegmens',
+        effectTime: '2 kör/szint',
+        effectRange: '7 láb',
+        resistance: 'Asztrális',
+        description: ['A bárd ezt a varázslatot lények megbűvölésére használhatja. A megidézett fények ezer szinben játszanak a levegőben, ritmusosan változtatják a helyüket és fényerrőségüket. A furcsa jelenséget figyelő lények, ha Mágiaellenállásuk sikertelen, elbűvölve lesik a látványt. Ilyenkor a Kábulat módositói érvényesek. A varázslat minden lényre hat, aki 7 lábnál közelebb áll a látomáshoz, és látja is azt. A varázslat hatóideje 2 kör szintenként. A varázslat 2 Mp felhasználásával 1E-vel növelhető.']
+      }, {
+        name: 'Mágia megjelenités',
+        typ: 'Fénymágia',
+        mana: 6,
+        manaText: '6',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: 'max 1 perc/szint',
+        effectRange: 'max 1 láb/szint',
+        resistance: '-',
+        description: ['A varázslat segitségével a bárd tetszőleges varázslat képét jelenitheti meg. Ez lehet szörnyidézés, őselemeket használó mágia, vagy akármi más. A varázslat csak látvány, tehát valódi hatás nincs, sebzést nem okoz, s hangal sem rendelkezik. Hatással lehet primitiv lények megfélemlitésére, avagy az Anyagkoncentráló mágiákkal együtt.']
+      }, {
+        name: 'Rejtjel',
+        typ: 'Fénymágia',
+        mana: 10,
+        manaText: '10',
+        strenght: '2',
+        castTime: '3 kör',
+        effectTime: '1 év',
+        effectRange: '-',
+        resistance: '-',
+        description: ['A varázslat hasonlatos a rejtett üzenethez, ám nem szóban hanem irásban működik. Az üzenet terjedelme 3 pergamen oldal lehet, s betűit csak az arra kiválasztott fogja helyes sorrendben látni. Csak a szavak betűi keverednek össze, ugyanúgy mint a rejtett üzenetben, igy egy kis logikával az ilyen tipusu kód megfejthető. A bárd ezért még 5 Mp ráálldozásával a teljes szöveg betűinek keveredését idézheti elő, amit visszafejteni szinte lehetetlen. Ha a varázslatot semlegesitik a tekercsen, az irás képe a kevert formában marad a papiron, s még a kijelölt lény, vagy személy sem tudja helyessen elolvasni. A varázslat ideje 1 év, utánna a leirt szöveg végleg kevert formában marad.']
+      }, {
+        name: 'Távolságtorzitás',
+        typ: 'Fénymágia',
+        mana: 9,
+        manaText: '9',
+        strenght: '2',
+        castTime: '1 kör',
+        effectTime: '15 perc',
+        effectRange: 'leirásban',
+        resistance: '-',
+        description: ['Ezzel az illúzióval a bárd minden távolságot nagyobbnak, vagy kisebbnek láttathat, mint amekkora valójában. Ezt a varázslatot saját magán is alkalmazhatja, ekkor a távcsövet helyettesiti, ám máson egészen más szerepe lehet. Folyósók hossza, utak távolsága torzitható el teljesen a varázslattal. A távolság természetesen nem változik meg valójában, igy egy 3 napnyira lévő erdő, hiába torzul el 5 órányira, 3 nap menetelés árán érhető csak el. A maximálisan kezelhető távolság 10 mérföld, s a legnagyobb torzitási arány 1:50-hez lehet. Azaz 50 lábnyi távolság 1 lábnyinak vagy 2500 lábnyinak tűnhet. A varázslat hatóideje 15 perc.']
+      }, {
+        name: 'Rémités',
+        typ: 'Fénymágia',
+        mana: 5,
+        manaText: '5',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: '5 kör',
+        effectRange: '10 láb',
+        resistance: '-',
+        description: ['A bárd ezen varázslata valamely rettenetes lény képét idézheti meg. A szörny megjelenése után üldüzőbe vesz egy, a bárd álltal megjelölt lényt. A szörny áthaladhat ajtókon, falakon és csak üldözi álldozatát, sosem éri el. Ha az álldozat megáll, igy tesz a szörny is, de csak 1-2 kurta arasznyira tőle. A varázslat 5 körig marad fenn, s az álldozatnak a bárd 10 lábnyi környezetében kell tartózkodnia a szörny megidézésekor. A varázslat nem használahtó együtt az anyagkoncentráló mágiákkal, célja kizárólag a rémisztő jelenés megidézése.']
+      }, {
+        name: 'Illuzió irás',
+        typ: 'Fénymágia',
+        mana: 15,
+        manaText: '15',
+        strenght: '2',
+        castTime: '5 perc',
+        effectTime: 'végleges',
+        effectRange: '-',
+        resistance: '-',
+        description: ['Ezen varázslat a rejtjelre emlékeztett. Ha a bárd ezzel a varázslattal ir meg egy szöveget, az kétféleképpen működhet. Az első lehetőség az, hogy az irás mindég látható, s egy bizonyos feltétel bekövetkeztében eltűnik. Második eset ennek forditotja, azaz a szavak láthatatlanok, s csak egy különleges időpontba válnak láthatóvá. A két varázslat dupla Mp-ért kombinálható egyazon pergamenten is, igy még ravaszabb kombinációk megalkotására is alkalmas. A varázslat 3 oldalnyi irásra, vagy rajzra alkalmazható, s örökké megőrzi tulajdonságát. A feltétel, amihez a szöveg változása kötött, bármi lehet, ám egyetlen konkrét időpont nem. Pl nem lehet a P.sz. 3678. év Bosszú havának 12. napja, de lehet a Bosszú havának a 12. napja, mivel abból minden évben van egy. Lehet a feltétel egy nap időpontaj, vagy akár egy csillag jelenléte is.']
+      }, {
+        name: 'Fantomsereg',
+        typ: 'Fénymágia',
+        mana: 5,
+        manaText: '5',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: '15 kör',
+        effectRange: '50 láb',
+        resistance: '-',
+        description: ['Ez a varázslat is fényalapú megtévesztés. Segitségével a bárd egy egész csapatot, vagy sereget jelenithet meg. A csapat csupán egyféle lényből állhat, tehát ha a csapat 35 kreatúrából áll, azoknak mindnek egy fajba kell tartozniuk. Az öltözködésnek és felszerelésnek is hasonlónak kell lennie, bár itt apróbb eltérések azért lehetnek. A sereg még 15-20 lábról szemlélve is valóságosnak tűnik, de közelebbről látható lesz, hogy az alakok nem kidolgozottak, s inkább csak formák kavalkádja az egész látomás. A varázslat hatóideje 15 kör. A sereg bármilyen irányból, vagy távolságból érkezhet, a lényeg az, hogy az álldozatokhpz ne kerüljenek 15 lábnál közelebb, mert akkor az illúzió könnyen felfedezhető.']
+      }, {
+        name: 'Üresség',
+        typ: 'Fénymágia',
+        mana: 18,
+        manaText: '18',
+        strenght: '2',
+        castTime: '1 kör',
+        effectTime: '5 perc/szint',
+        effectRange: '20 láb sugarú kör',
+        resistance: '-',
+        description: ['Ez az illúzió egy adott hely minden tárgyát láthatatlanná teszi. Egy teremből az összes bútor, polc, kép egyszóval minden eltűnik, csak a kopár falak maradnak. Ha a varázslatot erdőben használja a bárd, 20 lábnyi területen minden fa, bokor vagy a földből jelentősebben kiemelkedő tárgy, növény ( a fűfélék pl nem ) eltűnik. Hiába tudják a szemlélők, hogy itt kell lennie valaminek, csak tapogatózással tájékozódhatnak a varázslat hatóideje alatt. A varázslat egy helységre, vagy 20 láb sugarú területre mondható rá, hatóideje pedig 5 perc szintenként.']
+      }, {
+        name: 'Maszk',
+        typ: 'Fénymágia',
+        mana: 2,
+        manaText: '2',
+        strenght: '1',
+        castTime: '3 szegmens',
+        effectTime: 'leirásban',
+        effectRange: '-',
+        resistance: '-',
+        description: ['A varázslatot kétféleképpen is alkalmazhatja a bárd, helyzetének megfelelően. Az egyik felhasználási mód hasonlatos az Alakváltáshoz, de csak a bárd arca változtatható meg igy. Az arc nem utánozhat konkrét személyt, de bármilyen humanoid arc lehet. Az átalakulás ebben az esetben is csak fényillúzió lesz. A másik lehetőség arra szolgá, hogy a bárd érzelmeit leplezni tusja. Az illúzió saját arcát fogja megjeleniteni, de rajta érzelmei gondolatainak, nem pedig érzelmeinek megfelelően látszanak meg. Igy a bárdot sokkal nehezebb hazugságon fogni, s kártyában vagy egyébb szerencsejátékban is komoly ellenfél lehet. Arcvonásai nem árulnak el meglepetést, csak ha maga is ugykivánja. A varázslat hatóideje első alkalmazás esetén 2 kör szintenként, a második esetben 5 perc szintenként.']
+      }, {
+        name: 'Szivárvány',
+        typ: 'Fénymágia',
+        mana: 4,
+        manaText: '4',
+        strenght: '1',
+        castTime: '1 kör',
+        effectTime: '2 perc/szint',
+        effectRange: '20 láb',
+        resistance: '-',
+        description: ['Inkább elméleti, mintsem komoly gyakorlati jelentőséggel rendelkező varázslat. A sokak szerint isteni eredetű szivárvány jelenithető meg a bárd illúziójával. A szivárvány mindenben hasonlatos lesz a természeteshez, szintenként 2 percig maradhat fent.']
+      }, {
+        name: 'Fényvért',
+        typ: 'Fénymágia',
+        mana: 9,
+        manaText: '9',
+        strenght: '2',
+        castTime: '1 szegmens',
+        effectTime: '2 perc/szint',
+        effectRange: '-',
+        resistance: '-',
+        description: ['A varázslat segitségével a bárd magára idézhet egy tetszőleges vértet, s egy pajzsot. Mindkét tárgy illúzió, de alakja kidolgozása maga lezs a tökéletesség. A varázslat egyrészt elkápráztatja a szemlélőt, másrészt megtévesztheti. Kiválóan alkalmas a varázslat lovagi tornákon való megjelenésre, vagy bármi más nemesek részvételével zajló társadalmi eseményre. Fontos szerepe a varázslatnak harcban lehet, ahol az ellenfél nem sejti a vért illúzió mivoltát. Ezért megpróbál a páncéllal nem fedett, a pajzsal nem védett területekre támadni, minek következtében támadó értéke 25-tel csökken. Ha a vért illúzió mivoltára rájön, a negativ módositók érvényüket vesztik. Ugyanakkor a bárd még igy is használhatja a pajzsot - ha rejtett mozgásra készül, ez tökéletesen állcázza azt, mivel továbbra sem válik átlátszóvá. A varázslat hatóideje 2 perc szintenként.']
+      }, {
+        name: 'Tükör',
+        typ: 'Fénymágia',
+        mana: 4,
+        manaText: '4',
+        strenght: '1',
+        castTime: '2 szegmens',
+        effectTime: '3 kör/szint',
+        effectRange: 'érintés',
+        resistance: '-',
+        description: ['A bárd ezzel a varázslattal forgó fényörvényt idézhet meg, mely 2 szegmens alatt tökéletes tükörré áll ösze. Mérete max 2 x2 láb lehet, s több célra is felhasználható. Egyrészt kiválló tükör, a kor legnagyobb mesterei sem képesek ennél szebb fényűt alkotni. Használható emelett afféle varázslatok ellen is, melyek fényből valók, s a bárdban kivánnak kárt tenni. Ezek többnyire más bárdok varázslatai, mint például a fókuszált fény. A varázslat hatóideje 3 kör szintenként, utánna a tükör szétfoszlik.']
+      }, {
+        name: 'Irányvesztés',
+        typ: 'Fénymágia',
+        mana: 12,
+        manaText: '12',
+        strenght: '2',
+        castTime: '1 kör',
+        effectTime: '15 perc/szint',
+        effectRange: '15 láb',
+        resistance: '-',
+        description: ['Ez az összetett illúzió tévútra vezetheti álldozatait, legyenek akár épületben vagy szabadban. A varázslat hatására jellegzetes viszonyitási pontok ( pédául egy erőben furcs alakú fák, források, föld alatt ismerős szobrok, fali diszek ) újra megjelennek az álldozatként kijelölt személy útjában - mintha körbe járna. Ezzel tökéletesen össze lehet zavarni mindenkit, különösen ha nem készitett térképet az addigi útjáról. A varázslat megidézésekor az álldozatnak 15 lábnyi környezetbe kell tartózkodnia, a varázslat hatóideje pedig 15 perc szintenként. Megjegyezendő, hogy a varázslat álltal létrehozott illúziókat az álldoza kisérői is látják, tehát ők sem igazithatják ki őt.']
+      }, {
+        name: 'Teljes álca',
+        typ: 'Fénymágia',
+        mana: 35,
+        manaText: '35',
+        strenght: '12',
+        castTime: '1 kör',
+        effectTime: '10 kör/szint',
+        effectRange: '20 láb sugarú kör',
+        resistance: '-',
+        description: ['A varázslat szinte mindenben megegyezik a maszk nevűvel, illetve annak első felhasználási módjával. A különbség az, hogy a felszerelés és ruha is megváltoztatható, nem csak az arc. Emellett lényeges különbség még az átalakitható személyek száma. Teljes álca ugyanis egyszerre több lényen is alkalmazható. A lények száma 5+ a bárd TSZ-e. A varázslat hatóideje 10 kör szintenként.']
+      }, {
+        name: 'Káosz',
+        typ: 'Fénymágia',
+        mana: 35,
+        manaText: '35',
+        strenght: '25',
+        castTime: '1 kör',
+        effectTime: 'perc/szint',
+        effectRange: '20 láb sugarú kör',
+        resistance: '-',
+        description: ['A varázslat egészen hajmeresztő illúziók megalkotására képes, célja ugyanis az, hogy a szemlélők kételkedni kezdjenek józan eszük épségében. Mármilyen képtelenséget megjelenithet. Pl: A varázslat hatására megcserélődnek az irányok, a fent lesz lent és forditva, ugyanakkor perzse a tárgyak nem kezdenek el lepotyogni. Fényviharok száguldoznak vadul mindenütt, változik a táj, az álldozatok némelyike lassan szömörcévé változik. Azőrület mértékének pusztán a bárd fantáziája szab határt. A varázslat speciális tulajdonsága, hogy nem leplezhető le. Azaz, ha valaki illúzióra gyanakszik, bármilyen tárgyhoz is érne hozzá, hogy megbizonyosodjék illúzió voltáról, az eltűnik, arrébb mászik, átalakul - egyszóval elérhetetlenné válik. Ez a varázslat alkalmasint még varázslókat is megzavarhat. A varázslat hatóterülete egy 20 láb sugarú kör, hatóideje egy perc szintenként.']
+      }, {
+        name: 'Szinvarázs',
+        typ: 'Fénymágia',
+        mana: 1,
+        manaText: '1',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: '1 nap/szint',
+        effectRange: '5 láb',
+        resistance: '-',
+        description: ['Az egyik legszórakoztatóbb varázslat, mely igen könnyen használható, s hatása bisztosan teljes siker. A mágia egy terület szinét változtatja meg. A beszinezhető terület nagysága 1/2 négyzetláb szintenként. Mindenre alkalmazható, de élő szövetre nem. A haj pédául szinezhető lesz, a bőr nem. A varázslat bármilyen szin létrahozására képes, de csak foltokat tud befesteni, igy képet nem alkothat vele a bárd. A varázslat hatóideje 1 nap szintenként.']
+      }, {
+        name: 'Kép',
+        typ: 'Fénymágia',
+        mana: 5,
+        manaText: '5',
+        strenght: '1',
+        castTime: '1 kör',
+        effectTime: 'leirásban',
+        effectRange: '5 láb',
+        resistance: '-',
+        description: ['A bárd ezzel a varázslattal lemásolhat egy tetszőleges képet vagy irást, s létrehozhatja illúzióként. Ez az illúzió tökéletes másolatként használható. Az 5 Mp csak a létrehozásra elegendő, ezzel az illúzió mindössze 5 körig marad együtt. További Mp-kal, ez az időtartam megnövelhető, a következők szerint:', '+ 5 kör / +2 Mp', '+25 kör / +4 Mp', '+1 óra / +6 Mp', '+1 nap / +8 Mp', '+1 hét / +15 Mp', '+1 hónap / +19 Mp', '+1 év / +25 Mp', 'Örökkévalóság / +40 Mp']
+      }, {
+        name: 'Hamis teleportáció',
+        typ: 'Fénymágia',
+        mana: 25,
+        manaText: '25',
+        strenght: '15',
+        castTime: '1 szegmens',
+        effectTime: '6 kör/szint',
+        effectRange: '16 láb sugarú kör',
+        resistance: '-',
+        description: ['A bárd egyik valóban érdekes illúziója. Az álldozatok csak egy hatalmas villanást látnak, majd rövid ideig sodródnak a csillagokkal pöttyözött űrben. Elszáguldanak furcsa fények, jellenségek mellett, majd ismét látják a villanást, s egy kietlen pusztaság közepén állnak. Az ég vérvörös, keserű, metsző szél fütyül a komor tájon. Sehol egy épület, fa, élőlény: körös körül csupán fekete kavargó massza látszik. Mindenki külön-külön látja ezt, ha csoportra hatott a varázslat, akkor is. Az egész csoda természetesen illúzió. Felfedezni elég nehéz, mert nincs megfogható tárgy, igy sokáig lehet gondolkodni azon, mi is történt. Az álldozatok nem változtattak helyet, a fekete massza természetesen veszélytelen illúzió. Ám mig nem lépnek bele, nem lépnek el helyükről, addig valóságos tárgyaknak, vagy társaiknak nem ütközhetnek. Igy az illuzió valóságát semmi nem cáfolja meg. A varázslat hatókörzete, egy 16 lábnyi sugarú kör, időtartalma 6 kör szintenként.']
+      }, {
+        name: 'Személyes varázs',
+        typ: 'Fénymágia',
+        mana: 5,
+        manaText: '5',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: '15 perc/szint',
+        effectRange: '-',
+        resistance: '-',
+        description: ['Ez a varázslat lehetővé teszi a bárdnak, hogy mindég tökéletes formában legyen - legalábbis látszólag. Sebek, horzsolások, borosta, koszfoltok, szakadások a ruhán, rendezetlen haj, mindezek egy szemvillanás alatt eltűnnek. A bárd ezzel a varázslattal, még a leghevesebb csata után is szalonképessé teheti magát. A varázslat nem változtatja meg a ruházatot, de annak hibáit leplezi. A sebek nem gyógyulnak be, pusztán egy időre láthatatlanná válnak. Mindez természetesen nem egyébb illuziónál, melynek időtartalma 15 perc szintenként.']
+      }, {
+        name: 'Élő történelem',
+        typ: 'Fénymágia',
+        mana: 21,
+        manaText: '21',
+        strenght: '1',
+        castTime: '1 perc',
+        effectTime: '1 perc/szint',
+        effectRange: '15 láb sugarú kör',
+        resistance: '-',
+        description: ['A bárd ezen varázslata hasonló a Képidézéshez, de ebben az esetben nem a bárd, hanem egy tárgy, hely, épület története pereg le néma képekben. A képet nem csak a bárd, de minden szemlélő láthatja. A képsorokban a tárgy szerepel középpontként. A varázslat egy alkalommal legfeljebb három különböző időpontról idézhet emlékeket, ezeket a bárdnak kell kiválasztania dátum alapján. Egyetlen esemény sem lehet egy évnél hosszabb. Az illúzió hang nélkül pereg, s az események felgyorsitva, vázlatosan követik egymást.']
+      }, {
+        name: 'Fegyver',
+        typ: 'Fénymágia',
+        mana: 5,
+        manaText: '5',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: '2 kör/szint',
+        effectRange: 'a bárd fegyvere',
+        resistance: '-',
+        description: ['Ez a varázslat a harci illúziók egyike. Hatására a bárd eredeti fegyvere láthatatlanná válik, s egy másik fegyver képe jelenik meg a helyén. Ez bármilyen a bárd álltal választott fegyver lehet, nagyságra és minőségre való tekintet nélkül. A varázslat nem csak egy átváltozást tesz lehetővé, igy a bárd akár körönként is változtathatja a kezében lévő fegyver képét. Látványos pl amikor egy rövidkard hirtelen hosszúkardá nő, majd buzogánnyá változik, utóbb harci balta lesz. Ez bizony alaposan megzavarja az ellenfelet, akinek VÉ-je ennek következtében 10-zel, TÉ-je 5-tel csökken. A varázslat hatóideje 2 kör szintenként.']
+      }, {
+        name: 'Nyilzápor',
+        typ: 'Fénymágia',
+        mana: 7,
+        manaText: '7',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: 'kör/szint',
+        effectRange: '50 láb',
+        resistance: '-',
+        description: ['A harci illúziók másik fajtája. A varázslat képes megsokszorozni egy kilőtt vagy elhajitott eszköz képét, legyen az nyil, parityakő, tőr, vagy dárda. Minden egyes repülő fegyvernek még 5 hasonmása születik a semmiből. Ez különösen akkor hatásos, ha egyszerre többen használják ijukat. Igy 5-6 kilőtt vessző 25-30 nyilvesszőtt tartalmazó felhővé változik. Ekkor minden olyan VÉ pont, mely nem a távolságból adódott, nullára csökken. Az álldozat ugyanis nem tudja merre is ugorjon, még akkor sem, ha sejti, a vesszők java csupán illúzió. A varázslat hatóideje 1 kör szintenként.']
+      }]
+    },
+    egyebbMagia: {
+      name: 'Egyébb bárdmágiák',
+      description: ['Az egyébb mágiák csoportjába azok a varázslatok kerültek, melyek alapvetően nem tartoznak a bárdok eszköztárába - ki tudja, hogy a csavaros eszű, gyakran görbe utakon járó fickók hogy jutottak birtokukba. Néhány közülük persze beletartozik a Fény és Hangmágia csoportjába is, ebben az esetben a mágia mindkét forrásból merit működéséhez.'],
+      spells: [{
+        name: 'Tanulás',
+        typ: 'Mentális',
+        mana: 4,
+        manaText: '4',
+        strenght: '1',
+        castTime: 'leirásban',
+        effectTime: 'végleges',
+        effectRange: '10 láb',
+        resistance: '-',
+        description: ['A bárd ezzel a varázslattal bármilyen verset vagy dalt, melyet hall, első alkalommal megtanulhat. Igy nem kell több órán át gyakorolnia, akár azonnal előadhatja. A varázslatot a dal hallgatása közben kell megidézni, s az időtartam a próza, vers vagy dal előadásának idejével egyezik meg.']
+      }, {
+        name: 'Hipnózis',
+        typ: 'Asztrál + Fénymágia',
+        mana: 20,
+        manaText: '20',
+        strenght: '6',
+        castTime: '1 perc',
+        effectTime: 'perc/szint',
+        effectRange: '3 láb',
+        resistance: 'Asztrális',
+        description: ['A varázslat segitségével a bárd ezüstössen ragyogó vénygömböt teremthet, mely lassan imbolyogva mozog álldozata előtt. Ez hipnotikus hatású és állomba, vagy hipnotikus állomba ringatja  célpontját, a bárd óhaja szerint. Ha az álldozat Mágiaellenállása sikertelen, álomba merül, vagy félig öntudatlan állapotba kerül. Ha elalszik, csak két óra múlva lehet felébreszteni, addig szinte reménytelen - bár a mágia segithet.', 'Ha hipnotikus állomba kerül, a bárd utasitásokat adhat neki, melyeket teljesitenie kell. Az utasitások száma azok hosszától és a varázslat hatóidejétől függ, mástól nem. A parancs nem lehet közvetlen öngyilkosságot jelentő, de közvetett igen: Nézd, milyen szép madár repül ott! Repülj utánna és hozd ide nekem! - Efféle utasitás bizony halálos lehet egy vártorony tetején. A parancsok a varázslat lejárta utáni időpontra is vonatkozhatnak, ebben az esetben feltételhez kell kötni őket. A varázslat hatóideje szintenként 1 perc hatósugara 3 láb. A varázslatot 3 Mp-ért erősitheti a bárd.']
+      }, {
+        name: 'Rohanó idő',
+        typ: 'Fény + Hangmágia',
+        mana: 34,
+        manaText: '34',
+        strenght: '15',
+        castTime: '1 kör',
+        effectTime: 'perc/szint',
+        effectRange: '15 láb sugarú kör',
+        resistance: '-',
+        description: ['A varázslat egyszerre hat a hang és látványillúziók területén. A bárd ennek segitségével az ellenfelei számára látszólagosan felgyorstja az idő múllását, legalábbis a környezetükben. Az illúzió lényege, hogy az álldozat környezetében minden a felgyorsult idő szerint reagál. Pl. ha az álldozat egy erdei úton megy, a növények szemmel láthatóan nőni kezdenek, az állatok szinte követhetetlen gyorsasággal mozognak, a nap sebesen halad pályáján. Ha barlangban, föld alatti folyosón jár, láthatja, hogy a por lerakódik a padlón, a sarokba pókhálók képződnek. A múlló idő persze csak illúzió, de hang is jár hozzá A zajok, állathangok is felgyorsulnak, minden a 144-szeresére, azaz 10 perc eltellő idő az illúzió látványának 1 napját jelenti. A varázslat alatt,csak az illúzió látványát láthatják, és a normál tér hangjai is csak nagyon gyengén érnek el hozzájuk. A varázslat hatóterülete egy 12 láb sugarú kör, hatóideje pedig egy valódi perc szintenként. Ha valamely álldozat kisétá a körből, számára a varázslat megszűnik']
+      }, {
+        name: 'Figyelem elterelés',
+        typ: 'Fény + Hangmágia',
+        mana: 2,
+        manaText: '2',
+        strenght: '1',
+        castTime: '1 szegmens',
+        effectTime: '1 szegmens',
+        effectRange: '5 láb',
+        resistance: '-',
+        description: ['A varázslat arra szolgál, hogy egy pillanatra elvonja a jelenlévők figyelmét a bárdról. Ennek számtalan módja lehetséges. A megkötés csupán az, hogy a hang nem lehet hosszabb 1 szegmensnél, az illúzió maga 1 körnél, s a kép mérete nem lehet nagyobb egy embernél. A hatást a bárd választja ki. A varázslat kimondása után a körbe még lehetőség nyilik cselekvésre, vagyis oly rövid idejét köti le, hogy ugyanazon körbe még támadhat is. A kör lejártával azonban a figyelemelterelés hatása is megszűnik. Lehetséges pl egy ork figyelmét elterelni azzal, hogy a szeme előtt sebessen elreppen egy rikoltó madár - a lehetőségek száma szinte végtelen.']
+      }]
+    }
+  }
+};
+var getters = {
+  bardSpellDescription: function bardSpellDescription() {
+    return state.bardSpellDescription;
+  },
+  bardSpells: function bardSpells() {
+    return state.bardSpells;
+  },
+  bardDalMagia: function bardDalMagia() {
+    return state.bardSpells.dalMagia;
+  },
+  bardHangMagia: function bardHangMagia() {
+    return state.bardSpells.hangMagia;
+  },
+  bardFenyMagia: function bardFenyMagia() {
+    return state.bardSpells.fenyMagia;
+  },
+  bardEgyebbMagia: function bardEgyebbMagia() {
+    return state.bardSpells.egyebbMagia;
   }
 };
 var mutations = {};
@@ -37747,6 +39039,45 @@ component.options.__file = "resources/js/components/player_site/magus/MagusLearn
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/magus/MagusMana.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusMana.vue ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusMana_vue_vue_type_template_id_7fb3b075___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusMana.vue?vue&type=template&id=7fb3b075& */ "./resources/js/components/player_site/magus/MagusMana.vue?vue&type=template&id=7fb3b075&");
+/* harmony import */ var _MagusMana_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusMana.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/magus/MagusMana.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MagusMana_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusMana_vue_vue_type_template_id_7fb3b075___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusMana_vue_vue_type_template_id_7fb3b075___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/player_site/magus/MagusMana.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/magus/MagusNotes.vue":
 /*!******************************************************************!*\
   !*** ./resources/js/components/player_site/magus/MagusNotes.vue ***!
@@ -38200,6 +39531,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/magus/MagusMana.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusMana.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusMana_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusMana.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusMana.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusMana_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/magus/MagusNotes.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************!*\
   !*** ./resources/js/components/player_site/magus/MagusNotes.vue?vue&type=script&lang=js& ***!
@@ -38587,6 +39934,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusLearnSkill_vue_vue_type_template_id_6a3855ca___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusLearnSkill_vue_vue_type_template_id_6a3855ca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusLearnSkill.vue?vue&type=template&id=6a3855ca& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusLearnSkill.vue?vue&type=template&id=6a3855ca&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusMana.vue?vue&type=template&id=7fb3b075&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusMana.vue?vue&type=template&id=7fb3b075& ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusMana_vue_vue_type_template_id_7fb3b075___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusMana_vue_vue_type_template_id_7fb3b075___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusMana_vue_vue_type_template_id_7fb3b075___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusMana.vue?vue&type=template&id=7fb3b075& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusMana.vue?vue&type=template&id=7fb3b075&");
 
 
 /***/ }),
@@ -41383,7 +42747,12 @@ var render = function () {
           1
         ),
         _vm._v(" "),
-        _vm._m(1),
+        _c(
+          "div",
+          { staticClass: " bg-light border border-secondary rounded mb-3 p-3" },
+          [_c("magus-mana")],
+          1
+        ),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-lg" }, [
@@ -41568,7 +42937,7 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _vm._m(2),
+      _vm._m(1),
     ]),
     _vm._v(" "),
     _c(
@@ -41589,44 +42958,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "text-center p-4" }, [
       _c("h2", { staticClass: "text-white" }, [_vm._v("magus karakterlap")]),
     ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: " bg-light border border-secondary rounded mb-3 p-3" },
-      [
-        _c("h4", { staticClass: "text-center mt-2" }, [_vm._v("Mana-pontok")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col border-end border-secondary" }, [
-            _c("p", [_vm._v("Mp/szint")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("0")]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [
-            _c("p", [_vm._v("Max Mp")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("0")]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "border-top border-secondary" }, [
-          _vm._v("Akt Mp"),
-        ]),
-        _vm._v(" "),
-        _c("p", [_vm._v("0")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "border-top border-secondary" }, [
-          _vm._v("Egyébb módositók"),
-        ]),
-        _vm._v(" "),
-        _c("p", [_vm._v("0")]),
-      ]
-    )
   },
   function () {
     var _vm = this
@@ -44511,6 +45842,1272 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [_c("b", [_vm._v("Leirás:")])])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusMana.vue?vue&type=template&id=7fb3b075&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusMana.vue?vue&type=template&id=7fb3b075& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", [
+      _vm.magia.maxMp > 0
+        ? _c("div", { staticClass: "border-bottom border-secondary my-2" }, [
+            _c("h4", { staticClass: "text-center mt-2" }, [
+              _vm._v("Varázslatok"),
+            ]),
+            _vm._v(" "),
+            _vm._m(0),
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c("h4", { staticClass: "text-center mt-2" }, [_vm._v("Mana-pontok")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col border-end border-secondary" }, [
+          _c("p", [_vm._v("Mp/szint")]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.magia.mpLevel.text))]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _c("p", [_vm._v("Max Mp")]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.magia.maxMp))]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "border-top border-secondary" }, [
+        _vm._v("Akt Mp"),
+      ]),
+      _vm._v(" "),
+      _c("p", [_vm._v(_vm._s(_vm.magia.aktMp))]),
+      _vm._v(" "),
+      _vm.magia.maxMp > 0
+        ? _c("div", { staticClass: "d-grid text-center mb-3" }, [
+            _vm.magia.aktMp > 0
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger ms-2",
+                    attrs: {
+                      type: "button",
+                      "data-bs-toggle": "modal",
+                      "data-bs-target": "#manaUseModal",
+                    },
+                  },
+                  [_vm._v("Mana Pontok Használata")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.magia.aktMp < _vm.magia.maxMp
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success ms-2 mt-2",
+                    attrs: { type: "button" },
+                    on: { click: _vm.refreshMana },
+                  },
+                  [_vm._v("Mana Pontok Teljes Feltöltése")]
+                )
+              : _vm._e(),
+          ])
+        : _vm._e(),
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "manaUseModal",
+          tabindex: "-1",
+          "aria-labelledby": "manaUseModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("p", [
+                _vm._v(
+                  "Rendelkezésre álló mana pontok: " + _vm._s(_vm.magia.aktMp)
+                ),
+              ]),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "psiInput" } }, [
+                _vm._v("Elhasználni kivánt mana pontok mennyisége:"),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputManaUse,
+                    expression: "inputManaUse",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "number",
+                  id: "psiInput",
+                  min: "1",
+                  max: _vm.magia.aktMp,
+                },
+                domProps: { value: _vm.inputManaUse },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inputManaUse = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.submitManaUse },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "bardModal",
+          tabindex: "-1",
+          "aria-labelledby": "bardModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl",
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c(
+                  "div",
+                  { staticClass: "p-3 border border-secondary rounded mb-2" },
+                  [
+                    _c("div", { staticClass: "form-check" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.showBardAll,
+                            expression: "showBardAll",
+                          },
+                        ],
+                        staticClass: "form-check-input",
+                        attrs: { type: "checkbox", id: "bard_checkbox" },
+                        domProps: {
+                          checked: Array.isArray(_vm.showBardAll)
+                            ? _vm._i(_vm.showBardAll, null) > -1
+                            : _vm.showBardAll,
+                        },
+                        on: {
+                          change: function ($event) {
+                            var $$a = _vm.showBardAll,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = null,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 && (_vm.showBardAll = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.showBardAll = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.showBardAll = $$c
+                            }
+                          },
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "form-check-label",
+                          attrs: { for: "bard_checkbox" },
+                        },
+                        [
+                          _vm._v(
+                            "\n                                Összes mágia mutatása\n                            "
+                          ),
+                        ]
+                      ),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  {
+                    staticClass: "nav nav-tabs",
+                    attrs: { id: "myTab", role: "tablist" },
+                  },
+                  [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticClass: "nav-item",
+                        attrs: { role: "presentation" },
+                      },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "nav-link",
+                            attrs: {
+                              id: "dal-tab",
+                              "data-bs-toggle": "tab",
+                              "data-bs-target": "#dal",
+                              type: "button",
+                              role: "tab",
+                              "aria-controls": "dal",
+                              "aria-selected": "false",
+                            },
+                          },
+                          [_vm._v(_vm._s(_vm.bardDalMagia.name))]
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticClass: "nav-item",
+                        attrs: { role: "presentation" },
+                      },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "nav-link",
+                            attrs: {
+                              id: "hang-tab",
+                              "data-bs-toggle": "tab",
+                              "data-bs-target": "#hang",
+                              type: "button",
+                              role: "tab",
+                              "aria-controls": "hang",
+                              "aria-selected": "false",
+                            },
+                          },
+                          [_vm._v(_vm._s(_vm.bardHangMagia.name))]
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticClass: "nav-item",
+                        attrs: { role: "presentation" },
+                      },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "nav-link",
+                            attrs: {
+                              id: "feny-tab",
+                              "data-bs-toggle": "tab",
+                              "data-bs-target": "#feny",
+                              type: "button",
+                              role: "tab",
+                              "aria-controls": "feny",
+                              "aria-selected": "false",
+                            },
+                          },
+                          [_vm._v(_vm._s(_vm.bardFenyMagia.name))]
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticClass: "nav-item",
+                        attrs: { role: "presentation" },
+                      },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "nav-link",
+                            attrs: {
+                              id: "egyebb-tab",
+                              "data-bs-toggle": "tab",
+                              "data-bs-target": "#egyebb",
+                              type: "button",
+                              role: "tab",
+                              "aria-controls": "egyebb",
+                              "aria-selected": "false",
+                            },
+                          },
+                          [_vm._v(_vm._s(_vm.bardEgyebbMagia.name))]
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "tab-content", attrs: { id: "myTabContent" } },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-pane fade show active",
+                        attrs: {
+                          id: "ismerteto",
+                          role: "tabpanel",
+                          "aria-labelledby": "ismerteto-tab",
+                        },
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "mt-3" },
+                          _vm._l(
+                            _vm.bardSpellDescription,
+                            function (ism, index) {
+                              return _c("p", { key: "ismerteto" + index }, [
+                                _vm._v(_vm._s(ism)),
+                              ])
+                            }
+                          ),
+                          0
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-pane fade",
+                        attrs: {
+                          id: "dal",
+                          role: "tabpanel",
+                          "aria-labelledby": "dal-tab",
+                        },
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "border border-secondary p-2 mb-2" },
+                          [
+                            _c("h4", [_vm._v(_vm._s(_vm.bardDalMagia.name))]),
+                            _vm._v(" "),
+                            _vm._l(
+                              _vm.bardDalMagia.description,
+                              function (daldes, index) {
+                                return _c("p", { key: "daldes" + index }, [
+                                  _vm._v(_vm._s(daldes)),
+                                ])
+                              }
+                            ),
+                          ],
+                          2
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          [
+                            _c("h4", [_vm._v("Varázslatok")]),
+                            _vm._v(" "),
+                            _vm._l(_vm.bardDalMagiaList, function (dal, index) {
+                              return _c(
+                                "div",
+                                {
+                                  key: "dal" + index,
+                                  staticClass: "accordion-item",
+                                },
+                                [
+                                  _c(
+                                    "h2",
+                                    {
+                                      staticClass: "accordion-header",
+                                      attrs: { id: "dal" + index + "-heading" },
+                                    },
+                                    [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "accordion-button collapsed",
+                                          attrs: {
+                                            type: "button",
+                                            "data-bs-toggle": "collapse",
+                                            "data-bs-target":
+                                              "#" + "dal" + index,
+                                            "aria-expanded": "false",
+                                            "aria-controls": "dal" + index,
+                                          },
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                            " +
+                                              _vm._s(dal.name) +
+                                              "\n                                        "
+                                          ),
+                                        ]
+                                      ),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "accordion-collapse collapse",
+                                      attrs: {
+                                        id: "dal" + index,
+                                        "aria-labelledby":
+                                          "dal" + index + "-heading",
+                                      },
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "accordion-body" },
+                                        [
+                                          _c("p", [
+                                            _c("b", [
+                                              _vm._v(
+                                                "Tipus:" + _vm._s(dal.typ)
+                                              ),
+                                            ]),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _c("b", [
+                                              _vm._v(
+                                                "Mana-pont: " +
+                                                  _vm._s(dal.manaText)
+                                              ),
+                                            ]),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _c("b", [
+                                              _vm._v(
+                                                "Erősség: " +
+                                                  _vm._s(dal.strenght)
+                                              ),
+                                            ]),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _c("b", [
+                                              _vm._v(
+                                                "Varázslás ideje: " +
+                                                  _vm._s(dal.castTime)
+                                              ),
+                                            ]),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _c("b", [
+                                              _vm._v(
+                                                "Hatótáv: " +
+                                                  _vm._s(dal.effectRange)
+                                              ),
+                                            ]),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _c("b", [
+                                              _vm._v(
+                                                "Időtartam: " +
+                                                  _vm._s(dal.effectTime)
+                                              ),
+                                            ]),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _c("b", [
+                                              _vm._v(
+                                                "Mágiaellenállás: " +
+                                                  _vm._s(dal.resistance)
+                                              ),
+                                            ]),
+                                          ]),
+                                          _vm._v(" "),
+                                          _vm._m(4, true),
+                                          _vm._v(" "),
+                                          _vm._l(
+                                            dal.description,
+                                            function (des, index) {
+                                              return _c(
+                                                "p",
+                                                { key: "Des" + index },
+                                                [_vm._v(_vm._s(des))]
+                                              )
+                                            }
+                                          ),
+                                        ],
+                                        2
+                                      ),
+                                    ]
+                                  ),
+                                ]
+                              )
+                            }),
+                          ],
+                          2
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-pane fade",
+                        attrs: {
+                          id: "hang",
+                          role: "tabpanel",
+                          "aria-labelledby": "hang-tab",
+                        },
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "border border-secondary p-2 mb-2" },
+                          [
+                            _c("h4", [_vm._v(_vm._s(_vm.bardHangMagia.name))]),
+                            _vm._v(" "),
+                            _vm._l(
+                              _vm.bardHangMagia.description,
+                              function (hangdes, index) {
+                                return _c("p", { key: "hangdes" + index }, [
+                                  _vm._v(_vm._s(hangdes)),
+                                ])
+                              }
+                            ),
+                          ],
+                          2
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          [
+                            _c("h4", [_vm._v("Varázslatok")]),
+                            _vm._v(" "),
+                            _vm._l(
+                              _vm.bardHangMagiaList,
+                              function (hang, index) {
+                                return _c(
+                                  "div",
+                                  {
+                                    key: "hang" + index,
+                                    staticClass: "accordion-item",
+                                  },
+                                  [
+                                    _c(
+                                      "h2",
+                                      {
+                                        staticClass: "accordion-header",
+                                        attrs: {
+                                          id: "hang" + index + "-heading",
+                                        },
+                                      },
+                                      [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "accordion-button collapsed",
+                                            attrs: {
+                                              type: "button",
+                                              "data-bs-toggle": "collapse",
+                                              "data-bs-target":
+                                                "#" + "hang" + index,
+                                              "aria-expanded": "false",
+                                              "aria-controls": "hang" + index,
+                                            },
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                            " +
+                                                _vm._s(hang.name) +
+                                                "\n                                        "
+                                            ),
+                                          ]
+                                        ),
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "accordion-collapse collapse",
+                                        attrs: {
+                                          id: "hang" + index,
+                                          "aria-labelledby":
+                                            "hang" + index + "-heading",
+                                        },
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "accordion-body" },
+                                          [
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Tipus:" + _vm._s(hang.typ)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Mana-pont: " +
+                                                    _vm._s(hang.manaText)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Erősség: " +
+                                                    _vm._s(hang.strenght)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Varázslás ideje: " +
+                                                    _vm._s(hang.castTime)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Hatótáv: " +
+                                                    _vm._s(hang.effectRange)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Időtartam: " +
+                                                    _vm._s(hang.effectTime)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Mágiaellenállás: " +
+                                                    _vm._s(hang.resistance)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _vm._m(5, true),
+                                            _vm._v(" "),
+                                            _vm._l(
+                                              hang.description,
+                                              function (des, index) {
+                                                return _c(
+                                                  "p",
+                                                  { key: "hangDes" + index },
+                                                  [_vm._v(_vm._s(des))]
+                                                )
+                                              }
+                                            ),
+                                          ],
+                                          2
+                                        ),
+                                      ]
+                                    ),
+                                  ]
+                                )
+                              }
+                            ),
+                          ],
+                          2
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-pane fade",
+                        attrs: {
+                          id: "feny",
+                          role: "tabpanel",
+                          "aria-labelledby": "feny-tab",
+                        },
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "border border-secondary p-2 mb-2" },
+                          [
+                            _c("h4", [_vm._v(_vm._s(_vm.bardFenyMagia.name))]),
+                            _vm._v(" "),
+                            _vm._l(
+                              _vm.bardFenyMagia.description,
+                              function (fenydes, index) {
+                                return _c("p", { key: "fenydes" + index }, [
+                                  _vm._v(_vm._s(fenydes)),
+                                ])
+                              }
+                            ),
+                          ],
+                          2
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          [
+                            _c("h4", [_vm._v("Varázslatok")]),
+                            _vm._v(" "),
+                            _vm._l(
+                              _vm.bardFenyMagiaList,
+                              function (feny, index) {
+                                return _c(
+                                  "div",
+                                  {
+                                    key: "feny" + index,
+                                    staticClass: "accordion-item",
+                                  },
+                                  [
+                                    _c(
+                                      "h2",
+                                      {
+                                        staticClass: "accordion-header",
+                                        attrs: {
+                                          id: "feny" + index + "-heading",
+                                        },
+                                      },
+                                      [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "accordion-button collapsed",
+                                            attrs: {
+                                              type: "button",
+                                              "data-bs-toggle": "collapse",
+                                              "data-bs-target":
+                                                "#" + "feny" + index,
+                                              "aria-expanded": "false",
+                                              "aria-controls": "feny" + index,
+                                            },
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                            " +
+                                                _vm._s(feny.name) +
+                                                "\n                                        "
+                                            ),
+                                          ]
+                                        ),
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "accordion-collapse collapse",
+                                        attrs: {
+                                          id: "feny" + index,
+                                          "aria-labelledby":
+                                            "feny" + index + "-heading",
+                                        },
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "accordion-body" },
+                                          [
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Tipus:" + _vm._s(feny.typ)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Mana-pont: " +
+                                                    _vm._s(feny.manaText)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Erősség: " +
+                                                    _vm._s(feny.strenght)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Varázslás ideje: " +
+                                                    _vm._s(feny.castTime)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Hatótáv: " +
+                                                    _vm._s(feny.effectRange)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Időtartam: " +
+                                                    _vm._s(feny.effectTime)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Mágiaellenállás: " +
+                                                    _vm._s(feny.resistance)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _vm._m(6, true),
+                                            _vm._v(" "),
+                                            _vm._l(
+                                              feny.description,
+                                              function (des, index) {
+                                                return _c(
+                                                  "p",
+                                                  { key: "fenyDes" + index },
+                                                  [_vm._v(_vm._s(des))]
+                                                )
+                                              }
+                                            ),
+                                          ],
+                                          2
+                                        ),
+                                      ]
+                                    ),
+                                  ]
+                                )
+                              }
+                            ),
+                          ],
+                          2
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-pane fade",
+                        attrs: {
+                          id: "egyebb",
+                          role: "tabpanel",
+                          "aria-labelledby": "egyebb-tab",
+                        },
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "border border-secondary p-2 mb-2" },
+                          [
+                            _c("h4", [
+                              _vm._v(_vm._s(_vm.bardEgyebbMagia.name)),
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(
+                              _vm.bardEgyebbMagia.description,
+                              function (egyebbdes, index) {
+                                return _c("p", { key: "egyebbdes" + index }, [
+                                  _vm._v(_vm._s(egyebbdes)),
+                                ])
+                              }
+                            ),
+                          ],
+                          2
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          [
+                            _c("h4", [_vm._v("Varázslatok")]),
+                            _vm._v(" "),
+                            _vm._l(
+                              _vm.bardEgyebbMagiaList,
+                              function (egyebb, index) {
+                                return _c(
+                                  "div",
+                                  {
+                                    key: "egyebb" + index,
+                                    staticClass: "accordion-item",
+                                  },
+                                  [
+                                    _c(
+                                      "h2",
+                                      {
+                                        staticClass: "accordion-header",
+                                        attrs: {
+                                          id: "egyebb" + index + "-heading",
+                                        },
+                                      },
+                                      [
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "accordion-button collapsed",
+                                            attrs: {
+                                              type: "button",
+                                              "data-bs-toggle": "collapse",
+                                              "data-bs-target":
+                                                "#" + "egyebb" + index,
+                                              "aria-expanded": "false",
+                                              "aria-controls": "egyebb" + index,
+                                            },
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                            " +
+                                                _vm._s(egyebb.name) +
+                                                "\n                                        "
+                                            ),
+                                          ]
+                                        ),
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "accordion-collapse collapse",
+                                        attrs: {
+                                          id: "egyebb" + index,
+                                          "aria-labelledby":
+                                            "egyebb" + index + "-heading",
+                                        },
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "accordion-body" },
+                                          [
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Tipus:" + _vm._s(egyebb.typ)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Mana-pont: " +
+                                                    _vm._s(egyebb.manaText)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Erősség: " +
+                                                    _vm._s(egyebb.strenght)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Varázslás ideje: " +
+                                                    _vm._s(egyebb.castTime)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Hatótáv: " +
+                                                    _vm._s(egyebb.effectRange)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Időtartam: " +
+                                                    _vm._s(egyebb.effectTime)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", [
+                                              _c("b", [
+                                                _vm._v(
+                                                  "Mágiaellenállás: " +
+                                                    _vm._s(egyebb.resistance)
+                                                ),
+                                              ]),
+                                            ]),
+                                            _vm._v(" "),
+                                            _vm._m(7, true),
+                                            _vm._v(" "),
+                                            _vm._l(
+                                              egyebb.description,
+                                              function (des, index) {
+                                                return _c(
+                                                  "p",
+                                                  { key: "egyebbDes" + index },
+                                                  [_vm._v(_vm._s(des))]
+                                                )
+                                              }
+                                            ),
+                                          ],
+                                          2
+                                        ),
+                                      ]
+                                    ),
+                                  ]
+                                )
+                              }
+                            ),
+                          ],
+                          2
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _vm._m(8),
+            ]),
+          ]
+        ),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-grid text-center mb-3" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success m-2",
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#bardModal",
+          },
+        },
+        [_vm._v("Bárd Mágiák")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "manaUseModalLabel" } },
+        [_vm._v("Mana-pontok használata")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "bardModalLabel" } },
+        [_vm._v("Bárd Mágia")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "li",
+      { staticClass: "nav-item", attrs: { role: "presentation" } },
+      [
+        _c(
+          "button",
+          {
+            staticClass: "nav-link active",
+            attrs: {
+              id: "ismerteto-tab",
+              "data-bs-toggle": "tab",
+              "data-bs-target": "#ismerteto",
+              type: "button",
+              role: "tab",
+              "aria-controls": "ismerteto",
+              "aria-selected": "true",
+            },
+          },
+          [_vm._v("Ismertető")]
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Leirás:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Leirás:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Leirás:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Leirás:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Close")]
+      ),
+    ])
   },
 ]
 render._withStripped = true

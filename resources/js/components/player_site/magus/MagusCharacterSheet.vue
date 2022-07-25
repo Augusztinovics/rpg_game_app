@@ -24,21 +24,7 @@
 
                 <!-- mana -->
                  <div class=" bg-light border border-secondary rounded mb-3 p-3">
-                   <h4 class="text-center mt-2">Mana-pontok</h4>
-                   <div class="row">
-                       <div class="col border-end border-secondary">
-                           <p>Mp/szint</p>
-                           <p>0</p>   
-                       </div>
-                        <div class="col">
-                            <p>Max Mp</p>
-                            <p>0</p>
-                        </div>
-                   </div>
-                   <p class="border-top border-secondary">Akt Mp</p>
-                   <p>0</p>
-                   <p class="border-top border-secondary">Egyébb módositók</p>
-                   <p>0</p>
+                  <magus-mana />
                </div>
            </div>
 
@@ -133,20 +119,6 @@
            <magus-wepon />
         </div>
 
-        <!-- <div class="col-sm-8">
-                <div class="bg-light border border-secondary rounded mb-4 p-3">
-                    <div class="row">
-                        <div class="col-3">
-                            <p>Egyébb</p>
-                            <p>módositók</p>
-                        </div>
-                        <div class="col">
-                            <p>leirás....</p>
-                        </div>
-                    </div>
-                </div>
-        </div> -->
-
         <!-- kepzetseg tablazat -->
          <div class="bg-light border border-secondary rounded mb-4 p-3">
              <magus-skills />
@@ -208,6 +180,7 @@
     import MagusCharacterDescript from './MagusCharacterDescript.vue';
     import MagusNotes from './MagusNotes.vue';
     import MagusPsi from './MagusPsi.vue';
+    import MagusMana from './MagusMana.vue';
 
     export default {
         components: {
@@ -224,6 +197,7 @@
            MagusCharacterDescript,
            MagusNotes,
            MagusPsi,
+           MagusMana,
         },
         data() {
             return {

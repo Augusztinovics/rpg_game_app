@@ -1190,6 +1190,18 @@ const getters = {
     bardSpells: () => {
         return state.bardSpells;
     },
+    bardDalMagia: () => {
+        return state.bardSpells.dalMagia;
+    },
+    bardHangMagia: () => {
+        return state.bardSpells.hangMagia;
+    },
+    bardFenyMagia: () => {
+        return state.bardSpells.fenyMagia;
+    },
+    bardEgyebbMagia: () => {
+        return state.bardSpells.egyebbMagia;
+    },
 };
 const mutations = {};
 const actions = {};

@@ -163,6 +163,14 @@
         },
         description: '',
         notes: [],
+        Magia: {
+            maxMp: 0,
+            aktMp: 0,
+            mpLevel: {
+                text: '0',
+                range: [0, 0],
+            },
+        },
     }
 };
 const getters = {
@@ -466,6 +474,12 @@ const mutations = {
     },
     updateSzimbolum(state, szimbolum) {
         state.magusCharacter.Szimbolum = szimbolum;
+    },
+    updateMaxMp(state, maxMp) {
+        state.magusCharacter.Magia.maxMp += maxMp;
+    },
+    updateAktMp(state, aktMp) {
+        state.magusCharacter.Magia.aktMp = aktMp;
     },
 };
 const actions = {
