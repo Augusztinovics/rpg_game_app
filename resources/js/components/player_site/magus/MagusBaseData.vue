@@ -5,7 +5,7 @@
         <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Kaszt: </span><span>{{ Kaszt.name }}</span><button type="button" class="btn btn-outline-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#kasztModal">i</button></p>
         <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Faj: </span><span>{{ Faj.name }}</span><button type="button" class="btn btn-outline-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#fajModal">i</button></p>
         <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Jellem: </span><span>{{ Jellem.name }}</span> <button v-if="Jellem.name !== ''" type="button" class="btn btn-outline-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#jellemModal">i</button><span><button class="btn btn-outline-success btn-sm my-1 d-block" type="button" data-bs-toggle="modal" data-bs-target="#jellemUpdateModal">Változtat</button></span></p>
-        <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Vallás: </span><span>{{ vallas }}</span><span><button class="btn btn-outline-success btn-sm my-1 d-block" type="button" data-bs-toggle="modal" data-bs-target="#vallasModal">Változtat</button></span></p>
+        <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Vallás: </span><span>{{ Vallas.name }}</span><span><button v-if="Vallas.name !== ''" type="button" class="btn btn-outline-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#vallasInfoModal">i</button><button class="btn btn-outline-success btn-sm my-1 d-block" type="button" data-bs-toggle="modal" data-bs-target="#vallasModal">Változtat</button></span></p>
         <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Szimbólum: </span><span>{{ szimbolum }}</span><span><button class="btn btn-outline-success btn-sm my-1 d-block" type="button" data-bs-toggle="modal" data-bs-target="#szimbolumModal">Változtat</button></span></p>
         <p class="fs-4 border-bottom border-secondary"><span class="fw-bolder me-2">Szülőföld: </span><span>{{ szulofold }}</span><span><button class="btn btn-outline-success btn-sm my-1 d-block" type="button" data-bs-toggle="modal" data-bs-target="#szulofoldModal">Változtat</button></span></p>
         <p class="fs-4 border-bottom border-secondary mb-5"><span class="fw-bolder me-2">Iskola: </span><span>{{ iskola }}</span><span><button class="btn btn-outline-success btn-sm my-1 d-block" type="button" data-bs-toggle="modal" data-bs-target="#iskolaModal">Változtat</button></span></p>
@@ -26,6 +26,24 @@
                     </div>
                     <div class="modal-body">
                         {{ Jellem.description }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- VALLAS -->
+        <div class="modal fade" id="vallasInfoModal" tabindex="-1" aria-labelledby="vallasInfoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="vallasInfoModalLabel">{{ Vallas.name }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Szférák: {{ Vallas.sferaText }}</p>
+                        <p v-for="des in Vallas.description" :key="des.id">{{ des }}</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -100,7 +118,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                 <div class="modal-body">
-                    <select class="form-select form-select-lg mb-3" v-model="inputJellem" aria-label="weapon-select">
+                    <select class="form-select form-select-lg mb-3" v-model="inputJellem" aria-label="jellem-select">
                         <option v-for="jel in aligments" :key="jel.id" :value="jel.id">{{ jel.name }}</option>
                     </select>
                 </div>
@@ -120,7 +138,9 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                 <div class="modal-body">
-                    <input type="text" class="form-control" id="egyebb-text" v-model="inputVallas">
+                     <select class="form-select form-select-lg mb-3" v-model="inputVallas" aria-label="vallas-select">
+                        <option v-for="val in religions" :key="val.id" :value="val.id">{{ val.name }}</option>
+                    </select>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -217,12 +237,24 @@ export default {
         ...mapGetters('magusClasses', {
             magusKaszt: 'magusClass'
         }),
+        ...mapGetters('magusReligions', {
+            religions: 'religions',
+            religion: 'religion',
+        }),
         Jellem() {
             let jellem = this.aligment(this.magusCharacter.Jellem);
             if (jellem) {
                 return jellem
             } else {
                 return {name: 'Not selected', description: 'Not selected'}
+            }
+        },
+        Vallas() {
+            let vallas = this.religion(this.magusCharacter.Vallas)
+            if (vallas) {
+                return vallas;
+            } else {
+                return {name: '', description: '', sferaText: ''}
             }
         },
         Faj() {  
@@ -236,9 +268,6 @@ export default {
         },
         characterName() {
             return this.magusCharacter.Nev;
-        },
-        vallas() {
-            return this.magusCharacter.Vallas;
         },
         szimbolum() {
             return this.magusCharacter.Szimbolum;

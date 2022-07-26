@@ -6155,6 +6155,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -6171,7 +6191,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       inputIskola: ''
     };
   },
-  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('currentCharacter', {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusAligments', {
     aligment: 'aligment',
@@ -6180,6 +6200,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     race: 'race'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusClasses', {
     magusKaszt: 'magusClass'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusReligions', {
+    religions: 'religions',
+    religion: 'religion'
   })), {}, {
     Jellem: function Jellem() {
       var jellem = this.aligment(this.magusCharacter.Jellem);
@@ -6190,6 +6213,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return {
           name: 'Not selected',
           description: 'Not selected'
+        };
+      }
+    },
+    Vallas: function Vallas() {
+      var vallas = this.religion(this.magusCharacter.Vallas);
+
+      if (vallas) {
+        return vallas;
+      } else {
+        return {
+          name: '',
+          description: '',
+          sferaText: ''
         };
       }
     },
@@ -6204,9 +6240,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     characterName: function characterName() {
       return this.magusCharacter.Nev;
-    },
-    vallas: function vallas() {
-      return this.magusCharacter.Vallas;
     },
     szimbolum: function szimbolum() {
       return this.magusCharacter.Szimbolum;
@@ -10839,8 +10872,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/magus/magusAligments */ "./resources/js/store/modules/magus/magusAligments.js");
 /* harmony import */ var _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/magus/magusRaces */ "./resources/js/store/modules/magus/magusRaces.js");
 /* harmony import */ var _modules_magus_magusClasses__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/magus/magusClasses */ "./resources/js/store/modules/magus/magusClasses.js");
@@ -10853,6 +10886,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_magus_magusPsiSlan__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/magus/magusPsiSlan */ "./resources/js/store/modules/magus/magusPsiSlan.js");
 /* harmony import */ var _modules_magus_magusPsiKyr__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/magus/magusPsiKyr */ "./resources/js/store/modules/magus/magusPsiKyr.js");
 /* harmony import */ var _modules_magus_magusBardSpells__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/magus/magusBardSpells */ "./resources/js/store/modules/magus/magusBardSpells.js");
+/* harmony import */ var _modules_magus_magusReligions__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/magus/magusReligions */ "./resources/js/store/modules/magus/magusReligions.js");
 
 
 
@@ -10867,8 +10901,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_12__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_13__["default"]);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_13__["default"].Store({
+
+vue__WEBPACK_IMPORTED_MODULE_13__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_14__["default"]);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_14__["default"].Store({
   modules: {
     magusAligments: _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__["default"],
     magusRaces: _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -10881,7 +10916,8 @@ vue__WEBPACK_IMPORTED_MODULE_12__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1
     magusPsiPyarroni: _modules_magus_magusPsiPyarroni__WEBPACK_IMPORTED_MODULE_8__["default"],
     magusPsiSlan: _modules_magus_magusPsiSlan__WEBPACK_IMPORTED_MODULE_9__["default"],
     magusPsiKyr: _modules_magus_magusPsiKyr__WEBPACK_IMPORTED_MODULE_10__["default"],
-    magusBardSpells: _modules_magus_magusBardSpells__WEBPACK_IMPORTED_MODULE_11__["default"]
+    magusBardSpells: _modules_magus_magusBardSpells__WEBPACK_IMPORTED_MODULE_11__["default"],
+    magusReligions: _modules_magus_magusReligions__WEBPACK_IMPORTED_MODULE_12__["default"]
   }
 }));
 
@@ -13621,6 +13657,170 @@ var getters = {
       return (_state$races$find = state.races.find(function (r) {
         return r.id === id;
       })) !== null && _state$races$find !== void 0 ? _state$races$find : state.races[0];
+    };
+  }
+};
+var mutations = {};
+var actions = {};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/magus/magusReligions.js":
+/*!************************************************************!*\
+  !*** ./resources/js/store/modules/magus/magusReligions.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**-------------------------------------------
+ * 
+ * STORE FOR MAGUS RELIGIONS
+ * 
+ * -------------------------------------------
+ */
+var state = {
+  //vallasok
+  //Szferak:
+  // E - elet
+  // H - halal
+  // L - lelek
+  // T - termeszet
+  religions: [{
+    id: 'DOMVIK',
+    name: 'Domvik',
+    sfera: ['E', 'L', 'T'],
+    sferaText: 'Élet, Lélek, Természet',
+    description: ['Domvik egyisten. Vallása a becsületességet, erényességet, az embertársi szeretetet oktatja. Legelterjedtebb a Shadoni Birodalomban.']
+  }, {
+    id: 'RANAGOL',
+    name: 'Ranagol',
+    sfera: ['H', 'L', 'T'],
+    sferaText: 'Halál, Lélek, Természet',
+    description: ['Az erkölcstől mentes gondolkodást és a hűvös logikát részesiti előnybe. Az egyén kiemelkedhet és mások fölé kerülhet. Gorvick és Krán államvallása.']
+  }, {
+    id: 'ALDRON',
+    name: 'Aldron',
+    sfera: ['E', 'L'],
+    sferaText: 'Élet, Lélek',
+    description: ['A Pyarroni Istencsalád egyik Istene. Hatalmának területe: Varázslás és Fény']
+  }, {
+    id: 'ALBORNE',
+    name: 'Alborne',
+    sfera: ['E', 'L'],
+    sferaText: 'Élet, Lélek',
+    description: ['A Pyarroni Istencsalád egyik Istene. Hatalmának területe: Zene, Legendák, Ünnepek']
+  }, {
+    id: 'ANTOH',
+    name: 'Antoh',
+    sfera: ['T', 'E'],
+    sferaText: 'Természet, Élet',
+    description: ['A Pyarroni Istencsalád egyik Istene. Hatalmának területe: Vizek, Tengerek, Viharok']
+  }, {
+    id: 'AREL',
+    name: 'Arel',
+    sfera: ['T', 'E', 'L'],
+    sferaText: 'Természet, Élet, Lélek',
+    description: ['A Pyarroni Istencsalád egyik Istene. Hatalmának területe: Harc, Természet, Vakmerőség, Makacsság']
+  }, {
+    id: 'DARTON',
+    name: 'Darton',
+    sfera: ['H', 'L'],
+    sferaText: 'Halál, Lélek',
+    description: ['A Pyarroni Istencsalád egyik Istene. Hatalmának területe: Halál, Halottak, Humor, Túlvilág']
+  }, {
+    id: 'DELLA',
+    name: 'Della',
+    sfera: ['L'],
+    sferaText: 'Lélek',
+    description: ['A Pyarroni Istencsalád egyik Istene. Hatalmának területe: Művészetek']
+  }, {
+    id: 'DREINA',
+    name: 'Dreina',
+    sfera: ['E', 'H'],
+    sferaText: 'Élet, Halál',
+    description: ['A Pyarroni Istencsalád egyik Istene. Hatalmának területe: Hatalom, Rend, Gazdaság, Hűség']
+  }, {
+    id: 'ELLANA',
+    name: 'Ellana',
+    sfera: ['E', 'L'],
+    sferaText: 'Élet, Lélek',
+    description: ['A Pyarroni Istencsalád egyik Istene. Hatalmának területe: Szerelem, Szépség, Kéj, Léhaság, Hűtlenség']
+  }, {
+    id: 'GILRON',
+    name: 'Gilron',
+    sfera: ['E', 'T'],
+    sferaText: 'Élet, Természet',
+    description: ['A Pyarroni Istencsalád egyik Istene. Hatalmának területe: Kovácsok, Mesterségek']
+  }, {
+    id: 'KRAD',
+    name: 'Krad',
+    sfera: ['É', 'L'],
+    sferaText: 'Élet, Lélek',
+    description: ['A Pyarroni Istencsalád egyik Istene. Hatalmának területe: Tudományok, Felfedezők, Utazók']
+  }, {
+    id: 'KYEL',
+    name: 'Kyel',
+    sfera: ['E', 'H', 'L'],
+    sferaText: 'Élet, Halál, Lélek',
+    description: ['A Pyarroni Istencsalád egyik Istene. Hatalmának területe: Teremtés, Pusztitás, Sors']
+  }, {
+    id: 'NOIR',
+    name: 'Noir',
+    sfera: ['L', 'H'],
+    sferaText: 'Lélek, Halál',
+    description: ['A Pyarroni Istencsalád egyik Istene. Hatalmának területe: Álmok, Csalás, Játékok, Fogadások']
+  }, {
+    id: 'ORWELLA',
+    name: 'Orwella',
+    sfera: ['H'],
+    sferaText: 'Halál',
+    description: ['A Pyarroni Istencsalád egyik Istene. Hatalmának területe: Betegségek, Rontás, Átkok']
+  }, {
+    id: 'UWEL',
+    name: 'Uwel',
+    sfera: ['E', 'H', 'L'],
+    sferaText: 'Élet, Halál, Lélek',
+    description: ['A Pyarroni Istencsalád egyik Istene. Hatalmának területe: Bosszú, Igazság, Fájdalom']
+  }, {
+    id: 'SOGRON',
+    name: 'Sogron, a Tűzkobra',
+    sfera: ['E', 'T', 'L'],
+    sferaText: 'Élet, Természet, Lélek',
+    description: ['A Tudás és a tudást szomjazók istene, az örök újitó.A tűz Őrzője.']
+  }, {
+    id: 'THARR',
+    name: 'Tharr, a Háromfejű',
+    sfera: ['L', 'H'],
+    sferaText: 'Lélek, Halál',
+    description: ['A Káosz, a Sötétség és a Pusztitás Istene.']
+  }, {
+    id: 'ATE',
+    name: 'Nem követ egyetlen Istent sem',
+    sfera: [],
+    sferaText: '',
+    description: ['Nem követ, vagy szolgál egyetlen meghatározott Istent sem.']
+  }]
+};
+var getters = {
+  religions: function religions(state) {
+    return state.religions;
+  },
+  religion: function religion(state) {
+    return function (id) {
+      return state.religions.find(function (r) {
+        return r.id === id;
+      });
     };
   }
 };
@@ -41653,26 +41853,53 @@ var render = function () {
     _vm._v(" "),
     _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
       _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Vallás: ")]),
-      _c("span", [_vm._v(_vm._s(_vm.vallas))]),
-      _vm._m(2),
+      _c("span", [_vm._v(_vm._s(_vm.Vallas.name))]),
+      _c("span", [
+        _vm.Vallas.name !== ""
+          ? _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success btn-sm ms-2",
+                attrs: {
+                  type: "button",
+                  "data-bs-toggle": "modal",
+                  "data-bs-target": "#vallasInfoModal",
+                },
+              },
+              [_vm._v("i")]
+            )
+          : _vm._e(),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+            attrs: {
+              type: "button",
+              "data-bs-toggle": "modal",
+              "data-bs-target": "#vallasModal",
+            },
+          },
+          [_vm._v("Változtat")]
+        ),
+      ]),
     ]),
     _vm._v(" "),
     _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
       _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Szimbólum: ")]),
       _c("span", [_vm._v(_vm._s(_vm.szimbolum))]),
-      _vm._m(3),
+      _vm._m(2),
     ]),
     _vm._v(" "),
     _c("p", { staticClass: "fs-4 border-bottom border-secondary" }, [
       _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Szülőföld: ")]),
       _c("span", [_vm._v(_vm._s(_vm.szulofold))]),
-      _vm._m(4),
+      _vm._m(3),
     ]),
     _vm._v(" "),
     _c("p", { staticClass: "fs-4 border-bottom border-secondary mb-5" }, [
       _c("span", { staticClass: "fw-bolder me-2" }, [_vm._v("Iskola: ")]),
       _c("span", [_vm._v(_vm._s(_vm.iskola))]),
-      _vm._m(5),
+      _vm._m(4),
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "my-5 text-center" }, [
@@ -41730,6 +41957,66 @@ var render = function () {
                     "\n                "
                 ),
               ]),
+              _vm._v(" "),
+              _vm._m(5),
+            ]),
+          ]
+        ),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "vallasInfoModal",
+          tabindex: "-1",
+          "aria-labelledby": "vallasInfoModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "modal-dialog modal-dialog-centered modal-dialog-scrollable",
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "vallasInfoModalLabel" },
+                  },
+                  [_vm._v(_vm._s(_vm.Vallas.name))]
+                ),
+                _vm._v(" "),
+                _c("button", {
+                  staticClass: "btn-close",
+                  attrs: {
+                    type: "button",
+                    "data-bs-dismiss": "modal",
+                    "aria-label": "Close",
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "modal-body" },
+                [
+                  _c("p", [_vm._v("Szférák: " + _vm._s(_vm.Vallas.sferaText))]),
+                  _vm._v(" "),
+                  _vm._l(_vm.Vallas.description, function (des) {
+                    return _c("p", { key: des.id }, [_vm._v(_vm._s(des))])
+                  }),
+                ],
+                2
+              ),
               _vm._v(" "),
               _vm._m(6),
             ]),
@@ -41952,7 +42239,7 @@ var render = function () {
                     },
                   ],
                   staticClass: "form-select form-select-lg mb-3",
-                  attrs: { "aria-label": "weapon-select" },
+                  attrs: { "aria-label": "jellem-select" },
                   on: {
                     change: function ($event) {
                       var $$selectedVal = Array.prototype.filter
@@ -42022,27 +42309,44 @@ var render = function () {
             _vm._m(12),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.inputVallas,
-                    expression: "inputVallas",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text", id: "egyebb-text" },
-                domProps: { value: _vm.inputVallas },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.inputVallas = $event.target.value
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.inputVallas,
+                      expression: "inputVallas",
+                    },
+                  ],
+                  staticClass: "form-select form-select-lg mb-3",
+                  attrs: { "aria-label": "vallas-select" },
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.inputVallas = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
                   },
                 },
-              }),
+                _vm._l(_vm.religions, function (val) {
+                  return _c(
+                    "option",
+                    { key: val.id, domProps: { value: val.id } },
+                    [_vm._v(_vm._s(val.name))]
+                  )
+                }),
+                0
+              ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "modal-footer" }, [
@@ -42317,25 +42621,6 @@ var staticRenderFns = [
           attrs: {
             type: "button",
             "data-bs-toggle": "modal",
-            "data-bs-target": "#vallasModal",
-          },
-        },
-        [_vm._v("Változtat")]
-      ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-outline-success btn-sm my-1 d-block",
-          attrs: {
-            type: "button",
-            "data-bs-toggle": "modal",
             "data-bs-target": "#szimbolumModal",
           },
         },
@@ -42378,6 +42663,21 @@ var staticRenderFns = [
           },
         },
         [_vm._v("Változtat")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Close")]
       ),
     ])
   },
@@ -45874,7 +46174,22 @@ var render = function () {
               _vm._v("Varázslatok"),
             ]),
             _vm._v(" "),
-            _vm._m(0),
+            _c("div", { staticClass: "d-grid text-center mb-3" }, [
+              _vm.magusCharacter.Kaszt == "BARD"
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success m-2",
+                      attrs: {
+                        type: "button",
+                        "data-bs-toggle": "modal",
+                        "data-bs-target": "#bardModal",
+                      },
+                    },
+                    [_vm._v("Bárd Mágiák")]
+                  )
+                : _vm._e(),
+            ]),
           ])
         : _vm._e(),
       _vm._v(" "),
@@ -45946,7 +46261,7 @@ var render = function () {
       [
         _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _vm._m(1),
+            _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
               _c("p", [
@@ -46032,7 +46347,7 @@ var render = function () {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(2),
+              _vm._m(1),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c(
@@ -46102,7 +46417,7 @@ var render = function () {
                     attrs: { id: "myTab", role: "tablist" },
                   },
                   [
-                    _vm._m(3),
+                    _vm._m(2),
                     _vm._v(" "),
                     _c(
                       "li",
@@ -46393,7 +46708,7 @@ var render = function () {
                                             ]),
                                           ]),
                                           _vm._v(" "),
-                                          _vm._m(4, true),
+                                          _vm._m(3, true),
                                           _vm._v(" "),
                                           _vm._l(
                                             dal.description,
@@ -46575,7 +46890,7 @@ var render = function () {
                                               ]),
                                             ]),
                                             _vm._v(" "),
-                                            _vm._m(5, true),
+                                            _vm._m(4, true),
                                             _vm._v(" "),
                                             _vm._l(
                                               hang.description,
@@ -46758,7 +47073,7 @@ var render = function () {
                                               ]),
                                             ]),
                                             _vm._v(" "),
-                                            _vm._m(6, true),
+                                            _vm._m(5, true),
                                             _vm._v(" "),
                                             _vm._l(
                                               feny.description,
@@ -46943,7 +47258,7 @@ var render = function () {
                                               ]),
                                             ]),
                                             _vm._v(" "),
-                                            _vm._m(7, true),
+                                            _vm._m(6, true),
                                             _vm._v(" "),
                                             _vm._l(
                                               egyebb.description,
@@ -46973,7 +47288,7 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _vm._m(8),
+              _vm._m(7),
             ]),
           ]
         ),
@@ -46982,25 +47297,6 @@ var render = function () {
   ])
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "d-grid text-center mb-3" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-success m-2",
-          attrs: {
-            type: "button",
-            "data-bs-toggle": "modal",
-            "data-bs-target": "#bardModal",
-          },
-        },
-        [_vm._v("Bárd Mágiák")]
-      ),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
