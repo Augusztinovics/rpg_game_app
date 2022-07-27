@@ -18,6 +18,66 @@
                 </div>
                 <div class="col">
                     <button v-if="kpLeft > 0" class="btn btn-success my-3" type="button" data-bs-toggle="modal" data-bs-target="#newSkillModal">Új képzettség tanulása</button>
+                    <div v-if="freeFHAf > 0">
+                        <p>{{ freeFHAf }} Alapfokú fegyverhasználat választására van lehetőség</p>
+                        <select class="form-select form-select-lg mb-3" v-model="inputFreeFHAf" aria-label="weapon-select">
+                            <option selected value="" disabled>Választj fegyvert</option>
+                            <option v-for="weapon in availableWeapons" :key="weapon.id" :value="weapon.id">{{ weapon.name }}</option>
+                            <option v-for="ranged in availableRangedWeapons" :key="ranged.id" :value="ranged.id">{{ ranged.name }}</option>
+                        </select>
+                        <button class="btn btn-primary" @click="submitFreeFHAf">Kiválaszt</button>
+                    </div>
+                    <div v-if="freeFHMf > 0">
+                        <p>{{ freeFHMf }} Mesterfokú fegyverhasználat választására van lehetőség</p>
+                        <select class="form-select form-select-lg mb-3" v-model="inputFreeFHMf" aria-label="weapon-select">
+                            <option selected value="" disabled>Választj fegyvert</option>
+                            <option v-for="weaponMf in availableWeaponsMf" :key="'MF' + weaponMf.id" :value="weaponMf.id">{{ weaponMf.name }}</option>
+                            <option v-for="rangedMf in availableRangedWeaponsMf" :key="'MF' + rangedMf.id" :value="rangedMf.id">{{ rangedMf.name }}</option>
+                        </select>
+                        <button class="btn btn-primary" @click="submitFreeFHMf">Kiválaszt</button>
+                    </div>
+                    <dir v-if="freeFDAf > 0">
+                        <p>{{ freeFDAf }} Alapfokú fegyverdobás választására van lehetőség</p>
+                        <select class="form-select form-select-lg mb-3" v-model="inputFreeFDAf" aria-label="weapon-select">
+                            <option selected value="" disabled>Választj fegyvert</option>
+                            <option v-for="weapon in availableTrowWeapons" :key="'T' + weapon.id" :value="weapon.id">{{ weapon.name }}</option>
+                        </select>
+                        <button class="btn btn-primary" @click="submitFreeFDAf">Kiválaszt</button>
+                    </dir>
+                    <dir v-if="freeFDMf > 0">
+                        <p>{{ freeFDMf }} Mesterfokú fegyverdobás választására van lehetőség</p>
+                        <select class="form-select form-select-lg mb-3" v-model="inputFreeFDMf" aria-label="weapon-select">
+                            <option selected value="" disabled>Választj fegyvert</option>
+                            <option v-for="weaponMf in availableTrowWeaponsMf" :key="'TMF' + weaponMf.id" :value="weaponMf.id">{{ weaponMf.name }}</option>
+                        </select>
+                        <button class="btn btn-primary" @click="submitFreeFDMf">Kiválaszt</button>
+                    </dir>
+                    <div v-if="freeNyelvAf > 0">
+                        <p>{{ freeNyelvAf }} Alapfokú nyelvismeret hozzáadására van lehetőség</p>
+                        <input class="form-control form-control-lg" v-model="inputFreeNyelvAf" type="text" placeholder="ird be a megtanulni kivánt nyelvet" aria-label="language input">
+                        <button class="btn btn-primary" @click="submitFreeNyelvAf">Hozzáad</button>
+                    </div>
+                    <div v-if="freeNyelvMf > 0">
+                        <p>{{ freeNyelvMf }} Mesterfokú nyelvismeret hozzáadására van lehetőség</p>
+                        <select class="form-select form-select-lg mb-3" v-model="inputFreeNyelvMf" aria-label="weapon-select">
+                            <option selected value="" disabled>Választj nyelvet</option>
+                            <option v-for="language, index in upgradebleLanguages" :key="'L' + index" :value="language">{{ language }}</option>
+                        </select>
+                        <button class="btn btn-primary" @click="submitFreeNyelvMf">Kiválaszt</button>
+                    </div>
+                    <div v-if="freeSzakmaAf > 0">
+                        <p>{{ freeSzakmaAf }} Alapfokú szakma hozzáadására van lehetőség</p>
+                        <input class="form-control form-control-lg" v-model="inputFreeSzakmaAf" type="text" placeholder="ird be a megtanulni kivánt nyelvet" aria-label="language input">
+                        <button class="btn btn-primary" @click="submitFreeSzakmaAf">Hozzáad</button>
+                    </div>
+                    <div v-if="freeSzakmaMf > 0">
+                        <p>{{ freeSzakmaMf }} Alapfokú szakma hozzáadására van lehetőség</p>
+                        <select class="form-select form-select-lg mb-3" v-model="inputFreeSzakmaMf" aria-label="weapon-select">
+                            <option selected value="" disabled>Választj szakmát</option>
+                            <option v-for="craft, index in upgradebleCraftes" :key="'C' + index" :value="craft">{{ craft }}</option>
+                        </select>
+                        <button class="btn btn-primary" @click="submitFreeSzakmaMf">Kiválaszt</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -140,6 +200,14 @@ export default {
             return {
                infoSkillId: 'FEGYVER_HASZNALAT',
                infoSkillPrecId: 'maszas',
+               inputFreeFHAf: '',
+               inputFreeFHMf: '',
+               inputFreeFDAf: '',
+               inputFreeFDMf: '',
+               inputFreeNyelvAf: '',
+               inputFreeNyelvMf: '',
+               inputFreeSzakmaAf: '',
+               inputFreeSzakmaMf: '',
             }
         },
     computed: {
@@ -160,6 +228,8 @@ export default {
         ...mapGetters('magusWeapons', {
             weapon: 'weapon',
             rangedWeapon: 'rangedWeapon',
+            weapons: 'weapons',
+            rangedWeapons: 'rangedWeapons',
         }),
         Faj() {
             let race = 'HUMAN';
@@ -180,6 +250,79 @@ export default {
         },
         KpSzint() {
             return this.magusKaszt(this.magusCharacter.Kaszt).KpSzint;
+        },
+        availableWeapons() {
+            return this.weapons.filter(w => !this.fegyverHasznalatAf.includes(w.id));
+        },
+        availableRangedWeapons() {
+            return this.rangedWeapons.filter(r => !this.fegyverHasznalatAf.includes(r.id));
+        },
+        availableTrowWeapons() {
+            return this.weapons.filter(w => !this.fegyverDobasAf.includes(w.id));
+        },
+
+        availableWeaponsMf() {
+            return this.weapons.filter(w => this.fegyverHasznalatAf.includes(w.id) && !this.fegyverHasznalatMf.includes(w.id));
+        },
+        availableRangedWeaponsMf() {
+            return this.rangedWeapons.filter(r => this.fegyverHasznalatAf.includes(r.id) && !this.fegyverHasznalatMf.includes(r.id));
+        },
+        availableTrowWeaponsMf() {
+            return this.weapons.filter(w => this.fegyverDobasAf.includes(w.id) && !this.fegyverDobasMf.includes(w.id));
+        },
+        upgradebleLanguages() {
+            return this.nyelvAf.filter(l => !this.nyelvMf.includes(l));
+        },
+        upgradebleCraftes() {
+            return this.szakmaAf.filter(c => !this.szakmaMf.includes(c));
+        },
+        freeFHAf() {
+            return this.magusCharacter.FreeFegyverhasznalatAlap;
+        },
+        freeFHMf() {
+            return this.magusCharacter.FreeFegyverhasznalatMester;
+        },
+        freeFDAf() {
+            return this.magusCharacter.FreeFegyverdobasAlap;
+        },
+        freeFDMf() {
+            return this.magusCharacter.FreeFegyverdobasMester;
+        },
+        freeNyelvAf() {
+            return this.magusCharacter.FreeNyelvismeretAf;
+        },
+        freeNyelvMf() {
+            return this.magusCharacter.FreeNyelvismeretMf;
+        },
+        freeSzakmaAf() {
+            return this.magusCharacter.FreeSzakmaAf;
+        },
+        freeSzakmaMf() {
+            return this.magusCharacter.FreeSzakmaMf;
+        },
+        fegyverHasznalatAf() {
+            return this.magusCharacter.FegyverhasznalatAlap;
+        },
+        fegyverDobasAf() {
+            return this.magusCharacter.FegyverdobasAlap;
+        },
+        fegyverHasznalatMf() {
+            return this.magusCharacter.FegyverhasznalatMester;
+        },
+        fegyverDobasMf() {
+            return this.magusCharacter.FegyverdobasMester;
+        },
+        nyelvAf() {
+            return this.magusCharacter.NyelvismeretAf;
+        },
+        szakmaAf() {
+            return this.magusCharacter.SzakmaAf;
+        },
+        nyelvMf() {
+            return this.magusCharacter.NyelvismeretMf;
+        },
+        szakmaMf() {
+            return this.magusCharacter.SzakmaMf;
         },
         kpLeft() {
             return this.magusCharacter.KpLeft;
@@ -310,7 +453,23 @@ export default {
         ...mapMutations('currentCharacter', {
             updateKpLeftDown: 'updateKpLeftDown',
             updateKpPrecLeftDown: 'updateKpPrecLeftDown',
-            updatePrecentSkills: 'updatePrecentSkills'
+            updatePrecentSkills: 'updatePrecentSkills',
+            decressFreeFegyverhasznalatAlap: 'decressFreeFegyverhasznalatAlap',
+            decressFreeFegyverhasznalatMester: 'decressFreeFegyverhasznalatMester',
+            decressFreeFegyverdobasAlap: 'decressFreeFegyverdobasAlap',
+            decressFreeFegyverdobasMester: 'decressFreeFegyverdobasMester',
+            decressFreeNyelvismeretAf: 'decressFreeNyelvismeretAf',
+            decressFreeNyelvismeretMf: 'decressFreeNyelvismeretMf',
+            decressFreeSzakmaAf: 'decressFreeSzakmaAf',
+            decressFreeSzakmaMf: 'decressFreeSzakmaMf',
+            updateWeaposAf: 'updateWeaposAf',
+            updateWeaposMf: 'updateWeaposMf',
+            updateThrowWeaposAf: 'updateThrowWeaposAf',
+            updateThrowWeaposMf: 'updateThrowWeaposMf',
+            updateLanguageAf: 'updateLanguageAf',
+            updateLanguageMf: 'updateLanguageMf',
+            updateCraftAf: 'updateCraftAf',
+            updateCraftMf: 'updateCraftMf',
         }),
         ...mapActions('currentCharacter', {
                 save: 'save'
@@ -339,6 +498,86 @@ export default {
             this.updateKpPrecLeftDown(1);
             this.updatePrecentSkills(precentSkillSet);
             this.save();
+        },
+        submitFreeFHAf() {
+            if (this.inputFreeFHAf != '') {
+                let fhAf = this.fegyverHasznalatAf;
+                fhAf.push(this.inputFreeFHAf);
+                this.updateWeaposAf(fhAf);
+                this.decressFreeFegyverhasznalatAlap();
+                this.inputFreeFHAf = '';
+                this.save();
+            }
+        },
+        submitFreeFHMf() {
+            if (this.inputFreeFHMf != '') {
+                let fhMf = this.magusCharacter.FegyverhasznalatMester;
+                fhMf.push(this.inputFreeFHMf);
+                this.updateWeaposMf(fhMf);
+                this.decressFreeFegyverhasznalatMester();
+                this.inputFreeFHMf = '';
+                this.save();
+            }
+        },
+        submitFreeFDAf() {
+            if (this.inputFreeFDAf != '') {
+                let fdAf = this.fegyverDobasAf;
+                fdAf.push(this.inputFreeFDAf);
+                this.updateThrowWeaposAf(fdAf);
+                this.decressFreeFegyverdobasAlap();
+                this.inputFreeFDAf = '';
+                this.save();
+            }
+        },
+        submitFreeFDMf() {
+            if (this.inputFreeFDMf != '') {
+                let fdMf = this.magusCharacter.FegyverdobasMester;
+                fdMf.push(this.inputFreeFDMf);
+                this.updateThrowWeaposMf(fdMf);
+                this.decressFreeFegyverdobasMester();
+                this.inputFreeFDMf = '';
+                this.save();
+            }
+        },
+        submitFreeNyelvAf() {
+            if (this.inputFreeNyelvAf != '') {
+                let nyelvAf = this.nyelvAf;
+                nyelvAf.push(this.inputFreeNyelvAf);
+                this.updateLanguageAf(nyelvAf);
+                this.decressFreeNyelvismeretAf();
+                this.inputFreeNyelvAf = '';
+                this.save();
+            }
+        },
+        submitFreeNyelvMf() {
+            if (this.inputFreeNyelvMf != '') {
+                let nyelvMf = this.magusCharacter.NyelvismeretMf;
+                nyelvMf.push(this.inputFreeNyelvMf);
+                this.updateLanguageMf(nyelvMf);
+                this.decressFreeNyelvismeretMf();
+                this.inputFreeNyelvMf = '';
+                this.save();
+            }
+        },
+        submitFreeSzakmaAf() {
+            if (this.inputFreeSzakmaAf != '') {
+                let szakmaAf = this.szakmaAf;
+                szakmaAf.push(this.inputFreeSzakmaAf);
+                this.updateCraftAf(szakmaAf);
+                this.decressFreeSzakmaAf();
+                this.inputFreeSzakmaAf = '';
+                this.save();
+            }
+        },
+        submitFreeSzakmaMf() {
+            if (this.inputFreeSzakmaMf != '') {
+                let szakmaMf = this.magusCharacter.SzakmaMf;
+                szakmaMf.push(this.inputFreeSzakmaMf);
+                this.updateCraftMf(szakmaMf);
+                this.decressFreeSzakmaMf();
+                this.inputFreeSzakmaMf = '';
+                this.save();
+            }
         },
     },
 }

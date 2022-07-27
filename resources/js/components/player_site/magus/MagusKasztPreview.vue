@@ -12,6 +12,8 @@
         <p>ASZTRÁL: {{ kaszt.ASZT.name}}</p>
         <p><b>Leirás</b></p>
         <p v-for="des, index in kaszt.description" :key="index">{{ des }}</p>
+        <p><b>Különleges képesség</b></p>
+       <p>{{ kaszt.kulonleges }}</p>
        <p><b>Harcérték</b></p>
        <p>{{ kaszt.harcertek }}</p>
        <p><b>Életerő és Fájdalomtűrés</b></p>

@@ -8045,7 +8045,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this7 = this;
 
       return this.weapons.filter(function (w) {
-        return _this7.learnedTrowWeaponsList.includes(w.id) && !_this7.learnedWeaponsListMf.includes(w.id);
+        return _this7.learnedTrowWeaponsList.includes(w.id) && !_this7.learnedTrowWeaponsListMf.includes(w.id);
       });
     },
     upgradebleLanguages: function upgradebleLanguages() {
@@ -9605,6 +9605,66 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -9614,7 +9674,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       infoSkillId: 'FEGYVER_HASZNALAT',
-      infoSkillPrecId: 'maszas'
+      infoSkillPrecId: 'maszas',
+      inputFreeFHAf: '',
+      inputFreeFHMf: '',
+      inputFreeFDAf: '',
+      inputFreeFDMf: '',
+      inputFreeNyelvAf: '',
+      inputFreeNyelvMf: '',
+      inputFreeSzakmaAf: '',
+      inputFreeSzakmaMf: ''
     };
   },
   computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('currentCharacter', {
@@ -9629,7 +9697,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     skillPrecent: 'skillPrecent'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('magusWeapons', {
     weapon: 'weapon',
-    rangedWeapon: 'rangedWeapon'
+    rangedWeapon: 'rangedWeapon',
+    weapons: 'weapons',
+    rangedWeapons: 'rangedWeapons'
   })), {}, {
     Faj: function Faj() {
       var race = 'HUMAN';
@@ -9655,6 +9725,110 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     KpSzint: function KpSzint() {
       return this.magusKaszt(this.magusCharacter.Kaszt).KpSzint;
     },
+    availableWeapons: function availableWeapons() {
+      var _this = this;
+
+      return this.weapons.filter(function (w) {
+        return !_this.fegyverHasznalatAf.includes(w.id);
+      });
+    },
+    availableRangedWeapons: function availableRangedWeapons() {
+      var _this2 = this;
+
+      return this.rangedWeapons.filter(function (r) {
+        return !_this2.fegyverHasznalatAf.includes(r.id);
+      });
+    },
+    availableTrowWeapons: function availableTrowWeapons() {
+      var _this3 = this;
+
+      return this.weapons.filter(function (w) {
+        return !_this3.fegyverDobasAf.includes(w.id);
+      });
+    },
+    availableWeaponsMf: function availableWeaponsMf() {
+      var _this4 = this;
+
+      return this.weapons.filter(function (w) {
+        return _this4.fegyverHasznalatAf.includes(w.id) && !_this4.fegyverHasznalatMf.includes(w.id);
+      });
+    },
+    availableRangedWeaponsMf: function availableRangedWeaponsMf() {
+      var _this5 = this;
+
+      return this.rangedWeapons.filter(function (r) {
+        return _this5.fegyverHasznalatAf.includes(r.id) && !_this5.fegyverHasznalatMf.includes(r.id);
+      });
+    },
+    availableTrowWeaponsMf: function availableTrowWeaponsMf() {
+      var _this6 = this;
+
+      return this.weapons.filter(function (w) {
+        return _this6.fegyverDobasAf.includes(w.id) && !_this6.fegyverDobasMf.includes(w.id);
+      });
+    },
+    upgradebleLanguages: function upgradebleLanguages() {
+      var _this7 = this;
+
+      return this.nyelvAf.filter(function (l) {
+        return !_this7.nyelvMf.includes(l);
+      });
+    },
+    upgradebleCraftes: function upgradebleCraftes() {
+      var _this8 = this;
+
+      return this.szakmaAf.filter(function (c) {
+        return !_this8.szakmaMf.includes(c);
+      });
+    },
+    freeFHAf: function freeFHAf() {
+      return this.magusCharacter.FreeFegyverhasznalatAlap;
+    },
+    freeFHMf: function freeFHMf() {
+      return this.magusCharacter.FreeFegyverhasznalatMester;
+    },
+    freeFDAf: function freeFDAf() {
+      return this.magusCharacter.FreeFegyverdobasAlap;
+    },
+    freeFDMf: function freeFDMf() {
+      return this.magusCharacter.FreeFegyverdobasMester;
+    },
+    freeNyelvAf: function freeNyelvAf() {
+      return this.magusCharacter.FreeNyelvismeretAf;
+    },
+    freeNyelvMf: function freeNyelvMf() {
+      return this.magusCharacter.FreeNyelvismeretMf;
+    },
+    freeSzakmaAf: function freeSzakmaAf() {
+      return this.magusCharacter.FreeSzakmaAf;
+    },
+    freeSzakmaMf: function freeSzakmaMf() {
+      return this.magusCharacter.FreeSzakmaMf;
+    },
+    fegyverHasznalatAf: function fegyverHasznalatAf() {
+      return this.magusCharacter.FegyverhasznalatAlap;
+    },
+    fegyverDobasAf: function fegyverDobasAf() {
+      return this.magusCharacter.FegyverdobasAlap;
+    },
+    fegyverHasznalatMf: function fegyverHasznalatMf() {
+      return this.magusCharacter.FegyverhasznalatMester;
+    },
+    fegyverDobasMf: function fegyverDobasMf() {
+      return this.magusCharacter.FegyverdobasMester;
+    },
+    nyelvAf: function nyelvAf() {
+      return this.magusCharacter.NyelvismeretAf;
+    },
+    szakmaAf: function szakmaAf() {
+      return this.magusCharacter.SzakmaAf;
+    },
+    nyelvMf: function nyelvMf() {
+      return this.magusCharacter.NyelvismeretMf;
+    },
+    szakmaMf: function szakmaMf() {
+      return this.magusCharacter.SzakmaMf;
+    },
     kpLeft: function kpLeft() {
       return this.magusCharacter.KpLeft;
     },
@@ -9665,18 +9839,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this.magusCharacter.szazalekosKepzetsegek;
     },
     characterSkills: function characterSkills() {
-      var _this = this;
+      var _this9 = this;
 
       var skillSet = []; //fegyverhasznalat af
 
       if (this.magusCharacter.FegyverhasznalatAlap.length > 0) {
         var fegyverekAf = [];
         this.magusCharacter.FegyverhasznalatAlap.forEach(function (fegyverAf) {
-          if (!_this.magusCharacter.FegyverhasznalatMester.includes(fegyverAf)) {
-            if (_this.weapon(fegyverAf)) {
-              fegyverekAf.push(_this.weapon(fegyverAf).name);
-            } else if (_this.rangedWeapon(fegyverAf)) {
-              fegyverekAf.push(_this.rangedWeapon(fegyverAf).name);
+          if (!_this9.magusCharacter.FegyverhasznalatMester.includes(fegyverAf)) {
+            if (_this9.weapon(fegyverAf)) {
+              fegyverekAf.push(_this9.weapon(fegyverAf).name);
+            } else if (_this9.rangedWeapon(fegyverAf)) {
+              fegyverekAf.push(_this9.rangedWeapon(fegyverAf).name);
             }
           }
         });
@@ -9697,10 +9871,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (this.magusCharacter.FegyverhasznalatMester.length > 0) {
         var fegyverekMf = [];
         this.magusCharacter.FegyverhasznalatMester.forEach(function (fegyverMf) {
-          if (_this.weapon(fegyverMf)) {
-            fegyverekMf.push(_this.weapon(fegyverMf).name);
-          } else if (_this.rangedWeapon(fegyverMf)) {
-            fegyverekMf.push(_this.rangedWeapon(fegyverMf).name);
+          if (_this9.weapon(fegyverMf)) {
+            fegyverekMf.push(_this9.weapon(fegyverMf).name);
+          } else if (_this9.rangedWeapon(fegyverMf)) {
+            fegyverekMf.push(_this9.rangedWeapon(fegyverMf).name);
           }
         });
 
@@ -9720,9 +9894,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (this.magusCharacter.FegyverdobasAlap.length > 0) {
         var fegyveredkAf = [];
         this.magusCharacter.FegyverdobasAlap.forEach(function (fegyverdAf) {
-          if (!_this.magusCharacter.FegyverdobasMester.includes(fegyverdAf)) {
-            if (_this.weapon(fegyverdAf)) {
-              fegyveredkAf.push(_this.weapon(fegyverdAf).name);
+          if (!_this9.magusCharacter.FegyverdobasMester.includes(fegyverdAf)) {
+            if (_this9.weapon(fegyverdAf)) {
+              fegyveredkAf.push(_this9.weapon(fegyverdAf).name);
             }
           }
         });
@@ -9743,8 +9917,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (this.magusCharacter.FegyverdobasMester.length > 0) {
         var fegyverekdMf = [];
         this.magusCharacter.FegyverdobasMester.forEach(function (fegyverdMf) {
-          if (_this.weapon(fegyverdMf)) {
-            fegyverekdMf.push(_this.weapon(fegyverdMf).name);
+          if (_this9.weapon(fegyverdMf)) {
+            fegyverekdMf.push(_this9.weapon(fegyverdMf).name);
           }
         });
 
@@ -9811,7 +9985,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       if (this.magusCharacter.LearnedSkills.af.length > 0) {
         this.magusCharacter.LearnedSkills.af.forEach(function (currentSkill) {
-          var theSkill = _this.skill(currentSkill);
+          var theSkill = _this9.skill(currentSkill);
 
           if (theSkill) {
             var skillData = {
@@ -9828,7 +10002,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       if (this.magusCharacter.LearnedSkills.mf.length > 0) {
         this.magusCharacter.LearnedSkills.mf.forEach(function (currentSkill) {
-          var theSkill = _this.skill(currentSkill);
+          var theSkill = _this9.skill(currentSkill);
 
           if (theSkill) {
             var skillData = {
@@ -9848,7 +10022,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapMutations)('currentCharacter', {
     updateKpLeftDown: 'updateKpLeftDown',
     updateKpPrecLeftDown: 'updateKpPrecLeftDown',
-    updatePrecentSkills: 'updatePrecentSkills'
+    updatePrecentSkills: 'updatePrecentSkills',
+    decressFreeFegyverhasznalatAlap: 'decressFreeFegyverhasznalatAlap',
+    decressFreeFegyverhasznalatMester: 'decressFreeFegyverhasznalatMester',
+    decressFreeFegyverdobasAlap: 'decressFreeFegyverdobasAlap',
+    decressFreeFegyverdobasMester: 'decressFreeFegyverdobasMester',
+    decressFreeNyelvismeretAf: 'decressFreeNyelvismeretAf',
+    decressFreeNyelvismeretMf: 'decressFreeNyelvismeretMf',
+    decressFreeSzakmaAf: 'decressFreeSzakmaAf',
+    decressFreeSzakmaMf: 'decressFreeSzakmaMf',
+    updateWeaposAf: 'updateWeaposAf',
+    updateWeaposMf: 'updateWeaposMf',
+    updateThrowWeaposAf: 'updateThrowWeaposAf',
+    updateThrowWeaposMf: 'updateThrowWeaposMf',
+    updateLanguageAf: 'updateLanguageAf',
+    updateLanguageMf: 'updateLanguageMf',
+    updateCraftAf: 'updateCraftAf',
+    updateCraftMf: 'updateCraftMf'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)('currentCharacter', {
     save: 'save'
   })), {}, {
@@ -9876,6 +10066,86 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.updateKpPrecLeftDown(1);
       this.updatePrecentSkills(precentSkillSet);
       this.save();
+    },
+    submitFreeFHAf: function submitFreeFHAf() {
+      if (this.inputFreeFHAf != '') {
+        var fhAf = this.fegyverHasznalatAf;
+        fhAf.push(this.inputFreeFHAf);
+        this.updateWeaposAf(fhAf);
+        this.decressFreeFegyverhasznalatAlap();
+        this.inputFreeFHAf = '';
+        this.save();
+      }
+    },
+    submitFreeFHMf: function submitFreeFHMf() {
+      if (this.inputFreeFHMf != '') {
+        var fhMf = this.magusCharacter.FegyverhasznalatMester;
+        fhMf.push(this.inputFreeFHMf);
+        this.updateWeaposMf(fhMf);
+        this.decressFreeFegyverhasznalatMester();
+        this.inputFreeFHMf = '';
+        this.save();
+      }
+    },
+    submitFreeFDAf: function submitFreeFDAf() {
+      if (this.inputFreeFDAf != '') {
+        var fdAf = this.fegyverDobasAf;
+        fdAf.push(this.inputFreeFDAf);
+        this.updateThrowWeaposAf(fdAf);
+        this.decressFreeFegyverdobasAlap();
+        this.inputFreeFDAf = '';
+        this.save();
+      }
+    },
+    submitFreeFDMf: function submitFreeFDMf() {
+      if (this.inputFreeFDMf != '') {
+        var fdMf = this.magusCharacter.FegyverdobasMester;
+        fdMf.push(this.inputFreeFDMf);
+        this.updateThrowWeaposMf(fdMf);
+        this.decressFreeFegyverdobasMester();
+        this.inputFreeFDMf = '';
+        this.save();
+      }
+    },
+    submitFreeNyelvAf: function submitFreeNyelvAf() {
+      if (this.inputFreeNyelvAf != '') {
+        var nyelvAf = this.nyelvAf;
+        nyelvAf.push(this.inputFreeNyelvAf);
+        this.updateLanguageAf(nyelvAf);
+        this.decressFreeNyelvismeretAf();
+        this.inputFreeNyelvAf = '';
+        this.save();
+      }
+    },
+    submitFreeNyelvMf: function submitFreeNyelvMf() {
+      if (this.inputFreeNyelvMf != '') {
+        var nyelvMf = this.magusCharacter.NyelvismeretMf;
+        nyelvMf.push(this.inputFreeNyelvMf);
+        this.updateLanguageMf(nyelvMf);
+        this.decressFreeNyelvismeretMf();
+        this.inputFreeNyelvMf = '';
+        this.save();
+      }
+    },
+    submitFreeSzakmaAf: function submitFreeSzakmaAf() {
+      if (this.inputFreeSzakmaAf != '') {
+        var szakmaAf = this.szakmaAf;
+        szakmaAf.push(this.inputFreeSzakmaAf);
+        this.updateCraftAf(szakmaAf);
+        this.decressFreeSzakmaAf();
+        this.inputFreeSzakmaAf = '';
+        this.save();
+      }
+    },
+    submitFreeSzakmaMf: function submitFreeSzakmaMf() {
+      if (this.inputFreeSzakmaMf != '') {
+        var szakmaMf = this.magusCharacter.SzakmaMf;
+        szakmaMf.push(this.inputFreeSzakmaMf);
+        this.updateCraftMf(szakmaMf);
+        this.decressFreeSzakmaMf();
+        this.inputFreeSzakmaMf = '';
+        this.save();
+      }
     }
   })
 });
@@ -10872,8 +11142,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/magus/magusAligments */ "./resources/js/store/modules/magus/magusAligments.js");
 /* harmony import */ var _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/magus/magusRaces */ "./resources/js/store/modules/magus/magusRaces.js");
 /* harmony import */ var _modules_magus_magusClasses__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/magus/magusClasses */ "./resources/js/store/modules/magus/magusClasses.js");
@@ -10887,6 +11157,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_magus_magusPsiKyr__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/magus/magusPsiKyr */ "./resources/js/store/modules/magus/magusPsiKyr.js");
 /* harmony import */ var _modules_magus_magusBardSpells__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/magus/magusBardSpells */ "./resources/js/store/modules/magus/magusBardSpells.js");
 /* harmony import */ var _modules_magus_magusReligions__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/magus/magusReligions */ "./resources/js/store/modules/magus/magusReligions.js");
+/* harmony import */ var _modules_magus_magusPapSpells__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/magus/magusPapSpells */ "./resources/js/store/modules/magus/magusPapSpells.js");
 
 
 
@@ -10902,8 +11173,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_13__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_14__["default"]);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_14__["default"].Store({
+
+vue__WEBPACK_IMPORTED_MODULE_14__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_15__["default"]);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_15__["default"].Store({
   modules: {
     magusAligments: _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__["default"],
     magusRaces: _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -10917,7 +11189,8 @@ vue__WEBPACK_IMPORTED_MODULE_13__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1
     magusPsiSlan: _modules_magus_magusPsiSlan__WEBPACK_IMPORTED_MODULE_9__["default"],
     magusPsiKyr: _modules_magus_magusPsiKyr__WEBPACK_IMPORTED_MODULE_10__["default"],
     magusBardSpells: _modules_magus_magusBardSpells__WEBPACK_IMPORTED_MODULE_11__["default"],
-    magusReligions: _modules_magus_magusReligions__WEBPACK_IMPORTED_MODULE_12__["default"]
+    magusReligions: _modules_magus_magusReligions__WEBPACK_IMPORTED_MODULE_12__["default"],
+    magusPapSpells: _modules_magus_magusPapSpells__WEBPACK_IMPORTED_MODULE_13__["default"]
   }
 }));
 
@@ -10986,13 +11259,21 @@ var state = {
     HmLeft: 5,
     KpLeft: 100,
     KpPrecentLeft: 3,
+    FreeFegyverhasznalatAlap: 2,
     FegyverhasznalatAlap: ['KARD_HOSSZU'],
+    FreeFegyverhasznalatMester: 0,
     FegyverhasznalatMester: [],
+    FreeFegyverdobasAlap: 0,
     FegyverdobasAlap: [],
+    FreeFegyverdobasMester: 0,
     FegyverdobasMester: [],
+    FreeNyelvismeretAf: 0,
     NyelvismeretAf: [],
+    FreeNyelvismeretMf: 0,
     NyelvismeretMf: [],
+    FreeSzakmaAf: 0,
     SzakmaAf: ['suszter'],
+    FreeSzakmaMf: 0,
     SzakmaMf: [],
     Pszi: {
       learned: false,
@@ -11160,6 +11441,54 @@ var getters = {
   }
 };
 var mutations = {
+  decressFreeFegyverhasznalatAlap: function decressFreeFegyverhasznalatAlap(state) {
+    state.magusCharacter.FreeFegyverhasznalatAlap--;
+  },
+  updateFreeFegyverhasznalatAlap: function updateFreeFegyverhasznalatAlap(state, num) {
+    state.magusCharacter.FreeFegyverhasznalatAlap += num;
+  },
+  decressFreeFegyverhasznalatMester: function decressFreeFegyverhasznalatMester(state) {
+    state.magusCharacter.FreeFegyverhasznalatMester--;
+  },
+  updateFreeFegyverhasznalatMester: function updateFreeFegyverhasznalatMester(state, num) {
+    state.magusCharacter.FreeFegyverhasznalatMester += num;
+  },
+  decressFreeFegyverdobasAlap: function decressFreeFegyverdobasAlap(state) {
+    state.magusCharacter.FreeFegyverdobasAlap--;
+  },
+  updateFreeFegyverdobasAlap: function updateFreeFegyverdobasAlap(state, num) {
+    state.magusCharacter.FreeFegyverdobasAlap += num;
+  },
+  decressFreeFegyverdobasMester: function decressFreeFegyverdobasMester(state) {
+    state.magusCharacter.FreeFegyverdobasMester--;
+  },
+  updateFreeFegyverdobasMester: function updateFreeFegyverdobasMester(state, num) {
+    state.magusCharacter.FreeFegyverdobasMester += num;
+  },
+  decressFreeNyelvismeretAf: function decressFreeNyelvismeretAf(state) {
+    state.magusCharacter.FreeNyelvismeretAf--;
+  },
+  updateFreeNyelvismeretAf: function updateFreeNyelvismeretAf(state, num) {
+    state.magusCharacter.FreeNyelvismeretAf += num;
+  },
+  decressFreeNyelvismeretMf: function decressFreeNyelvismeretMf(state) {
+    state.magusCharacter.FreeNyelvismeretMf--;
+  },
+  updateFreeNyelvismeretMf: function updateFreeNyelvismeretMf(state, num) {
+    state.magusCharacter.FreeNyelvismeretMf += num;
+  },
+  decressFreeSzakmaAf: function decressFreeSzakmaAf(state) {
+    state.magusCharacter.FreeSzakmaAf--;
+  },
+  updateFreeSzakmaAf: function updateFreeSzakmaAf(state, num) {
+    state.magusCharacter.FreeSzakmaAf += num;
+  },
+  decressFreeSzakmaMf: function decressFreeSzakmaMf(state) {
+    state.magusCharacter.FreeSzakmaMf--;
+  },
+  updateFreeSzakmaMf: function updateFreeSzakmaMf(state, num) {
+    state.magusCharacter.FreeSzakmaMf += num;
+  },
   updateNotes: function updateNotes(state, note) {
     state.magusCharacter.notes = note;
   },
@@ -13041,6 +13370,1391 @@ var state = {
     kepzetsegek: 'A harcos, mint az eddigiekből is kiviláglott, a lehtőségek kasztja. A harcon túl semmit sem köteles megtanulni, igy bőven jut ideje és energiája arra, hogy bármilyen képzettséget elsajátitson. Ez mutatkozik meg abban, hogy az összes kasztok közül a harcos bir a legtöbb Képzetségi Pontal ( Kp ): Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
     tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
     fegyvertar: 'A harcosok annyiféle fegyverrel verekszenek, ahány félék. Egyes tájegységekre és szervezetre persze jellemző lehet egy adott fegyver és vértezett. A harcosok ahogy egyre tapasztaltabbak lesznek, egy legfeljebb két fegyver használatát sajátitják el mesterfokon. Ezek természetesen azok, melyeket leggyakrabban forgatnak. A harcos már alacsony szinten is erős karakter, és ha a játékos ügyesen gazdálkodik a magas Harcérték Módositóval valamint a Képzetségi Pontokkal, ez később sem változik meg. Mindenkinek melegen ajánljuk a kasztot, annak pedig, aki először játszik egyenesen forrón.'
+  }, {
+    id: 'GLADIATO',
+    name: 'Gladiátor',
+    ERO: {
+      name: 'k6+12+kf',
+      sp: [13, 18, 1]
+    },
+    GYORS: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    UGY: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    ALLO: {
+      name: 'k10+12+kf',
+      sp: [9, 20, 1]
+    },
+    EG: {
+      name: 'k10+10',
+      sp: [11, 20, 0]
+    },
+    SZEP: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    INT: {
+      name: '3k6',
+      sp: [3, 18, 0]
+    },
+    AK: {
+      name: '3k6',
+      sp: [8, 18, 0]
+    },
+    ASZT: {
+      name: '3k6',
+      sp: [3, 18, 0]
+    },
+    KEalap: 9,
+    TEalap: 20,
+    VEalap: 75,
+    CEalap: 0,
+    KESzintKotelezo: 0,
+    TESzintKotelezo: 4,
+    VESzintKotelezo: 4,
+    CESzintKotelezo: 0,
+    HmSzint: 4,
+    Epalap: 8,
+    Fpalap: 7,
+    FpSzint: {
+      name: 'k6+5',
+      sp: [5, 11]
+    },
+    Kpalap: 3,
+    KpSzint: 6,
+    Mpalap: 0,
+    MpSzint: 0,
+    skillsFirstLevel: {
+      FegyverhasznalatAlap: 4,
+      FegyverhasznalatMester: 0,
+      FegyverdobasAlap: 0,
+      FegyverdobasMester: 0,
+      NyelvismeretAf: 0,
+      NyelvismeretMf: 0,
+      SzakmaAf: 0,
+      SzakmaMf: 0,
+      af: ['BIRKOZAS', 'OKOLHARC', 'KETKEZES_HARC', 'PANCEL_VISELET', 'PAJZS_HASZNALAT', 'FEGYVERTORES'],
+      mf: [],
+      precent: {
+        maszas: 0,
+        eses: 30,
+        ugras: 20,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 0,
+        zarnyitas: 0,
+        titkosajto: 0
+      }
+    },
+    skillsOtherLevel: {
+      2: {
+        FegyverhasznalatAlap: 1,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      4: {
+        FegyverhasznalatAlap: 1,
+        FegyverhasznalatMester: 1,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      5: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['KETKEZES_HARC'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      6: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['VAKHARC'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      7: {
+        FegyverhasznalatAlap: 2,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['PAJZS_HASZNALAT'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      9: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['FEGYVERTORES'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      }
+    },
+    TpSzint: [[0, 188], [189, 376], [377, 825], [826, 1650], [1651, 3300], [3301, 7250], [7251, 12050], [12051, 24000], [24001, 48000], [48001, 68000], [68001, 93000], [93001, 130000], 40000],
+    description: ['', ''],
+    harcertek: '',
+    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
+    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
+    fegyvertar: ''
+  }, {
+    id: '',
+    name: '',
+    ERO: {
+      name: 'k6+12+kf',
+      sp: [13, 18, 1]
+    },
+    GYORS: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    UGY: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    ALLO: {
+      name: 'k10+8+kf',
+      sp: [9, 18, 1]
+    },
+    EG: {
+      name: 'k10+10',
+      sp: [11, 20, 0]
+    },
+    SZEP: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    INT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    AK: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    ASZT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    KEalap: 9,
+    TEalap: 20,
+    VEalap: 75,
+    CEalap: 0,
+    KESzintKotelezo: 0,
+    TESzintKotelezo: 3,
+    VESzintKotelezo: 3,
+    CESzintKotelezo: 0,
+    HmSzint: 5,
+    Epalap: 7,
+    Fpalap: 6,
+    FpSzint: {
+      name: 'k6+4',
+      sp: [5, 10]
+    },
+    Kpalap: 10,
+    KpSzint: 14,
+    Mpalap: 0,
+    MpSzint: 0,
+    skillsFirstLevel: {
+      FegyverhasznalatAlap: 3,
+      FegyverhasznalatMester: 0,
+      FegyverdobasAlap: 0,
+      FegyverdobasMester: 0,
+      NyelvismeretAf: 0,
+      NyelvismeretMf: 0,
+      SzakmaAf: 0,
+      SzakmaMf: 0,
+      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
+      mf: [],
+      precent: {
+        maszas: 15,
+        eses: 20,
+        ugras: 10,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 0,
+        zarnyitas: 0,
+        titkosajto: 0
+      }
+    },
+    skillsOtherLevel: {
+      6: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['HADVEZETES'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      }
+    },
+    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
+    description: ['', ''],
+    harcertek: '',
+    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
+    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
+    fegyvertar: ''
+  }, {
+    id: '',
+    name: '',
+    ERO: {
+      name: 'k6+12+kf',
+      sp: [13, 18, 1]
+    },
+    GYORS: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    UGY: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    ALLO: {
+      name: 'k10+8+kf',
+      sp: [9, 18, 1]
+    },
+    EG: {
+      name: 'k10+10',
+      sp: [11, 20, 0]
+    },
+    SZEP: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    INT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    AK: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    ASZT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    KEalap: 9,
+    TEalap: 20,
+    VEalap: 75,
+    CEalap: 0,
+    KESzintKotelezo: 0,
+    TESzintKotelezo: 3,
+    VESzintKotelezo: 3,
+    CESzintKotelezo: 0,
+    HmSzint: 5,
+    Epalap: 7,
+    Fpalap: 6,
+    FpSzint: {
+      name: 'k6+4',
+      sp: [5, 10]
+    },
+    Kpalap: 10,
+    KpSzint: 14,
+    Mpalap: 0,
+    MpSzint: 0,
+    skillsFirstLevel: {
+      FegyverhasznalatAlap: 3,
+      FegyverhasznalatMester: 0,
+      FegyverdobasAlap: 0,
+      FegyverdobasMester: 0,
+      NyelvismeretAf: 0,
+      NyelvismeretMf: 0,
+      SzakmaAf: 0,
+      SzakmaMf: 0,
+      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
+      mf: [],
+      precent: {
+        maszas: 15,
+        eses: 20,
+        ugras: 10,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 0,
+        zarnyitas: 0,
+        titkosajto: 0
+      }
+    },
+    skillsOtherLevel: {
+      6: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['HADVEZETES'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      }
+    },
+    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
+    description: ['', ''],
+    harcertek: '',
+    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
+    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
+    fegyvertar: ''
+  }, {
+    id: '',
+    name: '',
+    ERO: {
+      name: 'k6+12+kf',
+      sp: [13, 18, 1]
+    },
+    GYORS: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    UGY: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    ALLO: {
+      name: 'k10+8+kf',
+      sp: [9, 18, 1]
+    },
+    EG: {
+      name: 'k10+10',
+      sp: [11, 20, 0]
+    },
+    SZEP: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    INT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    AK: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    ASZT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    KEalap: 9,
+    TEalap: 20,
+    VEalap: 75,
+    CEalap: 0,
+    KESzintKotelezo: 0,
+    TESzintKotelezo: 3,
+    VESzintKotelezo: 3,
+    CESzintKotelezo: 0,
+    HmSzint: 5,
+    Epalap: 7,
+    Fpalap: 6,
+    FpSzint: {
+      name: 'k6+4',
+      sp: [5, 10]
+    },
+    Kpalap: 10,
+    KpSzint: 14,
+    Mpalap: 0,
+    MpSzint: 0,
+    skillsFirstLevel: {
+      FegyverhasznalatAlap: 3,
+      FegyverhasznalatMester: 0,
+      FegyverdobasAlap: 0,
+      FegyverdobasMester: 0,
+      NyelvismeretAf: 0,
+      NyelvismeretMf: 0,
+      SzakmaAf: 0,
+      SzakmaMf: 0,
+      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
+      mf: [],
+      precent: {
+        maszas: 15,
+        eses: 20,
+        ugras: 10,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 0,
+        zarnyitas: 0,
+        titkosajto: 0
+      }
+    },
+    skillsOtherLevel: {
+      6: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['HADVEZETES'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      }
+    },
+    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
+    description: ['', ''],
+    harcertek: '',
+    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
+    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
+    fegyvertar: ''
+  }, {
+    id: '',
+    name: '',
+    ERO: {
+      name: 'k6+12+kf',
+      sp: [13, 18, 1]
+    },
+    GYORS: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    UGY: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    ALLO: {
+      name: 'k10+8+kf',
+      sp: [9, 18, 1]
+    },
+    EG: {
+      name: 'k10+10',
+      sp: [11, 20, 0]
+    },
+    SZEP: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    INT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    AK: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    ASZT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    KEalap: 9,
+    TEalap: 20,
+    VEalap: 75,
+    CEalap: 0,
+    KESzintKotelezo: 0,
+    TESzintKotelezo: 3,
+    VESzintKotelezo: 3,
+    CESzintKotelezo: 0,
+    HmSzint: 5,
+    Epalap: 7,
+    Fpalap: 6,
+    FpSzint: {
+      name: 'k6+4',
+      sp: [5, 10]
+    },
+    Kpalap: 10,
+    KpSzint: 14,
+    Mpalap: 0,
+    MpSzint: 0,
+    skillsFirstLevel: {
+      FegyverhasznalatAlap: 3,
+      FegyverhasznalatMester: 0,
+      FegyverdobasAlap: 0,
+      FegyverdobasMester: 0,
+      NyelvismeretAf: 0,
+      NyelvismeretMf: 0,
+      SzakmaAf: 0,
+      SzakmaMf: 0,
+      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
+      mf: [],
+      precent: {
+        maszas: 15,
+        eses: 20,
+        ugras: 10,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 0,
+        zarnyitas: 0,
+        titkosajto: 0
+      }
+    },
+    skillsOtherLevel: {
+      6: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['HADVEZETES'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      }
+    },
+    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
+    description: ['', ''],
+    harcertek: '',
+    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
+    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
+    fegyvertar: ''
+  }, {
+    id: '',
+    name: '',
+    ERO: {
+      name: 'k6+12+kf',
+      sp: [13, 18, 1]
+    },
+    GYORS: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    UGY: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    ALLO: {
+      name: 'k10+8+kf',
+      sp: [9, 18, 1]
+    },
+    EG: {
+      name: 'k10+10',
+      sp: [11, 20, 0]
+    },
+    SZEP: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    INT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    AK: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    ASZT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    KEalap: 9,
+    TEalap: 20,
+    VEalap: 75,
+    CEalap: 0,
+    KESzintKotelezo: 0,
+    TESzintKotelezo: 3,
+    VESzintKotelezo: 3,
+    CESzintKotelezo: 0,
+    HmSzint: 5,
+    Epalap: 7,
+    Fpalap: 6,
+    FpSzint: {
+      name: 'k6+4',
+      sp: [5, 10]
+    },
+    Kpalap: 10,
+    KpSzint: 14,
+    Mpalap: 0,
+    MpSzint: 0,
+    skillsFirstLevel: {
+      FegyverhasznalatAlap: 3,
+      FegyverhasznalatMester: 0,
+      FegyverdobasAlap: 0,
+      FegyverdobasMester: 0,
+      NyelvismeretAf: 0,
+      NyelvismeretMf: 0,
+      SzakmaAf: 0,
+      SzakmaMf: 0,
+      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
+      mf: [],
+      precent: {
+        maszas: 15,
+        eses: 20,
+        ugras: 10,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 0,
+        zarnyitas: 0,
+        titkosajto: 0
+      }
+    },
+    skillsOtherLevel: {
+      6: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['HADVEZETES'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      }
+    },
+    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
+    description: ['', ''],
+    harcertek: '',
+    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
+    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
+    fegyvertar: ''
+  }, {
+    id: '',
+    name: '',
+    ERO: {
+      name: 'k6+12+kf',
+      sp: [13, 18, 1]
+    },
+    GYORS: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    UGY: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    ALLO: {
+      name: 'k10+8+kf',
+      sp: [9, 18, 1]
+    },
+    EG: {
+      name: 'k10+10',
+      sp: [11, 20, 0]
+    },
+    SZEP: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    INT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    AK: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    ASZT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    KEalap: 9,
+    TEalap: 20,
+    VEalap: 75,
+    CEalap: 0,
+    KESzintKotelezo: 0,
+    TESzintKotelezo: 3,
+    VESzintKotelezo: 3,
+    CESzintKotelezo: 0,
+    HmSzint: 5,
+    Epalap: 7,
+    Fpalap: 6,
+    FpSzint: {
+      name: 'k6+4',
+      sp: [5, 10]
+    },
+    Kpalap: 10,
+    KpSzint: 14,
+    Mpalap: 0,
+    MpSzint: 0,
+    skillsFirstLevel: {
+      FegyverhasznalatAlap: 3,
+      FegyverhasznalatMester: 0,
+      FegyverdobasAlap: 0,
+      FegyverdobasMester: 0,
+      NyelvismeretAf: 0,
+      NyelvismeretMf: 0,
+      SzakmaAf: 0,
+      SzakmaMf: 0,
+      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
+      mf: [],
+      precent: {
+        maszas: 15,
+        eses: 20,
+        ugras: 10,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 0,
+        zarnyitas: 0,
+        titkosajto: 0
+      }
+    },
+    skillsOtherLevel: {
+      6: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['HADVEZETES'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      }
+    },
+    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
+    description: ['', ''],
+    harcertek: '',
+    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
+    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
+    fegyvertar: ''
+  }, {
+    id: '',
+    name: '',
+    ERO: {
+      name: 'k6+12+kf',
+      sp: [13, 18, 1]
+    },
+    GYORS: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    UGY: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    ALLO: {
+      name: 'k10+8+kf',
+      sp: [9, 18, 1]
+    },
+    EG: {
+      name: 'k10+10',
+      sp: [11, 20, 0]
+    },
+    SZEP: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    INT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    AK: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    ASZT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    KEalap: 9,
+    TEalap: 20,
+    VEalap: 75,
+    CEalap: 0,
+    KESzintKotelezo: 0,
+    TESzintKotelezo: 3,
+    VESzintKotelezo: 3,
+    CESzintKotelezo: 0,
+    HmSzint: 5,
+    Epalap: 7,
+    Fpalap: 6,
+    FpSzint: {
+      name: 'k6+4',
+      sp: [5, 10]
+    },
+    Kpalap: 10,
+    KpSzint: 14,
+    Mpalap: 0,
+    MpSzint: 0,
+    skillsFirstLevel: {
+      FegyverhasznalatAlap: 3,
+      FegyverhasznalatMester: 0,
+      FegyverdobasAlap: 0,
+      FegyverdobasMester: 0,
+      NyelvismeretAf: 0,
+      NyelvismeretMf: 0,
+      SzakmaAf: 0,
+      SzakmaMf: 0,
+      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
+      mf: [],
+      precent: {
+        maszas: 15,
+        eses: 20,
+        ugras: 10,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 0,
+        zarnyitas: 0,
+        titkosajto: 0
+      }
+    },
+    skillsOtherLevel: {
+      6: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['HADVEZETES'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      }
+    },
+    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
+    description: ['', ''],
+    harcertek: '',
+    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
+    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
+    fegyvertar: ''
+  }, {
+    id: '',
+    name: '',
+    ERO: {
+      name: 'k6+12+kf',
+      sp: [13, 18, 1]
+    },
+    GYORS: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    UGY: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    ALLO: {
+      name: 'k10+8+kf',
+      sp: [9, 18, 1]
+    },
+    EG: {
+      name: 'k10+10',
+      sp: [11, 20, 0]
+    },
+    SZEP: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    INT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    AK: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    ASZT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    KEalap: 9,
+    TEalap: 20,
+    VEalap: 75,
+    CEalap: 0,
+    KESzintKotelezo: 0,
+    TESzintKotelezo: 3,
+    VESzintKotelezo: 3,
+    CESzintKotelezo: 0,
+    HmSzint: 5,
+    Epalap: 7,
+    Fpalap: 6,
+    FpSzint: {
+      name: 'k6+4',
+      sp: [5, 10]
+    },
+    Kpalap: 10,
+    KpSzint: 14,
+    Mpalap: 0,
+    MpSzint: 0,
+    skillsFirstLevel: {
+      FegyverhasznalatAlap: 3,
+      FegyverhasznalatMester: 0,
+      FegyverdobasAlap: 0,
+      FegyverdobasMester: 0,
+      NyelvismeretAf: 0,
+      NyelvismeretMf: 0,
+      SzakmaAf: 0,
+      SzakmaMf: 0,
+      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
+      mf: [],
+      precent: {
+        maszas: 15,
+        eses: 20,
+        ugras: 10,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 0,
+        zarnyitas: 0,
+        titkosajto: 0
+      }
+    },
+    skillsOtherLevel: {
+      6: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['HADVEZETES'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      }
+    },
+    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
+    description: ['', ''],
+    harcertek: '',
+    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
+    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
+    fegyvertar: ''
+  }, {
+    id: '',
+    name: '',
+    ERO: {
+      name: 'k6+12+kf',
+      sp: [13, 18, 1]
+    },
+    GYORS: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    UGY: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    ALLO: {
+      name: 'k10+8+kf',
+      sp: [9, 18, 1]
+    },
+    EG: {
+      name: 'k10+10',
+      sp: [11, 20, 0]
+    },
+    SZEP: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    INT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    AK: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    ASZT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    KEalap: 9,
+    TEalap: 20,
+    VEalap: 75,
+    CEalap: 0,
+    KESzintKotelezo: 0,
+    TESzintKotelezo: 3,
+    VESzintKotelezo: 3,
+    CESzintKotelezo: 0,
+    HmSzint: 5,
+    Epalap: 7,
+    Fpalap: 6,
+    FpSzint: {
+      name: 'k6+4',
+      sp: [5, 10]
+    },
+    Kpalap: 10,
+    KpSzint: 14,
+    Mpalap: 0,
+    MpSzint: 0,
+    skillsFirstLevel: {
+      FegyverhasznalatAlap: 3,
+      FegyverhasznalatMester: 0,
+      FegyverdobasAlap: 0,
+      FegyverdobasMester: 0,
+      NyelvismeretAf: 0,
+      NyelvismeretMf: 0,
+      SzakmaAf: 0,
+      SzakmaMf: 0,
+      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
+      mf: [],
+      precent: {
+        maszas: 15,
+        eses: 20,
+        ugras: 10,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 0,
+        zarnyitas: 0,
+        titkosajto: 0
+      }
+    },
+    skillsOtherLevel: {
+      6: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['HADVEZETES'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      }
+    },
+    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
+    description: ['', ''],
+    harcertek: '',
+    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
+    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
+    fegyvertar: ''
+  }, {
+    id: '',
+    name: '',
+    ERO: {
+      name: 'k6+12+kf',
+      sp: [13, 18, 1]
+    },
+    GYORS: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    UGY: {
+      name: '2k6+6+kf',
+      sp: [8, 18, 1]
+    },
+    ALLO: {
+      name: 'k10+8+kf',
+      sp: [9, 18, 1]
+    },
+    EG: {
+      name: 'k10+10',
+      sp: [11, 20, 0]
+    },
+    SZEP: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    INT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    AK: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    ASZT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    KEalap: 9,
+    TEalap: 20,
+    VEalap: 75,
+    CEalap: 0,
+    KESzintKotelezo: 0,
+    TESzintKotelezo: 3,
+    VESzintKotelezo: 3,
+    CESzintKotelezo: 0,
+    HmSzint: 5,
+    Epalap: 7,
+    Fpalap: 6,
+    FpSzint: {
+      name: 'k6+4',
+      sp: [5, 10]
+    },
+    Kpalap: 10,
+    KpSzint: 14,
+    Mpalap: 0,
+    MpSzint: 0,
+    skillsFirstLevel: {
+      FegyverhasznalatAlap: 3,
+      FegyverhasznalatMester: 0,
+      FegyverdobasAlap: 0,
+      FegyverdobasMester: 0,
+      NyelvismeretAf: 0,
+      NyelvismeretMf: 0,
+      SzakmaAf: 0,
+      SzakmaMf: 0,
+      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
+      mf: [],
+      precent: {
+        maszas: 15,
+        eses: 20,
+        ugras: 10,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 0,
+        zarnyitas: 0,
+        titkosajto: 0
+      }
+    },
+    skillsOtherLevel: {
+      6: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['HADVEZETES'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      }
+    },
+    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
+    description: ['', ''],
+    harcertek: '',
+    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
+    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
+    fegyvertar: ''
   }]
 };
 var getters = {
@@ -13054,6 +14768,149 @@ var getters = {
       return (_state$classes$find = state.classes.find(function (r) {
         return r.id === id;
       })) !== null && _state$classes$find !== void 0 ? _state$classes$find : state.classes[0];
+    };
+  }
+};
+var mutations = {};
+var actions = {};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/magus/magusPapSpells.js":
+/*!************************************************************!*\
+  !*** ./resources/js/store/modules/magus/magusPapSpells.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**-------------------------------------------
+ * 
+ * STORE FOR MAGUS PAP SPELLS
+ * 
+ * -------------------------------------------
+ */
+var state = {
+  kisArkanum: [{
+    name: '',
+    sfera: [],
+    sferaText: '',
+    mana: 0,
+    manaText: '',
+    strenght: '',
+    castTime: '',
+    effectTime: '',
+    effectRange: '',
+    resistans: '',
+    description: ['']
+  }],
+  kisArkanumEgyedi: [{
+    name: '',
+    istenId: '',
+    sfera: [],
+    sferaText: '',
+    mana: 0,
+    manaText: '',
+    strenght: '',
+    castTime: '',
+    effectTime: '',
+    effectRange: '',
+    resistans: '',
+    description: ['']
+  }],
+  nagyArkanum: [{
+    name: '',
+    sfera: [],
+    sferaText: '',
+    mana: 0,
+    manaText: '',
+    strenght: '',
+    castTime: '',
+    effectTime: '',
+    effectRange: '',
+    resistans: '',
+    description: ['']
+  }],
+  nagyArkanumEgyedi: [{
+    name: '',
+    istenId: '',
+    sfera: [],
+    sferaText: '',
+    mana: 0,
+    manaText: '',
+    strenght: '',
+    castTime: '',
+    effectTime: '',
+    effectRange: '',
+    resistans: '',
+    description: ['']
+  }]
+};
+var getters = {
+  kisArkanum: function kisArkanum() {
+    return state.kisArkanum;
+  },
+  kisArkanumCurrentAll: function kisArkanumCurrentAll(state) {
+    return function (data) {
+      return state.kisArkanum.filter(function (s) {
+        return s.sfera.some(function (s) {
+          return data.sfera.includes(s);
+        });
+      });
+    };
+  },
+  availableKisArkanum: function availableKisArkanum(state) {
+    return function (data) {
+      return state.kisArkanum.filter(function (s) {
+        return s.mana <= data.mana && s.sfera.some(function (s) {
+          return data.sfera.includes(s);
+        });
+      });
+    };
+  },
+  nagyArkanum: function nagyArkanum() {
+    return state.nagyArkanum;
+  },
+  nagyArkanumCurrentAll: function nagyArkanumCurrentAll(state) {
+    return function (data) {
+      return state.nagyArkanum.filter(function (s) {
+        return s.sfera.some(function (s) {
+          return data.sfera.includes(s);
+        });
+      });
+    };
+  },
+  availableNagyArkanum: function availableNagyArkanum(state) {
+    return function (data) {
+      return state.nagyArkanum.filter(function (s) {
+        return s.mana <= data.mana && s.sfera.some(function (s) {
+          return data.sfera.includes(s);
+        });
+      });
+    };
+  },
+  egyediKisArkanum: function egyediKisArkanum(state) {
+    return function (vallasId) {
+      return state.kisArkanumEgyedi.filter(function (s) {
+        return s.istenId == vallasId;
+      });
+    };
+  },
+  egyediNagyArkanum: function egyediNagyArkanum(state) {
+    return function (vallasId) {
+      return state.nagyArkanumEgyedi.filter(function (s) {
+        return s.istenId == vallasId;
+      });
     };
   }
 };
@@ -45862,7 +47719,7 @@ var render = function () {
                                             ),
                                             _vm._v(" "),
                                             _vm._l(
-                                              _vm.learnedLanguages,
+                                              _vm.upgradebleLanguages,
                                               function (language, index) {
                                                 return _c(
                                                   "option",
@@ -45976,7 +47833,7 @@ var render = function () {
                                             ),
                                             _vm._v(" "),
                                             _vm._l(
-                                              _vm.learnedCrafts,
+                                              _vm.upgradebleCraftes,
                                               function (craft, index) {
                                                 return _c(
                                                   "option",
@@ -49310,22 +51167,552 @@ var render = function () {
           _c("p", [_vm._v(_vm._s(_vm.KpSzint))]),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col" }, [
-          _vm.kpLeft > 0
-            ? _c(
-                "button",
-                {
-                  staticClass: "btn btn-success my-3",
-                  attrs: {
-                    type: "button",
-                    "data-bs-toggle": "modal",
-                    "data-bs-target": "#newSkillModal",
+        _c(
+          "div",
+          { staticClass: "col" },
+          [
+            _vm.kpLeft > 0
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success my-3",
+                    attrs: {
+                      type: "button",
+                      "data-bs-toggle": "modal",
+                      "data-bs-target": "#newSkillModal",
+                    },
                   },
-                },
-                [_vm._v("Új képzettség tanulása")]
-              )
-            : _vm._e(),
-        ]),
+                  [_vm._v("Új képzettség tanulása")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.freeFHAf > 0
+              ? _c("div", [
+                  _c("p", [
+                    _vm._v(
+                      _vm._s(_vm.freeFHAf) +
+                        " Alapfokú fegyverhasználat választására van lehetőség"
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.inputFreeFHAf,
+                          expression: "inputFreeFHAf",
+                        },
+                      ],
+                      staticClass: "form-select form-select-lg mb-3",
+                      attrs: { "aria-label": "weapon-select" },
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.inputFreeFHAf = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                      },
+                    },
+                    [
+                      _c(
+                        "option",
+                        { attrs: { selected: "", value: "", disabled: "" } },
+                        [_vm._v("Választj fegyvert")]
+                      ),
+                      _vm._v(" "),
+                      _vm._l(_vm.availableWeapons, function (weapon) {
+                        return _c(
+                          "option",
+                          { key: weapon.id, domProps: { value: weapon.id } },
+                          [_vm._v(_vm._s(weapon.name))]
+                        )
+                      }),
+                      _vm._v(" "),
+                      _vm._l(_vm.availableRangedWeapons, function (ranged) {
+                        return _c(
+                          "option",
+                          { key: ranged.id, domProps: { value: ranged.id } },
+                          [_vm._v(_vm._s(ranged.name))]
+                        )
+                      }),
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      on: { click: _vm.submitFreeFHAf },
+                    },
+                    [_vm._v("Kiválaszt")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.freeFHMf > 0
+              ? _c("div", [
+                  _c("p", [
+                    _vm._v(
+                      _vm._s(_vm.freeFHMf) +
+                        " Mesterfokú fegyverhasználat választására van lehetőség"
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.inputFreeFHMf,
+                          expression: "inputFreeFHMf",
+                        },
+                      ],
+                      staticClass: "form-select form-select-lg mb-3",
+                      attrs: { "aria-label": "weapon-select" },
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.inputFreeFHMf = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                      },
+                    },
+                    [
+                      _c(
+                        "option",
+                        { attrs: { selected: "", value: "", disabled: "" } },
+                        [_vm._v("Választj fegyvert")]
+                      ),
+                      _vm._v(" "),
+                      _vm._l(_vm.availableWeaponsMf, function (weaponMf) {
+                        return _c(
+                          "option",
+                          {
+                            key: "MF" + weaponMf.id,
+                            domProps: { value: weaponMf.id },
+                          },
+                          [_vm._v(_vm._s(weaponMf.name))]
+                        )
+                      }),
+                      _vm._v(" "),
+                      _vm._l(_vm.availableRangedWeaponsMf, function (rangedMf) {
+                        return _c(
+                          "option",
+                          {
+                            key: "MF" + rangedMf.id,
+                            domProps: { value: rangedMf.id },
+                          },
+                          [_vm._v(_vm._s(rangedMf.name))]
+                        )
+                      }),
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      on: { click: _vm.submitFreeFHMf },
+                    },
+                    [_vm._v("Kiválaszt")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.freeFDAf > 0
+              ? _c("dir", [
+                  _c("p", [
+                    _vm._v(
+                      _vm._s(_vm.freeFDAf) +
+                        " Alapfokú fegyverdobás választására van lehetőség"
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.inputFreeFDAf,
+                          expression: "inputFreeFDAf",
+                        },
+                      ],
+                      staticClass: "form-select form-select-lg mb-3",
+                      attrs: { "aria-label": "weapon-select" },
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.inputFreeFDAf = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                      },
+                    },
+                    [
+                      _c(
+                        "option",
+                        { attrs: { selected: "", value: "", disabled: "" } },
+                        [_vm._v("Választj fegyvert")]
+                      ),
+                      _vm._v(" "),
+                      _vm._l(_vm.availableTrowWeapons, function (weapon) {
+                        return _c(
+                          "option",
+                          {
+                            key: "T" + weapon.id,
+                            domProps: { value: weapon.id },
+                          },
+                          [_vm._v(_vm._s(weapon.name))]
+                        )
+                      }),
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      on: { click: _vm.submitFreeFDAf },
+                    },
+                    [_vm._v("Kiválaszt")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.freeFDMf > 0
+              ? _c("dir", [
+                  _c("p", [
+                    _vm._v(
+                      _vm._s(_vm.freeFDMf) +
+                        " Mesterfokú fegyverdobás választására van lehetőség"
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.inputFreeFDMf,
+                          expression: "inputFreeFDMf",
+                        },
+                      ],
+                      staticClass: "form-select form-select-lg mb-3",
+                      attrs: { "aria-label": "weapon-select" },
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.inputFreeFDMf = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                      },
+                    },
+                    [
+                      _c(
+                        "option",
+                        { attrs: { selected: "", value: "", disabled: "" } },
+                        [_vm._v("Választj fegyvert")]
+                      ),
+                      _vm._v(" "),
+                      _vm._l(_vm.availableTrowWeaponsMf, function (weaponMf) {
+                        return _c(
+                          "option",
+                          {
+                            key: "TMF" + weaponMf.id,
+                            domProps: { value: weaponMf.id },
+                          },
+                          [_vm._v(_vm._s(weaponMf.name))]
+                        )
+                      }),
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      on: { click: _vm.submitFreeFDMf },
+                    },
+                    [_vm._v("Kiválaszt")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.freeNyelvAf > 0
+              ? _c("div", [
+                  _c("p", [
+                    _vm._v(
+                      _vm._s(_vm.freeNyelvAf) +
+                        " Alapfokú nyelvismeret hozzáadására van lehetőség"
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.inputFreeNyelvAf,
+                        expression: "inputFreeNyelvAf",
+                      },
+                    ],
+                    staticClass: "form-control form-control-lg",
+                    attrs: {
+                      type: "text",
+                      placeholder: "ird be a megtanulni kivánt nyelvet",
+                      "aria-label": "language input",
+                    },
+                    domProps: { value: _vm.inputFreeNyelvAf },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.inputFreeNyelvAf = $event.target.value
+                      },
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      on: { click: _vm.submitFreeNyelvAf },
+                    },
+                    [_vm._v("Hozzáad")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.freeNyelvMf > 0
+              ? _c("div", [
+                  _c("p", [
+                    _vm._v(
+                      _vm._s(_vm.freeNyelvMf) +
+                        " Mesterfokú nyelvismeret hozzáadására van lehetőség"
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.inputFreeNyelvMf,
+                          expression: "inputFreeNyelvMf",
+                        },
+                      ],
+                      staticClass: "form-select form-select-lg mb-3",
+                      attrs: { "aria-label": "weapon-select" },
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.inputFreeNyelvMf = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                      },
+                    },
+                    [
+                      _c(
+                        "option",
+                        { attrs: { selected: "", value: "", disabled: "" } },
+                        [_vm._v("Választj nyelvet")]
+                      ),
+                      _vm._v(" "),
+                      _vm._l(
+                        _vm.upgradebleLanguages,
+                        function (language, index) {
+                          return _c(
+                            "option",
+                            { key: "L" + index, domProps: { value: language } },
+                            [_vm._v(_vm._s(language))]
+                          )
+                        }
+                      ),
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      on: { click: _vm.submitFreeNyelvMf },
+                    },
+                    [_vm._v("Kiválaszt")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.freeSzakmaAf > 0
+              ? _c("div", [
+                  _c("p", [
+                    _vm._v(
+                      _vm._s(_vm.freeSzakmaAf) +
+                        " Alapfokú szakma hozzáadására van lehetőség"
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.inputFreeSzakmaAf,
+                        expression: "inputFreeSzakmaAf",
+                      },
+                    ],
+                    staticClass: "form-control form-control-lg",
+                    attrs: {
+                      type: "text",
+                      placeholder: "ird be a megtanulni kivánt nyelvet",
+                      "aria-label": "language input",
+                    },
+                    domProps: { value: _vm.inputFreeSzakmaAf },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.inputFreeSzakmaAf = $event.target.value
+                      },
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      on: { click: _vm.submitFreeSzakmaAf },
+                    },
+                    [_vm._v("Hozzáad")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.freeSzakmaMf > 0
+              ? _c("div", [
+                  _c("p", [
+                    _vm._v(
+                      _vm._s(_vm.freeSzakmaMf) +
+                        " Alapfokú szakma hozzáadására van lehetőség"
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.inputFreeSzakmaMf,
+                          expression: "inputFreeSzakmaMf",
+                        },
+                      ],
+                      staticClass: "form-select form-select-lg mb-3",
+                      attrs: { "aria-label": "weapon-select" },
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.inputFreeSzakmaMf = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                      },
+                    },
+                    [
+                      _c(
+                        "option",
+                        { attrs: { selected: "", value: "", disabled: "" } },
+                        [_vm._v("Választj szakmát")]
+                      ),
+                      _vm._v(" "),
+                      _vm._l(_vm.upgradebleCraftes, function (craft, index) {
+                        return _c(
+                          "option",
+                          { key: "C" + index, domProps: { value: craft } },
+                          [_vm._v(_vm._s(craft))]
+                        )
+                      }),
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      on: { click: _vm.submitFreeSzakmaMf },
+                    },
+                    [_vm._v("Kiválaszt")]
+                  ),
+                ])
+              : _vm._e(),
+          ],
+          1
+        ),
       ]),
     ]),
     _vm._v(" "),

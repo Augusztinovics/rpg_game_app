@@ -138,7 +138,7 @@
                                             <p class="h3">Nyelv tanulása {{ skilmf.KpMf }} KP-ért</p>
                                             <select class="form-select form-select-lg mb-3" v-model="languageMf" aria-label="weapon-select">
                                                 <option selected value="" disabled>Választj nyelvet</option>
-                                                <option v-for="language, index in learnedLanguages" :key="'L' + index" :value="language">{{ language }}</option>
+                                                <option v-for="language, index in upgradebleLanguages" :key="'L' + index" :value="language">{{ language }}</option>
                                             </select>
                                             <p>Rendelkezésre álló Kp: {{ kpLeft }}</p>
                                             <p><button class="btn btn-primary btn-lg mt-2" @click="upgradeLanguageMf">Megtanul</button></p>
@@ -151,7 +151,7 @@
                                             <p class="h3">Szakma tanulása {{ skilmf.KpMf }} KP-ért</p>
                                             <select class="form-select form-select-lg mb-3" v-model="craftMf" aria-label="weapon-select">
                                                 <option selected value="" disabled>Választj szakmát</option>
-                                                <option v-for="craft, index in learnedCrafts" :key="'C' + index" :value="craft">{{ craft }}</option>
+                                                <option v-for="craft, index in upgradebleCraftes" :key="'C' + index" :value="craft">{{ craft }}</option>
                                             </select>
                                             <p>Rendelkezésre álló Kp: {{ kpLeft }}</p>
                                             <p><button class="btn btn-primary btn-lg mt-2" @click="upgradeCraftMf">Megtanul</button></p>
@@ -261,7 +261,7 @@ export default {
             return this.rangedWeapons.filter(r => this.learnedWeaponsList.includes(r.id) && !this.learnedWeaponsListMf.includes(r.id));
         },
         availableTrowWeaponsMf() {
-            return this.weapons.filter(w => this.learnedTrowWeaponsList.includes(w.id) && !this.learnedWeaponsListMf.includes(w.id));
+            return this.weapons.filter(w => this.learnedTrowWeaponsList.includes(w.id) && !this.learnedTrowWeaponsListMf.includes(w.id));
         },
         upgradebleLanguages() {
             return this.learnedLanguages.filter(l => !this.learnedLanguagesMf.includes(l));

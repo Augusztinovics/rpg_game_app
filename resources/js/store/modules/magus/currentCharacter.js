@@ -50,13 +50,21 @@
         HmLeft: 5,
         KpLeft: 100,
         KpPrecentLeft: 3,
+        FreeFegyverhasznalatAlap: 0,
         FegyverhasznalatAlap: ['KARD_HOSSZU'],
+        FreeFegyverhasznalatMester: 0,
         FegyverhasznalatMester: [],
+        FreeFegyverdobasAlap: 0,
         FegyverdobasAlap: [],
+        FreeFegyverdobasMester: 0,
         FegyverdobasMester: [],
+        FreeNyelvismeretAf: 0,
         NyelvismeretAf: [],
+        FreeNyelvismeretMf: 0,
         NyelvismeretMf: [],
+        FreeSzakmaAf: 0,
         SzakmaAf: ['suszter'],
+        FreeSzakmaMf: 0,
         SzakmaMf: [],
         Pszi: {
             learned: false,
@@ -215,6 +223,54 @@ const getters = {
     },
 };
 const mutations = {
+    decressFreeFegyverhasznalatAlap(state) {
+        state.magusCharacter.FreeFegyverhasznalatAlap--;
+    },
+    updateFreeFegyverhasznalatAlap(state, num) {
+        state.magusCharacter.FreeFegyverhasznalatAlap += num;
+    },
+    decressFreeFegyverhasznalatMester(state) {
+        state.magusCharacter.FreeFegyverhasznalatMester--;
+    },
+    updateFreeFegyverhasznalatMester(state, num) {
+        state.magusCharacter.FreeFegyverhasznalatMester += num;
+    },
+    decressFreeFegyverdobasAlap(state) {
+        state.magusCharacter.FreeFegyverdobasAlap--;
+    },
+    updateFreeFegyverdobasAlap(state, num) {
+        state.magusCharacter.FreeFegyverdobasAlap += num;
+    },
+    decressFreeFegyverdobasMester(state) {
+        state.magusCharacter.FreeFegyverdobasMester--;
+    },
+    updateFreeFegyverdobasMester(state, num) {
+        state.magusCharacter.FreeFegyverdobasMester += num;
+    },
+    decressFreeNyelvismeretAf(state) {
+        state.magusCharacter.FreeNyelvismeretAf--;
+    },
+    updateFreeNyelvismeretAf(state, num) {
+        state.magusCharacter.FreeNyelvismeretAf += num;
+    },
+    decressFreeNyelvismeretMf(state) {
+        state.magusCharacter.FreeNyelvismeretMf--;
+    },
+    updateFreeNyelvismeretMf(state, num) {
+        state.magusCharacter.FreeNyelvismeretMf += num;
+    },
+    decressFreeSzakmaAf(state) {
+        state.magusCharacter.FreeSzakmaAf--;
+    },
+    updateFreeSzakmaAf(state, num) {
+        state.magusCharacter.FreeSzakmaAf += num;
+    },
+    decressFreeSzakmaMf(state) {
+        state.magusCharacter.FreeSzakmaMf--;
+    },
+    updateFreeSzakmaMf(state, num) {
+        state.magusCharacter.FreeSzakmaMf += num;
+    },
     updateNotes(state, note) {
         state.magusCharacter.notes = note;
     },
