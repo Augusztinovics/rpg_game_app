@@ -7335,6 +7335,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -11259,7 +11261,7 @@ var state = {
     HmLeft: 5,
     KpLeft: 100,
     KpPrecentLeft: 3,
-    FreeFegyverhasznalatAlap: 2,
+    FreeFegyverhasznalatAlap: 0,
     FegyverhasznalatAlap: ['KARD_HOSSZU'],
     FreeFegyverhasznalatMester: 0,
     FegyverhasznalatMester: [],
@@ -13311,8 +13313,24 @@ var state = {
     },
     Kpalap: 10,
     KpSzint: 14,
-    Mpalap: 0,
-    MpSzint: 0,
+    KpPrecent: 0,
+    Pszi: {
+      learned: false,
+      atlevel: 0,
+      level: '',
+      maxPszi: 0,
+      psziPointLevel: 0,
+      currentPszi: 0,
+      school: '',
+      staticAsztral: 0,
+      staticMental: 0,
+      dinamicAsztarl: 0,
+      dinamicMental: 0
+    },
+    mpLevel: {
+      text: '0',
+      range: [0, 0]
+    },
     skillsFirstLevel: {
       FegyverhasznalatAlap: 3,
       FegyverhasznalatMester: 0,
@@ -13365,13 +13383,14 @@ var state = {
     },
     TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
     description: ['A harcosok kasztjába azokat az elsődleges fegyverforgatásra kitanitott karaktereket soroljuk, akik jóval többek, mint egyszerű katonák, de nem részesültek lovagi nevelésben, sem gladiátori kiképzésben, és nem is valamilyen fejvadászklán berkeiben nőttek fel.A harcos messze a legnépesebb karakterkaszt: tagjai között találunk kalandorokat, kalandozókat, testőröket, magányos zsoldosokat, sőt uralkodókat is.', 'A harcosok azok, akik a fegyverforgatáson túl a legkülönfélébb dolgokhoz értenek. Akad közöttük olyan, aki jártas a mágiában, aki tolvajként is megállná a helyét, mint ahogy olyan is, aki ostoba, de erős, akár egy Keleti Barbár.', 'Ahány tája Ynevnek, annyifélék a harcosok.', 'A keleti barbárok testi erejükről, súlyos fegyvereikről ismertek.Nem hordanak páncélt, olykor ruhát sem, csak egyetlen ágyékkötőt. Eszük kevés, de birnak egyfajta józan, természetes erkölcsiséggel - és hihetetlen szakértelemmel forgatják kétkezes kardjukat, bárdjukat', 'Gorvik hegyvidékének lakói örökös viszálykodásban, családi háborúságban állnak egymással.Súlyos prémekkel védekeznek a hideg ellen, és bőrvértekkel társaik keskeny, tűhegyes kardjaival szemben. Nem idegen tőlük a hátulról, lesből támadás, a méreg használata, s a ravaszkodás sem.', 'Yllinorban, Mogorva Chei országában mérhetetlenül magas a harcos kasztúak száma. Úgy tartják sehol másutt nem élnek annyian mint itt. Könnyű láncinget viselnek, hosszú kardot, egykezes csatabárdot, csatacsákányt forgatnak. Kiváló lovasok - azt beszélik az utca túloldalára is lóval járnak - és ugyanilyen remek céllövészek. Hosszú, szarulemezekből ragasztott, visszacsapó ijakat használnak. Lelkes odaadással éltetik királyukat és istennőjüket.', 'A Pyarron környéki várakban, általában egy-egy lovagrend árnyékában léteznek harcos rendek, mely nem kizárólag a fegyverforgatásban jeleskednek, hanem a különféle tudományokban is. Ők álltalában a lovagokéhoz hasonló életet élnek, nehézvértezetet és nehézfegyvereket viselnek, mégsem lovagok, inkább azok kisérői, tanácsnokai, testőrei.'],
+    kulonleges: '-',
     harcertek: 'A harcosok harcértékei az egyik legkedvezőbb a magus kasztjai közül. Egyedül a gladiátorok különb fegyverforgatók náluk, és a Harcművészek olyankor, amikor Pszi-képességükhöz folyamodnak. Egy harcos kasztú karakter KÉ alapja 9, TÉ alapja 20, VÉ alapja 75, CÉ alapja 0, továbbá minden tapasztalati szinten ( már az elsőn is ) 11 Harcérték Módositót kap. Ezt tetszése szerint szétoszthatja KÉ-je, TÉ-je, VÉ-je és CÉ-je között, azonban TÉ-jére és VÉ-jére köteles minden szinten 3-3 pontot álldozni ( a rendszer autómatikusan levonja ). Az zllinori származású harcos karakter CÉ-jét is köteles minden Tapasztalati Szinten 3-mal növelni.',
     eletero: 'A harcosok életerő és fájdalomtűrés tekintetében is a legjobbak közé tartoznak. Gyermekkoruktól kezdve egészséges életet élnek, ezer megpróbáltatást küzdenek le, ami megedzi őket. Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
     kepzetsegek: 'A harcos, mint az eddigiekből is kiviláglott, a lehtőségek kasztja. A harcon túl semmit sem köteles megtanulni, igy bőven jut ideje és energiája arra, hogy bármilyen képzettséget elsajátitson. Ez mutatkozik meg abban, hogy az összes kasztok közül a harcos bir a legtöbb Képzetségi Pontal ( Kp ): Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
     tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
     fegyvertar: 'A harcosok annyiféle fegyverrel verekszenek, ahány félék. Egyes tájegységekre és szervezetre persze jellemző lehet egy adott fegyver és vértezett. A harcosok ahogy egyre tapasztaltabbak lesznek, egy legfeljebb két fegyver használatát sajátitják el mesterfokon. Ezek természetesen azok, melyeket leggyakrabban forgatnak. A harcos már alacsony szinten is erős karakter, és ha a játékos ügyesen gazdálkodik a magas Harcérték Módositóval valamint a Képzetségi Pontokkal, ez később sem változik meg. Mindenkinek melegen ajánljuk a kasztot, annak pedig, aki először játszik egyenesen forrón.'
   }, {
-    id: 'GLADIATO',
+    id: 'GLADIATOR',
     name: 'Gladiátor',
     ERO: {
       name: 'k6+12+kf',
@@ -13426,8 +13445,24 @@ var state = {
     },
     Kpalap: 3,
     KpSzint: 6,
-    Mpalap: 0,
-    MpSzint: 0,
+    KpPrecent: 0,
+    Pszi: {
+      learned: false,
+      atlevel: 0,
+      level: '',
+      maxPszi: 0,
+      psziPointLevel: 0,
+      currentPszi: 0,
+      school: '',
+      staticAsztral: 0,
+      staticMental: 0,
+      dinamicAsztarl: 0,
+      dinamicMental: 0
+    },
+    mpLevel: {
+      text: '0',
+      range: [0, 0]
+    },
     skillsFirstLevel: {
       FegyverhasznalatAlap: 4,
       FegyverhasznalatMester: 0,
@@ -13599,26 +13634,303 @@ var state = {
       }
     },
     TpSzint: [[0, 188], [189, 376], [377, 825], [826, 1650], [1651, 3300], [3301, 7250], [7251, 12050], [12051, 24000], [24001, 48000], [48001, 68000], [68001, 93000], [93001, 130000], 40000],
-    description: ['', ''],
-    harcertek: '',
-    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
-    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
-    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
-    fegyvertar: ''
+    description: ['A gladiátorok azon harcosok, akik elsősorban egy az egy elleni, netán páros küzdelemre képeztek ki. Kiemelt figyelmet forditanak erejük, állóképességük növelésére, fájdalomtűrésük, és életerejük fokozására. A különleges képzés egyetlen célja, hogy az arénákban, a közönség épülésére felülkerekedjenek társaikon.', 'A gladiátorviadal elterjedt és közkedvelt szórakozás egész Yneven. Számtalan formáját ismerik, ám négy fő irányzat különböztethető meg.', 'Az abasziszi rendszerű viadal során a küzdelem szigorú szabályok alapján folyik. Ezek meghatározzák a résztvevő felek fegyverzetét, vértezetét, de még azt is, hogy milyen fegyverzetű gladiátor ellen milyen másik állitható ki. Egyedül ebben a rendszerben ismerik a súlycsoport fogalmát. Abasziszi rendszerű viadalt egy az egy ellen, ritkán párosan vivnak.', 'A dzsad rendszerű viadal során emberek állnak ki állatok, szörnyek ellen. Inyenccsemegének számitanak a messzi tájakról hozott, különleges teremtmények - természetesen, csak a közönség szemében. Olykor, ha nem emberi ellenfelet a szervezők túlzottan veszedelmesnek itélik, egyszerre kettő, három, vagy még több gladiátort állitanak ki ellene.', 'A tiadlani rendszerű viadal álltalában pusztakezes küzdelmet jelent. Alapvető törvény, hogy mindég csak egy harcol egy ellen. Olykor azonban fegyveresek is feltűnnek közöttük - nem számitanak külön kategóriának. Szabály nemigen akad, és a viadalokon legtöbbször harcművészek vesznek részt.', 'A toroni rendszerű viadalt sokan a gladiátorjátékok kirájának tekintik, és ebben bizony lehet némi igazság. Egyetlen másik küzdelmi forma sem bir ilyen összetett szabályrendszerrel, és nyújt ehhez fogható szórakozást közönségének. A viadalon az arénában egy-egy nehézvértezetű gladiátor jelenik meg, ám vannak segitőik. Ezek egyike boszorkánymester, a másik számszerijász, a harmadik és negyedik tőrvető, az ötödik pedig egyfajta hadvezér, aki a csapat munkáját összehangolja, utasitásokat ad a résztvevőknek. A küzdelem folyamán hihetetlenül aljas trükköket vetnek be a versengő felek, ám, hogy mikor miként cselekedhetnek arról bonyolult szabályrendszer rendelkezik. A viadalt az a csapat nyeri, amely huzamosabb időre harcképtelenné teszi az ellenfél gladiátorát.'],
+    kulonleges: 'A gladiátorok különleges képessége, hogy ha egy az egy ellen kerülnek szembe ellenfelükkel, még kitünőbb harcosoknak számitanak. Ilyenkor a harcértékük a következőképp módosul: LÉ: +5, TÉ: +5, VÉ: +10, CÉ:- . Ha pedig mindez arénában történik, avagy népesebb nézősereg szeme előtt, ők még felajzottabban küzdenek, igy harcértékük tovább nő: KÉ: +5, TÉ: +5, VÉ: +5, CÉ: -.',
+    harcertek: 'A Karakter Kasztok közül a gladiátor bir a legmagasabb harcértékekkel. KÉ alapja 9, TÉ alapja 20, VÉ alapja 75, CÉ alapja 0, valamint minden Tapasztalati Szinten 12 Harcérték Módositót kap, amit tetszés szerint oszthat el KÉ-je, TÉ-je, VÉ-je, CÉ-je között. Egyetlen megkötést kell figyelembe vennie: mind TÉ-jét, mind VÉ-jét TSZ-enként 4-el növelnie kell ( a program elvégzi ).',
+    eletero: 'A gladiátorok a legéleterősebb karakterek, és a fájdalmat is jól tűrik. Ép alapjuk 8, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. Az Fp alapja 7, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 5 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'A gladiátor - mint láttuk - sok szempontból különfélék ugyan, mégis nagyon hasonlóak egymáshoz. Kiképzésük meglehetősen célirányatos, sok képzetséget kötelesek elsajátitani ahhoz, hogy valóban gladiátornak számitsanak.Kp alapja 3, és minden Tapasztalati Szinten ( már 1. szinten is ) további 6-ot kap.',
+    tapasztalat: 'A kaszt tagjai számára az alacsony TSZ-ek közepesen könnyen elérhetők, azután egyre nehezebb, végül 10. szint betöltésével immár újból könnyebben.',
+    fegyvertar: 'A gladiátorok sokféle fegyvert és páncélt viselnek az arénábanRitka esetben húznak magukra merev fémvértet. Fegyvereik között akad jó pár különleges jószág. Például a szigony és háló, élezett peremű pajzsok.'
   }, {
-    id: '',
-    name: '',
+    id: 'FEJVADASZ',
+    name: 'Fejvadász',
+    ERO: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    GYORS: {
+      name: 'k6+12+kf',
+      sp: [13, 18, 1]
+    },
+    UGY: {
+      name: 'k10+8',
+      sp: [9, 18, 0]
+    },
+    ALLO: {
+      name: 'k6+12+kf',
+      sp: [13, 18, 1]
+    },
+    EG: {
+      name: 'k10+10',
+      sp: [11, 20, 0]
+    },
+    SZEP: {
+      name: '3k6',
+      sp: [3, 18, 0]
+    },
+    INT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    AK: {
+      name: 'k10+8',
+      sp: [9, 18, 0]
+    },
+    ASZT: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    KEalap: 10,
+    TEalap: 20,
+    VEalap: 75,
+    CEalap: 0,
+    KESzintKotelezo: 0,
+    TESzintKotelezo: 4,
+    VESzintKotelezo: 4,
+    CESzintKotelezo: 0,
+    HmSzint: 3,
+    Epalap: 6,
+    Fpalap: 7,
+    FpSzint: {
+      name: 'k6+5',
+      sp: [6, 11]
+    },
+    Kpalap: 3,
+    KpSzint: 5,
+    KpPrecent: 20,
+    Pszi: {
+      learned: true,
+      atlevel: 1,
+      level: 'Af',
+      maxPszi: 4,
+      psziPointLevel: 3,
+      currentPszi: 4,
+      school: 'Pyarroni',
+      staticAsztral: 0,
+      staticMental: 0,
+      dinamicAsztarl: 0,
+      dinamicMental: 0
+    },
+    mpLevel: {
+      text: '0',
+      range: [0, 0]
+    },
+    skillsFirstLevel: {
+      FegyverhasznalatAlap: 9,
+      FegyverhasznalatMester: 0,
+      FegyverdobasAlap: 3,
+      FegyverdobasMester: 0,
+      NyelvismeretAf: 0,
+      NyelvismeretMf: 0,
+      SzakmaAf: 0,
+      SzakmaMf: 0,
+      af: ['OKOLHARC', 'USZAS', 'FUTAS', 'PSZI', 'CSAPDAALLITAS', 'ALCAZAS', 'HATBASZURAS'],
+      mf: [],
+      precent: {
+        maszas: 30,
+        eses: 15,
+        ugras: 15,
+        lopakodas: 20,
+        rejtozes: 25,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 10,
+        zarnyitas: 0,
+        titkosajto: 0
+      }
+    },
+    skillsOtherLevel: {
+      2: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['KOTELEKBOL_SZABADULAS'],
+        mf: ['OKOLHARC'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      3: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['VAKHARC'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      4: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['NYOMOLVASAS'],
+        mf: ['ALCAZAS'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      5: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['PSZI'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      7: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['VAKHARC'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      8: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['KOTELEKBOL_SZABADULAS'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      9: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['NYOMOLVASAS'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      }
+    },
+    TpSzint: [[0, 190], [191, 400], [401, 900], [901, 1800], [1801, 3500], [3501, 7500], [7501, 15000], [15001, 30000], [30001, 60000], [60001, 110000], [110001, 160000], [160001, 220000], 60000],
+    description: ['A fejvadászok Ynev egyik legkülönlegesebb karakterkasztja. Középtájon helyeszkedik el a harcos, harcművész, tolvaj alkotta háromszögben. Tökéletes gyilkosok, neveltetésük minden mozzanata, kiképzésük minden egyes pillanata, egész életük ezen célt szolgálja. Ismerik és felhasználják a pusztakezes és fegyveres harcművészeteket - ám csak mint a gyilkolás egyik hatékony eszközét. A rejtőzés, lopózás, falmászás mesterei, kitartóak, szivósak, gyorsak.', 'Szigorú és kegyetlen törvények szerint élnek, melyek megszegéséért bal kezük levágásával, vagy életükkel fizetnek. Ha elválalnak egy küldetést, akkor történjen bármi, azt végre kell hajtani - még saját klánjuk, vagy családjuk sem fékezheti meg többé. A sikertelenségre, még haláluk sem mentség, ilyenkor a klán az elhunyt családtagjain áll bosszút.', 'A fejvadászok nagy családokra emlékeztető klánokba tömörülve élnek. Gyakran valóban rokoni szállak fűzik őket egymáshoz. A világtól visszavonultan, nyugodtan szeretik gyakorolni tudományukat, ám olykor egész városokat hálóz be és irányit szervezetük.'],
+    kulonleges: 'A féjvadász 5. szintől kezdve képes a Slan-útjának egyes diszciplináit is alkalmazni. Ilyenkor a Psz használat szintje eggyenlő TSZ-ével. Ezen diszciplinák: TSZ 5: Tetszhalál, TSZ 6: Zavarás és Testsúly változtatás, TSZ 7: Érzékelhetetlenség, TSZ 9: Jelentéktelenség. Ha a fejvadász olyan fegyverrel verekszik, melyben nem képzett a Képzetlen Fegyverforgatás rája jóval egyhébb: KÉ: -5, TÉ: -5, VÉ: -10, CÉ: -15. Kettő szintenként eggyel nő az alapsebzése: 2.TSZ +1 Sp, 4.TSZ +2Sp stb.',
+    harcertek: 'A fejvadászok harcértéke nagyából a harcosokéval egyenlő, de nem közeliti meg a gladiátorokét, vagy a lovagokét. KÉ alapjuk 10, TÉ alapjuk 20, VÉ alapjuk 75 és CÉ alapjuk 0, továbbá minden TSZ-en 11 HM-et kapnak, amiből 4-et 4-et kötelesek TÉ-jükre és VÉ-jükre osztani.',
+    eletero: 'A fejvadászok olyan kemény és kegyetlen kiképzésen esnek át ami bizony az életerejüket is igénybe veszi. Igy aztán nem örvendenek különlegesen magas életerőnek. Ám a fájdalomhoz ellenben hozzászoktak és remekül tűrik.Ép alapjuk 6, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A fejvadász Fp alapja 7, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 5 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'A fejvadász meglehetősen célirányosan kiképzett harcos, nemigen jut ideje és lehetősége egyébb képzetségek elsajátitására.Kp alapja 3, és minden Tapasztalati Szinten ( már 1. szinten is ) további 5-öt kap.',
+    tapasztalat: 'A fejvadász karakter számtalan dolgot kénytelen folyamatosan gyakorolni ahhoz, hogy fejlődhessen. Ezért nagyon lassan és nehezen lépi Tapasztalati Szintjeit.',
+    fegyvertar: 'A fejvadászok arról hiresek, hogy szinte bármilyen kezük ügyébe akadó fegyverrel képesek harcolni. A különféle fejvadászklánoknak azért megvan a maga különféle fegyvere.'
+  }, {
+    id: 'LOVAG',
+    name: 'Lovag',
     ERO: {
       name: 'k6+12+kf',
       sp: [13, 18, 1]
     },
     GYORS: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
+      name: '3k6x2',
+      sp: [3, 18, 2]
     },
     UGY: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
+      name: '3k6x2',
+      sp: [3, 18, 2]
     },
     ALLO: {
       name: 'k10+8+kf',
@@ -13629,55 +13941,71 @@ var state = {
       sp: [11, 20, 0]
     },
     SZEP: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
-    },
-    INT: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
-    },
-    AK: {
       name: '2k6+6',
       sp: [8, 18, 0]
+    },
+    INT: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    AK: {
+      name: 'k10+8',
+      sp: [9, 18, 0]
     },
     ASZT: {
       name: '3k6x2',
       sp: [3, 18, 2]
     },
-    KEalap: 9,
+    KEalap: 5,
     TEalap: 20,
     VEalap: 75,
     CEalap: 0,
     KESzintKotelezo: 0,
-    TESzintKotelezo: 3,
-    VESzintKotelezo: 3,
+    TESzintKotelezo: 5,
+    VESzintKotelezo: 5,
     CESzintKotelezo: 0,
-    HmSzint: 5,
+    HmSzint: 2,
     Epalap: 7,
     Fpalap: 6,
     FpSzint: {
-      name: 'k6+4',
-      sp: [5, 10]
+      name: 'k6+5',
+      sp: [6, 11]
     },
-    Kpalap: 10,
-    KpSzint: 14,
-    Mpalap: 0,
-    MpSzint: 0,
+    Kpalap: 4,
+    KpSzint: 7,
+    KpPrecent: 0,
+    Pszi: {
+      learned: false,
+      atlevel: 0,
+      level: '',
+      maxPszi: 0,
+      psziPointLevel: 0,
+      currentPszi: 0,
+      school: '',
+      staticAsztral: 0,
+      staticMental: 0,
+      dinamicAsztarl: 0,
+      dinamicMental: 0
+    },
+    mpLevel: {
+      text: '0',
+      range: [0, 0]
+    },
     skillsFirstLevel: {
-      FegyverhasznalatAlap: 3,
+      FegyverhasznalatAlap: 5,
       FegyverhasznalatMester: 0,
       FegyverdobasAlap: 0,
       FegyverdobasMester: 0,
-      NyelvismeretAf: 0,
+      NyelvismeretAf: 4,
       NyelvismeretMf: 0,
       SzakmaAf: 0,
       SzakmaMf: 0,
-      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
-      mf: [],
+      af: ['LOVAGLAS', 'PANCEL_VISELET', 'PAJZS_HASZNALAT', 'FEGYVER_ISMERET', 'HADVEZETES', 'ETIKETT', 'IRAS_OLVASAS', 'HERALDIKA'],
+      mf: ['LOVAGLAS'],
       precent: {
-        maszas: 15,
-        eses: 20,
-        ugras: 10,
+        maszas: 0,
+        eses: 0,
+        ugras: 0,
         lopakodas: 0,
         rejtozes: 0,
         koteltanc: 0,
@@ -13688,7 +14016,7 @@ var state = {
       }
     },
     skillsOtherLevel: {
-      6: {
+      3: {
         FegyverhasznalatAlap: 0,
         FegyverhasznalatMester: 0,
         FegyverdobasAlap: 0,
@@ -13697,7 +14025,331 @@ var state = {
         NyelvismeretMf: 0,
         SzakmaAf: 0,
         SzakmaMf: 0,
-        af: ['HADVEZETES'],
+        af: [],
+        mf: ['HERALDIKA'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      4: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['PSZI', 'SEBGYOGYITAS'],
+        mf: ['PAJZS_HASZNALAT'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      5: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 1,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      8: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['PANCEL_VISELET'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      9: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['HADVEZETES'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      12: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['PSZI'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      }
+    },
+    TpSzint: [[0, 180], [181, 370], [371, 800], [801, 1650], [1651, 3200], [3201, 6400], [6401, 12000], [12001, 25000], [25001, 45000], [45001, 65000], [65001, 90000], [90001, 110000], 35000],
+    description: ['A lovagok azon nemesi származású harcosok, akiket gyermekkoruktól kezdve a kaszt álltal megkövetelt kivánalmaknak megfelelően neveltek. Olykor persze az is előfordul, hogy uralkodók, főnemesek lovaggá ütnek embereket, akik szerintük érdemesek erre. Fontos azonban megjegyezni, hogy efféle lovagok, csak rangjukba tartoznak e kaszthoz, képzetségeikben nem. Hosszas átnevelés útján csak válhatnak annak igazi tagjaivé.', 'Ynev bármely vidékéről esik is szó, a hires lovagi neveltetés közel mindenütt ugyanazt jelenti. Magába foglalja az udvariasságot, valamely kevéske műveltséget, a nehézfegyverzetű harcmodort, és a tájegységenként változó lovagi erkölcsöt.', 'A lovagi erkölcs meglehetősen tágasan értelmezendő fogalom, és nem minden lovag érzi magára kötelezőnek. Ám az efféle alakokat és rendeket az igazi lovagok meglehetőssen lenézik. A lovagi erkölcs megköveteli az eltökéltséget, feltétlen hűséget egy eszme vagy legalábbis egy hűbérúr iránt, tántorithatatlan bátorságot, az ellenfél becsülését, az adott szó betartását, a barátok szeretetét.', 'A lovagok olykor tornákat vivnak egymással, ahol hitük, uruk becsületét és hirnevét igyekeznek öregbiteni, megőrizni. Ha viszályba, nézeteltérésbe keverednek, párviadalra hivják ki egymást, ahol kötött szabályok szerint mérik össze fegyverük erejét.'],
+    kulonleges: '-',
+    harcertek: 'A lovagok a leghatékonyabb harcosok minden Harcos főkasztba tartozó karakterek közül. A harcértékük a gladiátorokéval egyenlő, ám ők súlyos páncélok védelmébe húzódnak, igy jóval nehezebb megsebezni és legyőzni őket. Ezenfelül a világi életben is sokkal inkább megálják a helyüket. A lovag KÉ alapja 5, TÉ alapja 20, VÉ alapja 75, CÉ alapjuk nincs. Harcérték Módositója szintenként 12, amit tetszés szerint oszthat KÉ-je, TÉ-je és VÉ-je között. Két szabályt kell csak figyelembe vennie: TÉ-je ésVÉ-je növelésére mindent TSZ-en 5-öt, 5-öt álldoznia kell, valamint CÉ-jére nem adhat pontot.',
+    eletero: 'A lovagok életerő és fájdalomtűrés tekintetében is a legjobbak közé számit. Neveltetésük folyamán nemigen szenvednek hiányt semmiben. Igy aztán életerejük kimagasló, és a fájdalmat, fogösszeszoritva ugyan, de dacosan tűrik. Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A lovag Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 5 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'A lovagi neveltetés sok mindent magába foglal, amire a karakternek szüksége van, hogy lovaggá legyen. Ugyanakkor azonban nemigen marad ideje egyébb tudományok és ismeretek elsajátitására, s ezért kevés Kp-ban részesülnek.Kp alapja 4, és minden Tapasztalati Szinten ( már 1. szinten is ) további 7-et kap.',
+    tapasztalat: 'A lovagok eleinte nehezen és lassan lépik meg TSZ-eiket. Azután ( 4. szint elérésével ) egyre könnyebben jutnak feljebb.',
+    fegyvertar: 'A lovagi élet megköveteli a súlyos vértek viseletét. A mellvért, de leginkább a fél- vagy teljes vért hordását. Ehhez mértek a fegyvereik is: a lovagkard, a pallos a kopja, a csadabárd. Gyakran használnak pajzsokat, melynek mérete és formája lovagrendtől illetve körülménytől függ. A lovagok külön fegyvertárral rendelkeznek kalandozás, a háború, a viadalok idején. Még ünnepi alkalmakra is gyakran fémvértezetett öltenek, ez az úgynevezett diszpáncél.'
+  }, {
+    id: 'TOLVAJ',
+    name: 'Tolvaj',
+    ERO: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    GYORS: {
+      name: 'k10+8+kf',
+      sp: [9, 18, 1]
+    },
+    UGY: {
+      name: 'k6+12+kf',
+      sp: [13, 18, 1]
+    },
+    ALLO: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    EG: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    SZEP: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    INT: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    AK: {
+      name: '3k6',
+      sp: [3, 18, 0]
+    },
+    ASZT: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    KEalap: 8,
+    TEalap: 17,
+    VEalap: 72,
+    CEalap: 10,
+    KESzintKotelezo: 1,
+    TESzintKotelezo: 1,
+    VESzintKotelezo: 1,
+    CESzintKotelezo: 0,
+    HmSzint: 4,
+    Epalap: 4,
+    Fpalap: 5,
+    FpSzint: {
+      name: 'k6+3',
+      sp: [4, 9]
+    },
+    Kpalap: 8,
+    KpSzint: 10,
+    KpPrecent: 62,
+    Pszi: {
+      learned: false,
+      atlevel: 0,
+      level: '',
+      maxPszi: 0,
+      psziPointLevel: 0,
+      currentPszi: 0,
+      school: '',
+      staticAsztral: 0,
+      staticMental: 0,
+      dinamicAsztarl: 0,
+      dinamicMental: 0
+    },
+    mpLevel: {
+      text: '0',
+      range: [0, 0]
+    },
+    skillsFirstLevel: {
+      FegyverhasznalatAlap: 2,
+      FegyverhasznalatMester: 0,
+      FegyverdobasAlap: 1,
+      FegyverdobasMester: 0,
+      NyelvismeretAf: 3,
+      NyelvismeretMf: 0,
+      SzakmaAf: 0,
+      SzakmaMf: 0,
+      af: ['ERTEKBECSLES', 'KOCSMAI_VEREKEDES'],
+      mf: [],
+      precent: {
+        maszas: 45,
+        eses: 15,
+        ugras: 10,
+        lopakodas: 30,
+        rejtozes: 15,
+        koteltanc: 25,
+        zsebmetszes: 35,
+        csabdafelfedezes: 25,
+        zarnyitas: 25,
+        titkosajto: 15
+      }
+    },
+    skillsOtherLevel: {
+      2: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['KOTELEKBOL_SZABADULAS'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      3: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['CSOMOZAS', 'HATBASZURAS'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      4: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['KOCSMAI_VEREKEDES'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      5: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 1,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
         mf: [],
         precent: {
           maszas: 0,
@@ -13713,96 +14365,209 @@ var state = {
         }
       }
     },
-    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
-    description: ['', ''],
-    harcertek: '',
-    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
-    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
-    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
-    fegyvertar: ''
+    TpSzint: [[0, 100], [101, 202], [203, 400], [401, 802], [803, 1700], [1701, 4500], [4501, 9000], [9001, 22000], [22001, 46500], [46501, 68500], [68501, 88000], [88001, 131500], 33500],
+    description: ['A tolvajok meglehetősen laza erkölcsű, nem kifejezetten törvénytisztelő emberek. Abból élnek amit másoktól elvesznek. Akadnak közöttük rablók, zsebmetszők, besurranók és szélhámosok, de más kis- és nagystilű gazemberek is. A képzett tolvaj kasztú karakter mindezen mesterségekben járatos.', 'A tolvajok rendszerint klánokba tömörülnek, ám akad közöttük magányos farkas is. A tolvaj karakterek effélék, illetve olyanok akik meglehetősen függetlenül képesek dolgozni a szervezettől, amelynek tagjaivá szegődtek. A képzett tolvaj megbecsült tagja bármely klánnak, annak hatalmi felépitésében valahol középtájon kap helyet. Alatta tanoncok tömegei, piti alakok sokasága szolgál, mig felettük nagystilű gonosztevők, olykor bizony magas társadalmi ranggal biró személyek állnak.', 'A tolvajklánok száma szerte Yneven több százra tehető. Némelyikben bizony több száz vagy több ezer ember lel jobb-roszabb megélhetésre, munkára, védelemre. Előmeneteli lehetőségeik valósaggal lenyűgözőek: idővel akár tolvajherceggé is emelkedhetnek a rangsorban. Nem csoda hát, ha az utcák neveltjei, a nincstelen városi családok gyermekei előbb-utóbb valamely tolvajklán kebelén kötnek ki.', 'A tolvajklánok ellentétben a fejvadász szervezetekkel, a városokban, a sűrűn lakott helyeken székelnek. Legtöbbjük egyetlen városban működik, ám némelyik egész országrészre, netán teljes országra is kiterjeszti befolyását. Világméretű azonban csak kettő akad: a Szürkecsuklyások és a Kobrák alvilági rendje.'],
+    kulonleges: '-',
+    harcertek: 'A tolvajok álltalában ügyes fürge emberek, akik nem elsősorban testi erejükről hiresek. Sokkal inkább szeretnek észrevétlenek maradni, ha tehetik elkerülik a nyilt harcot. Harcértékeik meglehetősen alacsony: KÉ alapjuk 8, TÉ alapjuk 17, VÉ alapjuk 72 és CÉ alapjuk 10. Szintenként 6 HM-et kapnak, melyből kötelesek 1-et 1-et TÉ-jük, és VÉ-jük növelésére álldozni. KÉ-jük TSZ-enként eggyel autómatikusan növekszik, akkor is, ha nem álldoztak HM-jükből rá.',
+    eletero: 'A tolvajok életerő tekintetében meglehetősen gyengék, fájdalomtűrésben pedig közepesen állnak. Ép alapjuk 4, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A tolvaj Fp alapja 5, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 3 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'A tolvaj számtalan képzetséget köteles elsajátitani, hogy valóban tolvajnak számitson. Bár ez rengeteg idejét leköti, sok egyebet is megtanulhat, hiszen ő nem a harcértékéből vagy a varázslataiból, hanem a képzetségeiből él. Kp alapja 8, és minden Tapasztalati Szinten ( már 1. szinten is ) további 10-et kap.',
+    tapasztalat: 'A tolvajok alacsony TSZ-en könnyen léphetnek magas TSZ-re. Ez az előrelyutás igazán gyorsan 5. szintig folyik igy, aztán némileg nehezül, majd 8. szint után kifejezetten nehézzé válik.',
+    fegyvertar: 'A tolvajok rengeteg különféle fegyvert viselnek és használnak. Ezek talán egyetlen közös vonása az, hogy mind könnyűek, rövidek, fürge mozdulatokkal forgathatók. Tipikus példa: tőr, rövid kard. Ha távolról igyekeznek eltenni valakit láb alól, kurta apró ijakat vagy kézi nyilpuskákat használnak. A tolvajok álltalában nem viselnek páncélt, ha mégis megteszik olyant választanak, amely legkevésbé akadályozza őket a mozgásban, és a legkisebb zajt üti. Ez néha rejtve viselt lánc- vagy sodronying, de elsősorban bőrvértet jelent.'
   }, {
-    id: '',
-    name: '',
+    id: 'BARD',
+    name: 'Bárd',
     ERO: {
-      name: 'k6+12+kf',
-      sp: [13, 18, 1]
+      name: 'k10+8+kf',
+      sp: [9, 18, 0]
     },
     GYORS: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
-    },
-    UGY: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
-    },
-    ALLO: {
       name: 'k10+8+kf',
       sp: [9, 18, 1]
     },
+    UGY: {
+      name: 'k10+8',
+      sp: [9, 18, 0]
+    },
+    ALLO: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
     EG: {
-      name: 'k10+10',
-      sp: [11, 20, 0]
+      name: '2k6+6',
+      sp: [8, 18, 0]
     },
     SZEP: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
+      name: 'k6+12+kf',
+      sp: [13, 18, 1]
     },
     INT: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
+      name: 'k10+8x2',
+      sp: [9, 18, 2]
     },
     AK: {
       name: '2k6+6',
       sp: [8, 18, 0]
     },
     ASZT: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
+      name: 'k10+8',
+      sp: [9, 18, 0]
     },
-    KEalap: 9,
+    KEalap: 10,
     TEalap: 20,
     VEalap: 75,
-    CEalap: 0,
+    CEalap: 10,
     KESzintKotelezo: 0,
-    TESzintKotelezo: 3,
-    VESzintKotelezo: 3,
+    TESzintKotelezo: 2,
+    VESzintKotelezo: 2,
     CESzintKotelezo: 0,
     HmSzint: 5,
-    Epalap: 7,
+    Epalap: 5,
     Fpalap: 6,
     FpSzint: {
-      name: 'k6+4',
-      sp: [5, 10]
+      name: 'k6+3',
+      sp: [4, 9]
     },
-    Kpalap: 10,
-    KpSzint: 14,
-    Mpalap: 0,
-    MpSzint: 0,
+    Kpalap: 4,
+    KpSzint: 6,
+    KpPrecent: 45,
+    Pszi: {
+      learned: true,
+      atlevel: 1,
+      level: 'Af',
+      maxPszi: 4,
+      psziPointLevel: 3,
+      currentPszi: 4,
+      school: 'Pyarroni',
+      staticAsztral: 0,
+      staticMental: 0,
+      dinamicAsztarl: 0,
+      dinamicMental: 0
+    },
+    mpLevel: {
+      text: '0',
+      range: [0, 0]
+    },
     skillsFirstLevel: {
-      FegyverhasznalatAlap: 3,
+      FegyverhasznalatAlap: 4,
       FegyverhasznalatMester: 0,
-      FegyverdobasAlap: 0,
+      FegyverdobasAlap: 1,
       FegyverdobasMester: 0,
-      NyelvismeretAf: 0,
+      NyelvismeretAf: 5,
       NyelvismeretMf: 0,
       SzakmaAf: 0,
       SzakmaMf: 0,
-      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
-      mf: [],
+      af: ['LOVAGLAS', 'PSZI', 'IRAS_OLVASAS', 'LEGENDA_ISMERET', 'ETIKETT', 'SZEXUALIS_KULTURA', 'ENEKLES', 'HANGUTANZAS', 'HAMISKARTYA'],
+      mf: ['LEGENDA_ISMERET'],
       precent: {
-        maszas: 15,
-        eses: 20,
+        maszas: 25,
+        eses: 5,
         ugras: 10,
-        lopakodas: 0,
-        rejtozes: 0,
-        koteltanc: 0,
-        zsebmetszes: 0,
-        csabdafelfedezes: 0,
+        lopakodas: 20,
+        rejtozes: 10,
+        koteltanc: 5,
+        zsebmetszes: 5,
+        csabdafelfedezes: 10,
         zarnyitas: 0,
-        titkosajto: 0
+        titkosajto: 5
       }
     },
     skillsOtherLevel: {
+      2: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['ERTEKBECSLES', 'ZSONGLORKODES', 'KOCSMAI_VEREKEDES'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      3: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['TANC', 'OKOLHARC', 'CSOMOZAS'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      4: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 1,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['KOTELEKBOL_SZABADULAS'],
+        mf: ['KOCSMAI_VEREKEDES', 'ETIKETT'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      5: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['PSZI', 'HAMISKARTYA'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
       6: {
         FegyverhasznalatAlap: 0,
         FegyverhasznalatMester: 0,
@@ -13812,8 +14577,56 @@ var state = {
         NyelvismeretMf: 0,
         SzakmaAf: 0,
         SzakmaMf: 0,
-        af: ['HADVEZETES'],
+        af: ['HATBASZURAS'],
         mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      7: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['SZEXUALIS_KULTURA'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      8: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['HANGUTANZAS'],
         precent: {
           maszas: 0,
           eses: 0,
@@ -13828,53 +14641,161 @@ var state = {
         }
       }
     },
-    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
-    description: ['', ''],
-    harcertek: '',
-    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
-    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
-    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
-    fegyvertar: ''
+    TpSzint: [[0, 170], [171, 350], [351, 1000], [1001, 2200], [2201, 4400], [4401, 7500], [7501, 15000], [15001, 30000], [30001, 55000], [55001, 75000], [75001, 95000], [95001, 145000], 40000],
+    description: ['A bárdok a szerencsevadászok közt leginkább a nagystilű gazemberek csoportjába sorolhatóak. Kiválóan forgatják a fegyvert és a szót, ismerik mint a mágia, mint az asszonyszivek titkait, dalaik és hajitótőreik ritkán vétik el a célt. A tolvajokhoz hasonlóan, nem maguk, hanem mások vagyonából élnek, csak éppen méltóságon alulinak találják, hogy jelentéktelen ügyekben csússzanak-másszanak, lopakodjanak. Ők inkább beférkőznek a magasabb körök, a tehetős vagy főrangú asszonyok bizalmába, zenélnek, dalolnak, varázsolnak, olykor egyébb szolgálatokat is tesznek - majd egy reggel meglépnek a családi vagyonnal.', 'A bárdok álltalában elszegényedett nemesi családok sarjai, netán erkölcs nélkül nevelt úrfiak. Ritkán tömörülnek csoportba, legtöbbször maguk ügyeiben járnak. Ha néhányan mégis összeállnak, akkor minden bizonnyal valami nagy zsiványság készül a környéken.'],
+    kulonleges: 'A bárdok elsődleges különleges képessége a bárdmágia varázslatainak használata. A bárd karakter max Mp-ja minden TSZ-en az intelligenciájának 10 feletti részével növekszik. Amásik különleges képessége: 4. TSZ-től megérzik, ha egy tárgy mágikus tulajdonságokkal bir. Azt, hogy mifélékkel nem tudják megitélni, de a 6 TSZ-től már azt is megtudják, hogy körülbelül mikor készitették a tárgyat, a 9 TSZ -től már átlátja történetét és használatát is.',
+    harcertek: 'A bárdok meglehetősen jó harcosok. Nem vehetik ugyan fel a versenyt a Harcosokkal, vagy Harcművészekkel, de rajtuk kivül talán a legkülönbek. Ez megmutatkozik 10-es KÉ alapjukban, 20-as TÉ-alapjukban, 75-ös VÉ alapjukban és 10-es CÉ alapjukban, valamint 9-es Harcérték módositójukban. Ebből 2-őt, 2-őt kötelesek TÉ-jük és VÉ-jük növelésére forditani.',
+    eletero: 'A bárdok életmódja nem feltétlenül eredményez magas életerőt vagy kiemelkedő fájdalomtűrést. Sőt, az efféle szerencsevadászok nem igazán kedvelik, s ha csak tehetik, kerülik a felesleges fájdalmakat.Ép alapjuk 5, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A bárd Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 3 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'A bárdok ezernyi különféle dolgot kényszerülnek megtanulni ahhoz, hogy hatékonyan ravaszkodhassanak, udvarolhassanak, élősködhessenek - vagyis elérjék céljaikat. A kaszt tagjai sok képzettséget eleve megkap, ráadásul KP száma is magas. Kp alapja 4, amihez szintenként még 6 Kp adható.',
+    tapasztalat: 'Kezdetben a bárdok - a 3. TSZ-ig - könnyen lépnek szintet, ettől kezdve egyre nehezebben, mig végül a 8. után feladatuk ismét könnyebbé válik.',
+    fegyvertar: 'A bárdok fegyvertára sokszinűségében és gazdagságában a harcosokéhoz mérhető. Az egyetlen megkötés, amihez a bárdok álltalában ragaszkodni szoktak, hogy nehéz vértet, kétkezes fegyvert, pajzsot nemigen használnak. A tolvajokhoz hasonlóan kedvelik a könnyú, jól forgatható kardokat és hajitófegyvereket. A legálltalánosabb bárdfegyver - persze a lanton kivül - a hosszú, egykezes kard.'
   }, {
-    id: '',
-    name: '',
+    id: 'PAP',
+    name: 'Pap',
     ERO: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    GYORS: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    UGY: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    ALLO: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    EG: {
+      name: 'k10+8',
+      sp: [9, 18, 0]
+    },
+    SZEP: {
+      name: 'k10+10',
+      sp: [9, 20, 0]
+    },
+    INT: {
+      name: 'k10+8',
+      sp: [9, 18, 0]
+    },
+    AK: {
+      name: 'k10+8+kf',
+      sp: [9, 18, 1]
+    },
+    ASZT: {
       name: 'k6+12+kf',
       sp: [13, 18, 1]
     },
-    GYORS: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
+    KEalap: 5,
+    TEalap: 17,
+    VEalap: 72,
+    CEalap: 0,
+    KESzintKotelezo: 0,
+    TESzintKotelezo: 3,
+    VESzintKotelezo: 3,
+    CESzintKotelezo: 0,
+    HmSzint: 2,
+    Epalap: 6,
+    Fpalap: 6,
+    FpSzint: {
+      name: 'k6+2',
+      sp: [3, 8]
     },
-    UGY: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
+    Kpalap: 26,
+    KpSzint: 10,
+    KpPrecent: 0,
+    Pszi: {
+      learned: true,
+      atlevel: 1,
+      level: 'Mf',
+      maxPszi: 5,
+      psziPointLevel: 4,
+      currentPszi: 5,
+      school: 'Pyarroni',
+      staticAsztral: 0,
+      staticMental: 0,
+      dinamicAsztarl: 0,
+      dinamicMental: 0
     },
-    ALLO: {
+    mpLevel: {
+      text: 'k3+6',
+      range: [7, 9]
+    },
+    skillsFirstLevel: {
+      FegyverhasznalatAlap: 1,
+      FegyverhasznalatMester: 0,
+      FegyverdobasAlap: 0,
+      FegyverdobasMester: 0,
+      NyelvismeretAf: 2,
+      NyelvismeretMf: 0,
+      SzakmaAf: 0,
+      SzakmaMf: 0,
+      af: ['PSZI', 'IRAS_OLVASAS', 'VALLAS_ISMERET', 'TORTENELEM_ISMERET', 'ENEKLES'],
+      mf: ['PSZI', 'VALLAS_ISMERET', 'TORTENELEM_ISMERET'],
+      precent: {
+        maszas: 0,
+        eses: 0,
+        ugras: 0,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 0,
+        zarnyitas: 0,
+        titkosajto: 0
+      }
+    },
+    skillsOtherLevel: {},
+    TpSzint: [[0, 160], [161, 330], [331, 660], [661, 1300], [1301, 2600], [2601, 5000], [5001, 9000], [9001, 23000], [23001, 50000], [50001, 90000], [90001, 130000], [130001, 165000], 50000],
+    description: ['A pap kasztba azon Pap főkasztú karakterek sorolhatók, akik a papi tudományukat messze a fegyverforgatás művészete elé helyezik. A papok szent emberek, mélyen vallásosak, oly fokig elmélyülnek Istenük hitébe és tiszteletébe, hogy azzal és azon túlvilági szolgáival kapcsolatba képesek lépni. E módon tesznek szert a képességre, hogy csodákat tegyenek - másszóval, hogy használják a Nagy Arkánum tudományát.', 'Ezen oldalon egyenlőre, csak az álltalános pap játszható, de a megnövelt Kp alap lehetővé teszi a játékosnak, hogy tetszés szerint ( a választott vallás irányába ) alakitsa a karakterét.'],
+    kulonleges: 'A papok legmeghatározóbb különleges képessége a papi mágia használata, az istenük által engedélyezett szférákban mint a Kis, mind pedig a Nagy Arkánum használatára képesek. A pap max Mpüje Szintenként k3+6.',
+    harcertek: 'A papok középszerű fegyverforgatók. A papi tudományuk gyakorlása, a hitben való elmélyülés számukra előrébb való a hadakozásnál. Foglalkoznak természetesen az utóbbival is, hiszen az Anyagi Világ háládatlan körülményei megkövetelik azt. A papok KÉ alapja 5, TÉ alapja 17, VÉ alapja 72, CÉ alapja pedig 0. Ezen túl szintenként 8 Harcérték Módositót kapnak, melyet tetszás szerint oszthatnak, de TÉ-jükre és VÉ-jükre kötelesek 3-3 pontot álldozni.',
+    eletero: 'Ép alapjuk 6, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A pap Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 2 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'A papok tudományosan képzett emberek. Könnyen és gyorsan tanulnak, igy bár eleve sok képzetséget megkapnak, Kp számuk is magas.Kp alapja 26 ( eredetileg 6, de a karakter vallásához igazitáshoz +20 Kp-t rendeltem ), és minden Tapasztalati Szinten ( már 1. szinten is ) további 10-et kap.',
+    tapasztalat: 'A papok alacsony TSZ-en közepes nehézséggel lépnek tovább, középszinten viszonylag könnyen, majd felső TSZ-en a legnehezebben. Ezért igazán nagy varázstudományú pap ritka szerzet.',
+    fegyvertar: 'A papok a legkülönfélébb fegyvereket és páncélokat hordják. Szinte az összes vallás beavatotjainak szigorú törvények irják elő, hogy milyen tipusú vérteket ölthetnek magukra, és milyen fajta fegyvereket forgathatnak. Ha a pap ez ellen vét, istene akaratával ellentétesen cselekszik, ami, ha sokszor előfordul, az illető számára a Nagy Arkánum használatának időleges tilalmát eredményezi.'
+  }, {
+    id: 'PAPLOVAG',
+    name: 'Paplovag',
+    ERO: {
       name: 'k10+8+kf',
       sp: [9, 18, 1]
+    },
+    GYORS: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    UGY: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    ALLO: {
+      name: 'k10+8',
+      sp: [9, 18, 0]
     },
     EG: {
       name: 'k10+10',
       sp: [11, 20, 0]
     },
     SZEP: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
+      name: 'k10+8',
+      sp: [9, 18, 0]
     },
     INT: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
-    },
-    AK: {
       name: '2k6+6',
       sp: [8, 18, 0]
     },
-    ASZT: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
+    AK: {
+      name: 'k10+8',
+      sp: [9, 18, 0]
     },
-    KEalap: 9,
+    ASZT: {
+      name: 'k6+12',
+      sp: [13, 18, 0]
+    },
+    KEalap: 5,
     TEalap: 20,
     VEalap: 75,
     CEalap: 0,
@@ -13882,32 +14803,48 @@ var state = {
     TESzintKotelezo: 3,
     VESzintKotelezo: 3,
     CESzintKotelezo: 0,
-    HmSzint: 5,
-    Epalap: 7,
-    Fpalap: 6,
+    HmSzint: 3,
+    Epalap: 8,
+    Fpalap: 7,
     FpSzint: {
-      name: 'k6+4',
-      sp: [5, 10]
+      name: 'k6+5',
+      sp: [6, 11]
     },
-    Kpalap: 10,
-    KpSzint: 14,
-    Mpalap: 0,
-    MpSzint: 0,
+    Kpalap: 25,
+    KpSzint: 5,
+    KpPrecent: 0,
+    Pszi: {
+      learned: true,
+      atlevel: 1,
+      level: 'Mf',
+      maxPszi: 5,
+      psziPointLevel: 4,
+      currentPszi: 5,
+      school: 'Pyarroni',
+      staticAsztral: 0,
+      staticMental: 0,
+      dinamicAsztarl: 0,
+      dinamicMental: 0
+    },
+    mpLevel: {
+      text: 'k3+6',
+      range: [7, 9]
+    },
     skillsFirstLevel: {
-      FegyverhasznalatAlap: 3,
+      FegyverhasznalatAlap: 4,
       FegyverhasznalatMester: 0,
       FegyverdobasAlap: 0,
       FegyverdobasMester: 0,
-      NyelvismeretAf: 0,
+      NyelvismeretAf: 2,
       NyelvismeretMf: 0,
       SzakmaAf: 0,
       SzakmaMf: 0,
-      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
-      mf: [],
+      af: ['LOVAGLAS', 'PANCEL_VISELET', 'FUTAS', 'PAJZS_HASZNALAT', 'HADVEZETES', 'PSZI', 'IRAS_OLVASAS', 'VALLAS_ISMERET', 'TORTENELEM_ISMERET', 'HERALDIKA', 'ENEKLES'],
+      mf: ['PSZI', 'LOVAGLAS'],
       precent: {
-        maszas: 15,
-        eses: 20,
-        ugras: 10,
+        maszas: 0,
+        eses: 0,
+        ugras: 0,
         lopakodas: 0,
         rejtozes: 0,
         koteltanc: 0,
@@ -13918,7 +14855,7 @@ var state = {
       }
     },
     skillsOtherLevel: {
-      6: {
+      5: {
         FegyverhasznalatAlap: 0,
         FegyverhasznalatMester: 0,
         FegyverdobasAlap: 0,
@@ -13927,8 +14864,56 @@ var state = {
         NyelvismeretMf: 0,
         SzakmaAf: 0,
         SzakmaMf: 0,
-        af: ['HADVEZETES'],
+        af: [],
+        mf: ['VALLAS_ISMERET', 'PAJZS_HASZNALAT'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      7: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 1,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
         mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      10: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['PANCEL_VISELET'],
         precent: {
           maszas: 0,
           eses: 0,
@@ -13943,31 +14928,32 @@ var state = {
         }
       }
     },
-    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
-    description: ['', ''],
-    harcertek: '',
-    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
-    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
-    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
-    fegyvertar: ''
+    TpSzint: [[0, 175], [176, 352], [353, 720], [721, 1500], [1501, 3500], [3501, 7000], [7001, 10500], [10501, 21000], [21001, 48000], [48001, 78000], [78001, 108000], [108001, 138000], 38000],
+    description: ['A paplovagok álltalában egy adott vallás, egy adott Isten hitének védelmezői. Olyan emberek, akik, amellett, hogy műveltek, jártasak a vallási tudományokban, ismerik és használják a Kis Arkánum varázslatait, mégis a fegyverforgatást tartsák fő hivatásuknak.', 'A paplovagok nehézvértet viselnek, és súlyos lovagi fegyvereket forgatnak. Életmódjuk és szokásaik tekintetében is a lovagokhoz hasonlók, neveltetésük ellenben sok vonásban a papokéra emlékeztet.', 'A különböző vallás paplovagjai jelenleg nem választhatók, de a többlet Kp segitségével a játékos a megfelelő paplovaghoz formálhassa karakterét.'],
+    kulonleges: 'A paplovag legmeghatározóbb különleges képessége a papi mágia alkalmazása, Istenük által számukra engedélyezett szférákban a Kis Arkánum varázslatainak használata. Mana pontjaikat a papokéval megegyező módon kapják ( k3+6).',
+    harcertek: 'A paplovagok részben lovagi neveltetésben részesülnek, melynek során jelentős hangsúlyt fektetnek harcértékük növelésére. A paplovagok KÉ alapja 5, TÉ alapja 20, VÉ alapja 75, CÉ alapja nincs. Szintenként 9 HM-et kapnak, melyet oszthatnak, de TÉ-jükre és VÉ-jükre kötelesek 3-3 pontot álldozni, valamint nem növelhetik CÉ-jüket.',
+    eletero: 'A paplovagok neveltetésük során céltudatosan, gyakran tudományos módszerekkel edzik testüket, igy életerő dolgában a legjobbak közé tartoznak. Ugyanez igaz fájdalomtűrésükre is.Ép alapjuk 8, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A paplovag Fp alapja 7, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 5 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'Mivel a paplovag félig lovagi, félig pedig papi neveltetéstben részesülnek, számtalan képzetséget eleve megkapnak. Ezek elsajátitása és gyakorlásán túl persze már nemigen jut idejük, energiájuk egyebek tanulására.Kp alapja 25 ( eredetileg 5, de a különböző vallásra fejleszthetőség miatt +20 ), és minden Tapasztalati Szinten ( már 1. szinten is ) további 5-öt kap.',
+    tapasztalat: 'A paplovagnak rengeteg képzetséget kell egyszerre gyakorolniuk és fejleszteniük, hogy magasabb TSZ-re léphessenek - igy aztán ezt meglehetősen nehezen teszik.',
+    fegyvertar: 'A paplovag fegyvertára teljesen megegyezik a lovagokéval.'
   }, {
-    id: '',
-    name: '',
+    id: 'HARCMUVESZ',
+    name: 'Harcművész',
     ERO: {
-      name: 'k6+12+kf',
-      sp: [13, 18, 1]
+      name: 'k10+8',
+      sp: [9, 18, 0]
     },
     GYORS: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
+      name: 'k6+14',
+      sp: [15, 20, 0]
     },
     UGY: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
+      name: 'k6+12',
+      sp: [13, 18, 0]
     },
     ALLO: {
-      name: 'k10+8+kf',
-      sp: [9, 18, 1]
+      name: 'k6+12',
+      sp: [13, 18, 0]
     },
     EG: {
       name: 'k10+10',
@@ -13982,14 +14968,14 @@ var state = {
       sp: [3, 18, 2]
     },
     AK: {
-      name: '2k6+6',
-      sp: [8, 18, 0]
+      name: 'k6+12',
+      sp: [13, 18, 0]
     },
     ASZT: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
+      name: 'k10+8',
+      sp: [9, 18, 0]
     },
-    KEalap: 9,
+    KEalap: 10,
     TEalap: 20,
     VEalap: 75,
     CEalap: 0,
@@ -13997,32 +14983,48 @@ var state = {
     TESzintKotelezo: 3,
     VESzintKotelezo: 3,
     CESzintKotelezo: 0,
-    HmSzint: 5,
-    Epalap: 7,
-    Fpalap: 6,
+    HmSzint: 2,
+    Epalap: 4,
+    Fpalap: 8,
     FpSzint: {
-      name: 'k6+4',
-      sp: [5, 10]
+      name: 'k6+5',
+      sp: [6, 11]
     },
-    Kpalap: 10,
-    KpSzint: 14,
-    Mpalap: 0,
-    MpSzint: 0,
+    Kpalap: 4,
+    KpSzint: 5,
+    KpPrecent: 22,
+    Pszi: {
+      learned: true,
+      atlevel: 1,
+      level: 'Mf',
+      maxPszi: 6,
+      psziPointLevel: 5,
+      currentPszi: 6,
+      school: 'Slan',
+      staticAsztral: 0,
+      staticMental: 0,
+      dinamicAsztarl: 0,
+      dinamicMental: 0
+    },
+    mpLevel: {
+      text: '0',
+      range: [0, 0]
+    },
     skillsFirstLevel: {
-      FegyverhasznalatAlap: 3,
+      FegyverhasznalatAlap: 10,
       FegyverhasznalatMester: 0,
-      FegyverdobasAlap: 0,
+      FegyverdobasAlap: 4,
       FegyverdobasMester: 0,
       NyelvismeretAf: 0,
       NyelvismeretMf: 0,
       SzakmaAf: 0,
       SzakmaMf: 0,
-      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
-      mf: [],
+      af: ['LOVAGLAS', 'USZAS', 'FUTAS', 'VAKHARC', 'FEGYVERTORES', 'PSZI'],
+      mf: ['PSZI'],
       precent: {
-        maszas: 15,
-        eses: 20,
-        ugras: 10,
+        maszas: 20,
+        eses: 35,
+        ugras: 30,
         lopakodas: 0,
         rejtozes: 0,
         koteltanc: 0,
@@ -14033,6 +15035,78 @@ var state = {
       }
     },
     skillsOtherLevel: {
+      2: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['SEBGYOGYITAS'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      4: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['FEGYVERTORES'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      5: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['VAKHARC'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
       6: {
         FegyverhasznalatAlap: 0,
         FegyverhasznalatMester: 0,
@@ -14042,8 +15116,8 @@ var state = {
         NyelvismeretMf: 0,
         SzakmaAf: 0,
         SzakmaMf: 0,
-        af: ['HADVEZETES'],
-        mf: [],
+        af: [],
+        mf: ['SEBGYOGYITAS'],
         precent: {
           maszas: 0,
           eses: 0,
@@ -14058,53 +15132,54 @@ var state = {
         }
       }
     },
-    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
-    description: ['', ''],
-    harcertek: '',
-    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
-    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
+    TpSzint: [[0, 220], [221, 442], [443, 950], [951, 2000], [2001, 4500], [4501, 9000], [9001, 16000], [16001, 32000], [32001, 65000], [65001, 120000], [120001, 170000], [170001, 240000], 65000],
+    description: ['A Slan kifejezést először Tiadlanban kezdték használni a Niaréből odatelepedett szerzetesek. Igy hivták azokat a tanulókat, akik nem a sárgák népéből származtak, mégis igen tehetségesnek bizonyultak a harcművészetek elsajátitása terén. A szerzetesek fél évszázad múltán - uruk kivánságára - hazatelepültek, a kifejezés azonban maradt. Azóta Slannek nevezik a harcművészeket.', 'A Slan technikák mára már nem teljesen azonosak forrásukkal, a niaeri módszerekkel ötvöződtek a helyi küzdőművészetek egyes elemei, s a Slan mesterek tudatosan is továbbfejlesztették azokat.', 'A Harcművészek kasztjába azok tartoznak, akik elsősorban a pusztakezes harcot alkalmazzák, testüket éppúgy halálos fegyverként használják, mint mások a kovácsok álltal készitett kardott vagy csatabárdot. Akrobatikus mozgásuk harc közben lenyűgöző látványt nyújt, kardcsapások elől félreszaltóznak, a rájuk lőtt nyilvesszőt röptében elkapják, és a legváratlanabb pillanatban söprik ki ellenfelük lábát. Állóképességük, erejük legalább ilyen megdübbentő. Puszta kézzel zúznak szét pajzsokat, órákig képesek kitartóan futni.', 'A harcművészek valják, hogy a fegyver behatárolja használója lehetőségeit, egyetemes harci eszköz csak egy van: az emberi test.', 'A Harcművészek gyakran magányos mesternél tanulnak, Tiadlanban azonban több hires iskola is létezik, ahol egyszerre 20-30 tanulóval foglalkoznak a mesterek. Tudásukat álltalában titokként őrzik, s nem szivesen adják tovább. Az egyes iskolák növendékei legtöbbször összetartanak.'],
+    kulonleges: 'A harcművészek elsődleges különleges képessége, hogy a pszi Slan útját használják. A harcművészek képesek arra, hogy kitérjenek a rájuk kilőtt nyilvesszők és egyébb lövedékek útjából. Ennek feltétele, hogy számitsanak a lövésre és összpontositsanak a kitérésre. Ilyenkor a  CÉ támadással szemben a VÉ-je érvényesül, nem pedig a távolság. A harcművészek kitartó farkasügetésre képesek, melynek sebessége 16 mérföld/óra, s ezt annyi órán tudják tartani, ahanyadik TSZ-űek. A harcművész keze mikor chi-harc diszciplina alkalmazásával harcol 6. TSZ-től mágikus fegyvernek számit, s minden efféle fegyverekre vonatkozó szabály rájuk is érvényes.',
+    harcertek: 'A harcművész harcértéke alaphelyzetben nem számit a legjobbak közé, pusztakezes sebzése mindössze k6 Sp. Ő akkor válik mindenkinél különbbé, ha küzdelem során pszijének különleges diszciplináit alkalmazza. Pszi nélkül KÉ alapja 10, TÉ alapja 20, VÉ alapja 75, és CÉ alapja 0, amihez minden TSZ-en még 8 HM-et kap, amit tetszés szerint oszthat, de TÉ-jét és VÉ-jét köteles 3-3 pontal növelni szintenként.',
+    eletero: 'A harcmüvészek kemény képzésen esnek át, ami fájdalomtűrésüket ugyan fokozza, de életerejüket igénybe veszi. Igy aztán a kaszt tagjai kevésbé életerősek, ellenben szinte mindenkinél jobban birják a fájdalmat. Ép alapjuk 4, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harművész Fp alapja 8, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 5 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'A harcművészek számtalan képzettségel eleve birnak. Neveltetésük folyamán sokmindent el kell sajátitaniuk, ami minden idejüket és energiájukat leköti, akár utóbb ugyanezen képzettségek gyakorlása és fejlesztése, a Pszi Slan-út még ezek közül is kiemelkedik. Igy azután nem csoda, hogy a harcművészeknek nemigen nyilik módjuk egyebek tanulására. Kp alapja 4, és minden Tapasztalati Szinten ( már 1. szinten is ) további 5-öt kap.',
     tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
-    fegyvertar: ''
+    fegyvertar: '-'
   }, {
-    id: '',
-    name: '',
+    id: 'KARDMUVESZ',
+    name: 'Kardművész',
     ERO: {
+      name: 'k10+8',
+      sp: [9, 18, 0]
+    },
+    GYORS: {
       name: 'k6+12+kf',
       sp: [13, 18, 1]
     },
-    GYORS: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
-    },
     UGY: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
+      name: 'k6+14',
+      sp: [15, 20, 0]
     },
     ALLO: {
-      name: 'k10+8+kf',
-      sp: [9, 18, 1]
+      name: 'k10+8',
+      sp: [9, 18, 0]
     },
     EG: {
-      name: 'k10+10',
-      sp: [11, 20, 0]
+      name: 'k10+8',
+      sp: [9, 18, 0]
     },
     SZEP: {
       name: '3k6x2',
       sp: [3, 18, 2]
     },
     INT: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
+      name: '2k6+6',
+      sp: [3, 18, 0]
     },
     AK: {
-      name: '2k6+6',
-      sp: [8, 18, 0]
+      name: 'k6+12',
+      sp: [13, 18, 0]
     },
     ASZT: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
+      name: 'k10+8',
+      sp: [9, 18, 0]
     },
-    KEalap: 9,
+    KEalap: 10,
     TEalap: 20,
     VEalap: 75,
     CEalap: 0,
@@ -14112,17 +15187,33 @@ var state = {
     TESzintKotelezo: 3,
     VESzintKotelezo: 3,
     CESzintKotelezo: 0,
-    HmSzint: 5,
-    Epalap: 7,
-    Fpalap: 6,
+    HmSzint: 2,
+    Epalap: 4,
+    Fpalap: 8,
     FpSzint: {
-      name: 'k6+4',
-      sp: [5, 10]
+      name: 'k6+5',
+      sp: [6, 11]
     },
-    Kpalap: 10,
-    KpSzint: 14,
-    Mpalap: 0,
-    MpSzint: 0,
+    Kpalap: 4,
+    KpSzint: 5,
+    KpPrecent: 18,
+    Pszi: {
+      learned: true,
+      atlevel: 1,
+      level: 'Mf',
+      maxPszi: 6,
+      psziPointLevel: 5,
+      currentPszi: 6,
+      school: 'Slan',
+      staticAsztral: 0,
+      staticMental: 0,
+      dinamicAsztarl: 0,
+      dinamicMental: 0
+    },
+    mpLevel: {
+      text: '0',
+      range: [0, 0]
+    },
     skillsFirstLevel: {
       FegyverhasznalatAlap: 3,
       FegyverhasznalatMester: 0,
@@ -14132,10 +15223,10 @@ var state = {
       NyelvismeretMf: 0,
       SzakmaAf: 0,
       SzakmaMf: 0,
-      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
-      mf: [],
+      af: ['LOVAGLAS', 'USZAS', 'FUTAS', 'OKOLHARC', 'BIRKOZAS', 'FEGYVERTORES', 'VAKHARC', 'HADVEZETES', 'PSZI', 'ETIKETT'],
+      mf: ['PSZI'],
       precent: {
-        maszas: 15,
+        maszas: 10,
         eses: 20,
         ugras: 10,
         lopakodas: 0,
@@ -14148,7 +15239,7 @@ var state = {
       }
     },
     skillsOtherLevel: {
-      6: {
+      3: {
         FegyverhasznalatAlap: 0,
         FegyverhasznalatMester: 0,
         FegyverdobasAlap: 0,
@@ -14157,8 +15248,56 @@ var state = {
         NyelvismeretMf: 0,
         SzakmaAf: 0,
         SzakmaMf: 0,
-        af: ['HADVEZETES'],
-        mf: [],
+        af: [],
+        mf: ['LOVAGLAS'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      4: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['FEGYVERTORES'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      5: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 1,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['VAKHARC'],
         precent: {
           maszas: 0,
           eses: 0,
@@ -14173,86 +15312,103 @@ var state = {
         }
       }
     },
-    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
-    description: ['', ''],
-    harcertek: '',
-    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
-    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
-    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
-    fegyvertar: ''
+    TpSzint: [[0, 200], [201, 400], [401, 925], [926, 1900], [1901, 4000], [4001, 8250], [8251, 15500], [15501, 31000], [31001, 62500], [62501, 115000], [115001, 165000], [165001, 230000], 62000],
+    description: ['A Kardművészek a Slanek egy specializált csoportját alkotják. Ők a karddal való küzdőművészetett vitték tökélyre. Fégyvereik a Slan kard és Slan tőr hosszú évszázadok munkájával kikisérletezett kovácsolási eljárással készült, de anyaga és formája is tökéletes - azóta sem sikerült jobbat találni. A Kardművészek szellemisége sokban megegyezik a Harcművészekével, ők azonban nem testüket vagy öklüket használják fegyver gyanánt, hanem kardjukat. Vallják, hogy a kard használatához nem elég megtanulni a vivás szabályait.. Lélekből - Chiből - kell hatcolni. Módszereik, technikáik legalább olyan különlegesek mind Harcművész társaik pusztakezes tudása, kardjuk - mint mondják - hozzájuk nőtt, s ugyanúgy érzik, mint más emberek végtagjaikat. Vivótudományukról legendák zengenek, s való igaz mozgásuk csiszoltsága, módszereik letisztultsága szemet gyönyörködtető, igazi élményt ad a műértőknek. A Kardművészek szinte sosem cseleznek fegyvereikkel, vágnak és védekeznek - a hatékonyság az időzitésben, a mozdulatok hibátlan kivitelében rejlik. Gondot forditanak minden apró mozdulat begyakorlására, hisz a kéztartás tisztasága, a helyes lépés, vagy a csipő pontos mozgása a Kardművész életét mentheti meg.', 'A Kaedművészek, ellentétben a Harcművészekkel csak a legritkább esetben tanulják tudományukat iskolákban, a kard művészetét magányos mesterek oktatják, egyszerre legfeljebb 3-4 tanitványnak. Az azonos mesternél tanult Slanek éppúgy összetartanak, mint Harcművész társaik, s a Dorcha tiszteletében sem maradnak el tőlük.', 'Kardművészetet Tiadlanon kivül csak elvétve oktatnak. Néha Pyarronban, néha az Északi Szövetség területén, olykor a Déli városállamokban bukkan fel egy-egy magányos mester.'],
+    kulonleges: 'A Kardművész elsődleges különleges képzetsége, hogy a pszi Slan útját használja. A Kardművész képes arra, hogy kitérjen a nyilvesszők és egyébb lövedékek útjából. Ennek feltétele, hogy számitson a lövésre, és öszpontositson a kitérésre. Ez esetben a Célzó támadással szemben nem a távolság, hanem a VÉ-je érvényesül. A Kardművész kardja, amint eléri a 7. TSZ-et, és a Chi-harc diszciplinát alkalmazza, mágikus fegyvernek minősül.',
+    harcertek: 'A Kardművészek harcértéke alaphelyzetben közel sem számit a legjobbak közé. Csak akkor válik mindenkinál különbbé, ha küzdelem közben pszijének különleges diszciplináit alkalmazza. Pszi nélkül KÉ alapja 10, TÉ alapja 20, VÉ alapja 75, CÉ alapja 0, amihez minden tapasztalati szinten 8 HM-et kap, amibő 3-at, 3-at TÉ-je és VÉ-je növelésére köteles forditani.',
+    eletero: 'A Kardművész kiképzése a fájdalomtűrést ugyan fokozza, a kemény igénybevétel miatt viszont rontja az életerőt. Ép alapjuk 4, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcművész Fp alapja 8, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 5 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'A Kardművészek számtalan képzetséggel eleve birnak. Neveltetésük során sokmindent kell elsajátitaniuk, ami minden idejüket és energiájukat leköti - mint később ugyanezen képzettségek gykorlása és fejlesztése. Igy a Kardművészeknek nemigen jut módjuk egyebek tanulására. Kp alapja 4, és minden Tapasztalati Szinten ( már 1. szinten is ) további 5-öt kap.',
+    tapasztalat: 'A Kardművésznek számtalan képességét kell fejlesztenie ahhoz, hogy TSZ-t lépjen. Ez annyit tesz, hogy sok Tapasztalati Pontot kell összegyűjtenie, mint alacsony, mint magas TSZ-en.',
+    fegyvertar: 'A Kardművész legfontosabb fegyvere a Slan kard és Slan tőr. Mindkettő része személyes aurájának, igy a lélek védelmét élvezi, mintha csak a Kardművész testének része lenne.'
   }, {
-    id: '',
-    name: '',
+    id: 'BOSZORKANY',
+    name: 'Boszorkány',
     ERO: {
+      name: '3k6',
+      sp: [3, 18, 0]
+    },
+    GYORS: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    UGY: {
+      name: 'k10+8',
+      sp: [9, 18, 0]
+    },
+    ALLO: {
+      name: '3k6',
+      sp: [93, 18, 0]
+    },
+    EG: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    SZEP: {
+      name: 'k6+14',
+      sp: [15, 20, 0]
+    },
+    INT: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    AK: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    ASZT: {
       name: 'k6+12+kf',
       sp: [13, 18, 1]
     },
-    GYORS: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
-    },
-    UGY: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
-    },
-    ALLO: {
-      name: 'k10+8+kf',
-      sp: [9, 18, 1]
-    },
-    EG: {
-      name: 'k10+10',
-      sp: [11, 20, 0]
-    },
-    SZEP: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
-    },
-    INT: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
-    },
-    AK: {
-      name: '2k6+6',
-      sp: [8, 18, 0]
-    },
-    ASZT: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
-    },
-    KEalap: 9,
-    TEalap: 20,
-    VEalap: 75,
+    KEalap: 6,
+    TEalap: 14,
+    VEalap: 69,
     CEalap: 0,
     KESzintKotelezo: 0,
-    TESzintKotelezo: 3,
-    VESzintKotelezo: 3,
+    TESzintKotelezo: 1,
+    VESzintKotelezo: 1,
     CESzintKotelezo: 0,
-    HmSzint: 5,
-    Epalap: 7,
-    Fpalap: 6,
+    HmSzint: 3,
+    Epalap: 3,
+    Fpalap: 1,
     FpSzint: {
-      name: 'k6+4',
-      sp: [5, 10]
+      name: 'k6',
+      sp: [1, 6]
     },
-    Kpalap: 10,
-    KpSzint: 14,
-    Mpalap: 0,
-    MpSzint: 0,
+    Kpalap: 8,
+    KpSzint: 12,
+    KpPrecent: 0,
+    Pszi: {
+      learned: true,
+      atlevel: 1,
+      level: 'Mf',
+      maxPszi: 5,
+      psziPointLevel: 4,
+      currentPszi: 5,
+      school: 'Pyarroni',
+      staticAsztral: 0,
+      staticMental: 0,
+      dinamicAsztarl: 0,
+      dinamicMental: 0
+    },
+    mpLevel: {
+      text: '8',
+      range: [8, 8]
+    },
     skillsFirstLevel: {
-      FegyverhasznalatAlap: 3,
+      FegyverhasznalatAlap: 1,
       FegyverhasznalatMester: 0,
-      FegyverdobasAlap: 0,
+      FegyverdobasAlap: 1,
       FegyverdobasMester: 0,
-      NyelvismeretAf: 0,
+      NyelvismeretAf: 2,
       NyelvismeretMf: 0,
       SzakmaAf: 0,
       SzakmaMf: 0,
-      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
-      mf: [],
+      af: ['PSZI', 'SZEXUALIS_KULTURA', 'HERBALIZMUS', 'IRAS_OLVASAS', 'MERGKEVERES', 'SEBGYOGYITAS'],
+      mf: ['PSZI'],
       precent: {
-        maszas: 15,
-        eses: 20,
-        ugras: 10,
+        maszas: 0,
+        eses: 0,
+        ugras: 0,
         lopakodas: 0,
         rejtozes: 0,
         koteltanc: 0,
@@ -14263,7 +15419,7 @@ var state = {
       }
     },
     skillsOtherLevel: {
-      6: {
+      4: {
         FegyverhasznalatAlap: 0,
         FegyverhasznalatMester: 0,
         FegyverdobasAlap: 0,
@@ -14272,8 +15428,32 @@ var state = {
         NyelvismeretMf: 0,
         SzakmaAf: 0,
         SzakmaMf: 0,
-        af: ['HADVEZETES'],
-        mf: [],
+        af: [],
+        mf: ['MERGKEVERES'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      5: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['HERBALIZMUS'],
         precent: {
           maszas: 0,
           eses: 0,
@@ -14288,88 +15468,105 @@ var state = {
         }
       }
     },
-    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
-    description: ['', ''],
-    harcertek: '',
-    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
-    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
-    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
-    fegyvertar: ''
+    TpSzint: [[0, 150], [151, 300], [301, 600], [601, 1000], [1001, 2000], [2001, 4000], [4001, 9000], [9001, 17000], [17001, 38500], [38501, 58500], [58501, 78500], [78501, 108500], 31500],
+    description: ['A boszorkányok legtöbbje, csak felhasználója az ősi, mágikus tanoknak. Tudományuk évezredek tapasztalatán alapul, mégsem tér el lényegesen az ősi formáktól. Számukra a mágia nem a tökéletesedés útja, hanem a hatalom eszköze. A mágiát okkult művészetként szmlélő kevés akad soraikban.', 'A boszorkányok nem igyekeznek megérteni a mágia törvényeit - ők a gyakorlat, az alkalmazói mágia hivei. A törvényeknek nem szeretetét, összefüggéseit, hanem alkalmasint kiskapuit keresik.', 'A legfontosabb szabály, amit a boszorkány kapcsán emliteni kell, hogy a boszorkány karakter minden esetben nő. Javasoljuk ne legyen ez másként a játékos esetében sem!'],
+    kulonleges: 'A boszorkány elsődleges különleges képzetsége, hogy használja a Boszorkánymágiát. A boszorkány karakter max Mp-je minden TSZ-en 8-cal növekszik.',
+    harcertek: 'A boszorkányok kizárólag mágikus tudományukra támaszkodnak, ha baj éri őket. A fegyverforgatáshoz, a harchoz allig-allig értenek. Harcértékeik a legalacsonyabb az összes kaszt közül. KÉ alapjuk 6, Té alapjuk 14, VÉ alapjuk 69 és CÉ alapjuk 0. Minden TSZ-en 4 HM-et kapnak amiből TÉ-jükre és VÉ-jükre kötelesek 1-et, 1-et álldozni.',
+    eletero: 'A boszorkányok Életerő és Fájdalomtűrés tekintetében sem állnak valami fényesen. Ép alapjuk 3, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A boszorkány Fp alapja 1, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'A boszorkány számtalan képzetséget köteles elsajátitani. Mivel azonban idejükből nem rabol el semmit a harc tanulása és gyakorlása, számtalan egyébb képzetséggel is megismerkedhetnek. Kp alapja 8, és minden Tapasztalati Szinten ( már 1. szinten is ) további 12-őt kap.',
+    tapasztalat: 'A boszorkányok a varázshasználók közül a legkönnyebben lépnek TSZ-t. Ez mint alacsony, mint magas szinteken igaz.',
+    fegyvertar: 'A boszorkányok álltalában tőrrel harcolnak, melynek pengéjét gyakran méreggel teszik veszedelmesebbé. Fegyverüket, ha a helyzet ugy kivánja, célbadobni is képesek. Vértet, páncélt SOHA nem viselnek.'
   }, {
-    id: '',
-    name: '',
+    id: 'BOSZORKANYMESTER',
+    name: 'Boszorkánymester',
     ERO: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    GYORS: {
+      name: 'k10+8',
+      sp: [9, 18, 0]
+    },
+    UGY: {
       name: 'k6+12+kf',
       sp: [13, 18, 1]
     },
-    GYORS: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
-    },
-    UGY: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
-    },
     ALLO: {
-      name: 'k10+8+kf',
-      sp: [9, 18, 1]
+      name: '3k6x2',
+      sp: [3, 18, 2]
     },
     EG: {
-      name: 'k10+10',
-      sp: [11, 20, 0]
+      name: '2k6+6',
+      sp: [8, 18, 0]
     },
     SZEP: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
+      name: '3k6',
+      sp: [3, 18, 0]
     },
     INT: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
+      name: '2k6+6',
+      sp: [8, 18, 0]
     },
     AK: {
       name: '2k6+6',
       sp: [8, 18, 0]
     },
     ASZT: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
+      name: 'k6+12',
+      sp: [13, 18, 0]
     },
-    KEalap: 9,
-    TEalap: 20,
-    VEalap: 75,
-    CEalap: 0,
-    KESzintKotelezo: 0,
-    TESzintKotelezo: 3,
-    VESzintKotelezo: 3,
+    KEalap: 7,
+    TEalap: 17,
+    VEalap: 72,
+    CEalap: 5,
+    KESzintKotelezo: 1,
+    TESzintKotelezo: 1,
+    VESzintKotelezo: 1,
     CESzintKotelezo: 0,
     HmSzint: 5,
-    Epalap: 7,
-    Fpalap: 6,
+    Epalap: 3,
+    Fpalap: 4,
     FpSzint: {
-      name: 'k6+4',
-      sp: [5, 10]
+      name: 'k6+1',
+      sp: [2, 7]
     },
-    Kpalap: 10,
-    KpSzint: 14,
-    Mpalap: 0,
-    MpSzint: 0,
+    Kpalap: 7,
+    KpSzint: 8,
+    KpPrecent: 15,
+    Pszi: {
+      learned: true,
+      atlevel: 1,
+      level: 'Mf',
+      maxPszi: 5,
+      psziPointLevel: 4,
+      currentPszi: 5,
+      school: 'Pyarroni',
+      staticAsztral: 0,
+      staticMental: 0,
+      dinamicAsztarl: 0,
+      dinamicMental: 0
+    },
+    mpLevel: {
+      text: '7',
+      range: [7, 7]
+    },
     skillsFirstLevel: {
       FegyverhasznalatAlap: 3,
       FegyverhasznalatMester: 0,
-      FegyverdobasAlap: 0,
+      FegyverdobasAlap: 1,
       FegyverdobasMester: 0,
-      NyelvismeretAf: 0,
+      NyelvismeretAf: 3,
       NyelvismeretMf: 0,
       SzakmaAf: 0,
       SzakmaMf: 0,
-      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
-      mf: [],
+      af: ['PSZI', 'IRAS_OLVASAS', 'MERGKEVERES', 'ALCAZAS', 'HERBALIZMUS'],
+      mf: ['PSZI'],
       precent: {
-        maszas: 15,
-        eses: 20,
-        ugras: 10,
-        lopakodas: 0,
-        rejtozes: 0,
+        maszas: 0,
+        eses: 0,
+        ugras: 0,
+        lopakodas: 15,
+        rejtozes: 15,
         koteltanc: 0,
         zsebmetszes: 0,
         csabdafelfedezes: 0,
@@ -14378,6 +15575,78 @@ var state = {
       }
     },
     skillsOtherLevel: {
+      2: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['HATBASZURAS'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      4: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['MERGKEVERES'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      5: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['HATBASZURAS'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
       6: {
         FegyverhasznalatAlap: 0,
         FegyverhasznalatMester: 0,
@@ -14387,8 +15656,8 @@ var state = {
         NyelvismeretMf: 0,
         SzakmaAf: 0,
         SzakmaMf: 0,
-        af: ['HADVEZETES'],
-        mf: [],
+        af: [],
+        mf: ['HERBALIZMUS'],
         precent: {
           maszas: 0,
           eses: 0,
@@ -14403,316 +15672,210 @@ var state = {
         }
       }
     },
-    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
-    description: ['', ''],
-    harcertek: '',
-    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
-    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
-    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
-    fegyvertar: ''
+    TpSzint: [[0, 200], [201, 400], [401, 800], [801, 1600], [1601, 4000], [4001, 8000], [8001, 16000], [16001, 32000], [32001, 59000], [59001, 90500], [90501, 140000], [140001, 190000], 55000],
+    description: ['A boszorkánymesterek gátlástalan feketemágusok - természetesen csak a szó filozófiai értelmében, hiszen hatalmuk bármily sötét is, nyomába sem lép egy igazi mágusnak. Mégis, a többi varázshasználó kaszt csak irigységgel vegyes döbbenettel szemlélheti velejéig romlott, sötét hatalmuk mértékét. Mágikus tudományukat egyetlen cél szolgálatába állitják: pusztitani, kint nyomorúságot okozni.', 'Mindamellett a boszorkánymesterek is csak felhasználói varázslók, ők sem értik a mágia mélyebb összefüggéseit, belső törvényeit. Ismerik a megfelelő formulákat: azon varázsigéket és taglejtéseket, melyek iszonyatos hatalmuk zálogát jelentik. Varázslataik túlnyomó része Rontásokból, Átkokból, Energiavillámokból állnak - s az álldozat testét roncsolják -, meg persze az elmaradhatatlan Nekromanciából. Emellett a boszorkánymesterek járatosak az orrgyilkosság különféle fogásaiban is: ismerik a méregkeverés tudományát és a hátbaszúrás művészetét.'],
+    kulonleges: 'A boszorkánymester elsődleges különleges képzetsége, hogy a boszorkánymesteri mágiát alkalmazza. A boszorkánymester karakter max Mp-je minden szinten 7-tel növekszik.',
+    harcertek: 'A boszorkánymestert tanitóik nem készitik fel nyilt, szemtől szembeni küzdelemre, kizárólag a lesből, meglepetésszerűen, hátulról támadásra. Ehhez mért harcértékük is. KÉ alapja 7, TÉ alapja 17, VÉ alapja 72 és CÉ alapja 5. Ezen Túl szintenként 7 HM-et kap amit tetszés szerint oszthat, de TÉ-jére és VÉ-jére köteles 1-et, 1-et álldozni. KÉ-je szintenként eggyel nő akkor is, ha erre nem álldozott.',
+    eletero: 'Életmúdja, varázslatainak használata megköveteli a test sanyargatását, kiszipolyozását, miálltal az közel sem lesz életerősnek nevezhető. A boszorkánymesterek a fájdalom elviseléséhez sincsenek kifejezetten hozzászokva. Ép alapjuk 3, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A boszorkánymester Fp alapja 4, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 1 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'A boszorkánymesterek sok képzetséget elsajátitanak tanitattásuk ideje alatt. Emellett számtalan egyébb ismeretek elsajátitására is jut idejük. Kp alapja 7, és minden Tapasztalati Szinten ( már 1. szinten is ) további 8-at kap.',
+    tapasztalat: 'A boszorkánymester szerteágazó tudományok birtokosai, s mivel ezek mindegyikét folyamatosan gyakorolniuk kell, ha fejlődni kivánnak, meglehetősen lassan lépnek TSZ-t. Ez különösen közép-, még inkább magas szinten érvényesül.',
+    fegyvertar: 'A boszorkánymesterek elsősorban különféle, orgyilkosságok elkövetésére alkalmas fegyvereket használnak. Mivel ezeknél elsődleges szempont, hogy rejtve maradjanak, álltalában kis méretűek. A tőröket, hajitóbárdokat, dobócsillagokat, a rövid kardokat részesitik előnyben. Ezek éle, hegye majd minden esetben mérgezett. A boszorkánymesterek álltalában bőrvérteket hordanak, mivel a fémvértek súlyosak, gyanút keltenek, amellett csörömpölnek, ami akadályozza a viselőjét a csendes lopakodásban'
   }, {
-    id: '',
-    name: '',
+    id: 'TUZVARAZSLO',
+    name: 'Tűzvarázsló',
     ERO: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    GYORS: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    UGY: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    ALLO: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    EG: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    SZEP: {
+      name: '3k6',
+      sp: [3, 18, 0]
+    },
+    INT: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    AK: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    ASZT: {
+      name: '2k6+6',
+      sp: [8, 18, 0]
+    },
+    KEalap: 6,
+    TEalap: 17,
+    VEalap: 72,
+    CEalap: 0,
+    KESzintKotelezo: 0,
+    TESzintKotelezo: 3,
+    VESzintKotelezo: 3,
+    CESzintKotelezo: 0,
+    HmSzint: 2,
+    Epalap: 5,
+    Fpalap: 4,
+    FpSzint: {
+      name: 'k6+1',
+      sp: [2, 7]
+    },
+    Kpalap: 3,
+    KpSzint: 5,
+    KpPrecent: 0,
+    Pszi: {
+      learned: true,
+      atlevel: 1,
+      level: 'Mf',
+      maxPszi: 5,
+      psziPointLevel: 4,
+      currentPszi: 5,
+      school: 'Pyarroni',
+      staticAsztral: 0,
+      staticMental: 0,
+      dinamicAsztarl: 0,
+      dinamicMental: 0
+    },
+    mpLevel: {
+      text: '6',
+      range: [6, 6]
+    },
+    skillsFirstLevel: {
+      FegyverhasznalatAlap: 2,
+      FegyverhasznalatMester: 0,
+      FegyverdobasAlap: 0,
+      FegyverdobasMester: 0,
+      NyelvismeretAf: 2,
+      NyelvismeretMf: 0,
+      SzakmaAf: 0,
+      SzakmaMf: 0,
+      af: ['LOVAGLAS', 'PSZI', 'IRAS_OLVASAS', 'HAJOZAS'],
+      mf: ['PSZI'],
+      precent: {
+        maszas: 0,
+        eses: 0,
+        ugras: 0,
+        lopakodas: 0,
+        rejtozes: 0,
+        koteltanc: 0,
+        zsebmetszes: 0,
+        csabdafelfedezes: 0,
+        zarnyitas: 0,
+        titkosajto: 0
+      }
+    },
+    skillsOtherLevel: {},
+    TpSzint: [[0, 170], [171, 350], [351, 700], [701, 1500], [1501, 3000], [3001, 7000], [7001, 12000], [12001, 22000], [22001, 52500], [52501, 85500], [85501, 135000], [135001, 175500], 58500],
+    description: ['A tűzvarázsló a legkülönösebb Varázshasználó kaszt mind közül. Annak ellenére, hogy allig ismerik a mágia belső törvényszerűségeit - azaz minden szempontból csak felhasználói varázslók-, a legmagasabb szintű, legkifinomultabb mágiát használják. Mágikus hatalmuk kizárólag a tűzzel való támadásra és védekezésre korlátozódik, ennek viszont legnagyobb mesterei. Tudományukat a godoni mágusoktól, az első mágiahasználó embernép nagyjaitól örökölték.', 'A tűzvarázslók amellett, hogy rendkivül veszedelmes mágia birtokosai, a fegyverekkel is remekül bánnak.', 'Egész Yneven egyetlen tűzvarázsló iskola létezik, az Ordani Tűzvarázsló Rend. Tagjai a kyr Sogront, a Tűzkobrát imádják. Tudományaik titkait szinte soha nem osztják meg nem rendjükből valóval. Ha olykor kivételt tesznek, alaposan megfontolják, ki legyen az illető. Utoljára a pyarroni Fehér Páholy nagymesterének, Sonornak engedtek betekintést titkaikba.', 'Az ordani iskolát leszámitva, csak renegát, magányos mesterek oktatják a tűzmágiát, őket és tanitványaikat azonban üldözi, és tűzzel-vassal irtja a Rend. Minden valószinűség szerint ezzel magyarázható párját ritkitóan alacsony számuk.'],
+    kulonleges: 'A tűzvarázsló elsődleges különleges képzetsége, hogy a Tűzmágia varázslatait használja. A tűzvarázsló karakter max Mp-je minden szinten 6-tal növekszik.',
+    harcertek: 'A tűzvarázslók harcértéke, bár elmarad a harcosokétól, a legmagasabb a Varázshasználók között. Mágiájuk segitségével azonban még ennél is veszedelmesebb kétkezi harcossá tehetik magukat. KÉ alapjuk 6, TÉ alapjuk 17, VÉ alapjuk 72 és CÉ alapjuk 0. Ezek között még 8 HM-et oszthatnak szét szintenként, úgy, hogy TÉ-jük és VÉ-jük növelésére szintenként 3-mat, 3-mat kötelesek álldozni.',
+    eletero: 'A tűzvarázslók a többi Varázshasználó kaszt tagjaihoz képest Életerősebbek, és a fájdalmat is tovább képesek elviselni. Ép alapjuk 5, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. Az Fp alapja 4, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 1 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'A tűzvarázslók nem birnak túl sok képzetséggel, tűzmágiájuk elsajátitása és gyakorlása rengeteg időt és energiát igényel, igy más képzettségek tanulására nemigen marad lehetőségük. Kp alapja 3, és minden Tapasztalati Szinten ( már 1. szinten is ) további 5-öt kap.',
+    tapasztalat: 'A tűzvarázslók - mivel tudományuk gyakorlása és fejlesztése sok időt és energiát igényel - nehezen és lassan lépnek Tapasztalati Szintet.',
+    fegyvertar: 'Az Ordani Tűzvarázsló Rend tagjai kizárólag hosszú karddal vagy tőrrel harcolnak. Mindkét fegyverük hullámos pengéje a lángnyelvet szimbolizálja. Egyféle páncélt viselnek, a szalamandra bőrére emlékeztető pikkelyvértet.'
+  }, {
+    id: 'VARAZSLO',
+    name: 'Varázsló',
+    ERO: {
+      name: '3k6',
+      sp: [3, 18, 0]
+    },
+    GYORS: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    UGY: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    ALLO: {
+      name: '3k6',
+      sp: [3, 18, 0]
+    },
+    EG: {
+      name: '3k6x2',
+      sp: [3, 18, 2]
+    },
+    SZEP: {
+      name: '3k6',
+      sp: [3, 18, 0]
+    },
+    INT: {
       name: 'k6+12+kf',
       sp: [13, 18, 1]
     },
-    GYORS: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
-    },
-    UGY: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
-    },
-    ALLO: {
-      name: 'k10+8+kf',
-      sp: [9, 18, 1]
-    },
-    EG: {
-      name: 'k10+10',
-      sp: [11, 20, 0]
-    },
-    SZEP: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
-    },
-    INT: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
-    },
     AK: {
-      name: '2k6+6',
-      sp: [8, 18, 0]
-    },
-    ASZT: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
-    },
-    KEalap: 9,
-    TEalap: 20,
-    VEalap: 75,
-    CEalap: 0,
-    KESzintKotelezo: 0,
-    TESzintKotelezo: 3,
-    VESzintKotelezo: 3,
-    CESzintKotelezo: 0,
-    HmSzint: 5,
-    Epalap: 7,
-    Fpalap: 6,
-    FpSzint: {
-      name: 'k6+4',
-      sp: [5, 10]
-    },
-    Kpalap: 10,
-    KpSzint: 14,
-    Mpalap: 0,
-    MpSzint: 0,
-    skillsFirstLevel: {
-      FegyverhasznalatAlap: 3,
-      FegyverhasznalatMester: 0,
-      FegyverdobasAlap: 0,
-      FegyverdobasMester: 0,
-      NyelvismeretAf: 0,
-      NyelvismeretMf: 0,
-      SzakmaAf: 0,
-      SzakmaMf: 0,
-      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
-      mf: [],
-      precent: {
-        maszas: 15,
-        eses: 20,
-        ugras: 10,
-        lopakodas: 0,
-        rejtozes: 0,
-        koteltanc: 0,
-        zsebmetszes: 0,
-        csabdafelfedezes: 0,
-        zarnyitas: 0,
-        titkosajto: 0
-      }
-    },
-    skillsOtherLevel: {
-      6: {
-        FegyverhasznalatAlap: 0,
-        FegyverhasznalatMester: 0,
-        FegyverdobasAlap: 0,
-        FegyverdobasMester: 0,
-        NyelvismeretAf: 0,
-        NyelvismeretMf: 0,
-        SzakmaAf: 0,
-        SzakmaMf: 0,
-        af: ['HADVEZETES'],
-        mf: [],
-        precent: {
-          maszas: 0,
-          eses: 0,
-          ugras: 0,
-          lopakodas: 0,
-          rejtozes: 0,
-          koteltanc: 0,
-          zsebmetszes: 0,
-          csabdafelfedezes: 0,
-          zarnyitas: 0,
-          titkosajto: 0
-        }
-      }
-    },
-    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
-    description: ['', ''],
-    harcertek: '',
-    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
-    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
-    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
-    fegyvertar: ''
-  }, {
-    id: '',
-    name: '',
-    ERO: {
       name: 'k6+12+kf',
       sp: [13, 18, 1]
     },
-    GYORS: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
-    },
-    UGY: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
-    },
-    ALLO: {
-      name: 'k10+8+kf',
-      sp: [9, 18, 1]
-    },
-    EG: {
-      name: 'k10+10',
-      sp: [11, 20, 0]
-    },
-    SZEP: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
-    },
-    INT: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
-    },
-    AK: {
-      name: '2k6+6',
-      sp: [8, 18, 0]
-    },
     ASZT: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
-    },
-    KEalap: 9,
-    TEalap: 20,
-    VEalap: 75,
-    CEalap: 0,
-    KESzintKotelezo: 0,
-    TESzintKotelezo: 3,
-    VESzintKotelezo: 3,
-    CESzintKotelezo: 0,
-    HmSzint: 5,
-    Epalap: 7,
-    Fpalap: 6,
-    FpSzint: {
-      name: 'k6+4',
-      sp: [5, 10]
-    },
-    Kpalap: 10,
-    KpSzint: 14,
-    Mpalap: 0,
-    MpSzint: 0,
-    skillsFirstLevel: {
-      FegyverhasznalatAlap: 3,
-      FegyverhasznalatMester: 0,
-      FegyverdobasAlap: 0,
-      FegyverdobasMester: 0,
-      NyelvismeretAf: 0,
-      NyelvismeretMf: 0,
-      SzakmaAf: 0,
-      SzakmaMf: 0,
-      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
-      mf: [],
-      precent: {
-        maszas: 15,
-        eses: 20,
-        ugras: 10,
-        lopakodas: 0,
-        rejtozes: 0,
-        koteltanc: 0,
-        zsebmetszes: 0,
-        csabdafelfedezes: 0,
-        zarnyitas: 0,
-        titkosajto: 0
-      }
-    },
-    skillsOtherLevel: {
-      6: {
-        FegyverhasznalatAlap: 0,
-        FegyverhasznalatMester: 0,
-        FegyverdobasAlap: 0,
-        FegyverdobasMester: 0,
-        NyelvismeretAf: 0,
-        NyelvismeretMf: 0,
-        SzakmaAf: 0,
-        SzakmaMf: 0,
-        af: ['HADVEZETES'],
-        mf: [],
-        precent: {
-          maszas: 0,
-          eses: 0,
-          ugras: 0,
-          lopakodas: 0,
-          rejtozes: 0,
-          koteltanc: 0,
-          zsebmetszes: 0,
-          csabdafelfedezes: 0,
-          zarnyitas: 0,
-          titkosajto: 0
-        }
-      }
-    },
-    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
-    description: ['', ''],
-    harcertek: '',
-    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
-    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
-    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
-    fegyvertar: ''
-  }, {
-    id: '',
-    name: '',
-    ERO: {
       name: 'k6+12+kf',
       sp: [13, 18, 1]
     },
-    GYORS: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
-    },
-    UGY: {
-      name: '2k6+6+kf',
-      sp: [8, 18, 1]
-    },
-    ALLO: {
-      name: 'k10+8+kf',
-      sp: [9, 18, 1]
-    },
-    EG: {
-      name: 'k10+10',
-      sp: [11, 20, 0]
-    },
-    SZEP: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
-    },
-    INT: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
-    },
-    AK: {
-      name: '2k6+6',
-      sp: [8, 18, 0]
-    },
-    ASZT: {
-      name: '3k6x2',
-      sp: [3, 18, 2]
-    },
-    KEalap: 9,
-    TEalap: 20,
-    VEalap: 75,
+    KEalap: 2,
+    TEalap: 15,
+    VEalap: 70,
     CEalap: 0,
     KESzintKotelezo: 0,
-    TESzintKotelezo: 3,
-    VESzintKotelezo: 3,
+    TESzintKotelezo: 1,
+    VESzintKotelezo: 1,
     CESzintKotelezo: 0,
-    HmSzint: 5,
-    Epalap: 7,
-    Fpalap: 6,
+    HmSzint: 2,
+    Epalap: 3,
+    Fpalap: 2,
     FpSzint: {
-      name: 'k6+4',
-      sp: [5, 10]
+      name: 'k6',
+      sp: [1, 6]
     },
-    Kpalap: 10,
-    KpSzint: 14,
-    Mpalap: 0,
-    MpSzint: 0,
+    Kpalap: 7,
+    KpSzint: 7,
+    KpPrecent: 0,
+    Pszi: {
+      learned: true,
+      atlevel: 1,
+      level: 'Mf',
+      maxPszi: 7,
+      psziPointLevel: 6,
+      currentPszi: 7,
+      school: 'Kyr',
+      staticAsztral: 0,
+      staticMental: 0,
+      dinamicAsztarl: 0,
+      dinamicMental: 0
+    },
+    mpLevel: {
+      text: '10',
+      range: [10, 10]
+    },
     skillsFirstLevel: {
-      FegyverhasznalatAlap: 3,
+      FegyverhasznalatAlap: 1,
       FegyverhasznalatMester: 0,
       FegyverdobasAlap: 0,
       FegyverdobasMester: 0,
-      NyelvismeretAf: 0,
+      NyelvismeretAf: 2,
       NyelvismeretMf: 0,
       SzakmaAf: 0,
       SzakmaMf: 0,
-      af: ['LOVAGLAS', 'USZAS', 'FUTAS'],
-      mf: [],
+      af: ['PSZI', 'OSI_NYELV', 'ALKIMIA', 'IRAS_OLVASAS', 'SEBGYOGYITAS', 'ELETTAN', 'LEGENDA_ISMERET', 'TORTENELEM_ISMERET', 'RUNAMAGIA'],
+      mf: ['PSZI'],
       precent: {
-        maszas: 15,
-        eses: 20,
-        ugras: 10,
+        maszas: 0,
+        eses: 0,
+        ugras: 0,
         lopakodas: 0,
         rejtozes: 0,
         koteltanc: 0,
@@ -14723,6 +15886,30 @@ var state = {
       }
     },
     skillsOtherLevel: {
+      4: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: ['HERBALIZMUS'],
+        mf: [],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
       6: {
         FegyverhasznalatAlap: 0,
         FegyverhasznalatMester: 0,
@@ -14732,8 +15919,56 @@ var state = {
         NyelvismeretMf: 0,
         SzakmaAf: 0,
         SzakmaMf: 0,
-        af: ['HADVEZETES'],
-        mf: [],
+        af: [],
+        mf: ['ALKIMIA', 'RUNAMAGIA'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      7: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['LEGENDA_ISMERET'],
+        precent: {
+          maszas: 0,
+          eses: 0,
+          ugras: 0,
+          lopakodas: 0,
+          rejtozes: 0,
+          koteltanc: 0,
+          zsebmetszes: 0,
+          csabdafelfedezes: 0,
+          zarnyitas: 0,
+          titkosajto: 0
+        }
+      },
+      8: {
+        FegyverhasznalatAlap: 0,
+        FegyverhasznalatMester: 0,
+        FegyverdobasAlap: 0,
+        FegyverdobasMester: 0,
+        NyelvismeretAf: 0,
+        NyelvismeretMf: 0,
+        SzakmaAf: 0,
+        SzakmaMf: 0,
+        af: [],
+        mf: ['TORTENELEM_ISMERET'],
         precent: {
           maszas: 0,
           eses: 0,
@@ -14748,13 +15983,14 @@ var state = {
         }
       }
     },
-    TpSzint: [[0, 160], [161, 320], [321, 640], [641, 1440], [1441, 2800], [2801, 5600], [5601, 10000], [10001, 20000], [20001, 40000], [40001, 60000], [60001, 80000], [80001, 112000], 31200],
-    description: ['', ''],
-    harcertek: '',
-    eletero: 'Ép alapjuk 7, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. A harcos Fp alapja 6, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 + 4 Fp ( már 1. szinten is ) járul.',
-    kepzetsegek: 'Kp alapja 10, és minden Tapasztalati Szinten ( már 1. szinten is ) további 14-et kap.',
-    tapasztalat: 'A harcos kasztú karakter számára a TSZ-lépés annál nehezebb, minnél magasabb a szint, amelyre fellépni igyekszik.',
-    fegyvertar: ''
+    TpSzint: [[0, 230], [231, 500], [501, 1000], [1001, 2200], [2201, 5000], [5001, 10000], [10001, 18000], [18001, 35000], [35001, 70000], [70001, 150000], [150001, 200000], [200001, 300000], 80000],
+    description: ['A varázsló a legmagasabb szintű Varázshasználó alkaszt. A varázslók ismerik a mágia belső törvényeit, s varázslataikat már nem évezredek gyakorlatai alapján hozzák létre, hanem tapasztalatokból okkulva, tudományos alapossággal, alkotóelemeikből rakják össze őket. A varázsló - azon túl, hogy az elméleti mágiában a legjobbnak számit - a gyakorlati mágiában is könnyenfelülmúlhatja a többi alkaszt tagjait. Kizárólag tőle függ, hogy milyen leleménnyel igazitja az adott helyzethez varázslatait. A varázslók számtalan járulékos tudományban járatosak, ami azonban bizonyos, az okkult művészetekben ők mozognak a legotthonosabban.', 'Az igazi varázslók a mágiában nem a hatalom eszközét, hanem a világ megismerésének, az előrébbjutásnak az eszközét látják. Aki nem ekként tekint a mágiára, soha nem képes tiszta formájában elsajátitani azt.'],
+    kulonleges: 'A varázslók elsődleges különleges képessége a Mozaikmágia használata, továbbá az, hogy a Pszit a Kyr metódus szerint alkalmazzák. A varázslók képesek érzékelni zónájukon belül minden leplezetlen mágiát, ám ezek mibenlétét és természetét csak fürkészéssel képes megállapitani. A varázsló karakter max Mp-je minden szinten 10-zel növekszik. ',
+    harcertek: 'A varázslók allig szentelnek figyelmet a közelharc gyakorlására - a küzdelem nem több számukra egyfajta testnevelésnél. KÉ alapjuk 2, TÉ alapjuk 15, VÉ alapjuk 70 és CÉ alapjuk 0. A felsoroltak között minden TSZ-en további 4 HM-et oszthatnak szét, amiből TÉ-jük és VÉ-jük növelésére 1-et 1-et kötelesek forditani.',
+    eletero: 'A varázslók nemigen edzik testüket, nem vigyáznak kellőképpen egészségükre, nem csoda, hogy életerejük alacsony. A fájdalomhoz egyálltalán nincsenek hozzászokva, ha mégis elviselik, az kizárólag erős jellemüknek köszönhető. Ép alapjuk 3, amihez a karakternek még egészség tiz feletti részét kell hozzáadnia, hogy megkapja Életerő Pontjainak számát. Az Fp alapja 2, amihez még Akaratereje és Állóképessége tiz feletti hányada, Tapasztalati Szintenként pedig további k6 Fp ( már 1. szinten is ) járul.',
+    kepzetsegek: 'A varázsló karakter számtalan képzetséget eleve megkap, mágiájának gyakorlása és fejlesztése rengeteg időt és energiát emészt fel - többet, mint bármely más kaszt tudomány. Hogy a varázslók mégis sok, a kasztjukhoz nem feltétlen szükséges képzetséget elsajátithatnak, kizárólag annak köszönhető, hogy mindenkinél gyorsabban, és eredményesebben képesek tanulni. Kp alapja 7, és minden Tapasztalati Szinten ( már 1. szinten is ) további 7-et kap.',
+    tapasztalat: 'A varázslók az összes kaszt tagjai közül a legnehezebben lépnek Tapasztalati Szintet. Ennek az a magyarázata, hogy mágiájuk gyakorlása és fejlesztése minden más tudománynál több energiát és időt igényel.',
+    fegyvertar: 'A varázslók álltalában tőrrel harcolnak, más fegyvert nem is igen hordanak maguknál. Olykor botjukat - rendjük, iskolájuk jelképét - is ellenfelükre emelik, ám ilyenkor nem ütésre, hanem varázslatra kell az ellenfélnek számitania. A varázslók soha semmilyen vértet nem viselnek, ha védelemre van szükségük, mágia segitségével teremtik meg azt.'
   }]
 };
 var getters = {
@@ -45746,17 +46982,21 @@ var render = function () {
       _vm._v(" "),
       _vm._m(2),
       _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.kaszt.harcertek))]),
+      _c("p", [_vm._v(_vm._s(_vm.kaszt.kulonleges))]),
       _vm._v(" "),
       _vm._m(3),
       _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.kaszt.eletero))]),
+      _c("p", [_vm._v(_vm._s(_vm.kaszt.harcertek))]),
       _vm._v(" "),
       _vm._m(4),
       _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.kaszt.kepzetsegek))]),
+      _c("p", [_vm._v(_vm._s(_vm.kaszt.eletero))]),
       _vm._v(" "),
       _vm._m(5),
+      _vm._v(" "),
+      _c("p", [_vm._v(_vm._s(_vm.kaszt.kepzetsegek))]),
+      _vm._v(" "),
+      _vm._m(6),
       _vm._v(" "),
       _vm._l(
         _vm.characterSkills(_vm.kaszt.skillsFirstLevel),
@@ -45767,7 +47007,7 @@ var render = function () {
         }
       ),
       _vm._v(" "),
-      _vm._m(6),
+      _vm._m(7),
       _vm._v(" "),
       _vm._l(_vm.kaszt.skillsOtherLevel, function (skillsAther, key) {
         return _c(
@@ -45789,13 +47029,13 @@ var render = function () {
         )
       }),
       _vm._v(" "),
-      _vm._m(7),
+      _vm._m(8),
       _vm._v(" "),
       _c("p", [_vm._v(_vm._s(_vm.kaszt.tapasztalat))]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col text-center" }, [
-          _vm._m(8),
+          _vm._m(9),
           _vm._v(" "),
           _c("p", [
             _c("span", [_vm._v(_vm._s(_vm.kaszt.TpSzint[0][0]))]),
@@ -45870,7 +47110,7 @@ var render = function () {
           ]),
         ]),
         _vm._v(" "),
-        _vm._m(9),
+        _vm._m(10),
       ]),
       _vm._v(" "),
       _c("p", [
@@ -45900,6 +47140,12 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [_c("b", [_vm._v("Leirás")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Különleges képesség")])])
   },
   function () {
     var _vm = this
