@@ -149,10 +149,7 @@
             </div>
             <div class="col">
                 <div class="bg-light border border-secondary rounded mb-4 p-3">
-                    <h5>Tapasztalati pontok</h5>
-                    <p class="border border-secondary rounded m-4 p-3">15</p>
-                    <h5>Pontok a következő szinthez</h5>
-                    <p class="border border-secondary rounded m-4 p-3">160</p>
+                    <magus-level-up />
                 </div>
             </div>
         </div>
@@ -181,6 +178,7 @@
     import MagusNotes from './MagusNotes.vue';
     import MagusPsi from './MagusPsi.vue';
     import MagusMana from './MagusMana.vue';
+    import MagusLevelUp from './MagusLevelUp.vue';
 
     export default {
         components: {
@@ -198,6 +196,7 @@
            MagusNotes,
            MagusPsi,
            MagusMana,
+           MagusLevelUp,
         },
         data() {
             return {

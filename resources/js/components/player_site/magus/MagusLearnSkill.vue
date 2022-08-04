@@ -368,7 +368,7 @@ export default {
                 psiSkill.school = 'Pyarroni';
                 psiSkill.maxPszi += 4;
                 psiSkill.psziPointLevel = 3;
-                psiSkill.currentPszi += 4;
+                psiSkill.currentPszi += 0;
                 this.updatePszi(psiSkill); 
             }
             this.save();
@@ -424,7 +424,7 @@ export default {
                 psiSkill.level = 'Mf';
                 psiSkill.maxPszi += 5;
                 psiSkill.psziPointLevel = 4;
-                psiSkill.currentPszi += 5;
+                psiSkill.currentPszi += 0;
                 this.updatePszi(psiSkill); 
             }
             if (id == 'MAGIA_HASZNALAT') {

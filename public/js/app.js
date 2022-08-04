@@ -6399,7 +6399,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _MagusBaseData_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusBaseData.vue */ "./resources/js/components/player_site/magus/MagusBaseData.vue");
 /* harmony import */ var _MagusKincsek_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusKincsek.vue */ "./resources/js/components/player_site/magus/MagusKincsek.vue");
 /* harmony import */ var _MagusEquipment_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MagusEquipment.vue */ "./resources/js/components/player_site/magus/MagusEquipment.vue");
@@ -6414,6 +6414,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MagusNotes_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./MagusNotes.vue */ "./resources/js/components/player_site/magus/MagusNotes.vue");
 /* harmony import */ var _MagusPsi_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./MagusPsi.vue */ "./resources/js/components/player_site/magus/MagusPsi.vue");
 /* harmony import */ var _MagusMana_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./MagusMana.vue */ "./resources/js/components/player_site/magus/MagusMana.vue");
+/* harmony import */ var _MagusLevelUp_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./MagusLevelUp.vue */ "./resources/js/components/player_site/magus/MagusLevelUp.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -6584,9 +6585,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
+
 
 
 
@@ -6617,19 +6616,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     MagusCharacterDescript: _MagusCharacterDescript_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
     MagusNotes: _MagusNotes_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
     MagusPsi: _MagusPsi_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
-    MagusMana: _MagusMana_vue__WEBPACK_IMPORTED_MODULE_13__["default"]
+    MagusMana: _MagusMana_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
+    MagusLevelUp: _MagusLevelUp_vue__WEBPACK_IMPORTED_MODULE_14__["default"]
   },
   data: function data() {
     return {};
   },
   //COMPUTED----------------------------------
-  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_14__.mapGetters)('currentCharacter', {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_15__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_14__.mapGetters)('magusAligments', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_15__.mapGetters)('magusAligments', {
     aligment: 'aligment'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_14__.mapGetters)('magusRaces', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_15__.mapGetters)('magusRaces', {
     race: 'race'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_14__.mapGetters)('magusClasses', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_15__.mapGetters)('magusClasses', {
     magusKaszt: 'magusClass'
   })), {}, {
     Jellem: function Jellem() {
@@ -8175,7 +8175,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         psiSkill.school = 'Pyarroni';
         psiSkill.maxPszi += 4;
         psiSkill.psziPointLevel = 3;
-        psiSkill.currentPszi += 4;
+        psiSkill.currentPszi += 0;
         this.updatePszi(psiSkill);
       }
 
@@ -8232,7 +8232,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         psiSkill.level = 'Mf';
         psiSkill.maxPszi += 5;
         psiSkill.psziPointLevel = 4;
-        psiSkill.currentPszi += 5;
+        psiSkill.currentPszi += 0;
         this.updatePszi(psiSkill);
       }
 
@@ -8245,6 +8245,229 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.save();
     }
   })
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusLevelUp.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusLevelUp.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      inputTp: 0,
+      tpNextLevel: 0
+    };
+  },
+  computed: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
+    magusCharacter: 'magusCharacter'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusClasses', {
+    magusKaszt: 'magusClass'
+  })), {}, {
+    Kaszt: function Kaszt() {
+      return this.magusKaszt(this.magusCharacter.Kaszt);
+    },
+    szint: function szint() {
+      return this.magusCharacter.Szint;
+    },
+    currentTp: function currentTp() {
+      return this.magusCharacter.Tp;
+    },
+    calculateNextLevelTp: function calculateNextLevelTp() {
+      if (this.szint < 12) {
+        return this.Kaszt.TpSzint[this.szint][0];
+      } else {
+        var overLevel = this.szint - 11;
+
+        if (overLevel > 0) {
+          if (overLevel == 1) {
+            return this.Kaszt.TpSzint[11][1] + 1;
+          } else {
+            var baseMax = this.Kaszt.TpSzint[11][1];
+            var overMax = this.Kaszt.TpSzint[12];
+            return baseMax + overMax * (overLevel - 1) + 1;
+          }
+        }
+      }
+    }
+  }),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
+    updateSkillsAf: 'updateSkillsAf',
+    updateSkillsMf: 'updateSkillsMf',
+    updatePszi: 'updatePszi',
+    updateMaxMp: 'updateMaxMp',
+    updateTp: 'updateTp',
+    levelUp: 'levelUp'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)('currentCharacter', {
+    save: 'save'
+  })), {}, {
+    addTp: function addTp() {
+      if (parseInt(this.inputTp) > 0) {
+        this.updateTp(parseInt(this.inputTp));
+        this.inputTp = 0;
+        this.save();
+        this.checkLevelUp();
+      }
+    },
+    checkLevelUp: function checkLevelUp() {
+      if (this.currentTp >= this.tpNextLevel) {
+        this.processLevelUp();
+      }
+    },
+    processLevelUp: function processLevelUp() {
+      var _this = this;
+
+      var fpincrese = Math.floor(Math.random() * (this.Kaszt.FpSzint.sp[1] - this.Kaszt.FpSzint.sp[0] + 1)) + this.Kaszt.FpSzint.sp[0];
+      var manaincrese = 0;
+
+      if (this.Kaszt.mpLevel.range[1] > 0 && this.Kaszt.id != 'BARD') {
+        if (this.Kaszt.mpLevel.range[0] == this.Kaszt.mpLevel.range[1]) {
+          manaincrese = this.Kaszt.mpLevel.range[0];
+        } else {
+          manaincrese = Math.floor(Math.random() * (this.Kaszt.mpLevel.range[1] - this.Kaszt.mpLevel.range[0] + 1)) + this.Kaszt.mpLevel.range[0];
+        }
+      } else {
+        if (this.Kaszt.id == 'BARD') {
+          if (this.magusCharacter.INT > 10) {
+            manaincrese = this.magusCharacter.INT - 10;
+          }
+        }
+      }
+
+      var nextLevel = this.szint + 1;
+      var fegyverAfIn = 0;
+      var fegyverMfIn = 0;
+      var fegyverDAfIn = 0;
+      var fegyverDMfIn = 0;
+      var nyelvAfIn = 0;
+      var nyelvMfIn = 0;
+      var szakmaAfIn = 0;
+      var szakmaMfIn = 0;
+
+      if (this.Kaszt.skillsOtherLevel[nextLevel]) {
+        var skillSet = this.Kaszt.skillsOtherLevel[nextLevel];
+        fegyverAfIn = skillSet.FegyverhasznalatAlap;
+        fegyverMfIn = skillSet.FegyverhasznalatMester;
+        fegyverDAfIn = skillSet.FegyverdobasAlap;
+        fegyverDMfIn = skillSet.FegyverdobasMester;
+        nyelvAfIn = skillSet.NyelvismeretAf;
+        nyelvMfIn = skillSet.NyelvismeretMf;
+        szakmaAfIn = skillSet.SzakmaAf;
+        szakmaMfIn = skillSet.SzakmaMf;
+        skillSet.af.forEach(function (element) {
+          _this.addAfSkill(element);
+        });
+        skillSet.mf.forEach(function (element) {
+          _this.addMfSkill(element);
+        });
+      }
+
+      var levelData = {
+        level: nextLevel,
+        fp: fpincrese,
+        hm: this.Kaszt.HmSzint,
+        kp: this.Kaszt.KpSzint,
+        kpPrec: this.Kaszt.KpPrecent,
+        fegyverAf: fegyverAfIn,
+        fegyverMf: fegyverMfIn,
+        fegyverDAf: fegyverDAfIn,
+        fegyverDMf: fegyverDMfIn,
+        nyelvAf: nyelvAfIn,
+        nyelvMf: nyelvMfIn,
+        szakmaAf: szakmaAfIn,
+        szakmaMf: szakmaMfIn,
+        mana: manaincrese
+      };
+      this.levelUp(levelData);
+      this.save();
+      this.tpNextLevel = this.calculateNextLevelTp;
+      this.checkLevelUp();
+    },
+    addAfSkill: function addAfSkill(id) {
+      var learnedSkillList = this.magusCharacter.LearnedSkills.af;
+      learnedSkillList.push(id);
+      this.updateSkillsAf(learnedSkillList);
+
+      if (id == 'PSZI') {
+        var psiSkill = this.magusCharacter.Pszi;
+        psiSkill.learned = true;
+        psiSkill.atlevel = this.magusCharacter.Szint;
+        psiSkill.level = 'Af';
+        psiSkill.school = 'Pyarroni';
+        psiSkill.maxPszi += 4;
+        psiSkill.psziPointLevel = 3;
+        psiSkill.currentPszi += 0;
+        this.updatePszi(psiSkill);
+      }
+    },
+    addMfSkill: function addMfSkill(id) {
+      var learnedSkillList = this.magusCharacter.LearnedSkills.mf;
+      learnedSkillList.push(id);
+      this.updateSkillsMf(learnedSkillList);
+
+      if (id == 'PSZI') {
+        var psiSkill = this.magusCharacter.Pszi;
+        psiSkill.learned = true;
+        psiSkill.atlevel = this.magusCharacter.Szint;
+        psiSkill.level = 'Mf';
+        psiSkill.school = 'Pyarroni';
+        psiSkill.maxPszi += 5;
+        psiSkill.psziPointLevel = 4;
+        psiSkill.currentPszi += 0;
+        this.updatePszi(psiSkill);
+      }
+    }
+  }),
+  mounted: function mounted() {
+    this.tpNextLevel = this.calculateNextLevelTp;
+  }
 });
 
 /***/ }),
@@ -8493,7 +8716,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       showBardAll: false
     };
   },
-  computed: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusBardSpells', {
     bardSpellDescription: 'bardSpellDescription',
@@ -8501,7 +8724,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     bardHangMagia: 'bardHangMagia',
     bardFenyMagia: 'bardFenyMagia',
     bardEgyebbMagia: 'bardEgyebbMagia'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusClasses', {
+    magusKaszt: 'magusClass'
   })), {}, {
+    Kaszt: function Kaszt() {
+      return this.magusKaszt(this.magusCharacter.Kaszt);
+    },
+    kasztMagia: function kasztMagia() {
+      return this.Kaszt.mpLevel;
+    },
     magia: function magia() {
       return this.magusCharacter.Magia;
     },
@@ -11247,6 +11478,7 @@ var state = {
     Szulofold: 'Gorvick',
     Iskola: 'Zsoldos',
     Szint: 1,
+    Tp: 0,
     FpSzint: 10,
     AktEp: 6,
     AktFp: 12,
@@ -11378,11 +11610,7 @@ var state = {
     notes: [],
     Magia: {
       maxMp: 0,
-      aktMp: 0,
-      mpLevel: {
-        text: '0',
-        range: [0, 0]
-      }
+      aktMp: 0
     }
   }
 };
@@ -11443,6 +11671,26 @@ var getters = {
   }
 };
 var mutations = {
+  updateTp: function updateTp(state, tp) {
+    state.magusCharacter.Tp += tp;
+  },
+  levelUp: function levelUp(state, levelData) {
+    state.magusCharacter.Szint = levelData.level;
+    state.magusCharacter.FpSzint += levelData.fp;
+    state.magusCharacter.HmLeft += levelData.hm;
+    state.magusCharacter.KpLeft += levelData.kp;
+    state.magusCharacter.KpPrecentLeft += levelData.kpPrec;
+    state.magusCharacter.FreeFegyverhasznalatAlap += levelData.fegyverAf;
+    state.magusCharacter.FreeFegyverhasznalatMester += levelData.fegyverMf;
+    state.magusCharacter.FreeFegyverdobasAlap += levelData.fegyverDAf;
+    state.magusCharacter.FreeFegyverdobasMester += levelData.fegyverDMf;
+    state.magusCharacter.FreeNyelvismeretAf += levelData.nyelvAf;
+    state.magusCharacter.FreeNyelvismeretMf += levelData.nyelvMf;
+    state.magusCharacter.FreeSzakmaAf += levelData.szakmaAf;
+    state.magusCharacter.FreeSzakmaMf += levelData.szakmaMf;
+    state.magusCharacter.Pszi.maxPszi += state.magusCharacter.Pszi.psziPointLevel;
+    state.magusCharacter.Magia.maxMp += levelData.mana;
+  },
   decressFreeFegyverhasznalatAlap: function decressFreeFegyverhasznalatAlap(state) {
     state.magusCharacter.FreeFegyverhasznalatAlap--;
   },
@@ -42332,6 +42580,45 @@ component.options.__file = "resources/js/components/player_site/magus/MagusLearn
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/magus/MagusLevelUp.vue":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusLevelUp.vue ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusLevelUp_vue_vue_type_template_id_36bd04fe___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusLevelUp.vue?vue&type=template&id=36bd04fe& */ "./resources/js/components/player_site/magus/MagusLevelUp.vue?vue&type=template&id=36bd04fe&");
+/* harmony import */ var _MagusLevelUp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusLevelUp.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/magus/MagusLevelUp.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MagusLevelUp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusLevelUp_vue_vue_type_template_id_36bd04fe___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusLevelUp_vue_vue_type_template_id_36bd04fe___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/player_site/magus/MagusLevelUp.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/magus/MagusMana.vue":
 /*!*****************************************************************!*\
   !*** ./resources/js/components/player_site/magus/MagusMana.vue ***!
@@ -42824,6 +43111,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/magus/MagusLevelUp.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusLevelUp.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusLevelUp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusLevelUp.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusLevelUp.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusLevelUp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/magus/MagusMana.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************!*\
   !*** ./resources/js/components/player_site/magus/MagusMana.vue?vue&type=script&lang=js& ***!
@@ -43227,6 +43530,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusLearnSkill_vue_vue_type_template_id_6a3855ca___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusLearnSkill_vue_vue_type_template_id_6a3855ca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusLearnSkill.vue?vue&type=template&id=6a3855ca& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusLearnSkill.vue?vue&type=template&id=6a3855ca&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/player_site/magus/MagusLevelUp.vue?vue&type=template&id=36bd04fe&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusLevelUp.vue?vue&type=template&id=36bd04fe& ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusLevelUp_vue_vue_type_template_id_36bd04fe___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusLevelUp_vue_vue_type_template_id_36bd04fe___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusLevelUp_vue_vue_type_template_id_36bd04fe___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusLevelUp.vue?vue&type=template&id=36bd04fe& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusLevelUp.vue?vue&type=template&id=36bd04fe&");
 
 
 /***/ }),
@@ -46330,7 +46650,14 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _vm._m(1),
+      _c("div", { staticClass: "col" }, [
+        _c(
+          "div",
+          { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+          [_c("magus-level-up")],
+          1
+        ),
+      ]),
     ]),
     _vm._v(" "),
     _c(
@@ -46350,30 +46677,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center p-4" }, [
       _c("h2", { staticClass: "text-white" }, [_vm._v("magus karakterlap")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col" }, [
-      _c(
-        "div",
-        { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
-        [
-          _c("h5", [_vm._v("Tapasztalati pontok")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "border border-secondary rounded m-4 p-3" }, [
-            _vm._v("15"),
-          ]),
-          _vm._v(" "),
-          _c("h5", [_vm._v("Pontok a következő szinthez")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "border border-secondary rounded m-4 p-3" }, [
-            _vm._v("160"),
-          ]),
-        ]
-      ),
     ])
   },
 ]
@@ -49253,6 +49556,153 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusLevelUp.vue?vue&type=template&id=36bd04fe&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusLevelUp.vue?vue&type=template&id=36bd04fe& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("h5", [_vm._v("Tapasztalati pontok")]),
+    _vm._v(" "),
+    _c("p", { staticClass: "border border-secondary rounded m-4 p-3" }, [
+      _vm._v(_vm._s(_vm.currentTp)),
+    ]),
+    _vm._v(" "),
+    _c("h5", [_vm._v("Pontok a következő szinthez")]),
+    _vm._v(" "),
+    _c("p", { staticClass: "border border-secondary rounded m-4 p-3" }, [
+      _vm._v(_vm._s(_vm.tpNextLevel)),
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "tpModal",
+          tabindex: "-1",
+          "aria-labelledby": "tpModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("label", { attrs: { for: "tpInput" } }, [
+                _vm._v("Kapott Tapasztalati Pontok:"),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputTp,
+                    expression: "inputTp",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "number", id: "tpInput" },
+                domProps: { value: _vm.inputTp },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inputTp = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Close")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.addTp },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-grid text-center mb-3" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success ms-2",
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#tpModal",
+          },
+        },
+        [_vm._v("Tapasztalati Pontok Növelése")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title", attrs: { id: "tpModalLabel" } }, [
+        _vm._v("Tapasztalati Pontok hozzáadása"),
+      ]),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusMana.vue?vue&type=template&id=7fb3b075&":
 /*!***************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusMana.vue?vue&type=template&id=7fb3b075& ***!
@@ -49302,7 +49752,7 @@ var render = function () {
         _c("div", { staticClass: "col border-end border-secondary" }, [
           _c("p", [_vm._v("Mp/szint")]),
           _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(_vm.magia.mpLevel.text))]),
+          _c("p", [_vm._v(_vm._s(_vm.kasztMagia.text))]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col" }, [

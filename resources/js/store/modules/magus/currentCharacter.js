@@ -36,6 +36,7 @@
         Szulofold: 'Gorvick',
         Iskola: 'Zsoldos',
         Szint: 1,
+        Tp: 0,
         FpSzint: 10,
         AktEp: 6,
         AktFp: 12,
@@ -174,10 +175,6 @@
         Magia: {
             maxMp: 0,
             aktMp: 0,
-            mpLevel: {
-                text: '0',
-                range: [0, 0],
-            },
         },
     }
 };
@@ -223,6 +220,26 @@ const getters = {
     },
 };
 const mutations = {
+    updateTp(state, tp) {
+        state.magusCharacter.Tp += tp;
+    },
+    levelUp(state, levelData) {
+        state.magusCharacter.Szint = levelData.level;
+        state.magusCharacter.FpSzint += levelData.fp;
+        state.magusCharacter.HmLeft += levelData.hm;
+        state.magusCharacter.KpLeft += levelData.kp;
+        state.magusCharacter.KpPrecentLeft += levelData.kpPrec;
+        state.magusCharacter.FreeFegyverhasznalatAlap += levelData.fegyverAf;
+        state.magusCharacter.FreeFegyverhasznalatMester += levelData.fegyverMf;
+        state.magusCharacter.FreeFegyverdobasAlap += levelData.fegyverDAf;
+        state.magusCharacter.FreeFegyverdobasMester += levelData.fegyverDMf;
+        state.magusCharacter.FreeNyelvismeretAf += levelData.nyelvAf;
+        state.magusCharacter.FreeNyelvismeretMf += levelData.nyelvMf;
+        state.magusCharacter.FreeSzakmaAf += levelData.szakmaAf;
+        state.magusCharacter.FreeSzakmaMf += levelData.szakmaMf;
+        state.magusCharacter.Pszi.maxPszi += state.magusCharacter.Pszi.psziPointLevel;
+        state.magusCharacter.Magia.maxMp += levelData.mana;
+    },
     decressFreeFegyverhasznalatAlap(state) {
         state.magusCharacter.FreeFegyverhasznalatAlap--;
     },

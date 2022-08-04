@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col border-end border-secondary">
                     <p>Mp/szint</p>
-                    <p>{{ magia.mpLevel.text }}</p>   
+                    <p>{{ kasztMagia.text }}</p>   
                 </div>
                 <div class="col">
                     <p>Max Mp</p>
@@ -237,6 +237,15 @@ export default {
             bardFenyMagia: 'bardFenyMagia',
             bardEgyebbMagia: 'bardEgyebbMagia',
         }),
+        ...mapGetters('magusClasses', {
+            magusKaszt: 'magusClass'
+        }),
+        Kaszt() {
+            return this.magusKaszt(this.magusCharacter.Kaszt);
+        },
+        kasztMagia() {
+            return this.Kaszt.mpLevel;
+        },
         magia() {
             return this.magusCharacter.Magia;
         },
