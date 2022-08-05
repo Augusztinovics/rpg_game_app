@@ -5413,6 +5413,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _MagusCharacterCreate_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusCharacterCreate.vue */ "./resources/js/components/player_site/MagusCharacterCreate.vue");
+/* harmony import */ var _magus_MagusCharacterSheet_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./magus/MagusCharacterSheet.vue */ "./resources/js/components/player_site/magus/MagusCharacterSheet.vue");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5487,16 +5494,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    MagusCharacterCreate: _MagusCharacterCreate_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    MagusCharacterCreate: _MagusCharacterCreate_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    MagusCharacterSheet: _magus_MagusCharacterSheet_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
-      basic: true
+      basic: 1
     };
   },
-  methods: {},
+  methods: {
+    back: function back() {
+      //fetch data to refresh
+      this.basic = 1;
+    }
+  },
   mounted: function mounted() {
     console.log('Component mounted.');
   }
@@ -5516,6 +5530,250 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _magus_MagusCharacterSheet_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./magus/MagusCharacterSheet.vue */ "./resources/js/components/player_site/magus/MagusCharacterSheet.vue");
+/* harmony import */ var _magus_MagusKasztPreview_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./magus/MagusKasztPreview.vue */ "./resources/js/components/player_site/magus/MagusKasztPreview.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5523,15 +5781,100 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    MagusCharacterSheet: _magus_MagusCharacterSheet_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    MagusCharacterSheet: _magus_MagusCharacterSheet_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    MagusKasztPreview: _magus_MagusKasztPreview_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
-    return {};
+    return {
+      step: 1,
+      inputName: 'Név',
+      inputJellem: 'E',
+      inputSzimbolum: 'Semmi',
+      inputSzulofold: 'Születet',
+      inputIskola: 'Iskola',
+      inputFaj: 'HUMAN',
+      inputVallas: 'ATE',
+      inputKaszt: 'HARCOS',
+      infoSkillId: 'FEGYVER_HASZNALAT',
+      infoSkillPrecId: 'maszas'
+    };
   },
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)('magusAligments', {
+    aligment: 'aligment',
+    aligments: 'aligments'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)('magusRaces', {
+    race: 'race',
+    races: 'races'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)('magusSkills', {
+    skill: 'skill',
+    skillPrecent: 'skillPrecent'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)('magusClasses', {
+    magusKaszt: 'magusClass',
+    magusClasses: 'magusClasses'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)('magusReligions', {
+    religions: 'religions',
+    religion: 'religion'
+  })), {}, {
+    Jellem: function Jellem() {
+      var jellem = this.aligment(this.inputJellem);
+
+      if (jellem) {
+        return jellem;
+      } else {
+        return {
+          name: 'Not selected',
+          description: 'Not selected'
+        };
+      }
+    },
+    Faj: function Faj() {
+      return this.race(this.inputFaj);
+    },
+    Vallas: function Vallas() {
+      var vallas = this.religion(this.inputVallas);
+
+      if (vallas) {
+        return vallas;
+      } else {
+        return {
+          name: '',
+          description: '',
+          sferaText: ''
+        };
+      }
+    },
+    availableClasses: function availableClasses() {
+      var _this = this;
+
+      return this.magusClasses.filter(function (c) {
+        return !_this.Faj.forbittenClasses.includes(c.id);
+      });
+    }
+  }),
+  methods: {
+    back: function back() {
+      if (this.step <= 1 || this.step >= 7) {
+        this.$emit('back');
+      } else {
+        this.step--;
+      }
+    },
+    nextStep: function nextStep() {
+      this.step++;
+    },
+    skillInfo: function skillInfo(id) {
+      this.infoSkillId = id;
+    },
+    skillPrecInfo: function skillPrecInfo(id) {
+      this.infoSkillPrecId = id;
+    },
+    Kaszt: function Kaszt(id) {
+      return this.magusKaszt(id).name;
+    }
   }
 });
 
@@ -16242,8 +16585,8 @@ var state = {
   }]
 };
 var getters = {
-  classes: function classes(state) {
-    return state.races;
+  magusClasses: function magusClasses(state) {
+    return state.classes;
   },
   magusClass: function magusClass(state) {
     return function (id) {
@@ -43936,7 +44279,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid" }, [
-    _vm.basic
+    _vm.basic == 1
       ? _c("div", [
           _vm._m(0),
           _vm._v(" "),
@@ -43965,7 +44308,7 @@ var render = function () {
                             attrs: { type: "button" },
                             on: {
                               click: function ($event) {
-                                _vm.basic = false
+                                _vm.basic = 2
                               },
                             },
                           },
@@ -43981,7 +44324,33 @@ var render = function () {
             ),
           ]),
         ])
-      : _c("div", [_c("magus-character-create")], 1),
+      : _vm.basic == 2
+      ? _c("div", [_c("magus-character-create", { on: { back: _vm.back } })], 1)
+      : _vm.basic == 3
+      ? _c(
+          "div",
+          { staticClass: "container-fluid" },
+          [
+            _c("div", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-lg btn-success m-3",
+                  on: {
+                    click: function ($event) {
+                      _vm.basic = 1
+                    },
+                  },
+                },
+                [_vm._v("Back")]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("magus-character-sheet"),
+          ],
+          1
+        )
+      : _vm._e(),
   ])
 }
 var staticRenderFns = [
@@ -44149,14 +44518,1139 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container-fluid" },
-    [_c("magus-character-sheet")],
-    1
-  )
+  return _c("div", { staticClass: "container-fluid" }, [
+    _c("div", [
+      _c(
+        "button",
+        { staticClass: "btn btn-lg btn-success m-3", on: { click: _vm.back } },
+        [_vm._v("Back")]
+      ),
+    ]),
+    _vm._v(" "),
+    _vm.step == 1
+      ? _c("div", [
+          _c("div", [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-4" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "form-label text-start fs-4 fw-bold",
+                  attrs: { for: "name" },
+                },
+                [_vm._v("A karakter neve:")]
+              ),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputName,
+                    expression: "inputName",
+                  },
+                ],
+                staticClass: "form-control form-control-lg",
+                attrs: { type: "text", id: "name" },
+                domProps: { value: _vm.inputName },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inputName = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-4" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "form-label text-start fs-4 fw-bold",
+                  attrs: { for: "szulofold" },
+                },
+                [_vm._v("A karakter szülőföldje:")]
+              ),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputSzulofold,
+                    expression: "inputSzulofold",
+                  },
+                ],
+                staticClass: "form-control form-control-lg",
+                attrs: { type: "text", id: "szulofold" },
+                domProps: { value: _vm.inputSzulofold },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inputSzulofold = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-4" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "form-label text-start fs-4 fw-bold",
+                  attrs: { for: "iskola" },
+                },
+                [_vm._v("A karakter iskolája:")]
+              ),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputIskola,
+                    expression: "inputIskola",
+                  },
+                ],
+                staticClass: "form-control form-control-lg",
+                attrs: { type: "text", id: "iskola" },
+                domProps: { value: _vm.inputIskola },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inputIskola = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-5" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "form-label text-start fs-4 fw-bold",
+                  attrs: { for: "szimbolum" },
+                },
+                [_vm._v("A karakter szimbóluma:")]
+              ),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputSzimbolum,
+                    expression: "inputSzimbolum",
+                  },
+                ],
+                staticClass: "form-control form-control-lg",
+                attrs: { type: "text", id: "szimbolum" },
+                domProps: { value: _vm.inputSzimbolum },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inputSzimbolum = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "d-grid text-center" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-lg",
+                  attrs: { type: "button" },
+                  on: { click: _vm.nextStep },
+                },
+                [_vm._v("Tovább...")]
+              ),
+            ]),
+          ]),
+        ])
+      : _vm.step == 2
+      ? _c("div", [
+          _c("div", [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "text-center mb-4 pt-3 border-top border-secondary",
+              },
+              [
+                _c("h2", { staticClass: "fw-bold" }, [
+                  _vm._v("A karakter jelleme"),
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Kérem választjon a karakterének jellemet, ez a választás később a karakterlapon megváltoztathatók"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "fs-4 fw-bold" }, [
+                  _vm._v("A választott jellem: "),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  { staticClass: "fs-4 fw-bold p-2 border border-secondary" },
+                  [_vm._v(_vm._s(_vm.Jellem.name))]
+                ),
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", [
+              _c(
+                "div",
+                {
+                  staticClass: "accordion",
+                  attrs: { id: "accordionPanelsStayOpenExample" },
+                },
+                _vm._l(_vm.aligments, function (jellem, index) {
+                  return _c(
+                    "div",
+                    { key: "Jellem" + index, staticClass: "accordion-item" },
+                    [
+                      _c(
+                        "h2",
+                        {
+                          staticClass: "accordion-header text-center",
+                          attrs: { id: "Jellem" + index + "-heading" },
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "accordion-button collapsed",
+                              attrs: {
+                                type: "button",
+                                "data-bs-toggle": "collapse",
+                                "data-bs-target": "#" + "Jellem" + index,
+                                "aria-expanded": "false",
+                                "aria-controls": "Jellem" + index,
+                              },
+                            },
+                            [
+                              _vm._v(
+                                "\n                                " +
+                                  _vm._s(jellem.name) +
+                                  "\n                            "
+                              ),
+                            ]
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "accordion-collapse collapse",
+                          attrs: {
+                            id: "Jellem" + index,
+                            "aria-labelledby": "Jellem" + index + "-heading",
+                          },
+                        },
+                        [
+                          _c("div", { staticClass: "accordion-body" }, [
+                            _c("p", [_vm._v(_vm._s(jellem.description))]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "d-grid text-center" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-primary",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function ($event) {
+                                      _vm.inputJellem = jellem.id
+                                    },
+                                  },
+                                },
+                                [_vm._v("Választ")]
+                              ),
+                            ]),
+                          ]),
+                        ]
+                      ),
+                    ]
+                  )
+                }),
+                0
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "d-grid text-center" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-lg",
+                  attrs: { type: "button" },
+                  on: { click: _vm.nextStep },
+                },
+                [_vm._v("Tovább...")]
+              ),
+            ]),
+          ]),
+        ])
+      : _vm.step == 3
+      ? _c("div", [
+          _c("div", [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "text-center mb-4 pt-3 border-top border-secondary",
+              },
+              [
+                _c("h2", { staticClass: "fw-bold" }, [_vm._v("A Faj")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Kérem válassza ki, hogy karaktere melyik fajhoz tartozik, ez a választás később már nem változtatható!!!"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "FIGYELEM egyes fajok csak néhány kaszt képviselői lehetnek"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "fs-4 fw-bold" }, [
+                  _vm._v("A választott faj: "),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  { staticClass: "fs-4 fw-bold p-2 border border-secondary" },
+                  [_vm._v(_vm._s(_vm.Faj.name))]
+                ),
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", [
+              _c(
+                "div",
+                {
+                  staticClass: "accordion",
+                  attrs: { id: "accordionPanelsStayOpenExample" },
+                },
+                _vm._l(_vm.races, function (faj, index) {
+                  return _c(
+                    "div",
+                    { key: "Faj" + index, staticClass: "accordion-item" },
+                    [
+                      _c(
+                        "h2",
+                        {
+                          staticClass: "accordion-header text-center",
+                          attrs: { id: "Faj" + index + "-heading" },
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "accordion-button collapsed",
+                              attrs: {
+                                type: "button",
+                                "data-bs-toggle": "collapse",
+                                "data-bs-target": "#" + "Faj" + index,
+                                "aria-expanded": "false",
+                                "aria-controls": "Faj" + index,
+                              },
+                            },
+                            [
+                              _vm._v(
+                                "\n                                " +
+                                  _vm._s(faj.name) +
+                                  "\n                            "
+                              ),
+                            ]
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "accordion-collapse collapse",
+                          attrs: {
+                            id: "Faj" + index,
+                            "aria-labelledby": "Faj" + index + "-heading",
+                          },
+                        },
+                        [
+                          _c(
+                            "div",
+                            { staticClass: "accordion-body" },
+                            [
+                              _vm._m(1, true),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v("Erő: "),
+                                  faj.ERO > 0
+                                    ? _c("span", [_vm._v("+")])
+                                    : _vm._e(),
+                                  _vm._v(_vm._s(faj.ERO)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v("Gyorsaság: "),
+                                  faj.GYORS > 0
+                                    ? _c("span", [_vm._v("+")])
+                                    : _vm._e(),
+                                  _vm._v(_vm._s(faj.GYORS)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v("Ügyesség: "),
+                                  faj.UGY > 0
+                                    ? _c("span", [_vm._v("+")])
+                                    : _vm._e(),
+                                  _vm._v(_vm._s(faj.UGY)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v("Állóképesség: "),
+                                  faj.ALLO > 0
+                                    ? _c("span", [_vm._v("+")])
+                                    : _vm._e(),
+                                  _vm._v(_vm._s(faj.ALLO)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v("Egészség: "),
+                                  faj.EG > 0
+                                    ? _c("span", [_vm._v("+")])
+                                    : _vm._e(),
+                                  _vm._v(_vm._s(faj.EG)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v("Szépség: "),
+                                  faj.SZEP > 0
+                                    ? _c("span", [_vm._v("+")])
+                                    : _vm._e(),
+                                  _vm._v(_vm._s(faj.SZEP)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v("Inteligencia: "),
+                                  faj.INT > 0
+                                    ? _c("span", [_vm._v("+")])
+                                    : _vm._e(),
+                                  _vm._v(_vm._s(faj.INT)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v("Akaraterő: "),
+                                  faj.AK > 0
+                                    ? _c("span", [_vm._v("+")])
+                                    : _vm._e(),
+                                  _vm._v(_vm._s(faj.AK)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v("Asztrál: "),
+                                  faj.ASZT > 0
+                                    ? _c("span", [_vm._v("+")])
+                                    : _vm._e(),
+                                  _vm._v(_vm._s(faj.ASZT)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              faj.CE > 0
+                                ? _c("p", [
+                                    _c("b", [
+                                      _vm._v(
+                                        "Célzó érték módositó: " +
+                                          _vm._s(faj.CE)
+                                      ),
+                                    ]),
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm._m(2, true),
+                              _vm._v(" "),
+                              _vm._m(3, true),
+                              _vm._v(" "),
+                              _vm._l(
+                                faj.skills.mf,
+                                function (kepzetseg, index) {
+                                  return _c("p", { key: "kp" + index }, [
+                                    _vm._v(_vm._s(_vm.skill(kepzetseg).name)),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "btn btn-outline-success btn-sm ms-2",
+                                        attrs: {
+                                          type: "button",
+                                          "data-bs-toggle": "modal",
+                                          "data-bs-target": "#skillModal",
+                                        },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.skillInfo(kepzetseg)
+                                          },
+                                        },
+                                      },
+                                      [_vm._v("i")]
+                                    ),
+                                  ])
+                                }
+                              ),
+                              _vm._v(" "),
+                              _vm._m(4, true),
+                              _vm._v(" "),
+                              _vm._l(
+                                faj.skills.precent,
+                                function (precSkill, key) {
+                                  return _c("p", { key: key }, [
+                                    _vm._v(
+                                      _vm._s(_vm.skillPrecent(key).name) +
+                                        " +" +
+                                        _vm._s(precSkill) +
+                                        "% "
+                                    ),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "btn btn-outline-success btn-sm ms-2",
+                                        attrs: {
+                                          type: "button",
+                                          "data-bs-toggle": "modal",
+                                          "data-bs-target": "#skillpModal",
+                                        },
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.skillPrecInfo(key)
+                                          },
+                                        },
+                                      },
+                                      [_vm._v("i")]
+                                    ),
+                                  ])
+                                }
+                              ),
+                              _vm._v(" "),
+                              faj.forbittenClasses.length > 0
+                                ? _c(
+                                    "div",
+                                    [
+                                      _vm._m(5, true),
+                                      _vm._v(" "),
+                                      _vm._l(
+                                        faj.forbittenClasses,
+                                        function (tilosKaszt, index) {
+                                          return _c(
+                                            "p",
+                                            { key: "Kaszt" + index },
+                                            [
+                                              _vm._v(
+                                                _vm._s(_vm.Kaszt(tilosKaszt))
+                                              ),
+                                            ]
+                                          )
+                                        }
+                                      ),
+                                    ],
+                                    2
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm._m(6, true),
+                              _vm._v(" "),
+                              _vm._l(faj.description, function (des, index) {
+                                return _c("p", { key: "D" + index }, [
+                                  _vm._v(_vm._s(des)),
+                                ])
+                              }),
+                              _vm._v(" "),
+                              _vm._m(7, true),
+                              _vm._v(" "),
+                              _vm._l(faj.specials, function (special, index) {
+                                return _c("p", { key: "S" + index }, [
+                                  _vm._v(_vm._s(special)),
+                                ])
+                              }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "d-grid text-center" }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-primary",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function ($event) {
+                                        _vm.inputFaj = faj.id
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("Választ")]
+                                ),
+                              ]),
+                            ],
+                            2
+                          ),
+                        ]
+                      ),
+                    ]
+                  )
+                }),
+                0
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "d-grid text-center" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-lg",
+                  attrs: { type: "button" },
+                  on: { click: _vm.nextStep },
+                },
+                [_vm._v("Tovább...")]
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "modal fade",
+              attrs: {
+                id: "skillModal",
+                tabindex: "-1",
+                "aria-labelledby": "skillModalLabel",
+                "aria-hidden": "true",
+              },
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "modal-dialog modal-dialog-centered modal-dialog-scrollable",
+                },
+                [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _c("div", { staticClass: "modal-header" }, [
+                      _c(
+                        "h5",
+                        {
+                          staticClass: "modal-title",
+                          attrs: { id: "skillModalLabel" },
+                        },
+                        [_vm._v(_vm._s(_vm.skill(_vm.infoSkillId).name))]
+                      ),
+                      _vm._v(" "),
+                      _c("button", {
+                        staticClass: "btn-close",
+                        attrs: {
+                          type: "button",
+                          "data-bs-dismiss": "modal",
+                          "aria-label": "Close",
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c("p", [
+                        _vm._v(_vm._s(_vm.skill(_vm.infoSkillId).description)),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Alapfok:")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(_vm.skill(_vm.infoSkillId).Af))]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Mesterfok:")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(_vm.skill(_vm.infoSkillId).Mf))]),
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(8),
+                  ]),
+                ]
+              ),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "modal fade",
+              attrs: {
+                id: "skillpModal",
+                tabindex: "-1",
+                "aria-labelledby": "skillpModalLabel",
+                "aria-hidden": "true",
+              },
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "modal-dialog modal-dialog-centered modal-dialog-scrollable",
+                },
+                [
+                  _c("div", { staticClass: "modal-content" }, [
+                    _c("div", { staticClass: "modal-header" }, [
+                      _c(
+                        "h5",
+                        {
+                          staticClass: "modal-title",
+                          attrs: { id: "skillpModalLabel" },
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(_vm.skillPrecent(_vm.infoSkillPrecId).name)
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("button", {
+                        staticClass: "btn-close",
+                        attrs: {
+                          type: "button",
+                          "data-bs-dismiss": "modal",
+                          "aria-label": "Close",
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c("p", [
+                        _vm._v(
+                          _vm._s(
+                            _vm.skillPrecent(_vm.infoSkillPrecId).description
+                          )
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(9),
+                  ]),
+                ]
+              ),
+            ]
+          ),
+        ])
+      : _vm.step == 4
+      ? _c("div", [
+          _c("div", [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "text-center mb-4 pt-3 border-top border-secondary",
+              },
+              [
+                _c("h2", { staticClass: "fw-bold" }, [
+                  _vm._v("Vallás választása"),
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Kérem válassza ki, hogy karaktere melyik vallást követi, ez a választás papok és paplovagok esetében később már nem változtatható!!!"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "FIGYELEM papok és paplovagok az itt választott vallás képviselői lesznek"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "fs-4 fw-bold" }, [
+                  _vm._v("A választott vallás: "),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  { staticClass: "fs-4 fw-bold p-2 border border-secondary" },
+                  [_vm._v(_vm._s(_vm.Vallas.name))]
+                ),
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", [
+              _c(
+                "div",
+                {
+                  staticClass: "accordion",
+                  attrs: { id: "accordionPanelsStayOpenExample" },
+                },
+                _vm._l(_vm.religions, function (val, index) {
+                  return _c(
+                    "div",
+                    { key: "Vallas" + index, staticClass: "accordion-item" },
+                    [
+                      _c(
+                        "h2",
+                        {
+                          staticClass: "accordion-header text-center",
+                          attrs: { id: "Vallas" + index + "-heading" },
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "accordion-button collapsed",
+                              attrs: {
+                                type: "button",
+                                "data-bs-toggle": "collapse",
+                                "data-bs-target": "#" + "Vallas" + index,
+                                "aria-expanded": "false",
+                                "aria-controls": "Vallas" + index,
+                              },
+                            },
+                            [
+                              _vm._v(
+                                "\n                                " +
+                                  _vm._s(val.name) +
+                                  "\n                            "
+                              ),
+                            ]
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "accordion-collapse collapse",
+                          attrs: {
+                            id: "Vallas" + index,
+                            "aria-labelledby": "Vallas" + index + "-heading",
+                          },
+                        },
+                        [
+                          _c(
+                            "div",
+                            { staticClass: "accordion-body" },
+                            [
+                              _c("p", [
+                                _c("b", [_vm._v("Szférák: ")]),
+                                _vm._v(" " + _vm._s(val.sferaText)),
+                              ]),
+                              _vm._v(" "),
+                              _vm._l(val.description, function (valDes, index) {
+                                return _c("p", { key: val.id + index }, [
+                                  _vm._v(_vm._s(valDes)),
+                                ])
+                              }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "d-grid text-center" }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-primary",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function ($event) {
+                                        _vm.inputVallas = val.id
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("Választ")]
+                                ),
+                              ]),
+                            ],
+                            2
+                          ),
+                        ]
+                      ),
+                    ]
+                  )
+                }),
+                0
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "d-grid text-center" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-lg",
+                  attrs: { type: "button" },
+                  on: { click: _vm.nextStep },
+                },
+                [_vm._v("Tovább...")]
+              ),
+            ]),
+          ]),
+        ])
+      : _vm.step == 5
+      ? _c("div", [
+          _c("div", [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "text-center mb-4 pt-3 border-top border-secondary",
+              },
+              [
+                _c("h2", { staticClass: "fw-bold" }, [
+                  _vm._v("Karakter Kaszt választása"),
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Kérem válassza ki, hogy karaktere melyik kasztba tartozik, ez a választás később már nem változtatható!!!"
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "fs-4 fw-bold" }, [
+                  _vm._v("A választott kaszt: "),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  { staticClass: "fs-4 fw-bold p-2 border border-secondary" },
+                  [_vm._v(_vm._s(_vm.Kaszt(_vm.inputKaszt)))]
+                ),
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", [
+              _c(
+                "div",
+                {
+                  staticClass: "accordion",
+                  attrs: { id: "accordionPanelsStayOpenExample" },
+                },
+                _vm._l(_vm.availableClasses, function (kaszLehetoseg, index) {
+                  return _c(
+                    "div",
+                    { key: "Kaszt" + index, staticClass: "accordion-item" },
+                    [
+                      _c(
+                        "h2",
+                        {
+                          staticClass: "accordion-header text-center",
+                          attrs: { id: "Kaszt" + index + "-heading" },
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "accordion-button collapsed",
+                              attrs: {
+                                type: "button",
+                                "data-bs-toggle": "collapse",
+                                "data-bs-target": "#" + "Kaszt" + index,
+                                "aria-expanded": "false",
+                                "aria-controls": "Kaszt" + index,
+                              },
+                            },
+                            [
+                              _vm._v(
+                                "\n                                " +
+                                  _vm._s(kaszLehetoseg.name) +
+                                  "\n                            "
+                              ),
+                            ]
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "accordion-collapse collapse",
+                          attrs: {
+                            id: "Kaszt" + index,
+                            "aria-labelledby": "Kaszt" + index + "-heading",
+                          },
+                        },
+                        [
+                          _c(
+                            "div",
+                            { staticClass: "accordion-body" },
+                            [
+                              _c("magus-kaszt-preview", {
+                                attrs: { kaszt: kaszLehetoseg },
+                              }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "d-grid text-center" }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-primary",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function ($event) {
+                                        _vm.inputKaszt = kaszLehetoseg.id
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("Választ")]
+                                ),
+                              ]),
+                            ],
+                            1
+                          ),
+                        ]
+                      ),
+                    ]
+                  )
+                }),
+                0
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "d-grid text-center" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-lg",
+                  attrs: { type: "button" },
+                  on: { click: _vm.nextStep },
+                },
+                [_vm._v("Tovább...")]
+              ),
+            ]),
+          ]),
+        ])
+      : _vm.step == 6
+      ? _c("div")
+      : _vm.step == 7
+      ? _c("div", [_c("magus-character-sheet")], 1)
+      : _vm._e(),
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "text-center mb-4 pt-3 border-top border-secondary" },
+      [
+        _c("h2", { staticClass: "fw-bold" }, [
+          _vm._v("A karakter álltalános adatai"),
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "Kérem adja meg a karaktere álltalános adatait, ezen adatok később a karakterlapon megváltoztathatók"
+          ),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Tulajdonság módositók:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Faji képzettségek:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Mesterfokú:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Százalékos képzettségek:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Tiltott kasztok:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("A faj leirása:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Különleges képességek ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Close")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Close")]
+      ),
+    ])
+  },
+]
 render._withStripped = true
 
 

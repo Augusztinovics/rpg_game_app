@@ -2641,8 +2641,8 @@
     ]
 };
 const getters = {
-    classes: (state) => {
-        return state.races;
+    magusClasses: (state) => {
+        return state.classes;
     },
     magusClass: (state) => (id) => {
         return state.classes.find(r => r.id === id) ?? state.classes[0];

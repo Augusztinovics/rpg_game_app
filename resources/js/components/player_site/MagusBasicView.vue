@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid">
-        <div v-if="basic">
+        <div v-if="basic==1">
 
             <header>          
                 <div class="px-4 py-5 my-5 text-center bg-success text-light rounded">
@@ -41,7 +41,7 @@
                                     <li>Email support</li>
                                     <li>Help center access</li>
                                 </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-success" @click="basic=false">Make a new character</button>
+                                <button type="button" class="w-100 btn btn-lg btn-success" @click="basic=2">Make a new character</button>
                             </div>
                         </div>
                     </div>
@@ -65,26 +65,37 @@
             </main>
 
         </div>
-        <div v-else>
-            <magus-character-create />
+        <div v-else-if="basic==2">
+            <magus-character-create @back="back"/>
+        </div>
+        <div v-else-if="basic==3" class="container-fluid">
+            <div>
+                <button class="btn btn-lg btn-success m-3" @click="basic=1">Back</button>
+            </div>
+            <magus-character-sheet />
         </div>
     </div>
 </template>
 
 <script>
     import MagusCharacterCreate from './MagusCharacterCreate.vue';
+    import MagusCharacterSheet from './magus/MagusCharacterSheet.vue'
 
     export default {
         components: {
-            MagusCharacterCreate
+            MagusCharacterCreate,
+            MagusCharacterSheet,
         },
         data() {
             return {
-                basic: true,
+                basic: 1,
             }
         },
         methods: {
-
+            back() {
+                //fetch data to refresh
+                this.basic = 1;
+            }
         },
         mounted() {
             console.log('Component mounted.')
