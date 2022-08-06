@@ -5780,6 +5780,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5800,7 +5821,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       inputVallas: 'ATE',
       inputKaszt: 'HARCOS',
       infoSkillId: 'FEGYVER_HASZNALAT',
-      infoSkillPrecId: 'maszas'
+      infoSkillPrecId: 'maszas',
+      eroDobas: 0,
+      eroKf: false,
+      gyorsDobas: 0,
+      gyorsKf: false,
+      ugyDobas: 0,
+      ugyKf: false,
+      alloDobas: 0,
+      alloKf: false,
+      egDobas: 0,
+      egKf: false,
+      szepDobas: 0,
+      szepKf: false,
+      intDobas: 0,
+      intKf: false,
+      akDobas: 0,
+      akKf: false,
+      asztDobas: 0,
+      asztKf: false,
+      loading: false
     };
   },
   computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)('magusAligments', {
@@ -5864,6 +5904,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     },
     nextStep: function nextStep() {
+      if (this.step == 5) {
+        this.throwAbilities();
+      }
+
       this.step++;
     },
     skillInfo: function skillInfo(id) {
@@ -5874,7 +5918,284 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     Kaszt: function Kaszt(id) {
       return this.magusKaszt(id).name;
-    }
+    },
+    throwAbilities: function throwAbilities() {
+      var karakter = this.magusKaszt(this.inputKaszt); //Ero dobas
+
+      if (karakter.ERO.sp[2] == 2) {
+        var dob1 = this.randomThrow(karakter.ERO.sp[0], karakter.ERO.sp[1]);
+        var dob2 = this.randomThrow(karakter.ERO.sp[0], karakter.ERO.sp[1]);
+
+        if (dob1 > dob2) {
+          this.eroDobas = dob1 + this.Faj.ERO;
+        } else {
+          this.eroDobas = dob2 + this.Faj.ERO;
+        }
+      } else {
+        this.eroKf = false;
+        this.eroDobas = this.randomThrow(karakter.ERO.sp[0], karakter.ERO.sp[1]) + this.Faj.ERO;
+
+        if (karakter.ERO.sp[2] == 1) {
+          if (this.eroDobas > 15) {
+            this.eroKf = true;
+          }
+        }
+      } //Gyorsasag dobas
+
+
+      if (karakter.GYORS.sp[2] == 2) {
+        var _dob = this.randomThrow(karakter.GYORS.sp[0], karakter.GYORS.sp[1]);
+
+        var _dob2 = this.randomThrow(karakter.GYORS.sp[0], karakter.GYORS.sp[1]);
+
+        if (_dob > _dob2) {
+          this.gyorsDobas = _dob + this.Faj.GYORS;
+        } else {
+          this.gyorsDobas = _dob2 + this.Faj.GYORS;
+        }
+      } else {
+        this.gyorsKf = false;
+        this.gyorsDobas = this.randomThrow(karakter.GYORS.sp[0], karakter.GYORS.sp[1]) + this.Faj.GYORS;
+
+        if (karakter.GYORS.sp[2] == 1) {
+          if (this.gyorsDobas > 15) {
+            this.gyorsKf = true;
+          }
+        }
+      } //Ugyesseg dobas
+
+
+      if (karakter.UGY.sp[2] == 2) {
+        var _dob3 = this.randomThrow(karakter.UGY.sp[0], karakter.UGY.sp[1]);
+
+        var _dob4 = this.randomThrow(karakter.UGY.sp[0], karakter.UGY.sp[1]);
+
+        if (_dob3 > _dob4) {
+          this.ugyDobas = _dob3 + this.Faj.UGY;
+        } else {
+          this.ugyDobas = _dob4 + this.Faj.UGY;
+        }
+      } else {
+        this.ugyKf = false;
+        this.ugyDobas = this.randomThrow(karakter.UGY.sp[0], karakter.UGY.sp[1]) + this.Faj.UGY;
+
+        if (karakter.UGY.sp[2] == 1) {
+          if (this.ugyDobas > 15) {
+            this.ugyKf = true;
+          }
+        }
+      } //Allokepesseg dobas
+
+
+      if (karakter.ALLO.sp[2] == 2) {
+        var _dob5 = this.randomThrow(karakter.ALLO.sp[0], karakter.ALLO.sp[1]);
+
+        var _dob6 = this.randomThrow(karakter.ALLO.sp[0], karakter.ALLO.sp[1]);
+
+        if (_dob5 > _dob6) {
+          this.alloDobas = _dob5 + this.Faj.ALLO;
+        } else {
+          this.alloDobas = _dob6 + this.Faj.ALLO;
+        }
+      } else {
+        this.alloKf = false;
+        this.alloDobas = this.randomThrow(karakter.ALLO.sp[0], karakter.ALLO.sp[1]) + this.Faj.ALLO;
+
+        if (karakter.ALLO.sp[2] == 1) {
+          if (this.alloDobas > 15) {
+            this.alloKf = true;
+          }
+        }
+      } //Egeszseg dobas
+
+
+      if (karakter.EG.sp[2] == 2) {
+        var _dob7 = this.randomThrow(karakter.EG.sp[0], karakter.EG.sp[1]);
+
+        var _dob8 = this.randomThrow(karakter.EG.sp[0], karakter.EG.sp[1]);
+
+        if (_dob7 > _dob8) {
+          this.egDobas = _dob7 + this.Faj.EG;
+        } else {
+          this.egDobas = _dob8 + this.Faj.EG;
+        }
+      } else {
+        this.egKf = false;
+        this.egDobas = this.randomThrow(karakter.EG.sp[0], karakter.EG.sp[1]) + this.Faj.EG;
+
+        if (karakter.EG.sp[2] == 1) {
+          if (this.egDobas > 15) {
+            this.egKf = true;
+          }
+        }
+      } //Szepseg dobas
+
+
+      if (karakter.SZEP.sp[2] == 2) {
+        var _dob9 = this.randomThrow(karakter.SZEP.sp[0], karakter.SZEP.sp[1]);
+
+        var _dob10 = this.randomThrow(karakter.SZEP.sp[0], karakter.SZEP.sp[1]);
+
+        if (_dob9 > _dob10) {
+          this.szepDobas = _dob9 + this.Faj.SZEP;
+        } else {
+          this.szepDobas = _dob10 + this.Faj.SZEP;
+        }
+      } else {
+        this.szepKf = false;
+        this.szepDobas = this.randomThrow(karakter.SZEP.sp[0], karakter.SZEP.sp[1]) + this.Faj.SZEP;
+
+        if (karakter.SZEP.sp[2] == 1) {
+          if (this.szepDobas > 15) {
+            this.szepKf = true;
+          }
+        }
+      } //Inteligencia dobas
+
+
+      if (karakter.INT.sp[2] == 2) {
+        var _dob11 = this.randomThrow(karakter.INT.sp[0], karakter.INT.sp[1]);
+
+        var _dob12 = this.randomThrow(karakter.INT.sp[0], karakter.INT.sp[1]);
+
+        if (_dob11 > _dob12) {
+          this.intDobas = _dob11 + this.Faj.INT;
+        } else {
+          this.intDobas = _dob12 + this.Faj.INT;
+        }
+      } else {
+        this.intKf = false;
+        this.intDobas = this.randomThrow(karakter.INT.sp[0], karakter.INT.sp[1]) + this.Faj.INT;
+
+        if (karakter.INT.sp[2] == 1) {
+          if (this.intDobas > 15) {
+            this.intKf = true;
+          }
+        }
+      } //Akaratero dobas
+
+
+      if (karakter.AK.sp[2] == 2) {
+        var _dob13 = this.randomThrow(karakter.AK.sp[0], karakter.AK.sp[1]);
+
+        var _dob14 = this.randomThrow(karakter.AK.sp[0], karakter.AK.sp[1]);
+
+        if (_dob13 > _dob14) {
+          this.akDobas = _dob13 + this.Faj.AK;
+        } else {
+          this.akDobas = _dob14 + this.Faj.AK;
+        }
+      } else {
+        this.akKf = false;
+        this.akDobas = this.randomThrow(karakter.AK.sp[0], karakter.AK.sp[1]) + this.Faj.AK;
+
+        if (karakter.AK.sp[2] == 1) {
+          if (this.akDobas > 15) {
+            this.akKf = true;
+          }
+        }
+      } //Asztral dobas
+
+
+      if (karakter.ASZT.sp[2] == 2) {
+        var _dob15 = this.randomThrow(karakter.ASZT.sp[0], karakter.ASZT.sp[1]);
+
+        var _dob16 = this.randomThrow(karakter.ASZT.sp[0], karakter.ASZT.sp[1]);
+
+        if (_dob15 > _dob16) {
+          this.asztDobas = _dob15 + this.Faj.ASZT;
+        } else {
+          this.asztDobas = _dob16 + this.Faj.ASZT;
+        }
+      } else {
+        this.asztKf = false;
+        this.asztDobas = this.randomThrow(karakter.ASZT.sp[0], karakter.ASZT.sp[1]) + this.Faj.ASZT;
+
+        if (karakter.ASZT.sp[2] == 1) {
+          if (this.asztDobas > 15) {
+            this.asztKf = true;
+          }
+        }
+      }
+    },
+    randomThrow: function randomThrow(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
+    kulonlegesFelkeszites: function kulonlegesFelkeszites(tul) {
+      var result = this.randomThrow(1, 100);
+      var mod = 0;
+
+      if (result < 21) {
+        mod = 14;
+      }
+
+      if (result >= 21 && result < 51) {
+        mod = 17;
+      }
+
+      if (result >= 51 && result < 76) {
+        mod = 18;
+      }
+
+      if (result >= 76 && result < 96) {
+        mod = 19;
+      }
+
+      if (result > 95) {
+        mod = 20;
+      }
+
+      switch (tul) {
+        case 'ERO':
+          this.eroDobas = mod + this.Faj.ERO;
+          this.eroKf = false;
+          break;
+
+        case 'GYORS':
+          this.gyorsDobas = mod + this.Faj.GYORS;
+          this.gyorsKf = false;
+          break;
+
+        case 'UGY':
+          this.ugyDobas = mod + this.Faj.UGY;
+          this.ugyKf = false;
+          break;
+
+        case 'ALLO':
+          this.alloDobas = mod + this.Faj.ALLO;
+          this.alloKf = false;
+          break;
+
+        case 'EG':
+          this.egDobas = mod + this.Faj.EG;
+          this.egKf = false;
+          break;
+
+        case 'SZEP':
+          this.szepDobas = mod + this.Faj.SZEP;
+          this.szepKf = false;
+          break;
+
+        case 'INT':
+          this.intDobas = mod + this.Faj.INT;
+          this.intKf = false;
+          break;
+
+        case 'AK':
+          this.akDobas = mod + this.Faj.AK;
+          this.akKf = false;
+          break;
+
+        case 'ASZT':
+          this.asztDobas = mod + this.Faj.ASZT;
+          this.asztKf = false;
+          break;
+
+        default: // code block
+
+      }
+    },
+    createCharacter: function createCharacter() {}
   }
 });
 
@@ -44369,7 +44690,7 @@ var staticRenderFns = [
           _c("img", {
             staticClass: "d-block mx-auto mb-4",
             attrs: {
-              src: "/docs/5.0/assets/brand/bootstrap-logo.svg",
+              src: "/img/pentagram.png",
               alt: "",
               width: "72",
               height: "57",
@@ -44781,6 +45102,7 @@ var render = function () {
                                   on: {
                                     click: function ($event) {
                                       _vm.inputJellem = jellem.id
+                                      _vm.nextStep()
                                     },
                                   },
                                 },
@@ -45551,7 +45873,205 @@ var render = function () {
           ]),
         ])
       : _vm.step == 6
-      ? _c("div")
+      ? _c("div", [
+          _c("div", [
+            _vm._m(10),
+            _vm._v(" "),
+            _c("div", [
+              _c("p", { staticClass: "fs-4" }, [
+                _c("b", [_vm._v("Erő: ")]),
+                _vm._v(_vm._s(_vm.eroDobas) + " "),
+                _vm.eroKf
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-success btn-sm ms-2",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.kulonlegesFelkeszites("ERO")
+                          },
+                        },
+                      },
+                      [_vm._v("kf")]
+                    )
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "fs-4" }, [
+                _c("b", [_vm._v("Gyorsaság: ")]),
+                _vm._v(_vm._s(_vm.gyorsDobas) + " "),
+                _vm.gyorsKf
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-success btn-sm ms-2",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.kulonlegesFelkeszites("GYORS")
+                          },
+                        },
+                      },
+                      [_vm._v("kf")]
+                    )
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "fs-4" }, [
+                _c("b", [_vm._v("Ügyesség: ")]),
+                _vm._v(_vm._s(_vm.ugyDobas) + " "),
+                _vm.ugyKf
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-success btn-sm ms-2",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.kulonlegesFelkeszites("UGY")
+                          },
+                        },
+                      },
+                      [_vm._v("kf")]
+                    )
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "fs-4" }, [
+                _c("b", [_vm._v("Állóképesség: ")]),
+                _vm._v(_vm._s(_vm.alloDobas) + " "),
+                _vm.alloKf
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-success btn-sm ms-2",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.kulonlegesFelkeszites("ALLO")
+                          },
+                        },
+                      },
+                      [_vm._v("kf")]
+                    )
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "fs-4" }, [
+                _c("b", [_vm._v("Egészség: ")]),
+                _vm._v(_vm._s(_vm.egDobas) + " "),
+                _vm.egKf
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-success btn-sm ms-2",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.kulonlegesFelkeszites("EG")
+                          },
+                        },
+                      },
+                      [_vm._v("kf")]
+                    )
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "fs-4" }, [
+                _c("b", [_vm._v("Szépség: ")]),
+                _vm._v(_vm._s(_vm.szepDobas) + " "),
+                _vm.szepKf
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-success btn-sm ms-2",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.kulonlegesFelkeszites("SZEP")
+                          },
+                        },
+                      },
+                      [_vm._v("kf")]
+                    )
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "fs-4" }, [
+                _c("b", [_vm._v("Inteligencia: ")]),
+                _vm._v(_vm._s(_vm.intDobas) + " "),
+                _vm.intKf
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-success btn-sm ms-2",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.kulonlegesFelkeszites("INT")
+                          },
+                        },
+                      },
+                      [_vm._v("kf")]
+                    )
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "fs-4" }, [
+                _c("b", [_vm._v("Akaraterő: ")]),
+                _vm._v(_vm._s(_vm.akDobas) + " "),
+                _vm.akKf
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-success btn-sm ms-2",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.kulonlegesFelkeszites("AK")
+                          },
+                        },
+                      },
+                      [_vm._v("kf")]
+                    )
+                  : _vm._e(),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "fs-4" }, [
+                _c("b", [_vm._v("Asztrál: ")]),
+                _vm._v(_vm._s(_vm.asztDobas) + " "),
+                _vm.asztKf
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-outline-success btn-sm ms-2",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.kulonlegesFelkeszites("ASZT")
+                          },
+                        },
+                      },
+                      [_vm._v("kf")]
+                    )
+                  : _vm._e(),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "d-grid text-center" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary btn-lg",
+                  attrs: { type: "button" },
+                  on: { click: _vm.createCharacter },
+                },
+                [_vm._v("Generálás...")]
+              ),
+            ]),
+          ]),
+        ])
       : _vm.step == 7
       ? _c("div", [_c("magus-character-sheet")], 1)
       : _vm._e(),
@@ -45649,6 +46169,32 @@ var staticRenderFns = [
         [_vm._v("Close")]
       ),
     ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "text-center mb-4 pt-3 border-top border-secondary" },
+      [
+        _c("h2", { staticClass: "fw-bold" }, [
+          _vm._v("Karakter Tulajdonságainak kidobása"),
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "Amennyiben karakterének bizonyos tulajdonságaihoz megvan a különleges felkészités lehetőségének feltétele, és szeretne különleges felkészitest tenni, kattintson a kf nevű gombra a tulajdonság mellett ( a kf magábafoglal bizonyos veszélyeket, igy előfordulhat, hogy a tulajdonság csökken )"
+          ),
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "A generálás gomb az interaktiv karakterlaphoz vezett, ahol a további HM-ek szétoszthatók, képzetségek tanulhatók, előtörténet megirható, és a felszerelés, fegyverzet megadható."
+          ),
+        ]),
+      ]
+    )
   },
 ]
 render._withStripped = true

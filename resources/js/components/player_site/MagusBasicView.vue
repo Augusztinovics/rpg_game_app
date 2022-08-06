@@ -4,7 +4,7 @@
 
             <header>          
                 <div class="px-4 py-5 my-5 text-center bg-success text-light rounded">
-                        <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+                        <img class="d-block mx-auto mb-4" src="/img/pentagram.png" alt="" width="72" height="57">
                         <h1 class="display-5 fw-bold">MAGUS</h1>
                         <div class="col-lg-6 mx-auto">
                             <p class="lead mb-4">---- Avagy ----</p>

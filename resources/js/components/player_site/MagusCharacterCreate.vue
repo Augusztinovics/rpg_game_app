@@ -53,7 +53,7 @@
                                 <div class="accordion-body">
                                     <p>{{ jellem.description }}</p>
                                     <div class="d-grid text-center">
-                                        <button type="button" class="btn btn-primary" @click="inputJellem=jellem.id">Választ</button>
+                                        <button type="button" class="btn btn-primary" @click="inputJellem=jellem.id; nextStep();">Választ</button>
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@
                                     <p> <b>Különleges képességek </b></p>
                                     <p v-for="special, index in faj.specials" :key="'S' + index">{{ special }}</p>
                                     <div class="d-grid text-center">
-                                        <button type="button" class="btn btn-primary" @click="inputFaj=faj.id">Választ</button>
+                                        <button type="button" class="btn btn-primary" @click="inputFaj=faj.id; nextStep();">Választ</button>
                                     </div>
                                 </div>
                             </div>
@@ -186,7 +186,7 @@
                                     <p><b>Szférák: </b> {{ val.sferaText }}</p>
                                     <p v-for="valDes, index in val.description" :key="val.id + index">{{ valDes }}</p>
                                     <div class="d-grid text-center">
-                                        <button type="button" class="btn btn-primary" @click="inputVallas=val.id">Választ</button>
+                                        <button type="button" class="btn btn-primary" @click="inputVallas=val.id; nextStep();">Választ</button>
                                     </div>
                                 </div>
                             </div>
@@ -219,7 +219,7 @@
                                 <div class="accordion-body">
                                     <magus-kaszt-preview :kaszt="kaszLehetoseg" />
                                     <div class="d-grid text-center">
-                                        <button type="button" class="btn btn-primary" @click="inputKaszt=kaszLehetoseg.id">Választ</button>
+                                        <button type="button" class="btn btn-primary" @click="inputKaszt=kaszLehetoseg.id; nextStep();">Választ</button>
                                     </div>
                                 </div>
                             </div>
@@ -233,6 +233,27 @@
         </div>
         <div v-else-if="step==6">
             <!-- tulajdonsag dobasok -->
+            <div>
+                 <div class="text-center mb-4 pt-3 border-top border-secondary">
+                    <h2 class="fw-bold">Karakter Tulajdonságainak kidobása</h2>
+                    <p>Amennyiben karakterének bizonyos tulajdonságaihoz megvan a különleges felkészités lehetőségének feltétele, és szeretne különleges felkészitest tenni, kattintson a kf nevű gombra a tulajdonság mellett ( a kf magábafoglal bizonyos veszélyeket, igy előfordulhat, hogy a tulajdonság csökken )</p>
+                    <p>A generálás gomb az interaktiv karakterlaphoz vezett, ahol a további HM-ek szétoszthatók, képzetségek tanulhatók, előtörténet megirható, és a felszerelés, fegyverzet megadható.</p>
+                </div>
+                <div>
+                    <p class="fs-4"><b>Erő: </b>{{ eroDobas }} <button v-if="eroKf" type="button" @click="kulonlegesFelkeszites('ERO')" class="btn btn-outline-success btn-sm ms-2">kf</button></p>
+                    <p class="fs-4"><b>Gyorsaság: </b>{{ gyorsDobas }} <button v-if="gyorsKf" type="button" @click="kulonlegesFelkeszites('GYORS')" class="btn btn-outline-success btn-sm ms-2">kf</button></p>
+                    <p class="fs-4"><b>Ügyesség: </b>{{ ugyDobas }} <button v-if="ugyKf" type="button" @click="kulonlegesFelkeszites('UGY')" class="btn btn-outline-success btn-sm ms-2">kf</button></p>
+                    <p class="fs-4"><b>Állóképesség: </b>{{ alloDobas }} <button v-if="alloKf" type="button" @click="kulonlegesFelkeszites('ALLO')" class="btn btn-outline-success btn-sm ms-2">kf</button></p>
+                    <p class="fs-4"><b>Egészség: </b>{{ egDobas }} <button v-if="egKf" type="button" @click="kulonlegesFelkeszites('EG')" class="btn btn-outline-success btn-sm ms-2">kf</button></p>
+                    <p class="fs-4"><b>Szépség: </b>{{ szepDobas }} <button v-if="szepKf" type="button" @click="kulonlegesFelkeszites('SZEP')" class="btn btn-outline-success btn-sm ms-2">kf</button></p>
+                    <p class="fs-4"><b>Inteligencia: </b>{{ intDobas }} <button v-if="intKf" type="button" @click="kulonlegesFelkeszites('INT')" class="btn btn-outline-success btn-sm ms-2">kf</button></p>
+                    <p class="fs-4"><b>Akaraterő: </b>{{ akDobas }} <button v-if="akKf" type="button" @click="kulonlegesFelkeszites('AK')" class="btn btn-outline-success btn-sm ms-2">kf</button></p>
+                    <p class="fs-4"><b>Asztrál: </b>{{ asztDobas }} <button v-if="asztKf" type="button" @click="kulonlegesFelkeszites('ASZT')" class="btn btn-outline-success btn-sm ms-2">kf</button></p>
+                </div>
+                <div class="d-grid text-center">
+                    <button type="button" class="btn btn-primary btn-lg" @click="createCharacter">Generálás...</button>
+                </div>
+            </div>
         </div>
         <div v-else-if="step==7">
             <magus-character-sheet />
@@ -262,6 +283,25 @@
                 inputKaszt: 'HARCOS',
                 infoSkillId: 'FEGYVER_HASZNALAT',
                 infoSkillPrecId: 'maszas',
+                eroDobas: 0,
+                eroKf: false,
+                gyorsDobas: 0,
+                gyorsKf: false,
+                ugyDobas: 0,
+                ugyKf: false,
+                alloDobas: 0,
+                alloKf: false,
+                egDobas: 0,
+                egKf: false,
+                szepDobas: 0,
+                szepKf: false,
+                intDobas: 0,
+                intKf: false,
+                akDobas: 0,
+                akKf: false,
+                asztDobas: 0,
+                asztKf: false,
+                loading: false,
             }
         },
         computed: {
@@ -317,6 +357,9 @@
                 }
             },
             nextStep() {
+                if (this.step == 5) {
+                    this.throwAbilities();
+                }
                 this.step++;
             },
             skillInfo(id) {
@@ -327,6 +370,236 @@
             },
             Kaszt(id) {
                 return this.magusKaszt(id).name;
+            },
+            throwAbilities() {
+                let karakter = this.magusKaszt(this.inputKaszt);
+                //Ero dobas
+                if (karakter.ERO.sp[2] == 2) {
+                    let dob1 = this.randomThrow(karakter.ERO.sp[0], karakter.ERO.sp[1]);
+                    let dob2 = this.randomThrow(karakter.ERO.sp[0], karakter.ERO.sp[1]);
+                    if (dob1 > dob2) {
+                        this.eroDobas = dob1 + this.Faj.ERO;
+                    } else {
+                        this.eroDobas = dob2 + this.Faj.ERO;
+                    }
+                } else {
+                    this.eroKf = false;
+                    this.eroDobas = (this.randomThrow(karakter.ERO.sp[0], karakter.ERO.sp[1])) + this.Faj.ERO;
+                    if (karakter.ERO.sp[2] == 1) {
+                        if (this.eroDobas > 15) {
+                            this.eroKf = true;
+                        }
+                    }
+                }
+                //Gyorsasag dobas
+                if (karakter.GYORS.sp[2] == 2) {
+                    let dob1 = this.randomThrow(karakter.GYORS.sp[0], karakter.GYORS.sp[1]);
+                    let dob2 = this.randomThrow(karakter.GYORS.sp[0], karakter.GYORS.sp[1]);
+                    if (dob1 > dob2) {
+                        this.gyorsDobas = dob1 + this.Faj.GYORS;
+                    } else {
+                        this.gyorsDobas = dob2 + this.Faj.GYORS;
+                    }
+                } else {
+                    this.gyorsKf = false;
+                    this.gyorsDobas = (this.randomThrow(karakter.GYORS.sp[0], karakter.GYORS.sp[1])) + this.Faj.GYORS;
+                    if (karakter.GYORS.sp[2] == 1) {
+                        if (this.gyorsDobas > 15) {
+                            this.gyorsKf = true;
+                        }
+                    }
+                }
+                //Ugyesseg dobas
+                if (karakter.UGY.sp[2] == 2) {
+                    let dob1 = this.randomThrow(karakter.UGY.sp[0], karakter.UGY.sp[1]);
+                    let dob2 = this.randomThrow(karakter.UGY.sp[0], karakter.UGY.sp[1]);
+                    if (dob1 > dob2) {
+                        this.ugyDobas = dob1 + this.Faj.UGY;
+                    } else {
+                        this.ugyDobas = dob2 + this.Faj.UGY;
+                    }
+                } else {
+                    this.ugyKf = false;
+                    this.ugyDobas = (this.randomThrow(karakter.UGY.sp[0], karakter.UGY.sp[1])) + this.Faj.UGY;
+                    if (karakter.UGY.sp[2] == 1) {
+                        if (this.ugyDobas > 15) {
+                            this.ugyKf = true;
+                        }
+                    }
+                }
+                //Allokepesseg dobas
+                if (karakter.ALLO.sp[2] == 2) {
+                    let dob1 = this.randomThrow(karakter.ALLO.sp[0], karakter.ALLO.sp[1]);
+                    let dob2 = this.randomThrow(karakter.ALLO.sp[0], karakter.ALLO.sp[1]);
+                    if (dob1 > dob2) {
+                        this.alloDobas = dob1 + this.Faj.ALLO;
+                    } else {
+                        this.alloDobas = dob2 + this.Faj.ALLO;
+                    }
+                } else {
+                    this.alloKf = false;
+                    this.alloDobas = (this.randomThrow(karakter.ALLO.sp[0], karakter.ALLO.sp[1])) + this.Faj.ALLO;
+                    if (karakter.ALLO.sp[2] == 1) {
+                        if (this.alloDobas > 15) {
+                            this.alloKf = true;
+                        }
+                    }
+                }
+                //Egeszseg dobas
+                if (karakter.EG.sp[2] == 2) {
+                    let dob1 = this.randomThrow(karakter.EG.sp[0], karakter.EG.sp[1]);
+                    let dob2 = this.randomThrow(karakter.EG.sp[0], karakter.EG.sp[1]);
+                    if (dob1 > dob2) {
+                        this.egDobas = dob1 + this.Faj.EG;
+                    } else {
+                        this.egDobas = dob2 + this.Faj.EG;
+                    }
+                } else {
+                    this.egKf = false;
+                    this.egDobas = (this.randomThrow(karakter.EG.sp[0], karakter.EG.sp[1])) + this.Faj.EG;
+                    if (karakter.EG.sp[2] == 1) {
+                        if (this.egDobas > 15) {
+                            this.egKf = true;
+                        }
+                    }
+                }
+                //Szepseg dobas
+                if (karakter.SZEP.sp[2] == 2) {
+                    let dob1 = this.randomThrow(karakter.SZEP.sp[0], karakter.SZEP.sp[1]);
+                    let dob2 = this.randomThrow(karakter.SZEP.sp[0], karakter.SZEP.sp[1]);
+                    if (dob1 > dob2) {
+                        this.szepDobas = dob1 + this.Faj.SZEP;
+                    } else {
+                        this.szepDobas = dob2 + this.Faj.SZEP;
+                    }
+                } else {
+                    this.szepKf = false;
+                    this.szepDobas = (this.randomThrow(karakter.SZEP.sp[0], karakter.SZEP.sp[1])) + this.Faj.SZEP;
+                    if (karakter.SZEP.sp[2] == 1) {
+                        if (this.szepDobas > 15) {
+                            this.szepKf = true;
+                        }
+                    }
+                }
+                //Inteligencia dobas
+                if (karakter.INT.sp[2] == 2) {
+                    let dob1 = this.randomThrow(karakter.INT.sp[0], karakter.INT.sp[1]);
+                    let dob2 = this.randomThrow(karakter.INT.sp[0], karakter.INT.sp[1]);
+                    if (dob1 > dob2) {
+                        this.intDobas = dob1 + this.Faj.INT;
+                    } else {
+                        this.intDobas = dob2 + this.Faj.INT;
+                    }
+                } else {
+                    this.intKf = false;
+                    this.intDobas = (this.randomThrow(karakter.INT.sp[0], karakter.INT.sp[1])) + this.Faj.INT;
+                    if (karakter.INT.sp[2] == 1) {
+                        if (this.intDobas > 15) {
+                            this.intKf = true;
+                        }
+                    }
+                }
+                //Akaratero dobas
+                if (karakter.AK.sp[2] == 2) {
+                    let dob1 = this.randomThrow(karakter.AK.sp[0], karakter.AK.sp[1]);
+                    let dob2 = this.randomThrow(karakter.AK.sp[0], karakter.AK.sp[1]);
+                    if (dob1 > dob2) {
+                        this.akDobas = dob1 + this.Faj.AK;
+                    } else {
+                        this.akDobas = dob2 + this.Faj.AK;
+                    }
+                } else {
+                    this.akKf = false;
+                    this.akDobas = (this.randomThrow(karakter.AK.sp[0], karakter.AK.sp[1])) + this.Faj.AK;
+                    if (karakter.AK.sp[2] == 1) {
+                        if (this.akDobas > 15) {
+                            this.akKf = true;
+                        }
+                    }
+                }
+                //Asztral dobas
+                if (karakter.ASZT.sp[2] == 2) {
+                    let dob1 = this.randomThrow(karakter.ASZT.sp[0], karakter.ASZT.sp[1]);
+                    let dob2 = this.randomThrow(karakter.ASZT.sp[0], karakter.ASZT.sp[1]);
+                    if (dob1 > dob2) {
+                        this.asztDobas = dob1 + this.Faj.ASZT;
+                    } else {
+                        this.asztDobas = dob2 + this.Faj.ASZT;
+                    }
+                } else {
+                    this.asztKf = false;
+                    this.asztDobas = (this.randomThrow(karakter.ASZT.sp[0], karakter.ASZT.sp[1])) + this.Faj.ASZT;
+                    if (karakter.ASZT.sp[2] == 1) {
+                        if (this.asztDobas > 15) {
+                            this.asztKf = true;
+                        }
+                    }
+                }
+            },
+            randomThrow(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) ) + min;
+            },
+            kulonlegesFelkeszites(tul) {
+                let result = this.randomThrow(1, 100);
+                let mod = 0;
+                if (result < 21) {
+                    mod = 14;
+                } 
+                if (result >=21 && result < 51) {
+                    mod = 17;
+                }
+                if (result >=51 && result < 76) {
+                    mod = 18;
+                }
+                if (result >=76 && result < 96) {
+                    mod = 19;
+                }
+                if (result > 95) {
+                    mod = 20;
+                } 
+                switch(tul) {
+                case 'ERO':
+                    this.eroDobas = mod + this.Faj.ERO;
+                    this.eroKf = false;
+                    break;
+                case 'GYORS':
+                    this.gyorsDobas = mod + this.Faj.GYORS;
+                    this.gyorsKf = false;
+                    break;
+                case 'UGY':
+                    this.ugyDobas = mod + this.Faj.UGY;
+                    this.ugyKf = false;
+                    break;
+                case 'ALLO':
+                    this.alloDobas = mod + this.Faj.ALLO;
+                    this.alloKf = false;
+                    break;
+                case 'EG':
+                    this.egDobas = mod + this.Faj.EG;
+                    this.egKf = false;
+                    break;
+                case 'SZEP':
+                    this.szepDobas = mod + this.Faj.SZEP;
+                    this.szepKf = false;
+                    break;
+                case 'INT':
+                    this.intDobas = mod + this.Faj.INT;
+                    this.intKf = false;
+                    break;
+                case 'AK':
+                    this.akDobas = mod + this.Faj.AK;
+                    this.akKf = false;
+                    break;
+                case 'ASZT':
+                    this.asztDobas = mod + this.Faj.ASZT;
+                    this.asztKf = false;
+                    break;
+                default:
+                    // code block
+            }
+            },
+            createCharacter() {
+
             },
         },
     }
