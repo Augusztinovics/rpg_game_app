@@ -264,7 +264,7 @@
 <script>
     import MagusCharacterSheet from './magus/MagusCharacterSheet.vue';
     import MagusKasztPreview from './magus/MagusKasztPreview.vue';
-    import { mapGetters } from 'vuex';
+    import { mapGetters, mapMutations } from 'vuex';
     export default {
          components: {
             MagusCharacterSheet,
@@ -349,6 +349,9 @@
             },
         },
         methods: {
+             ...mapMutations('currentCharacter', {
+                 addCharacter: 'addCharacter',
+            }),
             back() {
                 if (this.step <= 1 || this.step >= 7) {
                     this.$emit('back');      
@@ -558,48 +561,256 @@
                     mod = 20;
                 } 
                 switch(tul) {
-                case 'ERO':
-                    this.eroDobas = mod + this.Faj.ERO;
-                    this.eroKf = false;
-                    break;
-                case 'GYORS':
-                    this.gyorsDobas = mod + this.Faj.GYORS;
-                    this.gyorsKf = false;
-                    break;
-                case 'UGY':
-                    this.ugyDobas = mod + this.Faj.UGY;
-                    this.ugyKf = false;
-                    break;
-                case 'ALLO':
-                    this.alloDobas = mod + this.Faj.ALLO;
-                    this.alloKf = false;
-                    break;
-                case 'EG':
-                    this.egDobas = mod + this.Faj.EG;
-                    this.egKf = false;
-                    break;
-                case 'SZEP':
-                    this.szepDobas = mod + this.Faj.SZEP;
-                    this.szepKf = false;
-                    break;
-                case 'INT':
-                    this.intDobas = mod + this.Faj.INT;
-                    this.intKf = false;
-                    break;
-                case 'AK':
-                    this.akDobas = mod + this.Faj.AK;
-                    this.akKf = false;
-                    break;
-                case 'ASZT':
-                    this.asztDobas = mod + this.Faj.ASZT;
-                    this.asztKf = false;
-                    break;
-                default:
-                    // code block
-            }
+                    case 'ERO':
+                        this.eroDobas = mod + this.Faj.ERO;
+                        this.eroKf = false;
+                        break;
+                    case 'GYORS':
+                        this.gyorsDobas = mod + this.Faj.GYORS;
+                        this.gyorsKf = false;
+                        break;
+                    case 'UGY':
+                        this.ugyDobas = mod + this.Faj.UGY;
+                        this.ugyKf = false;
+                        break;
+                    case 'ALLO':
+                        this.alloDobas = mod + this.Faj.ALLO;
+                        this.alloKf = false;
+                        break;
+                    case 'EG':
+                        this.egDobas = mod + this.Faj.EG;
+                        this.egKf = false;
+                        break;
+                    case 'SZEP':
+                        this.szepDobas = mod + this.Faj.SZEP;
+                        this.szepKf = false;
+                        break;
+                    case 'INT':
+                        this.intDobas = mod + this.Faj.INT;
+                        this.intKf = false;
+                        break;
+                    case 'AK':
+                        this.akDobas = mod + this.Faj.AK;
+                        this.akKf = false;
+                        break;
+                    case 'ASZT':
+                        this.asztDobas = mod + this.Faj.ASZT;
+                        this.asztKf = false;
+                        break;
+                    default:
+                        // code block
+                }
             },
             createCharacter() {
+                let karakter = this.magusKaszt(this.inputKaszt);
+                let epKezdo = karakter.Epalap;
+                if (this.egDobas > 10) {
+                    epKezdo += this.egDobas - 10;
+                }
+                let fpKezdo = karakter.Fpalap + karakter.FpSzint.sp[1];
+                if (this.akDobas > 10) {
+                    fpKezdo += this.akDobas - 10;
+                }
+                if (this.alloDobas > 10) {
+                    fpKezdo += this.alloDobas - 10;
+                }
+                let kpKezdo = karakter.Kpalap + karakter.KpSzint;
+                let kpPrecKezdo = karakter.KpPrecent;
+                if (this.ugyDobas > 10) {
+                    kpKezdo += this.ugyDobas - 10;
+                    kpPrecKezdo += this.ugyDobas - 10;
+                }
+                if (this.intDobas > 10) {
+                    kpKezdo += this.intDobas - 10;
+                }
+                let skillsFilterAf = karakter.skillsFirstLevel.af.filter(s => !this.Faj.skills.mf.includes(s));
+                let skillsFilterMf = karakter.skillsFirstLevel.mf.filter(s => !this.Faj.skills.mf.includes(s));
+                let skillsKezdoAf = skillsFilterAf.concat(this.Faj.skills.mf);
+                let skillsKezdoMf = skillsFilterMf.concat(this.Faj.skills.mf);
+                let mpKezdo = karakter.mpLevel.range[1];
+                if (this.inputKaszt == 'BARD') {
+                    if (this.intDobas > 10) {
+                        mpKezdo = this.intDobas - 10;
+                    }
+                }
 
+                let characterData = {
+                    ERO: this.eroDobas,
+                    GYORS: this.gyorsDobas,
+                    UGY: this.ugyDobas,
+                    ALLO: this.alloDobas,
+                    EG: this.egDobas,
+                    SZEP: this.szepDobas,
+                    INT: this.intDobas,
+                    AK: this.akDobas,
+                    ASZT: this.asztDobas,
+                    eroMod: 0,
+                    gyorsMod: 0,
+                    ugyMod: 0,
+                    alloMod: 0,
+                    egMod: 0,
+                    szepMod: 0,
+                    intMod: 0,
+                    akMod: 0,
+                    asztMod: 0,
+                    SpMod: 0,
+                    MgtMod: 0,
+                    Nev: this.inputName,
+                    Kaszt: this.inputKaszt,
+                    Faj: this.inputFaj,
+                    Jellem: this.inputJellem,
+                    Vallas: this.inputVallas,
+                    Szimbolum: this.inputSzimbolum,
+                    Szulofold: this.inputSzulofold,
+                    Iskola: this.inputIskola,
+                    Szint: 1,
+                    Tp: 0,
+                    FpSzint: karakter.FpSzint.sp[1],
+                    AktEp: epKezdo,
+                    AktFp: fpKezdo,
+                    KeSzint: 0,
+                    TeSzint: 0,
+                    VeSzint: 0,
+                    CeSzint: 0,
+                    KeMod: 0,
+                    TeMod: 0,
+                    VeMod: 0,
+                    CeMod: 0,
+                    HmLeft: karakter.HmSzint,
+                    KpLeft: kpKezdo,
+                    KpPrecentLeft: kpPrecKezdo,
+                    FreeFegyverhasznalatAlap: karakter.skillsFirstLevel.FegyverhasznalatAlap,
+                    FegyverhasznalatAlap: [],
+                    FreeFegyverhasznalatMester: karakter.skillsFirstLevel.FegyverhasznalatMester,
+                    FegyverhasznalatMester: [],
+                    FreeFegyverdobasAlap: karakter.skillsFirstLevel.FegyverdobasAlap,
+                    FegyverdobasAlap: [],
+                    FreeFegyverdobasMester: karakter.skillsFirstLevel.FegyverdobasMester,
+                    FegyverdobasMester: [],
+                    FreeNyelvismeretAf: karakter.skillsFirstLevel.NyelvismeretAf,
+                    NyelvismeretAf: [],
+                    FreeNyelvismeretMf: karakter.skillsFirstLevel.NyelvismeretMf,
+                    NyelvismeretMf: [],
+                    FreeSzakmaAf: karakter.skillsFirstLevel.SzakmaAf,
+                    SzakmaAf: [],
+                    FreeSzakmaMf: karakter.skillsFirstLevel.SzakmaMf,
+                    SzakmaMf: [],
+                    Pszi: {
+                        learned: karakter.Pszi.learned,
+                        atlevel: karakter.Pszi.atlevel,
+                        level: karakter.Pszi.level,
+                        maxPszi: karakter.Pszi.maxPszi,
+                        psziPointLevel: karakter.Pszi.psziPointLevel,
+                        currentPszi: karakter.Pszi.currentPszi,
+                        school: karakter.Pszi.school,
+                        staticAsztral: 0,
+                        staticMental: 0,
+                        dinamicAsztarl: 0,
+                        dinamicMental: 0,
+                    },
+                    szazalekosKepzetsegek: {
+                        maszas: {
+                            precent: karakter.skillsFirstLevel.precent.maszas + this.Faj.skills.precent.maszas,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                        eses: {
+                            precent: karakter.skillsFirstLevel.precent.eses + this.Faj.skills.precent.eses,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                        ugras: {
+                            precent: karakter.skillsFirstLevel.precent.ugras + this.Faj.skills.precent.ugras,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                        lopakodas: {
+                            precent: karakter.skillsFirstLevel.precent.lopakodas + this.Faj.skills.precent.lopakodas,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                        rejtozes: {
+                            precent: karakter.skillsFirstLevel.precent.rejtozes + this.Faj.skills.precent.rejtozes,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                        koteltanc: {
+                            precent: karakter.skillsFirstLevel.precent.koteltanc + this.Faj.skills.precent.koteltanc,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                        zsebmetszes: {
+                            precent: karakter.skillsFirstLevel.precent.zsebmetszes + this.Faj.skills.precent.zsebmetszes,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                        csabdafelfedezes: {
+                            precent: karakter.skillsFirstLevel.precent.csabdafelfedezes + this.Faj.skills.precent.csabdafelfedezes,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                        zarnyitas: {
+                            precent: karakter.skillsFirstLevel.precent.zarnyitas + this.Faj.skills.precent.zarnyitas,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                        titkosajto: {
+                            precent: karakter.skillsFirstLevel.precent.titkosajto + this.Faj.skills.precent.titkosajto,
+                            precentAdded: 0,
+                            kpAdded: 0,
+                        },
+                    },
+                    LearnedSkills:{
+                        af: skillsKezdoAf,
+                        mf: skillsKezdoMf,
+                    },
+                    Pancel: {
+                        id: 'NON',
+                        equipped: false,
+                        currentSfe: 0,
+                    },
+                    Pajzs: {
+                        id: 'NON',
+                        equipped: false,
+                    },
+                    FegyverekKozelharci: [],
+                    FegyverekTavolsagi: [],
+                    LeftHand:'',
+                    RightHand: '',
+                    Kincsek: {
+                        rez: 10,
+                        ezust: 2,
+                        arany: 6,
+                        mithrill: 0,
+                        dragako: 0,
+                        egyebb: [],
+                    },
+                    Felszereles: { 
+                        felszereles: []
+                    },
+                    description: '',
+                    notes: [],
+                    Magia: {
+                        maxMp: mpKezdo,
+                        aktMp: mpKezdo,
+                    },
+                };
+
+                axios.post('/character/create', {
+                    game: 'MAGUS',
+                    characterData: characterData,
+                })
+                .then( (response) => {
+                    this.addCharacter({
+                        id: response.data.id,
+                        characterData: response.data.character_data,
+                    });
+                    this.nextStep();
+                })
+                .catch( (error) => {
+                    console.log(error);
+                    this.back();
+                });
             },
         },
     }

@@ -5,8 +5,9 @@
  * -------------------------------------------
  */
  const state = {
+    loading: false,
+    id: 1,
     magusCharacter: {
-        id: 1,
         ERO: 17,
         GYORS: 3,
         UGY: 3,
@@ -179,6 +180,9 @@
     }
 };
 const getters = {
+    loadingState: (state) => {
+        return state.loading;
+    },
     magusCharacter: (state) => {
         return state.magusCharacter;
     },
@@ -220,6 +224,10 @@ const getters = {
     },
 };
 const mutations = {
+    addCharacter(state, character) {
+        state.id = character.id;
+        state.magusCharacter = character.characterData;
+    },
     updateTp(state, tp) {
         state.magusCharacter.Tp += tp;
     },
@@ -554,11 +562,22 @@ const mutations = {
     updateAktMp(state, aktMp) {
         state.magusCharacter.Magia.aktMp = aktMp;
     },
+    updateLoad(state, load) {
+        state.loading = load;
+    }
 };
 const actions = {
     save(context) {
-        console.log('SAVING');
-        console.log(context.state.magusCharacter);
+        context.commit('updateLoad', true);
+        axios.post('/character/update/' + context.state.id, {
+            characterData: context.state.magusCharacter,
+        })
+        .then( (response) => {
+            context.commit('updateLoad', false);
+        })
+        .catch( (error) => {
+            context.commit('updateLoad', false);
+        });
     }
 };
 

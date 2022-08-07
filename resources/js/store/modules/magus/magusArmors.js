@@ -7,6 +7,18 @@
 const state = {
     armors: [
         {
+            id: 'NON',
+            name: 'Nem rendelkezik páncéllal',
+            material: '',
+            type: 'L',
+            typeName: '',
+            Sfe: 0,
+            Mgt: 0,     
+            weight: '',
+            price: '',
+            description: '',
+        },
+        {
             id: 'POSZTO',
             name: 'Posztó vért',
             material: 'szövet vagy puha bőr',

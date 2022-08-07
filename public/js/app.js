@@ -5895,7 +5895,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     }
   }),
-  methods: {
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapMutations)('currentCharacter', {
+    addCharacter: 'addCharacter'
+  })), {}, {
     back: function back() {
       if (this.step <= 1 || this.step >= 7) {
         this.$emit('back');
@@ -6195,8 +6197,232 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       }
     },
-    createCharacter: function createCharacter() {}
-  }
+    createCharacter: function createCharacter() {
+      var _this2 = this;
+
+      var karakter = this.magusKaszt(this.inputKaszt);
+      var epKezdo = karakter.Epalap;
+
+      if (this.egDobas > 10) {
+        epKezdo += this.egDobas - 10;
+      }
+
+      var fpKezdo = karakter.Fpalap + karakter.FpSzint.sp[1];
+
+      if (this.akDobas > 10) {
+        fpKezdo += this.akDobas - 10;
+      }
+
+      if (this.alloDobas > 10) {
+        fpKezdo += this.alloDobas - 10;
+      }
+
+      var kpKezdo = karakter.Kpalap + karakter.KpSzint;
+      var kpPrecKezdo = karakter.KpPrecent;
+
+      if (this.ugyDobas > 10) {
+        kpKezdo += this.ugyDobas - 10;
+        kpPrecKezdo += this.ugyDobas - 10;
+      }
+
+      if (this.intDobas > 10) {
+        kpKezdo += this.intDobas - 10;
+      }
+
+      var skillsFilterAf = karakter.skillsFirstLevel.af.filter(function (s) {
+        return !_this2.Faj.skills.mf.includes(s);
+      });
+      var skillsFilterMf = karakter.skillsFirstLevel.mf.filter(function (s) {
+        return !_this2.Faj.skills.mf.includes(s);
+      });
+      var skillsKezdoAf = skillsFilterAf.concat(this.Faj.skills.mf);
+      var skillsKezdoMf = skillsFilterMf.concat(this.Faj.skills.mf);
+      var mpKezdo = karakter.mpLevel.range[1];
+
+      if (this.inputKaszt == 'BARD') {
+        if (this.intDobas > 10) {
+          mpKezdo = this.intDobas - 10;
+        }
+      }
+
+      var characterData = {
+        ERO: this.eroDobas,
+        GYORS: this.gyorsDobas,
+        UGY: this.ugyDobas,
+        ALLO: this.alloDobas,
+        EG: this.egDobas,
+        SZEP: this.szepDobas,
+        INT: this.intDobas,
+        AK: this.akDobas,
+        ASZT: this.asztDobas,
+        eroMod: 0,
+        gyorsMod: 0,
+        ugyMod: 0,
+        alloMod: 0,
+        egMod: 0,
+        szepMod: 0,
+        intMod: 0,
+        akMod: 0,
+        asztMod: 0,
+        SpMod: 0,
+        MgtMod: 0,
+        Nev: this.inputName,
+        Kaszt: this.inputKaszt,
+        Faj: this.inputFaj,
+        Jellem: this.inputJellem,
+        Vallas: this.inputVallas,
+        Szimbolum: this.inputSzimbolum,
+        Szulofold: this.inputSzulofold,
+        Iskola: this.inputIskola,
+        Szint: 1,
+        Tp: 0,
+        FpSzint: karakter.FpSzint.sp[1],
+        AktEp: epKezdo,
+        AktFp: fpKezdo,
+        KeSzint: 0,
+        TeSzint: 0,
+        VeSzint: 0,
+        CeSzint: 0,
+        KeMod: 0,
+        TeMod: 0,
+        VeMod: 0,
+        CeMod: 0,
+        HmLeft: karakter.HmSzint,
+        KpLeft: kpKezdo,
+        KpPrecentLeft: kpPrecKezdo,
+        FreeFegyverhasznalatAlap: karakter.skillsFirstLevel.FegyverhasznalatAlap,
+        FegyverhasznalatAlap: [],
+        FreeFegyverhasznalatMester: karakter.skillsFirstLevel.FegyverhasznalatMester,
+        FegyverhasznalatMester: [],
+        FreeFegyverdobasAlap: karakter.skillsFirstLevel.FegyverdobasAlap,
+        FegyverdobasAlap: [],
+        FreeFegyverdobasMester: karakter.skillsFirstLevel.FegyverdobasMester,
+        FegyverdobasMester: [],
+        FreeNyelvismeretAf: karakter.skillsFirstLevel.NyelvismeretAf,
+        NyelvismeretAf: [],
+        FreeNyelvismeretMf: karakter.skillsFirstLevel.NyelvismeretMf,
+        NyelvismeretMf: [],
+        FreeSzakmaAf: karakter.skillsFirstLevel.SzakmaAf,
+        SzakmaAf: [],
+        FreeSzakmaMf: karakter.skillsFirstLevel.SzakmaMf,
+        SzakmaMf: [],
+        Pszi: {
+          learned: karakter.Pszi.learned,
+          atlevel: karakter.Pszi.atlevel,
+          level: karakter.Pszi.level,
+          maxPszi: karakter.Pszi.maxPszi,
+          psziPointLevel: karakter.Pszi.psziPointLevel,
+          currentPszi: karakter.Pszi.currentPszi,
+          school: karakter.Pszi.school,
+          staticAsztral: 0,
+          staticMental: 0,
+          dinamicAsztarl: 0,
+          dinamicMental: 0
+        },
+        szazalekosKepzetsegek: {
+          maszas: {
+            precent: karakter.skillsFirstLevel.precent.maszas + this.Faj.skills.precent.maszas,
+            precentAdded: 0,
+            kpAdded: 0
+          },
+          eses: {
+            precent: karakter.skillsFirstLevel.precent.eses + this.Faj.skills.precent.eses,
+            precentAdded: 0,
+            kpAdded: 0
+          },
+          ugras: {
+            precent: karakter.skillsFirstLevel.precent.ugras + this.Faj.skills.precent.ugras,
+            precentAdded: 0,
+            kpAdded: 0
+          },
+          lopakodas: {
+            precent: karakter.skillsFirstLevel.precent.lopakodas + this.Faj.skills.precent.lopakodas,
+            precentAdded: 0,
+            kpAdded: 0
+          },
+          rejtozes: {
+            precent: karakter.skillsFirstLevel.precent.rejtozes + this.Faj.skills.precent.rejtozes,
+            precentAdded: 0,
+            kpAdded: 0
+          },
+          koteltanc: {
+            precent: karakter.skillsFirstLevel.precent.koteltanc + this.Faj.skills.precent.koteltanc,
+            precentAdded: 0,
+            kpAdded: 0
+          },
+          zsebmetszes: {
+            precent: karakter.skillsFirstLevel.precent.zsebmetszes + this.Faj.skills.precent.zsebmetszes,
+            precentAdded: 0,
+            kpAdded: 0
+          },
+          csabdafelfedezes: {
+            precent: karakter.skillsFirstLevel.precent.csabdafelfedezes + this.Faj.skills.precent.csabdafelfedezes,
+            precentAdded: 0,
+            kpAdded: 0
+          },
+          zarnyitas: {
+            precent: karakter.skillsFirstLevel.precent.zarnyitas + this.Faj.skills.precent.zarnyitas,
+            precentAdded: 0,
+            kpAdded: 0
+          },
+          titkosajto: {
+            precent: karakter.skillsFirstLevel.precent.titkosajto + this.Faj.skills.precent.titkosajto,
+            precentAdded: 0,
+            kpAdded: 0
+          }
+        },
+        LearnedSkills: {
+          af: skillsKezdoAf,
+          mf: skillsKezdoMf
+        },
+        Pancel: {
+          id: 'NON',
+          equipped: false,
+          currentSfe: 0
+        },
+        Pajzs: {
+          id: 'NON',
+          equipped: false
+        },
+        FegyverekKozelharci: [],
+        FegyverekTavolsagi: [],
+        LeftHand: '',
+        RightHand: '',
+        Kincsek: {
+          rez: 10,
+          ezust: 2,
+          arany: 6,
+          mithrill: 0,
+          dragako: 0,
+          egyebb: []
+        },
+        Felszereles: {
+          felszereles: []
+        },
+        description: '',
+        notes: [],
+        Magia: {
+          maxMp: mpKezdo,
+          aktMp: mpKezdo
+        }
+      };
+      axios.post('/character/create', {
+        game: 'MAGUS',
+        characterData: characterData
+      }).then(function (response) {
+        _this2.addCharacter({
+          id: response.data.id,
+          characterData: response.data.character_data
+        });
+
+        _this2.nextStep();
+      })["catch"](function (error) {
+        console.log(error);
+
+        _this2.back();
+      });
+    }
+  })
 });
 
 /***/ }),
@@ -7249,6 +7475,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -7288,7 +7521,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   //COMPUTED----------------------------------
   computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_15__.mapGetters)('currentCharacter', {
-    magusCharacter: 'magusCharacter'
+    magusCharacter: 'magusCharacter',
+    loadingState: 'loadingState'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_15__.mapGetters)('magusAligments', {
     aligment: 'aligment'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_15__.mapGetters)('magusRaces', {
@@ -12111,8 +12345,9 @@ __webpack_require__.r(__webpack_exports__);
  * -------------------------------------------
  */
 var state = {
+  loading: false,
+  id: 1,
   magusCharacter: {
-    id: 1,
     ERO: 17,
     GYORS: 3,
     UGY: 3,
@@ -12279,6 +12514,9 @@ var state = {
   }
 };
 var getters = {
+  loadingState: function loadingState(state) {
+    return state.loading;
+  },
   magusCharacter: function magusCharacter(state) {
     return state.magusCharacter;
   },
@@ -12335,6 +12573,10 @@ var getters = {
   }
 };
 var mutations = {
+  addCharacter: function addCharacter(state, character) {
+    state.id = character.id;
+    state.magusCharacter = character.characterData;
+  },
   updateTp: function updateTp(state, tp) {
     state.magusCharacter.Tp += tp;
   },
@@ -12722,12 +12964,21 @@ var mutations = {
   },
   updateAktMp: function updateAktMp(state, aktMp) {
     state.magusCharacter.Magia.aktMp = aktMp;
+  },
+  updateLoad: function updateLoad(state, load) {
+    state.loading = load;
   }
 };
 var actions = {
   save: function save(context) {
-    console.log('SAVING');
-    console.log(context.state.magusCharacter);
+    context.commit('updateLoad', true);
+    axios.post('/character/update/' + context.state.id, {
+      characterData: context.state.magusCharacter
+    }).then(function (response) {
+      context.commit('updateLoad', false);
+    })["catch"](function (error) {
+      context.commit('updateLoad', false);
+    });
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -12852,6 +13103,17 @@ __webpack_require__.r(__webpack_exports__);
  */
 var state = {
   armors: [{
+    id: 'NON',
+    name: 'Nem rendelkezik páncéllal',
+    material: '',
+    type: 'L',
+    typeName: '',
+    Sfe: 0,
+    Mgt: 0,
+    weight: '',
+    price: '',
+    description: ''
+  }, {
     id: 'POSZTO',
     name: 'Posztó vért',
     material: 'szövet vagy puha bőr',
@@ -17860,6 +18122,20 @@ __webpack_require__.r(__webpack_exports__);
  */
 var state = {
   shields: [{
+    id: 'NON',
+    name: 'Nem rendelkezik pajzsal',
+    TamKor: '',
+    Cat: '',
+    Ve: 0,
+    Mgt: 0,
+    Sp: {
+      name: '',
+      damage: [0, 0]
+    },
+    weight: '',
+    price: '',
+    description: ''
+  }, {
     id: 'PAJZS_KICSI',
     name: 'Kis pajzs',
     TamKor: '1',
@@ -24722,6 +24998,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n.smooth[data-v-501c4c01]{\n    scroll-behavior: smooth;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=style&index=0&id=1d778a38&scoped=true&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=style&index=0&id=1d778a38&scoped=true&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.overlay[data-v-1d778a38] {\n    position: fixed; /* Sit on top of the page content */\n    display: none; /* Hidden by default */\n    width: 100%; /* Full width (cover the whole page) */\n    height: 100%; /* Full height (cover the whole page) */\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: rgba(0,0,0,0.5); /* Black background with opacity */\n    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */\n}\n.spin[data-v-1d778a38] {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    height: 200px;\n    width: 200px;\n    transform: translate(-50%,-50%);\n    -ms-transform: translate(-50%,-50%);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -42307,6 +42607,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=style&index=0&id=1d778a38&scoped=true&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=style&index=0&id=1d778a38&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_style_index_0_id_1d778a38_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusCharacterSheet.vue?vue&type=style&index=0&id=1d778a38&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=style&index=0&id=1d778a38&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_style_index_0_id_1d778a38_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_style_index_0_id_1d778a38_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=style&index=0&id=6608e283&scoped=true&lang=css&":
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=style&index=0&id=6608e283&scoped=true&lang=css& ***!
@@ -42982,23 +43312,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _MagusCharacterSheet_vue_vue_type_template_id_1d778a38___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusCharacterSheet.vue?vue&type=template&id=1d778a38& */ "./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=template&id=1d778a38&");
+/* harmony import */ var _MagusCharacterSheet_vue_vue_type_template_id_1d778a38_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusCharacterSheet.vue?vue&type=template&id=1d778a38&scoped=true& */ "./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=template&id=1d778a38&scoped=true&");
 /* harmony import */ var _MagusCharacterSheet_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusCharacterSheet.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _MagusCharacterSheet_vue_vue_type_style_index_0_id_1d778a38_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MagusCharacterSheet.vue?vue&type=style&index=0&id=1d778a38&scoped=true&lang=css& */ "./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=style&index=0&id=1d778a38&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _MagusCharacterSheet_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _MagusCharacterSheet_vue_vue_type_template_id_1d778a38___WEBPACK_IMPORTED_MODULE_0__.render,
-  _MagusCharacterSheet_vue_vue_type_template_id_1d778a38___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _MagusCharacterSheet_vue_vue_type_template_id_1d778a38_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusCharacterSheet_vue_vue_type_template_id_1d778a38_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  null,
+  "1d778a38",
   null
   
 )
@@ -43913,6 +44245,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=style&index=0&id=1d778a38&scoped=true&lang=css&":
+/*!************************************************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=style&index=0&id=1d778a38&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_style_index_0_id_1d778a38_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader/dist/cjs.js!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusCharacterSheet.vue?vue&type=style&index=0&id=1d778a38&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=style&index=0&id=1d778a38&scoped=true&lang=css&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=style&index=0&id=6608e283&scoped=true&lang=css&":
 /*!***************************************************************************************************************************!*\
   !*** ./resources/js/components/player_site/magus/MagusWepon.vue?vue&type=style&index=0&id=6608e283&scoped=true&lang=css& ***!
@@ -44079,19 +44424,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=template&id=1d778a38&":
-/*!**********************************************************************************************************!*\
-  !*** ./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=template&id=1d778a38& ***!
-  \**********************************************************************************************************/
+/***/ "./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=template&id=1d778a38&scoped=true&":
+/*!**********************************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=template&id=1d778a38&scoped=true& ***!
+  \**********************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_template_id_1d778a38___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_template_id_1d778a38___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_template_id_1d778a38_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_template_id_1d778a38_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_template_id_1d778a38___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusCharacterSheet.vue?vue&type=template&id=1d778a38& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=template&id=1d778a38&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusCharacterSheet_vue_vue_type_template_id_1d778a38_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusCharacterSheet.vue?vue&type=template&id=1d778a38&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=template&id=1d778a38&scoped=true&");
 
 
 /***/ }),
@@ -45442,6 +45787,7 @@ var render = function () {
                                     on: {
                                       click: function ($event) {
                                         _vm.inputFaj = faj.id
+                                        _vm.nextStep()
                                       },
                                     },
                                   },
@@ -45709,6 +46055,7 @@ var render = function () {
                                     on: {
                                       click: function ($event) {
                                         _vm.inputVallas = val.id
+                                        _vm.nextStep()
                                       },
                                     },
                                   },
@@ -45841,6 +46188,7 @@ var render = function () {
                                     on: {
                                       click: function ($event) {
                                         _vm.inputKaszt = kaszLehetoseg.id
+                                        _vm.nextStep()
                                       },
                                     },
                                   },
@@ -48458,10 +48806,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=template&id=1d778a38&":
-/*!*************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=template&id=1d778a38& ***!
-  \*************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=template&id=1d778a38&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusCharacterSheet.vue?vue&type=template&id=1d778a38&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -48708,6 +49056,10 @@ var render = function () {
     ),
     _vm._v(" "),
     _c("p", [_vm._v(".")]),
+    _vm._v(" "),
+    _vm.loadingState
+      ? _c("div", { staticClass: "overlay" }, [_vm._m(1)])
+      : _vm._e(),
   ])
 }
 var staticRenderFns = [
@@ -48718,6 +49070,19 @@ var staticRenderFns = [
     return _c("div", { staticClass: "text-center p-4" }, [
       _c("h2", { staticClass: "text-white" }, [_vm._v("magus karakterlap")]),
     ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "spinner-border text-primary spin",
+        attrs: { role: "status" },
+      },
+      [_c("span", { staticClass: "visually-hidden" }, [_vm._v("Loading...")])]
+    )
   },
 ]
 render._withStripped = true

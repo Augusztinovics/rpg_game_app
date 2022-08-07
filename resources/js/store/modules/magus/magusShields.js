@@ -7,6 +7,21 @@
 const state = {
     shields: [
         {
+            id: 'NON',
+            name: 'Nem rendelkezik pajzsal',
+            TamKor: '',
+            Cat: '',
+            Ve: 0,
+            Mgt: 0,
+            Sp: {
+                name: '',
+                damage: [0, 0]
+            },
+            weight: '',
+            price: '',
+            description: '',
+        },
+        {
             id: 'PAJZS_KICSI',
             name: 'Kis pajzs',
             TamKor: '1',

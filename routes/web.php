@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GmHomeController;
-use App\Http\Controllers\MagusDataController;
+use App\Http\Controllers\CharacterSheetsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +27,5 @@ Route::get('/gmhome', [GmHomeController::class, 'index'])->name('gmhome');
 
 
 //Json game data routs
-Route::get('magus/character-creation-data', [MagusDataController::class, 'magusCharacterCreationData']);
+Route::post('character/create', [CharacterSheetsController::class, 'characterCreate']);
+Route::post('character/update/{id}', [CharacterSheetsController::class, 'updateCharacter']);
