@@ -49,38 +49,32 @@ export default {
         ...mapGetters('currentCharacter', {
             magusCharacter: 'magusCharacter',
         }),
-        ...mapGetters('magusRaces', {
-            race: 'race'
-        }),
-        Faj() {
-            return this.race(this.magusCharacter.Faj);
-        },
         ero() {
-            return this.magusCharacter.ERO + this.Faj.ERO + this.magusCharacter.eroMod;
+            return this.magusCharacter.ERO + this.magusCharacter.eroMod;
         },
         gyorsasag() {
-            return this.magusCharacter.GYORS + this.Faj.GYORS + this.magusCharacter.gyorsMod;
+            return this.magusCharacter.GYORS + this.magusCharacter.gyorsMod;
         },
         ugyesseg() {
-            return this.magusCharacter.UGY + this.Faj.UGY + this.magusCharacter.ugyMod;
+            return this.magusCharacter.UGY + this.magusCharacter.ugyMod;
         },
         allokepesseg() {
-            return this.magusCharacter.ALLO + this.Faj.ALLO + this.magusCharacter.alloMod;
+            return this.magusCharacter.ALLO + this.magusCharacter.alloMod;
         },
         egeszseg() {
-            return this.magusCharacter.EG + this.Faj.EG + this.magusCharacter.egMod;
+            return this.magusCharacter.EG + this.magusCharacter.egMod;
         },
         szepseg() {
-            return this.magusCharacter.SZEP + this.Faj.SZEP + this.magusCharacter.szepMod;
+            return this.magusCharacter.SZEP + this.magusCharacter.szepMod;
         },
         inteligencia() {
-            return this.magusCharacter.INT + this.Faj.INT + this.magusCharacter.intMod;
+            return this.magusCharacter.INT + this.magusCharacter.intMod;
         },
         akarat() {
-            return this.magusCharacter.AK + this.Faj.AK + this.magusCharacter.akMod;
+            return this.magusCharacter.AK + this.magusCharacter.akMod;
         },
         asztral() {
-            return this.magusCharacter.ASZT + this.Faj.ASZT + this.magusCharacter.asztMod;
+            return this.magusCharacter.ASZT + this.magusCharacter.asztMod;
         },
         spMod() {
             let sp = 0;

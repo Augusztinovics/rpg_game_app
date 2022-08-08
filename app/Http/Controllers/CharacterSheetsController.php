@@ -62,4 +62,31 @@ class CharacterSheetsController extends Controller
         
        return response()->json('Success', 200);
     }
+
+     /**
+     * getting all magus characters
+     * 
+     * @return json
+     */
+    public function gameCharacters(Request $request, $game){
+        
+        $user = $request->user();
+        $characters = CharacterSheet::where('user_id', $user->id)->where('game', $game)->get();
+       
+        
+       return response()->json($characters, 200);
+    }
+
+    /**
+     * delete magus character
+     * 
+     * @return json
+     */
+    public function deleteGameCharacter(Request $request, $id){
+        
+        CharacterSheet::where('id', $id)->delete();
+       
+        
+       return response()->json('Success', 200);
+    }
 }

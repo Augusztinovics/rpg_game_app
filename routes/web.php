@@ -29,3 +29,5 @@ Route::get('/gmhome', [GmHomeController::class, 'index'])->name('gmhome');
 //Json game data routs
 Route::post('character/create', [CharacterSheetsController::class, 'characterCreate']);
 Route::post('character/update/{id}', [CharacterSheetsController::class, 'updateCharacter']);
+Route::get('character/game-characters/{game}', [CharacterSheetsController::class, 'gameCharacters']);
+Route::post('character/delete/{id}', [CharacterSheetsController::class, 'deleteGameCharacter']);

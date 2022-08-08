@@ -15,6 +15,7 @@ import magusPsiKyr from './modules/magus/magusPsiKyr';
 import magusBardSpells from './modules/magus/magusBardSpells';
 import magusReligions from './modules/magus/magusReligions';
 import magusPapSpells from './modules/magus/magusPapSpells';
+import userCharacters from './modules/userCharacters';
 
 Vue.use(Vuex);
 
@@ -34,5 +35,6 @@ export default new Vuex.Store({
         magusBardSpells,
         magusReligions,
         magusPapSpells,
+        userCharacters,
     }
 })

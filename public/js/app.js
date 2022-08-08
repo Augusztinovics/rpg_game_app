@@ -5414,6 +5414,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _MagusCharacterCreate_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusCharacterCreate.vue */ "./resources/js/components/player_site/MagusCharacterCreate.vue");
 /* harmony import */ var _magus_MagusCharacterSheet_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./magus/MagusCharacterSheet.vue */ "./resources/js/components/player_site/magus/MagusCharacterSheet.vue");
+/* harmony import */ var _magus_MagusKasztPreview_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./magus/MagusKasztPreview.vue */ "./resources/js/components/player_site/magus/MagusKasztPreview.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -5493,26 +5501,235 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     MagusCharacterCreate: _MagusCharacterCreate_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    MagusCharacterSheet: _magus_MagusCharacterSheet_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    MagusCharacterSheet: _magus_MagusCharacterSheet_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    MagusKasztPreview: _magus_MagusKasztPreview_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
       basic: 1
     };
   },
-  methods: {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)('userCharacters', {
+    magusCharacters: 'magusCharacters'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)('magusClasses', {
+    magusKaszt: 'magusClass',
+    magusClasses: 'magusClasses'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)('magusRaces', {
+    races: 'races'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)('magusSkills', {
+    skills: 'skills',
+    skillsPrecent: 'skillsPrecent',
+    skill: 'skill',
+    skillPrecent: 'skillPrecent'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)('magusWeapons', {
+    weapons: 'weapons',
+    rangedWeapons: 'rangedWeapons'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)('magusShields', {
+    shields: 'shields'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)('magusArmors', {
+    armors: 'armors'
+  })),
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapActions)('userCharacters', {
+    loadMagusCharacters: 'loadMagusCharacters'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapMutations)('currentCharacter', {
+    addCharacter: 'addCharacter'
+  })), {}, {
+    Kaszt: function Kaszt(kasztId) {
+      return this.magusKaszt(kasztId);
+    },
     back: function back() {
       //fetch data to refresh
+      this.loadMagusCharacters();
       this.basic = 1;
+    },
+    viewCharacter: function viewCharacter(character) {
+      this.addCharacter({
+        id: character.id,
+        characterData: character.character_data
+      });
+      this.basic = 3;
+    },
+    deleteCharacter: function deleteCharacter(id) {
+      var _this = this;
+
+      axios.post('/character/delete/' + id, {}).then(function (response) {
+        _this.loadMagusCharacters();
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
-  },
+  }),
   mounted: function mounted() {
-    console.log('Component mounted.');
+    this.loadMagusCharacters();
   }
 });
 
@@ -6726,40 +6943,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  computed: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusRaces', {
-    race: 'race'
   })), {}, {
-    Faj: function Faj() {
-      return this.race(this.magusCharacter.Faj);
-    },
     ero: function ero() {
-      return this.magusCharacter.ERO + this.Faj.ERO + this.magusCharacter.eroMod;
+      return this.magusCharacter.ERO + this.magusCharacter.eroMod;
     },
     gyorsasag: function gyorsasag() {
-      return this.magusCharacter.GYORS + this.Faj.GYORS + this.magusCharacter.gyorsMod;
+      return this.magusCharacter.GYORS + this.magusCharacter.gyorsMod;
     },
     ugyesseg: function ugyesseg() {
-      return this.magusCharacter.UGY + this.Faj.UGY + this.magusCharacter.ugyMod;
+      return this.magusCharacter.UGY + this.magusCharacter.ugyMod;
     },
     allokepesseg: function allokepesseg() {
-      return this.magusCharacter.ALLO + this.Faj.ALLO + this.magusCharacter.alloMod;
+      return this.magusCharacter.ALLO + this.magusCharacter.alloMod;
     },
     egeszseg: function egeszseg() {
-      return this.magusCharacter.EG + this.Faj.EG + this.magusCharacter.egMod;
+      return this.magusCharacter.EG + this.magusCharacter.egMod;
     },
     szepseg: function szepseg() {
-      return this.magusCharacter.SZEP + this.Faj.SZEP + this.magusCharacter.szepMod;
+      return this.magusCharacter.SZEP + this.magusCharacter.szepMod;
     },
     inteligencia: function inteligencia() {
-      return this.magusCharacter.INT + this.Faj.INT + this.magusCharacter.intMod;
+      return this.magusCharacter.INT + this.magusCharacter.intMod;
     },
     akarat: function akarat() {
-      return this.magusCharacter.AK + this.Faj.AK + this.magusCharacter.akMod;
+      return this.magusCharacter.AK + this.magusCharacter.akMod;
     },
     asztral: function asztral() {
-      return this.magusCharacter.ASZT + this.Faj.ASZT + this.magusCharacter.asztMod;
+      return this.magusCharacter.ASZT + this.magusCharacter.asztMod;
     },
     spMod: function spMod() {
       var sp = 0;
@@ -7561,13 +7773,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return this.magusKaszt(kaszt);
     },
     ero: function ero() {
-      return this.magusCharacter.ERO + this.Faj.ERO + this.magusCharacter.eroMod;
+      return this.magusCharacter.ERO + this.magusCharacter.eroMod;
     },
     gyorsasag: function gyorsasag() {
-      return this.magusCharacter.GYORS + this.Faj.GYORS + this.magusCharacter.gyorsMod - this.magusCharacter.MgtMod;
+      return this.magusCharacter.GYORS + this.magusCharacter.gyorsMod - this.magusCharacter.MgtMod;
     },
     ugyesseg: function ugyesseg() {
-      return this.magusCharacter.UGY + this.Faj.UGY + this.magusCharacter.ugyMod - this.magusCharacter.MgtMod;
+      return this.magusCharacter.UGY + this.magusCharacter.ugyMod - this.magusCharacter.MgtMod;
     },
     hmSzint: function hmSzint() {
       return this.Kaszt.HmSzint + this.Kaszt.KESzintKotelezo + this.Kaszt.TESzintKotelezo + this.Kaszt.VESzintKotelezo + this.Kaszt.CESzintKotelezo;
@@ -7764,27 +7976,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       halott: false
     };
   },
-  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
+  computed: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusClasses', {
     magusKaszt: 'magusClass'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusRaces', {
-    race: 'race'
   })), {}, {
     Kaszt: function Kaszt() {
       return this.magusKaszt(this.magusCharacter.Kaszt);
     },
-    Faj: function Faj() {
-      return this.race(this.magusCharacter.Faj);
-    },
     egeszseg: function egeszseg() {
-      return this.magusCharacter.EG + this.Faj.EG + this.magusCharacter.egMod;
+      return this.magusCharacter.EG + this.magusCharacter.egMod;
     },
     akaratero: function akaratero() {
-      return this.magusCharacter.AK + this.Faj.AK + this.magusCharacter.akMod;
+      return this.magusCharacter.AK + this.magusCharacter.akMod;
     },
     allokepesseg: function allokepesseg() {
-      return this.magusCharacter.ALLO + this.Faj.ALLO + this.magusCharacter.alloMod;
+      return this.magusCharacter.ALLO + this.magusCharacter.alloMod;
     },
     maxFp: function maxFp() {
       var akMod = 0;
@@ -12273,8 +12480,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/magus/magusAligments */ "./resources/js/store/modules/magus/magusAligments.js");
 /* harmony import */ var _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/magus/magusRaces */ "./resources/js/store/modules/magus/magusRaces.js");
 /* harmony import */ var _modules_magus_magusClasses__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/magus/magusClasses */ "./resources/js/store/modules/magus/magusClasses.js");
@@ -12289,6 +12496,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_magus_magusBardSpells__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/magus/magusBardSpells */ "./resources/js/store/modules/magus/magusBardSpells.js");
 /* harmony import */ var _modules_magus_magusReligions__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/magus/magusReligions */ "./resources/js/store/modules/magus/magusReligions.js");
 /* harmony import */ var _modules_magus_magusPapSpells__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/magus/magusPapSpells */ "./resources/js/store/modules/magus/magusPapSpells.js");
+/* harmony import */ var _modules_userCharacters__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modules/userCharacters */ "./resources/js/store/modules/userCharacters.js");
 
 
 
@@ -12305,8 +12513,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_14__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_15__["default"]);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_15__["default"].Store({
+
+vue__WEBPACK_IMPORTED_MODULE_15__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_16__["default"]);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_16__["default"].Store({
   modules: {
     magusAligments: _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__["default"],
     magusRaces: _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -12321,7 +12530,8 @@ vue__WEBPACK_IMPORTED_MODULE_14__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1
     magusPsiKyr: _modules_magus_magusPsiKyr__WEBPACK_IMPORTED_MODULE_10__["default"],
     magusBardSpells: _modules_magus_magusBardSpells__WEBPACK_IMPORTED_MODULE_11__["default"],
     magusReligions: _modules_magus_magusReligions__WEBPACK_IMPORTED_MODULE_12__["default"],
-    magusPapSpells: _modules_magus_magusPapSpells__WEBPACK_IMPORTED_MODULE_13__["default"]
+    magusPapSpells: _modules_magus_magusPapSpells__WEBPACK_IMPORTED_MODULE_13__["default"],
+    userCharacters: _modules_userCharacters__WEBPACK_IMPORTED_MODULE_14__["default"]
   }
 }));
 
@@ -19919,6 +20129,49 @@ var getters = {
 };
 var mutations = {};
 var actions = {};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/userCharacters.js":
+/*!******************************************************!*\
+  !*** ./resources/js/store/modules/userCharacters.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var state = {
+  magusCharacters: []
+};
+var getters = {
+  magusCharacters: function magusCharacters(state) {
+    return state.magusCharacters;
+  }
+};
+var mutations = {
+  setMagusCharacters: function setMagusCharacters(state, characters) {
+    state.magusCharacters = characters;
+  }
+};
+var actions = {
+  loadMagusCharacters: function loadMagusCharacters(context) {
+    axios.get('/character/game-characters/MAGUS').then(function (response) {
+      context.commit('setMagusCharacters', response.data);
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  }
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   namespaced: true,
   state: state,
@@ -44949,6 +45202,523 @@ var render = function () {
       ? _c("div", [
           _vm._m(0),
           _vm._v(" "),
+          _c("section", [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "accordion",
+                attrs: { id: "accordionPanelsStayOpenExample" },
+              },
+              [
+                _c("div", { staticClass: "accordion-item" }, [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "accordion-collapse collapse",
+                      attrs: {
+                        id: "panelsStayOpen-collapseOne",
+                        "aria-labelledby": "panelsStayOpen-headingOne",
+                      },
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "accordion-body" },
+                        _vm._l(_vm.races, function (faj, index) {
+                          return _c(
+                            "div",
+                            { key: "Faj" + index },
+                            [
+                              _c("h2", { staticClass: "mb-4" }, [
+                                _vm._v(_vm._s(faj.name)),
+                              ]),
+                              _vm._v(" "),
+                              _vm._m(3, true),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v("Erő: "),
+                                  faj.ERO > 0
+                                    ? _c("span", [_vm._v("+")])
+                                    : _vm._e(),
+                                  _vm._v(_vm._s(faj.ERO)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v("Gyorsaság: "),
+                                  faj.GYORS > 0
+                                    ? _c("span", [_vm._v("+")])
+                                    : _vm._e(),
+                                  _vm._v(_vm._s(faj.GYORS)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v("Ügyesség: "),
+                                  faj.UGY > 0
+                                    ? _c("span", [_vm._v("+")])
+                                    : _vm._e(),
+                                  _vm._v(_vm._s(faj.UGY)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v("Állóképesség: "),
+                                  faj.ALLO > 0
+                                    ? _c("span", [_vm._v("+")])
+                                    : _vm._e(),
+                                  _vm._v(_vm._s(faj.ALLO)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v("Egészség: "),
+                                  faj.EG > 0
+                                    ? _c("span", [_vm._v("+")])
+                                    : _vm._e(),
+                                  _vm._v(_vm._s(faj.EG)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v("Szépség: "),
+                                  faj.SZEP > 0
+                                    ? _c("span", [_vm._v("+")])
+                                    : _vm._e(),
+                                  _vm._v(_vm._s(faj.SZEP)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v("Inteligencia: "),
+                                  faj.INT > 0
+                                    ? _c("span", [_vm._v("+")])
+                                    : _vm._e(),
+                                  _vm._v(_vm._s(faj.INT)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v("Akaraterő: "),
+                                  faj.AK > 0
+                                    ? _c("span", [_vm._v("+")])
+                                    : _vm._e(),
+                                  _vm._v(_vm._s(faj.AK)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [
+                                  _vm._v("Asztrál: "),
+                                  faj.ASZT > 0
+                                    ? _c("span", [_vm._v("+")])
+                                    : _vm._e(),
+                                  _vm._v(_vm._s(faj.ASZT)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              faj.CE > 0
+                                ? _c("p", [
+                                    _c("b", [
+                                      _vm._v(
+                                        "Célzó érték módositó: " +
+                                          _vm._s(faj.CE)
+                                      ),
+                                    ]),
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm._m(4, true),
+                              _vm._v(" "),
+                              _vm._m(5, true),
+                              _vm._v(" "),
+                              _vm._l(
+                                faj.skills.mf,
+                                function (kepzetseg, index) {
+                                  return _c("p", { key: "kp" + index }, [
+                                    _vm._v(_vm._s(_vm.skill(kepzetseg).name)),
+                                  ])
+                                }
+                              ),
+                              _vm._v(" "),
+                              _vm._m(6, true),
+                              _vm._v(" "),
+                              _vm._l(
+                                faj.skills.precent,
+                                function (precSkill, key) {
+                                  return _c("p", { key: key }, [
+                                    _vm._v(
+                                      _vm._s(_vm.skillPrecent(key).name) +
+                                        " +" +
+                                        _vm._s(precSkill) +
+                                        "%"
+                                    ),
+                                  ])
+                                }
+                              ),
+                              _vm._v(" "),
+                              faj.forbittenClasses.length > 0
+                                ? _c(
+                                    "div",
+                                    [
+                                      _vm._m(7, true),
+                                      _vm._v(" "),
+                                      _vm._l(
+                                        faj.forbittenClasses,
+                                        function (tilosKaszt, index) {
+                                          return _c(
+                                            "p",
+                                            { key: "Kaszt" + index },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.Kaszt(tilosKaszt).name
+                                                )
+                                              ),
+                                            ]
+                                          )
+                                        }
+                                      ),
+                                    ],
+                                    2
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm._m(8, true),
+                              _vm._v(" "),
+                              _vm._l(faj.description, function (des, index) {
+                                return _c("p", { key: "D" + index }, [
+                                  _vm._v(_vm._s(des)),
+                                ])
+                              }),
+                              _vm._v(" "),
+                              _vm._m(9, true),
+                              _vm._v(" "),
+                              _vm._l(faj.specials, function (special, index) {
+                                return _c("p", { key: "S" + index }, [
+                                  _vm._v(_vm._s(special)),
+                                ])
+                              }),
+                              _vm._v(" "),
+                              _c("hr"),
+                            ],
+                            2
+                          )
+                        }),
+                        0
+                      ),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "accordion-item" }, [
+                  _vm._m(10),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "accordion-collapse collapse",
+                      attrs: {
+                        id: "panelsStayOpen-collapseTwo",
+                        "aria-labelledby": "panelsStayOpen-headingTwo",
+                      },
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "accordion-body" },
+                        _vm._l(
+                          _vm.magusClasses,
+                          function (kaszLehetoseg, index) {
+                            return _c(
+                              "div",
+                              { key: "Kaszt" + index },
+                              [
+                                _c("h2", { staticClass: "mb-4" }, [
+                                  _vm._v(_vm._s(kaszLehetoseg.name)),
+                                ]),
+                                _vm._v(" "),
+                                _c("magus-kaszt-preview", {
+                                  attrs: { kaszt: kaszLehetoseg },
+                                }),
+                                _vm._v(" "),
+                                _c("hr"),
+                              ],
+                              1
+                            )
+                          }
+                        ),
+                        0
+                      ),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "accordion-item" }, [
+                  _vm._m(11),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "accordion-collapse collapse",
+                      attrs: {
+                        id: "panelsStayOpen-collapseThree",
+                        "aria-labelledby": "panelsStayOpen-headingThree",
+                      },
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "accordion-body" },
+                        [
+                          _vm._l(_vm.skills, function (skil) {
+                            return _c("div", { key: skil.id }, [
+                              _c("h2", { staticClass: "mb-4" }, [
+                                _vm._v(_vm._s(skil.name)),
+                              ]),
+                              _vm._v(" "),
+                              _vm._m(12, true),
+                              _vm._v(" "),
+                              _c("p", [_vm._v(_vm._s(skil.description))]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [_vm._v("Af ")]),
+                                _vm._v("Kp: " + _vm._s(skil.KpAf)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v(_vm._s(skil.Af))]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("b", [_vm._v("Mf ")]),
+                                _vm._v("Kp: " + _vm._s(skil.KpMf)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v(_vm._s(skil.Mf))]),
+                              _vm._v(" "),
+                              _c("hr"),
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _vm._l(_vm.skillsPrecent, function (precSkill, key) {
+                            return _c("div", { key: key }, [
+                              _c("h2", { staticClass: "mb-4" }, [
+                                _vm._v(_vm._s(precSkill.name)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v(_vm._s(precSkill.description))]),
+                              _vm._v(" "),
+                              _c("hr"),
+                            ])
+                          }),
+                        ],
+                        2
+                      ),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "accordion-item" }, [
+                  _vm._m(13),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "accordion-collapse collapse",
+                      attrs: {
+                        id: "panelsStayOpen-collapseFour",
+                        "aria-labelledby": "panelsStayOpen-headingFour",
+                      },
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "accordion-body" },
+                        [
+                          _c("h2", [_vm._v("Közelharci Fegyverek")]),
+                          _vm._v(" "),
+                          _c("hr"),
+                          _vm._v(" "),
+                          _vm._l(_vm.weapons, function (fegyver, index) {
+                            return _c("div", { key: index }, [
+                              _c("h3", { staticClass: "mb-4" }, [
+                                _vm._v(_vm._s(fegyver.name)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v("Tipus: " + _vm._s(fegyver.Type)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v("Tám/kör: " + _vm._s(fegyver.TamKor)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v("KÉ: " + _vm._s(fegyver.Ke))]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v("TÉ: " + _vm._s(fegyver.Te))]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v("VÉ: " + _vm._s(fegyver.Ve))]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v("Sebzés: " + _vm._s(fegyver.Sp.name)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v("Súly: " + _vm._s(fegyver.weight)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v("Érték: " + _vm._s(fegyver.price)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v(" " + _vm._s(fegyver.description)),
+                              ]),
+                              _vm._v(" "),
+                              _c("hr"),
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c("h2", [_vm._v("Célzó Fegyverek")]),
+                          _vm._v(" "),
+                          _c("hr"),
+                          _vm._v(" "),
+                          _vm._l(_vm.rangedWeapons, function (ij, index) {
+                            return _c("div", { key: "R" + index }, [
+                              _c("h3", { staticClass: "mb-4" }, [
+                                _vm._v(_vm._s(ij.name)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v("Tám/kör: " + _vm._s(ij.TamKor)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v("KÉ: " + _vm._s(ij.Ke))]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v("CÉ: " + _vm._s(ij.Ce))]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v("Táv: " + _vm._s(ij.Tav) + " méter"),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _vm._v("Sebzés: " + _vm._s(ij.Sp.name)),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v("Súly: " + _vm._s(ij.weight))]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v("Érték: " + _vm._s(ij.price))]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v(" " + _vm._s(ij.description))]),
+                              _vm._v(" "),
+                              _c("hr"),
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c("h2", [_vm._v("Pajzsok")]),
+                          _vm._v(" "),
+                          _c("hr"),
+                          _vm._v(" "),
+                          _vm._l(_vm.shields, function (pajzs) {
+                            return _c("div", { key: pajzs.id }, [
+                              pajzs.id != "NON"
+                                ? _c("div", [
+                                    _c("h3", { staticClass: "mb-4" }, [
+                                      _vm._v(_vm._s(pajzs.name)),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _vm._v("MGT: " + _vm._s(pajzs.Mgt)),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _vm._v("VÉ: " + _vm._s(pajzs.Ve)),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _vm._v("Súly: " + _vm._s(pajzs.weight)),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _vm._v("Érték: " + _vm._s(pajzs.price)),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _vm._v(" " + _vm._s(pajzs.description)),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("hr"),
+                                  ])
+                                : _vm._e(),
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c("h2", [_vm._v("Vértek")]),
+                          _vm._v(" "),
+                          _c("hr"),
+                          _vm._v(" "),
+                          _vm._l(_vm.armors, function (pancel) {
+                            return _c("div", { key: "p" + pancel.id }, [
+                              pancel.id != "NON"
+                                ? _c("div", [
+                                    _c("h3", { staticClass: "mb-4" }, [
+                                      _vm._v(_vm._s(pancel.name)),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _vm._v(
+                                        "Anyag: " + _vm._s(pancel.material)
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _vm._v("MGT: " + _vm._s(pancel.Mgt)),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _vm._v("SFÉ: " + _vm._s(pancel.Sfe)),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _vm._v("Súly: " + _vm._s(pancel.weight)),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _vm._v("Érték: " + _vm._s(pancel.price)),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _vm._v(" " + _vm._s(pancel.description)),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("hr"),
+                                  ])
+                                : _vm._e(),
+                            ])
+                          }),
+                        ],
+                        2
+                      ),
+                    ]
+                  ),
+                ]),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
           _c("main", [
             _c(
               "div",
@@ -44962,10 +45732,65 @@ var render = function () {
                         "card mb-4 rounded-3 shadow-sm border-success",
                     },
                     [
-                      _vm._m(1),
+                      _vm._m(14),
                       _vm._v(" "),
                       _c("div", { staticClass: "card-body" }, [
-                        _vm._m(2),
+                        _c(
+                          "ul",
+                          { staticClass: "list-unstyled mt-3 mb-4" },
+                          _vm._l(
+                            _vm.magusCharacters,
+                            function (magusCharacter) {
+                              return _c("li", { key: magusCharacter.id }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-outline-success m-2",
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.viewCharacter(magusCharacter)
+                                      },
+                                    },
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(
+                                        magusCharacter.character_data.Nev
+                                      ) +
+                                        " ( " +
+                                        _vm._s(
+                                          magusCharacter.character_data.Szint
+                                        ) +
+                                        ".Szintű " +
+                                        _vm._s(
+                                          _vm.Kaszt(
+                                            magusCharacter.character_data.Kaszt
+                                          ).name
+                                        ) +
+                                        ")"
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-outline-danger",
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.deleteCharacter(
+                                          magusCharacter.id
+                                        )
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("Törlés")]
+                                ),
+                              ])
+                            }
+                          ),
+                          0
+                        ),
                         _vm._v(" "),
                         _c(
                           "button",
@@ -44978,17 +45803,21 @@ var render = function () {
                               },
                             },
                           },
-                          [_vm._v("Make a new character")]
+                          [_vm._v("Új karakter készitése")]
                         ),
                       ]),
                     ]
                   ),
                 ]),
                 _vm._v(" "),
-                _vm._m(3),
+                _vm._m(15),
               ]
             ),
           ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _vm._m(16),
         ])
       : _vm.basic == 2
       ? _c("div", [_c("magus-character-create", { on: { back: _vm.back } })], 1)
@@ -45099,25 +45928,197 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c("h2", [_vm._v("Izelitő a játékból")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Némi leirás a játékból kedvcsinálóként")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c(
-      "div",
-      { staticClass: "card-header py-3 text-white bg-success border-success" },
-      [_c("h4", { staticClass: "my-0 fw-normal" }, [_vm._v("Characters")])]
+      "h2",
+      {
+        staticClass: "accordion-header",
+        attrs: { id: "panelsStayOpen-headingOne" },
+      },
+      [
+        _c(
+          "button",
+          {
+            staticClass: "accordion-button collapsed",
+            attrs: {
+              type: "button",
+              "data-bs-toggle": "collapse",
+              "data-bs-target": "#panelsStayOpen-collapseOne",
+              "aria-expanded": "false",
+              "aria-controls": "panelsStayOpen-collapseOne",
+            },
+          },
+          [
+            _vm._v(
+              "\n                            Játszható fajok\n                        "
+            ),
+          ]
+        ),
+      ]
     )
   },
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "list-unstyled mt-3 mb-4" }, [
-      _c("li", [_vm._v("10 users included")]),
-      _vm._v(" "),
-      _c("li", [_vm._v("2 GB of storage")]),
-      _vm._v(" "),
-      _c("li", [_vm._v("Email support")]),
-      _vm._v(" "),
-      _c("li", [_vm._v("Help center access")]),
-    ])
+    return _c("p", [_c("b", [_vm._v("Tulajdonság módositók:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Faji képzettségek:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Mesterfokú:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Százalékos képzettségek:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Tiltott kasztok:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("A faj leirása:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Különleges képességek ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "h2",
+      {
+        staticClass: "accordion-header",
+        attrs: { id: "panelsStayOpen-headingTwo" },
+      },
+      [
+        _c(
+          "button",
+          {
+            staticClass: "accordion-button collapsed",
+            attrs: {
+              type: "button",
+              "data-bs-toggle": "collapse",
+              "data-bs-target": "#panelsStayOpen-collapseTwo",
+              "aria-expanded": "false",
+              "aria-controls": "panelsStayOpen-collapseTwo",
+            },
+          },
+          [
+            _vm._v(
+              "\n                            Játszható karakterek\n                        "
+            ),
+          ]
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "h2",
+      {
+        staticClass: "accordion-header",
+        attrs: { id: "panelsStayOpen-headingThree" },
+      },
+      [
+        _c(
+          "button",
+          {
+            staticClass: "accordion-button collapsed",
+            attrs: {
+              type: "button",
+              "data-bs-toggle": "collapse",
+              "data-bs-target": "#panelsStayOpen-collapseThree",
+              "aria-expanded": "false",
+              "aria-controls": "panelsStayOpen-collapseThree",
+            },
+          },
+          [
+            _vm._v(
+              "\n                            Képzetségek\n                        "
+            ),
+          ]
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Leirás:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "h2",
+      {
+        staticClass: "accordion-header",
+        attrs: { id: "panelsStayOpen-headingFour" },
+      },
+      [
+        _c(
+          "button",
+          {
+            staticClass: "accordion-button collapsed",
+            attrs: {
+              type: "button",
+              "data-bs-toggle": "collapse",
+              "data-bs-target": "#panelsStayOpen-collapseFour",
+              "aria-expanded": "false",
+              "aria-controls": "panelsStayOpen-collapseFour",
+            },
+          },
+          [
+            _vm._v(
+              "\n                            Fegyverek, pajzsok, vértek\n                        "
+            ),
+          ]
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "card-header py-3 text-white bg-success border-success" },
+      [_c("h4", { staticClass: "my-0 fw-normal" }, [_vm._v("Karakterek")])]
+    )
   },
   function () {
     var _vm = this
@@ -45134,18 +46135,16 @@ var staticRenderFns = [
               staticClass:
                 "card-header py-3 text-white bg-success border-success",
             },
-            [_c("h4", { staticClass: "my-0 fw-normal" }, [_vm._v("Modules")])]
+            [
+              _c("h4", { staticClass: "my-0 fw-normal" }, [
+                _vm._v("Játék modulok"),
+              ]),
+            ]
           ),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _c("ul", { staticClass: "list-unstyled mt-3 mb-4" }, [
-              _c("li", [_vm._v("30 users included")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("15 GB of storage")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Phone and email support")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Help center access")]),
+              _c("li", [_vm._v("Még nem elérhető funkció")]),
             ]),
             _vm._v(" "),
             _c(
@@ -45154,11 +46153,39 @@ var staticRenderFns = [
                 staticClass: "w-100 btn btn-lg btn-success",
                 attrs: { type: "button" },
               },
-              [_vm._v("Search for modules")]
+              [_vm._v("Modul keresése")]
             ),
           ]),
         ]
       ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", { staticClass: "text-center m-2" }, [
+      _c("div", { staticClass: "p-4" }, [
+        _c("p", [
+          _vm._v("FIGYELEM a lapon lévő adatok a "),
+          _c("b", [
+            _vm._v("M.A.G.U.S avagy a Kalandorok Krónikái Első Törvénykönyv"),
+          ]),
+          _vm._v(" 1997. évi kiadványából származnak."),
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "A lap csak idézeteket és részadatokat tartalmaz, nem a teljes könyv adatait, igy nem helyettesiti a könyvet."
+          ),
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "Kérem a játékosokat, hogy ha még nem rendelkeznek a könyvvel, vásárolják meg azt, hogy teljes képet kapjanak a játékról."
+          ),
+        ]),
+      ]),
     ])
   },
 ]
@@ -47670,18 +48697,20 @@ var render = function () {
               [_vm._v("i")]
             )
           : _vm._e(),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-outline-success btn-sm my-1 d-block",
-            attrs: {
-              type: "button",
-              "data-bs-toggle": "modal",
-              "data-bs-target": "#vallasModal",
-            },
-          },
-          [_vm._v("Változtat")]
-        ),
+        _vm.Vallas.id != "PAP" || _vm.Vallas.id != "PAPLOVAG"
+          ? _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-success btn-sm my-1 d-block",
+                attrs: {
+                  type: "button",
+                  "data-bs-toggle": "modal",
+                  "data-bs-target": "#vallasModal",
+                },
+              },
+              [_vm._v("Változtat")]
+            )
+          : _vm._e(),
       ]),
     ]),
     _vm._v(" "),

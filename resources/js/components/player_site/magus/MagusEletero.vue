@@ -67,23 +67,17 @@ export default {
         ...mapGetters('magusClasses', {
             magusKaszt: 'magusClass'
         }),
-        ...mapGetters('magusRaces', {
-            race: 'race'
-        }),
         Kaszt() {
             return this.magusKaszt(this.magusCharacter.Kaszt);
         },
-        Faj() {
-            return this.race(this.magusCharacter.Faj);
-        },
         egeszseg() {
-            return this.magusCharacter.EG + this.Faj.EG + this.magusCharacter.egMod;
+            return this.magusCharacter.EG + this.magusCharacter.egMod;
         },
         akaratero() {
-            return this.magusCharacter.AK + this.Faj.AK + this.magusCharacter.akMod;
+            return this.magusCharacter.AK + this.magusCharacter.akMod;
         },
         allokepesseg() {
-            return this.magusCharacter.ALLO + this.Faj.ALLO + this.magusCharacter.alloMod;
+            return this.magusCharacter.ALLO + this.magusCharacter.alloMod;
         },
         maxFp() {
             let akMod = 0;

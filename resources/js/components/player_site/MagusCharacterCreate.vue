@@ -349,7 +349,7 @@
             },
         },
         methods: {
-             ...mapMutations('currentCharacter', {
+            ...mapMutations('currentCharacter', {
                  addCharacter: 'addCharacter',
             }),
             back() {

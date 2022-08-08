@@ -242,7 +242,7 @@
                  }
                 return this.race(race);
             },
-             Kaszt() {
+            Kaszt() {
                  let kaszt = 'HARCOS';
                  if (this.magusCharacter) {
                      kaszt = this.magusCharacter.Kaszt;
@@ -250,13 +250,13 @@
                 return this.magusKaszt(kaszt);
             },
             ero() {
-                return this.magusCharacter.ERO + this.Faj.ERO + this.magusCharacter.eroMod;
+                return this.magusCharacter.ERO + this.magusCharacter.eroMod;
             },
             gyorsasag() {
-                return this.magusCharacter.GYORS + this.Faj.GYORS + this.magusCharacter.gyorsMod - this.magusCharacter.MgtMod;
+                return this.magusCharacter.GYORS + this.magusCharacter.gyorsMod - this.magusCharacter.MgtMod;
             },
             ugyesseg() {
-                return this.magusCharacter.UGY + this.Faj.UGY + this.magusCharacter.ugyMod - this.magusCharacter.MgtMod;
+                return this.magusCharacter.UGY + this.magusCharacter.ugyMod - this.magusCharacter.MgtMod;
             },
             hmSzint() {
                 return this.Kaszt.HmSzint + this.Kaszt.KESzintKotelezo + this.Kaszt.TESzintKotelezo + this.Kaszt.VESzintKotelezo + this.Kaszt.CESzintKotelezo;
