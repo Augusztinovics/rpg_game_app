@@ -11,10 +11,11 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/home.css') }}" rel="stylesheet">
 
         
     </head>
-    <body>
+    <body class="bg-secondary">
        
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container-fluid">
@@ -85,12 +86,41 @@
                 </div>
             </div>
         </nav>
-         <main class="container">
-             <div class="px-4 py-5 my-5 text-center">
-                <h1 class="display-5 fw-bold">Welcome in RPG games</h1>
-                <p class="lead mb-4">Here you can play a different RPG games with your friends</p>
-             </div>
-             
-        </main>  
+        <main>
+            <div class="cover-image">
+                <div class="cover-text">
+                <h1 class="display-2 fw-bold pb-4">Welcome in RPG games</h1>
+                <p class="lead fw-bold fs-4">Here you can play a different RPG games with your friends</p>
+                </div>  
+            </div>
+            <div class="container bg-light shadow-lg">
+                <section>
+                    <div class="pt-5">
+                        <h2 class="display-4 fw-bold text-center pb-4">The goal</h2>
+                        <p class="px-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia libero asperiores earum nam consequatur, odio, quaerat autem ullam deserunt sapiente debitis quia vitae quasi eligendi? Sunt ipsum aut culpa corrupti!</p>
+                    </div>  
+                </section>
+                <hr>
+                <section>
+                    <div class="pt-5">
+                        <h2 class="display-4 fw-bold text-center pb-4">Features</h2>
+                        <p class="px-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia libero asperiores earum nam consequatur, odio, quaerat autem ullam deserunt sapiente debitis quia vitae quasi eligendi? Sunt ipsum aut culpa corrupti!</p>
+                    </div>  
+                </section>
+                <hr>
+                <section>
+                    <div class="pt-5 pb-5">
+                        <h2 class="display-4 fw-bold text-center pb-4">Using the Site</h2>
+                        <p class="px-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia libero asperiores earum nam consequatur, odio, quaerat autem ullam deserunt sapiente debitis quia vitae quasi eligendi? Sunt ipsum aut culpa corrupti!</p>
+                    </div>  
+                </section>
+            </div>
+            <div id="app"></div>
+        </main> 
+        <footer class="bg-info">
+            <div class="p-5 text-center">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque labore esse ut expedita, cupiditate</p>
+            </div>
+        </footer> 
     </body>
 </html>
