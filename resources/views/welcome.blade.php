@@ -96,22 +96,40 @@
             <div class="container bg-light shadow-lg">
                 <section>
                     <div class="pt-5">
-                        <h2 class="display-4 fw-bold text-center pb-4">The goal</h2>
-                        <p class="px-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia libero asperiores earum nam consequatur, odio, quaerat autem ullam deserunt sapiente debitis quia vitae quasi eligendi? Sunt ipsum aut culpa corrupti!</p>
+                        <h2 class="display-4 fw-bold text-center pb-4">A Cél</h2>
+                        <p class="px-4">Réges régen sokat játszottam a barátaimmal asztali RPG játékokat. De az iskolát befejezve, mindenki elment, munkát vállalt, legtöbbjük elköltözött másik városba ( én is ), sőt néhányan másik országba költöztek.</p>
+                        <p class="px-4">Igy játszani már igen neház volt, de a játék szelleme megmaradt, igy kezdtem neki ennek az aplikációnak.</p>
+                        <p class="px-4">Az aplikáció segitségével az egymástól távol élő barátok, játékostársak is játszhatnak ujra eggyütt online asztali RPG-t.</p>
+                        <p class="px-4">Az idő múllásával, -és persze ha van rá igény, szeretnék minnél több fajta játékot beépiteni az aplikációba, de elsőnek a M.A.G.U.S. szerepjátékkal kezdtem.</p>
+                        <p class="px-4">Jelenleg a M.A.G.U.S. ETK szabályrendszerével lehet játszani az aplikáció segitségével.</p>
                     </div>  
                 </section>
                 <hr>
                 <section>
                     <div class="pt-5">
-                        <h2 class="display-4 fw-bold text-center pb-4">Features</h2>
-                        <p class="px-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia libero asperiores earum nam consequatur, odio, quaerat autem ullam deserunt sapiente debitis quia vitae quasi eligendi? Sunt ipsum aut culpa corrupti!</p>
+                        <h2 class="display-4 fw-bold text-center pb-4">Mit nyújt az aplikáció</h2>
+                        <p class="px-4">Jelenleg az aplikáció a fejlesztés első fázisában van.</p>
+                        <p class="px-4">Az első fázis funkciói:</p>
+                        <p class="px-4">Karakter készités</p>
+                        <p class="px-4">Játékos karaktereket lehet elkésziteni 6 egyszerű lépésben, igy nem kell a játékosoknak órákat tölteni karakterkészitéssel.</p>
+                        <p class="px-4">Interaktiv karakterlap</p>
+                        <p class="px-4">Miután a karakter elkészült, további játék során a karakterlap kiszámol minden szükséges értéket, levonni és hozzáadni lehet minden változtatható értékhez és az aplikáció újraszámol minden végértéket az adott változás függvényében.</p>
+                        <p class="px-4">Súgók, és leirások szinte mindenhez, jegyzetek készithetők, törölhetők. Felszerelés adható elvehető a karaktertől...és még sok más.</p>
+                        <p class="px-4">A további fázisok tervei</p>
+                        <p class="px-4">A második fázisban egy belső beszélgető (chat) aplikáció elkészitése van, ahol a szobákat a játékoscsapatok tudják megcsinálni, igy minden csapatnak külön szobája lehet, amibe csak a Kalandmester meghivásával lehet belépni.</p>
+                        <p class="px-4">A harmadik fázisra egy játékmodul készitésére alkalmas vizuális felület elkészitése van tervezve, aminek segitségével a Kalandmesterek moduljaikat könnyebben elkészithetik, és vizuálisan is bemutathatják játék közben.</p>
+                        <p class="px-4">A negyedik fázis gyakorlatilag az eddigiek egy honlapra való összehozatala, igy minden csapatnak, minden játékmodul külön honlappá válik, és az adott modult saját honlapján fogják tudni játszani a játékosok.</p>
                     </div>  
                 </section>
                 <hr>
                 <section>
                     <div class="pt-5 pb-5">
-                        <h2 class="display-4 fw-bold text-center pb-4">Using the Site</h2>
-                        <p class="px-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia libero asperiores earum nam consequatur, odio, quaerat autem ullam deserunt sapiente debitis quia vitae quasi eligendi? Sunt ipsum aut culpa corrupti!</p>
+                        <h2 class="display-4 fw-bold text-center pb-4">Az oldal használata</h2>
+                        <p class="px-4">Ahoz, hogy az aplikációt használni tudhassa valaki, elsősorban be kell regisztrálni</p>
+                        <p class="px-4">A regisztráció egy egyszerű lépésből áll, és nem kell konfirmállni vagy fizetni érte semmit.</p>
+                        <p class="px-4">A regisztrációhoz meg kell adni egy felhasználó nevet, egy e-mail cimet ( később ezen e-mail megadásával fog lehetni belépni ) és egy jelszavat. Ennyi. FIGYELEM, mivel nem ellenőrizzük az e-mail cimeket, igy nincs lehetőség elfelejtett jelszavak újraaktivizálására. Regisztráció után kérem irja fel magának, mert elfelejtés esetén csak az újraregisztrálás lehetősége marad!</p>
+                        <p class="px-4">Belépés után a Játékos Panelen a felhasználó hozzáfér az aplikáció lehetőségeihez.</p>
+                        <p class="px-4">FIGYELEM az aplikáció használata ingyenes és nem kérünk vagy gyűjtünk semmilyen adatot a felhasználóktól, csak amit a regisztrációhoz meg kell adni, de ezen adatokat sem használjuk, vagy adjuk át semmiféle harmadik személynek. A regisztráció csupán azért szükséges, hogy tudjuk melyik karakterlap kihez tartozik.</p>
                     </div>  
                 </section>
             </div>
@@ -119,7 +137,7 @@
         </main> 
         <footer class="bg-info">
             <div class="p-5 text-center">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque labore esse ut expedita, cupiditate</p>
+                <p>Az aplikáció sok adatot, leirást tartalmaz az adott játékhoz, de ezen adatok semmiféleképpen sem teljes adatok, igy NEM helyetesitik a Törvénykönyveket.</p>
             </div>
         </footer> 
     </body>
