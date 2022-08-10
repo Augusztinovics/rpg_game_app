@@ -25274,7 +25274,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.overlay[data-v-1d778a38] {\n    position: fixed; /* Sit on top of the page content */\n    display: none; /* Hidden by default */\n    width: 100%; /* Full width (cover the whole page) */\n    height: 100%; /* Full height (cover the whole page) */\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: rgba(0,0,0,0.5); /* Black background with opacity */\n    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */\n}\n.spin[data-v-1d778a38] {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    height: 200px;\n    width: 200px;\n    transform: translate(-50%,-50%);\n    -ms-transform: translate(-50%,-50%);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.img-bg[data-v-1d778a38] {\n    background-image: url(\"/img/stone-green.jpg\");\n    background-repeat: repeat;\n    border: 5px solid green;\n    border-radius: 10px;\n}\n.overlay[data-v-1d778a38] {\n    position: fixed; /* Sit on top of the page content */\n    display: none; /* Hidden by default */\n    width: 100%; /* Full width (cover the whole page) */\n    height: 100%; /* Full height (cover the whole page) */\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: rgba(0,0,0,0.5); /* Black background with opacity */\n    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */\n}\n.spin[data-v-1d778a38] {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    height: 200px;\n    width: 200px;\n    transform: translate(-50%,-50%);\n    -ms-transform: translate(-50%,-50%);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -45867,7 +45867,7 @@ var staticRenderFns = [
               src: "/img/pentagram.png",
               alt: "",
               width: "72",
-              height: "57",
+              height: "72",
             },
           }),
           _vm._v(" "),
@@ -49851,7 +49851,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-fluid bg-success" }, [
+  return _c("div", { staticClass: "container-fluid bg-success img-bg" }, [
     _vm._m(0),
     _vm._v(" "),
     _c(
@@ -50097,7 +50097,31 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center p-4" }, [
-      _c("h2", { staticClass: "text-white" }, [_vm._v("magus karakterlap")]),
+      _c("h2", { staticClass: "text-white display-2 fw-bold" }, [
+        _c("span", [
+          _c("img", {
+            staticClass: "me-5",
+            attrs: {
+              src: "/img/pentagram.png",
+              alt: "",
+              width: "40",
+              height: "40",
+            },
+          }),
+        ]),
+        _vm._v("magus karakterlap"),
+        _c("span", [
+          _c("img", {
+            staticClass: "ms-5",
+            attrs: {
+              src: "/img/pentagram.png",
+              alt: "",
+              width: "40",
+              height: "40",
+            },
+          }),
+        ]),
+      ]),
     ])
   },
   function () {

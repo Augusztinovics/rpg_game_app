@@ -1,6 +1,6 @@
 <template>
-    <div class="container-fluid bg-success">
-        <div class="text-center p-4"><h2 class="text-white">magus karakterlap</h2></div>
+    <div class="container-fluid bg-success img-bg">
+        <div class="text-center p-4"><h2 class="text-white display-2 fw-bold"><span><img class="me-5" src="/img/pentagram.png" alt="" width="40" height="40"></span>magus karakterlap<span><img class="ms-5" src="/img/pentagram.png" alt="" width="40" height="40"></span></h2></div>
 
         <!-- --------fizikai tulajdonsagok---------- -->
         <div class="bg-light border border-secondary rounded mb-3 p-3">
@@ -364,6 +364,12 @@
 </script>
 
 <style scoped>
+    .img-bg {
+        background-image: url("/img/stone-green.jpg");
+        background-repeat: repeat;
+        border: 5px solid green;
+        border-radius: 10px;
+    }
     .overlay {
         position: fixed; /* Sit on top of the page content */
         display: none; /* Hidden by default */
