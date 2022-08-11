@@ -2,7 +2,7 @@
     <div :class="{'bg-danger' : halott}">
         <h4 class="text-center mt-2">Életerő</h4>
         <div class="d-grid text-center mb-3">
-            <button class="btn btn-success my-3" type="button"  data-bs-toggle="modal" data-bs-target="#damageModal">Életerő módositása</button>
+            <button class="btn btn-success my-3 bg-green-leather costum-btn" type="button"  data-bs-toggle="modal" data-bs-target="#damageModal">Életerő módositása</button>
         </div>
         <div class="row">
             <div class="col border-end border-secondary">
@@ -36,10 +36,10 @@
                     <input type="number" class="form-control" id="ep" v-model="inputEp">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success"  @click="teljesGyogyul" data-bs-dismiss="modal">Teljesen gyógyult</button>
-                    <button type="button" class="btn btn-danger"  @click="sebzesGyogyul('-')" data-bs-dismiss="modal">Sebzés</button>
-                    <button type="button" class="btn btn-success"  @click="sebzesGyogyul('+')" data-bs-dismiss="modal">Gyógyulás</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success bg-green-leather costum-btn"  @click="teljesGyogyul" data-bs-dismiss="modal">Teljesen gyógyult</button>
+                    <button type="button" class="btn btn-danger bg-red-leather costum-btn"  @click="sebzesGyogyul('-')" data-bs-dismiss="modal">Sebzés</button>
+                    <button type="button" class="btn btn-success bg-green-leather costum-btn"  @click="sebzesGyogyul('+')" data-bs-dismiss="modal">Gyógyulás</button>
                 </div>
                 </div>
             </div>

@@ -2,26 +2,28 @@
     <div>
         <div class="text-center border-bottom border-secondary">
             <h4>Felszerelés</h4>
-            <button class="btn btn-success my-3" type="button" :disabled="equip_loading" data-bs-toggle="modal" data-bs-target="#equipModal">Új felszerelés hozzáadása</button>
+            <button class="btn btn-success my-3 bg-green-leather costum-btn" type="button" :disabled="equip_loading" data-bs-toggle="modal" data-bs-target="#equipModal">Új felszerelés hozzáadása</button>
         </div>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col-4">Felszerelés</th>
-                    <th scope="col-2">darab</th>
-                    <th scope="col-4">elhelyezés</th>
-                    <th scope="col-2">kontrol</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="equip, index in felszereles" :key="'FSZ' + index">
-                    <td>{{ equip.name }}</td>
-                    <td>{{ equip.quantity }}</td>
-                    <td>{{ equip.where }}</td>
-                    <td><button class="btn btn-outline-success btn-sm m-1" type="button" @click="addQuantToEquipment(index)" :disabled="equip_loading">+</button><button class="btn btn-outline-danger btn-sm m-1" type="button" @click="removeQuantFromEquipment(index)" :disabled="equip_loading">-</button></td>
-                </tr> 
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col-4">Felszerelés</th>
+                        <th scope="col-2">darab</th>
+                        <th scope="col-4">elhelyezés</th>
+                        <th scope="col-2">kontrol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="equip, index in felszereles" :key="'FSZ' + index">
+                        <td>{{ equip.name }}</td>
+                        <td>{{ equip.quantity }}</td>
+                        <td>{{ equip.where }}</td>
+                        <td><button class="btn btn-outline-success btn-sm m-1" type="button" @click="addQuantToEquipment(index)" :disabled="equip_loading">+</button><button class="btn btn-outline-danger btn-sm m-1" type="button" @click="removeQuantFromEquipment(index)" :disabled="equip_loading">-</button></td>
+                    </tr> 
+                </tbody>
+            </table>
+        </div>
 
          <!-- Uj felszereles input modal -->
         <div class="modal fade" id="equipModal" tabindex="-1" aria-labelledby="equipModalLabel" aria-hidden="true">
@@ -40,8 +42,8 @@
                     <input type="text" class="form-control" id="where" v-model="input_where">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="addNewEquipment" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary bg-green-leather costum-btn" @click="addNewEquipment" data-bs-dismiss="modal">Save changes</button>
                 </div>
                 </div>
             </div>

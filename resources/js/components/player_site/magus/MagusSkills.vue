@@ -17,7 +17,7 @@
                     <p>{{ KpSzint }}</p>
                 </div>
                 <div class="col">
-                    <button v-if="kpLeft > 0" class="btn btn-success my-3" type="button" data-bs-toggle="modal" data-bs-target="#newSkillModal">Új képzettség tanulása</button>
+                    <button v-if="kpLeft > 0" class="btn btn-success my-3 bg-green-leather costum-btn" type="button" data-bs-toggle="modal" data-bs-target="#newSkillModal">Új képzettség tanulása</button>
                     <div v-if="freeFHAf > 0">
                         <p>{{ freeFHAf }} Alapfokú fegyverhasználat választására van lehetőség</p>
                         <select class="form-select form-select-lg mb-3" v-model="inputFreeFHAf" aria-label="weapon-select">
@@ -25,7 +25,7 @@
                             <option v-for="weapon in availableWeapons" :key="weapon.id" :value="weapon.id">{{ weapon.name }}</option>
                             <option v-for="ranged in availableRangedWeapons" :key="ranged.id" :value="ranged.id">{{ ranged.name }}</option>
                         </select>
-                        <button class="btn btn-primary" @click="submitFreeFHAf">Kiválaszt</button>
+                        <button class="btn btn-primary bg-green-leather costum-btn" @click="submitFreeFHAf">Kiválaszt</button>
                     </div>
                     <div v-if="freeFHMf > 0">
                         <p>{{ freeFHMf }} Mesterfokú fegyverhasználat választására van lehetőség</p>
@@ -34,7 +34,7 @@
                             <option v-for="weaponMf in availableWeaponsMf" :key="'MF' + weaponMf.id" :value="weaponMf.id">{{ weaponMf.name }}</option>
                             <option v-for="rangedMf in availableRangedWeaponsMf" :key="'MF' + rangedMf.id" :value="rangedMf.id">{{ rangedMf.name }}</option>
                         </select>
-                        <button class="btn btn-primary" @click="submitFreeFHMf">Kiválaszt</button>
+                        <button class="btn btn-primary bg-green-leather costum-btn" @click="submitFreeFHMf">Kiválaszt</button>
                     </div>
                     <dir v-if="freeFDAf > 0">
                         <p>{{ freeFDAf }} Alapfokú fegyverdobás választására van lehetőség</p>
@@ -42,7 +42,7 @@
                             <option selected value="" disabled>Választj fegyvert</option>
                             <option v-for="weapon in availableTrowWeapons" :key="'T' + weapon.id" :value="weapon.id">{{ weapon.name }}</option>
                         </select>
-                        <button class="btn btn-primary" @click="submitFreeFDAf">Kiválaszt</button>
+                        <button class="btn btn-primary bg-green-leather costum-btn" @click="submitFreeFDAf">Kiválaszt</button>
                     </dir>
                     <dir v-if="freeFDMf > 0">
                         <p>{{ freeFDMf }} Mesterfokú fegyverdobás választására van lehetőség</p>
@@ -50,12 +50,12 @@
                             <option selected value="" disabled>Választj fegyvert</option>
                             <option v-for="weaponMf in availableTrowWeaponsMf" :key="'TMF' + weaponMf.id" :value="weaponMf.id">{{ weaponMf.name }}</option>
                         </select>
-                        <button class="btn btn-primary" @click="submitFreeFDMf">Kiválaszt</button>
+                        <button class="btn btn-primary bg-green-leather costum-btn" @click="submitFreeFDMf">Kiválaszt</button>
                     </dir>
                     <div v-if="freeNyelvAf > 0">
                         <p>{{ freeNyelvAf }} Alapfokú nyelvismeret hozzáadására van lehetőség</p>
                         <input class="form-control form-control-lg" v-model="inputFreeNyelvAf" type="text" placeholder="ird be a megtanulni kivánt nyelvet" aria-label="language input">
-                        <button class="btn btn-primary" @click="submitFreeNyelvAf">Hozzáad</button>
+                        <button class="btn btn-primary bg-green-leather costum-btn" @click="submitFreeNyelvAf">Hozzáad</button>
                     </div>
                     <div v-if="freeNyelvMf > 0">
                         <p>{{ freeNyelvMf }} Mesterfokú nyelvismeret hozzáadására van lehetőség</p>
@@ -63,12 +63,12 @@
                             <option selected value="" disabled>Választj nyelvet</option>
                             <option v-for="language, index in upgradebleLanguages" :key="'L' + index" :value="language">{{ language }}</option>
                         </select>
-                        <button class="btn btn-primary" @click="submitFreeNyelvMf">Kiválaszt</button>
+                        <button class="btn btn-primary bg-green-leather costum-btn" @click="submitFreeNyelvMf">Kiválaszt</button>
                     </div>
                     <div v-if="freeSzakmaAf > 0">
                         <p>{{ freeSzakmaAf }} Alapfokú szakma hozzáadására van lehetőség</p>
                         <input class="form-control form-control-lg" v-model="inputFreeSzakmaAf" type="text" placeholder="ird be a megtanulni kivánt nyelvet" aria-label="language input">
-                        <button class="btn btn-primary" @click="submitFreeSzakmaAf">Hozzáad</button>
+                        <button class="btn btn-primary bg-green-leather costum-btn" @click="submitFreeSzakmaAf">Hozzáad</button>
                     </div>
                     <div v-if="freeSzakmaMf > 0">
                         <p>{{ freeSzakmaMf }} Alapfokú szakma hozzáadására van lehetőség</p>
@@ -76,7 +76,7 @@
                             <option selected value="" disabled>Választj szakmát</option>
                             <option v-for="craft, index in upgradebleCraftes" :key="'C' + index" :value="craft">{{ craft }}</option>
                         </select>
-                        <button class="btn btn-primary" @click="submitFreeSzakmaMf">Kiválaszt</button>
+                        <button class="btn btn-primary bg-green-leather costum-btn" @click="submitFreeSzakmaMf">Kiválaszt</button>
                     </div>
                 </div>
             </div>
@@ -87,44 +87,48 @@
             <!-- tanult kepzetsegek -->
             <div class="col pb-3 border-bottom border-end border-secondary">
                 <h4 class="text-center mt-2 pb-3 border-bottom border-secondary">Képzetség Tábla</h4>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col-8">Képzettség</th>
-                            <th scope="col">KP</th>
-                            <th scope="col">Szint</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="charSkill, index in characterSkills" :key="'S' + index">
-                            <td>{{ charSkill.skillName }}<button type="button" @click="skillInfo(charSkill.id)" class="btn btn-outline-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#skillModal">i</button></td>
-                            <td>{{ charSkill.kp }}</td>
-                            <td>{{ charSkill.level }}</td>
-                        </tr>
-                    </tbody>
-                </table> 
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col-8">Képzettség</th>
+                                <th scope="col">KP</th>
+                                <th scope="col">Szint</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="charSkill, index in characterSkills" :key="'S' + index">
+                                <td>{{ charSkill.skillName }}<button type="button" @click="skillInfo(charSkill.id)" class="btn btn-outline-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#skillModal">i</button></td>
+                                <td>{{ charSkill.kp }}</td>
+                                <td>{{ charSkill.level }}</td>
+                            </tr>
+                        </tbody>
+                    </table> 
+                </div>
             </div>
             <!-- szazalekos kepzetsegek -->
             <div class="col pb-3 border-bottom border-end border-secondary">
                 <h4 class="text-center mt-2 pb-3 border-bottom border-secondary">Százalékos Képzetség Tábla</h4>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col-6">Képzettség</th>
-                            <th scope="col">Ráfektetett KP</th>
-                            <th scope="col">Ráfektetett %</th>
-                            <th scope="col">Összesen %</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="precSkill, key in charactersPrecentSkills" :key="key">
-                            <td>{{ skillPrecent(key).name }}<button type="button" @click="skillPrecInfo(key)" class="btn btn-outline-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#skillpModal">i</button></td>
-                            <td>{{ precSkill.kpAdded }}<button v-if="kpLeft > 0" type="button" @click="addKpToPrecentSkill(key)" class="btn btn-outline-success btn-sm ms-2">+</button></td>
-                            <td>{{ precSkill.precentAdded }}<button v-if="kpPrecentLeft > 0" type="button" @click="addPrecentToPrecentSkill(key)" class="btn btn-outline-success btn-sm ms-2">+</button></td>
-                            <td>{{ sumSkillPrecent(precSkill.precent) }}</td>
-                        </tr>
-                    </tbody>
-                </table> 
+                 <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col-6">Képzettség</th>
+                                <th scope="col">Ráfektetett KP</th>
+                                <th scope="col">Ráfektetett %</th>
+                                <th scope="col">Összesen %</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="precSkill, key in charactersPrecentSkills" :key="key">
+                                <td>{{ skillPrecent(key).name }}<button type="button" @click="skillPrecInfo(key)" class="btn btn-outline-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#skillpModal">i</button></td>
+                                <td>{{ precSkill.kpAdded }}<button v-if="kpLeft > 0" type="button" @click="addKpToPrecentSkill(key)" class="btn btn-outline-success btn-sm ms-2">+</button></td>
+                                <td>{{ precSkill.precentAdded }}<button v-if="kpPrecentLeft > 0" type="button" @click="addPrecentToPrecentSkill(key)" class="btn btn-outline-success btn-sm ms-2">+</button></td>
+                                <td>{{ sumSkillPrecent(precSkill.precent) }}</td>
+                            </tr>
+                        </tbody>
+                    </table> 
+                </div>
             </div>
         </div>
         <!-- new skill modal -->
@@ -139,7 +143,7 @@
                         <magus-learn-skill />
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -163,7 +167,7 @@
                         <p>{{ skill(infoSkillId).Mf }}</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -181,7 +185,7 @@
                         <p>{{ skillPrecent(infoSkillPrecId).description }}</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

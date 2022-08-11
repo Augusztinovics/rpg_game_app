@@ -26,7 +26,7 @@
                                 <p>{{ skil.Mf }}</p>
                                 <!-- a kulonbozo kepzetsegek hozzaadasa -->
                                 <div v-if="skil.id == 'FEGYVER_HASZNALAT'">
-                                   <div class="card bg-success text-white text-center">
+                                   <div class="card bg-success text-white text-center bg-blue-leather">
                                         <div class="card-body">
                                             <p class="h3">Új fegyver alapfokú ismeretének elsajátitása {{ skil.KpAf }} KP-ért</p>
                                             <select class="form-select form-select-lg mb-3" v-model="newWeapon" aria-label="weapon-select">
@@ -35,12 +35,12 @@
                                                 <option v-for="ranged in availableRangedWeapons" :key="ranged.id" :value="ranged.id">{{ ranged.name }}</option>
                                             </select>
                                             <p>Rendelkezésre álló Kp: {{ kpLeft }}</p>
-                                            <p><button class="btn btn-primary btn-lg" @click="addNewWeaponSkillAf">Megtanul</button></p>
+                                            <p><button class="btn btn-primary btn-lg bg-green-leather costum-btn" @click="addNewWeaponSkillAf">Megtanul</button></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div v-else-if="skil.id == 'FEGYVER_DOBAS'">
-                                    <div class="card bg-success text-white text-center">
+                                    <div class="card bg-success text-white text-center bg-blue-leather">
                                         <div class="card-body">
                                             <p class="h3">Új fegyverdobás alapfokú ismeretének elsajátitása {{ skil.KpAf }} KP-ért</p>
                                             <select class="form-select form-select-lg mb-3" v-model="newThrowWeapon" aria-label="weapon-select">
@@ -48,36 +48,36 @@
                                                 <option v-for="weapon in availableTrowWeapons" :key="'T' + weapon.id" :value="weapon.id">{{ weapon.name }}</option>
                                             </select>
                                             <p>Rendelkezésre álló Kp: {{ kpLeft }}</p>
-                                            <p><button class="btn btn-primary btn-lg" @click="addNewWeaponThrowSkillAf">Megtanul</button></p>
+                                            <p><button class="btn btn-primary btn-lg bg-green-leather costum-btn" @click="addNewWeaponThrowSkillAf">Megtanul</button></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div v-else-if="skil.id == 'NYELVISMERET'">
-                                   <div class="card bg-success text-white text-center">
+                                   <div class="card bg-success text-white text-center bg-blue-leather">
                                         <div class="card-body">
                                             <p class="h3">Új nyelv tanulása {{ skil.KpAf }} KP-ért</p>
                                             <input class="form-control form-control-lg" v-model="newLanguage" type="text" placeholder="ird be a megtanulni kivánt nyelvet" aria-label="language input">
                                             <p>Rendelkezésre álló Kp: {{ kpLeft }}</p>
-                                            <p><button class="btn btn-primary btn-lg mt-2" @click="addNewLanguageAf">Megtanul</button></p>
+                                            <p><button class="btn btn-primary btn-lg mt-2 bg-green-leather costum-btn" @click="addNewLanguageAf">Megtanul</button></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div v-else-if="skil.id == 'SZAKMA'">
-                                    <div class="card bg-success text-white text-center">
+                                    <div class="card bg-success text-white text-center bg-blue-leather">
                                         <div class="card-body">
                                             <p class="h3">Új szakma tanulása {{ skil.KpAf }} KP-ért</p>
                                             <input class="form-control form-control-lg" v-model="newCraft" type="text" placeholder="ird be a megtanulni kivánt szakmát" aria-label="skill input">
                                             <p>Rendelkezésre álló Kp: {{ kpLeft }}</p>
-                                            <p><button class="btn btn-primary btn-lg mt-2" @click="addNewCraftAf">Megtanul</button></p>
+                                            <p><button class="btn btn-primary btn-lg mt-2 bg-green-leather costum-btn" @click="addNewCraftAf">Megtanul</button></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div v-else>
-                                    <div class="card bg-success text-white text-center">
+                                    <div class="card bg-success text-white text-center bg-blue-leather">
                                         <div class="card-body">
                                             <p class="h3">{{ skil.name }} elsajátitása {{ skil.KpAf }} KP-ért</p>
                                             <p>Rendelkezésre álló Kp: {{ kpLeft }}</p>
-                                            <p><button class="btn btn-primary btn-lg" @click="addNewSkill(skil.id, skil.KpAf)">Megtanul</button></p>
+                                            <p><button class="btn btn-primary btn-lg bg-green-leather costum-btn" @click="addNewSkill(skil.id, skil.KpAf)">Megtanul</button></p>
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@
                                 <p>{{ skilmf.Mf }}</p>
                                 <!-- a kulonbozo kepzetsegek hozzaadasa -->
                                 <div v-if="skilmf.id == 'FEGYVER_HASZNALAT'">
-                                   <div class="card bg-success text-white text-center">
+                                   <div class="card bg-success text-white text-center bg-blue-leather">
                                         <div class="card-body">
                                             <p class="h3">Fegyverhasználat mesterfokra fejlesztése {{ skilmf.KpMf }} KP-ért</p>
                                             <select class="form-select form-select-lg mb-3" v-model="weaponMf" aria-label="weapon-select">
@@ -115,12 +115,12 @@
                                                 <option v-for="rangedMf in availableRangedWeaponsMf" :key="'MF' + rangedMf.id" :value="rangedMf.id">{{ rangedMf.name }}</option>
                                             </select>
                                             <p>Rendelkezésre álló Kp: {{ kpLeft }}</p>
-                                            <p><button class="btn btn-primary btn-lg" @click="upgradeWeaponSkillMf">Megtanul</button></p>
+                                            <p><button class="btn btn-primary btn-lg bg-green-leather costum-btn" @click="upgradeWeaponSkillMf">Megtanul</button></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div v-else-if="skilmf.id == 'FEGYVER_DOBAS'">
-                                    <div class="card bg-success text-white text-center">
+                                    <div class="card bg-success text-white text-center bg-blue-leather">
                                         <div class="card-body">
                                             <p class="h3">Fegyverdobás mesterfokra fejlesztése {{ skilmf.KpMf }} KP-ért</p>
                                             <select class="form-select form-select-lg mb-3" v-model="trowWeaponMf" aria-label="weapon-select">
@@ -128,12 +128,12 @@
                                                 <option v-for="weaponMf in availableTrowWeaponsMf" :key="'TMF' + weaponMf.id" :value="weaponMf.id">{{ weaponMf.name }}</option>
                                             </select>
                                             <p>Rendelkezésre álló Kp: {{ kpLeft }}</p>
-                                            <p><button class="btn btn-primary btn-lg" @click="upgradeWeaponThrowSkillMf">Megtanul</button></p>
+                                            <p><button class="btn btn-primary btn-lg bg-green-leather costum-btn" @click="upgradeWeaponThrowSkillMf">Megtanul</button></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div v-else-if="skilmf.id == 'NYELVISMERET'">
-                                   <div class="card bg-success text-white text-center">
+                                   <div class="card bg-success text-white text-center bg-blue-leather">
                                         <div class="card-body">
                                             <p class="h3">Nyelv tanulása {{ skilmf.KpMf }} KP-ért</p>
                                             <select class="form-select form-select-lg mb-3" v-model="languageMf" aria-label="weapon-select">
@@ -141,12 +141,12 @@
                                                 <option v-for="language, index in upgradebleLanguages" :key="'L' + index" :value="language">{{ language }}</option>
                                             </select>
                                             <p>Rendelkezésre álló Kp: {{ kpLeft }}</p>
-                                            <p><button class="btn btn-primary btn-lg mt-2" @click="upgradeLanguageMf">Megtanul</button></p>
+                                            <p><button class="btn btn-primary btn-lg mt-2 bg-green-leather costum-btn" @click="upgradeLanguageMf">Megtanul</button></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div v-else-if="skilmf.id == 'SZAKMA'">
-                                    <div class="card bg-success text-white text-center">
+                                    <div class="card bg-success text-white text-center bg-blue-leather">
                                         <div class="card-body">
                                             <p class="h3">Szakma tanulása {{ skilmf.KpMf }} KP-ért</p>
                                             <select class="form-select form-select-lg mb-3" v-model="craftMf" aria-label="weapon-select">
@@ -154,16 +154,16 @@
                                                 <option v-for="craft, index in upgradebleCraftes" :key="'C' + index" :value="craft">{{ craft }}</option>
                                             </select>
                                             <p>Rendelkezésre álló Kp: {{ kpLeft }}</p>
-                                            <p><button class="btn btn-primary btn-lg mt-2" @click="upgradeCraftMf">Megtanul</button></p>
+                                            <p><button class="btn btn-primary btn-lg mt-2 bg-green-leather costum-btn" @click="upgradeCraftMf">Megtanul</button></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div v-else>
-                                    <div class="card bg-success text-white text-center">
+                                    <div class="card bg-success text-white text-center bg-blue-leather">
                                         <div class="card-body">
                                             <p class="h3">{{ skilmf.name }} mesterfokra fejlesztése {{ skilmf.KpMf }} KP-ért</p>
                                             <p>Rendelkezésre álló Kp: {{ kpLeft }}</p>
-                                            <p><button class="btn btn-primary btn-lg" @click="upgradeSkillMf(skilmf.id, skilmf.KpMf)">Megtanul</button></p>
+                                            <p><button class="btn btn-primary btn-lg bg-green-leather costum-btn" @click="upgradeSkillMf(skilmf.id, skilmf.KpMf)">Megtanul</button></p>
                                         </div>
                                     </div>
                                 </div>

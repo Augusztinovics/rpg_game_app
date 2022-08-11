@@ -22,3 +22,41 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.bg-white-leather {
+    background-image: url("/img/lether-whit.jpg");
+    background-repeat: repeat;
+}
+.letter-spec-1 {
+    letter-spacing: 0.5rem;
+}
+.bg-green-leather {
+    background-image: url("/img/lether-green.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.bg-red-leather {
+    background-image: url("/img/lether-red.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.bg-blue-leather {
+    background-image: url("/img/lether-blue.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.costum-btn {
+    border-radius: 15px;
+    box-shadow: 0 9px #999 !important;
+}
+.costum-btn:hover {
+    border: 2px solid rgb(90, 82, 82);
+    border-radius: 12px;
+}
+.costum-btn:active {
+    box-shadow: 0 5px #666 !important;
+    transform: translateY(4px);
+}

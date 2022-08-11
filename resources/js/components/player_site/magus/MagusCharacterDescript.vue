@@ -2,7 +2,7 @@
     <div>
         <dir>
             <h4>A Karakter leirása/előtörténet</h4>
-            <button class="btn btn-success my-3" type="button" data-bs-toggle="modal" data-bs-target="#descriptionModal">Leirás módositása</button>
+            <button class="btn btn-success my-3 bg-green-leather costum-btn" type="button" data-bs-toggle="modal" data-bs-target="#descriptionModal">Leirás módositása</button>
             <p class="border-top border-secondary mt-4" style="white-space: pre-line;">{{ characterDescription }}</p>
         </dir>
 
@@ -18,8 +18,8 @@
                     <textarea v-model="description" class="form-control" rows="6"></textarea>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="saveNewDescription" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary bg-green-leather costum-btn" @click="saveNewDescription" data-bs-dismiss="modal">Save changes</button>
                 </div>
                 </div>
             </div>

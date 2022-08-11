@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="d-grid text-center mb-3">
-            <button class="btn btn-success ms-2" type="button" data-bs-toggle="modal" data-bs-target="#tpModal">Tapasztalati Pontok Növelése</button>
+            <button class="btn btn-success ms-2 bg-green-leather costum-btn" type="button" data-bs-toggle="modal" data-bs-target="#tpModal">Tapasztalati Pontok Növelése</button>
         </div>
         <h5>Tapasztalati pontok</h5>
         <p class="border border-secondary rounded m-4 p-3">{{ currentTp }}</p>
@@ -21,8 +21,8 @@
                         <input type="number" class="form-control" id="tpInput"  v-model="inputTp">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary"  @click="addTp" data-bs-dismiss="modal">Save changes</button>
+                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary bg-green-leather costum-btn" @click="addTp" data-bs-dismiss="modal">Save changes</button>
                     </div>
                 </div>
             </div>

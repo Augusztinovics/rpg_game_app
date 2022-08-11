@@ -9,12 +9,9 @@
                     <p class="ms-2"><span class="fw-bolder me-2">Bal kéz: </span>{{ leftHandEquip.name }}</p>
                 </div>
                 <div class="col">
-                    <button class="btn btn-success my-3" type="button" data-bs-toggle="modal" @click="unequipRight" data-bs-target="#rightWeaponModal">Fegyver jobb kézbe vétele</button>
-                    <button class="btn btn-success my-3" type="button" data-bs-toggle="modal" @click="unequipLeft" data-bs-target="#leftWeaponModal">Fegyver bal kézbe vétele</button>
-                    <button class="btn btn-success my-3" type="button" data-bs-toggle="modal" data-bs-target="#rangedWeaponModal">Lőfegyver kézbe vétele</button>
-                </div>
-                <div class="col">
-
+                    <button class="btn btn-success my-3 bg-green-leather costum-btn" type="button" data-bs-toggle="modal" @click="unequipRight" data-bs-target="#rightWeaponModal">Fegyver jobb kézbe vétele</button>
+                    <button class="btn btn-success my-3 bg-green-leather costum-btn" type="button" data-bs-toggle="modal" @click="unequipLeft" data-bs-target="#leftWeaponModal">Fegyver bal kézbe vétele</button>
+                    <button class="btn btn-success my-3 bg-green-leather costum-btn" type="button" data-bs-toggle="modal" data-bs-target="#rangedWeaponModal">Lőfegyver kézbe vétele</button>
                 </div>
             </div>
             
@@ -22,62 +19,66 @@
         <div class="mt-3">
             <h5 class="text-center">Közelharci fegyverek</h5>
             <div class="d-grid text-center mb-3">
-                <button class="btn btn-success my-3" type="button" data-bs-toggle="modal" data-bs-target="#weaponModal">Fegyver hozzáadása</button>
+                <button class="btn btn-success my-3 bg-green-leather costum-btn" type="button" data-bs-toggle="modal" data-bs-target="#weaponModal">Fegyver hozzáadása</button>
             </div>
-             <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Fegyver</th>
-                        <th>Tám/kör</th>
-                        <th>KÉ</th>
-                        <th>TÉ</th>
-                        <th>VÉ</th>
-                        <th>Sebzés</th>
-                        <th>-</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="fegyver, index in availableWeapon" :key="'W' + index">
-                        <td>{{ fegyver.name }}</td>
-                        <td>{{ fegyver.TamKor }}</td>
-                        <td>{{ fegyver.Ke }}</td>
-                        <td>{{ fegyver.Te }}</td>
-                        <td>{{ fegyver.Ve }}</td>
-                        <td>{{ fegyver.Sp.name }}</td>
-                        <td><button class="btn btn-outline-danger btn-sm ms-1" type="button"  @click="removeWeapon(index)">-</button></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive-md">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Fegyver</th>
+                            <th>Tám/kör</th>
+                            <th>KÉ</th>
+                            <th>TÉ</th>
+                            <th>VÉ</th>
+                            <th>Sebzés</th>
+                            <th>-</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="fegyver, index in availableWeapon" :key="'W' + index">
+                            <td>{{ fegyver.name }}</td>
+                            <td>{{ fegyver.TamKor }}</td>
+                            <td>{{ fegyver.Ke }}</td>
+                            <td>{{ fegyver.Te }}</td>
+                            <td>{{ fegyver.Ve }}</td>
+                            <td>{{ fegyver.Sp.name }}</td>
+                            <td><button class="btn btn-outline-danger btn-sm ms-1" type="button"  @click="removeWeapon(index)">-</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="mt-3">
             <h5 class="text-center">Távolsági fegyverek</h5>
             <div class="d-grid text-center mb-3">
-                <button class="btn btn-success my-3" type="button" data-bs-toggle="modal" data-bs-target="#rangedModal">Fegyver hozzáadása</button>
+                <button class="btn btn-success my-3 bg-green-leather costum-btn" type="button" data-bs-toggle="modal" data-bs-target="#rangedModal">Fegyver hozzáadása</button>
             </div>
-             <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Fegyver</th>
-                        <th>Tám/kör</th>
-                        <th>KÉ</th>
-                        <th>CÉ</th>
-                        <th>Táv</th>
-                        <th>Sebzés</th>
-                        <th>-</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="ij, index in availableRangedWeapon" :key="'R' + index">
-                        <td>{{ ij.name }}</td>
-                        <td>{{ ij.TamKor }}</td>
-                        <td>{{ ij.Ke }}</td>
-                        <td>{{ ij.Ce }}</td>
-                        <td>{{ ij.Tav }} méter</td>
-                        <td>{{ ij.Sp.name }}</td>
-                        <td><button class="btn btn-outline-danger btn-sm ms-1" type="button" @click="removeRanged(index)">-</button></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive-md">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Fegyver</th>
+                            <th>Tám/kör</th>
+                            <th>KÉ</th>
+                            <th>CÉ</th>
+                            <th>Táv</th>
+                            <th>Sebzés</th>
+                            <th>-</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="ij, index in availableRangedWeapon" :key="'R' + index">
+                            <td>{{ ij.name }}</td>
+                            <td>{{ ij.TamKor }}</td>
+                            <td>{{ ij.Ke }}</td>
+                            <td>{{ ij.Ce }}</td>
+                            <td>{{ ij.Tav }} méter</td>
+                            <td>{{ ij.Sp.name }}</td>
+                            <td><button class="btn btn-outline-danger btn-sm ms-1" type="button" @click="removeRanged(index)">-</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
          <!-- Kozelharci fegyver hozzaadasa modal -->
@@ -114,8 +115,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="submitWeapon" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary bg-green-leather costum-btn" @click="submitWeapon" data-bs-dismiss="modal">Save changes</button>
                 </div>
                 </div>
             </div>
@@ -154,8 +155,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="submitRangedWeapon" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary bg-green-leather costum-btn"  @click="submitRangedWeapon" data-bs-dismiss="modal">Save changes</button>
                 </div>
                 </div>
             </div>
@@ -177,8 +178,8 @@
                     
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="equipLeftWeapon" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary bg-green-leather costum-btn" @click="equipLeftWeapon" data-bs-dismiss="modal">Save changes</button>
                 </div>
                 </div>
             </div>
@@ -200,8 +201,8 @@
                     
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="equipRightWeapon" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary bg-green-leather costum-btn" @click="equipRightWeapon" data-bs-dismiss="modal">Save changes</button>
                 </div>
                 </div>
             </div>
@@ -223,8 +224,8 @@
                     
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="equipRangedWeapon" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary bg-green-leather costum-btn" @click="equipRangedWeapon" data-bs-dismiss="modal">Save changes</button>
                 </div>
                 </div>
             </div>

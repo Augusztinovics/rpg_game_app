@@ -1,11 +1,11 @@
 <template>
-    <div class="container-fluid">
+    <div class="container-fluid bg-white-leather">
         <div v-if="basic==1">
 
             <header>          
-                <div class="px-4 py-5 my-5 text-center bg-success text-light rounded">
+                <div class="shadow-lg px-4 py-5 my-5 text-center bg-success text-light rounded hero-bg">
                         <img class="d-block mx-auto mb-4" src="/img/pentagram.png" alt="" width="72" height="72">
-                        <h1 class="display-5 fw-bold">MAGUS</h1>
+                        <h1 class="display-4 fw-bold">MAGUS</h1>
                         <div class="col-lg-6 mx-auto">
                             <p class="lead mb-4">---- Avagy ----</p>
                             <p class="lead mb-4">A kalandorok krónikája</p>
@@ -26,7 +26,7 @@
                 </div>
                 <hr>
             </header>
-            <section>
+            <section class="mb-5">
                 <div class="text-center">
                     <h2>Izelitő a játékból</h2>
                     <p>Némi leirás a játékból kedvcsinálóként</p>
@@ -189,8 +189,8 @@
                 <div class="row row-cols-1 row-cols-md-2 mb-2 text-center">
                     <div class="col">
                         <div class="card mb-4 rounded-3 shadow-sm border-success">
-                            <div class="card-header py-3 text-white bg-success border-success">
-                                <h4 class="my-0 fw-normal">Karakterek</h4>
+                            <div class="card-header py-3 text-white bg-success border-success hero-bg">
+                                <h4 class="my-0 fw-normal letter-spec-1">Karakterek</h4>
                             </div>
                             <div class="card-body">
                                 <ul class="list-unstyled mt-3 mb-4">
@@ -199,28 +199,28 @@
                                        <button class="btn btn-outline-danger" @click="deleteCharacter(magusCharacter.id)">Törlés</button>
                                     </li>
                                 </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-success" @click="basic=2">Új karakter készitése</button>
+                                <button type="button" class="w-100 btn btn-lg btn-success costum-btn bg-green-leather" @click="basic=2">Új karakter készitése</button>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card mb-4 rounded-3 shadow-sm border-success">
-                            <div class="card-header py-3 text-white bg-success border-success">
-                                <h4 class="my-0 fw-normal">Játék modulok</h4>
+                            <div class="card-header py-3 text-white bg-success border-success hero-bg">
+                                <h4 class="my-0 fw-normal letter-spec-1">Játék modulok</h4>
                             </div>
                             <div class="card-body">
                                 <ul class="list-unstyled mt-3 mb-4">
                                     <li>Még nem elérhető funkció</li>
                                 </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-success">Modul keresése</button>
+                                <button type="button" class="w-100 btn btn-lg btn-success costum-btn bg-green-leather">Modul keresése</button>
                             </div>
                         </div>
                     </div>    
                 </div>
             </main>
             <hr>
-            <footer class="text-center m-2">
-                <div class="p-4">
+            <footer class="text-center m-2 bg-blue-leather rounded-3">
+                <div class="p-4 text-white">
                     <p>FIGYELEM a lapon lévő adatok a <b>M.A.G.U.S avagy a Kalandorok Krónikái Első Törvénykönyv</b> 1997. évi kiadványából származnak.</p>
                     <p>A lap csak idézeteket és részadatokat tartalmaz, nem a teljes könyv adatait, igy nem helyettesiti a könyvet.</p>
                     <p>Kérem a játékosokat, hogy ha még nem rendelkeznek a könyvvel, vásárolják meg azt, hogy teljes képet kapjanak a játékról.</p>
@@ -321,3 +321,14 @@
         }
     }
 </script>
+<style scoped>
+    .hero-bg {
+        background-image: url("/img/stone-green.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    .hero-bg h1 {
+        letter-spacing: 1rem;
+    }
+</style>

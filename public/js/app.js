@@ -6941,6 +6941,65 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
@@ -8124,6 +8183,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
 //
 //
 //
@@ -11003,6 +11064,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -11508,6 +11573,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
 //
 //
 //
@@ -25227,6 +25293,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n.row.content[data-v-ce2fa2e4] {height: 450px}\n.sidenav[data-v-ce2fa2e4] {\n  padding-top: 20px;\n  background-color: #f1f1f1;\n  height: 100%;\n}\n@media screen and (max-width: 767px) {\n.sidenav[data-v-ce2fa2e4] {\n    height: auto;\n    padding: 15px;\n}\n.row.content[data-v-ce2fa2e4] {height:auto;}\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/MagusBasicView.vue?vue&type=style&index=0&id=7d2c51d7&scoped=true&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/MagusBasicView.vue?vue&type=style&index=0&id=7d2c51d7&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.hero-bg[data-v-7d2c51d7] {\n    background-image: url(\"/img/stone-green.jpg\");\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: cover;\n}\n.hero-bg h1[data-v-7d2c51d7] {\n    letter-spacing: 1rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -42830,6 +42920,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/MagusBasicView.vue?vue&type=style&index=0&id=7d2c51d7&scoped=true&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/MagusBasicView.vue?vue&type=style&index=0&id=7d2c51d7&scoped=true&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusBasicView_vue_vue_type_style_index_0_id_7d2c51d7_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusBasicView.vue?vue&type=style&index=0&id=7d2c51d7&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/MagusBasicView.vue?vue&type=style&index=0&id=7d2c51d7&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusBasicView_vue_vue_type_style_index_0_id_7d2c51d7_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusBasicView_vue_vue_type_style_index_0_id_7d2c51d7_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=style&index=0&id=501c4c01&scoped=true&lang=css&":
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=style&index=0&id=501c4c01&scoped=true&lang=css& ***!
@@ -43329,23 +43449,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _MagusBasicView_vue_vue_type_template_id_7d2c51d7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusBasicView.vue?vue&type=template&id=7d2c51d7& */ "./resources/js/components/player_site/MagusBasicView.vue?vue&type=template&id=7d2c51d7&");
+/* harmony import */ var _MagusBasicView_vue_vue_type_template_id_7d2c51d7_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusBasicView.vue?vue&type=template&id=7d2c51d7&scoped=true& */ "./resources/js/components/player_site/MagusBasicView.vue?vue&type=template&id=7d2c51d7&scoped=true&");
 /* harmony import */ var _MagusBasicView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusBasicView.vue?vue&type=script&lang=js& */ "./resources/js/components/player_site/MagusBasicView.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _MagusBasicView_vue_vue_type_style_index_0_id_7d2c51d7_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MagusBasicView.vue?vue&type=style&index=0&id=7d2c51d7&scoped=true&lang=css& */ "./resources/js/components/player_site/MagusBasicView.vue?vue&type=style&index=0&id=7d2c51d7&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _MagusBasicView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _MagusBasicView_vue_vue_type_template_id_7d2c51d7___WEBPACK_IMPORTED_MODULE_0__.render,
-  _MagusBasicView_vue_vue_type_template_id_7d2c51d7___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _MagusBasicView_vue_vue_type_template_id_7d2c51d7_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusBasicView_vue_vue_type_template_id_7d2c51d7_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  null,
+  "7d2c51d7",
   null
   
 )
@@ -44485,6 +44607,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/player_site/MagusBasicView.vue?vue&type=style&index=0&id=7d2c51d7&scoped=true&lang=css&":
+/*!*************************************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/MagusBasicView.vue?vue&type=style&index=0&id=7d2c51d7&scoped=true&lang=css& ***!
+  \*************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusBasicView_vue_vue_type_style_index_0_id_7d2c51d7_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusBasicView.vue?vue&type=style&index=0&id=7d2c51d7&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/MagusBasicView.vue?vue&type=style&index=0&id=7d2c51d7&scoped=true&lang=css&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=style&index=0&id=501c4c01&scoped=true&lang=css&":
 /*!***************************************************************************************************************************!*\
   !*** ./resources/js/components/player_site/magus/MagusArmor.vue?vue&type=style&index=0&id=501c4c01&scoped=true&lang=css& ***!
@@ -44575,19 +44710,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/player_site/MagusBasicView.vue?vue&type=template&id=7d2c51d7&":
-/*!***********************************************************************************************!*\
-  !*** ./resources/js/components/player_site/MagusBasicView.vue?vue&type=template&id=7d2c51d7& ***!
-  \***********************************************************************************************/
+/***/ "./resources/js/components/player_site/MagusBasicView.vue?vue&type=template&id=7d2c51d7&scoped=true&":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/components/player_site/MagusBasicView.vue?vue&type=template&id=7d2c51d7&scoped=true& ***!
+  \***********************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusBasicView_vue_vue_type_template_id_7d2c51d7___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusBasicView_vue_vue_type_template_id_7d2c51d7___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusBasicView_vue_vue_type_template_id_7d2c51d7_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusBasicView_vue_vue_type_template_id_7d2c51d7_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusBasicView_vue_vue_type_template_id_7d2c51d7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusBasicView.vue?vue&type=template&id=7d2c51d7& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/MagusBasicView.vue?vue&type=template&id=7d2c51d7&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusBasicView_vue_vue_type_template_id_7d2c51d7_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusBasicView.vue?vue&type=template&id=7d2c51d7&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/MagusBasicView.vue?vue&type=template&id=7d2c51d7&scoped=true&");
 
 
 /***/ }),
@@ -45181,10 +45316,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/MagusBasicView.vue?vue&type=template&id=7d2c51d7&":
-/*!**************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/MagusBasicView.vue?vue&type=template&id=7d2c51d7& ***!
-  \**************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/MagusBasicView.vue?vue&type=template&id=7d2c51d7&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/MagusBasicView.vue?vue&type=template&id=7d2c51d7&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -45197,12 +45332,12 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-fluid" }, [
+  return _c("div", { staticClass: "container-fluid bg-white-leather" }, [
     _vm.basic == 1
       ? _c("div", [
           _vm._m(0),
           _vm._v(" "),
-          _c("section", [
+          _c("section", { staticClass: "mb-5" }, [
             _vm._m(1),
             _vm._v(" "),
             _c(
@@ -45795,7 +45930,8 @@ var render = function () {
                         _c(
                           "button",
                           {
-                            staticClass: "w-100 btn btn-lg btn-success",
+                            staticClass:
+                              "w-100 btn btn-lg btn-success costum-btn bg-green-leather",
                             attrs: { type: "button" },
                             on: {
                               click: function ($event) {
@@ -45858,7 +45994,7 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "px-4 py-5 my-5 text-center bg-success text-light rounded",
+            "shadow-lg px-4 py-5 my-5 text-center bg-success text-light rounded hero-bg",
         },
         [
           _c("img", {
@@ -45871,7 +46007,7 @@ var staticRenderFns = [
             },
           }),
           _vm._v(" "),
-          _c("h1", { staticClass: "display-5 fw-bold" }, [_vm._v("MAGUS")]),
+          _c("h1", { staticClass: "display-4 fw-bold" }, [_vm._v("MAGUS")]),
           _vm._v(" "),
           _c("div", { staticClass: "col-lg-6 mx-auto" }, [
             _c("p", { staticClass: "lead mb-4" }, [_vm._v("---- Avagy ----")]),
@@ -46116,8 +46252,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "card-header py-3 text-white bg-success border-success" },
-      [_c("h4", { staticClass: "my-0 fw-normal" }, [_vm._v("Karakterek")])]
+      {
+        staticClass:
+          "card-header py-3 text-white bg-success border-success hero-bg",
+      },
+      [
+        _c("h4", { staticClass: "my-0 fw-normal letter-spec-1" }, [
+          _vm._v("Karakterek"),
+        ]),
+      ]
     )
   },
   function () {
@@ -46133,10 +46276,10 @@ var staticRenderFns = [
             "div",
             {
               staticClass:
-                "card-header py-3 text-white bg-success border-success",
+                "card-header py-3 text-white bg-success border-success hero-bg",
             },
             [
-              _c("h4", { staticClass: "my-0 fw-normal" }, [
+              _c("h4", { staticClass: "my-0 fw-normal letter-spec-1" }, [
                 _vm._v("Játék modulok"),
               ]),
             ]
@@ -46150,7 +46293,8 @@ var staticRenderFns = [
             _c(
               "button",
               {
-                staticClass: "w-100 btn btn-lg btn-success",
+                staticClass:
+                  "w-100 btn btn-lg btn-success costum-btn bg-green-leather",
                 attrs: { type: "button" },
               },
               [_vm._v("Modul keresése")]
@@ -46164,29 +46308,33 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("footer", { staticClass: "text-center m-2" }, [
-      _c("div", { staticClass: "p-4" }, [
-        _c("p", [
-          _vm._v("FIGYELEM a lapon lévő adatok a "),
-          _c("b", [
-            _vm._v("M.A.G.U.S avagy a Kalandorok Krónikái Első Törvénykönyv"),
+    return _c(
+      "footer",
+      { staticClass: "text-center m-2 bg-blue-leather rounded-3" },
+      [
+        _c("div", { staticClass: "p-4 text-white" }, [
+          _c("p", [
+            _vm._v("FIGYELEM a lapon lévő adatok a "),
+            _c("b", [
+              _vm._v("M.A.G.U.S avagy a Kalandorok Krónikái Első Törvénykönyv"),
+            ]),
+            _vm._v(" 1997. évi kiadványából származnak."),
           ]),
-          _vm._v(" 1997. évi kiadványából származnak."),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "A lap csak idézeteket és részadatokat tartalmaz, nem a teljes könyv adatait, igy nem helyettesiti a könyvet."
+            ),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "Kérem a játékosokat, hogy ha még nem rendelkeznek a könyvvel, vásárolják meg azt, hogy teljes képet kapjanak a játékról."
+            ),
+          ]),
         ]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "A lap csak idézeteket és részadatokat tartalmaz, nem a teljes könyv adatait, igy nem helyettesiti a könyvet."
-          ),
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "Kérem a játékosokat, hogy ha még nem rendelkeznek a könyvvel, vásárolják meg azt, hogy teljes képet kapjanak a játékról."
-          ),
-        ]),
-      ]),
-    ])
+      ]
+    )
   },
 ]
 render._withStripped = true
@@ -47605,7 +47753,7 @@ var render = function () {
       _c(
         "button",
         {
-          staticClass: "btn btn-success my-3",
+          staticClass: "btn btn-success my-3 bg-green-leather costum-btn",
           attrs: {
             type: "button",
             "data-bs-toggle": "modal",
@@ -47916,7 +48064,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
                 [_vm._v("Close")]
@@ -47925,7 +48073,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
+                  staticClass: "btn btn-primary bg-green-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.submitArmor },
                 },
@@ -48054,7 +48202,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-secondary",
+          staticClass: "btn btn-secondary bg-blue-leather costum-btn",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
         [_vm._v("Close")]
@@ -48084,433 +48232,515 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "col-4" }, [
-      _c("h3", { staticClass: "my-4" }, [
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-danger btn-sm me-2",
-            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-            on: {
-              click: function ($event) {
-                return _vm.ModEro("-")
+  return _c("div", [
+    _c("div", { staticClass: "row" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c("h3", { staticClass: "my-4" }, [
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-danger btn-sm me-2",
+              attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+              on: {
+                click: function ($event) {
+                  return _vm.ModEro("-")
+                },
               },
             },
-          },
-          [_c("b", [_vm._v("-")])]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-dark btn-lg",
-            attrs: { title: "Visszaálitani a tulajdonságot eredeti értékére" },
-            on: {
-              click: function ($event) {
-                return _vm.ModEro("0")
+            [_c("b", [_vm._v("-")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-dark btn-lg",
+              attrs: {
+                title: "Visszaálitani a tulajdonságot eredeti értékére",
+              },
+              on: {
+                click: function ($event) {
+                  return _vm.ModEro("0")
+                },
               },
             },
-          },
-          [_c("b", [_vm._v(_vm._s(_vm.ero))])]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-success btn-sm ms-2",
-            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-            on: {
-              click: function ($event) {
-                return _vm.ModEro("+")
+            [_c("b", [_vm._v(_vm._s(_vm.ero))])]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-success btn-sm ms-2",
+              attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+              on: {
+                click: function ($event) {
+                  return _vm.ModEro("+")
+                },
               },
             },
-          },
-          [_c("b", [_vm._v("+")])]
-        ),
+            [_c("b", [_vm._v("+")])]
+          ),
+        ]),
       ]),
       _vm._v(" "),
-      _c("h3", { staticClass: "my-4" }, [
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-danger btn-sm me-2",
-            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-            on: {
-              click: function ($event) {
-                return _vm.ModGyors("-")
-              },
-            },
-          },
-          [_c("b", [_vm._v("-")])]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-dark btn-lg",
-            attrs: { title: "Visszaálitani a tulajdonságot eredeti értékére" },
-            on: {
-              click: function ($event) {
-                return _vm.ModGyors("0")
-              },
-            },
-          },
-          [_c("b", [_vm._v(_vm._s(_vm.gyorsasag))])]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-success btn-sm ms-2",
-            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-            on: {
-              click: function ($event) {
-                return _vm.ModGyors("+")
-              },
-            },
-          },
-          [_c("b", [_vm._v("+")])]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "my-4" }, [
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-danger btn-sm me-2",
-            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-            on: {
-              click: function ($event) {
-                return _vm.ModUgy("-")
-              },
-            },
-          },
-          [_c("b", [_vm._v("-")])]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-dark btn-lg",
-            attrs: { title: "Visszaálitani a tulajdonságot eredeti értékére" },
-            on: {
-              click: function ($event) {
-                return _vm.ModUgy("0")
-              },
-            },
-          },
-          [_c("b", [_vm._v(_vm._s(_vm.ugyesseg))])]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-success btn-sm ms-2",
-            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-            on: {
-              click: function ($event) {
-                return _vm.ModUgy("+")
-              },
-            },
-          },
-          [_c("b", [_vm._v("+")])]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "my-4" }, [
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-danger btn-sm me-2",
-            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-            on: {
-              click: function ($event) {
-                return _vm.ModAllo("-")
-              },
-            },
-          },
-          [_c("b", [_vm._v("-")])]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-dark btn-lg",
-            attrs: { title: "Visszaálitani a tulajdonságot eredeti értékére" },
-            on: {
-              click: function ($event) {
-                return _vm.ModAllo("0")
-              },
-            },
-          },
-          [_c("b", [_vm._v(_vm._s(_vm.allokepesseg))])]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-success btn-sm ms-2",
-            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-            on: {
-              click: function ($event) {
-                return _vm.ModAllo("+")
-              },
-            },
-          },
-          [_c("b", [_vm._v("+")])]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "my-4" }, [
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-danger btn-sm me-2",
-            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-            on: {
-              click: function ($event) {
-                return _vm.ModEg("-")
-              },
-            },
-          },
-          [_c("b", [_vm._v("-")])]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-dark btn-lg",
-            attrs: { title: "Visszaálitani a tulajdonságot eredeti értékére" },
-            on: {
-              click: function ($event) {
-                return _vm.ModEg("0")
-              },
-            },
-          },
-          [_c("b", [_vm._v(_vm._s(_vm.egeszseg))])]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-success btn-sm ms-2",
-            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-            on: {
-              click: function ($event) {
-                return _vm.ModEg("+")
-              },
-            },
-          },
-          [_c("b", [_vm._v("+")])]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "my-4" }, [
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-danger btn-sm me-2",
-            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-            on: {
-              click: function ($event) {
-                return _vm.ModSzep("-")
-              },
-            },
-          },
-          [_c("b", [_vm._v("-")])]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-dark btn-lg",
-            attrs: { title: "Visszaálitani a tulajdonságot eredeti értékére" },
-            on: {
-              click: function ($event) {
-                return _vm.ModSzep("0")
-              },
-            },
-          },
-          [_c("b", [_vm._v(_vm._s(_vm.szepseg))])]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-success btn-sm ms-2",
-            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-            on: {
-              click: function ($event) {
-                return _vm.ModSzep("+")
-              },
-            },
-          },
-          [_c("b", [_vm._v("+")])]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "my-4" }, [
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-danger btn-sm me-2",
-            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-            on: {
-              click: function ($event) {
-                return _vm.ModInt("-")
-              },
-            },
-          },
-          [_c("b", [_vm._v("-")])]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-dark btn-lg",
-            attrs: { title: "Visszaálitani a tulajdonságot eredeti értékére" },
-            on: {
-              click: function ($event) {
-                return _vm.ModInt("0")
-              },
-            },
-          },
-          [_c("b", [_vm._v(_vm._s(_vm.inteligencia))])]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-success btn-sm ms-2",
-            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-            on: {
-              click: function ($event) {
-                return _vm.ModInt("+")
-              },
-            },
-          },
-          [_c("b", [_vm._v("+")])]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "my-4" }, [
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-danger btn-sm me-2",
-            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-            on: {
-              click: function ($event) {
-                return _vm.ModAk("-")
-              },
-            },
-          },
-          [_c("b", [_vm._v("-")])]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-dark btn-lg",
-            attrs: { title: "Visszaálitani a tulajdonságot eredeti értékére" },
-            on: {
-              click: function ($event) {
-                return _vm.ModAk("0")
-              },
-            },
-          },
-          [_c("b", [_vm._v(_vm._s(_vm.akarat))])]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-success btn-sm ms-2",
-            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-            on: {
-              click: function ($event) {
-                return _vm.ModAk("+")
-              },
-            },
-          },
-          [_c("b", [_vm._v("+")])]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("h3", { staticClass: "my-4" }, [
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-danger btn-sm me-2",
-            attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
-            on: {
-              click: function ($event) {
-                return _vm.ModAszt("-")
-              },
-            },
-          },
-          [_c("b", [_vm._v("-")])]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-dark btn-lg",
-            attrs: { title: "Visszaálitani a tulajdonságot eredeti értékére" },
-            on: {
-              click: function ($event) {
-                return _vm.ModAszt("0")
-              },
-            },
-          },
-          [_c("b", [_vm._v(_vm._s(_vm.asztral))])]
-        ),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "btn btn-outline-success btn-sm ms-2",
-            attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
-            on: {
-              click: function ($event) {
-                return _vm.ModAszt("+")
-              },
-            },
-          },
-          [_c("b", [_vm._v("+")])]
-        ),
-      ]),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "col-3" }, [
-      _c("div", {}, [
+      _c("div", { staticClass: "col-sm-3" }, [
         _c("div", { staticClass: "border border-secondary rounded my-4" }, [
           _c("p", { staticClass: "mb-3 p-1" }, [
             _vm._v("Sp: "),
             _c("span", [_vm._v(_vm._s(_vm.spMod))]),
           ]),
         ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "border border-secondary rounded my-4" }, [
-          _c("p", { staticClass: "mb-3 p-1" }, [
-            _vm._v("Mod: "),
-            _c("span", [_vm._v(" " + _vm._s(_vm.mgt))]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "border border-secondary rounded my-4" }, [
-          _c("p", { staticClass: "mb-3 p-1" }, [
-            _vm._v("Mod: "),
-            _c("span", [_vm._v(" " + _vm._s(_vm.mgt))]),
-          ]),
-        ]),
-        _vm._v(" "),
-        _vm._m(1),
       ]),
     ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _vm._m(1),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c("h3", { staticClass: "my-4" }, [
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-danger btn-sm me-2",
+              attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+              on: {
+                click: function ($event) {
+                  return _vm.ModGyors("-")
+                },
+              },
+            },
+            [_c("b", [_vm._v("-")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-dark btn-lg",
+              attrs: {
+                title: "Visszaálitani a tulajdonságot eredeti értékére",
+              },
+              on: {
+                click: function ($event) {
+                  return _vm.ModGyors("0")
+                },
+              },
+            },
+            [_c("b", [_vm._v(_vm._s(_vm.gyorsasag))])]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-success btn-sm ms-2",
+              attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+              on: {
+                click: function ($event) {
+                  return _vm.ModGyors("+")
+                },
+              },
+            },
+            [_c("b", [_vm._v("+")])]
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3" }, [
+        _c("div", { staticClass: "border border-secondary rounded my-4" }, [
+          _c("p", { staticClass: "mb-3 p-1" }, [
+            _vm._v("Mod: "),
+            _c("span", [_vm._v(" " + _vm._s(_vm.mgt))]),
+          ]),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _vm._m(2),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c("h3", { staticClass: "my-4" }, [
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-danger btn-sm me-2",
+              attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+              on: {
+                click: function ($event) {
+                  return _vm.ModUgy("-")
+                },
+              },
+            },
+            [_c("b", [_vm._v("-")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-dark btn-lg",
+              attrs: {
+                title: "Visszaálitani a tulajdonságot eredeti értékére",
+              },
+              on: {
+                click: function ($event) {
+                  return _vm.ModUgy("0")
+                },
+              },
+            },
+            [_c("b", [_vm._v(_vm._s(_vm.ugyesseg))])]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-success btn-sm ms-2",
+              attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+              on: {
+                click: function ($event) {
+                  return _vm.ModUgy("+")
+                },
+              },
+            },
+            [_c("b", [_vm._v("+")])]
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3" }, [
+        _c("div", { staticClass: "border border-secondary rounded my-4" }, [
+          _c("p", { staticClass: "mb-3 p-1" }, [
+            _vm._v("Mod: "),
+            _c("span", [_vm._v(" " + _vm._s(_vm.mgt))]),
+          ]),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _vm._m(3),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c("h3", { staticClass: "my-4" }, [
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-danger btn-sm me-2",
+              attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+              on: {
+                click: function ($event) {
+                  return _vm.ModAllo("-")
+                },
+              },
+            },
+            [_c("b", [_vm._v("-")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-dark btn-lg",
+              attrs: {
+                title: "Visszaálitani a tulajdonságot eredeti értékére",
+              },
+              on: {
+                click: function ($event) {
+                  return _vm.ModAllo("0")
+                },
+              },
+            },
+            [_c("b", [_vm._v(_vm._s(_vm.allokepesseg))])]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-success btn-sm ms-2",
+              attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+              on: {
+                click: function ($event) {
+                  return _vm.ModAllo("+")
+                },
+              },
+            },
+            [_c("b", [_vm._v("+")])]
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3" }),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _vm._m(4),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c("h3", { staticClass: "my-4" }, [
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-danger btn-sm me-2",
+              attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+              on: {
+                click: function ($event) {
+                  return _vm.ModEg("-")
+                },
+              },
+            },
+            [_c("b", [_vm._v("-")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-dark btn-lg",
+              attrs: {
+                title: "Visszaálitani a tulajdonságot eredeti értékére",
+              },
+              on: {
+                click: function ($event) {
+                  return _vm.ModEg("0")
+                },
+              },
+            },
+            [_c("b", [_vm._v(_vm._s(_vm.egeszseg))])]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-success btn-sm ms-2",
+              attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+              on: {
+                click: function ($event) {
+                  return _vm.ModEg("+")
+                },
+              },
+            },
+            [_c("b", [_vm._v("+")])]
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3" }),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _vm._m(5),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c("h3", { staticClass: "my-4" }, [
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-danger btn-sm me-2",
+              attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+              on: {
+                click: function ($event) {
+                  return _vm.ModSzep("-")
+                },
+              },
+            },
+            [_c("b", [_vm._v("-")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-dark btn-lg",
+              attrs: {
+                title: "Visszaálitani a tulajdonságot eredeti értékére",
+              },
+              on: {
+                click: function ($event) {
+                  return _vm.ModSzep("0")
+                },
+              },
+            },
+            [_c("b", [_vm._v(_vm._s(_vm.szepseg))])]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-success btn-sm ms-2",
+              attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+              on: {
+                click: function ($event) {
+                  return _vm.ModSzep("+")
+                },
+              },
+            },
+            [_c("b", [_vm._v("+")])]
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3" }),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _vm._m(6),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c("h3", { staticClass: "my-4" }, [
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-danger btn-sm me-2",
+              attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+              on: {
+                click: function ($event) {
+                  return _vm.ModInt("-")
+                },
+              },
+            },
+            [_c("b", [_vm._v("-")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-dark btn-lg",
+              attrs: {
+                title: "Visszaálitani a tulajdonságot eredeti értékére",
+              },
+              on: {
+                click: function ($event) {
+                  return _vm.ModInt("0")
+                },
+              },
+            },
+            [_c("b", [_vm._v(_vm._s(_vm.inteligencia))])]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-success btn-sm ms-2",
+              attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+              on: {
+                click: function ($event) {
+                  return _vm.ModInt("+")
+                },
+              },
+            },
+            [_c("b", [_vm._v("+")])]
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3" }),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _vm._m(7),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c("h3", { staticClass: "my-4" }, [
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-danger btn-sm me-2",
+              attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+              on: {
+                click: function ($event) {
+                  return _vm.ModAk("-")
+                },
+              },
+            },
+            [_c("b", [_vm._v("-")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-dark btn-lg",
+              attrs: {
+                title: "Visszaálitani a tulajdonságot eredeti értékére",
+              },
+              on: {
+                click: function ($event) {
+                  return _vm.ModAk("0")
+                },
+              },
+            },
+            [_c("b", [_vm._v(_vm._s(_vm.akarat))])]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-success btn-sm ms-2",
+              attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+              on: {
+                click: function ($event) {
+                  return _vm.ModAk("+")
+                },
+              },
+            },
+            [_c("b", [_vm._v("+")])]
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3" }),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _vm._m(8),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c("h3", { staticClass: "my-4" }, [
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-danger btn-sm me-2",
+              attrs: { title: "Ideiglenesen csökkentsd a tulajdonságot" },
+              on: {
+                click: function ($event) {
+                  return _vm.ModAszt("-")
+                },
+              },
+            },
+            [_c("b", [_vm._v("-")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-dark btn-lg",
+              attrs: {
+                title: "Visszaálitani a tulajdonságot eredeti értékére",
+              },
+              on: {
+                click: function ($event) {
+                  return _vm.ModAszt("0")
+                },
+              },
+            },
+            [_c("b", [_vm._v(_vm._s(_vm.asztral))])]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "btn btn-outline-success btn-sm ms-2",
+              attrs: { title: "Ideiglenesen növeld a tulajdonságot" },
+              on: {
+                click: function ($event) {
+                  return _vm.ModAszt("+")
+                },
+              },
+            },
+            [_c("b", [_vm._v("+")])]
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3" }),
+    ]),
+    _vm._v(" "),
+    _vm._m(9),
   ])
 }
 var staticRenderFns = [
@@ -48518,39 +48748,87 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-5 text-wrap" }, [
+    return _c("div", { staticClass: "col-sm-5" }, [
       _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
         _vm._v("Erő "),
       ]),
-      _vm._v(" "),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-5" }, [
       _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
         _vm._v("Gyorsaság "),
       ]),
-      _vm._v(" "),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-5" }, [
       _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
         _vm._v("Ügyesség "),
       ]),
-      _vm._v(" "),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-5" }, [
       _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
         _vm._v("Állóképesség "),
       ]),
-      _vm._v(" "),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-5" }, [
       _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
         _vm._v("Egészség "),
       ]),
-      _vm._v(" "),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-5" }, [
       _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
         _vm._v("Szépség "),
       ]),
-      _vm._v(" "),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-5" }, [
       _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
         _vm._v("Inteligencia "),
       ]),
-      _vm._v(" "),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-5" }, [
       _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
         _vm._v("Akaraterő "),
       ]),
-      _vm._v(" "),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-5" }, [
       _c("h3", { staticClass: "border-bottom border-secondary my-4 p-2" }, [
         _vm._v("Asztrál "),
       ]),
@@ -49718,7 +49996,7 @@ var render = function () {
         _c(
           "button",
           {
-            staticClass: "btn btn-success my-3",
+            staticClass: "btn btn-success my-3 bg-green-leather costum-btn",
             attrs: {
               type: "button",
               "data-bs-toggle": "modal",
@@ -49782,7 +50060,7 @@ var render = function () {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-secondary",
+                    staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                     attrs: { type: "button", "data-bs-dismiss": "modal" },
                   },
                   [_vm._v("Close")]
@@ -49791,7 +50069,7 @@ var render = function () {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-primary",
+                    staticClass: "btn btn-primary bg-green-leather costum-btn",
                     attrs: { type: "button", "data-bs-dismiss": "modal" },
                     on: { click: _vm.saveNewDescription },
                   },
@@ -49856,7 +50134,10 @@ var render = function () {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "bg-light border border-secondary rounded mb-3 p-3" },
+      {
+        staticClass:
+          "bg-light border border-success rounded mb-3 p-3 bg-white-leather",
+      },
       [_c("magus-atributes")],
       1
     ),
@@ -49865,21 +50146,30 @@ var render = function () {
       _c("div", { staticClass: "col-lg" }, [
         _c(
           "div",
-          { staticClass: " bg-light border border-secondary rounded mb-4 p-3" },
+          {
+            staticClass:
+              " bg-light border border-success rounded mb-4 p-3 bg-white-leather",
+          },
           [_c("magus-eletero")],
           1
         ),
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "bg-light border border-secondary rounded mb-3 p-3" },
+          {
+            staticClass:
+              "bg-light border border-success rounded mb-3 p-3 bg-white-leather",
+          },
           [_c("magus-psi")],
           1
         ),
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: " bg-light border border-secondary rounded mb-3 p-3" },
+          {
+            staticClass:
+              " bg-light border border-success rounded mb-3 p-3 bg-white-leather",
+          },
           [_c("magus-mana")],
           1
         ),
@@ -49888,14 +50178,20 @@ var render = function () {
       _c("div", { staticClass: "col-lg" }, [
         _c(
           "div",
-          { staticClass: "bg-light border border-secondary rounded mb-5 p-3" },
+          {
+            staticClass:
+              "bg-light border border-success rounded mb-5 p-3 bg-white-leather",
+          },
           [_c("magus-base-data")],
           1
         ),
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "bg-light border border-secondary rounded mb-5 p-3" },
+          {
+            staticClass:
+              "bg-light border border-success rounded mb-5 p-3 bg-white-leather",
+          },
           [
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col border-end border-secondary" }, [
@@ -49915,7 +50211,10 @@ var render = function () {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+          {
+            staticClass:
+              "bg-light border border-success rounded mb-4 p-3 bg-white-leather",
+          },
           [_c("magus-armor")],
           1
         ),
@@ -49924,7 +50223,10 @@ var render = function () {
       _c("div", { staticClass: "col-lg" }, [
         _c(
           "div",
-          { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+          {
+            staticClass:
+              "bg-light border border-success rounded mb-4 p-3 bg-white-leather",
+          },
           [
             _c("magus-harcertek", {
               attrs: {
@@ -49943,7 +50245,10 @@ var render = function () {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+          {
+            staticClass:
+              "bg-light border border-success rounded mb-4 p-3 bg-white-leather",
+          },
           [
             _c("magus-harcertek", {
               attrs: {
@@ -49962,7 +50267,10 @@ var render = function () {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+          {
+            staticClass:
+              "bg-light border border-success rounded mb-4 p-3 bg-white-leather",
+          },
           [
             _c("magus-harcertek", {
               attrs: {
@@ -49981,7 +50289,10 @@ var render = function () {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+          {
+            staticClass:
+              "bg-light border border-success rounded mb-4 p-3 bg-white-leather",
+          },
           [
             _c("magus-harcertek", {
               attrs: {
@@ -50000,7 +50311,10 @@ var render = function () {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+          {
+            staticClass:
+              "bg-light border border-success rounded mb-4 p-3 bg-white-leather",
+          },
           [_c("magus-shield")],
           1
         ),
@@ -50009,28 +50323,40 @@ var render = function () {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+      {
+        staticClass:
+          "bg-light border border-success rounded mb-4 p-3 bg-white-leather",
+      },
       [_c("magus-wepon")],
       1
     ),
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+      {
+        staticClass:
+          "bg-light border border-success rounded mb-4 p-3 bg-white-leather",
+      },
       [_c("magus-skills")],
       1
     ),
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+      {
+        staticClass:
+          "bg-light border border-success rounded mb-4 p-3 bg-white-leather",
+      },
       [_c("magus-kincsek")],
       1
     ),
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+      {
+        staticClass:
+          "bg-light border border-success rounded mb-4 p-3 bg-white-leather",
+      },
       [
         _c("magus-equipment", {
           attrs: {
@@ -50046,7 +50372,10 @@ var render = function () {
       _c("div", { staticClass: "col" }, [
         _c(
           "div",
-          { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+          {
+            staticClass:
+              "bg-light border border-success rounded mb-4 p-3 bg-white-leather",
+          },
           [
             _c("h4", [_vm._v("Egyébb módositók")]),
             _vm._v(" "),
@@ -50061,7 +50390,10 @@ var render = function () {
       _c("div", { staticClass: "col" }, [
         _c(
           "div",
-          { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+          {
+            staticClass:
+              "bg-light border border-success rounded mb-4 p-3 bg-white-leather",
+          },
           [_c("magus-character-descript")],
           1
         ),
@@ -50070,7 +50402,10 @@ var render = function () {
       _c("div", { staticClass: "col" }, [
         _c(
           "div",
-          { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+          {
+            staticClass:
+              "bg-light border border-success rounded mb-4 p-3 bg-white-leather",
+          },
           [_c("magus-level-up")],
           1
         ),
@@ -50079,7 +50414,10 @@ var render = function () {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "bg-light border border-secondary rounded mb-4 p-3" },
+      {
+        staticClass:
+          "bg-light border border-success rounded mb-4 p-3 bg-white-leather",
+      },
       [_c("magus-notes")],
       1
     ),
@@ -50265,7 +50603,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
                 [_vm._v("Close")]
@@ -50274,7 +50612,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-success",
+                  staticClass: "btn btn-success bg-green-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.teljesGyogyul },
                 },
@@ -50284,7 +50622,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-danger",
+                  staticClass: "btn btn-danger bg-red-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: {
                     click: function ($event) {
@@ -50298,7 +50636,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-success",
+                  staticClass: "btn btn-success bg-green-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: {
                     click: function ($event) {
@@ -50324,7 +50662,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-success my-3",
+          staticClass: "btn btn-success my-3 bg-green-leather costum-btn",
           attrs: {
             type: "button",
             "data-bs-toggle": "modal",
@@ -50386,7 +50724,7 @@ var render = function () {
       _c(
         "button",
         {
-          staticClass: "btn btn-success my-3",
+          staticClass: "btn btn-success my-3 bg-green-leather costum-btn",
           attrs: {
             type: "button",
             disabled: _vm.equip_loading,
@@ -50398,51 +50736,53 @@ var render = function () {
       ),
     ]),
     _vm._v(" "),
-    _c("table", { staticClass: "table table-striped" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.felszereles, function (equip, index) {
-          return _c("tr", { key: "FSZ" + index }, [
-            _c("td", [_vm._v(_vm._s(equip.name))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(equip.quantity))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(equip.where))]),
-            _vm._v(" "),
-            _c("td", [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-outline-success btn-sm m-1",
-                  attrs: { type: "button", disabled: _vm.equip_loading },
-                  on: {
-                    click: function ($event) {
-                      return _vm.addQuantToEquipment(index)
+    _c("div", { staticClass: "table-responsive" }, [
+      _c("table", { staticClass: "table table-striped" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.felszereles, function (equip, index) {
+            return _c("tr", { key: "FSZ" + index }, [
+              _c("td", [_vm._v(_vm._s(equip.name))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(equip.quantity))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(equip.where))]),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-success btn-sm m-1",
+                    attrs: { type: "button", disabled: _vm.equip_loading },
+                    on: {
+                      click: function ($event) {
+                        return _vm.addQuantToEquipment(index)
+                      },
                     },
                   },
-                },
-                [_vm._v("+")]
-              ),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-outline-danger btn-sm m-1",
-                  attrs: { type: "button", disabled: _vm.equip_loading },
-                  on: {
-                    click: function ($event) {
-                      return _vm.removeQuantFromEquipment(index)
+                  [_vm._v("+")]
+                ),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-danger btn-sm m-1",
+                    attrs: { type: "button", disabled: _vm.equip_loading },
+                    on: {
+                      click: function ($event) {
+                        return _vm.removeQuantFromEquipment(index)
+                      },
                     },
                   },
-                },
-                [_vm._v("-")]
-              ),
-            ]),
-          ])
-        }),
-        0
-      ),
+                  [_vm._v("-")]
+                ),
+              ]),
+            ])
+          }),
+          0
+        ),
+      ]),
     ]),
     _vm._v(" "),
     _c(
@@ -50545,7 +50885,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
                 [_vm._v("Close")]
@@ -50554,7 +50894,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
+                  staticClass: "btn btn-primary bg-green-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.addNewEquipment },
                 },
@@ -51012,7 +51352,7 @@ var render = function () {
       _c(
         "button",
         {
-          staticClass: "btn btn-success my-3",
+          staticClass: "btn btn-success my-3 bg-green-leather costum-btn",
           attrs: {
             type: "button",
             disabled: _vm.loading,
@@ -51026,7 +51366,7 @@ var render = function () {
       _c(
         "button",
         {
-          staticClass: "btn btn-danger my-3 ms-2",
+          staticClass: "btn btn-danger my-3 ms-2 bg-red-leather costum-btn",
           attrs: {
             type: "button",
             disabled: _vm.loading,
@@ -51330,7 +51670,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
                 [_vm._v("Close")]
@@ -51339,7 +51679,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
+                  staticClass: "btn btn-primary bg-green-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: {
                     click: function ($event) {
@@ -51499,7 +51839,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
                 [_vm._v("Close")]
@@ -51508,7 +51848,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
+                  staticClass: "btn btn-primary bg-green-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.submitVagyon },
                 },
@@ -51664,7 +52004,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
                 [_vm._v("Close")]
@@ -51673,7 +52013,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
+                  staticClass: "btn btn-primary bg-red-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.submitVagyonKifizetes },
                 },
@@ -51896,7 +52236,7 @@ var render = function () {
                                 "div",
                                 {
                                   staticClass:
-                                    "card bg-success text-white text-center",
+                                    "card bg-success text-white text-center bg-blue-leather",
                                 },
                                 [
                                   _c("div", { staticClass: "card-body" }, [
@@ -52003,7 +52343,8 @@ var render = function () {
                                       _c(
                                         "button",
                                         {
-                                          staticClass: "btn btn-primary btn-lg",
+                                          staticClass:
+                                            "btn btn-primary btn-lg bg-green-leather costum-btn",
                                           on: {
                                             click: _vm.addNewWeaponSkillAf,
                                           },
@@ -52021,7 +52362,7 @@ var render = function () {
                                 "div",
                                 {
                                   staticClass:
-                                    "card bg-success text-white text-center",
+                                    "card bg-success text-white text-center bg-blue-leather",
                                 },
                                 [
                                   _c("div", { staticClass: "card-body" }, [
@@ -52114,7 +52455,8 @@ var render = function () {
                                       _c(
                                         "button",
                                         {
-                                          staticClass: "btn btn-primary btn-lg",
+                                          staticClass:
+                                            "btn btn-primary btn-lg bg-green-leather costum-btn",
                                           on: {
                                             click: _vm.addNewWeaponThrowSkillAf,
                                           },
@@ -52132,7 +52474,7 @@ var render = function () {
                                 "div",
                                 {
                                   staticClass:
-                                    "card bg-success text-white text-center",
+                                    "card bg-success text-white text-center bg-blue-leather",
                                 },
                                 [
                                   _c("div", { staticClass: "card-body" }, [
@@ -52184,7 +52526,7 @@ var render = function () {
                                         "button",
                                         {
                                           staticClass:
-                                            "btn btn-primary btn-lg mt-2",
+                                            "btn btn-primary btn-lg mt-2 bg-green-leather costum-btn",
                                           on: { click: _vm.addNewLanguageAf },
                                         },
                                         [_vm._v("Megtanul")]
@@ -52200,7 +52542,7 @@ var render = function () {
                                 "div",
                                 {
                                   staticClass:
-                                    "card bg-success text-white text-center",
+                                    "card bg-success text-white text-center bg-blue-leather",
                                 },
                                 [
                                   _c("div", { staticClass: "card-body" }, [
@@ -52252,7 +52594,7 @@ var render = function () {
                                         "button",
                                         {
                                           staticClass:
-                                            "btn btn-primary btn-lg mt-2",
+                                            "btn btn-primary btn-lg mt-2 bg-green-leather costum-btn",
                                           on: { click: _vm.addNewCraftAf },
                                         },
                                         [_vm._v("Megtanul")]
@@ -52267,7 +52609,7 @@ var render = function () {
                                 "div",
                                 {
                                   staticClass:
-                                    "card bg-success text-white text-center",
+                                    "card bg-success text-white text-center bg-blue-leather",
                                 },
                                 [
                                   _c("div", { staticClass: "card-body" }, [
@@ -52291,7 +52633,8 @@ var render = function () {
                                       _c(
                                         "button",
                                         {
-                                          staticClass: "btn btn-primary btn-lg",
+                                          staticClass:
+                                            "btn btn-primary btn-lg bg-green-leather costum-btn",
                                           on: {
                                             click: function ($event) {
                                               return _vm.addNewSkill(
@@ -52403,7 +52746,7 @@ var render = function () {
                                     "div",
                                     {
                                       staticClass:
-                                        "card bg-success text-white text-center",
+                                        "card bg-success text-white text-center bg-blue-leather",
                                     },
                                     [
                                       _c("div", { staticClass: "card-body" }, [
@@ -52523,7 +52866,7 @@ var render = function () {
                                             "button",
                                             {
                                               staticClass:
-                                                "btn btn-primary btn-lg",
+                                                "btn btn-primary btn-lg bg-green-leather costum-btn",
                                               on: {
                                                 click: _vm.upgradeWeaponSkillMf,
                                               },
@@ -52541,7 +52884,7 @@ var render = function () {
                                     "div",
                                     {
                                       staticClass:
-                                        "card bg-success text-white text-center",
+                                        "card bg-success text-white text-center bg-blue-leather",
                                     },
                                     [
                                       _c("div", { staticClass: "card-body" }, [
@@ -52641,7 +52984,7 @@ var render = function () {
                                             "button",
                                             {
                                               staticClass:
-                                                "btn btn-primary btn-lg",
+                                                "btn btn-primary btn-lg bg-green-leather costum-btn",
                                               on: {
                                                 click:
                                                   _vm.upgradeWeaponThrowSkillMf,
@@ -52660,7 +53003,7 @@ var render = function () {
                                     "div",
                                     {
                                       staticClass:
-                                        "card bg-success text-white text-center",
+                                        "card bg-success text-white text-center bg-blue-leather",
                                     },
                                     [
                                       _c("div", { staticClass: "card-body" }, [
@@ -52756,7 +53099,7 @@ var render = function () {
                                             "button",
                                             {
                                               staticClass:
-                                                "btn btn-primary btn-lg mt-2",
+                                                "btn btn-primary btn-lg mt-2 bg-green-leather costum-btn",
                                               on: {
                                                 click: _vm.upgradeLanguageMf,
                                               },
@@ -52774,7 +53117,7 @@ var render = function () {
                                     "div",
                                     {
                                       staticClass:
-                                        "card bg-success text-white text-center",
+                                        "card bg-success text-white text-center bg-blue-leather",
                                     },
                                     [
                                       _c("div", { staticClass: "card-body" }, [
@@ -52868,7 +53211,7 @@ var render = function () {
                                             "button",
                                             {
                                               staticClass:
-                                                "btn btn-primary btn-lg mt-2",
+                                                "btn btn-primary btn-lg mt-2 bg-green-leather costum-btn",
                                               on: { click: _vm.upgradeCraftMf },
                                             },
                                             [_vm._v("Megtanul")]
@@ -52883,7 +53226,7 @@ var render = function () {
                                     "div",
                                     {
                                       staticClass:
-                                        "card bg-success text-white text-center",
+                                        "card bg-success text-white text-center bg-blue-leather",
                                     },
                                     [
                                       _c("div", { staticClass: "card-body" }, [
@@ -52908,7 +53251,7 @@ var render = function () {
                                             "button",
                                             {
                                               staticClass:
-                                                "btn btn-primary btn-lg",
+                                                "btn btn-primary btn-lg bg-green-leather costum-btn",
                                               on: {
                                                 click: function ($event) {
                                                   return _vm.upgradeSkillMf(
@@ -53093,7 +53436,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
                 [_vm._v("Close")]
@@ -53102,7 +53445,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
+                  staticClass: "btn btn-primary bg-green-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.addTp },
                 },
@@ -53124,7 +53467,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-success ms-2",
+          staticClass: "btn btn-success ms-2 bg-green-leather costum-btn",
           attrs: {
             type: "button",
             "data-bs-toggle": "modal",
@@ -53190,7 +53533,8 @@ var render = function () {
                 ? _c(
                     "button",
                     {
-                      staticClass: "btn btn-success m-2",
+                      staticClass:
+                        "btn btn-success m-2 bg-green-leather costum-btn",
                       attrs: {
                         type: "button",
                         "data-bs-toggle": "modal",
@@ -53232,7 +53576,8 @@ var render = function () {
               ? _c(
                   "button",
                   {
-                    staticClass: "btn btn-danger ms-2",
+                    staticClass:
+                      "btn btn-danger ms-2 bg-red-leather costum-btn",
                     attrs: {
                       type: "button",
                       "data-bs-toggle": "modal",
@@ -53247,7 +53592,8 @@ var render = function () {
               ? _c(
                   "button",
                   {
-                    staticClass: "btn btn-success ms-2 mt-2",
+                    staticClass:
+                      "btn btn-success ms-2 mt-2 bg-green-leather costum-btn",
                     attrs: { type: "button" },
                     on: { click: _vm.refreshMana },
                   },
@@ -53317,7 +53663,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
                 [_vm._v("Close")]
@@ -53326,7 +53672,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
+                  staticClass: "btn btn-primary bg-red-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.submitManaUse },
                 },
@@ -54409,7 +54755,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-secondary",
+          staticClass: "btn btn-secondary bg-blue-leather costum-btn",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
         [_vm._v("Close")]
@@ -54511,7 +54857,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
                 [_vm._v("Close")]
@@ -54520,7 +54866,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
+                  staticClass: "btn btn-primary bg-green-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.saveNote },
                 },
@@ -54547,7 +54893,7 @@ var staticRenderFns = [
         _c(
           "button",
           {
-            staticClass: "btn btn-success mt-2",
+            staticClass: "btn btn-success mt-2 bg-green-leather costum-btn",
             attrs: {
               type: "button",
               "data-bs-toggle": "modal",
@@ -54612,7 +54958,8 @@ var render = function () {
             _c(
               "button",
               {
-                staticClass: "btn btn-success ms-2 mt-2",
+                staticClass:
+                  "btn btn-success ms-2 mt-2 bg-green-leather costum-btn",
                 attrs: {
                   type: "button",
                   "data-bs-toggle": "modal",
@@ -54626,7 +54973,8 @@ var render = function () {
               ? _c(
                   "button",
                   {
-                    staticClass: "btn btn-success ms-2 mt-2",
+                    staticClass:
+                      "btn btn-success ms-2 mt-2 bg-green-leather costum-btn",
                     attrs: {
                       type: "button",
                       "data-bs-toggle": "modal",
@@ -54641,7 +54989,8 @@ var render = function () {
               ? _c(
                   "button",
                   {
-                    staticClass: "btn btn-success ms-2 mt-2",
+                    staticClass:
+                      "btn btn-success ms-2 mt-2 bg-green-leather costum-btn",
                     attrs: {
                       type: "button",
                       "data-bs-toggle": "modal",
@@ -54732,7 +55081,8 @@ var render = function () {
               ? _c(
                   "button",
                   {
-                    staticClass: "btn btn-danger ms-2",
+                    staticClass:
+                      "btn btn-danger ms-2 bg-red-leather costum-btn",
                     attrs: {
                       type: "button",
                       "data-bs-toggle": "modal",
@@ -54747,7 +55097,8 @@ var render = function () {
               ? _c(
                   "button",
                   {
-                    staticClass: "btn btn-success ms-2 mt-2",
+                    staticClass:
+                      "btn btn-success ms-2 mt-2 bg-green-leather costum-btn",
                     attrs: { type: "button" },
                     on: { click: _vm.refreshPsi },
                   },
@@ -54817,7 +55168,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
                 [_vm._v("Close")]
@@ -54826,7 +55177,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
+                  staticClass: "btn btn-primary bg-red-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.submitPsiUse },
                 },
@@ -54853,7 +55204,8 @@ var render = function () {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-danger ms-2 mt-2",
+                        staticClass:
+                          "btn btn-danger ms-2 mt-2 bg-red-leather costum-btn",
                         attrs: { type: "button" },
                         on: { click: _vm.destroyStaticAsztral },
                       },
@@ -54869,7 +55221,8 @@ var render = function () {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-success ms-2 mt-2",
+                        staticClass:
+                          "btn btn-success ms-2 mt-2 bg-green-leather costum-btn",
                         attrs: { type: "button" },
                         on: { click: _vm.buildStaticAsztral },
                       },
@@ -54891,7 +55244,8 @@ var render = function () {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-success ms-2 mt-2",
+                        staticClass:
+                          "btn btn-success ms-2 mt-2 bg-green-leather costum-btn",
                         attrs: {
                           type: "button",
                           "data-bs-toggle": "modal",
@@ -54912,7 +55266,8 @@ var render = function () {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary ms-2 mt-2",
+                        staticClass:
+                          "btn btn-primary ms-2 mt-2 bg-blue-leather costum-btn",
                         attrs: {
                           type: "button",
                           "data-bs-toggle": "modal",
@@ -54932,7 +55287,8 @@ var render = function () {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-danger ms-2 mt-2",
+                        staticClass:
+                          "btn btn-danger ms-2 mt-2 bg-red-leather costum-btn",
                         attrs: {
                           type: "button",
                           "data-bs-toggle": "modal",
@@ -54970,7 +55326,8 @@ var render = function () {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-danger ms-2 mt-2",
+                        staticClass:
+                          "btn btn-danger ms-2 mt-2 bg-red-leather costum-btn",
                         attrs: { type: "button" },
                         on: { click: _vm.destroyStaticMental },
                       },
@@ -54986,7 +55343,8 @@ var render = function () {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-success ms-2 mt-2",
+                        staticClass:
+                          "btn btn-success ms-2 mt-2 bg-green-leather costum-btn",
                         attrs: { type: "button" },
                         on: { click: _vm.buildStaticMental },
                       },
@@ -55008,7 +55366,8 @@ var render = function () {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-success ms-2 mt-2",
+                        staticClass:
+                          "btn btn-success ms-2 mt-2 bg-green-leather costum-btn",
                         attrs: {
                           type: "button",
                           "data-bs-toggle": "modal",
@@ -55029,7 +55388,8 @@ var render = function () {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-primary ms-2 mt-2",
+                        staticClass:
+                          "btn btn-primary ms-2 mt-2 bg-blue-leather costum-btn",
                         attrs: {
                           type: "button",
                           "data-bs-toggle": "modal",
@@ -55049,7 +55409,8 @@ var render = function () {
                   ? _c(
                       "button",
                       {
-                        staticClass: "btn btn-danger ms-2 mt-2",
+                        staticClass:
+                          "btn btn-danger ms-2 mt-2 bg-red-leather costum-btn",
                         attrs: {
                           type: "button",
                           "data-bs-toggle": "modal",
@@ -55155,7 +55516,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
                 [_vm._v("Close")]
@@ -55164,7 +55525,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
+                  staticClass: "btn btn-primary bg-green-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.switchUpdateDinamic },
                 },
@@ -55788,7 +56149,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-secondary",
+          staticClass: "btn btn-secondary bg-blue-leather costum-btn",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
         [_vm._v("Close")]
@@ -55830,7 +56191,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-secondary",
+          staticClass: "btn btn-secondary bg-blue-leather costum-btn",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
         [_vm._v("Close")]
@@ -55870,7 +56231,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-secondary",
+          staticClass: "btn btn-secondary bg-blue-leather costum-btn",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
         [_vm._v("Close")]
@@ -55911,7 +56272,7 @@ var render = function () {
       _c(
         "button",
         {
-          staticClass: "btn btn-success my-3",
+          staticClass: "btn btn-success my-3 bg-green-leather costum-btn",
           attrs: {
             type: "button",
             "data-bs-toggle": "modal",
@@ -56119,7 +56480,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
                 [_vm._v("Close")]
@@ -56128,7 +56489,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
+                  staticClass: "btn btn-primary bg-green-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.submitShield },
                 },
@@ -56264,7 +56625,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-secondary",
+          staticClass: "btn btn-secondary bg-blue-leather costum-btn",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
         [_vm._v("Close")]
@@ -56329,7 +56690,8 @@ var render = function () {
               ? _c(
                   "button",
                   {
-                    staticClass: "btn btn-success my-3",
+                    staticClass:
+                      "btn btn-success my-3 bg-green-leather costum-btn",
                     attrs: {
                       type: "button",
                       "data-bs-toggle": "modal",
@@ -56407,7 +56769,8 @@ var render = function () {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass:
+                        "btn btn-primary bg-green-leather costum-btn",
                       on: { click: _vm.submitFreeFHAf },
                     },
                     [_vm._v("Kiválaszt")]
@@ -56488,7 +56851,8 @@ var render = function () {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass:
+                        "btn btn-primary bg-green-leather costum-btn",
                       on: { click: _vm.submitFreeFHMf },
                     },
                     [_vm._v("Kiválaszt")]
@@ -56558,7 +56922,8 @@ var render = function () {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass:
+                        "btn btn-primary bg-green-leather costum-btn",
                       on: { click: _vm.submitFreeFDAf },
                     },
                     [_vm._v("Kiválaszt")]
@@ -56628,7 +56993,8 @@ var render = function () {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass:
+                        "btn btn-primary bg-green-leather costum-btn",
                       on: { click: _vm.submitFreeFDMf },
                     },
                     [_vm._v("Kiválaszt")]
@@ -56674,7 +57040,8 @@ var render = function () {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass:
+                        "btn btn-primary bg-green-leather costum-btn",
                       on: { click: _vm.submitFreeNyelvAf },
                     },
                     [_vm._v("Hozzáad")]
@@ -56744,7 +57111,8 @@ var render = function () {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass:
+                        "btn btn-primary bg-green-leather costum-btn",
                       on: { click: _vm.submitFreeNyelvMf },
                     },
                     [_vm._v("Kiválaszt")]
@@ -56790,7 +57158,8 @@ var render = function () {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass:
+                        "btn btn-primary bg-green-leather costum-btn",
                       on: { click: _vm.submitFreeSzakmaAf },
                     },
                     [_vm._v("Hozzáad")]
@@ -56857,7 +57226,8 @@ var render = function () {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass:
+                        "btn btn-primary bg-green-leather costum-btn",
                       on: { click: _vm.submitFreeSzakmaMf },
                     },
                     [_vm._v("Kiválaszt")]
@@ -56884,41 +57254,43 @@ var render = function () {
             [_vm._v("Képzetség Tábla")]
           ),
           _vm._v(" "),
-          _c("table", { staticClass: "table table-striped" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "tbody",
-              _vm._l(_vm.characterSkills, function (charSkill, index) {
-                return _c("tr", { key: "S" + index }, [
-                  _c("td", [
-                    _vm._v(_vm._s(charSkill.skillName)),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-outline-success btn-sm ms-2",
-                        attrs: {
-                          type: "button",
-                          "data-bs-toggle": "modal",
-                          "data-bs-target": "#skillModal",
-                        },
-                        on: {
-                          click: function ($event) {
-                            return _vm.skillInfo(charSkill.id)
+          _c("div", { staticClass: "table-responsive" }, [
+            _c("table", { staticClass: "table table-striped" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.characterSkills, function (charSkill, index) {
+                  return _c("tr", { key: "S" + index }, [
+                    _c("td", [
+                      _vm._v(_vm._s(charSkill.skillName)),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-success btn-sm ms-2",
+                          attrs: {
+                            type: "button",
+                            "data-bs-toggle": "modal",
+                            "data-bs-target": "#skillModal",
+                          },
+                          on: {
+                            click: function ($event) {
+                              return _vm.skillInfo(charSkill.id)
+                            },
                           },
                         },
-                      },
-                      [_vm._v("i")]
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(charSkill.kp))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(charSkill.level))]),
-                ])
-              }),
-              0
-            ),
+                        [_vm._v("i")]
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(charSkill.kp))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(charSkill.level))]),
+                  ])
+                }),
+                0
+              ),
+            ]),
           ]),
         ]
       ),
@@ -56936,79 +57308,83 @@ var render = function () {
             [_vm._v("Százalékos Képzetség Tábla")]
           ),
           _vm._v(" "),
-          _c("table", { staticClass: "table table-striped" }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _c(
-              "tbody",
-              _vm._l(_vm.charactersPrecentSkills, function (precSkill, key) {
-                return _c("tr", { key: key }, [
-                  _c("td", [
-                    _vm._v(_vm._s(_vm.skillPrecent(key).name)),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-outline-success btn-sm ms-2",
-                        attrs: {
-                          type: "button",
-                          "data-bs-toggle": "modal",
-                          "data-bs-target": "#skillpModal",
-                        },
-                        on: {
-                          click: function ($event) {
-                            return _vm.skillPrecInfo(key)
+          _c("div", { staticClass: "table-responsive" }, [
+            _c("table", { staticClass: "table table-striped" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.charactersPrecentSkills, function (precSkill, key) {
+                  return _c("tr", { key: key }, [
+                    _c("td", [
+                      _vm._v(_vm._s(_vm.skillPrecent(key).name)),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-success btn-sm ms-2",
+                          attrs: {
+                            type: "button",
+                            "data-bs-toggle": "modal",
+                            "data-bs-target": "#skillpModal",
                           },
-                        },
-                      },
-                      [_vm._v("i")]
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _vm._v(_vm._s(precSkill.kpAdded)),
-                    _vm.kpLeft > 0
-                      ? _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-outline-success btn-sm ms-2",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function ($event) {
-                                return _vm.addKpToPrecentSkill(key)
-                              },
+                          on: {
+                            click: function ($event) {
+                              return _vm.skillPrecInfo(key)
                             },
                           },
-                          [_vm._v("+")]
-                        )
-                      : _vm._e(),
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _vm._v(_vm._s(precSkill.precentAdded)),
-                    _vm.kpPrecentLeft > 0
-                      ? _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-outline-success btn-sm ms-2",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function ($event) {
-                                return _vm.addPrecentToPrecentSkill(key)
+                        },
+                        [_vm._v("i")]
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(_vm._s(precSkill.kpAdded)),
+                      _vm.kpLeft > 0
+                        ? _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn btn-outline-success btn-sm ms-2",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.addKpToPrecentSkill(key)
+                                },
                               },
                             },
-                          },
-                          [_vm._v("+")]
-                        )
-                      : _vm._e(),
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _vm._v(_vm._s(_vm.sumSkillPrecent(precSkill.precent))),
-                  ]),
-                ])
-              }),
-              0
-            ),
+                            [_vm._v("+")]
+                          )
+                        : _vm._e(),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(_vm._s(precSkill.precentAdded)),
+                      _vm.kpPrecentLeft > 0
+                        ? _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn btn-outline-success btn-sm ms-2",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.addPrecentToPrecentSkill(key)
+                                },
+                              },
+                            },
+                            [_vm._v("+")]
+                          )
+                        : _vm._e(),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(_vm._s(_vm.sumSkillPrecent(precSkill.precent))),
+                    ]),
+                  ])
+                }),
+                0
+              ),
+            ]),
           ]),
         ]
       ),
@@ -57227,7 +57603,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-secondary",
+          staticClass: "btn btn-secondary bg-blue-leather costum-btn",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
         [_vm._v("Close")]
@@ -57242,7 +57618,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-secondary",
+          staticClass: "btn btn-secondary bg-blue-leather costum-btn",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
         [_vm._v("Close")]
@@ -57257,7 +57633,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-secondary",
+          staticClass: "btn btn-secondary bg-blue-leather costum-btn",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
         [_vm._v("Close")]
@@ -57320,7 +57696,7 @@ var render = function () {
           _c(
             "button",
             {
-              staticClass: "btn btn-success my-3",
+              staticClass: "btn btn-success my-3 bg-green-leather costum-btn",
               attrs: {
                 type: "button",
                 "data-bs-toggle": "modal",
@@ -57334,7 +57710,7 @@ var render = function () {
           _c(
             "button",
             {
-              staticClass: "btn btn-success my-3",
+              staticClass: "btn btn-success my-3 bg-green-leather costum-btn",
               attrs: {
                 type: "button",
                 "data-bs-toggle": "modal",
@@ -57348,7 +57724,7 @@ var render = function () {
           _c(
             "button",
             {
-              staticClass: "btn btn-success my-3",
+              staticClass: "btn btn-success my-3 bg-green-leather costum-btn",
               attrs: {
                 type: "button",
                 "data-bs-toggle": "modal",
@@ -57358,8 +57734,6 @@ var render = function () {
             [_vm._v("Lőfegyver kézbe vétele")]
           ),
         ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col" }),
       ]),
     ]),
     _vm._v(" "),
@@ -57370,44 +57744,46 @@ var render = function () {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _c("table", { staticClass: "table table-striped" }, [
-        _vm._m(1),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.availableWeapon, function (fegyver, index) {
-            return _c("tr", { key: "W" + index }, [
-              _c("td", [_vm._v(_vm._s(fegyver.name))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(fegyver.TamKor))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(fegyver.Ke))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(fegyver.Te))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(fegyver.Ve))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(fegyver.Sp.name))]),
-              _vm._v(" "),
-              _c("td", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-danger btn-sm ms-1",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function ($event) {
-                        return _vm.removeWeapon(index)
+      _c("div", { staticClass: "table-responsive-md" }, [
+        _c("table", { staticClass: "table table-striped" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.availableWeapon, function (fegyver, index) {
+              return _c("tr", { key: "W" + index }, [
+                _c("td", [_vm._v(_vm._s(fegyver.name))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(fegyver.TamKor))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(fegyver.Ke))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(fegyver.Te))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(fegyver.Ve))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(fegyver.Sp.name))]),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-danger btn-sm ms-1",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function ($event) {
+                          return _vm.removeWeapon(index)
+                        },
                       },
                     },
-                  },
-                  [_vm._v("-")]
-                ),
-              ]),
-            ])
-          }),
-          0
-        ),
+                    [_vm._v("-")]
+                  ),
+                ]),
+              ])
+            }),
+            0
+          ),
+        ]),
       ]),
     ]),
     _vm._v(" "),
@@ -57416,44 +57792,46 @@ var render = function () {
       _vm._v(" "),
       _vm._m(2),
       _vm._v(" "),
-      _c("table", { staticClass: "table table-striped" }, [
-        _vm._m(3),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.availableRangedWeapon, function (ij, index) {
-            return _c("tr", { key: "R" + index }, [
-              _c("td", [_vm._v(_vm._s(ij.name))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(ij.TamKor))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(ij.Ke))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(ij.Ce))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(ij.Tav) + " méter")]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(ij.Sp.name))]),
-              _vm._v(" "),
-              _c("td", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-danger btn-sm ms-1",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function ($event) {
-                        return _vm.removeRanged(index)
+      _c("div", { staticClass: "table-responsive-md" }, [
+        _c("table", { staticClass: "table table-striped" }, [
+          _vm._m(3),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.availableRangedWeapon, function (ij, index) {
+              return _c("tr", { key: "R" + index }, [
+                _c("td", [_vm._v(_vm._s(ij.name))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(ij.TamKor))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(ij.Ke))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(ij.Ce))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(ij.Tav) + " méter")]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(ij.Sp.name))]),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-danger btn-sm ms-1",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function ($event) {
+                          return _vm.removeRanged(index)
+                        },
                       },
                     },
-                  },
-                  [_vm._v("-")]
-                ),
-              ]),
-            ])
-          }),
-          0
-        ),
+                    [_vm._v("-")]
+                  ),
+                ]),
+              ])
+            }),
+            0
+          ),
+        ]),
       ]),
     ]),
     _vm._v(" "),
@@ -57555,7 +57933,7 @@ var render = function () {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-secondary",
+                    staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                     attrs: { type: "button", "data-bs-dismiss": "modal" },
                   },
                   [_vm._v("Close")]
@@ -57564,7 +57942,7 @@ var render = function () {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-primary",
+                    staticClass: "btn btn-primary bg-green-leather costum-btn",
                     attrs: { type: "button", "data-bs-dismiss": "modal" },
                     on: { click: _vm.submitWeapon },
                   },
@@ -57675,7 +58053,7 @@ var render = function () {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-secondary",
+                    staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                     attrs: { type: "button", "data-bs-dismiss": "modal" },
                   },
                   [_vm._v("Close")]
@@ -57684,7 +58062,7 @@ var render = function () {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-primary",
+                    staticClass: "btn btn-primary bg-green-leather costum-btn",
                     attrs: { type: "button", "data-bs-dismiss": "modal" },
                     on: { click: _vm.submitRangedWeapon },
                   },
@@ -57763,7 +58141,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
                 [_vm._v("Close")]
@@ -57772,7 +58150,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
+                  staticClass: "btn btn-primary bg-green-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.equipLeftWeapon },
                 },
@@ -57850,7 +58228,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
                 [_vm._v("Close")]
@@ -57859,7 +58237,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
+                  staticClass: "btn btn-primary bg-green-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.equipRightWeapon },
                 },
@@ -57937,7 +58315,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-secondary",
+                  staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
                 [_vm._v("Close")]
@@ -57946,7 +58324,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
+                  staticClass: "btn btn-primary bg-green-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.equipRangedWeapon },
                 },
@@ -57968,7 +58346,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-success my-3",
+          staticClass: "btn btn-success my-3 bg-green-leather costum-btn",
           attrs: {
             type: "button",
             "data-bs-toggle": "modal",
@@ -58009,7 +58387,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-success my-3",
+          staticClass: "btn btn-success my-3 bg-green-leather costum-btn",
           attrs: {
             type: "button",
             "data-bs-toggle": "modal",

@@ -2,7 +2,7 @@
 <div>
         <h4 class="text-center mt-2 pb-3 border-bottom border-secondary">Páncél</h4>
         <div class="d-grid text-center mb-3">
-            <button class="btn btn-success my-3" type="button" @click="unequip"  data-bs-toggle="modal" data-bs-target="#armorModal">Páncél módositása</button>
+            <button class="btn btn-success my-3 bg-green-leather costum-btn" type="button" @click="unequip"  data-bs-toggle="modal" data-bs-target="#armorModal">Páncél módositása</button>
         </div>
         <div v-if="haveArmor" class=" border-top border-secondary my-2">
             <p><span class="fs-5 fw-bolder me-2">{{ currentArmor.name }}</span> <button class="btn btn-outline-success btn-sm ms-2" type="button"  data-bs-toggle="modal" data-bs-target="#armorInfoModal">i</button></p>
@@ -77,8 +77,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="submitArmor" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary bg-green-leather costum-btn"  @click="submitArmor" data-bs-dismiss="modal">Save changes</button>
                 </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@
                         <p class="fs-5"><span class="fw-bolder me-2">Értéke: </span><span>{{ currentArmor.price }}</span></p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

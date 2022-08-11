@@ -2,8 +2,8 @@
     <div>
         <div class="text-center border-bottom border-secondary">
                 <h4>Kincsek</h4>
-                <button class="btn btn-success my-3" type="button" :disabled="loading" data-bs-toggle="modal" data-bs-target="#vagyonModal">Vagyon hozzáadása</button>
-                <button class="btn btn-danger my-3 ms-2" type="button" :disabled="loading" data-bs-toggle="modal" data-bs-target="#vagyonKifizetesModal">Vagyon kifizetése</button>
+                <button class="btn btn-success my-3 bg-green-leather costum-btn" type="button" :disabled="loading" data-bs-toggle="modal" data-bs-target="#vagyonModal">Vagyon hozzáadása</button>
+                <button class="btn btn-danger my-3 ms-2 bg-red-leather costum-btn" type="button" :disabled="loading" data-bs-toggle="modal" data-bs-target="#vagyonKifizetesModal">Vagyon kifizetése</button>
         </div>
         <div class="row">
             <div class="col text-center">
@@ -91,8 +91,8 @@
                     <input type="text" class="form-control" id="egyebb-text" v-model="egyebb_text">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click=" modKincsek(0, 0, 0, 0, 0, '+')" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary bg-green-leather costum-btn"  @click=" modKincsek(0, 0, 0, 0, 0, '+')" data-bs-dismiss="modal">Save changes</button>
                 </div>
                 </div>
             </div>
@@ -119,8 +119,8 @@
                     <input type="number" class="form-control" id="dragako" v-model="dragako_input">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="submitVagyon" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary bg-green-leather costum-btn" @click="submitVagyon" data-bs-dismiss="modal">Save changes</button>
                 </div>
                 </div>
             </div>
@@ -147,8 +147,8 @@
                     <input type="number" class="form-control" id="dragako" v-model="dragako_input">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="submitVagyonKifizetes" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary bg-red-leather costum-btn" @click="submitVagyonKifizetes" data-bs-dismiss="modal">Save changes</button>
                 </div>
                 </div>
             </div>

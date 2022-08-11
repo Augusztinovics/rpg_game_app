@@ -4,7 +4,7 @@
             <div v-if="magia.maxMp > 0" class="border-bottom border-secondary my-2">
                 <h4 class="text-center mt-2">Varázslatok</h4>
                 <div class="d-grid text-center mb-3">
-                    <button v-if="magusCharacter.Kaszt == 'BARD'" class="btn btn-success m-2" type="button" data-bs-toggle="modal" data-bs-target="#bardModal">Bárd Mágiák</button>
+                    <button v-if="magusCharacter.Kaszt == 'BARD'" class="btn btn-success m-2 bg-green-leather costum-btn" type="button" data-bs-toggle="modal" data-bs-target="#bardModal">Bárd Mágiák</button>
                 </div>   
             </div>
             <h4 class="text-center mt-2">Mana-pontok</h4>
@@ -21,8 +21,8 @@
             <p class="border-top border-secondary">Akt Mp</p>
             <p>{{ magia.aktMp }}</p>
             <div v-if="magia.maxMp > 0" class="d-grid text-center mb-3">
-                <button v-if="magia.aktMp > 0" class="btn btn-danger ms-2" type="button" data-bs-toggle="modal" data-bs-target="#manaUseModal">Mana Pontok Használata</button>
-                <button v-if="magia.aktMp < magia.maxMp" class="btn btn-success ms-2 mt-2" type="button" @click="refreshMana">Mana Pontok Teljes Feltöltése</button>
+                <button v-if="magia.aktMp > 0" class="btn btn-danger ms-2 bg-red-leather costum-btn" type="button" data-bs-toggle="modal" data-bs-target="#manaUseModal">Mana Pontok Használata</button>
+                <button v-if="magia.aktMp < magia.maxMp" class="btn btn-success ms-2 mt-2 bg-green-leather costum-btn" type="button" @click="refreshMana">Mana Pontok Teljes Feltöltése</button>
             </div>
         </div>
         <!-- Mana use input modal -->
@@ -39,8 +39,8 @@
                     <input type="number" class="form-control" id="psiInput" min="1" :max="magia.aktMp" v-model="inputManaUse">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="submitManaUse" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary bg-red-leather costum-btn"  @click="submitManaUse" data-bs-dismiss="modal">Save changes</button>
                 </div>
                 </div>
             </div>
@@ -207,7 +207,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

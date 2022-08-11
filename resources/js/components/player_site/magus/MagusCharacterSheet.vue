@@ -3,7 +3,7 @@
         <div class="text-center p-4"><h2 class="text-white display-2 fw-bold"><span><img class="me-5" src="/img/pentagram.png" alt="" width="40" height="40"></span>magus karakterlap<span><img class="ms-5" src="/img/pentagram.png" alt="" width="40" height="40"></span></h2></div>
 
         <!-- --------fizikai tulajdonsagok---------- -->
-        <div class="bg-light border border-secondary rounded mb-3 p-3">
+        <div class="bg-light border border-success rounded mb-3 p-3 bg-white-leather">
             <magus-atributes />
         </div>
 
@@ -13,17 +13,17 @@
            <div class="col-lg">
 
                <!-- ------eletero--------- -->
-               <div class=" bg-light border border-secondary rounded mb-4 p-3">
+               <div class=" bg-light border border-success rounded mb-4 p-3 bg-white-leather">
                    <magus-eletero />
                </div>
 
                 <!-- Pszi kepzetseg -->    
-                <div class="bg-light border border-secondary rounded mb-3 p-3">
+                <div class="bg-light border border-success rounded mb-3 p-3 bg-white-leather">
                     <magus-psi />        
                </div>
 
                 <!-- mana -->
-                 <div class=" bg-light border border-secondary rounded mb-3 p-3">
+                 <div class=" bg-light border border-success rounded mb-3 p-3 bg-white-leather">
                   <magus-mana />
                </div>
            </div>
@@ -32,12 +32,12 @@
            <div class="col-lg">
 
                 <!-- karakter altalanos adatai -->
-                <div class="bg-light border border-secondary rounded mb-5 p-3">
+                <div class="bg-light border border-success rounded mb-5 p-3 bg-white-leather">
                     <magus-base-data />
                 </div>
 
                 <!-- Tam per kor -->
-                <div class="bg-light border border-secondary rounded mb-5 p-3">
+                <div class="bg-light border border-success rounded mb-5 p-3 bg-white-leather">
                    <div class="row">
                        <div class="col border-end border-secondary">
                            <p>HM/szint</p>
@@ -51,7 +51,7 @@
                </div>
 
                 <!-- viselt pancel tipusa -->
-                <div class="bg-light border border-secondary rounded mb-4 p-3">
+                <div class="bg-light border border-success rounded mb-4 p-3 bg-white-leather">
                     <magus-armor />
                 </div>
 
@@ -59,7 +59,7 @@
             <!-- A harmadik col a rowba -->
             <div class="col-lg">
                 <!-- Harcertekek  -->
-               <div class="bg-light border border-secondary rounded mb-4 p-3">
+               <div class="bg-light border border-success rounded mb-4 p-3 bg-white-leather">
                    <magus-harcertek 
                         :moduleName="'Kezdeményező érték (KÉ)'"
                         :alap="Kaszt.KEalap"
@@ -71,7 +71,7 @@
                    />
                </div>
 
-                <div class="bg-light border border-secondary rounded mb-4 p-3">
+                <div class="bg-light border border-success rounded mb-4 p-3 bg-white-leather">
                     <magus-harcertek 
                         :moduleName="'Támadó érték (TÉ)'"
                         :alap="Kaszt.TEalap"
@@ -83,7 +83,7 @@
                    />
                </div>
 
-                <div class="bg-light border border-secondary rounded mb-4 p-3">
+                <div class="bg-light border border-success rounded mb-4 p-3 bg-white-leather">
                     <magus-harcertek 
                         :moduleName="'Védő érték (VÉ)'"
                         :alap="Kaszt.VEalap"
@@ -95,7 +95,7 @@
                    />
                </div>
 
-               <div class="bg-light border border-secondary rounded mb-4 p-3">
+               <div class="bg-light border border-success rounded mb-4 p-3 bg-white-leather">
                    <magus-harcertek 
                         :moduleName="'Célzó érték (CÉ)'"
                         :alap="ceFaj"
@@ -108,54 +108,54 @@
                </div>
 
                <!-- viselt pajzs tipus -->
-                <div class="bg-light border border-secondary rounded mb-4 p-3">
+                <div class="bg-light border border-success rounded mb-4 p-3 bg-white-leather">
                     <magus-shield />
                 </div>
            </div>
         </div>
 
         <!-- fegyverek -->
-        <div class="bg-light border border-secondary rounded mb-4 p-3">
+        <div class="bg-light border border-success rounded mb-4 p-3 bg-white-leather">
            <magus-wepon />
         </div>
 
         <!-- kepzetseg tablazat -->
-         <div class="bg-light border border-secondary rounded mb-4 p-3">
+         <div class="bg-light border border-success rounded mb-4 p-3 bg-white-leather">
              <magus-skills />
         </div>
 
         <!-- kincsek -->
-        <div class="bg-light border border-secondary rounded mb-4 p-3">
+        <div class="bg-light border border-success rounded mb-4 p-3 bg-white-leather">
             <magus-kincsek />
         </div>
 
         <!-- felszereles -->
-        <div class="bg-light border border-secondary rounded mb-4 p-3">
+        <div class="bg-light border border-success rounded mb-4 p-3 bg-white-leather">
             <magus-equipment :Equipment="magusCharacter.Felszereles" :id="magusCharacter.id" />
         </div>
 
         <!-- egyebb -->
         <div class="row justify-content-evenly">
             <div class="col">
-                <div class="bg-light border border-secondary rounded mb-4 p-3">
+                <div class="bg-light border border-success rounded mb-4 p-3 bg-white-leather">
                     <h4>Egyébb módositók</h4>
                     <p v-for="special, index in Faj.specials" :key="'E' + index">{{ special }}</p>
                 </div>
             </div>
             <div class="col">
-                <div class="bg-light border border-secondary rounded mb-4 p-3">
+                <div class="bg-light border border-success rounded mb-4 p-3 bg-white-leather">
                     <magus-character-descript />
                 </div>
             </div>
             <div class="col">
-                <div class="bg-light border border-secondary rounded mb-4 p-3">
+                <div class="bg-light border border-success rounded mb-4 p-3 bg-white-leather">
                     <magus-level-up />
                 </div>
             </div>
         </div>
 
         <!-- notes -->
-        <div class="bg-light border border-secondary rounded mb-4 p-3">
+        <div class="bg-light border border-success rounded mb-4 p-3 bg-white-leather">
             <magus-notes />
         </div>
         <p>.</p>

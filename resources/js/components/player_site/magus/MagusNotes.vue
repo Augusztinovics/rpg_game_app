@@ -3,7 +3,7 @@
         <div>
             <div class="text-center py-2 border-bottom border-secondary my-2">
                 <h4>Jegyzetek</h4>
-                <button class="btn btn-success mt-2" type="button"  data-bs-toggle="modal" data-bs-target="#noteModal">Uj jegyzet hozzáadása</button>
+                <button class="btn btn-success mt-2 bg-green-leather costum-btn" type="button"  data-bs-toggle="modal" data-bs-target="#noteModal">Uj jegyzet hozzáadása</button>
             </div>
             <p class="ms-2" v-for="note, index in notes" :key="'K' + index">{{ note }} <button class="btn btn-outline-danger btn-sm ms-2" type="button" @click="deleteNote(index)">-</button></p> 
         </div>
@@ -20,8 +20,8 @@
                     <input type="text" class="form-control" id="egyebb-text" v-model="inputNote">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="saveNote" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary bg-green-leather costum-btn" @click="saveNote" data-bs-dismiss="modal">Save changes</button>
                 </div>
                 </div>
             </div>

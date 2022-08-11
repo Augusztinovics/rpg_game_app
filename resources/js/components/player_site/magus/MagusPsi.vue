@@ -3,9 +3,9 @@
         <div class="border-bottom border-secondary mb-3">
             <h4 class="text-center mt-2">Pszi képzetség</h4>
             <div v-if="psiSkill.learned" class="d-grid text-center mb-3">
-                <button class="btn btn-success ms-2 mt-2" type="button" data-bs-toggle="modal" data-bs-target="#pyarroniModal">Álltalános Diszciplinák</button>
-                <button v-if="IsSlan" class="btn btn-success ms-2 mt-2" type="button" data-bs-toggle="modal" data-bs-target="#slanModal">Slan Diszciplinák</button>
-                <button v-if="IsKyr" class="btn btn-success ms-2 mt-2" type="button" data-bs-toggle="modal" data-bs-target="#kyrModal">Kyr Diszciplinák</button>
+                <button class="btn btn-success ms-2 mt-2 bg-green-leather costum-btn" type="button" data-bs-toggle="modal" data-bs-target="#pyarroniModal">Álltalános Diszciplinák</button>
+                <button v-if="IsSlan" class="btn btn-success ms-2 mt-2 bg-green-leather costum-btn" type="button" data-bs-toggle="modal" data-bs-target="#slanModal">Slan Diszciplinák</button>
+                <button v-if="IsKyr" class="btn btn-success ms-2 mt-2 bg-green-leather costum-btn" type="button" data-bs-toggle="modal" data-bs-target="#kyrModal">Kyr Diszciplinák</button>
             </div>
             <p>Iskola tipusa: <span>{{ psiSkill.school }}</span></p>
             <p>Használat foka: <span>{{ psiSkill.level }}</span></p>
@@ -23,8 +23,8 @@
             <p class="border-top border-secondary">Akt pszi pont</p>
             <p>{{ psiSkill.currentPszi }} <span v-if="psiSkill.learned"><button v-if="psiSkill.currentPszi > 0" class="btn btn-outline-danger btn-sm ms-2" type="button" @click="changeCurrentPsi(-1)">-1 Pszi Pont</button> <button v-if="psiSkill.currentPszi < availablePsi" class="btn btn-outline-success btn-sm ms-2" type="button" @click="changeCurrentPsi(1)">+1 Pszi Pont</button></span></p>
             <div v-if="psiSkill.learned" class="d-grid text-center mb-3">
-                <button v-if="psiSkill.currentPszi > 0" class="btn btn-danger ms-2" type="button" data-bs-toggle="modal" data-bs-target="#psiUseModal">Pszi Pontok Használata</button>
-                <button v-if="psiSkill.currentPszi < availablePsi" class="btn btn-success ms-2 mt-2" type="button" @click="refreshPsi">Pszi Pontok Teljes Feltöltése</button>
+                <button v-if="psiSkill.currentPszi > 0" class="btn btn-danger ms-2 bg-red-leather costum-btn" type="button" data-bs-toggle="modal" data-bs-target="#psiUseModal">Pszi Pontok Használata</button>
+                <button v-if="psiSkill.currentPszi < availablePsi" class="btn btn-success ms-2 mt-2 bg-green-leather costum-btn" type="button" @click="refreshPsi">Pszi Pontok Teljes Feltöltése</button>
             </div>
         </div>
 
@@ -42,8 +42,8 @@
                     <input type="number" class="form-control" id="psiInput" min="1" :max="availablePsi" v-model="inputPsiUse">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="submitPsiUse" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary bg-red-leather costum-btn"  @click="submitPsiUse" data-bs-dismiss="modal">Save changes</button>
                 </div>
                 </div>
             </div>
@@ -56,14 +56,14 @@
                 <div class="col border-end border-secondary">
                     <p>ASZTRÁL</p>
                     <p>Statikus</p>
-                    <p v-if="psiSkill.learned"><button v-if="psiSkill.staticAsztral > 0" class="btn btn-danger ms-2 mt-2" type="button" @click="destroyStaticAsztral">Lebont</button></p>
-                    <p v-if="psiSkill.learned"><button v-if="psiSkill.staticAsztral < psiSkill.maxPszi" class="btn btn-success ms-2 mt-2" type="button" @click="buildStaticAsztral">Felépit</button></p>
+                    <p v-if="psiSkill.learned"><button v-if="psiSkill.staticAsztral > 0" class="btn btn-danger ms-2 mt-2 bg-red-leather costum-btn" type="button" @click="destroyStaticAsztral">Lebont</button></p>
+                    <p v-if="psiSkill.learned"><button v-if="psiSkill.staticAsztral < psiSkill.maxPszi" class="btn btn-success ms-2 mt-2 bg-green-leather costum-btn" type="button" @click="buildStaticAsztral">Felépit</button></p>
                     <p class="border-bottom border-secondary">{{ psiSkill.staticAsztral }}</p>
                     <p>Dinamikus</p>
                     <div v-if="psiSkill.learned">
-                        <button v-if="psiSkill.currentPszi > 0" class="btn btn-success ms-2 mt-2" type="button" @click="setDinamicType('add_aszt')" data-bs-toggle="modal" data-bs-target="#dinamicModal">Erősités</button>
-                        <button v-if="psiSkill.currentPszi < psiSkill.maxPszi && psiSkill.dinamicAsztarl > 0" class="btn btn-primary ms-2 mt-2" type="button" @click="setDinamicType('ret_aszt')" data-bs-toggle="modal" data-bs-target="#dinamicModal">Kivonás</button>
-                        <button v-if="psiSkill.dinamicAsztarl > 0" class="btn btn-danger ms-2 mt-2" type="button" @click="setDinamicType('des_aszt')" data-bs-toggle="modal" data-bs-target="#dinamicModal">Bontás</button>
+                        <button v-if="psiSkill.currentPszi > 0" class="btn btn-success ms-2 mt-2 bg-green-leather costum-btn" type="button" @click="setDinamicType('add_aszt')" data-bs-toggle="modal" data-bs-target="#dinamicModal">Erősités</button>
+                        <button v-if="psiSkill.currentPszi < psiSkill.maxPszi && psiSkill.dinamicAsztarl > 0" class="btn btn-primary ms-2 mt-2 bg-blue-leather costum-btn" type="button" @click="setDinamicType('ret_aszt')" data-bs-toggle="modal" data-bs-target="#dinamicModal">Kivonás</button>
+                        <button v-if="psiSkill.dinamicAsztarl > 0" class="btn btn-danger ms-2 mt-2 bg-red-leather costum-btn" type="button" @click="setDinamicType('des_aszt')" data-bs-toggle="modal" data-bs-target="#dinamicModal">Bontás</button>
                     </div>
                    
                     <p class="border-bottom border-secondary">{{ psiSkill.dinamicAsztarl }}</p>
@@ -73,14 +73,14 @@
                 <div class="col">
                     <p>MENTÁL</p>
                     <p>Statikus</p>
-                    <p v-if="psiSkill.learned"><button v-if="psiSkill.staticMental > 0" class="btn btn-danger ms-2 mt-2" type="button" @click="destroyStaticMental">Lebont</button></p>
-                    <p v-if="psiSkill.learned"><button v-if="psiSkill.staticMental < psiSkill.maxPszi" class="btn btn-success ms-2 mt-2" type="button" @click="buildStaticMental">Felépit</button></p>
+                    <p v-if="psiSkill.learned"><button v-if="psiSkill.staticMental > 0" class="btn btn-danger ms-2 mt-2 bg-red-leather costum-btn" type="button" @click="destroyStaticMental">Lebont</button></p>
+                    <p v-if="psiSkill.learned"><button v-if="psiSkill.staticMental < psiSkill.maxPszi" class="btn btn-success ms-2 mt-2 bg-green-leather costum-btn" type="button" @click="buildStaticMental">Felépit</button></p>
                     <p class="border-bottom border-secondary">{{ psiSkill.staticMental }}</p>
                     <p>Dinamikus</p>
                     <div v-if="psiSkill.learned">
-                        <button v-if="psiSkill.currentPszi > 0" class="btn btn-success ms-2 mt-2" type="button" @click="setDinamicType('add_ment')" data-bs-toggle="modal" data-bs-target="#dinamicModal">Erősités</button>
-                        <button v-if="psiSkill.currentPszi < psiSkill.maxPszi && psiSkill.dinamicMental > 0" class="btn btn-primary ms-2 mt-2" type="button" @click="setDinamicType('ret_ment')" data-bs-toggle="modal" data-bs-target="#dinamicModal">Kivonás</button>
-                        <button v-if="psiSkill.dinamicMental > 0" class="btn btn-danger ms-2 mt-2" type="button" @click="setDinamicType('des_ment')" data-bs-toggle="modal" data-bs-target="#dinamicModal">Bontás</button>
+                        <button v-if="psiSkill.currentPszi > 0" class="btn btn-success ms-2 mt-2 bg-green-leather costum-btn" type="button" @click="setDinamicType('add_ment')" data-bs-toggle="modal" data-bs-target="#dinamicModal">Erősités</button>
+                        <button v-if="psiSkill.currentPszi < psiSkill.maxPszi && psiSkill.dinamicMental > 0" class="btn btn-primary ms-2 mt-2 bg-blue-leather costum-btn" type="button" @click="setDinamicType('ret_ment')" data-bs-toggle="modal" data-bs-target="#dinamicModal">Kivonás</button>
+                        <button v-if="psiSkill.dinamicMental > 0" class="btn btn-danger ms-2 mt-2 bg-red-leather costum-btn" type="button" @click="setDinamicType('des_ment')" data-bs-toggle="modal" data-bs-target="#dinamicModal">Bontás</button>
                     </div>
                     <p class="border-bottom border-secondary">{{ psiSkill.dinamicMental }}</p>
                     <p>ME</p>
@@ -103,8 +103,8 @@
                     <input type="number" class="form-control" id="inputDinamic" min="1" :max="availablePsi" v-model="inputDinamic">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="switchUpdateDinamic" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary bg-green-leather costum-btn"  @click="switchUpdateDinamic" data-bs-dismiss="modal">Save changes</button>
                 </div>
                 </div>
             </div>
@@ -150,7 +150,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -195,7 +195,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -240,7 +240,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
