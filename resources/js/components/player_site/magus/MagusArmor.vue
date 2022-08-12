@@ -16,7 +16,7 @@
             <p class="p-2">A karakter nem rendelkezik páncéllal</p>
         </div>
 
-        <!-- Pajzs modositas modal -->
+        <!-- Pancel modositas modal -->
         <div class="modal fade smooth" id="armorModal" tabindex="-1" aria-labelledby="armorModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">

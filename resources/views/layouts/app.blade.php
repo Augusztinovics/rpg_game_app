@@ -63,7 +63,7 @@
                                     </li>
                                     @if (Auth::user()->level === 'ADMIN')
                                     <li>
-                                        <a class="dropdown-item" href="#">Admin panel</a>
+                                        <a class="dropdown-item" href="{{ route('admin') }}">Admin panel</a>
                                     </li>
                                     @endif
                                     @if (Auth::user()->level === 'GAME_MASTER' || Auth::user()->level === 'ADMIN')
