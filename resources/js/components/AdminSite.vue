@@ -13,7 +13,7 @@
             <button class="nav-link" id="pills-users-tab" data-bs-toggle="pill" data-bs-target="#pills-users" type="button" role="tab" aria-controls="pills-users" aria-selected="false">Users</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-characters-tab" data-bs-toggle="pill" data-bs-target="#pills-characters" type="button" role="tab" aria-controls="pills-characters" aria-selected="false">Characters</button>
+            <button class="nav-link" id="pills-news-tab" data-bs-toggle="pill" data-bs-target="#pills-news" type="button" role="tab" aria-controls="pills-news" aria-selected="false">News</button>
         </li>
     </ul>
     <div class="tab-content" id="pills-tabContent">
@@ -23,8 +23,8 @@
         <div class="tab-pane fade" id="pills-users" role="tabpanel" aria-labelledby="pills-users-tab">
             <users-controll />
         </div>
-        <div class="tab-pane fade" id="pills-characters" role="tabpanel" aria-labelledby="pills-characters-tab">
-            Characters
+        <div class="tab-pane fade" id="pills-news" role="tabpanel" aria-labelledby="pills-news-tab">
+            News
         </div>
     </div>
 </div>

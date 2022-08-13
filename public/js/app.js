@@ -5373,6 +5373,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -5441,17 +5448,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       users: [],
       loading: false,
       haveError: false,
-      selectedUser: null
+      selectedUser: null,
+      searchUsername: '',
+      searchEmail: ''
     };
   },
-  computed: {},
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusClasses', {
+    magusKaszt: 'magusClass'
+  })),
   methods: {
+    Kaszt: function Kaszt(kasztId) {
+      return this.magusKaszt(kasztId);
+    },
     modUser: function modUser() {
       var _this = this;
 
@@ -5492,6 +5527,34 @@ __webpack_require__.r(__webpack_exports__);
         _this3.loading = false;
       })["catch"](function (error) {
         _this3.haveError = true;
+        console.log(error);
+      });
+    },
+    searchByUsername: function searchByUsername() {
+      var _this4 = this;
+
+      this.loading = true;
+      this.haveError = false;
+      axios.get('/admin/all-users?usn=' + this.searchUsername).then(function (res) {
+        _this4.users = res.data;
+        _this4.loading = false;
+        _this4.searchUsername = '';
+      })["catch"](function (error) {
+        _this4.haveError = true;
+        console.log(error);
+      });
+    },
+    serchByEmail: function serchByEmail() {
+      var _this5 = this;
+
+      this.loading = true;
+      this.haveError = false;
+      axios.get('/admin/all-users?use=' + this.searchEmail).then(function (res) {
+        _this5.users = res.data;
+        _this5.loading = false;
+        _this5.searchEmail = '';
+      })["catch"](function (error) {
+        _this5.haveError = true;
         console.log(error);
       });
     }
@@ -45452,12 +45515,12 @@ var render = function () {
           {
             staticClass: "tab-pane fade",
             attrs: {
-              id: "pills-characters",
+              id: "pills-news",
               role: "tabpanel",
-              "aria-labelledby": "pills-characters-tab",
+              "aria-labelledby": "pills-news-tab",
             },
           },
-          [_vm._v("\r\n            Characters\r\n        ")]
+          [_vm._v("\r\n            News\r\n        ")]
         ),
       ]
     ),
@@ -45527,16 +45590,16 @@ var staticRenderFns = [
             {
               staticClass: "nav-link",
               attrs: {
-                id: "pills-characters-tab",
+                id: "pills-news-tab",
                 "data-bs-toggle": "pill",
-                "data-bs-target": "#pills-characters",
+                "data-bs-target": "#pills-news",
                 type: "button",
                 role: "tab",
-                "aria-controls": "pills-characters",
+                "aria-controls": "pills-news",
                 "aria-selected": "false",
               },
             },
-            [_vm._v("Characters")]
+            [_vm._v("News")]
           ),
         ]),
       ]
@@ -45703,6 +45766,94 @@ var render = function () {
         ])
       : _vm._e(),
     _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c("div", { staticClass: "row my-3" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-secondary",
+              attrs: { type: "button", id: "button-addon1" },
+              on: { click: _vm.searchByUsername },
+            },
+            [_vm._v("Username")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.searchUsername,
+                expression: "searchUsername",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              placeholder: "Search user by username",
+              "aria-label": "Search user by username",
+              "aria-describedby": "button-addon1",
+            },
+            domProps: { value: _vm.searchUsername },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.searchUsername = $event.target.value
+              },
+            },
+          }),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-secondary",
+              attrs: { type: "button", id: "button-addon2" },
+              on: { click: _vm.serchByEmail },
+            },
+            [_vm._v("Email")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.searchEmail,
+                expression: "searchEmail",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              placeholder: "Search user by email",
+              "aria-label": "Search user by email",
+              "aria-describedby": "button-addon2",
+            },
+            domProps: { value: _vm.searchEmail },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.searchEmail = $event.target.value
+              },
+            },
+          }),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
     _c("div", { staticClass: "table-responsive" }, [
       _c("table", { staticClass: "table table-striped" }, [
         _vm._m(0),
@@ -45720,6 +45871,33 @@ var render = function () {
               _c("td", [_vm._v(_vm._s(user.level))]),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(user.gold))]),
+              _vm._v(" "),
+              _c(
+                "td",
+                _vm._l(user.character_sheets, function (character) {
+                  return _c(
+                    "button",
+                    {
+                      key: character.id,
+                      staticClass: "btn btn-link",
+                      attrs: { type: "button" },
+                    },
+                    [
+                      _vm._v(
+                        _vm._s(character.character_data.Nev) +
+                          " ( " +
+                          _vm._s(character.character_data.Szint) +
+                          ".Szintű " +
+                          _vm._s(
+                            _vm.Kaszt(character.character_data.Kaszt).name
+                          ) +
+                          ")"
+                      ),
+                    ]
+                  )
+                }),
+                0
+              ),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(user.created_at))]),
               _vm._v(" "),
@@ -45783,7 +45961,7 @@ var render = function () {
               _c(
                 "h5",
                 { staticClass: "modal-title", attrs: { id: "userModalLabel" } },
-                [_vm._v("Uj vagyon")]
+                [_vm._v("Update user")]
               ),
               _vm._v(" "),
               _c("button", {
@@ -45941,13 +46119,15 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("ID")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Name")]),
+        _c("th", [_vm._v("User Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("E-mail")]),
         _vm._v(" "),
         _c("th", [_vm._v("Level")]),
         _vm._v(" "),
         _c("th", [_vm._v("Gold")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Characters")]),
         _vm._v(" "),
         _c("th", [_vm._v("Created")]),
         _vm._v(" "),

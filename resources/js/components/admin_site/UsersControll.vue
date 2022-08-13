@@ -7,15 +7,32 @@
             <h2 class="text-light">Error loading</h2>
             <button type="button" class="btn btn-success m-3" @click="fetchUsers">Retry...</button>
         </div>
+        <hr>
+        <div class="row my-3">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon1" @click="searchByUsername">Username</button>
+                    <input type="text" v-model="searchUsername" class="form-control" placeholder="Search user by username" aria-label="Search user by username" aria-describedby="button-addon1">
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group mb-3">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="serchByEmail">Email</button>
+                    <input type="text" v-model="searchEmail" class="form-control" placeholder="Search user by email" aria-label="Search user by email" aria-describedby="button-addon2">
+                </div>
+            </div>
+        </div>
+        <hr>
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th>User Name</th>
                         <th>E-mail</th>
                         <th>Level</th>
                         <th>Gold</th>
+                        <th>Characters</th>
                         <th>Created</th>
                         <th>Modifyed</th>
                         <th>-</th>
@@ -28,6 +45,9 @@
                         <td>{{ user.email }}</td>
                         <td>{{ user.level }}</td>
                         <td>{{ user.gold }}</td>
+                        <td>
+                            <button v-for="character in user.character_sheets" :key="character.id" type="button" class="btn btn-link">{{ character.character_data.Nev }} ( {{ character.character_data.Szint }}.Szintű {{ Kaszt(character.character_data.Kaszt).name }})</button>
+                        </td>
                         <td>{{ user.created_at }}</td>
                         <td>{{ user.updated_at }}</td>
                         <td>
@@ -44,7 +64,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="userModalLabel">Uj vagyon</h5>
+                        <h5 class="modal-title" id="userModalLabel">Update user</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="selectedUser=null"></button>
                     </div>
                 <div v-if="selectedUser!=null" class="modal-body">
@@ -67,6 +87,7 @@
     </div>
 </template>
 <script>
+import { mapGetters, mapActions, mapMutations } from 'vuex';
 export default {
     data() {
         return {
@@ -74,12 +95,19 @@ export default {
             loading: false,
             haveError: false,
             selectedUser: null,
+            searchUsername: '',
+            searchEmail: '',
         }
     },
     computed: {
-
+        ...mapGetters('magusClasses', {
+            magusKaszt: 'magusClass',
+        }),
     },
     methods: {
+        Kaszt(kasztId) {
+            return this.magusKaszt(kasztId);
+        },
         modUser() {
             if (this.selectedUser) {
                 this.loading = true;
@@ -120,7 +148,32 @@ export default {
                 console.log(error);
             })
         },
-
+        searchByUsername() {
+            this.loading = true;
+            this.haveError = false;
+            axios.get('/admin/all-users?usn=' + this.searchUsername)
+            .then(res => {
+                this.users = res.data;
+                this.loading = false;
+                this.searchUsername = '';
+            }).catch(error => {
+                this.haveError = true;
+                console.log(error);
+            })
+        },
+        serchByEmail() {
+            this.loading = true;
+            this.haveError = false;
+            axios.get('/admin/all-users?use=' + this.searchEmail)
+            .then(res => {
+                this.users = res.data;
+                this.loading = false;
+                this.searchEmail = '';
+            }).catch(error => {
+                this.haveError = true;
+                console.log(error);
+            })
+        },
     },
     mounted() {
         this.fetchUsers();

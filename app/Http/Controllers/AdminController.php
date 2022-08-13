@@ -45,10 +45,17 @@ class AdminController extends Controller
         if ($request->user()->level !== 'ADMIN'){
             return response()->json('forbitten', 403);
         }
+        $searchUsername = $request->query('usn');
+        $searchUserEmail = $request->query('use');
         
-        $users = User::get();
+        if ($searchUsername) {
+            $users = User::with('characterSheets')->where('name', 'LIKE', '%' . $searchUsername . '%')->get();
+        } elseif ($searchUserEmail) {
+            $users = User::with('characterSheets')->where('email', 'LIKE', '%' . $searchUserEmail . '%')->get();
+        } else {
+            $users = User::with('characterSheets')->get();
+        }
        
-        
        return response()->json($users, 200);
     }
 
