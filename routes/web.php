@@ -38,3 +38,4 @@ Route::post('character/delete/{id}', [CharacterSheetsController::class, 'deleteG
 Route::get('admin/all-users', [AdminController::class, 'getAllUser']);
 Route::post('admin/update', [AdminController::class, 'updateUser']);
 Route::post('admin/delete/{id}', [AdminController::class, 'deleteUser']);
+Route::post('admin/update-character', [AdminController::class, 'updateCharacter']);

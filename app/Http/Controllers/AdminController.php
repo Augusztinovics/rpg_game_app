@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\User;
+use App\Models\CharacterSheet;
 
 class AdminController extends Controller
 {
@@ -53,7 +54,7 @@ class AdminController extends Controller
         } elseif ($searchUserEmail) {
             $users = User::with('characterSheets')->where('email', 'LIKE', '%' . $searchUserEmail . '%')->get();
         } else {
-            $users = User::with('characterSheets')->get();
+            $users = User::with('characterSheets')->paginate(25);
         }
        
        return response()->json($users, 200);
@@ -93,5 +94,26 @@ class AdminController extends Controller
        
         
        return response()->json('Success', 200);
+    }
+
+     /**
+     * updating a character
+     * 
+     * @return json
+     */
+    public function updateCharacter(Request $request){
+        
+        if ($request->user()->level !== 'ADMIN'){
+            return response()->json('forbitten', 403);
+        }
+        $character = $request->input('selectedCharacter');
+        $characterToUpdate = CharacterSheet::find($character['id']);
+        $characterToUpdate->character_data = $character['character_data'];
+        
+       if ($characterToUpdate->save()) {
+            return response()->json('succes', 200);
+       } else {
+            return response()->json('fail', 407);
+       }
     }
 }

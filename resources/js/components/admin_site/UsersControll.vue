@@ -23,6 +23,9 @@
             </div>
         </div>
         <hr>
+        <div v-if="havePagination" class="text-center">
+            <button v-for="pag, index in pagLinks" :key="'PT' + index" :disabled="!pag.url" :class="{'active':pag.active}" class="btn btn-sm" @click="paginate(pag.url)" v-html="pag.label"></button>
+        </div>
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
@@ -46,7 +49,9 @@
                         <td>{{ user.level }}</td>
                         <td>{{ user.gold }}</td>
                         <td>
-                            <button v-for="character in user.character_sheets" :key="character.id" type="button" class="btn btn-link">{{ character.character_data.Nev }} ( {{ character.character_data.Szint }}.Szintű {{ Kaszt(character.character_data.Kaszt).name }})</button>
+                            <button v-for="character in user.character_sheets" :key="character.id" type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#charModal" @click="selectCharakter(character)">
+                                {{ character.character_data.Nev }} ( {{ character.character_data.Szint }}.Szintű {{ Kaszt(character.character_data.Kaszt).name }})
+                            </button>
                         </td>
                         <td>{{ user.created_at }}</td>
                         <td>{{ user.updated_at }}</td>
@@ -57,6 +62,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div v-if="havePagination" class="text-center">
+                <button v-for="pag, index in pagLinks" :key="'PB' + index" :disabled="!pag.url" :class="{'active':pag.active}" class="btn btn-sm" @click="paginate(pag.url)" v-html="pag.label"></button>
+            </div>
         </div>
 
         <!-- User update modal -->
@@ -84,10 +92,30 @@
                 </div>
             </div>
         </div>
+
+        <!-- Character update modal -->
+        <div class="modal fade" id="charModal" tabindex="-1" aria-labelledby="charModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="charModalLabel">Update Character</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="clearCharacter"></button>
+                    </div>
+                <div v-if="selectedCharacter!=null" class="modal-body">
+                    <label for="charData">Character Data:</label>
+                    <textarea class="form-control" id="charData" rows="30" v-model="selectedCharacterData"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="clearCharacter">Close</button>
+                    <button type="button" class="btn btn-primary" @click="modCharacter" data-bs-dismiss="modal">Save changes</button>
+                </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
-import { mapGetters, mapActions, mapMutations } from 'vuex';
+import { mapGetters } from 'vuex';
 export default {
     data() {
         return {
@@ -97,12 +125,18 @@ export default {
             selectedUser: null,
             searchUsername: '',
             searchEmail: '',
+            pagLinks: [],
+            selectedCharacter: null,
+            selectedCharacterData: '',
         }
     },
     computed: {
         ...mapGetters('magusClasses', {
             magusKaszt: 'magusClass',
         }),
+        havePagination() {
+            return this.pagLinks.length > 3;
+        },
     },
     methods: {
         Kaszt(kasztId) {
@@ -141,7 +175,21 @@ export default {
             this.haveError = false;
             axios.get('/admin/all-users')
             .then(res => {
-                this.users = res.data;
+                this.users = res.data.data;
+                this.pagLinks = res.data.links;
+                this.loading = false;
+            }).catch(error => {
+                this.haveError = true;
+                console.log(error);
+            })
+        },
+        paginate(link) {
+            this.loading = true;
+            this.haveError = false;
+            axios.get(link)
+            .then(res => {
+                this.users = res.data.data;
+                this.pagLinks = res.data.links;
                 this.loading = false;
             }).catch(error => {
                 this.haveError = true;
@@ -149,30 +197,67 @@ export default {
             })
         },
         searchByUsername() {
-            this.loading = true;
-            this.haveError = false;
-            axios.get('/admin/all-users?usn=' + this.searchUsername)
-            .then(res => {
-                this.users = res.data;
-                this.loading = false;
-                this.searchUsername = '';
-            }).catch(error => {
-                this.haveError = true;
-                console.log(error);
-            })
+            if (this.searchUsername) {
+                 this.loading = true;
+                this.haveError = false;
+                axios.get('/admin/all-users?usn=' + this.searchUsername)
+                .then(res => {
+                    this.users = res.data;
+                    this.loading = false;
+                    this.pagLinks = [];
+                    this.searchUsername = '';
+                }).catch(error => {
+                    this.haveError = true;
+                    console.log(error);
+                })
+            } else {
+                this.fetchUsers();
+            }
         },
         serchByEmail() {
-            this.loading = true;
-            this.haveError = false;
-            axios.get('/admin/all-users?use=' + this.searchEmail)
-            .then(res => {
-                this.users = res.data;
-                this.loading = false;
-                this.searchEmail = '';
-            }).catch(error => {
-                this.haveError = true;
-                console.log(error);
-            })
+            if (this.searchEmail) {
+                this.loading = true;
+                this.haveError = false;
+                axios.get('/admin/all-users?use=' + this.searchEmail)
+                .then(res => {
+                    this.users = res.data;
+                    this.loading = false;
+                    this.pagLinks = [];
+                    this.searchEmail = '';
+                }).catch(error => {
+                    this.haveError = true;
+                    console.log(error);
+                })
+            } else {
+                this.fetchUsers();
+            }   
+        },
+        selectCharakter(character) {
+            this.selectedCharacter = character;
+            this.selectedCharacterData = JSON.stringify(this.selectedCharacter.character_data, null, "\t");
+        },
+        clearCharacter() {
+            this.selectedCharacter = null;
+            this.selectedCharacterData = '';
+        },
+        modCharacter() {
+            console.log('HIVOM A SAVET')
+            if (this.selectedCharacter && this.selectedCharacterData) {
+                console.log('BENNE A SAVET')
+                this.selectedCharacter.character_data = JSON.parse(this.selectedCharacterData);
+                this.loading = true;
+                this.haveError = false;
+                axios.post('/admin/update-character', {
+                    selectedCharacter: this.selectedCharacter
+                })
+                .then(res => {
+                    this.fetchUsers();
+                }).catch(error => {
+                    console.log(error);
+                    this.loading = false;
+                    this.haveError = true;
+                })
+            }
         },
     },
     mounted() {
@@ -180,3 +265,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .active{
+        border: 1px solid rgb(15, 91, 161);
+    }
+</style>
