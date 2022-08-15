@@ -160,15 +160,15 @@ export default {
         },
         delUser(id) {
             this.loading = true;
-                this.haveError = false;
-                axios.post('/admin/delete/' + id, {})
-                .then(res => {
-                    this.fetchUsers();
-                }).catch(error => {
-                    console.log(error);
-                    this.loading = false;
-                    this.haveError = true;
-                })
+            this.haveError = false;
+            axios.post('/admin/delete/' + id, {})
+            .then(res => {
+                this.fetchUsers();
+            }).catch(error => {
+                console.log(error);
+                this.loading = false;
+                this.haveError = true;
+            })
         },
         fetchUsers() {
             this.loading = true;
@@ -179,6 +179,7 @@ export default {
                 this.pagLinks = res.data.links;
                 this.loading = false;
             }).catch(error => {
+                this.loading = false;
                 this.haveError = true;
                 console.log(error);
             })

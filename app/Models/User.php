@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(CharacterSheet::class);
     }
+
+    public function questions()
+    {
+        return $this->hasMany(CostumerSupport::class);
+    }
 }

@@ -18,7 +18,7 @@
     </ul>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-messages" role="tabpanel" aria-labelledby="pills-messages-tab">
-            Messages
+            <costumer-support />
         </div>
         <div class="tab-pane fade" id="pills-users" role="tabpanel" aria-labelledby="pills-users-tab">
             <users-controll />
@@ -33,10 +33,12 @@
 
 <script>
     import UsersControll from './admin_site/UsersControll.vue';
+    import CostumerSupport from './admin_site/CostumerSupport.vue'
 
     export default {
         components: {
            UsersControll,
+           CostumerSupport,
         },
         mounted() {
             console.log('Component mounted.')

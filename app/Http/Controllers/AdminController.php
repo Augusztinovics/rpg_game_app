@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\User;
 use App\Models\CharacterSheet;
+use App\Models\CostumerSupport;
 
 class AdminController extends Controller
 {
@@ -115,5 +116,76 @@ class AdminController extends Controller
        } else {
             return response()->json('fail', 407);
        }
+    }
+
+    //costumer support controll functions
+
+    /**
+     * getting all question
+     * 
+     * @return json
+     */
+    public function getAllQuestion(Request $request){
+        
+        if ($request->user()->level !== 'ADMIN'){
+            return response()->json('forbitten', 403);
+        }
+        
+        $questions = CostumerSupport::with('user')->paginate(25);
+        
+       
+       return response()->json($questions, 200);
+    }
+
+     /**
+     * getting all unanswered question
+     * 
+     * @return json
+     */
+    public function getAllUnasweredQuestion(Request $request){
+        
+        if ($request->user()->level !== 'ADMIN'){
+            return response()->json('forbitten', 403);
+        }
+        
+        $questions = CostumerSupport::with('user')->where('answer', null)->paginate(25);
+        
+       
+       return response()->json($questions, 200);
+    }
+
+    /**
+     * answering a question
+     * 
+     * @return json
+     */
+    public function answerQuestion(Request $request, $id){
+        
+        if ($request->user()->level !== 'ADMIN'){
+            return response()->json('forbitten', 403);
+        }
+        $question = CostumerSupport::find($id);
+        $question->answer = $request->input('answer');
+
+       if ($question->save()) {
+            return response()->json('succes', 200);
+       } else {
+            return response()->json('fail', 407);
+       }
+    }
+
+    /**
+     * deleting user questions for corrent user
+     * 
+     * @return json
+     */
+    public function deleteQuestion(Request $request, $question_id){
+        if ($request->user()->level !== 'ADMIN'){
+            return response()->json('forbitten', 403);
+        }
+
+        CostumerSupport::where('id', $question_id)->delete();
+       
+        return response()->json('Success', 200);
     }
 }
