@@ -108,6 +108,10 @@
                 <section>
                     <div class="pt-5">
                         <h2 class="display-4 fw-bold text-center pb-4">Mit nyújt az aplikáció</h2>
+                        <div class="text-center my-4">
+                            <iframe class="p-3 shadow-lg border border-4 border-danger rounded-3" width="560" height="315" src="https://www.youtube.com/embed/jX1NyMyhPDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <hr>
                         <p class="px-4">Jelenleg az aplikáció a fejlesztés első fázisában van.</p>
                         <p class="px-4">Az első fázis funkciói:</p>
                         <p class="px-4">Karakter készités</p>
@@ -133,7 +137,9 @@
                     </div>  
                 </section>
             </div>
-            <div id="app"></div>
+            <div id="app">
+                <welcome-news />
+            </div>
         </main> 
         <footer class="bg-info">
             <div class="p-5 text-center">

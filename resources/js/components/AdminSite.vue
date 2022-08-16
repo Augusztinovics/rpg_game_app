@@ -24,7 +24,7 @@
             <users-controll />
         </div>
         <div class="tab-pane fade" id="pills-news" role="tabpanel" aria-labelledby="pills-news-tab">
-            News
+            <wats-new />
         </div>
     </div>
 </div>
@@ -33,12 +33,14 @@
 
 <script>
     import UsersControll from './admin_site/UsersControll.vue';
-    import CostumerSupport from './admin_site/CostumerSupport.vue'
+    import CostumerSupport from './admin_site/CostumerSupport.vue';
+    import WatsNew from './admin_site/WatsNew.vue';
 
     export default {
         components: {
            UsersControll,
            CostumerSupport,
+           WatsNew,
         },
         mounted() {
             console.log('Component mounted.')

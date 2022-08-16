@@ -21,6 +21,7 @@ use App\Models\User;
 */
 
 Route::get('/', [WlecomeController::class, 'index']);
+Route::get('/news', [WlecomeController::class, 'getNews']);
 
 Auth::routes();
 
@@ -41,11 +42,20 @@ Route::post('support/question', [CostumerSupportController::class, 'makeQuestion
 Route::post('support/question/{question_id}', [CostumerSupportController::class, 'deleteQuestion']);
 
 //Admin routs
+//users
 Route::get('admin/all-users', [AdminController::class, 'getAllUser']);
 Route::post('admin/update', [AdminController::class, 'updateUser']);
 Route::post('admin/delete/{id}', [AdminController::class, 'deleteUser']);
+//character
 Route::post('admin/update-character', [AdminController::class, 'updateCharacter']);
+//costumer support
 Route::get('admin/questions', [AdminController::class, 'getAllQuestion']);
 Route::get('admin/unanswered-questions', [AdminController::class, 'getAllUnasweredQuestion']);
 Route::post('admin/answer/{id}', [AdminController::class, 'answerQuestion']);
 Route::post('admin/delete-question/{question_id}', [AdminController::class, 'deleteQuestion']);
+//news
+Route::get('admin/news', [AdminController::class, 'getAllNews']);
+Route::post('admin/news/create', [AdminController::class, 'storeNews']);
+Route::post('admin/news/publish/{id}', [AdminController::class, 'publishUnpublishNews']);
+Route::post('admin/news/update/{id}', [AdminController::class, 'updateNews']);
+Route::post('admin/news/delete/{id}', [AdminController::class, 'deleteNews']);

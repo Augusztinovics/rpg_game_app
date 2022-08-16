@@ -150,6 +150,7 @@ export default {
                     selectedUser: this.selectedUser
                 })
                 .then(res => {
+                    this.loading = false;
                     this.fetchUsers();
                 }).catch(error => {
                     console.log(error);
@@ -163,6 +164,7 @@ export default {
             this.haveError = false;
             axios.post('/admin/delete/' + id, {})
             .then(res => {
+                this.loading = false;
                 this.fetchUsers();
             }).catch(error => {
                 console.log(error);
@@ -242,9 +244,7 @@ export default {
             this.selectedCharacterData = '';
         },
         modCharacter() {
-            console.log('HIVOM A SAVET')
             if (this.selectedCharacter && this.selectedCharacterData) {
-                console.log('BENNE A SAVET')
                 this.selectedCharacter.character_data = JSON.parse(this.selectedCharacterData);
                 this.loading = true;
                 this.haveError = false;
@@ -252,6 +252,7 @@ export default {
                     selectedCharacter: this.selectedCharacter
                 })
                 .then(res => {
+                    this.loading = false;
                     this.fetchUsers();
                 }).catch(error => {
                     console.log(error);

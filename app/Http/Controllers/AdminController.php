@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use App\Models\User;
 use App\Models\CharacterSheet;
 use App\Models\CostumerSupport;
+use App\Models\WhatsNew;
 
 class AdminController extends Controller
 {
@@ -187,5 +188,137 @@ class AdminController extends Controller
         CostumerSupport::where('id', $question_id)->delete();
        
         return response()->json('Success', 200);
+    }
+
+    //news controll functions
+
+    /**
+     * getting all news
+     * 
+     * @return json
+     */
+    public function getAllNews(Request $request){
+        
+        if ($request->user()->level !== 'ADMIN'){
+            return response()->json('forbitten', 403);
+        }
+        
+        $news = WhatsNew::paginate(25);
+        
+       
+       return response()->json($news, 200);
+    }
+
+    /**
+     * make a news
+     * 
+     * @return json
+     */
+    public function storeNews(Request $request){
+        
+        if ($request->user()->level !== 'ADMIN'){
+            return response()->json('forbitten', 403);
+        }
+        
+        $request->validate([
+            'title' => 'required',
+            'news' => 'required'
+        ]);
+        $news = WhatsNew::create([
+            'title' => $request->input('title'),
+            'news'  => $request->input('news'),
+        ]);
+
+        if (!$news) {
+            return response()->json('fail', 406);
+        }
+       
+       return response()->json('success', 200);
+    }
+
+    /**
+     * publish/unpublish a news
+     * 
+     * @return json
+     */
+    public function publishUnpublishNews(Request $request, $id){
+        
+        if ($request->user()->level !== 'ADMIN'){
+            return response()->json('forbitten', 403);
+        }
+        
+        $news = WhatsNew::find($id);
+
+        if (!$news) {
+            return response()->json('Cant find news', 406);
+        }
+        
+        $publish = $request->input('publish');
+        if ($publish) {
+            $publish = true;
+        } else {
+            $publish = false;
+        }
+
+        $news->publushed_at = date("Y-m-d");
+        $news->published = $publish;
+
+        if ($news->save()) {
+            return response()->json('success', 200);
+        } else {
+            return response()->json('fail', 406);
+        }
+    }
+
+    /**
+     * update a news
+     * 
+     * @return json
+     */
+    public function updateNews(Request $request, $id){
+        
+        if ($request->user()->level !== 'ADMIN'){
+            return response()->json('forbitten', 403);
+        }
+        
+        $news = WhatsNew::find($id);
+
+        if (!$news) {
+            return response()->json('Cant find news', 406);
+        }
+        
+        $title = $request->input('title');
+        $des = $request->input('news');
+
+        if ($title) {
+            $news->title = $title;
+        }
+       
+        if ($des) {
+            $news->news = $des;
+        }
+
+        if ($news->save()) {
+            return response()->json('success', 200);
+        } else {
+            return response()->json('fail', 406);
+        }
+    }
+
+    /**
+     * delete a news
+     * 
+     * @return json
+     */
+    public function deleteNews(Request $request, $id){
+        
+        if ($request->user()->level !== 'ADMIN'){
+            return response()->json('forbitten', 403);
+        }
+        
+        WhatsNew::where('id', $id)->delete();
+
+        return response()->json('success', 200);
+       
     }
 }
