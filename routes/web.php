@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GmHomeController;
 use App\Http\Controllers\CharacterSheetsController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\WlecomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CostumerSupportController;
@@ -20,11 +21,13 @@ use App\Models\User;
 |
 */
 
+//Welcome page routs
 Route::get('/', [WlecomeController::class, 'index']);
 Route::get('/news', [WlecomeController::class, 'getNews']);
 
 Auth::routes();
 
+//Head menu roots
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/gmhome', [GmHomeController::class, 'index'])->name('gmhome');
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
@@ -40,6 +43,10 @@ Route::post('character/delete/{id}', [CharacterSheetsController::class, 'deleteG
 Route::get('support/questions', [CostumerSupportController::class, 'getUsersQuestions']);
 Route::post('support/question', [CostumerSupportController::class, 'makeQuestion']);
 Route::post('support/question/{question_id}', [CostumerSupportController::class, 'deleteQuestion']);
+
+//Chat routs
+Route::get('chat/current-user', [ChatController::class, 'getCurrentUser']);
+Route::get('chat/all-user', [ChatController::class, 'getAllUser']);
 
 //Admin routs
 //users

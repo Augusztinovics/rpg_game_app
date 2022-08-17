@@ -142,6 +142,7 @@ export default {
                 this.pagLinks = res.data.links;
                 this.loading = false;
             }).catch(error => {
+                this.loading = false;
                 this.haveError = true;
                 console.log(error);
             })
