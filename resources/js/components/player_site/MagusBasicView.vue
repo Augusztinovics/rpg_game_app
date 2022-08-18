@@ -232,7 +232,7 @@
         </div>
         <div v-else-if="basic==3" class="container-fluid">
             <div>
-                <button class="btn btn-lg btn-success m-3" @click="basic=1">Back</button>
+                <button class="btn btn-lg btn-success m-3" @click="basic=1">Vissza</button>
             </div>
             <magus-character-sheet />
         </div>

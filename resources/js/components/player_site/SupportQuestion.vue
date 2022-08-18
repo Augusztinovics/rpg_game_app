@@ -1,24 +1,24 @@
 <template>
     <div>
         <div v-if="loading" class="bg-success p-3 text-center">
-            <h2 class="text-light">Sending, please wait....</h2>
+            <h2 class="text-light">Küldés folyamatban, kérem várjon...</h2>
         </div>
         <div v-if="error" class="bg-danger p-3 text-center">
-            <h2 class="text-light">Somethink whent wrong! Please try again...</h2>
+            <h2 class="text-light">Valami hiba történt, kérem próbálja újra...</h2>
             <button type="button" class="btn btn-success m-3" @click="error=false">Close</button>
         </div>
         <div class="text-center my-4">
-            <h2>Ask a question</h2>
-            <p>Have a question or a suggestion?</p>
+            <h2>Kérdés kérdezése</h2>
+            <p>Van kérdése vagy valami észrevétele?</p>
             <hr>
-            <button type="button" class="btn btn-success my-3 costum-btn px-3" data-bs-toggle="modal" data-bs-target="#questionModal">Write to support</button>
+            <button type="button" class="btn btn-success my-3 costum-btn px-3" data-bs-toggle="modal" data-bs-target="#questionModal">Irja meg kérdését</button>
             <hr>
         </div>
         <div class="container">
             <!-- the div for loop -->
             <div v-for="question, index in questionCards" :key="'QC' + index" class="border border-primary rounded">
                 <div class="p-3">
-                    <p><b>Your question:</b></p>
+                    <p><b>Az ön kérdése:</b></p>
                     <p>{{ question.question}}</p>
                 </div>
                 <hr>
@@ -26,11 +26,11 @@
                     <p>{{ question.answer }}</p>
                 </div>
                 <div v-else class="figure-caption p-3 ms-5">
-                    <p>No answer jet, it can take a few day...</p>
+                    <p>Még nincs válasz, eltarthat pár napig...</p>
                 </div>
                 <hr>
                 <div class="text-end bg-secondary">
-                    <button type="button" class="btn btn-danger my-3 costum-btn me-3" @click="deleteQuestion(question.id)">Delete question</button>
+                    <button type="button" class="btn btn-danger my-3 costum-btn me-3" @click="deleteQuestion(question.id)">Kérdés törlése</button>
                 </div>
             </div>
         </div>
@@ -39,16 +39,16 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="questionModalLabel">Ask a question</h5>
+                        <h5 class="modal-title" id="questionModalLabel">Kérdezés</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="inputQuestion=''"></button>
                     </div>
                 <div class="modal-body">
-                    <label for="qs">Your question:</label>
+                    <label for="qs">Az ön kérdése:</label>
                     <textarea class="form-control" id="qs" rows="10" v-model="inputQuestion"></textarea>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal" @click="inputQuestion=''">Cancel</button>
-                    <button type="button" class="btn btn-success bg-green-leather costum-btn"  @click="sendQuestion" data-bs-dismiss="modal">Send</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal" @click="inputQuestion=''">Mégsem</button>
+                    <button type="button" class="btn btn-success bg-green-leather costum-btn"  @click="sendQuestion" data-bs-dismiss="modal">Küldés</button>
                 </div>
                 </div>
             </div>

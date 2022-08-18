@@ -42,8 +42,8 @@
                     <input type="number" class="form-control" id="psiInput" min="1" :max="availablePsi" v-model="inputPsiUse">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary bg-red-leather costum-btn"  @click="submitPsiUse" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Bezár</button>
+                    <button type="button" class="btn btn-primary bg-red-leather costum-btn"  @click="submitPsiUse" data-bs-dismiss="modal">Elment</button>
                 </div>
                 </div>
             </div>
@@ -103,8 +103,8 @@
                     <input type="number" class="form-control" id="inputDinamic" min="1" :max="availablePsi" v-model="inputDinamic">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary bg-green-leather costum-btn"  @click="switchUpdateDinamic" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Bezár</button>
+                    <button type="button" class="btn btn-primary bg-green-leather costum-btn"  @click="switchUpdateDinamic" data-bs-dismiss="modal">Elment</button>
                 </div>
                 </div>
             </div>
@@ -150,7 +150,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Bezár</button>
                     </div>
                 </div>
             </div>
@@ -195,7 +195,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Bezár</button>
                     </div>
                 </div>
             </div>
@@ -240,7 +240,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Bezár</button>
                     </div>
                 </div>
             </div>

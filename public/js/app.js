@@ -47180,7 +47180,7 @@ var staticRenderFns = [
                 "aria-selected": "true",
               },
             },
-            [_vm._v("Games")]
+            [_vm._v("Játékok")]
           ),
         ]),
         _vm._v(" "),
@@ -47199,7 +47199,7 @@ var staticRenderFns = [
                 "aria-selected": "false",
               },
             },
-            [_vm._v("Chat")]
+            [_vm._v("Csevegés")]
           ),
         ]),
         _vm._v(" "),
@@ -47218,7 +47218,7 @@ var staticRenderFns = [
                 "aria-selected": "false",
               },
             },
-            [_vm._v("Support")]
+            [_vm._v("Kérdések")]
           ),
         ]),
       ]
@@ -48581,7 +48581,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid" }, [
     _c("div", { staticClass: "container text-center my-4" }, [
-      _c("h2", [_vm._v("RPG app users chat")]),
+      _c("h2", [_vm._v("RPG app baráti csevegés")]),
       _vm._v(" "),
       _c("p", [_vm._v(_vm._s(_vm.currentUserName))]),
       _vm._v(" "),
@@ -48595,7 +48595,7 @@ var render = function () {
             attrs: { type: "button" },
             on: { click: _vm.searchOpen },
           },
-          [_vm._v("Seach Users")]
+          [_vm._v("Felhasználó Keresés")]
         ),
         _vm._v(" "),
         _c(
@@ -48605,7 +48605,7 @@ var render = function () {
             attrs: { type: "button" },
             on: { click: _vm.requestsOpen },
           },
-          [_vm._v("Friend Requests")]
+          [_vm._v("Barátkérelmek")]
         ),
         _vm._v(" "),
         _c(
@@ -48615,7 +48615,7 @@ var render = function () {
             attrs: { type: "button" },
             on: { click: _vm.yourRequestsOpen },
           },
-          [_vm._v("Sended Friend Requests")]
+          [_vm._v("Elküldött Barátkérelmek")]
         ),
       ]),
       _vm._v(" "),
@@ -48634,10 +48634,10 @@ var render = function () {
                   },
                 },
               },
-              [_vm._v("Close")]
+              [_vm._v("Bezár")]
             ),
             _vm._v(" "),
-            _c("h3", [_vm._v("All registered users")]),
+            _c("h3", [_vm._v("Összes felhasználó")]),
             _vm._v(" "),
             _c("div", [
               _c("div", { staticClass: "input-group mb-3" }, [
@@ -48648,7 +48648,7 @@ var render = function () {
                     attrs: { type: "button", id: "button-addon1" },
                     on: { click: _vm.searchByUsername },
                   },
-                  [_vm._v("Search/Refresh")]
+                  [_vm._v("Keresés/Frissités")]
                 ),
                 _vm._v(" "),
                 _c("input", {
@@ -48698,20 +48698,16 @@ var render = function () {
                                     "btn btn-outline-success btn-sm ms-1",
                                   attrs: { type: "button" },
                                 },
-                                [_vm._v("Send Friend Request")]
+                                [_vm._v("Barátkérelem Küldése")]
                               )
                             : _vm._e(),
                           _vm._v(" "),
                           _vm.userIsFriend(user.id) == "PENDING"
-                            ? _c("p", [
-                                _vm._v(
-                                  "Request is send, waiting for answer..."
-                                ),
-                              ])
+                            ? _c("p", [_vm._v("Barátkérelem elküldve, ")])
                             : _vm._e(),
                           _vm._v(" "),
                           _vm.userIsFriend(user.id) == "FREND"
-                            ? _c("p", [_vm._v("Allready a frind")])
+                            ? _c("p", [_vm._v("Már barát")])
                             : _vm._e(),
                         ]),
                       ])
@@ -48761,7 +48757,7 @@ var render = function () {
                   },
                 },
               },
-              [_vm._v("Close")]
+              [_vm._v("Bezár")]
             ),
             _vm._v(" "),
             _c("h1", [_vm._v("Requests")]),
@@ -48783,7 +48779,7 @@ var render = function () {
                   },
                 },
               },
-              [_vm._v("Close")]
+              [_vm._v("Bezár")]
             ),
             _vm._v(" "),
             _c("h1", [_vm._v("My Requests")]),
@@ -48803,9 +48799,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("User Name")]),
+        _c("th", [_vm._v("Felhasználó neve")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Action")]),
+        _c("th", [_vm._v("Lehetőség")]),
       ]),
     ])
   },
@@ -49569,7 +49565,7 @@ var render = function () {
                     },
                   },
                 },
-                [_vm._v("Back")]
+                [_vm._v("Vissza")]
               ),
             ]),
             _vm._v(" "),
@@ -51285,7 +51281,7 @@ var staticRenderFns = [
           staticClass: "btn btn-secondary",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
-        [_vm._v("Close")]
+        [_vm._v("Bezár")]
       ),
     ])
   },
@@ -51342,7 +51338,7 @@ var render = function () {
     _vm.loading
       ? _c("div", { staticClass: "bg-success p-3 text-center" }, [
           _c("h2", { staticClass: "text-light" }, [
-            _vm._v("Sending, please wait...."),
+            _vm._v("Küldés folyamatban, kérem várjon..."),
           ]),
         ])
       : _vm._e(),
@@ -51350,7 +51346,7 @@ var render = function () {
     _vm.error
       ? _c("div", { staticClass: "bg-danger p-3 text-center" }, [
           _c("h2", { staticClass: "text-light" }, [
-            _vm._v("Somethink whent wrong! Please try again..."),
+            _vm._v("Valami hiba történt, kérem próbálja újra..."),
           ]),
           _vm._v(" "),
           _c(
@@ -51392,7 +51388,7 @@ var render = function () {
                   _c("p", [_vm._v(_vm._s(question.answer))]),
                 ])
               : _c("div", { staticClass: "figure-caption p-3 ms-5" }, [
-                  _c("p", [_vm._v("No answer jet, it can take a few day...")]),
+                  _c("p", [_vm._v("Még nincs válasz, eltarthat pár napig...")]),
                 ]),
             _vm._v(" "),
             _c("hr"),
@@ -51409,7 +51405,7 @@ var render = function () {
                     },
                   },
                 },
-                [_vm._v("Delete question")]
+                [_vm._v("Kérdés törlése")]
               ),
             ]),
           ]
@@ -51439,7 +51435,7 @@ var render = function () {
                   staticClass: "modal-title",
                   attrs: { id: "questionModalLabel" },
                 },
-                [_vm._v("Ask a question")]
+                [_vm._v("Kérdezés")]
               ),
               _vm._v(" "),
               _c("button", {
@@ -51458,7 +51454,7 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
-              _c("label", { attrs: { for: "qs" } }, [_vm._v("Your question:")]),
+              _c("label", { attrs: { for: "qs" } }, [_vm._v("Az ön kérdése:")]),
               _vm._v(" "),
               _c("textarea", {
                 directives: [
@@ -51495,7 +51491,7 @@ var render = function () {
                     },
                   },
                 },
-                [_vm._v("Cancel")]
+                [_vm._v("Mégsem")]
               ),
               _vm._v(" "),
               _c(
@@ -51505,7 +51501,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.sendQuestion },
                 },
-                [_vm._v("Send")]
+                [_vm._v("Küldés")]
               ),
             ]),
           ]),
@@ -51520,9 +51516,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center my-4" }, [
-      _c("h2", [_vm._v("Ask a question")]),
+      _c("h2", [_vm._v("Kérdés kérdezése")]),
       _vm._v(" "),
-      _c("p", [_vm._v("Have a question or a suggestion?")]),
+      _c("p", [_vm._v("Van kérdése vagy valami észrevétele?")]),
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
@@ -51536,7 +51532,7 @@ var staticRenderFns = [
             "data-bs-target": "#questionModal",
           },
         },
-        [_vm._v("Write to support")]
+        [_vm._v("Irja meg kérdését")]
       ),
       _vm._v(" "),
       _c("hr"),
@@ -51546,7 +51542,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", [_c("b", [_vm._v("Your question:")])])
+    return _c("p", [_c("b", [_vm._v("Az ön kérdése:")])])
   },
 ]
 render._withStripped = true
@@ -51896,7 +51892,7 @@ var render = function () {
                   staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -51906,7 +51902,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.submitArmor },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Mentés")]
               ),
             ]),
           ]),
@@ -52034,7 +52030,7 @@ var staticRenderFns = [
           staticClass: "btn btn-secondary bg-blue-leather costum-btn",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
-        [_vm._v("Close")]
+        [_vm._v("Bezár")]
       ),
     ])
   },
@@ -53129,7 +53125,7 @@ var render = function () {
                   staticClass: "btn btn-secondary",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -53139,7 +53135,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.updateNewName },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),
@@ -53211,7 +53207,7 @@ var render = function () {
                   staticClass: "btn btn-secondary",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -53221,7 +53217,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.updateNewJellem },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),
@@ -53293,7 +53289,7 @@ var render = function () {
                   staticClass: "btn btn-secondary",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -53303,7 +53299,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.updateNewVallas },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),
@@ -53358,7 +53354,7 @@ var render = function () {
                   staticClass: "btn btn-secondary",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -53368,7 +53364,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.updateNewSzimbolum },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),
@@ -53423,7 +53419,7 @@ var render = function () {
                   staticClass: "btn btn-secondary",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -53433,7 +53429,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.updateNewSzulofold },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),
@@ -53488,7 +53484,7 @@ var render = function () {
                   staticClass: "btn btn-secondary",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -53498,7 +53494,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.updateNewIskola },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),
@@ -53614,7 +53610,7 @@ var staticRenderFns = [
           staticClass: "btn btn-secondary",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
-        [_vm._v("Close")]
+        [_vm._v("Bezár")]
       ),
     ])
   },
@@ -53629,7 +53625,7 @@ var staticRenderFns = [
           staticClass: "btn btn-secondary",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
-        [_vm._v("Close")]
+        [_vm._v("Bezár")]
       ),
     ])
   },
@@ -53650,7 +53646,7 @@ var staticRenderFns = [
           staticClass: "btn btn-secondary",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
-        [_vm._v("Close")]
+        [_vm._v("Bezár")]
       ),
     ])
   },
@@ -53665,7 +53661,7 @@ var staticRenderFns = [
           staticClass: "btn btn-secondary",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
-        [_vm._v("Close")]
+        [_vm._v("Bezár")]
       ),
     ])
   },
@@ -53892,7 +53888,7 @@ var render = function () {
                     staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                     attrs: { type: "button", "data-bs-dismiss": "modal" },
                   },
-                  [_vm._v("Close")]
+                  [_vm._v("Bezár")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -53902,7 +53898,7 @@ var render = function () {
                     attrs: { type: "button", "data-bs-dismiss": "modal" },
                     on: { click: _vm.saveNewDescription },
                   },
-                  [_vm._v("Save changes")]
+                  [_vm._v("Elment")]
                 ),
               ]),
             ]),
@@ -54301,7 +54297,7 @@ var staticRenderFns = [
         staticClass: "spinner-border text-primary spin",
         attrs: { role: "status" },
       },
-      [_c("span", { staticClass: "visually-hidden" }, [_vm._v("Loading...")])]
+      [_c("span", { staticClass: "visually-hidden" }, [_vm._v("Töltődik...")])]
     )
   },
 ]
@@ -54717,7 +54713,7 @@ var render = function () {
                   staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -54727,7 +54723,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.addNewEquipment },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),
@@ -55502,7 +55498,7 @@ var render = function () {
                   staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -55516,7 +55512,7 @@ var render = function () {
                     },
                   },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),
@@ -55671,7 +55667,7 @@ var render = function () {
                   staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -55681,7 +55677,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.submitVagyon },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),
@@ -55836,7 +55832,7 @@ var render = function () {
                   staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -55846,7 +55842,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.submitVagyonKifizetes },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),
@@ -57268,7 +57264,7 @@ var render = function () {
                   staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -57278,7 +57274,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.addTp },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),
@@ -57495,7 +57491,7 @@ var render = function () {
                   staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -57505,7 +57501,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.submitManaUse },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),
@@ -58587,7 +58583,7 @@ var staticRenderFns = [
           staticClass: "btn btn-secondary bg-blue-leather costum-btn",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
-        [_vm._v("Close")]
+        [_vm._v("Bezár")]
       ),
     ])
   },
@@ -58689,7 +58685,7 @@ var render = function () {
                   staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -58699,7 +58695,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.saveNote },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),
@@ -59000,7 +58996,7 @@ var render = function () {
                   staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -59010,7 +59006,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.submitPsiUse },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),
@@ -59348,7 +59344,7 @@ var render = function () {
                   staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -59358,7 +59354,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.switchUpdateDinamic },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),
@@ -59981,7 +59977,7 @@ var staticRenderFns = [
           staticClass: "btn btn-secondary bg-blue-leather costum-btn",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
-        [_vm._v("Close")]
+        [_vm._v("Bezár")]
       ),
     ])
   },
@@ -60023,7 +60019,7 @@ var staticRenderFns = [
           staticClass: "btn btn-secondary bg-blue-leather costum-btn",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
-        [_vm._v("Close")]
+        [_vm._v("Bezár")]
       ),
     ])
   },
@@ -60063,7 +60059,7 @@ var staticRenderFns = [
           staticClass: "btn btn-secondary bg-blue-leather costum-btn",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
-        [_vm._v("Close")]
+        [_vm._v("Bezár")]
       ),
     ])
   },
@@ -60312,7 +60308,7 @@ var render = function () {
                   staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -60322,7 +60318,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.submitShield },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),
@@ -60457,7 +60453,7 @@ var staticRenderFns = [
           staticClass: "btn btn-secondary bg-blue-leather costum-btn",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
-        [_vm._v("Close")]
+        [_vm._v("Bezár")]
       ),
     ])
   },
@@ -61435,7 +61431,7 @@ var staticRenderFns = [
           staticClass: "btn btn-secondary bg-blue-leather costum-btn",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
-        [_vm._v("Close")]
+        [_vm._v("Bezár")]
       ),
     ])
   },
@@ -61450,7 +61446,7 @@ var staticRenderFns = [
           staticClass: "btn btn-secondary bg-blue-leather costum-btn",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
-        [_vm._v("Close")]
+        [_vm._v("Bezár")]
       ),
     ])
   },
@@ -61465,7 +61461,7 @@ var staticRenderFns = [
           staticClass: "btn btn-secondary bg-blue-leather costum-btn",
           attrs: { type: "button", "data-bs-dismiss": "modal" },
         },
-        [_vm._v("Close")]
+        [_vm._v("Bezár")]
       ),
     ])
   },
@@ -61765,7 +61761,7 @@ var render = function () {
                     staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                     attrs: { type: "button", "data-bs-dismiss": "modal" },
                   },
-                  [_vm._v("Close")]
+                  [_vm._v("Bezár")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -61775,7 +61771,7 @@ var render = function () {
                     attrs: { type: "button", "data-bs-dismiss": "modal" },
                     on: { click: _vm.submitWeapon },
                   },
-                  [_vm._v("Save changes")]
+                  [_vm._v("Elment")]
                 ),
               ]),
             ]),
@@ -61885,7 +61881,7 @@ var render = function () {
                     staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                     attrs: { type: "button", "data-bs-dismiss": "modal" },
                   },
-                  [_vm._v("Close")]
+                  [_vm._v("Bezár")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -61895,7 +61891,7 @@ var render = function () {
                     attrs: { type: "button", "data-bs-dismiss": "modal" },
                     on: { click: _vm.submitRangedWeapon },
                   },
-                  [_vm._v("Save changes")]
+                  [_vm._v("Elment")]
                 ),
               ]),
             ]),
@@ -61973,7 +61969,7 @@ var render = function () {
                   staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -61983,7 +61979,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.equipLeftWeapon },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),
@@ -62060,7 +62056,7 @@ var render = function () {
                   staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -62070,7 +62066,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.equipRightWeapon },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),
@@ -62147,7 +62143,7 @@ var render = function () {
                   staticClass: "btn btn-secondary bg-blue-leather costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Close")]
+                [_vm._v("Bezár")]
               ),
               _vm._v(" "),
               _c(
@@ -62157,7 +62153,7 @@ var render = function () {
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.equipRangedWeapon },
                 },
-                [_vm._v("Save changes")]
+                [_vm._v("Elment")]
               ),
             ]),
           ]),

@@ -77,8 +77,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary bg-green-leather costum-btn"  @click="submitArmor" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Bezár</button>
+                    <button type="button" class="btn btn-primary bg-green-leather costum-btn"  @click="submitArmor" data-bs-dismiss="modal">Mentés</button>
                 </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@
                         <p class="fs-5"><span class="fw-bolder me-2">Értéke: </span><span>{{ currentArmor.price }}</span></p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Bezár</button>
                     </div>
                 </div>
             </div>

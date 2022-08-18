@@ -143,7 +143,7 @@
                         <magus-learn-skill />
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Bezár</button>
                     </div>
                 </div>
             </div>
@@ -167,7 +167,7 @@
                         <p>{{ skill(infoSkillId).Mf }}</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Bezár</button>
                     </div>
                 </div>
             </div>
@@ -185,7 +185,7 @@
                         <p>{{ skillPrecent(infoSkillPrecId).description }}</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Bezár</button>
                     </div>
                 </div>
             </div>

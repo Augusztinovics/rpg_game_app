@@ -163,7 +163,7 @@
         <!-- loading panel -->
         <div v-if="loadingState" class="overlay">
             <div class="spinner-border text-primary spin" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <span class="visually-hidden">Töltődik...</span>
             </div>
         </div>
     </div>

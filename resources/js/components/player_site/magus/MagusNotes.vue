@@ -20,8 +20,8 @@
                     <input type="text" class="form-control" id="egyebb-text" v-model="inputNote">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary bg-green-leather costum-btn" @click="saveNote" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Bezár</button>
+                    <button type="button" class="btn btn-primary bg-green-leather costum-btn" @click="saveNote" data-bs-dismiss="modal">Elment</button>
                 </div>
                 </div>
             </div>

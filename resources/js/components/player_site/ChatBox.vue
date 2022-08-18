@@ -1,38 +1,38 @@
 <template>
    <div class="container-fluid">    
      <div class="container text-center my-4">
-       <h2>RPG app users chat</h2>
+       <h2>RPG app baráti csevegés</h2>
        <p>{{ currentUserName }}</p>
        <hr>
        <div>
-         <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="searchOpen">Seach Users</button>
-         <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="requestsOpen">Friend Requests</button>
-         <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="yourRequestsOpen">Sended Friend Requests</button>
+         <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="searchOpen">Felhasználó Keresés</button>
+         <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="requestsOpen">Barátkérelmek</button>
+         <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="yourRequestsOpen">Elküldött Barátkérelmek</button>
        </div>
        <div v-if="menuTab=='SEARCH'">
          <hr>
-         <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="menuTab=''">Close</button>
-          <h3>All registered users</h3>
+         <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="menuTab=''">Bezár</button>
+          <h3>Összes felhasználó</h3>
           <div>
             <div class="input-group mb-3">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon1" @click="searchByUsername">Search/Refresh</button>
+                <button class="btn btn-outline-secondary" type="button" id="button-addon1" @click="searchByUsername">Keresés/Frissités</button>
                 <input type="text" v-model="searchUsername" class="form-control" placeholder="Search user by username" aria-label="Search user by username" aria-describedby="button-addon1">
             </div>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>User Name</th>
-                            <th>Action</th>
+                            <th>Felhasználó neve</th>
+                            <th>Lehetőség</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="user, index in allUsers" :key="'U' + index">
                             <td>{{ user.name }}</td>
                             <td>
-                                <button v-if="userIsFriend(user.id)=='NO'" class="btn btn-outline-success btn-sm ms-1" type="button">Send Friend Request</button>
-                                <p v-if="userIsFriend(user.id)=='PENDING'">Request is send, waiting for answer...</p>
-                                <p v-if="userIsFriend(user.id)=='FREND'">Allready a frind</p>
+                                <button v-if="userIsFriend(user.id)=='NO'" class="btn btn-outline-success btn-sm ms-1" type="button">Barátkérelem Küldése</button>
+                                <p v-if="userIsFriend(user.id)=='PENDING'">Barátkérelem elküldve, </p>
+                                <p v-if="userIsFriend(user.id)=='FREND'">Már barát</p>
                             </td>
                         </tr>
                     </tbody>
@@ -45,12 +45,12 @@
        </div>
        <div v-if="menuTab=='REQUESTS'">
          <hr>
-         <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="menuTab=''">Close</button>
+         <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="menuTab=''">Bezár</button>
          <h1>Requests</h1>
        </div>
        <div v-if="menuTab=='MYREQUESTS'">
          <hr>
-         <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="menuTab=''">Close</button>
+         <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="menuTab=''">Bezár</button>
          <h1>My Requests</h1>
        </div>
        <hr>

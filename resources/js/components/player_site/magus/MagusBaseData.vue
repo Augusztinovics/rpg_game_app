@@ -28,7 +28,7 @@
                         {{ Jellem.description }}
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                         <p v-for="des in Vallas.description" :key="des.id">{{ des }}</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                        <p v-for="special, index in Faj.specials" :key="'S' + index">{{ special }}</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
                     </div>
                 </div>
             </div>
@@ -84,7 +84,7 @@
                         <magus-kaszt-preview :kaszt="Kaszt" />
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
                     </div>
                 </div>
             </div>
@@ -103,8 +103,8 @@
                     <input type="text" class="form-control" id="egyebb-text" v-model="inputName">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="updateNewName" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
+                    <button type="button" class="btn btn-primary"  @click="updateNewName" data-bs-dismiss="modal">Elment</button>
                 </div>
                 </div>
             </div>
@@ -123,8 +123,8 @@
                     </select>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="updateNewJellem" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
+                    <button type="button" class="btn btn-primary"  @click="updateNewJellem" data-bs-dismiss="modal">Elment</button>
                 </div>
                 </div>
             </div>
@@ -143,8 +143,8 @@
                     </select>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="updateNewVallas" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
+                    <button type="button" class="btn btn-primary"  @click="updateNewVallas" data-bs-dismiss="modal">Elment</button>
                 </div>
                 </div>
             </div>
@@ -161,8 +161,8 @@
                     <input type="text" class="form-control" id="egyebb-text" v-model="inputSzimbolum">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="updateNewSzimbolum" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
+                    <button type="button" class="btn btn-primary"  @click="updateNewSzimbolum" data-bs-dismiss="modal">Elment</button>
                 </div>
                 </div>
             </div>
@@ -179,8 +179,8 @@
                     <input type="text" class="form-control" id="egyebb-text" v-model="inputSzulofold">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="updateNewSzulofold" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
+                    <button type="button" class="btn btn-primary"  @click="updateNewSzulofold" data-bs-dismiss="modal">Elment</button>
                 </div>
                 </div>
             </div>
@@ -197,8 +197,8 @@
                     <input type="text" class="form-control" id="egyebb-text" v-model="inputIskola">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary"  @click="updateNewIskola" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
+                    <button type="button" class="btn btn-primary"  @click="updateNewIskola" data-bs-dismiss="modal">Elment</button>
                 </div>
                 </div>
             </div>

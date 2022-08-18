@@ -39,8 +39,8 @@
                     <input type="number" class="form-control" id="psiInput" min="1" :max="magia.aktMp" v-model="inputManaUse">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary bg-red-leather costum-btn"  @click="submitManaUse" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Bezár</button>
+                    <button type="button" class="btn btn-primary bg-red-leather costum-btn"  @click="submitManaUse" data-bs-dismiss="modal">Elment</button>
                 </div>
                 </div>
             </div>
@@ -207,7 +207,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Bezár</button>
                     </div>
                 </div>
             </div>
