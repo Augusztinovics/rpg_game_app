@@ -47,6 +47,9 @@ Route::post('support/question/{question_id}', [CostumerSupportController::class,
 //Chat routs
 Route::get('chat/current-user', [ChatController::class, 'getCurrentUser']);
 Route::get('chat/all-user', [ChatController::class, 'getAllUser']);
+Route::post('chat/friend-request', [ChatController::class, 'friendRequest']);
+Route::post('chat/accept-friend-request/{id}', [ChatController::class, 'acceptFriend']);
+Route::post('chat/delete-friend-request/{id}', [ChatController::class, 'deleteFriend']);
 
 //Admin routs
 //users

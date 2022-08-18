@@ -6299,6 +6299,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -6306,7 +6345,9 @@ __webpack_require__.r(__webpack_exports__);
       menuTab: '',
       allUserPagLinks: [],
       allUsers: [],
-      searchUsername: ''
+      searchUsername: '',
+      inputFriendReq: '',
+      friendReqId: null
     };
   },
   computed: {
@@ -6320,8 +6361,26 @@ __webpack_require__.r(__webpack_exports__);
         return '';
       }
     },
-    frends: function frends() {
-      return [];
+    friends: function friends() {
+      if (this.currentUser) {
+        return this.currentUser.friends;
+      } else {
+        return [];
+      }
+    },
+    friendRequests: function friendRequests() {
+      if (this.currentUser) {
+        return this.currentUser.recivedFrendRequests;
+      } else {
+        return [];
+      }
+    },
+    sendedFriendRequests: function sendedFriendRequests() {
+      if (this.currentUser) {
+        return this.currentUser.sendedFrendRequests;
+      } else {
+        return [];
+      }
     }
   },
   methods: {
@@ -6368,9 +6427,24 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     userIsFriend: function userIsFriend(id) {
-      if (this.frends.length > 0) {} else {
-        return 'NO';
-      }
+      var result = 'NO';
+      this.friends.forEach(function (friend) {
+        //kerdes az adat
+        if (friend.friend.id == id) {
+          result = 'FREND';
+        }
+      });
+      this.friendRequests.forEach(function (fr) {
+        if (fr.from_user == id) {
+          result = 'PENDING';
+        }
+      });
+      this.sendedFriendRequests.forEach(function (sfr) {
+        if (sfr.to_user == id) {
+          result = 'PENDING';
+        }
+      });
+      return result;
     },
     searchByUsername: function searchByUsername() {
       var _this4 = this;
@@ -6386,6 +6460,47 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         this.fetchAllUsers();
       }
+    },
+    prepareFriendReq: function prepareFriendReq(id) {
+      this.friendReqId = id;
+      this.inputFriendReq = 'Kérem csatlakozzon baráti társaságomhoz';
+    },
+    sendFriendRequest: function sendFriendRequest() {
+      var _this5 = this;
+
+      if (this.friendReqId) {
+        axios.post('/chat/friend-request', {
+          to: this.friendReqId,
+          message: this.inputFriendReq
+        }).then(function (res) {
+          _this5.friendReqId = null;
+          _this5.inputFriendReq = '';
+
+          _this5.fetchCurrentUser();
+
+          _this5.fetchAllUsers();
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      }
+    },
+    acceptFriendReq: function acceptFriendReq(id) {
+      var _this6 = this;
+
+      axios.post('/chat/accept-friend-request/' + id, {}).then(function (res) {
+        _this6.fetchCurrentUser();
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    deleteFriendReq: function deleteFriendReq(id) {
+      var _this7 = this;
+
+      axios.post('/chat/delete-friend-request/' + id, {}).then(function (res) {
+        _this7.fetchCurrentUser();
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   },
   mounted: function mounted() {
@@ -48696,7 +48811,16 @@ var render = function () {
                                 {
                                   staticClass:
                                     "btn btn-outline-success btn-sm ms-1",
-                                  attrs: { type: "button" },
+                                  attrs: {
+                                    type: "button",
+                                    "data-bs-toggle": "modal",
+                                    "data-bs-target": "#friendModal",
+                                  },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.prepareFriendReq(user.id)
+                                    },
+                                  },
                                 },
                                 [_vm._v("Barátkérelem Küldése")]
                               )
@@ -48739,57 +48863,251 @@ var render = function () {
                   )
                 : _vm._e(),
             ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "modal fade",
+                attrs: {
+                  id: "friendModal",
+                  tabindex: "-1",
+                  "aria-labelledby": "friendModalLabel",
+                  "aria-hidden": "true",
+                },
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "modal-dialog modal-dialog-centered" },
+                  [
+                    _c("div", { staticClass: "modal-content" }, [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "modal-body" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.inputFriendReq,
+                              expression: "inputFriendReq",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", id: "egyebb-text" },
+                          domProps: { value: _vm.inputFriendReq },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.inputFriendReq = $event.target.value
+                            },
+                          },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "modal-footer" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-secondary costum-btn",
+                            attrs: {
+                              type: "button",
+                              "data-bs-dismiss": "modal",
+                            },
+                          },
+                          [_vm._v("Bezár")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary costum-btn",
+                            attrs: {
+                              type: "button",
+                              "data-bs-dismiss": "modal",
+                            },
+                            on: { click: _vm.sendFriendRequest },
+                          },
+                          [_vm._v("Elküld")]
+                        ),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]
+            ),
           ])
         : _vm._e(),
       _vm._v(" "),
       _vm.menuTab == "REQUESTS"
-        ? _c("div", [
-            _c("hr"),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-success my-3 costum-btn px-3",
-                attrs: { type: "button" },
-                on: {
-                  click: function ($event) {
-                    _vm.menuTab = ""
+        ? _c(
+            "div",
+            [
+              _c("hr"),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-success my-3 costum-btn px-3",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function ($event) {
+                      _vm.menuTab = ""
+                    },
                   },
                 },
-              },
-              [_vm._v("Bezár")]
-            ),
-            _vm._v(" "),
-            _c("h1", [_vm._v("Requests")]),
-          ])
+                [_vm._v("Bezár")]
+              ),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Barátkérelmek")]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _vm._l(_vm.friendRequests, function (fr) {
+                return _c(
+                  "div",
+                  {
+                    key: fr.id,
+                    staticClass: "border border-primary rounded my-1",
+                  },
+                  [
+                    _c("p", [
+                      _c("b", [_vm._v(_vm._s(fr.sender.name))]),
+                      _vm._v(" kéri, hogy legyél a barátja"),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("Üzenet:")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(fr.message))]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-center mt-2" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-success costum-btn m-2",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.acceptFriendReq(fr.id)
+                            },
+                          },
+                        },
+                        [_vm._v("Elfogad")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-danger costum-btn m-2",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.deleteFriendReq(fr.id)
+                            },
+                          },
+                        },
+                        [_vm._v("Elutasít")]
+                      ),
+                    ]),
+                  ]
+                )
+              }),
+            ],
+            2
+          )
         : _vm._e(),
       _vm._v(" "),
       _vm.menuTab == "MYREQUESTS"
-        ? _c("div", [
-            _c("hr"),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-success my-3 costum-btn px-3",
-                attrs: { type: "button" },
-                on: {
-                  click: function ($event) {
-                    _vm.menuTab = ""
+        ? _c(
+            "div",
+            [
+              _c("hr"),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-success my-3 costum-btn px-3",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function ($event) {
+                      _vm.menuTab = ""
+                    },
                   },
                 },
-              },
-              [_vm._v("Bezár")]
-            ),
-            _vm._v(" "),
-            _c("h1", [_vm._v("My Requests")]),
-          ])
+                [_vm._v("Bezár")]
+              ),
+              _vm._v(" "),
+              _c("h3", [_vm._v("Általad Küldött Barátkérelmek")]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _vm._l(_vm.sendedFriendRequests, function (sfr) {
+                return _c(
+                  "div",
+                  {
+                    key: sfr.id,
+                    staticClass: "border border-primary rounded my-1",
+                  },
+                  [
+                    _c("p", [
+                      _c("b", [_vm._v(_vm._s(sfr.reciver.name))]),
+                      _vm._v(" kéred, hogy legyen a barátod"),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("Üzenet:")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(sfr.message))]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-center mt-2" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-danger costum-btn m-2",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.deleteFriendReq(sfr.id)
+                            },
+                          },
+                        },
+                        [_vm._v("Visszavon")]
+                      ),
+                    ]),
+                  ]
+                )
+              }),
+            ],
+            2
+          )
         : _vm._e(),
       _vm._v(" "),
       _c("hr"),
     ]),
     _vm._v(" "),
-    _vm._m(1),
+    _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "col-2" },
+          [
+            _c("h3", [_vm._v("Barátok")]),
+            _vm._v(" "),
+            _vm._l(_vm.friends, function (friend) {
+              return _c("p", { key: "Frend" + friend.id }, [
+                _vm._v(_vm._s(friend.friend.name)),
+              ])
+            }),
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _vm._v("\n         chat boxes\n       "),
+        ]),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = [
@@ -48809,16 +49127,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container-fluid" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-2" }, [
-          _vm._v("\n         my frends/rooms\n       "),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col" }, [
-          _vm._v("\n         chat boxes\n       "),
-        ]),
-      ]),
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "friendModalLabel" } },
+        [_vm._v("Barátkérelem")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
     ])
   },
 ]

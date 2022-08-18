@@ -30,7 +30,7 @@
                         <tr v-for="user, index in allUsers" :key="'U' + index">
                             <td>{{ user.name }}</td>
                             <td>
-                                <button v-if="userIsFriend(user.id)=='NO'" class="btn btn-outline-success btn-sm ms-1" type="button">Barátkérelem Küldése</button>
+                                <button v-if="userIsFriend(user.id)=='NO'" class="btn btn-outline-success btn-sm ms-1" type="button" data-bs-toggle="modal" data-bs-target="#friendModal" @click="prepareFriendReq(user.id)">Barátkérelem Küldése</button>
                                 <p v-if="userIsFriend(user.id)=='PENDING'">Barátkérelem elküldve, </p>
                                 <p v-if="userIsFriend(user.id)=='FREND'">Már barát</p>
                             </td>
@@ -42,16 +42,54 @@
                 <button v-for="pag, index in allUserPagLinks" :key="'AllPT' + index" :disabled="!pag.url" :class="{'active':pag.active}" class="btn btn-sm" @click="paginateAllUser(pag.url)" v-html="pag.label"></button>
             </div>
           </div>
+
+          <!-- Friend request modal -->
+          <div class="modal fade" id="friendModal" tabindex="-1" aria-labelledby="friendModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="friendModalLabel">Barátkérelem</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" id="egyebb-text" v-model="inputFriendReq">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary costum-btn" data-bs-dismiss="modal">Bezár</button>
+                    <button type="button" class="btn btn-primary costum-btn" @click="sendFriendRequest" data-bs-dismiss="modal">Elküld</button>
+                </div>
+                </div>
+            </div>
+        </div>
        </div>
        <div v-if="menuTab=='REQUESTS'">
          <hr>
          <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="menuTab=''">Bezár</button>
-         <h1>Requests</h1>
+         <h3>Barátkérelmek</h3>
+         <hr>
+         <div v-for="fr in friendRequests" :key="fr.id" class="border border-primary rounded my-1">
+            <p><b>{{ fr.sender.name }}</b> kéri, hogy legyél a barátja</p>
+            <p>Üzenet:</p>
+            <p>{{ fr.message }}</p>
+            <div class="text-center mt-2">
+              <button type="button" class="btn btn-success costum-btn m-2" @click="acceptFriendReq(fr.id)">Elfogad</button>
+              <button type="button" class="btn btn-danger costum-btn m-2" @click="deleteFriendReq(fr.id)">Elutasít</button>
+            </div>
+         </div>
        </div>
        <div v-if="menuTab=='MYREQUESTS'">
          <hr>
          <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="menuTab=''">Bezár</button>
-         <h1>My Requests</h1>
+         <h3>Általad Küldött Barátkérelmek</h3>
+         <hr>
+         <div v-for="sfr in sendedFriendRequests" :key="sfr.id" class="border border-primary rounded my-1">
+            <p><b>{{ sfr.reciver.name }}</b> kéred, hogy legyen a barátod</p>
+            <p>Üzenet:</p>
+            <p>{{ sfr.message }}</p>
+            <div class="text-center mt-2">
+              <button type="button" class="btn btn-danger costum-btn m-2" @click="deleteFriendReq(sfr.id)">Visszavon</button>
+            </div>
+         </div>
        </div>
        <hr>
      </div>
@@ -59,7 +97,8 @@
      <div class="container-fluid">
        <div class="row">
          <div class="col-2">
-           my frends/rooms
+           <h3>Barátok</h3>
+          <p v-for="friend in friends" :key="'Frend' + friend.id">{{ friend.friend.name }}</p>
          </div>
          <div class="col">
            chat boxes
@@ -81,6 +120,8 @@
         allUserPagLinks: [],
         allUsers: [],
         searchUsername: '',
+        inputFriendReq: '',
+        friendReqId: null,
       }
     },
     computed: {
@@ -94,9 +135,27 @@
           return '';
         }
       },
-      frends() {
-        return [];
-      }
+      friends() {
+        if (this.currentUser) {
+          return this.currentUser.friends;
+        } else {
+          return [];
+        }
+      },
+      friendRequests() {
+        if (this.currentUser) {
+          return this.currentUser.recivedFrendRequests;
+        } else {
+          return [];
+        }
+      },
+      sendedFriendRequests() {
+        if (this.currentUser) {
+          return this.currentUser.sendedFrendRequests;
+        } else {
+          return [];
+        }
+      },
     },
     methods: {
       fetchCurrentUser() {
@@ -143,11 +202,24 @@
         })
       },
       userIsFriend(id) {
-        if (this.frends.length > 0) {
-
-        } else {
-          return 'NO'
-        }
+        let result = 'NO';
+        this.friends.forEach(friend => {
+          //kerdes az adat
+          if (friend.friend.id == id) {
+            result = 'FREND';
+          }
+        });
+        this.friendRequests.forEach(fr => {
+          if (fr.from_user == id) {
+            result = 'PENDING'
+          }
+        });
+        this.sendedFriendRequests.forEach(sfr => {
+          if (sfr.to_user == id) {
+            result = 'PENDING'
+          }
+        });
+        return result;
       },
       searchByUsername() {
         if (this.searchUsername) {
@@ -163,6 +235,44 @@
             this.fetchAllUsers();
         }
       },
+      prepareFriendReq(id) {
+        this.friendReqId = id;
+        this.inputFriendReq = 'Kérem csatlakozzon baráti társaságomhoz';
+      },
+      sendFriendRequest() {
+        if (this.friendReqId) {
+          axios.post('/chat/friend-request', {
+            to: this.friendReqId,
+            message: this.inputFriendReq
+          })
+          .then(res => {
+            this.friendReqId = null;
+            this.inputFriendReq = '';
+            this.fetchCurrentUser();
+            this.fetchAllUsers();
+          }).catch(error => {
+            console.log(error);
+          })
+        }
+      },
+
+      acceptFriendReq(id) {
+        axios.post('/chat/accept-friend-request/' + id, {})
+        .then(res => {
+          this.fetchCurrentUser();
+        }).catch(error => {
+          console.log(error);
+        })
+      },
+
+      deleteFriendReq(id) {
+        axios.post('/chat/delete-friend-request/' + id, {})
+        .then(res => {
+          this.fetchCurrentUser();
+        }).catch(error => {
+          console.log(error);
+        })
+      }
 
     },
     mounted() {

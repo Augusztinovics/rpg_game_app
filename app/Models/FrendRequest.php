@@ -29,4 +29,12 @@ class FrendRequest extends Model
     protected $casts = [
         'accepted' => 'boolean',
     ];
+
+    public function sender() {
+        return $this->belongsTo(User::class, 'from_user');
+    }
+
+    public function reciver() {
+        return $this->belongsTo(User::class, 'to_user');
+    }
 }
