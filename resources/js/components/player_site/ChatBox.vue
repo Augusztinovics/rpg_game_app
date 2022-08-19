@@ -6,8 +6,8 @@
        <hr>
        <div>
          <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="searchOpen">Felhasználó Keresés</button>
-         <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="requestsOpen">Barátkérelmek</button>
-         <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="yourRequestsOpen">Elküldött Barátkérelmek</button>
+         <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="requestsOpen">Barátkérelmek <span v-if="friendReqCount>0"> ({{ friendReqCount }})</span></button>
+         <button type="button" class="btn btn-success my-3 costum-btn px-3" @click="yourRequestsOpen">Elküldött Barátkérelmek <span v-if="friendSendReqCount>0"> ({{ friendSendReqCount }})</span></button>
        </div>
        <div v-if="menuTab=='SEARCH'">
          <hr>
@@ -96,12 +96,37 @@
 
      <div class="container-fluid">
        <div class="row">
-         <div class="col-2">
+         <div class="col-sm-2 border-end border-primary">
            <h3>Barátok</h3>
           <p v-for="friend in friends" :key="'Frend' + friend.id">{{ friend.friend.name }}</p>
          </div>
          <div class="col">
-           chat boxes
+           <div class="chat-box-container">
+                <div class="card chat-box">
+                  <div class="card-header">
+                    <h4>Közös csevegés</h4>
+                  </div>
+                  <div class="card-body">
+                    <ul>
+                      <li>
+                        <p><span>2022-08-22</span><b>Valaki</b></p>
+                        <p>Itt az üzenet</p>
+                      </li>
+                      <li>
+                        <p><span>2022-08-22</span><b>Másvalaki</b></p>
+                        <p>Itt egy másik üzenet</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="card-footer">
+                      <div class="input-group mb-3">
+                          <input type="text" class="form-control" placeholder="üzenet" aria-label="message" aria-describedby="button-addon">
+                          <button class="btn btn-outline-secondary" type="button" id="button-addon">Küldés</button>
+                      </div>
+                  </div>
+                </div>
+
+            </div>
          </div>
        </div>
 
@@ -156,8 +181,16 @@
           return [];
         }
       },
+      friendReqCount() {
+        return this.friendRequests.length;
+      },
+      friendSendReqCount() {
+        console.log(this.sendedFriendRequests.length);
+        return this.sendedFriendRequests.length;
+      },
     },
     methods: {
+      
       fetchCurrentUser() {
         axios.get('/chat/current-user')
         .then(res => {
@@ -284,5 +317,19 @@
 <style scoped>
     .active{
         border: 1px solid rgb(15, 91, 161);
+    }
+
+    .chat-box-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .chat-box {
+      min-width: 200px;
+      max-width: 400px;
+      height: 400px;
+      margin: 10px;
+      border: 2px solid green;
     }
 </style>

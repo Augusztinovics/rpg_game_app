@@ -6338,6 +6338,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -6381,6 +6406,13 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         return [];
       }
+    },
+    friendReqCount: function friendReqCount() {
+      return this.friendRequests.length;
+    },
+    friendSendReqCount: function friendSendReqCount() {
+      console.log(this.sendedFriendRequests.length);
+      return this.sendedFriendRequests.length;
     }
   },
   methods: {
@@ -26672,7 +26704,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.active[data-v-ce2fa2e4]{\n    border: 1px solid rgb(15, 91, 161);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.active[data-v-ce2fa2e4]{\n    border: 1px solid rgb(15, 91, 161);\n}\n.chat-box-container[data-v-ce2fa2e4] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n}\n.chat-box[data-v-ce2fa2e4] {\n  min-width: 200px;\n  max-width: 400px;\n  height: 400px;\n  margin: 10px;\n  border: 2px solid green;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48720,7 +48752,12 @@ var render = function () {
             attrs: { type: "button" },
             on: { click: _vm.requestsOpen },
           },
-          [_vm._v("Barátkérelmek")]
+          [
+            _vm._v("Barátkérelmek "),
+            _vm.friendReqCount > 0
+              ? _c("span", [_vm._v(" (" + _vm._s(_vm.friendReqCount) + ")")])
+              : _vm._e(),
+          ]
         ),
         _vm._v(" "),
         _c(
@@ -48730,7 +48767,14 @@ var render = function () {
             attrs: { type: "button" },
             on: { click: _vm.yourRequestsOpen },
           },
-          [_vm._v("Elküldött Barátkérelmek")]
+          [
+            _vm._v("Elküldött Barátkérelmek "),
+            _vm.friendSendReqCount > 0
+              ? _c("span", [
+                  _vm._v(" (" + _vm._s(_vm.friendSendReqCount) + ")"),
+                ])
+              : _vm._e(),
+          ]
         ),
       ]),
       _vm._v(" "),
@@ -49090,7 +49134,7 @@ var render = function () {
       _c("div", { staticClass: "row" }, [
         _c(
           "div",
-          { staticClass: "col-2" },
+          { staticClass: "col-sm-2 border-end border-primary" },
           [
             _c("h3", [_vm._v("Barátok")]),
             _vm._v(" "),
@@ -49103,9 +49147,7 @@ var render = function () {
           2
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "col" }, [
-          _vm._v("\n         chat boxes\n       "),
-        ]),
+        _vm._m(2),
       ]),
     ]),
   ])
@@ -49142,6 +49184,65 @@ var staticRenderFns = [
           "aria-label": "Close",
         },
       }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [
+      _c("div", { staticClass: "chat-box-container" }, [
+        _c("div", { staticClass: "card chat-box" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("h4", [_vm._v("Közös csevegés")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("ul", [
+              _c("li", [
+                _c("p", [
+                  _c("span", [_vm._v("2022-08-22")]),
+                  _c("b", [_vm._v("Valaki")]),
+                ]),
+                _vm._v(" "),
+                _c("p", [_vm._v("Itt az üzenet")]),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("p", [
+                  _c("span", [_vm._v("2022-08-22")]),
+                  _c("b", [_vm._v("Másvalaki")]),
+                ]),
+                _vm._v(" "),
+                _c("p", [_vm._v("Itt egy másik üzenet")]),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-footer" }, [
+            _c("div", { staticClass: "input-group mb-3" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  placeholder: "üzenet",
+                  "aria-label": "message",
+                  "aria-describedby": "button-addon",
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-outline-secondary",
+                  attrs: { type: "button", id: "button-addon" },
+                },
+                [_vm._v("Küldés")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]),
     ])
   },
 ]
