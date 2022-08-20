@@ -50,6 +50,7 @@ Route::get('chat/all-user', [ChatController::class, 'getAllUser']);
 Route::post('chat/friend-request', [ChatController::class, 'friendRequest']);
 Route::post('chat/accept-friend-request/{id}', [ChatController::class, 'acceptFriend']);
 Route::post('chat/delete-friend-request/{id}', [ChatController::class, 'deleteFriend']);
+Route::get('socket.io/', [ChatController::class, 'ioSend']);
 
 //Admin routs
 //users

@@ -120,8 +120,8 @@
                   </div>
                   <div class="card-footer">
                       <div class="input-group mb-3">
-                          <input type="text" class="form-control" placeholder="üzenet" aria-label="message" aria-describedby="button-addon">
-                          <button class="btn btn-outline-secondary" type="button" id="button-addon">Küldés</button>
+                          <input type="text" class="form-control" placeholder="üzenet" aria-label="message" aria-describedby="button-addon" v-model="inputMessage">
+                          <button class="btn btn-outline-secondary" type="button" id="button-addon" @click="sendMessage">Küldés</button>
                       </div>
                   </div>
                 </div>
@@ -137,6 +137,7 @@
 </template>
 
 <script>
+
   export default {
     data() {
       return {
@@ -147,6 +148,8 @@
         searchUsername: '',
         inputFriendReq: '',
         friendReqId: null,
+        socket: null,
+        inputMessage: '',
       }
     },
     computed: {
@@ -305,11 +308,18 @@
         }).catch(error => {
           console.log(error);
         })
+      },
+
+      sendMessage() {
+        this.socket.emit('message',this.inputMessage);
       }
 
     },
     mounted() {
         this.fetchCurrentUser();
+        let ip = '127.0.0.1';
+        let port = '4411'
+        this.socket = io(ip + ':' + port);
     }
   }
 </script>

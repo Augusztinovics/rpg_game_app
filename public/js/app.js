@@ -6372,7 +6372,9 @@ __webpack_require__.r(__webpack_exports__);
       allUsers: [],
       searchUsername: '',
       inputFriendReq: '',
-      friendReqId: null
+      friendReqId: null,
+      socket: null,
+      inputMessage: ''
     };
   },
   computed: {
@@ -6533,10 +6535,16 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
+    },
+    sendMessage: function sendMessage() {
+      this.socket.emit('message', this.inputMessage);
     }
   },
   mounted: function mounted() {
     this.fetchCurrentUser();
+    var ip = '127.0.0.1';
+    var port = '4411';
+    this.socket = io(ip + ':' + port);
   }
 });
 
@@ -49147,7 +49155,56 @@ var render = function () {
           2
         ),
         _vm._v(" "),
-        _vm._m(2),
+        _c("div", { staticClass: "col" }, [
+          _c("div", { staticClass: "chat-box-container" }, [
+            _c("div", { staticClass: "card chat-box" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _vm._m(3),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-footer" }, [
+                _c("div", { staticClass: "input-group mb-3" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.inputMessage,
+                        expression: "inputMessage",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder: "üzenet",
+                      "aria-label": "message",
+                      "aria-describedby": "button-addon",
+                    },
+                    domProps: { value: _vm.inputMessage },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.inputMessage = $event.target.value
+                      },
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-secondary",
+                      attrs: { type: "button", id: "button-addon" },
+                      on: { click: _vm.sendMessage },
+                    },
+                    [_vm._v("Küldés")]
+                  ),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
       ]),
     ]),
   ])
@@ -49190,57 +49247,32 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col" }, [
-      _c("div", { staticClass: "chat-box-container" }, [
-        _c("div", { staticClass: "card chat-box" }, [
-          _c("div", { staticClass: "card-header" }, [
-            _c("h4", [_vm._v("Közös csevegés")]),
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h4", [_vm._v("Közös csevegés")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("ul", [
+        _c("li", [
+          _c("p", [
+            _c("span", [_vm._v("2022-08-22")]),
+            _c("b", [_vm._v("Valaki")]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("ul", [
-              _c("li", [
-                _c("p", [
-                  _c("span", [_vm._v("2022-08-22")]),
-                  _c("b", [_vm._v("Valaki")]),
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Itt az üzenet")]),
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("p", [
-                  _c("span", [_vm._v("2022-08-22")]),
-                  _c("b", [_vm._v("Másvalaki")]),
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("Itt egy másik üzenet")]),
-              ]),
-            ]),
+          _c("p", [_vm._v("Itt az üzenet")]),
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("p", [
+            _c("span", [_vm._v("2022-08-22")]),
+            _c("b", [_vm._v("Másvalaki")]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "card-footer" }, [
-            _c("div", { staticClass: "input-group mb-3" }, [
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  placeholder: "üzenet",
-                  "aria-label": "message",
-                  "aria-describedby": "button-addon",
-                },
-              }),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-outline-secondary",
-                  attrs: { type: "button", id: "button-addon" },
-                },
-                [_vm._v("Küldés")]
-              ),
-            ]),
-          ]),
+          _c("p", [_vm._v("Itt egy másik üzenet")]),
         ]),
       ]),
     ])
