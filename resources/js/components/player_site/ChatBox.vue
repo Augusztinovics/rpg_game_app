@@ -107,16 +107,10 @@
                     <h4>Közös csevegés</h4>
                   </div>
                   <div class="card-body">
-                    <ul>
-                      <li>
-                        <p><span>2022-08-22</span><b>Valaki</b></p>
-                        <p>Itt az üzenet</p>
-                      </li>
-                      <li>
-                        <p><span>2022-08-22</span><b>Másvalaki</b></p>
-                        <p>Itt egy másik üzenet</p>
-                      </li>
-                    </ul>
+                    <div v-for="msg, index in messages" :key="'MSG' + index">
+                        <p>{{ msg.name }}</p>
+                        <p>{{ msg.msg }}</p>
+                    </div>
                   </div>
                   <div class="card-footer">
                       <div class="input-group mb-3">
@@ -150,6 +144,7 @@
         friendReqId: null,
         socket: null,
         inputMessage: '',
+        messages: [],
       }
     },
     computed: {
@@ -311,8 +306,21 @@
       },
 
       sendMessage() {
-        this.socket.emit('message',this.inputMessage);
-      }
+        this.socket.emit('chatMsg',{
+          msg: this.inputMessage,
+          id: this.currentUser.user.id,
+          name: this.currentUser.user.name,
+          active: true
+        });
+      },
+
+      reciveMessage(message) {
+
+        //chack friendlist or id 0 (chatbot) 
+        if (message.id === 0 || this.friends.find(fr => fr.friend_id === message.id) || message.id === this.currentUser.user.id) {
+          this.messages.push(message);
+        }
+      },
 
     },
     mounted() {
@@ -320,6 +328,18 @@
         let ip = '127.0.0.1';
         let port = '4411'
         this.socket = io(ip + ':' + port);
+        this.socket.on('message', (message) => {
+          this.reciveMessage(message);
+        });
+    },
+    beforeDestroy() {
+      console.log('UNMOUNT');
+        this.socket.emit('chatMsg', {
+          msg: 'Elment',
+          id: this.currentUser.user.id,
+          name: this.currentUser.user.name,
+          active: false
+        });
     }
   }
 </script>

@@ -6357,12 +6357,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -6374,7 +6368,8 @@ __webpack_require__.r(__webpack_exports__);
       inputFriendReq: '',
       friendReqId: null,
       socket: null,
-      inputMessage: ''
+      inputMessage: '',
+      messages: []
     };
   },
   computed: {
@@ -6537,14 +6532,41 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     sendMessage: function sendMessage() {
-      this.socket.emit('message', this.inputMessage);
+      this.socket.emit('chatMsg', {
+        msg: this.inputMessage,
+        id: this.currentUser.user.id,
+        name: this.currentUser.user.name,
+        active: true
+      });
+    },
+    reciveMessage: function reciveMessage(message) {
+      //chack friendlist or id 0 (chatbot) 
+      if (message.id === 0 || this.friends.find(function (fr) {
+        return fr.friend_id === message.id;
+      }) || message.id === this.currentUser.user.id) {
+        this.messages.push(message);
+      }
     }
   },
   mounted: function mounted() {
+    var _this8 = this;
+
     this.fetchCurrentUser();
     var ip = '127.0.0.1';
     var port = '4411';
     this.socket = io(ip + ':' + port);
+    this.socket.on('message', function (message) {
+      _this8.reciveMessage(message);
+    });
+  },
+  beforeDestroy: function beforeDestroy() {
+    console.log('UNMOUNT');
+    this.socket.emit('chatMsg', {
+      msg: 'Elment',
+      id: this.currentUser.user.id,
+      name: this.currentUser.user.name,
+      active: false
+    });
   }
 });
 
@@ -49160,7 +49182,18 @@ var render = function () {
             _c("div", { staticClass: "card chat-box" }, [
               _vm._m(2),
               _vm._v(" "),
-              _vm._m(3),
+              _c(
+                "div",
+                { staticClass: "card-body" },
+                _vm._l(_vm.messages, function (msg, index) {
+                  return _c("div", { key: "MSG" + index }, [
+                    _c("p", [_vm._v(_vm._s(msg.name))]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(msg.msg))]),
+                  ])
+                }),
+                0
+              ),
               _vm._v(" "),
               _c("div", { staticClass: "card-footer" }, [
                 _c("div", { staticClass: "input-group mb-3" }, [
@@ -49249,32 +49282,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
       _c("h4", [_vm._v("Közös csevegés")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-body" }, [
-      _c("ul", [
-        _c("li", [
-          _c("p", [
-            _c("span", [_vm._v("2022-08-22")]),
-            _c("b", [_vm._v("Valaki")]),
-          ]),
-          _vm._v(" "),
-          _c("p", [_vm._v("Itt az üzenet")]),
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("p", [
-            _c("span", [_vm._v("2022-08-22")]),
-            _c("b", [_vm._v("Másvalaki")]),
-          ]),
-          _vm._v(" "),
-          _c("p", [_vm._v("Itt egy másik üzenet")]),
-        ]),
-      ]),
     ])
   },
 ]
