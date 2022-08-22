@@ -11,6 +11,8 @@ const io = socketio(server,{cors: {
     methods: ["GET", "POST"]
   }});
 
+const aktiveUsers = [];
+
 //socket.join(roomname)
 //socket.broadcast.to(roomnam).emit('message', msg)
 
@@ -34,12 +36,40 @@ io.on('connection', socket => {
 
     //When disconnecting
     socket.on('disconnect', () => {
+        let leftingUser = aktiveUsers.findIndex(u => u.socket_id == socket.id);
+        if (leftingUser >= 0) {
+            let msg = aktiveUsers[leftingUser].user_name + ' elment';
+            io.emit('message', {
+                msg: msg,
+                id: aktiveUsers[leftingUser].user_id,
+                name: 'Chatbot',
+                active: false
+            });
+            aktiveUsers.splice(leftingUser, 1);
+        }
         // io.emit('message', {
         //     msg: 'User left',
         //     id: 0,
         //     name: 'Chatbot',
         //     active: false
         // });
+    });
+
+    //Gather aktive users
+    socket.on('singUp', data => {
+        let newUser = {
+            socket_id: socket.id,
+            user_id: data.id,
+            user_name: data.name
+        };
+        aktiveUsers.push(newUser);
+        let msg = data.name + ' csatlakozott';
+        io.emit('message', {
+            msg: msg,
+            id: data.id,
+            name: 'Chatbot',
+            active: true
+        });
     });
 
     //When sending chat message

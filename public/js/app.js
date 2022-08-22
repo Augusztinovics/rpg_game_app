@@ -6357,6 +6357,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -6369,7 +6371,8 @@ __webpack_require__.r(__webpack_exports__);
       friendReqId: null,
       socket: null,
       inputMessage: '',
-      messages: []
+      messages: [],
+      loggedIn: false
     };
   },
   computed: {
@@ -6413,11 +6416,26 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    currentTime: function currentTime() {
+      var current = new Date();
+      var time = current.getHours() + ":" + ('0' + current.getMinutes()).slice(-2);
+      return time;
+    },
     fetchCurrentUser: function fetchCurrentUser() {
       var _this = this;
 
       axios.get('/chat/current-user').then(function (res) {
         _this.currentUser = res.data;
+
+        if (!_this.loggedIn) {
+          _this.socket.emit('singUp', {
+            id: _this.currentUser.user.id,
+            name: _this.currentUser.user.name
+          });
+
+          _this.loggedIn = true;
+        }
+
         console.log(_this.currentUser);
       })["catch"](function (error) {
         console.log(error);
@@ -6545,6 +6563,20 @@ __webpack_require__.r(__webpack_exports__);
         return fr.friend_id === message.id;
       }) || message.id === this.currentUser.user.id) {
         this.messages.push(message);
+        var activeFriend = this.friends.findIndex(function (fr) {
+          return fr.friend_id === message.id;
+        });
+
+        if (activeFriend >= 0) {
+          if (message.active) {
+            this.friends[activeFriend].active = true;
+          } else {
+            this.friends[activeFriend].active = false;
+          }
+        }
+
+        var chatHolder = document.getElementById("chatHolder");
+        chatHolder.scrollTop = chatHolder.scrollHeight;
       }
     }
   },
@@ -26734,7 +26766,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.active[data-v-ce2fa2e4]{\n    border: 1px solid rgb(15, 91, 161);\n}\n.chat-box-container[data-v-ce2fa2e4] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n}\n.chat-box[data-v-ce2fa2e4] {\n  min-width: 200px;\n  max-width: 400px;\n  height: 400px;\n  margin: 10px;\n  border: 2px solid green;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.active[data-v-ce2fa2e4]{\n    border: 1px solid rgb(15, 91, 161);\n}\n.chat-box-container[data-v-ce2fa2e4] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n}\n.chat-box[data-v-ce2fa2e4] {\n  /* min-width: 200px;\n  max-width: 800px; */\n  width: 100%;\n  height: 500px;\n  margin: 10px;\n  border: 10px solid green;\n  border-radius: 10px;\n}\n.active-user[data-v-ce2fa2e4]{\n  display: inline-block;\n  height: 6px;\n  width: 6px;\n  background-color: green;\n  border-radius: 50%;\n  margin-bottom: 4px;\n}\n.chat-message-container[data-v-ce2fa2e4]{\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.chat-message-holder[data-v-ce2fa2e4] {\n  padding: 5px;\n  margin: 5px;\n  background-color: aquamarine;\n  border: 1px solid gray;\n  border-radius: 4px;\n}\n.chat-message-name[data-v-ce2fa2e4] {\n  margin: 0;\n  padding: 0;\n  font-size: 0.75rem;\n  font-weight: bolder;\n  padding-left: 5px;\n}\n.chat-message[data-v-ce2fa2e4]{\n  padding-left: 10px;\n}\n.chat-distancer[data-v-ce2fa2e4] {\n  height: 100px;\n}\n.chat-header[data-v-ce2fa2e4] {\n  border-bottom: 2px solid green;\n  background-color: rgb(150, 216, 150);\n  padding: 20px;\n}\n.chat-footer[data-v-ce2fa2e4] {\n  border-top: 2px solid green;\n  background-color: rgb(150, 216, 150);\n  padding: 20px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -49164,13 +49196,16 @@ var render = function () {
       _c("div", { staticClass: "row" }, [
         _c(
           "div",
-          { staticClass: "col-sm-2 border-end border-primary" },
+          { staticClass: "col-sm-2" },
           [
             _c("h3", [_vm._v("Barátok")]),
             _vm._v(" "),
             _vm._l(_vm.friends, function (friend) {
               return _c("p", { key: "Frend" + friend.id }, [
-                _vm._v(_vm._s(friend.friend.name)),
+                _vm._v(_vm._s(friend.friend.name) + " "),
+                friend.active
+                  ? _c("span", { staticClass: "active-user" })
+                  : _vm._e(),
               ])
             }),
           ],
@@ -49184,18 +49219,43 @@ var render = function () {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "card-body" },
-                _vm._l(_vm.messages, function (msg, index) {
-                  return _c("div", { key: "MSG" + index }, [
-                    _c("p", [_vm._v(_vm._s(msg.name))]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v(_vm._s(msg.msg))]),
-                  ])
-                }),
-                0
+                {
+                  staticClass: "card-body chat-message-container",
+                  attrs: { id: "chatHolder" },
+                },
+                [
+                  _vm._l(_vm.messages, function (msg, index) {
+                    return _c(
+                      "div",
+                      {
+                        key: "MSG" + index,
+                        staticClass: "chat-message-holder",
+                      },
+                      [
+                        _c("p", { staticClass: "chat-message-name" }, [
+                          _vm._o(
+                            _c("span", [
+                              _vm._v(_vm._s(_vm.currentTime()) + " "),
+                            ]),
+                            0,
+                            "MSG" + index
+                          ),
+                          _vm._v(" " + _vm._s(msg.name)),
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "chat-message" }, [
+                          _vm._v(_vm._s(msg.msg)),
+                        ]),
+                      ]
+                    )
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "chat-distancer" }),
+                ],
+                2
               ),
               _vm._v(" "),
-              _c("div", { staticClass: "card-footer" }, [
+              _c("div", { staticClass: "card-footer chat-footer" }, [
                 _c("div", { staticClass: "input-group mb-3" }, [
                   _c("input", {
                     directives: [
@@ -49227,7 +49287,7 @@ var render = function () {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-outline-secondary",
+                      staticClass: "btn btn-success",
                       attrs: { type: "button", id: "button-addon" },
                       on: { click: _vm.sendMessage },
                     },
@@ -49238,6 +49298,8 @@ var render = function () {
             ]),
           ]),
         ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-2" }),
       ]),
     ]),
   ])
@@ -49280,7 +49342,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
+    return _c("div", { staticClass: "card-header chat-header" }, [
       _c("h4", [_vm._v("Közös csevegés")]),
     ])
   },

@@ -96,32 +96,34 @@
 
      <div class="container-fluid">
        <div class="row">
-         <div class="col-sm-2 border-end border-primary">
+         <div class="col-sm-2">
            <h3>Barátok</h3>
-          <p v-for="friend in friends" :key="'Frend' + friend.id">{{ friend.friend.name }}</p>
+          <p v-for="friend in friends" :key="'Frend' + friend.id">{{ friend.friend.name }} <span v-if="friend.active" class="active-user"></span></p>
          </div>
          <div class="col">
            <div class="chat-box-container">
                 <div class="card chat-box">
-                  <div class="card-header">
+                  <div class="card-header chat-header">
                     <h4>Közös csevegés</h4>
                   </div>
-                  <div class="card-body">
-                    <div v-for="msg, index in messages" :key="'MSG' + index">
-                        <p>{{ msg.name }}</p>
-                        <p>{{ msg.msg }}</p>
+                  <div id="chatHolder" class="card-body chat-message-container">
+                    <div v-for="msg, index in messages" :key="'MSG' + index" class="chat-message-holder">
+                        <p class="chat-message-name"><span v-once>{{ currentTime() }} </span> {{ msg.name }}</p>
+                        <p class="chat-message">{{ msg.msg }}</p>
                     </div>
+                    <div class="chat-distancer"></div>
                   </div>
-                  <div class="card-footer">
+                  <div class="card-footer chat-footer">
                       <div class="input-group mb-3">
                           <input type="text" class="form-control" placeholder="üzenet" aria-label="message" aria-describedby="button-addon" v-model="inputMessage">
-                          <button class="btn btn-outline-secondary" type="button" id="button-addon" @click="sendMessage">Küldés</button>
+                          <button class="btn btn-success" type="button" id="button-addon" @click="sendMessage">Küldés</button>
                       </div>
                   </div>
                 </div>
 
             </div>
          </div>
+         <div class="col-sm-2"></div>
        </div>
 
      </div>
@@ -145,6 +147,7 @@
         socket: null,
         inputMessage: '',
         messages: [],
+        loggedIn: false,
       }
     },
     computed: {
@@ -186,13 +189,25 @@
         console.log(this.sendedFriendRequests.length);
         return this.sendedFriendRequests.length;
       },
+     
     },
     methods: {
-      
+      currentTime() {
+          const current = new Date();
+          const time = current.getHours() + ":" + ('0'+current.getMinutes()).slice(-2);
+          return time;
+      },
       fetchCurrentUser() {
         axios.get('/chat/current-user')
         .then(res => {
             this.currentUser = res.data;
+            if (!this.loggedIn) {
+               this.socket.emit('singUp', {
+                id: this.currentUser.user.id,
+                name: this.currentUser.user.name,
+              });
+              this.loggedIn = true;
+            }
             console.log(this.currentUser);
         }).catch(error => {
             console.log(error);
@@ -319,6 +334,16 @@
         //chack friendlist or id 0 (chatbot) 
         if (message.id === 0 || this.friends.find(fr => fr.friend_id === message.id) || message.id === this.currentUser.user.id) {
           this.messages.push(message);
+          let activeFriend = this.friends.findIndex(fr => fr.friend_id === message.id);
+          if (activeFriend >= 0) {
+            if (message.active) {
+              this.friends[activeFriend].active = true;
+            } else {
+              this.friends[activeFriend].active = false;
+            }
+          }
+          let chatHolder = document.getElementById("chatHolder");
+          chatHolder.scrollTop = chatHolder.scrollHeight;
         }
       },
 
@@ -356,10 +381,61 @@
     }
 
     .chat-box {
-      min-width: 200px;
-      max-width: 400px;
-      height: 400px;
+      /* min-width: 200px;
+      max-width: 800px; */
+      width: 100%;
+      height: 500px;
       margin: 10px;
-      border: 2px solid green;
+      border: 10px solid green;
+      border-radius: 10px;
+    }
+
+    .active-user{
+      display: inline-block;
+      height: 6px;
+      width: 6px;
+      background-color: green;
+      border-radius: 50%;
+      margin-bottom: 4px;
+    }
+
+    .chat-message-container{
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .chat-message-holder {
+      padding: 5px;
+      margin: 5px;
+      background-color: aquamarine;
+      border: 1px solid gray;
+      border-radius: 4px;
+    }
+    .chat-message-name {
+      margin: 0;
+      padding: 0;
+      font-size: 0.75rem;
+      font-weight: bolder;
+      padding-left: 5px;
+    }
+
+    .chat-message{
+      padding-left: 10px;
+    }
+
+    .chat-distancer {
+      height: 100px;
+    }
+
+    .chat-header {
+      border-bottom: 2px solid green;
+      background-color: rgb(150, 216, 150);
+      padding: 20px;
+    }
+
+    .chat-footer {
+      border-top: 2px solid green;
+      background-color: rgb(150, 216, 150);
+      padding: 20px;
     }
 </style>
