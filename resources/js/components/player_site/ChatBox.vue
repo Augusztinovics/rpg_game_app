@@ -97,8 +97,21 @@
      <div class="container-fluid">
        <div class="row">
          <div class="col-sm-2">
-           <h3>Barátok</h3>
-          <p v-for="friend in friends" :key="'Frend' + friend.id">{{ friend.friend.name }} <span v-if="friend.active" class="active-user"></span></p>
+           <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <b>Barátok</b>
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p v-for="friend in friends" :key="'Frend' + friend.id">{{ friend.friend.name }} <span v-if="friend.active" class="active-user"></span></p>
+                  </div>
+                </div>
+              </div>
+            
+            </div>
          </div>
          <div class="col">
            <div class="chat-box-container">
@@ -115,7 +128,7 @@
                   </div>
                   <div class="card-footer chat-footer">
                       <div class="input-group mb-3">
-                          <input type="text" class="form-control" placeholder="üzenet" aria-label="message" aria-describedby="button-addon" v-model="inputMessage">
+                          <input type="text" class="form-control" placeholder="üzenet" id="message-input" aria-label="message" aria-describedby="button-addon" v-model="inputMessage" @keypress.enter="sendMessage">
                           <button class="btn btn-success" type="button" id="button-addon" @click="sendMessage">Küldés</button>
                       </div>
                   </div>
@@ -135,6 +148,9 @@
 <script>
 
   export default {
+    props: {
+      serverIpAddress:String
+    },
     data() {
       return {
         currentUser: null,
@@ -296,6 +312,7 @@
             this.inputFriendReq = '';
             this.fetchCurrentUser();
             this.fetchAllUsers();
+            this.socket.emit('friendUpdate', 'Update');
           }).catch(error => {
             console.log(error);
           })
@@ -305,6 +322,7 @@
       acceptFriendReq(id) {
         axios.post('/chat/accept-friend-request/' + id, {})
         .then(res => {
+          this.socket.emit('friendUpdate', 'Update');
           this.fetchCurrentUser();
         }).catch(error => {
           console.log(error);
@@ -314,6 +332,7 @@
       deleteFriendReq(id) {
         axios.post('/chat/delete-friend-request/' + id, {})
         .then(res => {
+          this.socket.emit('friendUpdate', 'Update');
           this.fetchCurrentUser();
         }).catch(error => {
           console.log(error);
@@ -321,19 +340,24 @@
       },
 
       sendMessage() {
-        this.socket.emit('chatMsg',{
-          msg: this.inputMessage,
-          id: this.currentUser.user.id,
-          name: this.currentUser.user.name,
-          active: true
-        });
+        if (this.inputMessage != '') {
+            this.socket.emit('chatMsg',{
+            msg: this.inputMessage,
+            id: this.currentUser.user.id,
+            name: this.currentUser.user.name,
+            active: true
+          });
+          this.inputMessage = '';
+          document.getElementById('message-input').focus();
+        }
       },
 
       reciveMessage(message) {
 
         //chack friendlist or id 0 (chatbot) 
-        if (message.id === 0 || this.friends.find(fr => fr.friend_id === message.id) || message.id === this.currentUser.user.id) {
+        if (message.id === 0 || this.friends.find(fr => fr.friend_id === message.id) || message.id == this.currentUser.user.id) {
           this.messages.push(message);
+          this.$emit('newMessage');
           let activeFriend = this.friends.findIndex(fr => fr.friend_id === message.id);
           if (activeFriend >= 0) {
             if (message.active) {
@@ -346,15 +370,21 @@
           chatHolder.scrollTop = chatHolder.scrollHeight;
         }
       },
+      updateUser() {
+        this.fetchCurrentUser();
+      }
 
     },
     mounted() {
         this.fetchCurrentUser();
-        let ip = '127.0.0.1';
+        let ip = this.serverIpAddress;
         let port = '4411'
         this.socket = io(ip + ':' + port);
         this.socket.on('message', (message) => {
           this.reciveMessage(message);
+        });
+        this.socket.on('updateFriend', (msg) => {
+          this.updateUser();
         });
     },
     beforeDestroy() {

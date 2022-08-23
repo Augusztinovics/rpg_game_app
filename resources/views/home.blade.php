@@ -2,6 +2,6 @@
 
 @section('content')
 <div class="container-fluid">
-    <player-site />
+    <player-site :server-ip="'{{ $server_ip }}'"/>
 </div>
 @endsection

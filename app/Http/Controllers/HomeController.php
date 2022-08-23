@@ -23,7 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = [
+            'server_ip' => config('server.server_ip')
+        ];
+        return view('home')->with($data);
     }
 
     
