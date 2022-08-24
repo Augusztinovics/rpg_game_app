@@ -31,7 +31,8 @@
                             <td>{{ user.name }}</td>
                             <td>
                                 <button v-if="userIsFriend(user.id)=='NO'" class="btn btn-outline-success btn-sm ms-1" type="button" data-bs-toggle="modal" data-bs-target="#friendModal" @click="prepareFriendReq(user.id)">Barátkérelem Küldése</button>
-                                <p v-if="userIsFriend(user.id)=='PENDING'">Barátkérelem elküldve, </p>
+                                <p v-if="userIsFriend(user.id)=='PENDING'">Válaszra vár </p>
+                                <p v-if="userIsFriend(user.id)=='SPENDING'">Barátkérelem elküldve </p>
                                 <p v-if="userIsFriend(user.id)=='FREND'">Már barát</p>
                             </td>
                         </tr>
@@ -96,7 +97,7 @@
 
      <div class="container-fluid">
        <div class="row">
-         <div class="col-sm-2">
+         <div class="col-sm-3">
            <div class="accordion" id="accordionExample">
               <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
@@ -106,7 +107,7 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                    <p v-for="friend in friends" :key="'Frend' + friend.id">{{ friend.friend.name }} <span v-if="friend.active" class="active-user"></span></p>
+                    <p v-for="friend in friends" :key="'Frend' + friend.id"><button type="button" class="btn btn-link" @click="initPrivateChat(friend.friend.id)">{{ friend.friend.name }} <span v-if="friend.active" class="active-user"></span></button></p>
                   </div>
                 </div>
               </div>
@@ -115,12 +116,13 @@
          </div>
          <div class="col">
            <div class="chat-box-container">
+
                 <div class="card chat-box">
                   <div class="card-header chat-header">
                     <h4>Közös csevegés</h4>
                   </div>
                   <div id="chatHolder" class="card-body chat-message-container">
-                    <div v-for="msg, index in messages" :key="'MSG' + index" class="chat-message-holder">
+                    <div v-for="msg, index in messages" :key="'MSG' + index" class="chat-message-holder" :class="{'own-message' : msg.own}">
                         <p class="chat-message-name"><span v-once>{{ currentTime() }} </span> {{ msg.name }}</p>
                         <p class="chat-message">{{ msg.msg }}</p>
                     </div>
@@ -134,9 +136,31 @@
                   </div>
                 </div>
 
+                
+                <div v-for="chat, index in privateChat" :key="'PRI' + index" class="card chat-box">
+                    <div class="card-header chat-header d-flex justify-content-between">
+                      <h4>{{ friendName(chat.to) }} </h4>
+                      <button type="button" class="btn-close" aria-label="Close" @click="closePrivateChat(index)"></button>
+                    </div>
+                    <div id="chatHolder" class="card-body chat-message-container">
+                      <div v-for="msg, index in chat.messages" :key="'MSG'+chat.id + index" class="chat-message-holder" :class="{'own-message' : msg.own}">
+                          <p class="chat-message-name"><span v-once>{{ currentTime() }} </span> {{ msg.name }}</p>
+                          <p class="chat-message">{{ msg.msg }}</p>
+                      </div>
+                      <div class="chat-distancer"></div>
+                    </div>
+                    <div class="card-footer chat-footer">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="üzenet" id="message-input" aria-label="message" aria-describedby="button-addon" v-model="chat.inputMessage" @keypress.enter="sendPrivatMessage(chat.id)">
+                            <button class="btn btn-success" type="button" id="button-addon" @click="sendPrivatMessage(chat.id)">Küldés</button>
+                        </div>
+                    </div>
+                  </div>
+               
+
             </div>
          </div>
-         <div class="col-sm-2"></div>
+         <div class="col-sm-1"></div>
        </div>
 
      </div>
@@ -164,6 +188,7 @@
         inputMessage: '',
         messages: [],
         loggedIn: false,
+        privateChat: [],
       }
     },
     computed: {
@@ -202,7 +227,6 @@
         return this.friendRequests.length;
       },
       friendSendReqCount() {
-        console.log(this.sendedFriendRequests.length);
         return this.sendedFriendRequests.length;
       },
      
@@ -212,6 +236,9 @@
           const current = new Date();
           const time = current.getHours() + ":" + ('0'+current.getMinutes()).slice(-2);
           return time;
+      },
+      friendName (id) {
+        return this.friends.find(f => f.friend.id == id).friend.name
       },
       fetchCurrentUser() {
         axios.get('/chat/current-user')
@@ -278,7 +305,7 @@
         });
         this.sendedFriendRequests.forEach(sfr => {
           if (sfr.to_user == id) {
-            result = 'PENDING'
+            result = 'SPENDING'
           }
         });
         return result;
@@ -310,7 +337,6 @@
           .then(res => {
             this.friendReqId = null;
             this.inputFriendReq = '';
-            this.fetchCurrentUser();
             this.fetchAllUsers();
             this.socket.emit('friendUpdate', 'Update');
           }).catch(error => {
@@ -323,7 +349,6 @@
         axios.post('/chat/accept-friend-request/' + id, {})
         .then(res => {
           this.socket.emit('friendUpdate', 'Update');
-          this.fetchCurrentUser();
         }).catch(error => {
           console.log(error);
         })
@@ -333,7 +358,6 @@
         axios.post('/chat/delete-friend-request/' + id, {})
         .then(res => {
           this.socket.emit('friendUpdate', 'Update');
-          this.fetchCurrentUser();
         }).catch(error => {
           console.log(error);
         })
@@ -356,6 +380,9 @@
 
         //chack friendlist or id 0 (chatbot) 
         if (message.id === 0 || this.friends.find(fr => fr.friend_id === message.id) || message.id == this.currentUser.user.id) {
+          if (message.id == this.currentUser.user.id) {
+            message.own = true;
+          }
           this.messages.push(message);
           this.$emit('newMessage');
           let activeFriend = this.friends.findIndex(fr => fr.friend_id === message.id);
@@ -372,8 +399,30 @@
       },
       updateUser() {
         this.fetchCurrentUser();
-      }
+      },
+      //private messages
+      sendPrivatMessage(to) {
 
+      },
+      initPrivateChat(to) {
+        let haveChat = this.privateChat.find(c => c.to == to);
+        if (!haveChat) {
+          this.createNewPrivateChat(to);
+        }
+      },
+      createNewPrivateChat(to) {
+        let newChat = {
+          id: this.currentUser.user.id + to,
+          from: this.currentUser.user.id,
+          to: to,
+          inputMessage: '',
+          messages: [],
+        }
+        this.privateChat.push(newChat);
+      },
+      closePrivateChat(index) {
+        this.privateChat.splice(index, 1);
+      },
     },
     mounted() {
         this.fetchCurrentUser();
@@ -411,13 +460,11 @@
     }
 
     .chat-box {
-      /* min-width: 200px;
-      max-width: 800px; */
-      width: 100%;
       height: 500px;
       margin: 10px;
       border: 10px solid green;
       border-radius: 10px;
+      flex-basis: 90%;
     }
 
     .active-user{
@@ -440,6 +487,10 @@
       background-color: aquamarine;
       border: 1px solid gray;
       border-radius: 4px;
+    }
+    .own-message {
+      margin-left: 20px;
+      background-color: rgb(219, 236, 231);
     }
     .chat-message-name {
       margin: 0;
@@ -467,5 +518,9 @@
       border-top: 2px solid green;
       background-color: rgb(150, 216, 150);
       padding: 20px;
+    }
+
+    .x-button{
+      margin-left: auto;
     }
 </style>
