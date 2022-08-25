@@ -79,6 +79,9 @@ io.on('connection', socket => {
     socket.on('friendUpdate', (msg) => {
         io.emit('updateFriend', 'Update');
     });
+    socket.on('sendPrivateMessage', (msg) => {
+        io.emit('privateMessage', msg);
+    });
 });
 
 const PORT = 4411;

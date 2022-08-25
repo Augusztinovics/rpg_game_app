@@ -139,10 +139,10 @@
                 
                 <div v-for="chat, index in privateChat" :key="'PRI' + index" class="card chat-box">
                     <div class="card-header chat-header d-flex justify-content-between">
-                      <h4>{{ friendName(chat.to) }} </h4>
+                      <h4>{{ friendName(chat.to, chat.from) }} </h4>
                       <button type="button" class="btn-close" aria-label="Close" @click="closePrivateChat(index)"></button>
                     </div>
-                    <div id="chatHolder" class="card-body chat-message-container">
+                    <div :id="'chatHolder' + index" class="card-body chat-message-container">
                       <div v-for="msg, index in chat.messages" :key="'MSG'+chat.id + index" class="chat-message-holder" :class="{'own-message' : msg.own}">
                           <p class="chat-message-name"><span v-once>{{ currentTime() }} </span> {{ msg.name }}</p>
                           <p class="chat-message">{{ msg.msg }}</p>
@@ -151,8 +151,8 @@
                     </div>
                     <div class="card-footer chat-footer">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="üzenet" id="message-input" aria-label="message" aria-describedby="button-addon" v-model="chat.inputMessage" @keypress.enter="sendPrivatMessage(chat.id)">
-                            <button class="btn btn-success" type="button" id="button-addon" @click="sendPrivatMessage(chat.id)">Küldés</button>
+                            <input type="text" class="form-control" placeholder="üzenet" :id="'message-input' + index" aria-label="message" aria-describedby="button-addon" v-model="chat.inputMessage" @keypress.enter="sendPrivatMessage(chat.id)">
+                            <button class="btn btn-success" type="button" id="button-addon" @click="sendPrivatMessage(index)">Küldés</button>
                         </div>
                     </div>
                   </div>
@@ -237,8 +237,15 @@
           const time = current.getHours() + ":" + ('0'+current.getMinutes()).slice(-2);
           return time;
       },
-      friendName (id) {
-        return this.friends.find(f => f.friend.id == id).friend.name
+      friendName (to, from) {
+        let frendName = this.friends.find(f => f.friend.id == to);
+        if (frendName) {
+          return frendName.friend.name
+        }
+        frendName = this.friends.find(f => f.friend.id == from);
+        if (frendName) {
+          return frendName.friend.name
+        }
       },
       fetchCurrentUser() {
         axios.get('/chat/current-user')
@@ -401,8 +408,48 @@
         this.fetchCurrentUser();
       },
       //private messages
-      sendPrivatMessage(to) {
-
+      sendPrivatMessage(index) {
+        if (this.privateChat[index].inputMessage != '') {
+          this.socket.emit('sendPrivateMessage', {
+            from: this.currentUser.user.id,
+            name: this.currentUser.user.name,
+            to: this.privateChat[index].to,
+            message: this.privateChat[index].inputMessage
+          });
+          this.privateChat[index].inputMessage = '';
+          document.getElementById('message-input' + index).focus();
+        }
+      },
+      recivePrivateMessage(msg) {
+        if (msg.from == this.currentUser.user.id || msg.to == this.currentUser.user.id) {
+          //chack if have active chat
+          let privateChat = this.privateChat.findIndex(c => c.to == msg.to);
+          if (privateChat < 0) {
+            privateChat = this.privateChat.findIndex(c => c.to == msg.from);
+          }
+          if (privateChat < 0) {
+            this.createNewPrivateChat(msg.from);
+            privateChat = this.privateChat.findIndex(c => c.to == msg.from);
+          }
+          if (privateChat < 0) {
+            console.log('Error creating private chat!');
+          } else {
+            let privateMsg = {
+                  id: msg.from,
+                  name: msg.name,
+                  msg: msg.message,
+                  own: false,
+                };
+            if (privateMsg.id == this.currentUser.user.id) {
+              privateMsg.own = true;
+            }
+            this.privateChat[privateChat].messages.push(privateMsg);
+            let chatHolder = document.getElementById("chatHolder" + privateChat);
+            if (chatHolder) {
+              chatHolder.scrollTop = chatHolder.scrollHeight;
+            }
+          }
+        }
       },
       initPrivateChat(to) {
         let haveChat = this.privateChat.find(c => c.to == to);
@@ -434,6 +481,9 @@
         });
         this.socket.on('updateFriend', (msg) => {
           this.updateUser();
+        });
+        this.socket.on('privateMessage', msg => {
+          this.recivePrivateMessage(msg);
         });
     },
     beforeDestroy() {

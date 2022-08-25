@@ -6488,10 +6488,22 @@ __webpack_require__.r(__webpack_exports__);
       var time = current.getHours() + ":" + ('0' + current.getMinutes()).slice(-2);
       return time;
     },
-    friendName: function friendName(id) {
-      return this.friends.find(function (f) {
-        return f.friend.id == id;
-      }).friend.name;
+    friendName: function friendName(to, from) {
+      var frendName = this.friends.find(function (f) {
+        return f.friend.id == to;
+      });
+
+      if (frendName) {
+        return frendName.friend.name;
+      }
+
+      frendName = this.friends.find(function (f) {
+        return f.friend.id == from;
+      });
+
+      if (frendName) {
+        return frendName.friend.name;
+      }
     },
     fetchCurrentUser: function fetchCurrentUser() {
       var _this = this;
@@ -6664,7 +6676,61 @@ __webpack_require__.r(__webpack_exports__);
       this.fetchCurrentUser();
     },
     //private messages
-    sendPrivatMessage: function sendPrivatMessage(to) {},
+    sendPrivatMessage: function sendPrivatMessage(index) {
+      if (this.privateChat[index].inputMessage != '') {
+        this.socket.emit('sendPrivateMessage', {
+          from: this.currentUser.user.id,
+          name: this.currentUser.user.name,
+          to: this.privateChat[index].to,
+          message: this.privateChat[index].inputMessage
+        });
+        this.privateChat[index].inputMessage = '';
+        document.getElementById('message-input' + index).focus();
+      }
+    },
+    recivePrivateMessage: function recivePrivateMessage(msg) {
+      if (msg.from == this.currentUser.user.id || msg.to == this.currentUser.user.id) {
+        //chack if have active chat
+        var privateChat = this.privateChat.findIndex(function (c) {
+          return c.to == msg.to;
+        });
+
+        if (privateChat < 0) {
+          privateChat = this.privateChat.findIndex(function (c) {
+            return c.to == msg.from;
+          });
+        }
+
+        if (privateChat < 0) {
+          this.createNewPrivateChat(msg.from);
+          privateChat = this.privateChat.findIndex(function (c) {
+            return c.to == msg.from;
+          });
+        }
+
+        if (privateChat < 0) {
+          console.log('Error creating private chat!');
+        } else {
+          var privateMsg = {
+            id: msg.from,
+            name: msg.name,
+            msg: msg.message,
+            own: false
+          };
+
+          if (privateMsg.id == this.currentUser.user.id) {
+            privateMsg.own = true;
+          }
+
+          this.privateChat[privateChat].messages.push(privateMsg);
+          var chatHolder = document.getElementById("chatHolder" + privateChat);
+
+          if (chatHolder) {
+            chatHolder.scrollTop = chatHolder.scrollHeight;
+          }
+        }
+      }
+    },
     initPrivateChat: function initPrivateChat(to) {
       var haveChat = this.privateChat.find(function (c) {
         return c.to == to;
@@ -6700,6 +6766,9 @@ __webpack_require__.r(__webpack_exports__);
     });
     this.socket.on('updateFriend', function (msg) {
       _this8.updateUser();
+    });
+    this.socket.on('privateMessage', function (msg) {
+      _this8.recivePrivateMessage(msg);
     });
   },
   beforeDestroy: function beforeDestroy() {
@@ -49567,7 +49636,9 @@ var render = function () {
                       },
                       [
                         _c("h4", [
-                          _vm._v(_vm._s(_vm.friendName(chat.to)) + " "),
+                          _vm._v(
+                            _vm._s(_vm.friendName(chat.to, chat.from)) + " "
+                          ),
                         ]),
                         _vm._v(" "),
                         _c("button", {
@@ -49586,7 +49657,7 @@ var render = function () {
                       "div",
                       {
                         staticClass: "card-body chat-message-container",
-                        attrs: { id: "chatHolder" },
+                        attrs: { id: "chatHolder" + index },
                       },
                       [
                         _vm._l(chat.messages, function (msg, index) {
@@ -49636,7 +49707,7 @@ var render = function () {
                           attrs: {
                             type: "text",
                             placeholder: "üzenet",
-                            id: "message-input",
+                            id: "message-input" + index,
                             "aria-label": "message",
                             "aria-describedby": "button-addon",
                           },
@@ -49677,7 +49748,7 @@ var render = function () {
                             attrs: { type: "button", id: "button-addon" },
                             on: {
                               click: function ($event) {
-                                return _vm.sendPrivatMessage(chat.id)
+                                return _vm.sendPrivatMessage(index)
                               },
                             },
                           },
