@@ -5318,6 +5318,63 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GmSite.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GmSite.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _gm_site_MagusModuleBaseView_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gm_site/MagusModuleBaseView.vue */ "./resources/js/components/gm_site/MagusModuleBaseView.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    MagusModuleBaseView: _gm_site_MagusModuleBaseView_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  mounted: function mounted() {}
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PlayerSite.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PlayerSite.vue?vue&type=script&lang=js& ***!
@@ -6236,6 +6293,98 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.fetchNews();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      gameModules: [],
+      pagLinks: []
+    };
+  },
+  computed: {
+    havePagination: function havePagination() {
+      return this.pagLinks.length > 3;
+    }
+  },
+  methods: {
+    fetchGameModules: function fetchGameModules() {
+      var _this = this;
+
+      axios.get('gm/game-modules/MAGUS').then(function (res) {
+        _this.gameModules = res.data; //this.gameModules = res.data.data;
+
+        _this.pagLinks = res.data.links; //csak most
+
+        _this.pagLinks = []; //end csak most
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    paginate: function paginate(link) {
+      var _this2 = this;
+
+      axios.get(link).then(function (res) {
+        _this2.gameModules = res.data.data;
+        _this2.pagLinks = res.data.links;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.fetchGameModules();
   }
 });
 
@@ -14044,6 +14193,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //window.
 vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('player-site', (__webpack_require__(/*! ./components/PlayerSite.vue */ "./resources/js/components/PlayerSite.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('admin-site', (__webpack_require__(/*! ./components/AdminSite.vue */ "./resources/js/components/AdminSite.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('welcome-news', (__webpack_require__(/*! ./components/WelcomeNews.vue */ "./resources/js/components/WelcomeNews.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('gm-site', (__webpack_require__(/*! ./components/GmSite.vue */ "./resources/js/components/GmSite.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -19046,6 +19196,246 @@ __webpack_require__.r(__webpack_exports__);
  */
 var state = {
   kisArkanum: [{
+    name: 'A hatalom szava',
+    sfera: ['L', 'H', 'E', 'T'],
+    sferaText: 'Lélek, Halál, Élet, Természet',
+    mana: 15,
+    manaText: '15',
+    strenght: '35',
+    castTime: '1 szegmens',
+    effectTime: 'Speciális',
+    effectRange: '30 láb sugarú kör',
+    resistans: 'Asztrális',
+    description: ['-A látszat csal, az univerzum a hazugságok sokaságára épül- tartja egy ősi kyr bölcsesség. Az igazi hatalommal bírók nem ritkán titkolják, mire képesek valójában. Egyszerű, szerény megjelenésük nem árulkodik erejükről, s ez megtévesztő lehet. Persze a valódi hatalom kisugárzása szinte tapinthatóan árad birtokosából, s ezt látja minden nyitott szemmel, tiszta elmével járó lény. Ám a sok nagyhangú, felületes, csupán a látszatra adó szerencsétlen gyakorta már csak akkor veszi észre, kivel került szembe, kit sértett vérig, mikor már késő, visszakozni lehetetlen. Az efféle fickók megtorpantására szolgál a Hatalom szava.', 'A varázslat egyetlen szó kimondásából áll, mely tisztán és érthetően hallatszik 30 láb körzetben. A papnak közben fel kell mutatni szent jellképét. Mindenki, aki ezen területen belül tartózkodik, szembesül a pap valódi hatalmával ( Nevezetesen: megismeri a Tapasztalati szintjét, főbb harcértékeinek nagyságrendjét-de nem pontos értékeket ), és dudatára ébred annak, hogy mi mire képes az. A varázslat sohasem hazudik és nincs kényszerítő ereje. Ha a támadók nem riadnak meg, a papnak más eszközöket kell keresni megfékezésükre. ( NJK esetében a Bátorság annyival csökken amennyi a pap tapasztalati szintjének kétszerese, ha nullára csökken a Bátorság, az NJK rettegni fog a paptól ) A varázslat nem evilági lényekre, vagy élőholtakra nem fejti ki hatását.', 'A felhasznált MP-k megduplázásával megkétszerezhető a mágia erőssége, vagy hatótávolsága. Háromszor annyi Mp rááldozásával megháromszorozható, stb.']
+  }, {
+    name: 'Áldás',
+    sfera: ['L', 'H', 'E', 'T'],
+    sferaText: 'Lélek, Halál, Élet, Természet',
+    mana: 3,
+    manaText: '3',
+    strenght: '5',
+    castTime: '5 szegmens',
+    effectTime: '2 kör/szint vagy 1 hónap/szint',
+    effectRange: 'Érintés',
+    resistans: '-',
+    description: ['Az egyik legalapvetőbb papi mágia. Alkalmazásokor a pap istene jóindulátát, segítségét kéri és kapja. Mindazok, akikre a pap kiterjeszti az áldás hatását ( 1 személy / szint ) - hacsak jellemük nem gyökeressen ellentéte a pap vallásának jellemével - megerősödnek eltökéltségükben, a varázslat időtartalma alatt optimisták, jókedvűek és bátrak lesznek. Ez idő alatt minden Harci Értékükhöz +5 járul, akárcsak az Asztrális és Mentális mágiaellenállásukhoz, míg a rájuk irányzott Átkok ellen +50-nel dobnak ME-t. A varázslat nem evilági vagy élőholt lényekre nem fejti ki hatását.', 'Az Áldás segítségével felszentelt étel és víz tiszta és fogysztható lesz - amennyiben mérgezett volt, úgy látványossan megposhad, undorítóvá válik. Azok a tárgyak amelyeket a pap megáldott, 1 hónap/szint időtartam alatt nem porosodnak, nem fog rajtuk a rozsda és színüket sem veszítik.', 'A megáldott tárgyból a fent említett időtartam alatt sugárzó mágia - azonos varázslaterősség mellett - semlegesíti az Átok hatását, ám ezzel szertefoszlik, s a tárgy továbbiakban közönséges, mágiától mentes dolognak minősül.']
+  }, {
+    name: 'Mágia kifürkészése',
+    sfera: ['L', 'H', 'E', 'T'],
+    sferaText: 'Lélek, Halál, Élet, Természet',
+    mana: 5,
+    manaText: '5',
+    strenght: '10',
+    castTime: '5 szegmens',
+    effectTime: 'Azonnali',
+    effectRange: 'Kijelölt varázslat',
+    resistans: '-',
+    description: ['Rendkívül hasznos varázslat, pompás kiegészítője a Mágia szétoszlatásának. Segítségével a pap megtudja, hogy az elpusztításra szánt varázslat milyen erősítésű. Ily módon nem kell találomra varázsolnia, nem vesznek ell a Mp-k, ha rosszul méri fel a lehetőségeket a pap.', 'A varázslók által létrehozott varázslatokkal szemben haszontalan.']
+  }, {
+    name: 'Mágia szétoszlatása',
+    sfera: ['L', 'H', 'E', 'T'],
+    sferaText: 'Lélek, Halál, Élet, Természet',
+    mana: 7,
+    manaText: '7',
+    strenght: '5',
+    castTime: '1 kör',
+    effectTime: 'Azonnali',
+    effectRange: 'Kijelölt varázslat',
+    resistans: '-',
+    description: ['Ezt a mágiaformát alkalmazva a pap képessé válik - a varázslói varázslatok kivételéve - más mágiák hatásainak megszüntetésére. Természetesen csakis abban az esetben, ha a varázslatra felhasznált mana-pontok száma meghaladja a szétoszlatásra szánt varázslatba fektetett mana-pontok számát. Varásztárgyak mágikus hatása ily módon nem semlegesíthetők. A varázslatot csak az adott varázslat időtartalma alatt lehet szétoszlatni, annak következményei nem befolyásolhatók. Amennyiben nem nyilvánvaló, hogy mágikus hatásról van szó, a szétoszlatáshoz feltétlenül szükséges a ?ágiaismeret képzettség alapfokú ismerete.', 'A varázslat hátulütője , hogy elképesztő megterhelést ró végrehajtójára. A pap ugyanis annyi körön keresztül képtelen lesz a varázslásra, amekkora erősítésű a szétoszlatott mágia volt.']
+  }, {
+    name: 'Szent fény',
+    sfera: ['L', 'H', 'E', 'T'],
+    sferaText: 'Lélek, Halál, Élet, Természet',
+    mana: 3,
+    manaText: '3',
+    strenght: '15',
+    castTime: '1 szegmens',
+    effectTime: '3 kör/szint',
+    effectRange: 'Speciális',
+    resistans: '-',
+    description: ['Nevezik az Istenek Vezérlő Tüzének is. A pap a varázslat végrehajtásával fényt gyújt valamely tárgyon vagy helyen. E fény 15 cm sugarú gömbként, kékesen ragyogva világít. A szent fény csak olyan tárgyon vagy helyen - személyen nem!- jelenik meg, melyet szertartás varázslat segítségével felszenteltek. A mágia 3 fáklyányi világosságot ad a legnagyobb sötétségben is, s időlegesen eloszlatja a Sötétség-varázs hatását. A Szent fény csak erősebb Mágia szétoszlatásával szüntethető meg, egyébb módon eloltani lehetetlen.', 'A Fény által bevilágított területen sem ultra-, sem infralátás nem működik.', 'A varázslat ideje alatt figyelmezteti a papot, ha olyan helyre téved, amelynek vallásával ellentétes jellemű kisugárzása van, illetve ha veszély leselkedik rá. Ilyenkor színe egyre mélyül, majd vörös árnyalatba csap át. A Szent Fény a varázslat időtartalma alatt - további MP-ok felhasználása nélkül - a pap akaratának megfelelően bármikor kioltható és újraéleszthető.', 'A Mana-pontok többszörözésével a mágia erőssége, valamint időtartama növelhető meg.']
+  }, {
+    name: 'Szertartás',
+    sfera: ['L', 'H', 'E', 'T'],
+    sferaText: 'Lélek, Halál, Élet, Természet',
+    mana: 3,
+    manaText: '3',
+    strenght: '500',
+    castTime: 'Speciális',
+    effectTime: 'Végleges',
+    effectRange: 'Speciális',
+    resistans: '-',
+    description: ['A papi mágia legalapvetőbb kelléke.A legelső varázslat amit egy papnak megtanítanak, s az átlagemberek leggyakrabban csupán a mágia ezen formájával találkoznak az életük folyamán. Habár vallásonként változnak formái, s egyes hitek többfélét ismernek, mint mások, az alább következő hét szertartást mind alkalmazzák. ( A leírás pusztán egyszerű vázlatai az eseményeknek ).', '1. Templomszentelés:', 'Új oltár, szentély vagy templom felavatásakor celebrálják. A felépített helyet a papnak körbe kell járnia, s fenhangon idéznie a szertartás szövegét. A templom vagy szentély ezek után már alkalmas fohászkodásra, áldozat bemutatására, s otthont, támogatást nyújt az azonos hívőknek.', '2. Névadás:', 'Ezen szertartás alatt adatik az újszülötnek a név, melyet élete során viselnie kell.', '3. Felszentelés:', 'A szertartással szenteltvíz és más szentelt tárgy készíthető.', '4. Áldozat:', 'Az istentől függő áldozati formula és rituális szöveg, melyet az Áldozat bemutatása közben mormolnak.', '5. Áldás - étel, ital:', 'A pap megszenteli az elé tett ételt és italt. Hosszú szertartások alatt, illetve több napos mágia használatakor kizárólag efféle étket fogyaszthat, ilyen itallal olthatja szomját. Az eljárás nem fedi fel, hogy az étel vagy ital mérgezett-e.', '6. Áldás - föld, termés:', 'Leginkább földművesek megsegítésére használatos eljárás. Segítségével a következő év termése bisztosíttatik, s nem kell nagyobb természeti katasztrófától sem tartani a megszentelt területen. Legalábbis olyantól nem, amit a pap istene idézne elő.', '7. Összeesketés: ', 'A szertartással házasság köttetik.', 'A szertartások lefolyása vallásonként nagyon eltérő lehet, így ezek ismertetésére itt nem térünk ki. A papok a legtöbb fenti szertartásokhoz különleges, felszentelt füstölőket, istenüknek szentelt tárgyakat és egyébb kultikus segédeszközöket használnak.']
+  }, {
+    name: 'Aszkézis',
+    sfera: ['L', 'H', 'E', 'T'],
+    sferaText: 'Lélek, Halál, Élet, Természet',
+    mana: 12,
+    manaText: '12',
+    strenght: '-',
+    castTime: '1 óra',
+    effectTime: '1 nap',
+    effectRange: 'Önmaga',
+    resistans: '-',
+    description: ['A varázslat a papok bűntől és földi kisértéstől való megtisztulását segíti elő. Új gondolatokat ébreszt, közelebb hozza a papot istenéhez, segíti elszakadni a világi örömök gyarlóságától.', 'Első lépésben a papnak tökéletesen el kell szakadnia a mindennapi valóságtól, egyedül kell maradnia gondolataival.A papnak a nap elején, lehetőleg napkeltekor kell használnia a varázslatot, mely egy órás aktív fohászkodást és rituális szövegek kántálását jelenti. Ezek után a napot imátkozásra és meditációra kell szentelnie.', 'At Aszkézist addig kell folytatnia, míg istene jónak tartja. Ha véget vethet önnön sanyargatásának, jelet kap istenétől. A varázslatot minden nap elején használni kell.']
+  }, {
+    name: 'Asztrálpillantás',
+    sfera: ['E', 'L'],
+    sferaText: 'Élet, Lélek',
+    mana: 7,
+    manaText: '7',
+    strenght: '5',
+    castTime: '5 szegmens',
+    effectTime: '5 kör',
+    effectRange: 'Érintés',
+    resistans: 'Asztrális',
+    description: ['A litánia segítségével a pap pebillantást nyer az Asztrálsíkra, s megfigyelheti, hogy a vizsgált személy asztrálteste miként viselkedik. Megállapíthatja, hogy fenyegeti-e valamiféle veszély, esetleg valamely, csupán az asztrálsíikon létező teremtmény fenyegeti, esetleg annak befolyása alatt áll. A varázslat ideje alatt lehetőség nyílik annak megállapítására, hogy milyen erős e teremtmény, s hogy elűzéséhez, esetleg kibékítéséhez mely erőkhöz kell fordulnia. Amennyiben az áldozat beleegyezik abba, hogy rajta ezt a fürkészést végrehajtsák, nem kell mágiaellenállást tennie, ellenkező esetben a papnak le kell küzdenie az illetőt óvó erőket. A varázslat 2 Mp-ért 1-gyel erősíthető. A varázslat érdekessége, hogy a pap saját magán nem tudja végrehajtani.']
+  }, {
+    name: 'Bénítás',
+    sfera: ['L'],
+    sferaText: 'Lélek',
+    mana: 12,
+    manaText: '12',
+    strenght: '15',
+    castTime: '3 szegmens',
+    effectTime: '1 kör/szint',
+    effectRange: '5 láb',
+    resistans: 'Mentális',
+    description: ['A pap ezzel a varázslattal részlegesen béníthatja az ellenfél mozgásirányító központját. Rá kell mutatni a kiszemelt álldozatra, majd - szent jelképével a kezében - ki kell mondani a varázslat megidézéséhez szükséges szavakat. A mágia hatására, ha az ME sikertelen volt, görcsös állapotba kerül, a következő módosítókkal: Erő: -8, Gyorsaság: -8, Ügyesség: -8, KÉ: -30, TÉ: -40, VÉ: -35, CÉ: -15, varázsolni pedig nem lehetséges. A varázslat erőssége 2 Mp-ért 1E-vel növelhető, ám az időtartam meghosszabítására nincs lehetőség.']
+  }, {
+    name: 'Csapás',
+    sfera: ['T', 'L', 'H'],
+    sferaText: 'Természet, Lélek, Halál',
+    mana: 8,
+    manaText: '8',
+    strenght: '1',
+    castTime: '1 szegmens',
+    effectTime: 'egyszeri',
+    effectRange: '15 láb',
+    resistans: '-',
+    description: ['']
+  }, {
+    name: '',
+    sfera: [],
+    sferaText: '',
+    mana: 0,
+    manaText: '',
+    strenght: '',
+    castTime: '',
+    effectTime: '',
+    effectRange: '',
+    resistans: '',
+    description: ['']
+  }, {
+    name: '',
+    sfera: [],
+    sferaText: '',
+    mana: 0,
+    manaText: '',
+    strenght: '',
+    castTime: '',
+    effectTime: '',
+    effectRange: '',
+    resistans: '',
+    description: ['']
+  }, {
+    name: '',
+    sfera: [],
+    sferaText: '',
+    mana: 0,
+    manaText: '',
+    strenght: '',
+    castTime: '',
+    effectTime: '',
+    effectRange: '',
+    resistans: '',
+    description: ['']
+  }, {
+    name: '',
+    sfera: [],
+    sferaText: '',
+    mana: 0,
+    manaText: '',
+    strenght: '',
+    castTime: '',
+    effectTime: '',
+    effectRange: '',
+    resistans: '',
+    description: ['']
+  }, {
+    name: '',
+    sfera: [],
+    sferaText: '',
+    mana: 0,
+    manaText: '',
+    strenght: '',
+    castTime: '',
+    effectTime: '',
+    effectRange: '',
+    resistans: '',
+    description: ['']
+  }, {
+    name: '',
+    sfera: [],
+    sferaText: '',
+    mana: 0,
+    manaText: '',
+    strenght: '',
+    castTime: '',
+    effectTime: '',
+    effectRange: '',
+    resistans: '',
+    description: ['']
+  }, {
+    name: '',
+    sfera: [],
+    sferaText: '',
+    mana: 0,
+    manaText: '',
+    strenght: '',
+    castTime: '',
+    effectTime: '',
+    effectRange: '',
+    resistans: '',
+    description: ['']
+  }, {
+    name: '',
+    sfera: [],
+    sferaText: '',
+    mana: 0,
+    manaText: '',
+    strenght: '',
+    castTime: '',
+    effectTime: '',
+    effectRange: '',
+    resistans: '',
+    description: ['']
+  }, {
+    name: '',
+    sfera: [],
+    sferaText: '',
+    mana: 0,
+    manaText: '',
+    strenght: '',
+    castTime: '',
+    effectTime: '',
+    effectRange: '',
+    resistans: '',
+    description: ['']
+  }, {
+    name: '',
+    sfera: [],
+    sferaText: '',
+    mana: 0,
+    manaText: '',
+    strenght: '',
+    castTime: '',
+    effectTime: '',
+    effectRange: '',
+    resistans: '',
+    description: ['']
+  }, {
     name: '',
     sfera: [],
     sferaText: '',
@@ -26947,6 +27337,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n.active[data-v-f8005fac]{\n    border: 1px solid rgb(15, 91, 161);\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=style&index=0&id=316bf2ee&scoped=true&lang=css&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=style&index=0&id=316bf2ee&scoped=true&lang=css& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.active[data-v-316bf2ee]{\n    border: 1px solid rgb(15, 91, 161);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -44718,6 +45132,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=style&index=0&id=316bf2ee&scoped=true&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=style&index=0&id=316bf2ee&scoped=true&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleBaseView_vue_vue_type_style_index_0_id_316bf2ee_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusModuleBaseView.vue?vue&type=style&index=0&id=316bf2ee&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=style&index=0&id=316bf2ee&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleBaseView_vue_vue_type_style_index_0_id_316bf2ee_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleBaseView_vue_vue_type_style_index_0_id_316bf2ee_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css& ***!
@@ -45186,6 +45630,45 @@ component.options.__file = "resources/js/components/AdminSite.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/GmSite.vue":
+/*!********************************************!*\
+  !*** ./resources/js/components/GmSite.vue ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _GmSite_vue_vue_type_template_id_1148bcf8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GmSite.vue?vue&type=template&id=1148bcf8& */ "./resources/js/components/GmSite.vue?vue&type=template&id=1148bcf8&");
+/* harmony import */ var _GmSite_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GmSite.vue?vue&type=script&lang=js& */ "./resources/js/components/GmSite.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _GmSite_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _GmSite_vue_vue_type_template_id_1148bcf8___WEBPACK_IMPORTED_MODULE_0__.render,
+  _GmSite_vue_vue_type_template_id_1148bcf8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/GmSite.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/PlayerSite.vue":
 /*!************************************************!*\
   !*** ./resources/js/components/PlayerSite.vue ***!
@@ -45387,6 +45870,47 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/admin_site/WatsNew.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/gm_site/MagusModuleBaseView.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/gm_site/MagusModuleBaseView.vue ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusModuleBaseView_vue_vue_type_template_id_316bf2ee_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusModuleBaseView.vue?vue&type=template&id=316bf2ee&scoped=true& */ "./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=template&id=316bf2ee&scoped=true&");
+/* harmony import */ var _MagusModuleBaseView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusModuleBaseView.vue?vue&type=script&lang=js& */ "./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=script&lang=js&");
+/* harmony import */ var _MagusModuleBaseView_vue_vue_type_style_index_0_id_316bf2ee_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MagusModuleBaseView.vue?vue&type=style&index=0&id=316bf2ee&scoped=true&lang=css& */ "./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=style&index=0&id=316bf2ee&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _MagusModuleBaseView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusModuleBaseView_vue_vue_type_template_id_316bf2ee_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusModuleBaseView_vue_vue_type_template_id_316bf2ee_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "316bf2ee",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/gm_site/MagusModuleBaseView.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -46314,6 +46838,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/GmSite.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/GmSite.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GmSite_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./GmSite.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GmSite.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GmSite_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/PlayerSite.vue?vue&type=script&lang=js&":
 /*!*************************************************************************!*\
   !*** ./resources/js/components/PlayerSite.vue?vue&type=script&lang=js& ***!
@@ -46391,6 +46931,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_WatsNew_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./WatsNew.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin_site/WatsNew.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_WatsNew_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleBaseView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusModuleBaseView.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleBaseView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -46827,6 +47383,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=style&index=0&id=316bf2ee&scoped=true&lang=css&":
+/*!**************************************************************************************************************************!*\
+  !*** ./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=style&index=0&id=316bf2ee&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleBaseView_vue_vue_type_style_index_0_id_316bf2ee_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusModuleBaseView.vue?vue&type=style&index=0&id=316bf2ee&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=style&index=0&id=316bf2ee&scoped=true&lang=css&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css&":
 /*!******************************************************************************************************************!*\
   !*** ./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css& ***!
@@ -46905,6 +47474,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminSite_vue_vue_type_template_id_07c5365b___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminSite_vue_vue_type_template_id_07c5365b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminSite.vue?vue&type=template&id=07c5365b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AdminSite.vue?vue&type=template&id=07c5365b&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/GmSite.vue?vue&type=template&id=1148bcf8&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/GmSite.vue?vue&type=template&id=1148bcf8& ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GmSite_vue_vue_type_template_id_1148bcf8___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GmSite_vue_vue_type_template_id_1148bcf8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GmSite_vue_vue_type_template_id_1148bcf8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./GmSite.vue?vue&type=template&id=1148bcf8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GmSite.vue?vue&type=template&id=1148bcf8&");
 
 
 /***/ }),
@@ -46990,6 +47576,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WatsNew_vue_vue_type_template_id_f8005fac_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WatsNew_vue_vue_type_template_id_f8005fac_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./WatsNew.vue?vue&type=template&id=f8005fac&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin_site/WatsNew.vue?vue&type=template&id=f8005fac&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=template&id=316bf2ee&scoped=true&":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=template&id=316bf2ee&scoped=true& ***!
+  \************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleBaseView_vue_vue_type_template_id_316bf2ee_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleBaseView_vue_vue_type_template_id_316bf2ee_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleBaseView_vue_vue_type_template_id_316bf2ee_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusModuleBaseView.vue?vue&type=template&id=316bf2ee&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=template&id=316bf2ee&scoped=true&");
 
 
 /***/ }),
@@ -47531,6 +48134,86 @@ var staticRenderFns = [
               },
             },
             [_vm._v("News")]
+          ),
+        ]),
+      ]
+    )
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GmSite.vue?vue&type=template&id=1148bcf8&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GmSite.vue?vue&type=template&id=1148bcf8& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container-fluid" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "tab-content", attrs: { id: "pills-tabContent" } },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "tab-pane fade show active",
+            attrs: {
+              id: "pills-magus",
+              role: "tabpanel",
+              "aria-labelledby": "pills-magus-tab",
+            },
+          },
+          [_c("magus-module-base-view")],
+          1
+        ),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "ul",
+      {
+        staticClass: "nav nav-pills mb-3 border border-success rounded p-3",
+        attrs: { id: "pills-tab", role: "tablist" },
+      },
+      [
+        _c("li", { staticClass: "nav-item", attrs: { role: "presentation" } }, [
+          _c(
+            "button",
+            {
+              staticClass: "nav-link active",
+              attrs: {
+                id: "pills-magus-tab",
+                "data-bs-toggle": "pill",
+                "data-bs-target": "#pills-magus",
+                type: "button",
+                role: "tab",
+                "aria-controls": "pills-magus",
+                "aria-selected": "true",
+              },
+            },
+            [_vm._v("\n                MAGUS\n            ")]
           ),
         ]),
       ]
@@ -49030,6 +49713,166 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center my-3" }, [
       _c("h2", [_vm._v("Edit/Create News")]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=template&id=316bf2ee&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleBaseView.vue?vue&type=template&id=316bf2ee&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm.havePagination
+      ? _c(
+          "div",
+          { staticClass: "text-center mt-4" },
+          _vm._l(_vm.pagLinks, function (pag, index) {
+            return _c("button", {
+              key: "PT" + index,
+              staticClass: "btn btn-sm",
+              class: { active: pag.active },
+              attrs: { disabled: !pag.url },
+              domProps: { innerHTML: _vm._s(pag.label) },
+              on: {
+                click: function ($event) {
+                  return _vm.paginate(pag.url)
+                },
+              },
+            })
+          }),
+          0
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "table-responsive m-4" }, [
+      _c("table", { staticClass: "table table-striped" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.gameModules, function (gameModule, index) {
+            return _c("tr", { key: "GM" + index }, [
+              _c("td", [_vm._v(_vm._s(gameModule.id))]),
+              _vm._v(" "),
+              _c("td", [
+                _c("a", { staticClass: "btn btn-link", attrs: { href: "" } }, [
+                  _vm._v(_vm._s(gameModule.name)),
+                ]),
+              ]),
+              _vm._v(" "),
+              _vm._m(2, true),
+            ])
+          }),
+          0
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _vm.havePagination
+      ? _c(
+          "div",
+          { staticClass: "text-center" },
+          _vm._l(_vm.pagLinks, function (pag, index) {
+            return _c("button", {
+              key: "PT" + index,
+              staticClass: "btn btn-sm",
+              class: { active: pag.active },
+              attrs: { disabled: !pag.url },
+              domProps: { innerHTML: _vm._s(pag.label) },
+              on: {
+                click: function ($event) {
+                  return _vm.paginate(pag.url)
+                },
+              },
+            })
+          }),
+          0
+        )
+      : _vm._e(),
+    _vm._v("\n    Magus\n"),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "p-4 border-bottom border-primary m-2 text-center" },
+      [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-success costum-btn",
+            attrs: { type: "button" },
+          },
+          [_vm._v("Új játék készítése")]
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Id")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Játék modul neve")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Lehetőségek")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c(
+        "a",
+        { staticClass: "btn btn-outline-success m-1", attrs: { href: "" } },
+        [_vm._v("Megnéz")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success costum-btn m-1",
+          attrs: { type: "button" },
+        },
+        [_vm._v("Módosít")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-danger costum-btn m-1",
+          attrs: { type: "button" },
+        },
+        [_vm._v("Töröl")]
+      ),
     ])
   },
 ]

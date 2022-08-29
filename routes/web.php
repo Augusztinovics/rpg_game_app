@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GmHomeController;
+use App\Http\Controllers\GameModuleMakerController;
 use App\Http\Controllers\CharacterSheetsController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\WlecomeController;
@@ -70,3 +71,6 @@ Route::post('admin/news/create', [AdminController::class, 'storeNews']);
 Route::post('admin/news/publish/{id}', [AdminController::class, 'publishUnpublishNews']);
 Route::post('admin/news/update/{id}', [AdminController::class, 'updateNews']);
 Route::post('admin/news/delete/{id}', [AdminController::class, 'deleteNews']);
+
+//Gm routs
+Route::get('gm/game-modules/{game}', [GameModuleMakerController::class, 'getAllGameModules']);

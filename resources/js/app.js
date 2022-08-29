@@ -27,6 +27,7 @@ import store from './store';
 Vue.component('player-site', require('./components/PlayerSite.vue').default);
 Vue.component('admin-site', require('./components/AdminSite.vue').default);
 Vue.component('welcome-news', require('./components/WelcomeNews.vue').default);
+Vue.component('gm-site', require('./components/GmSite.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

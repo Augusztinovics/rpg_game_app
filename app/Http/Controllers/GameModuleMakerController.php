@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class GameModuleMakerController extends Controller
 {
@@ -26,5 +27,21 @@ class GameModuleMakerController extends Controller
 
         
         return view('home');
+    }
+
+    /**
+     * get all game module 
+     * 
+     * @return json
+     */
+    public function getAllGameModules(Request $request, $game) {
+
+        $user = $request->user();
+        $gameModules = [
+            ['id' => 1, 'name' => 'Test game module']
+        ];
+       
+        
+       return response()->json($gameModules, 200);
     }
 }
