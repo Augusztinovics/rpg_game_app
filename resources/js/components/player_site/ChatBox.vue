@@ -173,7 +173,7 @@
 
   export default {
     props: {
-      serverIpAddress:String
+      ServerSettings:Object
     },
     data() {
       return {
@@ -473,9 +473,13 @@
     },
     mounted() {
         this.fetchCurrentUser();
-        let ip = this.serverIpAddress;
-        let port = '4411'
-        this.socket = io(ip + ':' + port);
+        let ip = this.ServerSettings.server_ip;
+        let port = this.ServerSettings.server_port;
+        let address = ip;
+        if (this.ServerSettings.use_port == true) {
+          address += ':' + port;
+        }
+        this.socket = io(address);
         this.socket.on('message', (message) => {
           this.reciveMessage(message);
         });

@@ -5426,7 +5426,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    serverIp: String
+    ServerSettings: Object
   },
   components: {
     ChatBox: _player_site_ChatBox_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -6574,7 +6574,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    serverIpAddress: String
+    ServerSettings: Object
   },
   data: function data() {
     return {
@@ -6907,9 +6907,15 @@ __webpack_require__.r(__webpack_exports__);
     var _this8 = this;
 
     this.fetchCurrentUser();
-    var ip = this.serverIpAddress;
-    var port = '4411';
-    this.socket = io(ip + ':' + port);
+    var ip = this.ServerSettings.server_ip;
+    var port = this.ServerSettings.server_port;
+    var address = ip;
+
+    if (this.ServerSettings.use_port == true) {
+      address += ':' + port;
+    }
+
+    this.socket = io(address);
     this.socket.on('message', function (message) {
       _this8.reciveMessage(message);
     });
@@ -48359,7 +48365,7 @@ var render = function () {
           },
           [
             _c("chat-box", {
-              attrs: { "server-ip-address": _vm.serverIp },
+              attrs: { "server-settings": _vm.ServerSettings },
               on: { newMessage: _vm.newMessage },
             }),
           ],

@@ -24,7 +24,11 @@ class HomeController extends Controller
     public function index()
     {
         $data = [
-            'server_ip' => config('server.server_ip')
+            'js_server_settings' => [
+                'server_ip' => config('server.server_ip'),
+                'server_port' => config('server.server_port'),
+                'use_port' =>  config('server.server_use_port')
+            ]   
         ];
         return view('home')->with($data);
     }

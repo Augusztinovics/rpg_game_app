@@ -19,7 +19,7 @@
         <div class="tab-pane fade" id="pills-chat" role="tabpanel" aria-labelledby="pills-chat-tab">
             <chat-box 
                 @newMessage="newMessage"
-                :server-ip-address="serverIp"
+                :server-settings="ServerSettings"
             />
         </div>
         <div class="tab-pane fade" id="pills-support" role="tabpanel" aria-labelledby="pills-support-tab">
@@ -37,7 +37,7 @@
 
     export default {
         props: {
-            serverIp:String
+            ServerSettings:Object
         },
         components: {
             ChatBox,
