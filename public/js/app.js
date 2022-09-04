@@ -6346,6 +6346,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -6362,12 +6411,10 @@ __webpack_require__.r(__webpack_exports__);
     fetchGameModules: function fetchGameModules() {
       var _this = this;
 
-      axios.get('gm/game-modules/MAGUS').then(function (res) {
-        _this.gameModules = res.data; //this.gameModules = res.data.data;
-
-        _this.pagLinks = res.data.links; //csak most
-
-        _this.pagLinks = []; //end csak most
+      axios.get("gm/game-modules/MAGUS").then(function (res) {
+        _this.gameModules = res.data.data;
+        _this.pagLinks = res.data.links;
+        console.log(_this.gameModules);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -6381,6 +6428,13 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
+    }
+  },
+  playersCount: function playersCount(index) {
+    if (this.gameModules[index].players) {
+      return this.gameModules[index].players.length;
+    } else {
+      return 0;
     }
   },
   mounted: function mounted() {
@@ -27366,7 +27420,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.active[data-v-316bf2ee]{\n    border: 1px solid rgb(15, 91, 161);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.active[data-v-316bf2ee] {\r\n    border: 1px solid rgb(15, 91, 161);\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -49745,76 +49799,90 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _vm.havePagination
-      ? _c(
-          "div",
-          { staticClass: "text-center mt-4" },
-          _vm._l(_vm.pagLinks, function (pag, index) {
-            return _c("button", {
-              key: "PT" + index,
-              staticClass: "btn btn-sm",
-              class: { active: pag.active },
-              attrs: { disabled: !pag.url },
-              domProps: { innerHTML: _vm._s(pag.label) },
-              on: {
-                click: function ($event) {
-                  return _vm.paginate(pag.url)
+    _c("div", [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm.havePagination
+        ? _c(
+            "div",
+            { staticClass: "text-center mt-4" },
+            _vm._l(_vm.pagLinks, function (pag, index) {
+              return _c("button", {
+                key: "PT" + index,
+                staticClass: "btn btn-sm",
+                class: { active: pag.active },
+                attrs: { disabled: !pag.url },
+                domProps: { innerHTML: _vm._s(pag.label) },
+                on: {
+                  click: function ($event) {
+                    return _vm.paginate(pag.url)
+                  },
                 },
-              },
-            })
-          }),
-          0
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _c("div", { staticClass: "table-responsive m-4" }, [
-      _c("table", { staticClass: "table table-striped" }, [
-        _vm._m(1),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.gameModules, function (gameModule, index) {
-            return _c("tr", { key: "GM" + index }, [
-              _c("td", [_vm._v(_vm._s(gameModule.id))]),
-              _vm._v(" "),
-              _c("td", [
-                _c("a", { staticClass: "btn btn-link", attrs: { href: "" } }, [
-                  _vm._v(_vm._s(gameModule.name)),
+              })
+            }),
+            0
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "table-responsive m-4" }, [
+        _c("table", { staticClass: "table table-striped" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.gameModules, function (gameModule, index) {
+              return _c("tr", { key: "GM" + index }, [
+                _c("td", [_vm._v(_vm._s(gameModule.id))]),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "a",
+                    { staticClass: "btn btn-link", attrs: { href: "" } },
+                    [_vm._v(_vm._s(gameModule.name))]
+                  ),
                 ]),
-              ]),
-              _vm._v(" "),
-              _vm._m(2, true),
-            ])
-          }),
-          0
-        ),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-success",
+                      attrs: { type: "button" },
+                    },
+                    [_vm._v(_vm._s(_vm.playersCount(index)))]
+                  ),
+                ]),
+                _vm._v(" "),
+                _vm._m(2, true),
+              ])
+            }),
+            0
+          ),
+        ]),
       ]),
-    ]),
-    _vm._v(" "),
-    _vm.havePagination
-      ? _c(
-          "div",
-          { staticClass: "text-center" },
-          _vm._l(_vm.pagLinks, function (pag, index) {
-            return _c("button", {
-              key: "PT" + index,
-              staticClass: "btn btn-sm",
-              class: { active: pag.active },
-              attrs: { disabled: !pag.url },
-              domProps: { innerHTML: _vm._s(pag.label) },
-              on: {
-                click: function ($event) {
-                  return _vm.paginate(pag.url)
+      _vm._v(" "),
+      _vm.havePagination
+        ? _c(
+            "div",
+            { staticClass: "text-center" },
+            _vm._l(_vm.pagLinks, function (pag, index) {
+              return _c("button", {
+                key: "PT" + index,
+                staticClass: "btn btn-sm",
+                class: { active: pag.active },
+                attrs: { disabled: !pag.url },
+                domProps: { innerHTML: _vm._s(pag.label) },
+                on: {
+                  click: function ($event) {
+                    return _vm.paginate(pag.url)
+                  },
                 },
-              },
-            })
-          }),
-          0
-        )
-      : _vm._e(),
-    _vm._v("\n    Magus\n"),
+              })
+            }),
+            0
+          )
+        : _vm._e(),
+    ]),
   ])
 }
 var staticRenderFns = [
@@ -49827,12 +49895,12 @@ var staticRenderFns = [
       { staticClass: "p-4 border-bottom border-primary m-2 text-center" },
       [
         _c(
-          "button",
+          "a",
           {
             staticClass: "btn btn-success costum-btn",
-            attrs: { type: "button" },
+            attrs: { href: "/gm/magus-game-module-new" },
           },
-          [_vm._v("Új játék készítése")]
+          [_vm._v("\n                Új játék készítése\n            ")]
         ),
       ]
     )
@@ -49846,6 +49914,8 @@ var staticRenderFns = [
         _c("th", [_vm._v("Id")]),
         _vm._v(" "),
         _c("th", [_vm._v("Játék modul neve")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Meghívott játékosok száma")]),
         _vm._v(" "),
         _c("th", [_vm._v("Lehetőségek")]),
       ]),
@@ -49868,7 +49938,24 @@ var staticRenderFns = [
           staticClass: "btn btn-success costum-btn m-1",
           attrs: { type: "button" },
         },
-        [_vm._v("Módosít")]
+        [
+          _vm._v(
+            "\n                                Játékost meghív\n                            "
+          ),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success costum-btn m-1",
+          attrs: { type: "button" },
+        },
+        [
+          _vm._v(
+            "\n                                Módosít\n                            "
+          ),
+        ]
       ),
       _vm._v(" "),
       _c(
@@ -49877,7 +49964,11 @@ var staticRenderFns = [
           staticClass: "btn btn-danger costum-btn m-1",
           attrs: { type: "button" },
         },
-        [_vm._v("Töröl")]
+        [
+          _vm._v(
+            "\n                                Töröl\n                            "
+          ),
+        ]
       ),
     ])
   },

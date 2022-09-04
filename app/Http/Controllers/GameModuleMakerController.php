@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Models\GameModule;
 
 class GameModuleMakerController extends Controller
 {
@@ -22,26 +23,15 @@ class GameModuleMakerController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-
+        if ($request->user()->level === 'PLAYER'){
+            return redirect()->route('home');
+        }
         
-        return view('home');
+        return view('magusgameedit');
     }
 
-    /**
-     * get all game module 
-     * 
-     * @return json
-     */
-    public function getAllGameModules(Request $request, $game) {
-
-        $user = $request->user();
-        $gameModules = [
-            ['id' => 1, 'name' => 'Test game module']
-        ];
-       
-        
-       return response()->json($gameModules, 200);
-    }
+    
+   
 }

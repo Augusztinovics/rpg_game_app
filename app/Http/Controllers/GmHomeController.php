@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use App\Models\GameModule;
 
 class GmHomeController extends Controller
 {
@@ -49,4 +51,17 @@ class GmHomeController extends Controller
     {
         return view('home');
     }
+
+    /**
+     * get all game module 
+     * 
+     * @return json
+     */
+    public function getAllGameModules(Request $request, $game) {
+
+        $user = $request->user();
+        $gameModules = GameModule::with('players')->where('gm_id', $user->id)->paginate(10); 
+        return response()->json($gameModules, 200);
+    }
+
 }
