@@ -2,7 +2,10 @@
     <div>
         <div>
             <div class="p-4 border-bottom border-primary m-2 text-center">
-                <a href="/gm/magus-game-module-new" class="btn btn-success costum-btn">
+                <a
+                    href="/gm/magus-game-module/new"
+                    class="btn btn-success costum-btn"
+                >
                     Új játék készítése
                 </a>
             </div>
@@ -35,10 +38,17 @@
                             <td>{{ gameModule.id }}</td>
                             <td>
                                 <a href="" class="btn btn-link">{{
-                                    gameModule.name
+                                    gameModule.game_module_name
                                 }}</a>
                             </td>
-                            <td><button type="button" class="btn btn-outline-success">{{ playersCount(index) }}</button></td>
+                            <td>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-success"
+                                >
+                                    {{ playersCount(index) }}
+                                </button>
+                            </td>
                             <td>
                                 <a href="" class="btn btn-outline-success m-1"
                                     >Megnéz</a
@@ -49,12 +59,12 @@
                                 >
                                     Játékost meghív
                                 </button>
-                                <button
-                                    type="button"
+                                <a
+                                    :href="'/gm/magus-game-module/' + gameModule.id"
                                     class="btn btn-success costum-btn m-1"
                                 >
                                     Módosít
-                                </button>
+                                </a>
                                 <button
                                     type="button"
                                     class="btn btn-danger costum-btn m-1"
@@ -80,7 +90,6 @@
         </div>
 
         <!-- Modals for adding player and deleting module -->
-
     </div>
 </template>
 
@@ -121,13 +130,13 @@ export default {
                 console.log(error);
             });
         },
-    },
-    playersCount(index) {
-        if (this.gameModules[index].players) {
-            return this.gameModules[index].players.length;
-        } else {
-            return 0;
-        }
+        playersCount(index) {
+            if (this.gameModules[index].players) {
+                return this.gameModules[index].players.length;
+            } else {
+                return 0;
+            }
+        },
     },
     mounted() {
         this.fetchGameModules();

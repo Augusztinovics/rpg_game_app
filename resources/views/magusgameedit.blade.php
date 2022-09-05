@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container-fluid">
-   Game Edit
+   <magus-module-create 
+      :game-module='{{ json_encode($game_module, true) }}'
+      :game-data='{{ json_encode($game_data, true) }}'
+   />
 </div>
 @endsection

@@ -23,13 +23,40 @@ class GameModuleMakerController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(Request $request)
+    public function index(Request $request, $id)
     {
         if ($request->user()->level === 'PLAYER'){
             return redirect()->route('home');
         }
-        
-        return view('magusgameedit');
+
+        if($id == 'new') {
+            $module = GameModule::create([
+                'gm_id' => $request->user()->id,
+                'game' => 'MAGUS',
+                'game_module_name' => 'Új MAGUS játék module'
+            ]);
+
+            $data = [
+                'game_module' => $module,
+                'game_data' => []
+            ];
+
+            return view('magusgameedit', $data);
+
+        } else {
+
+            $module = GameModule::where('id', $id)->first();
+            if (!$module) {
+                return redirect()->route('home');
+            }
+
+            $data = [
+                'game_module' => $module,
+                'game_data' => $module->gameModuleDatas()
+            ];
+
+            return view('magusgameedit', $data);
+        }
     }
 
     
