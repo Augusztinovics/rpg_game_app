@@ -126,15 +126,4 @@ class ChatController extends Controller
         return response()->json('success', 200);
     }
 
-    /**
-     * test io
-     * 
-     * @return json
-     */
-    public function ioSend(Request $request) {
-
-       dd($request);
-        return response()->json('success', 200);
-    }
-
 }

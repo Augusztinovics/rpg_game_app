@@ -1,10 +1,27 @@
 <template>
     <div>
-        <!-- Just for testing now -->
-        <h1>{{ magusGameModule.game_module_name }}</h1>
-        <p>{{ magusGameModule.id }}</p>
-        <p>GM: {{ magusGameModule.gm_id }}</p>
+        <div v-if="error">
+            <div class="text-center bg-danger m-3">
+                <p class="text-light p-4">Hiba történt mentés közben...</p>
+
+            </div>
+        </div>
+        <div class="text-center m-5">
+            <h1 class="mb-5">{{ moduleName }}</h1>
+            <p class="text-muted">A modul cime</p>
+            <div class="input-group input-group-lg ps-sm-5 pe-sm-5">
+                <input type="text" class="form-control" v-model="moduleName" aria-label="Game Module Name" aria-describedby="button-addon2">
+                <button class="btn btn-outline-success" type="button" id="button-addon2" @click="updateModuleName">Elment</button>
+            </div>
+        </div>
+        
         <p>Data count: {{ dataCount }}</p>
+        <div v-if="loading" id="overlay">
+            <div id="overlayText">
+                Mentés folyamatban...
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -16,9 +33,11 @@ export default {
     },
     data() {
         return {
-            magusGameModule : null,
+            moduleName: '',
+            moduleId: null,
             magusGameData : [],
             loading: false,
+            error: false,
         }
     },
     computed: {
@@ -26,14 +45,57 @@ export default {
             return this.magusGameData.length;
         }
     },
-    methods: {},
+    methods: {
+        updateModuleName() {
+            if (this.moduleName) {
+                this.loading = true;
+                this.error = false;
+                axios.post('/gm/update-magus-game-module-name/' + this.moduleId, {
+                    moduleName: this.moduleName
+                }).then( res => {
+                    this.loading = false;
+                }).catch( err => {
+                    this.loading = false;
+                    this.error = true;
+                    setTimeout(() => {
+                        this.error = false;
+                    }, 3000)
+                })
+            }
+        }
+    },
     mounted() {
         console.log(this.gameModule);
         console.log(this.gameData);
-        this.magusGameModule = this.gameModule;
+        this.moduleName = this.gameModule.game_module_name;
+        this.moduleId = this.gameModule.id;
         if (this.gameData) {
             this.magusGameData = Object.values(this.gameData);
         }
     },
 }
 </script>
+
+<style scoped>
+    #overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 200;
+    }
+
+    #overlayText{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    }
+</style>

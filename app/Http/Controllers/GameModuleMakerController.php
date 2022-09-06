@@ -59,6 +59,23 @@ class GameModuleMakerController extends Controller
         }
     }
 
-    
+    /**
+     * updating module name
+     * 
+     * @return json
+     */
+    public function updateGameModuleName(Request $request, $id){
+        
+        $moduleName = $request->input('moduleName');
+        if (!$moduleName) {
+            return response()->json(['error' => 'missing module name data'], 406);
+        }
+        $gameModule = GameModule::findOrFail($id);
+        $gameModule->game_module_name = $moduleName;
+        $gameModule->save();
+        
+       return response()->json('Success', 200);
+    }
+
    
 }
