@@ -6,6 +6,7 @@
 
             </div>
         </div>
+        <!-- module cime -->
         <div class="text-center m-5">
             <h1 class="mb-5">{{ moduleName }}</h1>
             <p class="text-muted">A modul cime</p>
@@ -14,14 +15,65 @@
                 <button class="btn btn-outline-success" type="button" id="button-addon2" @click="updateModuleName">Elment</button>
             </div>
         </div>
+        <!-- globalis menu sor -->
+        <div class="text-center m-3 bg-secondary shadow-lg border border-4 rounded-5">
+            <button class="btn btn-outline-light btn-lg costum-btn m-4" data-bs-toggle="modal" data-bs-target="#globalNoteModal">Globális jegyzetek</button>
+            <button class="btn btn-outline-light btn-lg costum-btn m-4" data-bs-toggle="modal" data-bs-target="#npcModal">NPC karakterek</button>
+        </div>
+
+        <div>
+            <!-- jelenet containaer -->
+            <div>
+
+            </div>
+            <div class="text-center m-4">
+                <button class="btn btn-success btn-lg m-4">+ Jelenet hozzáadása</button>
+            </div>
+        </div>
         
-        <p>Data count: {{ dataCount }}</p>
         <div v-if="loading" id="overlay">
             <div id="overlayText">
                 Mentés folyamatban...
             </div>
         </div>
 
+        <!-- Globalis Jegyzetek Modal -->
+        <div class="modal fade" id="globalNoteModal" tabindex="-1" aria-labelledby="globalNoteModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="globalNoteModalLabel">Globális jegyzetek</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary costum-btn" data-bs-dismiss="modal">Bezár</button>
+                        <button type="button" class="btn btn-primary costum-btn">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NPC Modal -->
+        <div class="modal fade" id="npcModal" tabindex="-1" aria-labelledby="npcModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="npcModalLabel">NPC karakterek</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary costum-btn" data-bs-dismiss="modal">Bezár</button>
+                        <button type="button" class="btn btn-primary costum-btn">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 

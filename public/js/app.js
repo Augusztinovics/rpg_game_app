@@ -5413,6 +5413,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     gameModule: Object,
@@ -48592,7 +48644,9 @@ var render = function () {
       ]),
     ]),
     _vm._v(" "),
-    _c("p", [_vm._v("Data count: " + _vm._s(_vm.dataCount))]),
+    _vm._m(1),
+    _vm._v(" "),
+    _vm._m(2),
     _vm._v(" "),
     _vm.loading
       ? _c("div", { attrs: { id: "overlay" } }, [
@@ -48601,6 +48655,10 @@ var render = function () {
           ]),
         ])
       : _vm._e(),
+    _vm._v(" "),
+    _vm._m(3),
+    _vm._v(" "),
+    _vm._m(4),
   ])
 }
 var staticRenderFns = [
@@ -48613,6 +48671,183 @@ var staticRenderFns = [
         _vm._v("Hiba történt mentés közben..."),
       ]),
     ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "text-center m-3 bg-secondary shadow-lg border border-4 rounded-5",
+      },
+      [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-outline-light btn-lg costum-btn m-4",
+            attrs: {
+              "data-bs-toggle": "modal",
+              "data-bs-target": "#globalNoteModal",
+            },
+          },
+          [_vm._v("Globális jegyzetek")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-outline-light btn-lg costum-btn m-4",
+            attrs: { "data-bs-toggle": "modal", "data-bs-target": "#npcModal" },
+          },
+          [_vm._v("NPC karakterek")]
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div"),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-center m-4" }, [
+        _c("button", { staticClass: "btn btn-success btn-lg m-4" }, [
+          _vm._v("+ Jelenet hozzáadása"),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "globalNoteModal",
+          tabindex: "-1",
+          "aria-labelledby": "globalNoteModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-fullscreen" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _c("div", { staticClass: "modal-header" }, [
+              _c(
+                "h5",
+                {
+                  staticClass: "modal-title",
+                  attrs: { id: "globalNoteModalLabel" },
+                },
+                [_vm._v("Globális jegyzetek")]
+              ),
+              _vm._v(" "),
+              _c("button", {
+                staticClass: "btn-close",
+                attrs: {
+                  type: "button",
+                  "data-bs-dismiss": "modal",
+                  "aria-label": "Close",
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _vm._v("\n                    ...\n                "),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary costum-btn",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Bezár")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary costum-btn",
+                  attrs: { type: "button" },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "npcModal",
+          tabindex: "-1",
+          "aria-labelledby": "npcModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-fullscreen" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _c("div", { staticClass: "modal-header" }, [
+              _c(
+                "h5",
+                { staticClass: "modal-title", attrs: { id: "npcModalLabel" } },
+                [_vm._v("NPC karakterek")]
+              ),
+              _vm._v(" "),
+              _c("button", {
+                staticClass: "btn-close",
+                attrs: {
+                  type: "button",
+                  "data-bs-dismiss": "modal",
+                  "aria-label": "Close",
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _vm._v("\n                    ...\n                "),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary costum-btn",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Bezár")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary costum-btn",
+                  attrs: { type: "button" },
+                },
+                [_vm._v("Save changes")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    )
   },
 ]
 render._withStripped = true
