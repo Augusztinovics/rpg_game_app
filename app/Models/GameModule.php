@@ -19,7 +19,10 @@ class GameModule extends Model
         'game',
         'game_module_name',
         'game_module_state',
-        'game_active'
+        'game_active',
+        'global_note',
+        'npc_data',
+        'game_chat',
     ];
 
     /**
@@ -29,6 +32,9 @@ class GameModule extends Model
      */
     protected $casts = [
         'game_active' => 'boolean',
+        'global_note' => 'array',
+        'npc_data' => 'array',
+        'game_chat' => 'array',
     ];
 
     public function players()

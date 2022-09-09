@@ -3,7 +3,6 @@
         <div v-if="error">
             <div class="text-center bg-danger m-3">
                 <p class="text-light p-4">Hiba történt mentés közben...</p>
-
             </div>
         </div>
         <!-- module cime -->
@@ -17,7 +16,7 @@
         </div>
         <!-- globalis menu sor -->
         <div class="text-center m-3 bg-secondary shadow-lg border border-4 rounded-5">
-            <button class="btn btn-outline-light btn-lg costum-btn m-4" data-bs-toggle="modal" data-bs-target="#globalNoteModal">Globális jegyzetek</button>
+            <button class="btn btn-outline-light btn-lg costum-btn m-4" data-bs-toggle="modal" data-bs-target="#globalNoteModal" @click="fatchNotes">Globális jegyzetek</button>
             <button class="btn btn-outline-light btn-lg costum-btn m-4" data-bs-toggle="modal" data-bs-target="#npcModal">NPC karakterek</button>
         </div>
 
@@ -46,11 +45,12 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <game-module-global-note 
+                            :module-id="moduleId"
+                            ref="notesModule" />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary costum-btn" data-bs-dismiss="modal">Bezár</button>
-                        <button type="button" class="btn btn-primary costum-btn">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -78,10 +78,15 @@
 </template>
 
 <script>
+import GameModuleGlobalNote from './gm_site/MagusModuleGlobalNote.vue';
+
 export default {
     props: {
         gameModule: Object,
         gameData: Object
+    },
+    components: {
+        GameModuleGlobalNote
     },
     data() {
         return {
@@ -114,6 +119,9 @@ export default {
                     }, 3000)
                 })
             }
+        },
+        fatchNotes() {
+            this.$refs.notesModule.getNotes();
         }
     },
     mounted() {

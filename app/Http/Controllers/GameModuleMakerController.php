@@ -77,5 +77,37 @@ class GameModuleMakerController extends Controller
        return response()->json('Success', 200);
     }
 
+     /**
+     * updating module global notes
+     * 
+     * @return json
+     */
+    public function updateGameModuleNote(Request $request, $id){
+        
+        $moduleNote = $request->input('note');
+        if (!$moduleNote) {
+            return response()->json(['error' => 'missing module note data'], 406);
+        }
+        $gameModule = GameModule::findOrFail($id);
+        $gameModule->global_note = $moduleNote;
+        $gameModule->save();
+        
+       return response()->json('Success', 200);
+    }
+
+    /**
+     * get module global notes
+     * 
+     * @return json
+     */
+    public function getGameModuleNote(Request $request, $id){
+        
+        $gameModule = GameModule::findOrFail($id);
+        $data = [
+            'notes' => $gameModule->global_note
+        ];
+        
+       return response()->json($data, 200);
+    }
    
 }

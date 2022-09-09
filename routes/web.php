@@ -76,3 +76,5 @@ Route::post('admin/news/delete/{id}', [AdminController::class, 'deleteNews']);
 Route::get('gm/game-modules/{game}', [GmHomeController::class, 'getAllGameModules']);
 Route::get('gm/magus-game-module/{id}', [GameModuleMakerController::class, 'index']);
 Route::post('gm/update-magus-game-module-name/{id}', [GameModuleMakerController::class, 'updateGameModuleName']);
+Route::post('gm/update-magus-game-module-note/{id}', [GameModuleMakerController::class, 'updateGameModuleNote']);
+Route::get('gm/get-magus-game-module-note/{id}', [GameModuleMakerController::class, 'getGameModuleNote']);
