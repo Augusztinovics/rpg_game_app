@@ -26,12 +26,14 @@
         <div v-if="havePagination" class="text-center">
             <button v-for="pag, index in pagLinks" :key="'PT' + index" :disabled="!pag.url" :class="{'active':pag.active}" class="btn btn-sm" @click="paginate(pag.url)" v-html="pag.label"></button>
         </div>
+    
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>User Name</th>
+                        <th>Login Count</th>
                         <th>E-mail</th>
                         <th>Level</th>
                         <th>Gold</th>
@@ -45,6 +47,8 @@
                     <tr v-for="user, index in users" :key="'U' + index">
                         <td>{{ user.id }}</td>
                         <td>{{ user.name }}</td>
+                        <td>{{ user.login_count.length }} 
+                            <button class="btn btn-outline-success btn-sm ms-1" type="button" data-bs-toggle="modal" data-bs-target="#historyModal" @click="addHistory(user)">History</button></td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.level }}</td>
                         <td>{{ user.gold }}</td>
@@ -112,6 +116,24 @@
                 </div>
             </div>
         </div>
+
+        <!-- User login history modal -->
+        <div class="modal fade" id="historyModal" tabindex="-1" aria-labelledby="historyModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="historyModalLabel">User Login History</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="cleareHistory"></button>
+                    </div>
+                <div class="modal-body">
+                    <p v-for="hist in loginHistory" :key="hist.id"><b>Logged in: </b>{{ hist.created_at }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="cleareHistory">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -128,6 +150,7 @@ export default {
             pagLinks: [],
             selectedCharacter: null,
             selectedCharacterData: '',
+            loginHistory: [],
         }
     },
     computed: {
@@ -261,6 +284,12 @@ export default {
                 })
             }
         },
+        addHistory(user) {
+            this.loginHistory = user.login_count;
+        },
+        cleareHistory() {
+            this.loginHistory = [];
+        }
     },
     mounted() {
         this.fetchUsers();

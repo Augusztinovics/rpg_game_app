@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\LoginCount;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        LoginCount::create([
+            'user_id' => Auth::id()
+        ]);
         $data = [
             'js_server_settings' => [
                 'server_ip' => config('server.server_ip'),

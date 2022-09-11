@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Carbon\Carbon;
 use App\Models\WhatsNew;
+use App\Models\PageView;
 
 class WlecomeController extends Controller
 {
@@ -16,7 +18,17 @@ class WlecomeController extends Controller
      */
     public function index()
     {
-        
+        $pageView = PageView::where('created_at', '>=', Carbon::today())->first();
+        if ($pageView) {
+            $count = $pageView->views;
+            $count ++;
+            $pageView->views = $count;
+            $pageView->save();
+        } else {
+            PageView::create([
+                'view' => 1
+            ]);
+        }
         return view('welcome');
     }
 

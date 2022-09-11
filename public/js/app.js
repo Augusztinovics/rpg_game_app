@@ -5269,6 +5269,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_site_UsersControll_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./admin_site/UsersControll.vue */ "./resources/js/components/admin_site/UsersControll.vue");
 /* harmony import */ var _admin_site_CostumerSupport_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./admin_site/CostumerSupport.vue */ "./resources/js/components/admin_site/CostumerSupport.vue");
 /* harmony import */ var _admin_site_WatsNew_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./admin_site/WatsNew.vue */ "./resources/js/components/admin_site/WatsNew.vue");
+/* harmony import */ var _admin_site_MetricView_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./admin_site/MetricView.vue */ "./resources/js/components/admin_site/MetricView.vue");
 //
 //
 //
@@ -5302,6 +5303,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -5309,10 +5317,8 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     UsersControll: _admin_site_UsersControll_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     CostumerSupport: _admin_site_CostumerSupport_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    WatsNew: _admin_site_WatsNew_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
-  },
-  mounted: function mounted() {
-    console.log('Component mounted.');
+    WatsNew: _admin_site_WatsNew_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    MetricView: _admin_site_MetricView_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   }
 });
 
@@ -5872,6 +5878,27 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin_site/MetricView.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin_site/MetricView.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin_site/UsersControll.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin_site/UsersControll.vue?vue&type=script&lang=js& ***!
@@ -6006,6 +6033,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -6018,7 +6067,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       searchEmail: '',
       pagLinks: [],
       selectedCharacter: null,
-      selectedCharacterData: ''
+      selectedCharacterData: '',
+      loginHistory: []
     };
   },
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusClasses', {
@@ -6160,6 +6210,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           _this7.haveError = true;
         });
       }
+    },
+    addHistory: function addHistory(user) {
+      this.loginHistory = user.login_count;
+    },
+    cleareHistory: function cleareHistory() {
+      this.loginHistory = [];
     }
   },
   mounted: function mounted() {
@@ -46260,6 +46316,45 @@ component.options.__file = "resources/js/components/admin_site/CostumerSupport.v
 
 /***/ }),
 
+/***/ "./resources/js/components/admin_site/MetricView.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/admin_site/MetricView.vue ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MetricView_vue_vue_type_template_id_f7ff589c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MetricView.vue?vue&type=template&id=f7ff589c& */ "./resources/js/components/admin_site/MetricView.vue?vue&type=template&id=f7ff589c&");
+/* harmony import */ var _MetricView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MetricView.vue?vue&type=script&lang=js& */ "./resources/js/components/admin_site/MetricView.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MetricView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MetricView_vue_vue_type_template_id_f7ff589c___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MetricView_vue_vue_type_template_id_f7ff589c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin_site/MetricView.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/admin_site/UsersControll.vue":
 /*!**************************************************************!*\
   !*** ./resources/js/components/admin_site/UsersControll.vue ***!
@@ -47427,6 +47522,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/admin_site/MetricView.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/admin_site/MetricView.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MetricView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MetricView.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin_site/MetricView.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MetricView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/admin_site/UsersControll.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************!*\
   !*** ./resources/js/components/admin_site/UsersControll.vue?vue&type=script&lang=js& ***!
@@ -48130,6 +48241,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/admin_site/MetricView.vue?vue&type=template&id=f7ff589c&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/admin_site/MetricView.vue?vue&type=template&id=f7ff589c& ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MetricView_vue_vue_type_template_id_f7ff589c___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MetricView_vue_vue_type_template_id_f7ff589c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MetricView_vue_vue_type_template_id_f7ff589c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MetricView.vue?vue&type=template&id=f7ff589c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin_site/MetricView.vue?vue&type=template&id=f7ff589c&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/admin_site/UsersControll.vue?vue&type=template&id=6992faaa&scoped=true&":
 /*!*********************************************************************************************************!*\
   !*** ./resources/js/components/admin_site/UsersControll.vue?vue&type=template&id=6992faaa&scoped=true& ***!
@@ -48657,6 +48785,20 @@ var render = function () {
           [_c("wats-new")],
           1
         ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "tab-pane fade",
+            attrs: {
+              id: "pills-metric",
+              role: "tabpanel",
+              "aria-labelledby": "pills-metric-tab",
+            },
+          },
+          [_c("metric-view")],
+          1
+        ),
       ]
     ),
   ])
@@ -48735,6 +48877,25 @@ var staticRenderFns = [
               },
             },
             [_vm._v("News")]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item", attrs: { role: "presentation" } }, [
+          _c(
+            "button",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "pills-metric-tab",
+                "data-bs-toggle": "pill",
+                "data-bs-target": "#pills-metric",
+                type: "button",
+                role: "tab",
+                "aria-controls": "pills-metric",
+                "aria-selected": "false",
+              },
+            },
+            [_vm._v("Metric")]
           ),
         ]),
       ]
@@ -49674,6 +49835,31 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin_site/MetricView.vue?vue&type=template&id=f7ff589c&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin_site/MetricView.vue?vue&type=template&id=f7ff589c& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_vm._v("\n    Metric from vue\n")])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin_site/UsersControll.vue?vue&type=template&id=6992faaa&scoped=true&":
 /*!************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/admin_site/UsersControll.vue?vue&type=template&id=6992faaa&scoped=true& ***!
@@ -49836,6 +50022,30 @@ var render = function () {
               _c("td", [_vm._v(_vm._s(user.id))]),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(user.name))]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  _vm._s(user.login_count.length) +
+                    " \n                        "
+                ),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-success btn-sm ms-1",
+                    attrs: {
+                      type: "button",
+                      "data-bs-toggle": "modal",
+                      "data-bs-target": "#historyModal",
+                    },
+                    on: {
+                      click: function ($event) {
+                        return _vm.addHistory(user)
+                      },
+                    },
+                  },
+                  [_vm._v("History")]
+                ),
+              ]),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(user.email))]),
               _vm._v(" "),
@@ -50199,6 +50409,69 @@ var render = function () {
         ]),
       ]
     ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "historyModal",
+          tabindex: "-1",
+          "aria-labelledby": "historyModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _c("div", { staticClass: "modal-header" }, [
+              _c(
+                "h5",
+                {
+                  staticClass: "modal-title",
+                  attrs: { id: "historyModalLabel" },
+                },
+                [_vm._v("User Login History")]
+              ),
+              _vm._v(" "),
+              _c("button", {
+                staticClass: "btn-close",
+                attrs: {
+                  type: "button",
+                  "data-bs-dismiss": "modal",
+                  "aria-label": "Close",
+                },
+                on: { click: _vm.cleareHistory },
+              }),
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "modal-body" },
+              _vm._l(_vm.loginHistory, function (hist) {
+                return _c("p", { key: hist.id }, [
+                  _c("b", [_vm._v("Logged in: ")]),
+                  _vm._v(_vm._s(hist.created_at)),
+                ])
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.cleareHistory },
+                },
+                [_vm._v("Close")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
   ])
 }
 var staticRenderFns = [
@@ -50211,6 +50484,8 @@ var staticRenderFns = [
         _c("th", [_vm._v("ID")]),
         _vm._v(" "),
         _c("th", [_vm._v("User Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Login Count")]),
         _vm._v(" "),
         _c("th", [_vm._v("E-mail")]),
         _vm._v(" "),

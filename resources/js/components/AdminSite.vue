@@ -15,6 +15,9 @@
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="pills-news-tab" data-bs-toggle="pill" data-bs-target="#pills-news" type="button" role="tab" aria-controls="pills-news" aria-selected="false">News</button>
         </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-metric-tab" data-bs-toggle="pill" data-bs-target="#pills-metric" type="button" role="tab" aria-controls="pills-metric" aria-selected="false">Metric</button>
+        </li>
     </ul>
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-messages" role="tabpanel" aria-labelledby="pills-messages-tab">
@@ -26,6 +29,9 @@
         <div class="tab-pane fade" id="pills-news" role="tabpanel" aria-labelledby="pills-news-tab">
             <wats-new />
         </div>
+        <div class="tab-pane fade" id="pills-metric" role="tabpanel" aria-labelledby="pills-metric-tab">
+           <metric-view />
+        </div>
     </div>
 </div>
 
@@ -35,15 +41,14 @@
     import UsersControll from './admin_site/UsersControll.vue';
     import CostumerSupport from './admin_site/CostumerSupport.vue';
     import WatsNew from './admin_site/WatsNew.vue';
+    import MetricView from './admin_site/MetricView.vue';
 
     export default {
         components: {
            UsersControll,
            CostumerSupport,
            WatsNew,
+           MetricView,
         },
-        mounted() {
-            console.log('Component mounted.')
-        }
     }
 </script>

@@ -52,11 +52,11 @@ class AdminController extends Controller
         $searchUserEmail = $request->query('use');
         
         if ($searchUsername) {
-            $users = User::with('characterSheets')->where('name', 'LIKE', '%' . $searchUsername . '%')->get();
+            $users = User::with('characterSheets')->with('loginCount')->where('name', 'LIKE', '%' . $searchUsername . '%')->get();
         } elseif ($searchUserEmail) {
-            $users = User::with('characterSheets')->where('email', 'LIKE', '%' . $searchUserEmail . '%')->get();
+            $users = User::with('characterSheets')->with('loginCount')->where('email', 'LIKE', '%' . $searchUserEmail . '%')->get();
         } else {
-            $users = User::with('characterSheets')->paginate(25);
+            $users = User::with('characterSheets')->with('loginCount')->paginate(25);
         }
        
        return response()->json($users, 200);

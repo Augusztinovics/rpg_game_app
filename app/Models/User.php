@@ -54,4 +54,9 @@ class User extends Authenticatable
         return $this->hasMany(CostumerSupport::class);
     }
 
+    public function loginCount()
+    {
+        return $this->hasMany(LoginCount::class);
+    }
+
 }
