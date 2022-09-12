@@ -21,12 +21,16 @@ class WlecomeController extends Controller
         $pageView = PageView::where('created_at', '>=', Carbon::today())->first();
         if ($pageView) {
             $count = $pageView->views;
-            $count ++;
+            if (!$count) {
+                $count = 1;
+            } else {
+                $count ++;
+            }
             $pageView->views = $count;
             $pageView->save();
         } else {
             PageView::create([
-                'view' => 1
+                'views' => 1
             ]);
         }
         return view('welcome');

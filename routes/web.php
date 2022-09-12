@@ -58,6 +58,7 @@ Route::get('socket.io/', [ChatController::class, 'ioSend']);
 Route::get('admin/all-users', [AdminController::class, 'getAllUser']);
 Route::post('admin/update', [AdminController::class, 'updateUser']);
 Route::post('admin/delete/{id}', [AdminController::class, 'deleteUser']);
+Route::get('admin/metrick-data', [AdminController::class, 'getMetrickData']);
 //character
 Route::post('admin/update-character', [AdminController::class, 'updateCharacter']);
 //costumer support

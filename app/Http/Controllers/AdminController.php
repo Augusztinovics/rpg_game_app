@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\CharacterSheet;
 use App\Models\CostumerSupport;
 use App\Models\WhatsNew;
+use App\Models\PageView;
 
 class AdminController extends Controller
 {
@@ -320,5 +321,21 @@ class AdminController extends Controller
 
         return response()->json('success', 200);
        
+    }
+
+     /**
+     * getting all users
+     * 
+     * @return json
+     */
+    public function getMetrickData(Request $request){
+        
+        if ($request->user()->level !== 'ADMIN'){
+            return response()->json('forbitten', 403);
+        }
+        
+        $data = PageView::latest()->paginate(7);
+       
+       return response()->json($data, 200);
     }
 }
