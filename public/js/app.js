@@ -5393,6 +5393,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _gm_site_MagusModuleGlobalNote_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gm_site/MagusModuleGlobalNote.vue */ "./resources/js/components/gm_site/MagusModuleGlobalNote.vue");
+/* harmony import */ var _gm_site_MagusModuleGlobalNpc_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./gm_site/MagusModuleGlobalNpc.vue */ "./resources/js/components/gm_site/MagusModuleGlobalNpc.vue");
+//
 //
 //
 //
@@ -5473,13 +5475,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     gameModule: Object,
     gameData: Object
   },
   components: {
-    GameModuleGlobalNote: _gm_site_MagusModuleGlobalNote_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    GameModuleGlobalNote: _gm_site_MagusModuleGlobalNote_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    GameModuleGlobalNpc: _gm_site_MagusModuleGlobalNpc_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
@@ -5517,6 +5521,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     fatchNotes: function fatchNotes() {
       this.$refs.notesModule.getNotes();
+    },
+    fatchNpc: function fatchNpc() {
+      this.$refs.npcModule.getNpc();
     }
   },
   mounted: function mounted() {
@@ -6819,10 +6826,213 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.get('/gm/get-magus-game-module-note/' + this.moduleId).then(function (res) {
-        _this2.notes = res.data.notes;
+        if (res.data.notes) {
+          _this2.notes = res.data.notes;
+        }
       })["catch"](function (err) {
         console.log(err);
       });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusModuleGlobalNpcEdit_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusModuleGlobalNpcEdit.vue */ "./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    moduleId: {
+      type: Number,
+      "default": null
+    }
+  },
+  components: {
+    NpcEdit: _MagusModuleGlobalNpcEdit_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      npcs: [],
+      selectedIndex: null,
+      selectedNpc: null,
+      newNpc: true,
+      currentView: 'LIST',
+      loading: false,
+      error: false,
+      deleting: null
+    };
+  },
+  computed: {},
+  methods: {
+    getNpc: function getNpc() {
+      var _this = this;
+
+      axios.get('/gm/get-magus-game-module-npc/' + this.moduleId).then(function (res) {
+        if (res.data.npcs) {
+          _this.npcs = res.data.npcs;
+        }
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    saveNpc: function saveNpc() {
+      var _this2 = this;
+
+      this.loading = true;
+      this.error = false;
+      axios.post('/gm/update-magus-game-module-npc/' + this.moduleId, {
+        npcs: this.npcs
+      }).then(function (res) {
+        _this2.loading = false;
+      })["catch"](function (err) {
+        _this2.loading = false;
+        _this2.error = true;
+        setTimeout(function () {
+          _this2.error = false;
+        }, 3000);
+      });
+    },
+    prepareDeleting: function prepareDeleting(index) {
+      this.deleting = index;
+    },
+    cancelDeleting: function cancelDeleting() {
+      this.deleting = null;
+    },
+    deleteNpc: function deleteNpc(index) {
+      this.npcs.splice(index, 1);
+      this.saveNpc();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    selectedIndex: {
+      type: Number,
+      "default": null
+    },
+    selectedNpc: {
+      type: Object,
+      require: true
+    },
+    newNpc: {
+      type: Boolean,
+      "default": true
     }
   }
 });
@@ -27885,6 +28095,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, "\n#overlay[data-v-835fe530] {\npositio
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=style&index=0&id=c913c54a&scoped=true&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=style&index=0&id=c913c54a&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n#overlay[data-v-c913c54a] {\nposition: fixed;\nwidth: 100%;\nheight: 100%;\ntop: 0;\nleft: 0;\nright: 0;\nbottom: 0;\nbackground-color: rgba(0,0,0,0.5);\nz-index: 200;\n}\n#overlayText[data-v-c913c54a]{\nposition: absolute;\ntop: 50%;\nleft: 50%;\nfont-size: 50px;\ncolor: white;\ntransform: translate(-50%,-50%);\n-ms-transform: translate(-50%,-50%);\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css& ***!
@@ -45770,6 +46004,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=style&index=0&id=c913c54a&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=style&index=0&id=c913c54a&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpc_vue_vue_type_style_index_0_id_c913c54a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusModuleGlobalNpc.vue?vue&type=style&index=0&id=c913c54a&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=style&index=0&id=c913c54a&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpc_vue_vue_type_style_index_0_id_c913c54a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpc_vue_vue_type_style_index_0_id_c913c54a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css& ***!
@@ -46642,6 +46906,86 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/gm_site/MagusModuleGlobalNote.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/gm_site/MagusModuleGlobalNpc.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/gm_site/MagusModuleGlobalNpc.vue ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusModuleGlobalNpc_vue_vue_type_template_id_c913c54a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusModuleGlobalNpc.vue?vue&type=template&id=c913c54a&scoped=true& */ "./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=template&id=c913c54a&scoped=true&");
+/* harmony import */ var _MagusModuleGlobalNpc_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusModuleGlobalNpc.vue?vue&type=script&lang=js& */ "./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=script&lang=js&");
+/* harmony import */ var _MagusModuleGlobalNpc_vue_vue_type_style_index_0_id_c913c54a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MagusModuleGlobalNpc.vue?vue&type=style&index=0&id=c913c54a&scoped=true&lang=css& */ "./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=style&index=0&id=c913c54a&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _MagusModuleGlobalNpc_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusModuleGlobalNpc_vue_vue_type_template_id_c913c54a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusModuleGlobalNpc_vue_vue_type_template_id_c913c54a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "c913c54a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/gm_site/MagusModuleGlobalNpc.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusModuleGlobalNpcEdit_vue_vue_type_template_id_179cc105___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusModuleGlobalNpcEdit.vue?vue&type=template&id=179cc105& */ "./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue?vue&type=template&id=179cc105&");
+/* harmony import */ var _MagusModuleGlobalNpcEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusModuleGlobalNpcEdit.vue?vue&type=script&lang=js& */ "./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MagusModuleGlobalNpcEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusModuleGlobalNpcEdit_vue_vue_type_template_id_179cc105___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusModuleGlobalNpcEdit_vue_vue_type_template_id_179cc105___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -47729,6 +48073,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpc_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusModuleGlobalNpc.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpc_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpcEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusModuleGlobalNpcEdit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpcEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/ChatBox.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/player_site/ChatBox.vue?vue&type=script&lang=js& ***!
@@ -48214,6 +48590,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=style&index=0&id=c913c54a&scoped=true&lang=css&":
+/*!***************************************************************************************************************************!*\
+  !*** ./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=style&index=0&id=c913c54a&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpc_vue_vue_type_style_index_0_id_c913c54a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusModuleGlobalNpc.vue?vue&type=style&index=0&id=c913c54a&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=style&index=0&id=c913c54a&scoped=true&lang=css&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css&":
 /*!******************************************************************************************************************!*\
   !*** ./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css& ***!
@@ -48462,6 +48851,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNote_vue_vue_type_template_id_835fe530_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNote_vue_vue_type_template_id_835fe530_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusModuleGlobalNote.vue?vue&type=template&id=835fe530&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNote.vue?vue&type=template&id=835fe530&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=template&id=c913c54a&scoped=true&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=template&id=c913c54a&scoped=true& ***!
+  \*************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpc_vue_vue_type_template_id_c913c54a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpc_vue_vue_type_template_id_c913c54a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpc_vue_vue_type_template_id_c913c54a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusModuleGlobalNpc.vue?vue&type=template&id=c913c54a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=template&id=c913c54a&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue?vue&type=template&id=179cc105&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue?vue&type=template&id=179cc105& ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpcEdit_vue_vue_type_template_id_179cc105___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpcEdit_vue_vue_type_template_id_179cc105___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpcEdit_vue_vue_type_template_id_179cc105___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusModuleGlobalNpcEdit.vue?vue&type=template&id=179cc105& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue?vue&type=template&id=179cc105&");
 
 
 /***/ }),
@@ -49216,6 +49639,7 @@ var render = function () {
           {
             staticClass: "btn btn-outline-light btn-lg costum-btn m-4",
             attrs: { "data-bs-toggle": "modal", "data-bs-target": "#npcModal" },
+            on: { click: _vm.fatchNpc },
           },
           [_vm._v("NPC karakterek")]
         ),
@@ -49266,7 +49690,39 @@ var render = function () {
       ]
     ),
     _vm._v(" "),
-    _vm._m(4),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "npcModal",
+          tabindex: "-1",
+          "aria-labelledby": "npcModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-fullscreen" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(4),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "modal-body" },
+              [
+                _c("game-module-global-npc", {
+                  ref: "npcModule",
+                  attrs: { "module-id": _vm.moduleId },
+                }),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm._m(5),
+          ]),
+        ]),
+      ]
+    ),
   ])
 }
 var staticRenderFns = [
@@ -49334,64 +49790,35 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "modal fade",
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title", attrs: { id: "npcModalLabel" } }, [
+        _vm._v("NPC karakterek"),
+      ]),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
         attrs: {
-          id: "npcModal",
-          tabindex: "-1",
-          "aria-labelledby": "npcModalLabel",
-          "aria-hidden": "true",
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
         },
-      },
-      [
-        _c("div", { staticClass: "modal-dialog modal-fullscreen" }, [
-          _c("div", { staticClass: "modal-content" }, [
-            _c("div", { staticClass: "modal-header" }, [
-              _c(
-                "h5",
-                { staticClass: "modal-title", attrs: { id: "npcModalLabel" } },
-                [_vm._v("NPC karakterek")]
-              ),
-              _vm._v(" "),
-              _c("button", {
-                staticClass: "btn-close",
-                attrs: {
-                  type: "button",
-                  "data-bs-dismiss": "modal",
-                  "aria-label": "Close",
-                },
-              }),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-body" }, [
-              _vm._v("\n                    ...\n                "),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-footer" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-secondary costum-btn",
-                  attrs: { type: "button", "data-bs-dismiss": "modal" },
-                },
-                [_vm._v("Bezár")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary costum-btn",
-                  attrs: { type: "button" },
-                },
-                [_vm._v("Save changes")]
-              ),
-            ]),
-          ]),
-        ]),
-      ]
-    )
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary costum-btn",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Bezár")]
+      ),
+    ])
   },
 ]
 render._withStripped = true
@@ -51389,6 +51816,358 @@ var staticRenderFns = [
     ])
   },
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=template&id=c913c54a&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=template&id=c913c54a&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm.error ? _c("div", [_vm._m(0)]) : _vm._e(),
+    _vm._v(" "),
+    _vm.currentView == "EDIT"
+      ? _c(
+          "div",
+          [
+            _c("npc-edit", {
+              attrs: {
+                "selected-index": _vm.selectedIndex,
+                "selected-npc": _vm.selectedNpc,
+                "new-npc": _vm.newNpc,
+              },
+            }),
+          ],
+          1
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.currentView == "LIST"
+      ? _c(
+          "div",
+          [
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._l(_vm.npcs, function (npc, index) {
+              return _c(
+                "div",
+                { key: "NPC" + index, staticClass: "accordion-item" },
+                [
+                  _c(
+                    "h2",
+                    {
+                      staticClass: "accordion-header",
+                      attrs: { id: "NPC" + index + "-heading" },
+                    },
+                    [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "accordion-button collapsed",
+                          attrs: {
+                            type: "button",
+                            "data-bs-toggle": "collapse",
+                            "data-bs-target": "#" + "NPC" + index,
+                            "aria-expanded": "false",
+                            "aria-controls": "NPC" + index,
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(npc.name) +
+                              "\n                    "
+                          ),
+                        ]
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "accordion-collapse collapse",
+                      attrs: {
+                        id: "NPC" + index,
+                        "aria-labelledby": "NPC" + index + "-heading",
+                      },
+                    },
+                    [
+                      _c("div", { staticClass: "accordion-body" }, [
+                        _c("p", [
+                          _c("b", [_vm._v("Faj: ")]),
+                          _vm._v(" " + _vm._s(npc.race) + " "),
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("b", [_vm._v("Szint: ")]),
+                          _vm._v(" " + _vm._s(npc.level) + " "),
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c("b", [_vm._v("TP érték: ")]),
+                          _vm._v(" " + _vm._s(npc.exp) + " "),
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(2, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Erő: " + _vm._s(npc.ERO))]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Gyorsaság: " + _vm._s(npc.GYORS))]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Ügyesség: " + _vm._s(npc.UGY))]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Állóképesség: " + _vm._s(npc.ALLO))]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Egészség: " + _vm._s(npc.EG))]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Szépség: " + _vm._s(npc.SZEP))]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Inteligencia: " + _vm._s(npc.INT))]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Akaraterő: " + _vm._s(npc.AK))]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Asztrál: " + _vm._s(npc.ASZT))]),
+                        _vm._v(" "),
+                        _vm._m(3, true),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "Kezdeményező Érték ( KÉ ): " + _vm._s(npc.KE)
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v("Támadó Érték ( TÉ ): " + _vm._s(npc.TE)),
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v("Védő Érték ( VÉ ): " + _vm._s(npc.VE)),
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v("Célzó Érték ( CÉ ): " + _vm._s(npc.CE)),
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Sebzés ( Sp ): " + _vm._s(npc.SP))]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "Sebzés Felfogó Érték ( SFÉ ): " + _vm._s(npc.SFE)
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(4, true),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v("Életerő Pontok ( Ép ): " + _vm._s(npc.EP)),
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "Fájdalomtűrési Pontok ( Fp ): " + _vm._s(npc.FP)
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(5, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.description))]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("NJK Szerepe a játékban: ")]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.role))]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("NJK viselkedési mintája: ")]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.sablon))]),
+                        _vm._v(" "),
+                        _vm.deleting == index
+                          ? _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "text-center m-2 border border-danger border-2 rounded-5",
+                              },
+                              [
+                                _c("p", { staticClass: "m-3" }, [
+                                  _vm._v("Bisztos akarja törölni az NJK-át"),
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-success costum-btn m-3",
+                                    attrs: { type: "button" },
+                                    on: { click: _vm.cancelDeleting },
+                                  },
+                                  [_vm._v("Mégsem")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-danger costum-btn m-3",
+                                    attrs: { type: "button" },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.deleteNpc(index)
+                                      },
+                                    },
+                                  },
+                                  [_vm._v("Töröl")]
+                                ),
+                              ]
+                            )
+                          : _c("div", { staticClass: "text-center m-2" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-success costum-btn m-3",
+                                  attrs: { type: "button" },
+                                },
+                                [_vm._v("Módosít")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-danger costum-btn m-3",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.prepareDeleting(index)
+                                    },
+                                  },
+                                },
+                                [_vm._v("Töröl")]
+                              ),
+                            ]),
+                      ]),
+                    ]
+                  ),
+                ]
+              )
+            }),
+          ],
+          2
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.currentView == "NPC" ? _c("div") : _vm._e(),
+    _vm._v(" "),
+    _c("div"),
+    _vm._v(" "),
+    _vm.loading
+      ? _c("div", { attrs: { id: "overlay" } }, [
+          _c("div", { attrs: { id: "overlayText" } }, [
+            _vm._v("\n            Mentés folyamatban...\n        "),
+          ]),
+        ])
+      : _vm._e(),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center bg-danger m-3" }, [
+      _c("p", { staticClass: "text-light p-4" }, [
+        _vm._v("Hiba történt mentés közben..."),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center m-3" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success costum-btn m-3",
+          attrs: { type: "button" },
+        },
+        [_vm._v("NJK hozzáadása")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success costum-btn m-3",
+          attrs: { type: "button" },
+        },
+        [_vm._v("Bestiárium")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Tulajdonságok:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Harcértékek: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Életerő:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Az NJK álltalános leírása:")])])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue?vue&type=template&id=179cc105&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue?vue&type=template&id=179cc105& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -109,5 +109,38 @@ class GameModuleMakerController extends Controller
         
        return response()->json($data, 200);
     }
+
+    /**
+     * get module global notes
+     * 
+     * @return json
+     */
+    public function getGameModuleNpc(Request $request, $id){
+        
+        $gameModule = GameModule::findOrFail($id);
+        $data = [
+            'npcs' => $gameModule->npc_data
+        ];
+        
+       return response()->json($data, 200);
+    }
+
+     /**
+     * updating module global notes
+     * 
+     * @return json
+     */
+    public function updateGameModuleNpc(Request $request, $id){
+        
+        $moduleNpc = $request->input('npcs');
+        if (!$moduleNpc) {
+            return response()->json(['error' => 'missing module npc data'], 406);
+        }
+        $gameModule = GameModule::findOrFail($id);
+        $gameModule->npc_data = $moduleNpc;
+        $gameModule->save();
+        
+       return response()->json('Success', 200);
+    }
    
 }

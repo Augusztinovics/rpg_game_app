@@ -71,7 +71,9 @@ export default {
         getNotes() {
             axios.get('/gm/get-magus-game-module-note/' + this.moduleId)
             .then( res => {
-                this.notes = res.data.notes;
+                if (res.data.notes) {
+                    this.notes = res.data.notes;
+                }
             })
             .catch( err => {
                 console.log(err);

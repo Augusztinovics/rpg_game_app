@@ -17,7 +17,7 @@
         <!-- globalis menu sor -->
         <div class="text-center m-3 bg-secondary shadow-lg border border-4 rounded-5">
             <button class="btn btn-outline-light btn-lg costum-btn m-4" data-bs-toggle="modal" data-bs-target="#globalNoteModal" @click="fatchNotes">Globális jegyzetek</button>
-            <button class="btn btn-outline-light btn-lg costum-btn m-4" data-bs-toggle="modal" data-bs-target="#npcModal">NPC karakterek</button>
+            <button class="btn btn-outline-light btn-lg costum-btn m-4" data-bs-toggle="modal" data-bs-target="#npcModal" @click="fatchNpc">NPC karakterek</button>
         </div>
 
         <div>
@@ -65,11 +65,12 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <game-module-global-npc 
+                            :module-id="moduleId"
+                            ref="npcModule" />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary costum-btn" data-bs-dismiss="modal">Bezár</button>
-                        <button type="button" class="btn btn-primary costum-btn">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -79,6 +80,7 @@
 
 <script>
 import GameModuleGlobalNote from './gm_site/MagusModuleGlobalNote.vue';
+import GameModuleGlobalNpc from './gm_site/MagusModuleGlobalNpc.vue';
 
 export default {
     props: {
@@ -86,7 +88,8 @@ export default {
         gameData: Object
     },
     components: {
-        GameModuleGlobalNote
+        GameModuleGlobalNote,
+        GameModuleGlobalNpc
     },
     data() {
         return {
@@ -122,6 +125,9 @@ export default {
         },
         fatchNotes() {
             this.$refs.notesModule.getNotes();
+        },
+        fatchNpc() {
+            this.$refs.npcModule.getNpc();
         }
     },
     mounted() {
