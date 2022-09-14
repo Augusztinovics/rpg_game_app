@@ -7,14 +7,14 @@
         </div>
             <div v-if="currentView=='EDIT'">
                 <npc-edit 
-                    :selected-index="selectedIndex"
-                    :selected-npc="selectedNpc"
-                    :new-npc="newNpc"
+                    ref="npcEdit"
+                    @save="saveNpcEdit"
+                    @cancel="cancelNpcEdit"
                 />
             </div>
             <div v-if="currentView=='LIST'">
                 <div class="text-center m-3">
-                    <button type="button" class="btn btn-success costum-btn m-3">NJK hozzáadása</button>
+                    <button type="button" class="btn btn-success costum-btn m-3" @click="newNpcEdit">NJK hozzáadása</button>
                     <button type="button" class="btn btn-success costum-btn m-3">Bestiárium</button>
                 </div>
                 <div v-for="npc, index in npcs" :key="'NPC' + index" class="accordion-item">
@@ -60,7 +60,7 @@
                                 <button type="button" class="btn btn-danger costum-btn m-3" @click="deleteNpc(index)">Töröl</button>
                             </div>
                             <div v-else class="text-center m-2">
-                                <button type="button" class="btn btn-success costum-btn m-3">Módosít</button>
+                                <button type="button" class="btn btn-success costum-btn m-3" @click="npcEdit(npc, index)">Módosít</button>
                                 <button type="button" class="btn btn-danger costum-btn m-3" @click="prepareDeleting(index)">Töröl</button>
                             </div>
                         </div>
@@ -99,9 +99,6 @@ export default {
     data() {
         return {
             npcs: [],
-            selectedIndex: null,
-            selectedNpc: null,
-            newNpc: true,
             currentView: 'LIST',
             loading: false,
             error: false,
@@ -147,6 +144,26 @@ export default {
             this.npcs.splice(index, 1);
             this.saveNpc();
         },
+        newNpcEdit() {
+            this.currentView = 'EDIT';
+            this.$refs.npcEdit.setDefaultNpc(); 
+        },
+        saveNpcEdit({ npc, index }) {
+            if (index) {
+                this.npcs[index] = npc;
+            } else {
+                this.npcs.push(npc);
+            }
+            this.saveNpc();
+            this.currentView = 'LIST';
+        },
+        cancelNpcEdit() {
+            this.currentView = 'LIST';
+        },
+        npcEdit(npc, index) {
+            this.currentView = 'EDIT';
+            this.$refs.npcEdit.setNpc(npc, index);
+        }
     },
 }
 </script>
