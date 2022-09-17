@@ -16,6 +16,7 @@ import magusBardSpells from './modules/magus/magusBardSpells';
 import magusReligions from './modules/magus/magusReligions';
 import magusPapSpells from './modules/magus/magusPapSpells';
 import userCharacters from './modules/userCharacters';
+import magusBestiarium from './modules/magus/magusBestiarium';
 
 Vue.use(Vuex);
 
@@ -36,5 +37,6 @@ export default new Vuex.Store({
         magusReligions,
         magusPapSpells,
         userCharacters,
+        magusBestiarium,
     }
 })

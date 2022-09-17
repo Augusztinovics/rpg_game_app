@@ -6935,6 +6935,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -6993,6 +7003,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     deleteNpc: function deleteNpc(index) {
       this.npcs.splice(index, 1);
+      this.deleting = null;
       this.saveNpc();
     },
     newNpcEdit: function newNpcEdit() {
@@ -7003,7 +7014,7 @@ __webpack_require__.r(__webpack_exports__);
       var npc = _ref.npc,
           index = _ref.index;
 
-      if (index) {
+      if (index !== null) {
         this.npcs[index] = npc;
       } else {
         this.npcs.push(npc);
@@ -52050,90 +52061,109 @@ var render = function () {
   return _c("div", [
     _vm.error ? _c("div", [_vm._m(0)]) : _vm._e(),
     _vm._v(" "),
-    _vm.currentView == "EDIT"
-      ? _c(
-          "div",
-          [
-            _c("npc-edit", {
-              ref: "npcEdit",
-              on: { save: _vm.saveNpcEdit, cancel: _vm.cancelNpcEdit },
-            }),
-          ],
-          1
-        )
-      : _vm._e(),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.currentView == "EDIT",
+            expression: "currentView=='EDIT'",
+          },
+        ],
+      },
+      [
+        _c("npc-edit", {
+          ref: "npcEdit",
+          on: { save: _vm.saveNpcEdit, cancel: _vm.cancelNpcEdit },
+        }),
+      ],
+      1
+    ),
     _vm._v(" "),
-    _vm.currentView == "LIST"
-      ? _c(
-          "div",
-          [
-            _c("div", { staticClass: "text-center m-3" }, [
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.currentView == "LIST",
+            expression: "currentView=='LIST'",
+          },
+        ],
+      },
+      [
+        _c("div", { staticClass: "text-center m-3" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success costum-btn m-3",
+              attrs: { type: "button" },
+              on: { click: _vm.newNpcEdit },
+            },
+            [_vm._v("NJK hozzáadása")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success costum-btn m-3",
+              attrs: { type: "button" },
+            },
+            [_vm._v("Bestiárium")]
+          ),
+        ]),
+        _vm._v(" "),
+        _vm._l(_vm.npcs, function (npc, index) {
+          return _c(
+            "div",
+            { key: "NPC" + index, staticClass: "accordion-item" },
+            [
               _c(
-                "button",
+                "h2",
                 {
-                  staticClass: "btn btn-success costum-btn m-3",
-                  attrs: { type: "button" },
-                  on: { click: _vm.newNpcEdit },
+                  staticClass: "accordion-header",
+                  attrs: { id: "NPC" + index + "-heading" },
                 },
-                [_vm._v("NJK hozzáadása")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-success costum-btn m-3",
-                  attrs: { type: "button" },
-                },
-                [_vm._v("Bestiárium")]
-              ),
-            ]),
-            _vm._v(" "),
-            _vm._l(_vm.npcs, function (npc, index) {
-              return _c(
-                "div",
-                { key: "NPC" + index, staticClass: "accordion-item" },
                 [
                   _c(
-                    "h2",
+                    "button",
                     {
-                      staticClass: "accordion-header",
-                      attrs: { id: "NPC" + index + "-heading" },
-                    },
-                    [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "accordion-button collapsed",
-                          attrs: {
-                            type: "button",
-                            "data-bs-toggle": "collapse",
-                            "data-bs-target": "#" + "NPC" + index,
-                            "aria-expanded": "false",
-                            "aria-controls": "NPC" + index,
-                          },
-                        },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(npc.name) +
-                              "\n                    "
-                          ),
-                        ]
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "accordion-collapse collapse",
+                      staticClass: "accordion-button collapsed",
                       attrs: {
-                        id: "NPC" + index,
-                        "aria-labelledby": "NPC" + index + "-heading",
+                        type: "button",
+                        "data-bs-toggle": "collapse",
+                        "data-bs-target": "#" + "NPC" + index,
+                        "aria-expanded": "false",
+                        "aria-controls": "NPC" + index,
                       },
                     },
                     [
-                      _c("div", { staticClass: "accordion-body" }, [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(npc.name) +
+                          "\n                    "
+                      ),
+                    ]
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "accordion-collapse collapse",
+                  attrs: {
+                    id: "NPC" + index,
+                    "aria-labelledby": "NPC" + index + "-heading",
+                  },
+                },
+                [
+                  _c("div", { staticClass: "accordion-body" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-sm" }, [
                         _c("p", [
                           _c("b", [_vm._v("Faj: ")]),
                           _vm._v(" " + _vm._s(npc.race) + " "),
@@ -52150,6 +52180,20 @@ var render = function () {
                         ]),
                         _vm._v(" "),
                         _vm._m(1, true),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v("Életerő Pontok ( Ép ): " + _vm._s(npc.EP)),
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            "Fájdalomtűrési Pontok ( Fp ): " + _vm._s(npc.FP)
+                          ),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm" }, [
+                        _vm._m(2, true),
                         _vm._v(" "),
                         _c("p", [_vm._v("Erő: " + _vm._s(npc.ERO))]),
                         _vm._v(" "),
@@ -52168,8 +52212,10 @@ var render = function () {
                         _c("p", [_vm._v("Akaraterő: " + _vm._s(npc.AK))]),
                         _vm._v(" "),
                         _c("p", [_vm._v("Asztrál: " + _vm._s(npc.ASZT))]),
-                        _vm._v(" "),
-                        _vm._m(2, true),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm" }, [
+                        _vm._m(3, true),
                         _vm._v(" "),
                         _c("p", [
                           _vm._v(
@@ -52196,111 +52242,109 @@ var render = function () {
                             "Sebzés Felfogó Érték ( SFÉ ): " + _vm._s(npc.SFE)
                           ),
                         ]),
-                        _vm._v(" "),
-                        _vm._m(3, true),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v("Életerő Pontok ( Ép ): " + _vm._s(npc.EP)),
-                        ]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(
-                            "Fájdalomtűrési Pontok ( Fp ): " + _vm._s(npc.FP)
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._m(4, true),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(npc.description))]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("NJK Szerepe a játékban: ")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(npc.role))]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("NJK viselkedési mintája: ")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v(_vm._s(npc.sablon))]),
+                    ]),
+                    _vm._v(" "),
+                    _vm.deleting == index
+                      ? _c(
+                          "div",
+                          {
+                            staticClass:
+                              "text-center m-2 border border-danger border-2 rounded-5",
+                          },
+                          [
+                            _c("p", { staticClass: "m-3" }, [
+                              _vm._v("Bisztos akarja törölni az NJK-át"),
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-success costum-btn m-3",
+                                attrs: { type: "button" },
+                                on: { click: _vm.cancelDeleting },
+                              },
+                              [_vm._v("Mégsem")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-danger costum-btn m-3",
+                                attrs: { type: "button" },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.deleteNpc(index)
+                                  },
+                                },
+                              },
+                              [_vm._v("Töröl")]
+                            ),
+                          ]
+                        )
+                      : _c("div", { staticClass: "text-center m-2" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-success costum-btn m-3",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.npcEdit(npc, index)
+                                },
+                              },
+                            },
+                            [_vm._v("Módosít")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger costum-btn m-3",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.prepareDeleting(index)
+                                },
+                              },
+                            },
+                            [_vm._v("Töröl")]
                           ),
                         ]),
-                        _vm._v(" "),
-                        _vm._m(4, true),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(npc.description))]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v("NJK Szerepe a játékban: ")]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(npc.role))]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v("NJK viselkedési mintája: ")]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(npc.sablon))]),
-                        _vm._v(" "),
-                        _vm.deleting == index
-                          ? _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "text-center m-2 border border-danger border-2 rounded-5",
-                              },
-                              [
-                                _c("p", { staticClass: "m-3" }, [
-                                  _vm._v("Bisztos akarja törölni az NJK-át"),
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "btn btn-success costum-btn m-3",
-                                    attrs: { type: "button" },
-                                    on: { click: _vm.cancelDeleting },
-                                  },
-                                  [_vm._v("Mégsem")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "btn btn-danger costum-btn m-3",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.deleteNpc(index)
-                                      },
-                                    },
-                                  },
-                                  [_vm._v("Töröl")]
-                                ),
-                              ]
-                            )
-                          : _c("div", { staticClass: "text-center m-2" }, [
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-success costum-btn m-3",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function ($event) {
-                                      return _vm.npcEdit(npc, index)
-                                    },
-                                  },
-                                },
-                                [_vm._v("Módosít")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-danger costum-btn m-3",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function ($event) {
-                                      return _vm.prepareDeleting(index)
-                                    },
-                                  },
-                                },
-                                [_vm._v("Töröl")]
-                              ),
-                            ]),
-                      ]),
-                    ]
-                  ),
+                  ]),
                 ]
-              )
-            }),
-          ],
-          2
-        )
-      : _vm._e(),
+              ),
+            ]
+          )
+        }),
+      ],
+      2
+    ),
     _vm._v(" "),
-    _vm.currentView == "NPC" ? _c("div") : _vm._e(),
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.currentView == "NPC",
+          expression: "currentView=='NPC'",
+        },
+      ],
+    }),
     _vm._v(" "),
     _c("div"),
     _vm._v(" "),
@@ -52328,6 +52372,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Életerő:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("p", [_c("b", [_vm._v("Tulajdonságok:")])])
   },
   function () {
@@ -52335,12 +52385,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [_c("b", [_vm._v("Harcértékek: ")])])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [_c("b", [_vm._v("Életerő:")])])
   },
   function () {
     var _vm = this
@@ -52372,556 +52416,102 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "text-center p-5" }, [
-      _c("div", { staticClass: "input-group mb-3" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.npc.name,
-              expression: "npc.name",
-            },
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            placeholder: "NJK neve",
-            "aria-label": "Npcname",
-            "aria-describedby": "name",
-          },
-          domProps: { value: _vm.npc.name },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.npc, "name", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "input-group mb-3" }, [
-        _vm._m(1),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.npc.race,
-              expression: "npc.race",
-            },
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            placeholder: "faj",
-            "aria-label": "Npcrace",
-            "aria-describedby": "race",
-          },
-          domProps: { value: _vm.npc.race },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.npc, "race", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "input-group mb-3" }, [
-        _vm._m(2),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.npc.level,
-              expression: "npc.level",
-            },
-          ],
-          staticClass: "form-control",
-          attrs: {
-            type: "number",
-            "aria-label": "Npclevel",
-            "aria-describedby": "level",
-          },
-          domProps: { value: _vm.npc.level },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.npc, "level", $event.target.value)
-            },
-          },
-        }),
-      ]),
-    ]),
-    _vm._v(" "),
     _c("div", { staticClass: "row m-4" }, [
-      _c("div", { staticClass: "col" }, [
+      _c("div", { staticClass: "col-md" }, [
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.npc.name,
+                expression: "npc.name",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              placeholder: "NJK neve",
+              "aria-label": "Npcname",
+              "aria-describedby": "name",
+            },
+            domProps: { value: _vm.npc.name },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.npc, "name", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.npc.race,
+                expression: "npc.race",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              placeholder: "faj",
+              "aria-label": "Npcrace",
+              "aria-describedby": "race",
+            },
+            domProps: { value: _vm.npc.race },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.npc, "race", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _vm._m(2),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.npc.level,
+                expression: "npc.level",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "number",
+              "aria-label": "Npclevel",
+              "aria-describedby": "level",
+            },
+            domProps: { value: _vm.npc.level },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.npc, "level", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
         _c("div", { staticClass: "input-group mb-3" }, [
           _vm._m(3),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.npc.ERO,
-                expression: "npc.ERO",
-              },
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "number",
-              "aria-label": "Npcero",
-              "aria-describedby": "ero",
-            },
-            domProps: { value: _vm.npc.ERO },
-            on: {
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.npc, "ERO", $event.target.value)
-              },
-            },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group mb-3" }, [
-          _vm._m(4),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.npc.GYORS,
-                expression: "npc.GYORS",
-              },
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "number",
-              "aria-label": "Npcgyors",
-              "aria-describedby": "ero",
-            },
-            domProps: { value: _vm.npc.GYORS },
-            on: {
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.npc, "GYORS", $event.target.value)
-              },
-            },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group mb-3" }, [
-          _vm._m(5),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.npc.UGY,
-                expression: "npc.UGY",
-              },
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "number",
-              "aria-label": "Npcugy",
-              "aria-describedby": "ugy",
-            },
-            domProps: { value: _vm.npc.UGY },
-            on: {
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.npc, "UGY", $event.target.value)
-              },
-            },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group mb-3" }, [
-          _vm._m(6),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.npc.ALLO,
-                expression: "npc.ALLO",
-              },
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "number",
-              "aria-label": "Npcallo",
-              "aria-describedby": "allo",
-            },
-            domProps: { value: _vm.npc.ALLO },
-            on: {
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.npc, "ALLO", $event.target.value)
-              },
-            },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group mb-3" }, [
-          _vm._m(7),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.npc.EG,
-                expression: "npc.EG",
-              },
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "number",
-              "aria-label": "Npceg",
-              "aria-describedby": "eg",
-            },
-            domProps: { value: _vm.npc.EG },
-            on: {
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.npc, "EG", $event.target.value)
-              },
-            },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group mb-3" }, [
-          _vm._m(8),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.npc.SZEP,
-                expression: "npc.SZEP",
-              },
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "number",
-              "aria-label": "Npcszep",
-              "aria-describedby": "szep",
-            },
-            domProps: { value: _vm.npc.SZEP },
-            on: {
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.npc, "SZEP", $event.target.value)
-              },
-            },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group mb-3" }, [
-          _vm._m(9),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.npc.INT,
-                expression: "npc.INT",
-              },
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "number",
-              "aria-label": "Npcint",
-              "aria-describedby": "int",
-            },
-            domProps: { value: _vm.npc.INT },
-            on: {
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.npc, "INT", $event.target.value)
-              },
-            },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group mb-3" }, [
-          _vm._m(10),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.npc.AK,
-                expression: "npc.AK",
-              },
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "number",
-              "aria-label": "Npcak",
-              "aria-describedby": "ak",
-            },
-            domProps: { value: _vm.npc.AK },
-            on: {
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.npc, "AK", $event.target.value)
-              },
-            },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group mb-3" }, [
-          _vm._m(11),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.npc.ASZT,
-                expression: "npc.ASZT",
-              },
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "number",
-              "aria-label": "Npcaszt",
-              "aria-describedby": "aszt",
-            },
-            domProps: { value: _vm.npc.ASZT },
-            on: {
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.npc, "ASZT", $event.target.value)
-              },
-            },
-          }),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c("div", { staticClass: "input-group mb-3" }, [
-          _vm._m(12),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.npc.KE,
-                expression: "npc.KE",
-              },
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              "aria-label": "Npcke",
-              "aria-describedby": "ke",
-            },
-            domProps: { value: _vm.npc.KE },
-            on: {
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.npc, "KE", $event.target.value)
-              },
-            },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group mb-3" }, [
-          _vm._m(13),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.npc.TE,
-                expression: "npc.TE",
-              },
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              "aria-label": "Npcte",
-              "aria-describedby": "ero",
-            },
-            domProps: { value: _vm.npc.TE },
-            on: {
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.npc, "TE", $event.target.value)
-              },
-            },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group mb-3" }, [
-          _vm._m(14),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.npc.VE,
-                expression: "npc.VE",
-              },
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              "aria-label": "Npcve",
-              "aria-describedby": "ve",
-            },
-            domProps: { value: _vm.npc.VE },
-            on: {
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.npc, "VE", $event.target.value)
-              },
-            },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group mb-3" }, [
-          _vm._m(15),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.npc.CE,
-                expression: "npc.CE",
-              },
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              "aria-label": "Npce",
-              "aria-describedby": "ce",
-            },
-            domProps: { value: _vm.npc.CE },
-            on: {
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.npc, "CE", $event.target.value)
-              },
-            },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group mb-3" }, [
-          _vm._m(16),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.npc.SP,
-                expression: "npc.SP",
-              },
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              "aria-label": "Npcsp",
-              "aria-describedby": "sp",
-            },
-            domProps: { value: _vm.npc.SP },
-            on: {
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.npc, "SP", $event.target.value)
-              },
-            },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group mb-3" }, [
-          _vm._m(17),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.npc.SFE,
-                expression: "npc.SFE",
-              },
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              "aria-label": "Npcsfe",
-              "aria-describedby": "sfe",
-            },
-            domProps: { value: _vm.npc.SFE },
-            on: {
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.npc, "SFE", $event.target.value)
-              },
-            },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group mb-3" }, [
-          _vm._m(18),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -52951,7 +52541,7 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "input-group mb-3" }, [
-          _vm._m(19),
+          _vm._m(4),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -52975,6 +52565,460 @@ var render = function () {
                   return
                 }
                 _vm.$set(_vm.npc, "FP", $event.target.value)
+              },
+            },
+          }),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md" }, [
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _vm._m(5),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.npc.ERO,
+                expression: "npc.ERO",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "number",
+              "aria-label": "Npcero",
+              "aria-describedby": "ero",
+            },
+            domProps: { value: _vm.npc.ERO },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.npc, "ERO", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _vm._m(6),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.npc.GYORS,
+                expression: "npc.GYORS",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "number",
+              "aria-label": "Npcgyors",
+              "aria-describedby": "ero",
+            },
+            domProps: { value: _vm.npc.GYORS },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.npc, "GYORS", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _vm._m(7),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.npc.UGY,
+                expression: "npc.UGY",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "number",
+              "aria-label": "Npcugy",
+              "aria-describedby": "ugy",
+            },
+            domProps: { value: _vm.npc.UGY },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.npc, "UGY", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _vm._m(8),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.npc.ALLO,
+                expression: "npc.ALLO",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "number",
+              "aria-label": "Npcallo",
+              "aria-describedby": "allo",
+            },
+            domProps: { value: _vm.npc.ALLO },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.npc, "ALLO", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _vm._m(9),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.npc.EG,
+                expression: "npc.EG",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "number",
+              "aria-label": "Npceg",
+              "aria-describedby": "eg",
+            },
+            domProps: { value: _vm.npc.EG },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.npc, "EG", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _vm._m(10),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.npc.SZEP,
+                expression: "npc.SZEP",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "number",
+              "aria-label": "Npcszep",
+              "aria-describedby": "szep",
+            },
+            domProps: { value: _vm.npc.SZEP },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.npc, "SZEP", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _vm._m(11),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.npc.INT,
+                expression: "npc.INT",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "number",
+              "aria-label": "Npcint",
+              "aria-describedby": "int",
+            },
+            domProps: { value: _vm.npc.INT },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.npc, "INT", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _vm._m(12),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.npc.AK,
+                expression: "npc.AK",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "number",
+              "aria-label": "Npcak",
+              "aria-describedby": "ak",
+            },
+            domProps: { value: _vm.npc.AK },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.npc, "AK", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _vm._m(13),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.npc.ASZT,
+                expression: "npc.ASZT",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "number",
+              "aria-label": "Npcaszt",
+              "aria-describedby": "aszt",
+            },
+            domProps: { value: _vm.npc.ASZT },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.npc, "ASZT", $event.target.value)
+              },
+            },
+          }),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md" }, [
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _vm._m(14),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.npc.KE,
+                expression: "npc.KE",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              "aria-label": "Npcke",
+              "aria-describedby": "ke",
+            },
+            domProps: { value: _vm.npc.KE },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.npc, "KE", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _vm._m(15),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.npc.TE,
+                expression: "npc.TE",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              "aria-label": "Npcte",
+              "aria-describedby": "ero",
+            },
+            domProps: { value: _vm.npc.TE },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.npc, "TE", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _vm._m(16),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.npc.VE,
+                expression: "npc.VE",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              "aria-label": "Npcve",
+              "aria-describedby": "ve",
+            },
+            domProps: { value: _vm.npc.VE },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.npc, "VE", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _vm._m(17),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.npc.CE,
+                expression: "npc.CE",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              "aria-label": "Npce",
+              "aria-describedby": "ce",
+            },
+            domProps: { value: _vm.npc.CE },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.npc, "CE", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _vm._m(18),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.npc.SP,
+                expression: "npc.SP",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              "aria-label": "Npcsp",
+              "aria-describedby": "sp",
+            },
+            domProps: { value: _vm.npc.SP },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.npc, "SP", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _vm._m(19),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.npc.SFE,
+                expression: "npc.SFE",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              "aria-label": "Npcsfe",
+              "aria-describedby": "sfe",
+            },
+            domProps: { value: _vm.npc.SFE },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.npc, "SFE", $event.target.value)
               },
             },
           }),
@@ -53130,6 +53174,26 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "span",
+      { staticClass: "input-group-text", attrs: { id: "ep" } },
+      [_c("b", [_vm._v("Ép :")])]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      { staticClass: "input-group-text", attrs: { id: "fp" } },
+      [_c("b", [_vm._v("Fp :")])]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
       { staticClass: "input-group-text", attrs: { id: "ero" } },
       [_c("b", [_vm._v("Erő:")])]
     )
@@ -53221,7 +53285,7 @@ var staticRenderFns = [
     return _c(
       "span",
       { staticClass: "input-group-text", attrs: { id: "ke" } },
-      [_c("b", [_vm._v("Kezdeményező ( KÉ ):")])]
+      [_c("b", [_vm._v("KÉ :")])]
     )
   },
   function () {
@@ -53231,7 +53295,7 @@ var staticRenderFns = [
     return _c(
       "span",
       { staticClass: "input-group-text", attrs: { id: "te" } },
-      [_c("b", [_vm._v("Támadó ( TÉ ):")])]
+      [_c("b", [_vm._v("TÉ :")])]
     )
   },
   function () {
@@ -53241,7 +53305,7 @@ var staticRenderFns = [
     return _c(
       "span",
       { staticClass: "input-group-text", attrs: { id: "ve" } },
-      [_c("b", [_vm._v("Védő ( VÉ ):")])]
+      [_c("b", [_vm._v("VÉ :")])]
     )
   },
   function () {
@@ -53251,7 +53315,7 @@ var staticRenderFns = [
     return _c(
       "span",
       { staticClass: "input-group-text", attrs: { id: "ce" } },
-      [_c("b", [_vm._v("Célzó ( CÉ ):")])]
+      [_c("b", [_vm._v("CÉ :")])]
     )
   },
   function () {
@@ -53261,7 +53325,7 @@ var staticRenderFns = [
     return _c(
       "span",
       { staticClass: "input-group-text", attrs: { id: "sp" } },
-      [_c("b", [_vm._v("Cebzés ( Sp ):")])]
+      [_c("b", [_vm._v("Sp :")])]
     )
   },
   function () {
@@ -53271,27 +53335,7 @@ var staticRenderFns = [
     return _c(
       "span",
       { staticClass: "input-group-text", attrs: { id: "sfe" } },
-      [_c("b", [_vm._v("Sebzés Felfogó ( SFÉ ):")])]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      { staticClass: "input-group-text", attrs: { id: "ep" } },
-      [_c("b", [_vm._v("Életerő ( Ép ):")])]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      { staticClass: "input-group-text", attrs: { id: "fp" } },
-      [_c("b", [_vm._v("Fájdalomtűrés ( Fp ):")])]
+      [_c("b", [_vm._v("SFÉ :")])]
     )
   },
 ]

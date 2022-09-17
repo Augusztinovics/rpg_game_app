@@ -5,14 +5,14 @@
                 <p class="text-light p-4">Hiba történt mentés közben...</p>
             </div>
         </div>
-            <div v-if="currentView=='EDIT'">
+            <div v-show="currentView=='EDIT'">
                 <npc-edit 
                     ref="npcEdit"
                     @save="saveNpcEdit"
                     @cancel="cancelNpcEdit"
                 />
             </div>
-            <div v-if="currentView=='LIST'">
+            <div v-show="currentView=='LIST'">
                 <div class="text-center m-3">
                     <button type="button" class="btn btn-success costum-btn m-3" @click="newNpcEdit">NJK hozzáadása</button>
                     <button type="button" class="btn btn-success costum-btn m-3">Bestiárium</button>
@@ -25,35 +25,45 @@
                     </h2>
                     <div :id="'NPC' + index" class="accordion-collapse collapse" :aria-labelledby="'NPC' + index + '-heading'">
                         <div class="accordion-body">
-                            <p><b>Faj: </b> {{ npc.race }} </p>
-                            <p><b>Szint: </b> {{ npc.level }} </p>
-                            <p><b>TP érték: </b> {{ npc.exp }} </p>
-                            <p><b>Tulajdonságok:</b></p>
-                            <p>Erő: {{ npc.ERO }}</p>
-                            <p>Gyorsaság: {{ npc.GYORS }}</p>
-                            <p>Ügyesség: {{ npc.UGY }}</p>
-                            <p>Állóképesség: {{ npc.ALLO }}</p>
-                            <p>Egészség: {{ npc.EG }}</p>
-                            <p>Szépség: {{ npc.SZEP }}</p>
-                            <p>Inteligencia: {{ npc.INT }}</p>
-                            <p>Akaraterő: {{ npc.AK }}</p>
-                            <p>Asztrál: {{ npc.ASZT }}</p>
-                            <p><b>Harcértékek: </b></p>
-                            <p>Kezdeményező Érték ( KÉ ): {{ npc.KE }}</p>
-                            <p>Támadó Érték ( TÉ ): {{ npc.TE }}</p>
-                            <p>Védő Érték ( VÉ ): {{ npc.VE }}</p>
-                            <p>Célzó Érték ( CÉ ): {{ npc.CE }}</p>
-                            <p>Sebzés ( Sp ): {{ npc.SP }}</p>
-                            <p>Sebzés Felfogó Érték ( SFÉ ): {{ npc.SFE }}</p>
-                            <p><b>Életerő:</b></p>
-                            <p>Életerő Pontok ( Ép ): {{ npc.EP }}</p>
-                            <p>Fájdalomtűrési Pontok ( Fp ): {{ npc.FP }}</p>
-                            <p><b>Az NJK álltalános leírása:</b></p>
-                            <p>{{ npc.description }}</p>
-                            <p>NJK Szerepe a játékban: </p>
-                            <p>{{ npc.role }}</p>
-                            <p>NJK viselkedési mintája: </p>
-                            <p>{{ npc.sablon }}</p>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <p><b>Faj: </b> {{ npc.race }} </p>
+                                    <p><b>Szint: </b> {{ npc.level }} </p>
+                                    <p><b>TP érték: </b> {{ npc.exp }} </p>
+                                    <p><b>Életerő:</b></p>
+                                    <p>Életerő Pontok ( Ép ): {{ npc.EP }}</p>
+                                    <p>Fájdalomtűrési Pontok ( Fp ): {{ npc.FP }}</p>
+                                </div>
+                                <div class="col-sm">
+                                    <p><b>Tulajdonságok:</b></p>
+                                    <p>Erő: {{ npc.ERO }}</p>
+                                    <p>Gyorsaság: {{ npc.GYORS }}</p>
+                                    <p>Ügyesség: {{ npc.UGY }}</p>
+                                    <p>Állóképesség: {{ npc.ALLO }}</p>
+                                    <p>Egészség: {{ npc.EG }}</p>
+                                    <p>Szépség: {{ npc.SZEP }}</p>
+                                    <p>Inteligencia: {{ npc.INT }}</p>
+                                    <p>Akaraterő: {{ npc.AK }}</p>
+                                    <p>Asztrál: {{ npc.ASZT }}</p>
+                                </div>
+                                <div class="col-sm">
+                                    <p><b>Harcértékek: </b></p>
+                                    <p>Kezdeményező Érték ( KÉ ): {{ npc.KE }}</p>
+                                    <p>Támadó Érték ( TÉ ): {{ npc.TE }}</p>
+                                    <p>Védő Érték ( VÉ ): {{ npc.VE }}</p>
+                                    <p>Célzó Érték ( CÉ ): {{ npc.CE }}</p>
+                                    <p>Sebzés ( Sp ): {{ npc.SP }}</p>
+                                    <p>Sebzés Felfogó Érték ( SFÉ ): {{ npc.SFE }}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <p><b>Az NJK álltalános leírása:</b></p>
+                                <p>{{ npc.description }}</p>
+                                <p>NJK Szerepe a játékban: </p>
+                                <p>{{ npc.role }}</p>
+                                <p>NJK viselkedési mintája: </p>
+                                <p>{{ npc.sablon }}</p>
+                            </div>
                             <div v-if="deleting==index" class="text-center m-2 border border-danger border-2 rounded-5">
                                 <p class="m-3">Bisztos akarja törölni az NJK-át</p>
                                 <button type="button" class="btn btn-success costum-btn m-3" @click="cancelDeleting">Mégsem</button>
@@ -68,7 +78,7 @@
                 </div>
             </div>
 
-            <div v-if="currentView=='NPC'">
+            <div v-show="currentView=='NPC'">
 
             </div>
         <div>
@@ -142,6 +152,7 @@ export default {
         },
         deleteNpc(index) {
             this.npcs.splice(index, 1);
+            this.deleting = null;
             this.saveNpc();
         },
         newNpcEdit() {
@@ -149,7 +160,7 @@ export default {
             this.$refs.npcEdit.setDefaultNpc(); 
         },
         saveNpcEdit({ npc, index }) {
-            if (index) {
+            if (index !== null) {
                 this.npcs[index] = npc;
             } else {
                 this.npcs.push(npc);

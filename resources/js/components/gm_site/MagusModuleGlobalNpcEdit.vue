@@ -1,21 +1,29 @@
 <template>
     <div>
-        <div class="text-center p-5">
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="name"><b>NJK neve:</b></span>
-                <input type="text" class="form-control" placeholder="NJK neve" aria-label="Npcname" aria-describedby="name" v-model="npc.name">
-            </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="race"><b>NJK faja:</b></span>
-                <input type="text" class="form-control" placeholder="faj" aria-label="Npcrace" aria-describedby="race" v-model="npc.race">
-            </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="level"><b>NJK szintje:</b></span>
-                <input type="number" class="form-control" aria-label="Npclevel" aria-describedby="level" v-model="npc.level">
-            </div>
-        </div>
         <div class="row m-4">
-            <div class="col">
+            <div class="col-md">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="name"><b>NJK neve:</b></span>
+                    <input type="text" class="form-control" placeholder="NJK neve" aria-label="Npcname" aria-describedby="name" v-model="npc.name">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="race"><b>NJK faja:</b></span>
+                    <input type="text" class="form-control" placeholder="faj" aria-label="Npcrace" aria-describedby="race" v-model="npc.race">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="level"><b>NJK szintje:</b></span>
+                    <input type="number" class="form-control" aria-label="Npclevel" aria-describedby="level" v-model="npc.level">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="ep"><b>Ép :</b></span>
+                    <input type="text" class="form-control" aria-label="Npcep" aria-describedby="ep" v-model="npc.EP">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="fp"><b>Fp :</b></span>
+                    <input type="text" class="form-control" aria-label="Npcfp" aria-describedby="fp" v-model="npc.FP">
+                </div>
+            </div>
+            <div class="col-md">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="ero"><b>Erő:</b></span>
                     <input type="number" class="form-control" aria-label="Npcero" aria-describedby="ero" v-model="npc.ERO">
@@ -53,38 +61,30 @@
                     <input type="number" class="form-control" aria-label="Npcaszt" aria-describedby="aszt" v-model="npc.ASZT">
                 </div>
             </div>
-            <div class="col">
+            <div class="col-md">
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="ke"><b>Kezdeményező ( KÉ ):</b></span>
+                    <span class="input-group-text" id="ke"><b>KÉ :</b></span>
                     <input type="text" class="form-control" aria-label="Npcke" aria-describedby="ke" v-model="npc.KE">
                 </div>
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="te"><b>Támadó ( TÉ ):</b></span>
+                    <span class="input-group-text" id="te"><b>TÉ :</b></span>
                     <input type="text" class="form-control" aria-label="Npcte" aria-describedby="ero" v-model="npc.TE">
                 </div>
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="ve"><b>Védő ( VÉ ):</b></span>
+                    <span class="input-group-text" id="ve"><b>VÉ :</b></span>
                     <input type="text" class="form-control" aria-label="Npcve" aria-describedby="ve" v-model="npc.VE">
                 </div>
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="ce"><b>Célzó ( CÉ ):</b></span>
+                    <span class="input-group-text" id="ce"><b>CÉ :</b></span>
                     <input type="text" class="form-control" aria-label="Npce" aria-describedby="ce" v-model="npc.CE">
                 </div>
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="sp"><b>Cebzés ( Sp ):</b></span>
+                    <span class="input-group-text" id="sp"><b>Sp :</b></span>
                     <input type="text" class="form-control" aria-label="Npcsp" aria-describedby="sp" v-model="npc.SP">
                 </div>
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="sfe"><b>Sebzés Felfogó ( SFÉ ):</b></span>
+                    <span class="input-group-text" id="sfe"><b>SFÉ :</b></span>
                     <input type="text" class="form-control" aria-label="Npcsfe" aria-describedby="sfe" v-model="npc.SFE">
-                </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="ep"><b>Életerő ( Ép ):</b></span>
-                    <input type="text" class="form-control" aria-label="Npcep" aria-describedby="ep" v-model="npc.EP">
-                </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="fp"><b>Fájdalomtűrés ( Fp ):</b></span>
-                    <input type="text" class="form-control" aria-label="Npcfp" aria-describedby="fp" v-model="npc.FP">
                 </div>
             </div>
         </div>
