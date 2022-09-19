@@ -6850,6 +6850,308 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _MagusModuleGlobalNpcEdit_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusModuleGlobalNpcEdit.vue */ "./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue");
+/* harmony import */ var _MagusModuleGlobalNpcBestiarium_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusModuleGlobalNpcBestiarium.vue */ "./resources/js/components/gm_site/MagusModuleGlobalNpcBestiarium.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    moduleId: {
+      type: Number,
+      "default": null
+    }
+  },
+  components: {
+    NpcEdit: _MagusModuleGlobalNpcEdit_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    magusBestiarium: _MagusModuleGlobalNpcBestiarium_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      npcs: [],
+      currentView: 'LIST',
+      loading: false,
+      error: false,
+      deleting: null
+    };
+  },
+  computed: {},
+  methods: {
+    getNpc: function getNpc() {
+      var _this = this;
+
+      axios.get('/gm/get-magus-game-module-npc/' + this.moduleId).then(function (res) {
+        if (res.data.npcs) {
+          _this.npcs = res.data.npcs;
+        }
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    saveNpc: function saveNpc() {
+      var _this2 = this;
+
+      this.loading = true;
+      this.error = false;
+      axios.post('/gm/update-magus-game-module-npc/' + this.moduleId, {
+        npcs: this.npcs
+      }).then(function (res) {
+        _this2.loading = false;
+      })["catch"](function (err) {
+        _this2.loading = false;
+        _this2.error = true;
+        setTimeout(function () {
+          _this2.error = false;
+        }, 3000);
+      });
+    },
+    prepareDeleting: function prepareDeleting(index) {
+      this.deleting = index;
+    },
+    cancelDeleting: function cancelDeleting() {
+      this.deleting = null;
+    },
+    deleteNpc: function deleteNpc(index) {
+      this.npcs.splice(index, 1);
+      this.deleting = null;
+      this.saveNpc();
+    },
+    newNpcEdit: function newNpcEdit() {
+      this.currentView = 'EDIT';
+      this.$refs.npcEdit.setDefaultNpc();
+    },
+    showBestiarium: function showBestiarium() {
+      this.currentView = 'NPC';
+    },
+    saveNpcEdit: function saveNpcEdit(_ref) {
+      var npc = _ref.npc,
+          index = _ref.index;
+
+      if (index !== null) {
+        this.npcs[index] = npc;
+      } else {
+        this.npcs.push(npc);
+      }
+
+      this.saveNpc();
+      this.currentView = 'LIST';
+    },
+    cancelNpcEdit: function cancelNpcEdit() {
+      this.currentView = 'LIST';
+    },
+    npcEdit: function npcEdit(npc, index) {
+      this.currentView = 'EDIT';
+      this.$refs.npcEdit.setNpc(npc, index);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpcBestiarium.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpcBestiarium.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6947,88 +7249,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {
-    moduleId: {
-      type: Number,
-      "default": null
-    }
-  },
-  components: {
-    NpcEdit: _MagusModuleGlobalNpcEdit_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  data: function data() {
-    return {
-      npcs: [],
-      currentView: 'LIST',
-      loading: false,
-      error: false,
-      deleting: null
-    };
-  },
-  computed: {},
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusBestiarium', {
+    friendlyNpcs: 'friendlyNpcs',
+    enemyNpc: 'enemyNpc',
+    monsters: 'monsters'
+  })),
   methods: {
-    getNpc: function getNpc() {
-      var _this = this;
-
-      axios.get('/gm/get-magus-game-module-npc/' + this.moduleId).then(function (res) {
-        if (res.data.npcs) {
-          _this.npcs = res.data.npcs;
-        }
-      })["catch"](function (err) {
-        console.log(err);
-      });
+    npcAdd: function npcAdd(npc) {//lekezelni az npc hozzaadasat a globalis listahoz
     },
-    saveNpc: function saveNpc() {
-      var _this2 = this;
-
-      this.loading = true;
-      this.error = false;
-      axios.post('/gm/update-magus-game-module-npc/' + this.moduleId, {
-        npcs: this.npcs
-      }).then(function (res) {
-        _this2.loading = false;
-      })["catch"](function (err) {
-        _this2.loading = false;
-        _this2.error = true;
-        setTimeout(function () {
-          _this2.error = false;
-        }, 3000);
-      });
-    },
-    prepareDeleting: function prepareDeleting(index) {
-      this.deleting = index;
-    },
-    cancelDeleting: function cancelDeleting() {
-      this.deleting = null;
-    },
-    deleteNpc: function deleteNpc(index) {
-      this.npcs.splice(index, 1);
-      this.deleting = null;
-      this.saveNpc();
-    },
-    newNpcEdit: function newNpcEdit() {
-      this.currentView = 'EDIT';
-      this.$refs.npcEdit.setDefaultNpc();
-    },
-    saveNpcEdit: function saveNpcEdit(_ref) {
-      var npc = _ref.npc,
-          index = _ref.index;
-
-      if (index !== null) {
-        this.npcs[index] = npc;
-      } else {
-        this.npcs.push(npc);
-      }
-
-      this.saveNpc();
-      this.currentView = 'LIST';
-    },
-    cancelNpcEdit: function cancelNpcEdit() {
-      this.currentView = 'LIST';
-    },
-    npcEdit: function npcEdit(npc, index) {
-      this.currentView = 'EDIT';
-      this.$refs.npcEdit.setNpc(npc, index);
+    cancelEdit: function cancelEdit() {
+      this.$emit('cancel');
     }
   }
 });
@@ -15130,8 +15360,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/magus/magusAligments */ "./resources/js/store/modules/magus/magusAligments.js");
 /* harmony import */ var _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/magus/magusRaces */ "./resources/js/store/modules/magus/magusRaces.js");
 /* harmony import */ var _modules_magus_magusClasses__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/magus/magusClasses */ "./resources/js/store/modules/magus/magusClasses.js");
@@ -15147,6 +15377,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_magus_magusReligions__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/magus/magusReligions */ "./resources/js/store/modules/magus/magusReligions.js");
 /* harmony import */ var _modules_magus_magusPapSpells__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/magus/magusPapSpells */ "./resources/js/store/modules/magus/magusPapSpells.js");
 /* harmony import */ var _modules_userCharacters__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modules/userCharacters */ "./resources/js/store/modules/userCharacters.js");
+/* harmony import */ var _modules_magus_magusBestiarium__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modules/magus/magusBestiarium */ "./resources/js/store/modules/magus/magusBestiarium.js");
 
 
 
@@ -15164,8 +15395,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_15__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_16__["default"]);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_16__["default"].Store({
+
+vue__WEBPACK_IMPORTED_MODULE_16__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_17__["default"]);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_17__["default"].Store({
   modules: {
     magusAligments: _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__["default"],
     magusRaces: _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -15181,7 +15413,8 @@ vue__WEBPACK_IMPORTED_MODULE_15__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1
     magusBardSpells: _modules_magus_magusBardSpells__WEBPACK_IMPORTED_MODULE_11__["default"],
     magusReligions: _modules_magus_magusReligions__WEBPACK_IMPORTED_MODULE_12__["default"],
     magusPapSpells: _modules_magus_magusPapSpells__WEBPACK_IMPORTED_MODULE_13__["default"],
-    userCharacters: _modules_userCharacters__WEBPACK_IMPORTED_MODULE_14__["default"]
+    userCharacters: _modules_userCharacters__WEBPACK_IMPORTED_MODULE_14__["default"],
+    magusBestiarium: _modules_magus_magusBestiarium__WEBPACK_IMPORTED_MODULE_15__["default"]
   }
 }));
 
@@ -17258,6 +17491,204 @@ var getters = {
   },
   bardEgyebbMagia: function bardEgyebbMagia() {
     return state.bardSpells.egyebbMagia;
+  }
+};
+var mutations = {};
+var actions = {};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/magus/magusBestiarium.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/store/modules/magus/magusBestiarium.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**-------------------------------------------
+ * 
+ * STORE FOR MAGUS BESTIARIUM
+ * 
+ * -------------------------------------------
+ */
+var state = {
+  //need at least 5 for begining
+  friendlyNpcs: [{
+    name: 'Done a Kocsmáros',
+    race: 'Ember',
+    level: '1',
+    exp: '10',
+    ERO: '12',
+    GYORS: '10',
+    UGY: '14',
+    ALLO: '10',
+    EG: '11',
+    SZEP: '13',
+    INT: '12',
+    AK: '16',
+    ASZT: '8',
+    KE: '15',
+    TE: '27',
+    VE: '73',
+    CE: '4',
+    SP: 'k6',
+    SFE: '0',
+    EP: '5',
+    FP: '9',
+    description: 'Nagy darab kocsmáros ember, aki mindenki barátja ( ha fizetnek neki ), de hamar dühbe gurul. Ha harcra kerül sor fegyvert nem használ, csak a keze ügyébe akadó tárgyakat ( kocsmai verekedés af). Alkudni nehéz vele, mert nagyon akaratos, és tudja minek mi az értéke ( értékbecslés af ). Védelmi pénzt fizet a helyi tolvajklánnak, ugyhogy, ha baja esne, az elkövetőknek a tolvajklán bérgyilkosaival gyülne meg a baja. Alvilági kapcsolatai révén jó információforrás lehet, és tudását szívesen éruba bocsájtsa, persze a megfelelő ellenjuttatás fejében.',
+    role: 'Elsősorban kocsmáros és információ diller.',
+    sablon: 'A vendégeket kiszolgálja, ha kérdezik valamiről rögtön az információ árába akar megalkudni, néha várni kell az infóra egy-két napot, de legtöbbször van valami használható információja, ha véletlenül nincs, akkor sem fizeti vissza az info árát.'
+  }, {
+    name: 'Linhard a Kovács',
+    race: 'Ember',
+    level: '1',
+    exp: '20',
+    ERO: '17',
+    GYORS: '11',
+    UGY: '14',
+    ALLO: '16',
+    EG: '14',
+    SZEP: '10',
+    INT: '12',
+    AK: '12',
+    ASZT: '10',
+    KE: '17',
+    TE: '35',
+    VE: '82',
+    CE: '4',
+    SP: 'k6+2',
+    SFE: '1',
+    EP: '8',
+    FP: '14',
+    description: 'A város legjobb fegyverkovácsa, mindég pontos és gyors munkát végez. Ha a karaktereknek van eladó használt fegyvere, vértje syívesen felvásárolja az értéke feléért. Bár erős, nem kedveli a harcot, ha lehet elkerüli azt, ha rákényszerítik kalapácsával támad, de sosem öl ( ha mégis, az csak baleset, nem szándékos ). Vastag bőr kovácsköténye 1 SFÉ védelmet bisztosít neki.',
+    role: 'Elsősorban kovács, olcsón karbantarthatja a karakterek felszerelését, vagy normál áron eladhat, valamint felvásárolhatja az esetleges szerzett felszereléseket féláron. Egy kicsit ért a páncélkovácsoláshoz is, ez nem elegendő, hogy készítsen páncélokat, de megjavíthatja azokat.',
+    sablon: 'Mindég kedves, jókedvű, igyekszik a vásárlók kedvében járni. Ha ellenségesen viselkednek vele, próbálja viccekkel, lebeszélni, ha így is harcra kényszerül támadásaival mindég leütésre megy, nem ölésre.'
+  }],
+  //need at least 5 for begining
+  enemyNpc: [{
+    name: 'Bandita',
+    race: 'Ember',
+    level: '1',
+    exp: '15',
+    ERO: '14',
+    GYORS: '12',
+    UGY: '13',
+    ALLO: '11',
+    EG: '12',
+    SZEP: '10',
+    INT: '10',
+    AK: '14',
+    ASZT: '9',
+    KE: '20',
+    TE: '42',
+    VE: '85',
+    CE: '3',
+    SP: 'k6+1',
+    SFE: '1',
+    EP: '6',
+    FP: '11',
+    description: 'Kereskedőket és utazókat támad, hogy azok értékeit eltulajdonítsa. Álltalában kissebb csapatban (3-5 fő ) dolgoznak és legalább egy közülük ért a csabdaállításhoz ésnyomolvasáshoz. Felszerelésük álltalában csatabár, rövidkatd esetleg furkósbot, páncélként posztóvértet vagy puha bőrvértet használnak.',
+    role: 'A kereskedelmi utak erdőn áthaladó részén tanyáznak, és minden utazót, amely náluk gyengébbnek látszik, megtámadnak ( ha az utazók szemlátomást erősebbek, rejtekben maradnak, így elfogásukhoz azt a látcatot kell kelltenie a csapatnak, hogy gyenge utazók, vagy nyomolvasás mesterfokát használva lekövetni táborhelyüket ).',
+    sablon: 'Lesből vetik magukat az utazókra, hogy ne legyen alkalmuk védekezni, de ha az utazók jól fel vannak fegyverezve, erősnek látszanak, akkor nem támadnak, és várják a következő álldozatot. Ha a támadás után derül ki, hpgy az utazókat alábecsülték, megpróbálnak elszökni, ilyenkor mindegyikük fut ki merre lát.'
+  }, {
+    name: 'Bérgyilkos',
+    race: 'Ember',
+    level: '1',
+    exp: '20',
+    ERO: '12',
+    GYORS: '16',
+    UGY: '14',
+    ALLO: '12',
+    EG: '10',
+    SZEP: '11',
+    INT: '12',
+    AK: '14',
+    ASZT: '12',
+    KE: '30',
+    TE: '45',
+    VE: '80',
+    CE: '10',
+    SP: 'k6+1 ( vagy fegyver/méreg szerint )',
+    SFE: '0',
+    EP: '6',
+    FP: '9',
+    description: 'A helyi tolvajcég bérgyilkosa. Eredeti kasztja tolvaj, nem pedig fejvadász. Mindég lesből támad vagy mérgezi ellenfelét. Szereti magát állcázni, elvegyülni a tömegben, az álldozat mögé sodródni, majd mérgezett fegyverrel hátbaszúrni azt. Vagy tetőről mérgezett nyíllal meglőni álldozatát.',
+    role: 'Ha a karakterek olyan szervezet tyúkszemére lépnek, amely nem riad vissza a vérontástól, nagy esélyel egy ehhez hasonló bérgyilkossal kerülnek szembe ( hacsak megnem engedheti magának a szervezett a jóval drágább fejvadászok felbérlését ).',
+    sablon: 'Álcázza magát, hogy a célpont közelébe férjen, majd vagy megpróbálja megmérgezni, vagy hátbaszúrni azt. ( hátbaszúrás af, álcázás/álruha af, lopakodás: 35%, rejtőzködés: 40% ), ha harcra kerülne a sor inkább elmenekül, ha bír, és később újrapróbálkozik.'
+  }],
+  //need at least 15 for begining
+  monsters: [{
+    name: 'Goblin',
+    race: 'Goblin',
+    level: '1',
+    exp: '10',
+    ERO: '10',
+    GYORS: '12',
+    UGY: '12',
+    ALLO: '10',
+    EG: '9',
+    SZEP: '8',
+    INT: '8',
+    AK: '10',
+    ASZT: '7',
+    KE: '16',
+    TE: '27',
+    VE: '78',
+    CE: '5',
+    SP: 'k6',
+    SFE: '0',
+    EP: '4',
+    FP: '7',
+    description: 'A nagyobb törzsektől elszökött kis goblin csapat gyakori jelenség szinte minden erdőben, völgyben. Álltalában 3-10 fős csapatocska, akik szinte mindenkit megtámadnak, ha azok nem szemmel láthatólag erősebbek náluk. Fegyverzetük álltalában furkósbot, de néha szert tesznek más fegyverekre is.',
+    role: 'A goblin csapatok rendszeressen megtámadják a falvakat és utazókat, igy elsődleges célpontjai a ki kell írtani őket küldetéseknek.',
+    sablon: 'Megtámadnak mindenkit akit meglátnak, kivéve, ha az illetők szemmelláthatóan erősebbek, ilyenkor szöknek és csak akkor harcolnak, ha nincs más lehetőség. Ha valakit megtámadtak és a megtámadotak kezdenek felülkerekesni ( a goblinok egyharmada halott, vagy harcképtelen ), menekülőre fogják a dolgot.'
+  }, {
+    name: 'Kóborló',
+    race: 'Zombi',
+    level: '1',
+    exp: '10',
+    ERO: '20',
+    GYORS: '3',
+    UGY: '3',
+    ALLO: '20',
+    EG: '10',
+    SZEP: '3',
+    INT: '0',
+    AK: '0',
+    ASZT: '0',
+    KE: '0',
+    TE: '10',
+    VE: '55',
+    CE: '0',
+    SP: 'k6+5',
+    SFE: '0',
+    EP: '4',
+    FP: '-',
+    description: 'Necrográfiai osztály első csoportjába tartozó tudattalan élőhalott. Kóbrol halálának helyszíne körül és megtámad minden élőlényt aki arra téved. Tudata, inteligenciája nincsen, így sem asztrál sem pedig mentálmágiával nem lehet rá hatni ( kivéve egyes nekromancia varázslatokat ). A test lomhán gépiesen mozog és csak egyetlen célja van: minden élő elpusztítása. A kóborlót csak túlütéssel lehet sebezni.',
+    role: 'Temetőkben, régi csataterek helyszínén előforduló lény, a ki kell írtani lista élén található. Néha messze elkóborolnak haláluk helyszínétől, így szinte akárhol találkozhat velük az ember.',
+    sablon: 'Gépiessen, lomhán mozog, és minden élőt megtámad. Mindég a hozzá legközelebbet. Soha nem szökik, vagy áll meg, egészen addig míg el nem pusztítsák, bár lomha mozgása miatt könnyű elszökni előle, célpontját addig követi, míg az 20 lábtól távolabb nem kerül tőle, ezután folytatja kóborlását, valószínűleg abban az irányban, amely felé az álldozat szökött.'
+  }]
+};
+var getters = {
+  friendlyNpcs: function friendlyNpcs() {
+    return state.friendlyNpcs;
+  },
+  enemyNpc: function enemyNpc() {
+    return state.enemyNpc;
+  },
+  monsters: function monsters() {
+    return state.monsters;
   }
 };
 var mutations = {};
@@ -47171,6 +47602,45 @@ component.options.__file = "resources/js/components/gm_site/MagusModuleGlobalNpc
 
 /***/ }),
 
+/***/ "./resources/js/components/gm_site/MagusModuleGlobalNpcBestiarium.vue":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/gm_site/MagusModuleGlobalNpcBestiarium.vue ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusModuleGlobalNpcBestiarium_vue_vue_type_template_id_9eb74974___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusModuleGlobalNpcBestiarium.vue?vue&type=template&id=9eb74974& */ "./resources/js/components/gm_site/MagusModuleGlobalNpcBestiarium.vue?vue&type=template&id=9eb74974&");
+/* harmony import */ var _MagusModuleGlobalNpcBestiarium_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusModuleGlobalNpcBestiarium.vue?vue&type=script&lang=js& */ "./resources/js/components/gm_site/MagusModuleGlobalNpcBestiarium.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MagusModuleGlobalNpcBestiarium_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusModuleGlobalNpcBestiarium_vue_vue_type_template_id_9eb74974___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusModuleGlobalNpcBestiarium_vue_vue_type_template_id_9eb74974___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/gm_site/MagusModuleGlobalNpcBestiarium.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue":
 /*!**********************************************************************!*\
   !*** ./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue ***!
@@ -48309,6 +48779,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/gm_site/MagusModuleGlobalNpcBestiarium.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/gm_site/MagusModuleGlobalNpcBestiarium.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpcBestiarium_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusModuleGlobalNpcBestiarium.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpcBestiarium.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpcBestiarium_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************!*\
   !*** ./resources/js/components/gm_site/MagusModuleGlobalNpcEdit.vue?vue&type=script&lang=js& ***!
@@ -49088,6 +49574,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpc_vue_vue_type_template_id_c913c54a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpc_vue_vue_type_template_id_c913c54a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusModuleGlobalNpc.vue?vue&type=template&id=c913c54a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpc.vue?vue&type=template&id=c913c54a&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/gm_site/MagusModuleGlobalNpcBestiarium.vue?vue&type=template&id=9eb74974&":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/components/gm_site/MagusModuleGlobalNpcBestiarium.vue?vue&type=template&id=9eb74974& ***!
+  \***********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpcBestiarium_vue_vue_type_template_id_9eb74974___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpcBestiarium_vue_vue_type_template_id_9eb74974___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleGlobalNpcBestiarium_vue_vue_type_template_id_9eb74974___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusModuleGlobalNpcBestiarium.vue?vue&type=template&id=9eb74974& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpcBestiarium.vue?vue&type=template&id=9eb74974&");
 
 
 /***/ }),
@@ -52111,6 +52614,7 @@ var render = function () {
             {
               staticClass: "btn btn-success costum-btn m-3",
               attrs: { type: "button" },
+              on: { click: _vm.showBestiarium },
             },
             [_vm._v("Bestiárium")]
           ),
@@ -52250,11 +52754,11 @@ var render = function () {
                       _vm._v(" "),
                       _c("p", [_vm._v(_vm._s(npc.description))]),
                       _vm._v(" "),
-                      _c("p", [_vm._v("NJK Szerepe a játékban: ")]),
+                      _vm._m(5, true),
                       _vm._v(" "),
                       _c("p", [_vm._v(_vm._s(npc.role))]),
                       _vm._v(" "),
-                      _c("p", [_vm._v("NJK viselkedési mintája: ")]),
+                      _vm._m(6, true),
                       _vm._v(" "),
                       _c("p", [_vm._v(_vm._s(npc.sablon))]),
                     ]),
@@ -52335,16 +52839,21 @@ var render = function () {
       2
     ),
     _vm._v(" "),
-    _c("div", {
-      directives: [
-        {
-          name: "show",
-          rawName: "v-show",
-          value: _vm.currentView == "NPC",
-          expression: "currentView=='NPC'",
-        },
-      ],
-    }),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.currentView == "NPC",
+            expression: "currentView=='NPC'",
+          },
+        ],
+      },
+      [_c("magus-bestiarium", { on: { cancel: _vm.cancelNpcEdit } })],
+      1
+    ),
     _vm._v(" "),
     _c("div"),
     _vm._v(" "),
@@ -52391,6 +52900,779 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [_c("b", [_vm._v("Az NJK álltalános leírása:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK Szerepe a játékban: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK viselkedési mintája: ")])])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpcBestiarium.vue?vue&type=template&id=9eb74974&":
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleGlobalNpcBestiarium.vue?vue&type=template&id=9eb74974& ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "tab-content", attrs: { id: "pills-tabContent" } },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "tab-pane fade show active",
+            attrs: {
+              id: "pills-npc",
+              role: "tabpanel",
+              "aria-labelledby": "pills-npc-tab",
+            },
+          },
+          _vm._l(_vm.friendlyNpcs, function (npc, index) {
+            return _c(
+              "div",
+              { key: "NPC" + index, staticClass: "accordion-item" },
+              [
+                _c(
+                  "h2",
+                  {
+                    staticClass: "accordion-header",
+                    attrs: { id: "NPC" + index + "-heading" },
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "accordion-button collapsed",
+                        attrs: {
+                          type: "button",
+                          "data-bs-toggle": "collapse",
+                          "data-bs-target": "#" + "NPC" + index,
+                          "aria-expanded": "false",
+                          "aria-controls": "NPC" + index,
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(npc.name) +
+                            "\n                    "
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "accordion-collapse collapse",
+                    attrs: {
+                      id: "NPC" + index,
+                      "aria-labelledby": "NPC" + index + "-heading",
+                    },
+                  },
+                  [
+                    _c("div", { staticClass: "accordion-body" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm" }, [
+                          _c("p", [
+                            _c("b", [_vm._v("Faj: ")]),
+                            _vm._v(" " + _vm._s(npc.race) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _c("b", [_vm._v("Szint: ")]),
+                            _vm._v(" " + _vm._s(npc.level) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _c("b", [_vm._v("TP érték: ")]),
+                            _vm._v(" " + _vm._s(npc.exp) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(1, true),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Életerő Pontok ( Ép ): " + _vm._s(npc.EP)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Fájdalomtűrési Pontok ( Fp ): " + _vm._s(npc.FP)
+                            ),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm" }, [
+                          _vm._m(2, true),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Erő: " + _vm._s(npc.ERO))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Gyorsaság: " + _vm._s(npc.GYORS))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Ügyesség: " + _vm._s(npc.UGY))]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Állóképesség: " + _vm._s(npc.ALLO)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Egészség: " + _vm._s(npc.EG))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Szépség: " + _vm._s(npc.SZEP))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Inteligencia: " + _vm._s(npc.INT))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Akaraterő: " + _vm._s(npc.AK))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Asztrál: " + _vm._s(npc.ASZT))]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm" }, [
+                          _vm._m(3, true),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Kezdeményező Érték ( KÉ ): " + _vm._s(npc.KE)
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Támadó Érték ( TÉ ): " + _vm._s(npc.TE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Védő Érték ( VÉ ): " + _vm._s(npc.VE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Célzó Érték ( CÉ ): " + _vm._s(npc.CE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Sebzés ( Sp ): " + _vm._s(npc.SP))]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Sebzés Felfogó Érték ( SFÉ ): " + _vm._s(npc.SFE)
+                            ),
+                          ]),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _vm._m(4, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.description))]),
+                        _vm._v(" "),
+                        _vm._m(5, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.role))]),
+                        _vm._v(" "),
+                        _vm._m(6, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.sablon))]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-center m-2" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success costum-btn m-3",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.npcAdd(npc, index)
+                              },
+                            },
+                          },
+                          [_vm._v("NJK hozzáadása a listához")]
+                        ),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]
+            )
+          }),
+          0
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "tab-pane fade",
+            attrs: {
+              id: "pills-npcEnemy",
+              role: "tabpanel",
+              "aria-labelledby": "pills-npcEnemy-tab",
+            },
+          },
+          _vm._l(_vm.enemyNpc, function (npc, index) {
+            return _c(
+              "div",
+              { key: "ENPC" + index, staticClass: "accordion-item" },
+              [
+                _c(
+                  "h2",
+                  {
+                    staticClass: "accordion-header",
+                    attrs: { id: "ENPC" + index + "-heading" },
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "accordion-button collapsed",
+                        attrs: {
+                          type: "button",
+                          "data-bs-toggle": "collapse",
+                          "data-bs-target": "#" + "ENPC" + index,
+                          "aria-expanded": "false",
+                          "aria-controls": "ENPC" + index,
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(npc.name) +
+                            "\n                    "
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "accordion-collapse collapse",
+                    attrs: {
+                      id: "ENPC" + index,
+                      "aria-labelledby": "ENPC" + index + "-heading",
+                    },
+                  },
+                  [
+                    _c("div", { staticClass: "accordion-body" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm" }, [
+                          _c("p", [
+                            _c("b", [_vm._v("Faj: ")]),
+                            _vm._v(" " + _vm._s(npc.race) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _c("b", [_vm._v("Szint: ")]),
+                            _vm._v(" " + _vm._s(npc.level) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _c("b", [_vm._v("TP érték: ")]),
+                            _vm._v(" " + _vm._s(npc.exp) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(7, true),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Életerő Pontok ( Ép ): " + _vm._s(npc.EP)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Fájdalomtűrési Pontok ( Fp ): " + _vm._s(npc.FP)
+                            ),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm" }, [
+                          _vm._m(8, true),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Erő: " + _vm._s(npc.ERO))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Gyorsaság: " + _vm._s(npc.GYORS))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Ügyesség: " + _vm._s(npc.UGY))]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Állóképesség: " + _vm._s(npc.ALLO)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Egészség: " + _vm._s(npc.EG))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Szépség: " + _vm._s(npc.SZEP))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Inteligencia: " + _vm._s(npc.INT))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Akaraterő: " + _vm._s(npc.AK))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Asztrál: " + _vm._s(npc.ASZT))]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm" }, [
+                          _vm._m(9, true),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Kezdeményező Érték ( KÉ ): " + _vm._s(npc.KE)
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Támadó Érték ( TÉ ): " + _vm._s(npc.TE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Védő Érték ( VÉ ): " + _vm._s(npc.VE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Célzó Érték ( CÉ ): " + _vm._s(npc.CE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Sebzés ( Sp ): " + _vm._s(npc.SP))]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Sebzés Felfogó Érték ( SFÉ ): " + _vm._s(npc.SFE)
+                            ),
+                          ]),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _vm._m(10, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.description))]),
+                        _vm._v(" "),
+                        _vm._m(11, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.role))]),
+                        _vm._v(" "),
+                        _vm._m(12, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.sablon))]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-center m-2" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success costum-btn m-3",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.npcAdd(npc, index)
+                              },
+                            },
+                          },
+                          [_vm._v("NJK hozzáadása a listához")]
+                        ),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]
+            )
+          }),
+          0
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "tab-pane fade",
+            attrs: {
+              id: "pills-bestia",
+              role: "tabpanel",
+              "aria-labelledby": "pills-bestia-tab",
+            },
+          },
+          _vm._l(_vm.monsters, function (npc, index) {
+            return _c(
+              "div",
+              { key: "BESTIA" + index, staticClass: "accordion-item" },
+              [
+                _c(
+                  "h2",
+                  {
+                    staticClass: "accordion-header",
+                    attrs: { id: "BESTIA" + index + "-heading" },
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "accordion-button collapsed",
+                        attrs: {
+                          type: "button",
+                          "data-bs-toggle": "collapse",
+                          "data-bs-target": "#" + "BESTIA" + index,
+                          "aria-expanded": "false",
+                          "aria-controls": "BESTIA" + index,
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(npc.name) +
+                            "\n                    "
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "accordion-collapse collapse",
+                    attrs: {
+                      id: "BESTIA" + index,
+                      "aria-labelledby": "BESTIA" + index + "-heading",
+                    },
+                  },
+                  [
+                    _c("div", { staticClass: "accordion-body" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm" }, [
+                          _c("p", [
+                            _c("b", [_vm._v("Faj: ")]),
+                            _vm._v(" " + _vm._s(npc.race) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _c("b", [_vm._v("Szint: ")]),
+                            _vm._v(" " + _vm._s(npc.level) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _c("b", [_vm._v("TP érték: ")]),
+                            _vm._v(" " + _vm._s(npc.exp) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(13, true),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Életerő Pontok ( Ép ): " + _vm._s(npc.EP)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Fájdalomtűrési Pontok ( Fp ): " + _vm._s(npc.FP)
+                            ),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm" }, [
+                          _vm._m(14, true),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Erő: " + _vm._s(npc.ERO))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Gyorsaság: " + _vm._s(npc.GYORS))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Ügyesség: " + _vm._s(npc.UGY))]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Állóképesség: " + _vm._s(npc.ALLO)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Egészség: " + _vm._s(npc.EG))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Szépség: " + _vm._s(npc.SZEP))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Inteligencia: " + _vm._s(npc.INT))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Akaraterő: " + _vm._s(npc.AK))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Asztrál: " + _vm._s(npc.ASZT))]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm" }, [
+                          _vm._m(15, true),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Kezdeményező Érték ( KÉ ): " + _vm._s(npc.KE)
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Támadó Érték ( TÉ ): " + _vm._s(npc.TE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Védő Érték ( VÉ ): " + _vm._s(npc.VE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Célzó Érték ( CÉ ): " + _vm._s(npc.CE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Sebzés ( Sp ): " + _vm._s(npc.SP))]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Sebzés Felfogó Érték ( SFÉ ): " + _vm._s(npc.SFE)
+                            ),
+                          ]),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _vm._m(16, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.description))]),
+                        _vm._v(" "),
+                        _vm._m(17, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.role))]),
+                        _vm._v(" "),
+                        _vm._m(18, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.sablon))]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-center m-2" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success costum-btn m-3",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.npcAdd(npc)
+                              },
+                            },
+                          },
+                          [_vm._v("NJK hozzáadása a listához")]
+                        ),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]
+            )
+          }),
+          0
+        ),
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "text-center m-3" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary costum-btn m-3",
+          attrs: { type: "button" },
+          on: { click: _vm.cancelEdit },
+        },
+        [_vm._v("Mégsem")]
+      ),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "ul",
+      {
+        staticClass: "nav nav-pills mb-3 border border-success rounded p-3",
+        attrs: { id: "pills-tab", role: "tablist" },
+      },
+      [
+        _c("li", { staticClass: "nav-item", attrs: { role: "presentation" } }, [
+          _c(
+            "button",
+            {
+              staticClass: "nav-link active",
+              attrs: {
+                id: "pills-npc-tab",
+                "data-bs-toggle": "pill",
+                "data-bs-target": "#pills-npc",
+                type: "button",
+                role: "tab",
+                "aria-controls": "pills-npc",
+                "aria-selected": "true",
+              },
+            },
+            [_vm._v("Baráti Nem Játékos Karakterek")]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item", attrs: { role: "presentation" } }, [
+          _c(
+            "button",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "pills-npcEnemy-tab",
+                "data-bs-toggle": "pill",
+                "data-bs-target": "#pills-npcEnemy",
+                type: "button",
+                role: "tab",
+                "aria-controls": "pills-npcEnemy",
+                "aria-selected": "false",
+              },
+            },
+            [_vm._v("Ellenséges Nem Játékos Karakterek")]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item", attrs: { role: "presentation" } }, [
+          _c(
+            "button",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "pills-bestia-tab",
+                "data-bs-toggle": "pill",
+                "data-bs-target": "#pills-bestia",
+                type: "button",
+                role: "tab",
+                "aria-controls": "pills-bestia",
+                "aria-selected": "false",
+              },
+            },
+            [_vm._v("Szörnyek")]
+          ),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Életerő:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Tulajdonságok:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Harcértékek: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Az NJK álltalános leírása:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK Szerepe a játékban: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK viselkedési mintája: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Életerő:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Tulajdonságok:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Harcértékek: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Az NJK álltalános leírása:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK Szerepe a játékban: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK viselkedési mintája: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Életerő:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Tulajdonságok:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Harcértékek: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Az NJK álltalános leírása:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK Szerepe a játékban: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK viselkedési mintája: ")])])
   },
 ]
 render._withStripped = true

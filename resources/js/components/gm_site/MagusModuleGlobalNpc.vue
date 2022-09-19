@@ -15,7 +15,7 @@
             <div v-show="currentView=='LIST'">
                 <div class="text-center m-3">
                     <button type="button" class="btn btn-success costum-btn m-3" @click="newNpcEdit">NJK hozzáadása</button>
-                    <button type="button" class="btn btn-success costum-btn m-3">Bestiárium</button>
+                    <button type="button" class="btn btn-success costum-btn m-3" @click="showBestiarium">Bestiárium</button>
                 </div>
                 <div v-for="npc, index in npcs" :key="'NPC' + index" class="accordion-item">
                     <h2 class="accordion-header" :id="'NPC' + index + '-heading'">
@@ -59,9 +59,9 @@
                             <div>
                                 <p><b>Az NJK álltalános leírása:</b></p>
                                 <p>{{ npc.description }}</p>
-                                <p>NJK Szerepe a játékban: </p>
+                                <p><b>NJK Szerepe a játékban: </b></p>
                                 <p>{{ npc.role }}</p>
-                                <p>NJK viselkedési mintája: </p>
+                                <p><b>NJK viselkedési mintája: </b></p>
                                 <p>{{ npc.sablon }}</p>
                             </div>
                             <div v-if="deleting==index" class="text-center m-2 border border-danger border-2 rounded-5">
@@ -79,7 +79,7 @@
             </div>
 
             <div v-show="currentView=='NPC'">
-
+                <magus-bestiarium @cancel="cancelNpcEdit"/>
             </div>
         <div>
 
@@ -95,6 +95,7 @@
 
 <script>
 import NpcEdit from './MagusModuleGlobalNpcEdit.vue';
+import magusBestiarium from './MagusModuleGlobalNpcBestiarium.vue';
 
 export default {
     props: {
@@ -104,7 +105,8 @@ export default {
         }
     },
     components: {
-        NpcEdit
+        NpcEdit,
+        magusBestiarium,
     },
     data() {
         return {
@@ -158,6 +160,9 @@ export default {
         newNpcEdit() {
             this.currentView = 'EDIT';
             this.$refs.npcEdit.setDefaultNpc(); 
+        },
+        showBestiarium() {
+            this.currentView = 'NPC';
         },
         saveNpcEdit({ npc, index }) {
             if (index !== null) {
