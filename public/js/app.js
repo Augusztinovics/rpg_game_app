@@ -6946,6 +6946,60 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -6962,7 +7016,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       npcs: [],
-      currentView: 'LIST',
+      currentView: "LIST",
       loading: false,
       error: false,
       deleting: null
@@ -6973,7 +7027,7 @@ __webpack_require__.r(__webpack_exports__);
     getNpc: function getNpc() {
       var _this = this;
 
-      axios.get('/gm/get-magus-game-module-npc/' + this.moduleId).then(function (res) {
+      axios.get("/gm/get-magus-game-module-npc/" + this.moduleId).then(function (res) {
         if (res.data.npcs) {
           _this.npcs = res.data.npcs;
         }
@@ -6986,7 +7040,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.loading = true;
       this.error = false;
-      axios.post('/gm/update-magus-game-module-npc/' + this.moduleId, {
+      axios.post("/gm/update-magus-game-module-npc/" + this.moduleId, {
         npcs: this.npcs
       }).then(function (res) {
         _this2.loading = false;
@@ -7010,11 +7064,11 @@ __webpack_require__.r(__webpack_exports__);
       this.saveNpc();
     },
     newNpcEdit: function newNpcEdit() {
-      this.currentView = 'EDIT';
+      this.currentView = "EDIT";
       this.$refs.npcEdit.setDefaultNpc();
     },
     showBestiarium: function showBestiarium() {
-      this.currentView = 'NPC';
+      this.currentView = "NPC";
     },
     saveNpcEdit: function saveNpcEdit(_ref) {
       var npc = _ref.npc,
@@ -7027,13 +7081,13 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.saveNpc();
-      this.currentView = 'LIST';
+      this.currentView = "LIST";
     },
     cancelNpcEdit: function cancelNpcEdit() {
-      this.currentView = 'LIST';
+      this.currentView = "LIST";
     },
     npcEdit: function npcEdit(npc, index) {
-      this.currentView = 'EDIT';
+      this.currentView = "EDIT";
       this.$refs.npcEdit.setNpc(npc, index);
     }
   }
@@ -7255,7 +7309,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     monsters: 'monsters'
   })),
   methods: {
-    npcAdd: function npcAdd(npc) {//lekezelni az npc hozzaadasat a globalis listahoz
+    npcAdd: function npcAdd(npc) {
+      this.$emit('save', {
+        npc: npc,
+        index: null
+      });
     },
     cancelEdit: function cancelEdit() {
       this.$emit('cancel');
@@ -28763,7 +28821,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#overlay[data-v-c913c54a] {\nposition: fixed;\nwidth: 100%;\nheight: 100%;\ntop: 0;\nleft: 0;\nright: 0;\nbottom: 0;\nbackground-color: rgba(0,0,0,0.5);\nz-index: 200;\n}\n#overlayText[data-v-c913c54a]{\nposition: absolute;\ntop: 50%;\nleft: 50%;\nfont-size: 50px;\ncolor: white;\ntransform: translate(-50%,-50%);\n-ms-transform: translate(-50%,-50%);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#overlay[data-v-c913c54a] {\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    z-index: 200;\n}\n#overlayText[data-v-c913c54a] {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    font-size: 50px;\r\n    color: white;\r\n    transform: translate(-50%, -50%);\r\n    -ms-transform: translate(-50%, -50%);\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -52572,7 +52630,7 @@ var render = function () {
             name: "show",
             rawName: "v-show",
             value: _vm.currentView == "EDIT",
-            expression: "currentView=='EDIT'",
+            expression: "currentView == 'EDIT'",
           },
         ],
       },
@@ -52593,7 +52651,7 @@ var render = function () {
             name: "show",
             rawName: "v-show",
             value: _vm.currentView == "LIST",
-            expression: "currentView=='LIST'",
+            expression: "currentView == 'LIST'",
           },
         ],
       },
@@ -52606,7 +52664,7 @@ var render = function () {
               attrs: { type: "button" },
               on: { click: _vm.newNpcEdit },
             },
-            [_vm._v("NJK hozzáadása")]
+            [_vm._v("\n                NJK hozzáadása\n            ")]
           ),
           _vm._v(" "),
           _c(
@@ -52616,7 +52674,7 @@ var render = function () {
               attrs: { type: "button" },
               on: { click: _vm.showBestiarium },
             },
-            [_vm._v("Bestiárium")]
+            [_vm._v("\n                Bestiárium\n            ")]
           ),
         ]),
         _vm._v(" "),
@@ -52646,9 +52704,9 @@ var render = function () {
                     },
                     [
                       _vm._v(
-                        "\n                        " +
+                        "\n                    " +
                           _vm._s(npc.name) +
-                          "\n                    "
+                          "\n                "
                       ),
                     ]
                   ),
@@ -52670,17 +52728,17 @@ var render = function () {
                       _c("div", { staticClass: "col-sm" }, [
                         _c("p", [
                           _c("b", [_vm._v("Faj: ")]),
-                          _vm._v(" " + _vm._s(npc.race) + " "),
+                          _vm._v(" " + _vm._s(npc.race)),
                         ]),
                         _vm._v(" "),
                         _c("p", [
                           _c("b", [_vm._v("Szint: ")]),
-                          _vm._v(" " + _vm._s(npc.level) + " "),
+                          _vm._v(" " + _vm._s(npc.level)),
                         ]),
                         _vm._v(" "),
                         _c("p", [
                           _c("b", [_vm._v("TP érték: ")]),
-                          _vm._v(" " + _vm._s(npc.exp) + " "),
+                          _vm._v(" " + _vm._s(npc.exp)),
                         ]),
                         _vm._v(" "),
                         _vm._m(1, true),
@@ -52691,7 +52749,9 @@ var render = function () {
                         _vm._v(" "),
                         _c("p", [
                           _vm._v(
-                            "Fájdalomtűrési Pontok ( Fp ): " + _vm._s(npc.FP)
+                            "\n                                Fájdalomtűrési Pontok ( Fp ): " +
+                              _vm._s(npc.FP) +
+                              "\n                            "
                           ),
                         ]),
                       ]),
@@ -52743,7 +52803,9 @@ var render = function () {
                         _vm._v(" "),
                         _c("p", [
                           _vm._v(
-                            "Sebzés Felfogó Érték ( SFÉ ): " + _vm._s(npc.SFE)
+                            "\n                                Sebzés Felfogó Érték ( SFÉ ): " +
+                              _vm._s(npc.SFE) +
+                              "\n                            "
                           ),
                         ]),
                       ]),
@@ -52782,7 +52844,11 @@ var render = function () {
                                 attrs: { type: "button" },
                                 on: { click: _vm.cancelDeleting },
                               },
-                              [_vm._v("Mégsem")]
+                              [
+                                _vm._v(
+                                  "\n                            Mégsem\n                        "
+                                ),
+                              ]
                             ),
                             _vm._v(" "),
                             _c(
@@ -52796,7 +52862,11 @@ var render = function () {
                                   },
                                 },
                               },
-                              [_vm._v("Töröl")]
+                              [
+                                _vm._v(
+                                  "\n                            Töröl\n                        "
+                                ),
+                              ]
                             ),
                           ]
                         )
@@ -52812,7 +52882,11 @@ var render = function () {
                                 },
                               },
                             },
-                            [_vm._v("Módosít")]
+                            [
+                              _vm._v(
+                                "\n                            Módosít\n                        "
+                              ),
+                            ]
                           ),
                           _vm._v(" "),
                           _c(
@@ -52826,7 +52900,11 @@ var render = function () {
                                 },
                               },
                             },
-                            [_vm._v("Töröl")]
+                            [
+                              _vm._v(
+                                "\n                            Töröl\n                        "
+                              ),
+                            ]
                           ),
                         ]),
                   ]),
@@ -52847,11 +52925,15 @@ var render = function () {
             name: "show",
             rawName: "v-show",
             value: _vm.currentView == "NPC",
-            expression: "currentView=='NPC'",
+            expression: "currentView == 'NPC'",
           },
         ],
       },
-      [_c("magus-bestiarium", { on: { cancel: _vm.cancelNpcEdit } })],
+      [
+        _c("magus-bestiarium", {
+          on: { cancel: _vm.cancelNpcEdit, save: _vm.saveNpcEdit },
+        }),
+      ],
       1
     ),
     _vm._v(" "),
@@ -52860,7 +52942,7 @@ var render = function () {
     _vm.loading
       ? _c("div", { attrs: { id: "overlay" } }, [
           _c("div", { attrs: { id: "overlayText" } }, [
-            _vm._v("\n            Mentés folyamatban...\n        "),
+            _vm._v("Mentés folyamatban..."),
           ]),
         ])
       : _vm._e(),

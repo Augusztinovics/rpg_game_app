@@ -198,7 +198,7 @@ export default {
     },
     methods: {
         npcAdd(npc) {
-            //lekezelni az npc hozzaadasat a globalis listahoz
+           this.$emit('save', {npc: npc, index: null});
         },
         cancelEdit() {
             this.$emit('cancel');
