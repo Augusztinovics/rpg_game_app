@@ -4,11 +4,11 @@
         <div>
             <!-- Jelenet sorszama -->
             <div class="text-end">
-                <p>{{ module_data.game_module_data_order}}</p>
+                <p>{{ localOrder }}</p>
             </div>
             <!-- Jelenet cim -->
             <div class="text-center m-3">
-                <h1>{{ moduleData.module_data.title }}<span class="ms-3"><button type="button" class="btn btn-success btn-sm costum-btn">Módosít</button></span></h1>
+                <h1>{{ localData.title }}<span class="ms-3"><button type="button" class="btn btn-success btn-sm costum-btn">Módosít</button></span></h1>
             </div>
             <!-- Jelenet leirasa hatterkeppel -->
             <div class="text-center">
@@ -16,7 +16,7 @@
                     <button type="button" class="btn btn-success btn-sm costum-btn">Háttér kép</button>
                 </div>
                 <div>
-                    <p>{{ moduleData.module_data.description }}</p>
+                    <p>{{ localData.description }}</p>
                     <button type="button" class="btn btn-success btn-sm costum-btn">Módosít</button>
                 </div>
             </div>
@@ -42,9 +42,13 @@ export default {
     },
     data() {
         return {
-            inputTitle: '',
-            inputDescript: '',
+            localOrder: null,
+            localData: {},
         }
     },
+    mounted() {
+        this.localOrder = this.moduleData.game_module_data_order;
+        this.localData = this.moduleData.module_data;
+    }
 }
 </script>

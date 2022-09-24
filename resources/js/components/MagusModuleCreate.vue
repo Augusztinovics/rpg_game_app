@@ -22,11 +22,11 @@
 
         <div>
             <!-- jelenet containaer -->
-            <div>
-
+            <div v-for="data, index in magusGameData" :key="'Data' + index">
+                <magus-module-stage :moduleData="data" />
             </div>
             <div class="text-center m-4">
-                <button class="btn btn-success btn-lg m-4">+ Jelenet hozzáadása</button>
+                <button class="btn btn-success btn-lg m-4" @click="addNewStage">+ Jelenet hozzáadása</button>
             </div>
         </div>
         
@@ -81,15 +81,17 @@
 <script>
 import GameModuleGlobalNote from './gm_site/MagusModuleGlobalNote.vue';
 import GameModuleGlobalNpc from './gm_site/MagusModuleGlobalNpc.vue';
+import MagusModuleStage from './gm_site/MagusModuleStage.vue';
 
 export default {
     props: {
         gameModule: Object,
-        gameData: Object
+        gameData: Array
     },
     components: {
         GameModuleGlobalNote,
-        GameModuleGlobalNpc
+        GameModuleGlobalNpc,
+        MagusModuleStage
     },
     data() {
         return {
@@ -128,7 +130,22 @@ export default {
         },
         fatchNpc() {
             this.$refs.npcModule.getNpc();
-        }
+        },
+        addNewStage() {
+            axios.post('/gm/create-game-module-data/' + this.moduleId, {
+                moduleOrder: this.dataCount + 1
+            }).then( res => {
+                console.log(res);
+                this.magusGameData.push(res.data);
+                this.loading = false;
+            }).catch( err => {
+                this.loading = false;
+                this.error = true;
+                setTimeout(() => {
+                    this.error = false;
+                }, 3000)
+            })
+        },
     },
     mounted() {
         console.log(this.gameModule);

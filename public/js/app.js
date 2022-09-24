@@ -5394,6 +5394,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _gm_site_MagusModuleGlobalNote_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gm_site/MagusModuleGlobalNote.vue */ "./resources/js/components/gm_site/MagusModuleGlobalNote.vue");
 /* harmony import */ var _gm_site_MagusModuleGlobalNpc_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./gm_site/MagusModuleGlobalNpc.vue */ "./resources/js/components/gm_site/MagusModuleGlobalNpc.vue");
+/* harmony import */ var _gm_site_MagusModuleStage_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./gm_site/MagusModuleStage.vue */ "./resources/js/components/gm_site/MagusModuleStage.vue");
 //
 //
 //
@@ -5474,16 +5475,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     gameModule: Object,
-    gameData: Object
+    gameData: Array
   },
   components: {
     GameModuleGlobalNote: _gm_site_MagusModuleGlobalNote_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    GameModuleGlobalNpc: _gm_site_MagusModuleGlobalNpc_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    GameModuleGlobalNpc: _gm_site_MagusModuleGlobalNpc_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    MagusModuleStage: _gm_site_MagusModuleStage_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -5524,6 +5527,25 @@ __webpack_require__.r(__webpack_exports__);
     },
     fatchNpc: function fatchNpc() {
       this.$refs.npcModule.getNpc();
+    },
+    addNewStage: function addNewStage() {
+      var _this2 = this;
+
+      axios.post('/gm/create-game-module-data/' + this.moduleId, {
+        moduleOrder: this.dataCount + 1
+      }).then(function (res) {
+        console.log(res);
+
+        _this2.magusGameData.push(res.data);
+
+        _this2.loading = false;
+      })["catch"](function (err) {
+        _this2.loading = false;
+        _this2.error = true;
+        setTimeout(function () {
+          _this2.error = false;
+        }, 3000);
+      });
     }
   },
   mounted: function mounted() {
@@ -7542,6 +7564,72 @@ __webpack_require__.r(__webpack_exports__);
         index: this.npcIndex
       });
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleStage.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleStage.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    moduleData: Object
+  },
+  data: function data() {
+    return {
+      localOrder: null,
+      localData: {}
+    };
+  },
+  mounted: function mounted() {
+    this.localOrder = this.moduleData.game_module_data_order;
+    this.localData = this.moduleData.module_data;
   }
 });
 
@@ -47738,6 +47826,45 @@ component.options.__file = "resources/js/components/gm_site/MagusModuleGlobalNpc
 
 /***/ }),
 
+/***/ "./resources/js/components/gm_site/MagusModuleStage.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/gm_site/MagusModuleStage.vue ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusModuleStage_vue_vue_type_template_id_df84baca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusModuleStage.vue?vue&type=template&id=df84baca& */ "./resources/js/components/gm_site/MagusModuleStage.vue?vue&type=template&id=df84baca&");
+/* harmony import */ var _MagusModuleStage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusModuleStage.vue?vue&type=script&lang=js& */ "./resources/js/components/gm_site/MagusModuleStage.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MagusModuleStage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusModuleStage_vue_vue_type_template_id_df84baca___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusModuleStage_vue_vue_type_template_id_df84baca___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/gm_site/MagusModuleStage.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/ChatBox.vue":
 /*!*********************************************************!*\
   !*** ./resources/js/components/player_site/ChatBox.vue ***!
@@ -48869,6 +48996,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/gm_site/MagusModuleStage.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/gm_site/MagusModuleStage.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleStage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusModuleStage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleStage.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleStage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/ChatBox.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/player_site/ChatBox.vue?vue&type=script&lang=js& ***!
@@ -49670,6 +49813,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/gm_site/MagusModuleStage.vue?vue&type=template&id=df84baca&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/gm_site/MagusModuleStage.vue?vue&type=template&id=df84baca& ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleStage_vue_vue_type_template_id_df84baca___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleStage_vue_vue_type_template_id_df84baca___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleStage_vue_vue_type_template_id_df84baca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusModuleStage.vue?vue&type=template&id=df84baca& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleStage.vue?vue&type=template&id=df84baca&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/ChatBox.vue?vue&type=template&id=ce2fa2e4&scoped=true&":
 /*!****************************************************************************************************!*\
   !*** ./resources/js/components/player_site/ChatBox.vue?vue&type=template&id=ce2fa2e4&scoped=true& ***!
@@ -50427,7 +50587,31 @@ var render = function () {
       ]
     ),
     _vm._v(" "),
-    _vm._m(1),
+    _c(
+      "div",
+      [
+        _vm._l(_vm.magusGameData, function (data, index) {
+          return _c(
+            "div",
+            { key: "Data" + index },
+            [_c("magus-module-stage", { attrs: { moduleData: data } })],
+            1
+          )
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "text-center m-4" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success btn-lg m-4",
+              on: { click: _vm.addNewStage },
+            },
+            [_vm._v("+ Jelenet hozzáadása")]
+          ),
+        ]),
+      ],
+      2
+    ),
     _vm._v(" "),
     _vm.loading
       ? _c("div", { attrs: { id: "overlay" } }, [
@@ -50451,7 +50635,7 @@ var render = function () {
       [
         _c("div", { staticClass: "modal-dialog modal-fullscreen" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _vm._m(2),
+            _vm._m(1),
             _vm._v(" "),
             _c(
               "div",
@@ -50465,7 +50649,7 @@ var render = function () {
               1
             ),
             _vm._v(" "),
-            _vm._m(3),
+            _vm._m(2),
           ]),
         ]),
       ]
@@ -50485,7 +50669,7 @@ var render = function () {
       [
         _c("div", { staticClass: "modal-dialog modal-fullscreen" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _vm._m(4),
+            _vm._m(3),
             _vm._v(" "),
             _c(
               "div",
@@ -50499,7 +50683,7 @@ var render = function () {
               1
             ),
             _vm._v(" "),
-            _vm._m(5),
+            _vm._m(4),
           ]),
         ]),
       ]
@@ -50514,20 +50698,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "text-center bg-danger m-3" }, [
       _c("p", { staticClass: "text-light p-4" }, [
         _vm._v("Hiba történt mentés közben..."),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div"),
-      _vm._v(" "),
-      _c("div", { staticClass: "text-center m-4" }, [
-        _c("button", { staticClass: "btn btn-success btn-lg m-4" }, [
-          _vm._v("+ Jelenet hozzáadása"),
-        ]),
       ]),
     ])
   },
@@ -54701,6 +54871,91 @@ var staticRenderFns = [
       { staticClass: "input-group-text", attrs: { id: "sfe" } },
       [_c("b", [_vm._v("SFÉ :")])]
     )
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleStage.vue?vue&type=template&id=df84baca&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleStage.vue?vue&type=template&id=df84baca& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", [
+      _c("div", { staticClass: "text-end" }, [
+        _c("p", [_vm._v(_vm._s(_vm.localOrder))]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-center m-3" }, [
+        _c("h1", [_vm._v(_vm._s(_vm.localData.title)), _vm._m(0)]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-center" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("div", [
+          _c("p", [_vm._v(_vm._s(_vm.localData.description))]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success btn-sm costum-btn",
+              attrs: { type: "button" },
+            },
+            [_vm._v("Módosít")]
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div"),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "ms-3" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success btn-sm costum-btn",
+          attrs: { type: "button" },
+        },
+        [_vm._v("Módosít")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-end" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success btn-sm costum-btn",
+          attrs: { type: "button" },
+        },
+        [_vm._v("Háttér kép")]
+      ),
+    ])
   },
 ]
 render._withStripped = true

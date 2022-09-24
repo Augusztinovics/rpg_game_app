@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\GameModule;
+use App\Models\GameModuleData;
 
 class GameModuleMakerController extends Controller
 {
@@ -52,7 +53,7 @@ class GameModuleMakerController extends Controller
 
             $data = [
                 'game_module' => $module,
-                'game_data' => $module->gameModuleDatas()
+                'game_data' => $module->gameModuleDatas
             ];
 
             return view('magusgameedit', $data);
@@ -125,7 +126,7 @@ class GameModuleMakerController extends Controller
        return response()->json($data, 200);
     }
 
-     /**
+    /**
      * updating module global notes
      * 
      * @return json
@@ -141,6 +142,30 @@ class GameModuleMakerController extends Controller
         $gameModule->save();
         
        return response()->json('Success', 200);
+    }
+
+    /**
+     * creating new game module data
+     * 
+     * @return json
+     */
+    public function createGameModuleData(Request $request, $id){
+        
+        $moduleOrder = $request->input('moduleOrder', 1);
+        $newModuleData = GameModuleData::create([
+            'game_module_id' => $id,
+            'game_module_data_order' => $moduleOrder,
+            'module_data' => [
+                'title' => '',
+                'description' => '',
+                'img' => 'default.jpg',
+                'note' => [],
+                'npcs' => [],
+                'map' => []
+            ]
+        ]);
+        
+       return response()->json($newModuleData, 200);
     }
    
 }
