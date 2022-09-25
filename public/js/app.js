@@ -5475,6 +5475,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -5531,11 +5537,11 @@ __webpack_require__.r(__webpack_exports__);
     addNewStage: function addNewStage() {
       var _this2 = this;
 
+      this.loading = true;
+      this.error = false;
       axios.post('/gm/create-game-module-data/' + this.moduleId, {
         moduleOrder: this.dataCount + 1
       }).then(function (res) {
-        console.log(res);
-
         _this2.magusGameData.push(res.data);
 
         _this2.loading = false;
@@ -5546,6 +5552,17 @@ __webpack_require__.r(__webpack_exports__);
           _this2.error = false;
         }, 3000);
       });
+    },
+    updatedMagusGameData: function updatedMagusGameData(_ref) {
+      var moduleData = _ref.moduleData,
+          index = _ref.index;
+      this.magusGameData[index] = moduleData;
+    },
+    moduleLoading: function moduleLoading(state) {
+      this.loading = state;
+    },
+    moduleError: function moduleError(state) {
+      this.error = state;
     }
   },
   mounted: function mounted() {
@@ -7617,15 +7634,79 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    moduleData: Object
+    moduleData: Object,
+    index: Number
   },
   data: function data() {
     return {
       localOrder: null,
       localData: {}
     };
+  },
+  methods: {
+    saveData: function saveData() {
+      var _this = this;
+
+      this.$emit('loading', true);
+      this.$emit('onError', false);
+      axios.post('/gm/update-game-module-data/' + this.moduleData.id, {
+        newData: this.localData
+      }).then(function (res) {
+        _this.$emit('updatedData', {
+          moduleData: res.data,
+          index: _this.index
+        });
+
+        _this.$emit('loading', false);
+      })["catch"](function (err) {
+        _this.$emit('loading', false);
+
+        _this.$emit('onError', true);
+
+        setTimeout(function () {
+          _this.$emit('onError', false);
+        }, 3000);
+      });
+    }
   },
   mounted: function mounted() {
     this.localOrder = this.moduleData.game_module_data_order;
@@ -50594,7 +50675,16 @@ var render = function () {
           return _c(
             "div",
             { key: "Data" + index },
-            [_c("magus-module-stage", { attrs: { moduleData: data } })],
+            [
+              _c("magus-module-stage", {
+                attrs: { moduleData: data, index: index },
+                on: {
+                  updatedData: _vm.updatedMagusGameData,
+                  loading: _vm.moduleLoading,
+                  onError: _vm.moduleError,
+                },
+              }),
+            ],
             1
           )
         }),
@@ -54915,7 +55005,11 @@ var render = function () {
             "button",
             {
               staticClass: "btn btn-success btn-sm costum-btn",
-              attrs: { type: "button" },
+              attrs: {
+                type: "button",
+                "data-bs-toggle": "modal",
+                "data-bs-target": "#desModal",
+              },
             },
             [_vm._v("Módosít")]
           ),
@@ -54924,6 +55018,135 @@ var render = function () {
       _vm._v(" "),
       _c("div"),
     ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "titleModal",
+          tabindex: "-1",
+          "aria-labelledby": "titleModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.localData.title,
+                    expression: "localData.title",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", id: "egyebb-text" },
+                domProps: { value: _vm.localData.title },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.localData, "title", $event.target.value)
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary costum-btn",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Bezár")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary costum-btn",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.saveData },
+                },
+                [_vm._v("Elment")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "desModal",
+          tabindex: "-1",
+          "aria-labelledby": "desModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(3),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.localData.description,
+                    expression: "localData.description",
+                  },
+                ],
+                staticClass: "form-control",
+                domProps: { value: _vm.localData.description },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.localData, "description", $event.target.value)
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary costum-btn",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Bezár")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary costum-btn",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.saveData },
+                },
+                [_vm._v("Elment")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
   ])
 }
 var staticRenderFns = [
@@ -54936,7 +55159,11 @@ var staticRenderFns = [
         "button",
         {
           staticClass: "btn btn-success btn-sm costum-btn",
-          attrs: { type: "button" },
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#titleModal",
+          },
         },
         [_vm._v("Módosít")]
       ),
@@ -54955,6 +55182,46 @@ var staticRenderFns = [
         },
         [_vm._v("Háttér kép")]
       ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "titleModalLabel" } },
+        [_vm._v("Jelenet címe")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title", attrs: { id: "desModalLabel" } }, [
+        _vm._v("Jelenet leírása"),
+      ]),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
     ])
   },
 ]

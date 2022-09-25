@@ -82,3 +82,4 @@ Route::get('gm/get-magus-game-module-note/{id}', [GameModuleMakerController::cla
 Route::get('gm/get-magus-game-module-npc/{id}', [GameModuleMakerController::class, 'getGameModuleNpc']);
 Route::post('gm/update-magus-game-module-npc/{id}', [GameModuleMakerController::class, 'updateGameModuleNpc']);
 Route::post('gm/create-game-module-data/{id}', [GameModuleMakerController::class, 'createGameModuleData']);
+Route::post('gm/update-game-module-data/{id}', [GameModuleMakerController::class, 'updateGameModuleData']);

@@ -167,5 +167,23 @@ class GameModuleMakerController extends Controller
         
        return response()->json($newModuleData, 200);
     }
+
+     /**
+     * updating game module data
+     * 
+     * @return json
+     */
+    public function updateGameModuleData(Request $request, $id){
+        
+        $moduleData = $request->input('newData');
+        if (!$moduleData) {
+            return response()->json(['error' => 'missing module data'], 406);
+        }
+        $gameModule = GameModuleData::findOrFail($id);
+        $gameModule->module_data = $moduleData;
+        $gameModule->save();
+        
+       return response()->json($gameModule, 200);
+    }
    
 }

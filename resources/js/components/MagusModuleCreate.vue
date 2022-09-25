@@ -23,7 +23,13 @@
         <div>
             <!-- jelenet containaer -->
             <div v-for="data, index in magusGameData" :key="'Data' + index">
-                <magus-module-stage :moduleData="data" />
+                <magus-module-stage 
+                    :moduleData="data"
+                    :index="index"
+                    @updatedData="updatedMagusGameData"
+                    @loading="moduleLoading"
+                    @onError="moduleError"
+                />
             </div>
             <div class="text-center m-4">
                 <button class="btn btn-success btn-lg m-4" @click="addNewStage">+ Jelenet hozzáadása</button>
@@ -132,10 +138,11 @@ export default {
             this.$refs.npcModule.getNpc();
         },
         addNewStage() {
+            this.loading = true;
+            this.error = false;
             axios.post('/gm/create-game-module-data/' + this.moduleId, {
                 moduleOrder: this.dataCount + 1
             }).then( res => {
-                console.log(res);
                 this.magusGameData.push(res.data);
                 this.loading = false;
             }).catch( err => {
@@ -145,6 +152,15 @@ export default {
                     this.error = false;
                 }, 3000)
             })
+        },
+        updatedMagusGameData({moduleData, index}) {
+            this.magusGameData[index] = moduleData;
+        },
+        moduleLoading(state) {
+            this.loading = state;
+        },
+        moduleError(state) {
+            this.error = state;
         },
     },
     mounted() {
