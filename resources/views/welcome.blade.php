@@ -89,8 +89,8 @@
         <main>
             <div class="cover-image">
                 <div class="cover-text">
-                <h1 class="display-2 fw-bold pb-4">Welcome in RPG games</h1>
-                <p class="lead fw-bold fs-4">Here you can play a different RPG games with your friends</p>
+                    <h1 class="display-2 fw-bold pb-4">Welcome in RPG games</h1>
+                    <p class="lead fw-bold fs-4">Here you can play a different RPG games with your friends</p>
                 </div>  
             </div>
             <div class="container bg-light shadow-lg">

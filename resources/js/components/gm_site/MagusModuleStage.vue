@@ -1,10 +1,13 @@
 <template>
     <div>
         <!-- Jelenet kontener -->
-        <div>
+        <div class="container-md border border-secondary p-2 mt-4">
             <!-- Jelenet sorszama -->
-            <div class="text-end">
-                <p>{{ localOrder }}</p>
+            <div class="text-center">
+                <img class="d-block mx-auto mb-4" src="/img/pentagram.png" alt="" width="72" height="72">
+                <div class="text-end">
+                    <p class="me-4"><span class="p-3 border border-secondary rounded-pill">{{ localOrder }}</span></p>
+                </div>
             </div>
             <!-- Jelenet cim -->
             <div class="text-center m-3">
@@ -13,11 +16,14 @@
             <!-- Jelenet leirasa hatterkeppel -->
             <div class="text-center">
                 <div class="text-end">
-                    <button type="button" class="btn btn-success btn-sm costum-btn">Háttér kép</button>
+                    <button type="button" class="btn btn-success btn-sm costum-btn m-3" data-bs-toggle="modal" data-bs-target="#imgModal">Háttér kép</button>
                 </div>
-                <div>
-                    <p>{{ localData.description }}</p>
-                    <button type="button" class="btn btn-success btn-sm costum-btn" data-bs-toggle="modal" data-bs-target="#desModal">Módosít</button>
+                <div class="stage-des">
+                    <img v-bind:src="bgImg" alt="stage background image" style="width:100%;">
+                    <div class="stage-des-text">
+                        <p class="stage-text">{{ localData.description }}</p>
+                        <button type="button" class="btn btn-success btn-sm costum-btn" data-bs-toggle="modal" data-bs-target="#desModal">Módosít</button>
+                    </div>
                 </div>
             </div>
             <!-- Terkep rajzolas -->
@@ -47,7 +53,27 @@
         </div>
 
         <!-- HATTERKEP -->
-
+        <div class="modal fade" id="imgModal" tabindex="-1" aria-labelledby="imgModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="imgModalLabel">Jelenet háttérképe</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="closeBgModal"></button>
+                    </div>
+                <div class="modal-body">
+                   <div class="text-center">
+                       <button type="button" v-for="bgImg, index in imgs" :key="'BG' + index" class="bg-select" @click="selectBg(bgImg, index)" :class="[selectedBgIndex == index ? 'bg-selected' : '']">
+                           <img :src="'/img/fantasy-bg/' + bgImg" :alt="'Selectable beckround image ' + bgImg" style="width:100%;">
+                       </button>
+                   </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary costum-btn" data-bs-dismiss="modal" @click="closeBgModal">Bezár</button>
+                    <button type="button" class="btn btn-primary costum-btn" @click="saveSelectedBg" data-bs-dismiss="modal">Elment</button>
+                </div>
+                </div>
+            </div>
+        </div>
         <!-- LEIRAS -->
         <div class="modal fade" id="desModal" tabindex="-1" aria-labelledby="desModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -57,7 +83,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                 <div class="modal-body">
-                    <textarea class="form-control" v-model="localData.description"></textarea>
+                    <textarea class="form-control" v-model="localData.description" rows="5"></textarea>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary costum-btn" data-bs-dismiss="modal">Bezár</button>
@@ -73,6 +99,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
     props: {
         moduleData: Object,
@@ -82,7 +110,17 @@ export default {
         return {
             localOrder: null,
             localData: {},
+            selectedImg: '',
+            selectedBgIndex: null,
         }
+    },
+    computed: {
+        ...mapGetters('fantasyBgImgs', {
+            imgs: 'imgs'
+        }),
+        bgImg() {
+            return '/img/fantasy-bg/' + this.localData.img;
+        },
     },
     methods: {
         saveData() {
@@ -101,6 +139,21 @@ export default {
                 }, 3000)
             })
         },
+        selectBg(img, index) {
+            this.selectedImg = img;
+            this.selectedBgIndex = index;
+        },
+        closeBgModal() {
+            this.selectedImg = '';
+            this.selectedBgIndex = null;
+        },
+        saveSelectedBg() {
+            if (this.selectedImg) {
+                this.localData.img = this.selectedImg;
+                this.closeBgModal();
+                this.saveData();
+            }
+        },
     },
     mounted() {
         this.localOrder = this.moduleData.game_module_data_order;
@@ -108,3 +161,33 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .stage-des {
+        position: relative;
+        text-align: center;
+    }
+    .stage-des-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .stage-text {
+        text-shadow: 2px 2px 5px white;
+        white-space: pre;
+    }
+    .bg-select{
+        margin: 10px;
+        padding: 3px;
+        border: 1px solid rgb(26, 26, 114);
+        width: 200px;
+        height: 120px;
+    }
+    .bg-select:hover {
+        border: 1px solid red;
+    }
+    .bg-selected {
+        border: 1px solid red;
+    }
+</style>
