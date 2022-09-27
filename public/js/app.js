@@ -7723,6 +7723,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   })), {}, {
     bgImg: function bgImg() {
       return '/img/fantasy-bg/' + this.localData.img;
+    },
+    titleModalId: function titleModalId() {
+      return 'titleModal' + this.index;
+    },
+    desModalId: function desModalId() {
+      return 'desModal' + this.index;
+    },
+    imgModalId: function imgModalId() {
+      return 'imgModal' + this.index;
     }
   }),
   methods: {
@@ -29106,7 +29115,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.stage-des[data-v-df84baca] {\n    position: relative;\n    text-align: center;\n}\n.stage-des-text[data-v-df84baca] {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n}\n.stage-text[data-v-df84baca] {\n    text-shadow: 2px 2px 5px white;\n    white-space: pre;\n}\n.bg-select[data-v-df84baca]{\n    margin: 10px;\n    padding: 3px;\n    border: 1px solid rgb(26, 26, 114);\n    width: 200px;\n    height: 120px;\n}\n.bg-select[data-v-df84baca]:hover {\n    border: 1px solid red;\n}\n.bg-selected[data-v-df84baca] {\n    border: 1px solid red;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.stage-des[data-v-df84baca] {\n    position: relative;\n    text-align: center;\n}\n.stage-des-text[data-v-df84baca] {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n}\n.stage-text[data-v-df84baca] {\n    margin: 10px;\n    padding: 10px;\n    font-size: 1.2rem;\n    background: rgba(255, 255, 255, 0.7);\n    border-radius: 15%;\n    white-space: pre;\n}\n.bg-select[data-v-df84baca]{\n    margin: 10px;\n    padding: 3px;\n    border: 1px solid rgb(26, 26, 114);\n    width: 200px;\n    height: 120px;\n}\n.bg-select[data-v-df84baca]:hover {\n    border: 1px solid red;\n}\n.bg-selected[data-v-df84baca] {\n    border: 1px solid red;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -55174,11 +55183,40 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "text-center m-3" }, [
-          _c("h1", [_vm._v(_vm._s(_vm.localData.title)), _vm._m(0)]),
+          _c("h1", [
+            _vm._v(_vm._s(_vm.localData.title)),
+            _c("span", { staticClass: "ms-3" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-success btn-sm costum-btn",
+                  attrs: {
+                    type: "button",
+                    "data-bs-toggle": "modal",
+                    "data-bs-target": "#" + _vm.titleModalId,
+                  },
+                },
+                [_vm._v("Módosít")]
+              ),
+            ]),
+          ]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "text-center" }, [
-          _vm._m(1),
+          _c("div", { staticClass: "text-end" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-success btn-sm costum-btn m-3",
+                attrs: {
+                  type: "button",
+                  "data-bs-toggle": "modal",
+                  "data-bs-target": "#" + _vm.imgModalId,
+                },
+              },
+              [_vm._v("Háttér kép")]
+            ),
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "stage-des" }, [
             _c("img", {
@@ -55188,7 +55226,7 @@ var render = function () {
             _vm._v(" "),
             _c("div", { staticClass: "stage-des-text" }, [
               _c("p", { staticClass: "stage-text" }, [
-                _vm._v(_vm._s(_vm.localData.description)),
+                _c("b", [_vm._v(_vm._s(_vm.localData.description))]),
               ]),
               _vm._v(" "),
               _c(
@@ -55198,7 +55236,7 @@ var render = function () {
                   attrs: {
                     type: "button",
                     "data-bs-toggle": "modal",
-                    "data-bs-target": "#desModal",
+                    "data-bs-target": "#" + _vm.desModalId,
                   },
                 },
                 [_vm._v("Módosít")]
@@ -55216,7 +55254,7 @@ var render = function () {
       {
         staticClass: "modal fade",
         attrs: {
-          id: "titleModal",
+          id: _vm.titleModalId,
           tabindex: "-1",
           "aria-labelledby": "titleModalLabel",
           "aria-hidden": "true",
@@ -55225,7 +55263,7 @@ var render = function () {
       [
         _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _vm._m(2),
+            _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
               _c("input", {
@@ -55281,7 +55319,7 @@ var render = function () {
       {
         staticClass: "modal fade",
         attrs: {
-          id: "imgModal",
+          id: _vm.imgModalId,
           tabindex: "-1",
           "aria-labelledby": "imgModalLabel",
           "aria-hidden": "true",
@@ -55384,7 +55422,7 @@ var render = function () {
       {
         staticClass: "modal fade",
         attrs: {
-          id: "desModal",
+          id: _vm.desModalId,
           tabindex: "-1",
           "aria-labelledby": "desModalLabel",
           "aria-hidden": "true",
@@ -55393,7 +55431,7 @@ var render = function () {
       [
         _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _vm._m(3),
+            _vm._m(1),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
               _c("textarea", {
@@ -55446,44 +55484,6 @@ var render = function () {
   ])
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "ms-3" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-success btn-sm costum-btn",
-          attrs: {
-            type: "button",
-            "data-bs-toggle": "modal",
-            "data-bs-target": "#titleModal",
-          },
-        },
-        [_vm._v("Módosít")]
-      ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-end" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-success btn-sm costum-btn m-3",
-          attrs: {
-            type: "button",
-            "data-bs-toggle": "modal",
-            "data-bs-target": "#imgModal",
-          },
-        },
-        [_vm._v("Háttér kép")]
-      ),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement

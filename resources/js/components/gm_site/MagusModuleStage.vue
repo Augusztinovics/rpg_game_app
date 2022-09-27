@@ -11,18 +11,18 @@
             </div>
             <!-- Jelenet cim -->
             <div class="text-center m-3">
-                <h1>{{ localData.title }}<span class="ms-3"><button type="button" class="btn btn-success btn-sm costum-btn" data-bs-toggle="modal" data-bs-target="#titleModal">Módosít</button></span></h1>
+                <h1>{{ localData.title }}<span class="ms-3"><button type="button" class="btn btn-success btn-sm costum-btn" data-bs-toggle="modal" :data-bs-target="'#' +titleModalId">Módosít</button></span></h1>
             </div>
             <!-- Jelenet leirasa hatterkeppel -->
             <div class="text-center">
                 <div class="text-end">
-                    <button type="button" class="btn btn-success btn-sm costum-btn m-3" data-bs-toggle="modal" data-bs-target="#imgModal">Háttér kép</button>
+                    <button type="button" class="btn btn-success btn-sm costum-btn m-3" data-bs-toggle="modal" :data-bs-target="'#' + imgModalId">Háttér kép</button>
                 </div>
                 <div class="stage-des">
                     <img v-bind:src="bgImg" alt="stage background image" style="width:100%;">
                     <div class="stage-des-text">
-                        <p class="stage-text">{{ localData.description }}</p>
-                        <button type="button" class="btn btn-success btn-sm costum-btn" data-bs-toggle="modal" data-bs-target="#desModal">Módosít</button>
+                        <p class="stage-text"><b>{{ localData.description }}</b></p>
+                        <button type="button" class="btn btn-success btn-sm costum-btn" data-bs-toggle="modal" :data-bs-target="'#' + desModalId">Módosít</button>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
 
         <!-- Edit modals -->
         <!-- CIM -->
-        <div class="modal fade" id="titleModal" tabindex="-1" aria-labelledby="titleModalLabel" aria-hidden="true">
+        <div class="modal fade" :id="titleModalId" tabindex="-1" aria-labelledby="titleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -53,7 +53,7 @@
         </div>
 
         <!-- HATTERKEP -->
-        <div class="modal fade" id="imgModal" tabindex="-1" aria-labelledby="imgModalLabel" aria-hidden="true">
+        <div class="modal fade" :id="imgModalId" tabindex="-1" aria-labelledby="imgModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -75,7 +75,7 @@
             </div>
         </div>
         <!-- LEIRAS -->
-        <div class="modal fade" id="desModal" tabindex="-1" aria-labelledby="desModalLabel" aria-hidden="true">
+        <div class="modal fade" :id="desModalId" tabindex="-1" aria-labelledby="desModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -121,6 +121,15 @@ export default {
         bgImg() {
             return '/img/fantasy-bg/' + this.localData.img;
         },
+        titleModalId() {
+            return 'titleModal' + this.index;
+        },
+        desModalId() {
+            return 'desModal' + this.index;
+        },
+        imgModalId() {
+            return 'imgModal' + this.index;
+        }
     },
     methods: {
         saveData() {
@@ -174,7 +183,11 @@ export default {
         transform: translate(-50%, -50%);
     }
     .stage-text {
-        text-shadow: 2px 2px 5px white;
+        margin: 10px;
+        padding: 10px;
+        font-size: 1.2rem;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 15%;
         white-space: pre;
     }
     .bg-select{
