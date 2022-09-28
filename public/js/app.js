@@ -7704,6 +7704,49 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -7715,7 +7758,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       localOrder: null,
       localData: {},
       selectedImg: '',
-      selectedBgIndex: null
+      selectedBgIndex: null,
+      inputNote: '',
+      inputNoteIndex: null
     };
   },
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('fantasyBgImgs', {
@@ -7732,6 +7777,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     imgModalId: function imgModalId() {
       return 'imgModal' + this.index;
+    },
+    noteModalId: function noteModalId() {
+      return 'noteModal' + this.index;
     }
   }),
   methods: {
@@ -7773,6 +7821,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.closeBgModal();
         this.saveData();
       }
+    },
+    editNote: function editNote(note, index) {
+      this.inputNote = note;
+      this.inputNoteIndex = index;
+    },
+    newNote: function newNote() {
+      this.inputNote = '';
+      this.inputNoteIndex = null;
+    },
+    saveNote: function saveNote() {
+      if (!this.inputNote) {
+        return;
+      }
+
+      if (this.inputNoteIndex === null) {
+        this.localData.note.push(this.inputNote);
+      } else {
+        this.localData.note[this.inputNoteIndex] = this.inputNote;
+      }
+
+      this.inputNote = '';
+      this.inputNoteIndex = null;
+      this.saveData();
+    },
+    deleteNote: function deleteNote(index) {
+      this.localData.note.splice(index, 1);
+      this.saveData();
     }
   },
   mounted: function mounted() {
@@ -29115,7 +29190,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.stage-des[data-v-df84baca] {\n    position: relative;\n    text-align: center;\n}\n.stage-des-text[data-v-df84baca] {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n}\n.stage-text[data-v-df84baca] {\n    margin: 10px;\n    padding: 10px;\n    font-size: 1.2rem;\n    background: rgba(255, 255, 255, 0.7);\n    border-radius: 15%;\n    white-space: pre;\n}\n.bg-select[data-v-df84baca]{\n    margin: 10px;\n    padding: 3px;\n    border: 1px solid rgb(26, 26, 114);\n    width: 200px;\n    height: 120px;\n}\n.bg-select[data-v-df84baca]:hover {\n    border: 1px solid red;\n}\n.bg-selected[data-v-df84baca] {\n    border: 1px solid red;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.stage-des[data-v-df84baca] {\n    position: relative;\n    text-align: center;\n}\n.stage-des-text[data-v-df84baca] {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n}\n.stage-text[data-v-df84baca] {\n    margin: 10px;\n    padding: 10px;\n    font-size: 1.2rem;\n    background: rgba(255, 255, 255, 0.7);\n    border-radius: 15%;\n    white-space: pre-wrap;\n}\n.bg-select[data-v-df84baca]{\n    margin: 10px;\n    padding: 3px;\n    border: 1px solid rgb(26, 26, 114);\n    width: 200px;\n    height: 120px;\n}\n.bg-select[data-v-df84baca]:hover {\n    border: 1px solid red;\n}\n.bg-selected[data-v-df84baca] {\n    border: 1px solid red;\n}\n.text-with-enter[data-v-df84baca] {\n    white-space: pre-wrap;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -55245,6 +55320,152 @@ var render = function () {
           ]),
         ]),
         _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "accordion",
+            attrs: { id: "accordionNote" + _vm.index },
+          },
+          [
+            _c("div", { staticClass: "accordion-item" }, [
+              _c(
+                "h2",
+                {
+                  staticClass: "accordion-header",
+                  attrs: { id: "heading" + _vm.index },
+                },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "accordion-button collapsed",
+                      attrs: {
+                        type: "button",
+                        "data-bs-toggle": "collapse",
+                        "data-bs-target": "#collapseNote" + _vm.index,
+                        "aria-expanded": "false",
+                        "aria-controls": "collapseNote" + _vm.index,
+                      },
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "bi bi-book",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            width: "16",
+                            height: "16",
+                            fill: "currentColor",
+                            viewBox: "0 0 16 16",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d: "M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("b", { staticClass: "ms-4" }, [_vm._v("Jegyzetek")]),
+                    ]
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "accordion-collapse collapse",
+                  attrs: {
+                    id: "collapseNote" + _vm.index,
+                    "aria-labelledby": "heading" + _vm.index,
+                    "data-bs-parent": "#accordionNote" + _vm.index,
+                  },
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "accordion-body" },
+                    [
+                      _vm._l(_vm.localData.note, function (note, index) {
+                        return _c(
+                          "p",
+                          {
+                            key: "NOTE" + index,
+                            staticClass:
+                              "d-flex justify-content-between border border-secondary p-2",
+                          },
+                          [
+                            _c("span", { staticClass: "text-with-enter" }, [
+                              _vm._v(_vm._s(note)),
+                            ]),
+                            _vm._v(" "),
+                            _c("span", [
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-success btn-sm costum-btn ms-3",
+                                  attrs: {
+                                    type: "button",
+                                    "data-bs-toggle": "modal",
+                                    "data-bs-target": "#" + _vm.noteModalId,
+                                  },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.editNote(note, index)
+                                    },
+                                  },
+                                },
+                                [_vm._v("Módosít")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-danger btn-sm costum-btn ms-3",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function ($event) {
+                                      return _vm.deleteNote(index)
+                                    },
+                                  },
+                                },
+                                [_vm._v("Töröl")]
+                              ),
+                            ]),
+                          ]
+                        )
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-center mt-3" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success costum-btn ms-3",
+                            attrs: {
+                              type: "button",
+                              "data-bs-toggle": "modal",
+                              "data-bs-target": "#" + _vm.noteModalId,
+                            },
+                            on: { click: _vm.newNote },
+                          },
+                          [_vm._v("+ Új jegyzet hozzáadása")]
+                        ),
+                      ]),
+                    ],
+                    2
+                  ),
+                ]
+              ),
+            ]),
+          ]
+        ),
+        _vm._v(" "),
         _c("div"),
       ]
     ),
@@ -55473,6 +55694,88 @@ var render = function () {
                   staticClass: "btn btn-primary costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                   on: { click: _vm.saveData },
+                },
+                [_vm._v("Elment")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: _vm.noteModalId,
+          tabindex: "-1",
+          "aria-labelledby": "desModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _c("div", { staticClass: "modal-header" }, [
+              _c(
+                "h5",
+                { staticClass: "modal-title", attrs: { id: "desModalLabel" } },
+                [_vm._v("Jegyzet")]
+              ),
+              _vm._v(" "),
+              _c("button", {
+                staticClass: "btn-close",
+                attrs: {
+                  type: "button",
+                  "data-bs-dismiss": "modal",
+                  "aria-label": "Close",
+                },
+                on: { click: _vm.newNote },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inputNote,
+                    expression: "inputNote",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { rows: "5" },
+                domProps: { value: _vm.inputNote },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inputNote = $event.target.value
+                  },
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary costum-btn",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.newNote },
+                },
+                [_vm._v("Bezár")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary costum-btn",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.saveNote },
                 },
                 [_vm._v("Elment")]
               ),
