@@ -53,8 +53,24 @@
                 </div>
             </div>
             <!-- Terkep rajzolas -->
-            <div>
-
+            <div class="accordion" :id="'accordionMap' + index">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" :id="'headingMap' + index">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" :data-bs-target="'#collapseMap' + index" aria-expanded="false" :aria-controls="'collapseMap' + index">
+                            <b class="ms-4">Jelenethez tartozó Térkép Készítése</b>
+                        </button>
+                    </h2>
+                    <div :id="'collapseMap' + index" class="accordion-collapse collapse" :aria-labelledby="'headingMap' + index" :data-bs-parent="'#accordionMap' + index">
+                        <div class="accordion-body">
+                            <!-- canvas a rajzolashoz -->
+                            <map-drowing 
+                                :map-drow-data="localData.map"
+                                :canvas-id="'stageCanvas' + index"
+                                @save="saveDrowing"
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -119,7 +135,6 @@
             </div>
         </div>
 
-        <!-- JELENET NPC -->
         <!-- JELENET JEGYZET -->
         <div class="modal fade" :id="noteModalId" tabindex="-1" aria-labelledby="desModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -143,8 +158,12 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import MapDrowing from './MapDrowing.vue';
 
 export default {
+    components: {
+        MapDrowing
+    },
     props: {
         moduleData: Object,
         index: Number
@@ -234,6 +253,10 @@ export default {
         },
         deleteNote(index) {
             this.localData.note.splice(index, 1);
+            this.saveData();
+        },
+        saveDrowing(mapData) {
+            this.localData.map = mapData;
             this.saveData();
         }
     },

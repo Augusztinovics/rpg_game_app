@@ -7597,7 +7597,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _MapDrowing_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MapDrowing.vue */ "./resources/js/components/gm_site/MapDrowing.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -7747,8 +7748,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    MapDrowing: _MapDrowing_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   props: {
     moduleData: Object,
     index: Number
@@ -7763,7 +7783,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       inputNoteIndex: null
     };
   },
-  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('fantasyBgImgs', {
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('fantasyBgImgs', {
     imgs: 'imgs'
   })), {}, {
     bgImg: function bgImg() {
@@ -7848,11 +7868,86 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     deleteNote: function deleteNote(index) {
       this.localData.note.splice(index, 1);
       this.saveData();
+    },
+    saveDrowing: function saveDrowing(mapData) {
+      this.localData.map = mapData;
+      this.saveData();
     }
   },
   mounted: function mounted() {
     this.localOrder = this.moduleData.game_module_data_order;
     this.localData = this.moduleData.module_data;
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MapDrowing.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MapDrowing.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    mapDrowData: {
+      type: Array,
+      "default": function _default() {
+        return [];
+      }
+    },
+    canvasId: {
+      type: String,
+      "default": 'canvas'
+    }
+  },
+  data: function data() {
+    return {
+      localMapData: [],
+      drowSize: 2,
+      selectedColor: 'black'
+    };
+  },
+  computed: {},
+  methods: {},
+  mounted: function mounted() {
+    this.localMapData = this.mapDrowData;
   }
 });
 
@@ -29197,6 +29292,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, "\n.stage-des[data-v-df84baca] {\n    p
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MapDrowing.vue?vue&type=style&index=0&id=2c584e6c&scoped=true&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MapDrowing.vue?vue&type=style&index=0&id=2c584e6c&scoped=true&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.tool-container[data-v-2c584e6c] {\n    margin-top: 10px;\n    margin-bottom: 10px;\n    border: 1px solid gray;\n    display: flex;\n}\n.tool-container .button-container[data-v-2c584e6c] {\n    display: inline-block;\n}\n.tool-container .color-options[data-v-2c584e6c] {\n    display: inline-block;\n    display: flex;\n}\n.tool-container .color-options .color-field[data-v-2c584e6c] {\n    display: inline-block;\n    height: 30px;\n    width: 30px;\n    border: 2px solid gray;\n    border-radius: 50%;\n    margin: 0 10px;\n    cursor: pointer;\n    align-self: center;\n}\n.tool-container .color-options .color-input[data-v-2c584e6c] {\n    align-self: center;\n    margin: 0 10px;\n}\n.tool-container .color-options .range-input[data-v-2c584e6c] {\n    align-self: center;\n    margin: 0 10px;\n}\n.drowing-canvas[data-v-2c584e6c] {\n    margin: 20px;\n    width: 98%;\n    height: 500px;\n    min-height: 500px;\n    box-shadow: -3px 2px 9px 6px black;\n}\n.number-input[data-v-2c584e6c] {\n    width: 60px;\n}\n.drow-size-show[data-v-2c584e6c] {\n    display: inline-block;\n    margin: 0 10px;\n    border-radius: 50%;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css& ***!
@@ -47142,6 +47261,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MapDrowing.vue?vue&type=style&index=0&id=2c584e6c&scoped=true&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MapDrowing.vue?vue&type=style&index=0&id=2c584e6c&scoped=true&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MapDrowing_vue_vue_type_style_index_0_id_2c584e6c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MapDrowing.vue?vue&type=style&index=0&id=2c584e6c&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MapDrowing.vue?vue&type=style&index=0&id=2c584e6c&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MapDrowing_vue_vue_type_style_index_0_id_2c584e6c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MapDrowing_vue_vue_type_style_index_0_id_2c584e6c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css& ***!
@@ -48174,6 +48323,47 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/gm_site/MagusModuleStage.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/gm_site/MapDrowing.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/gm_site/MapDrowing.vue ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MapDrowing_vue_vue_type_template_id_2c584e6c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MapDrowing.vue?vue&type=template&id=2c584e6c&scoped=true& */ "./resources/js/components/gm_site/MapDrowing.vue?vue&type=template&id=2c584e6c&scoped=true&");
+/* harmony import */ var _MapDrowing_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MapDrowing.vue?vue&type=script&lang=js& */ "./resources/js/components/gm_site/MapDrowing.vue?vue&type=script&lang=js&");
+/* harmony import */ var _MapDrowing_vue_vue_type_style_index_0_id_2c584e6c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MapDrowing.vue?vue&type=style&index=0&id=2c584e6c&scoped=true&lang=css& */ "./resources/js/components/gm_site/MapDrowing.vue?vue&type=style&index=0&id=2c584e6c&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _MapDrowing_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MapDrowing_vue_vue_type_template_id_2c584e6c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MapDrowing_vue_vue_type_template_id_2c584e6c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "2c584e6c",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/gm_site/MapDrowing.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -49325,6 +49515,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/gm_site/MapDrowing.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/gm_site/MapDrowing.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MapDrowing_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MapDrowing.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MapDrowing.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MapDrowing_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/ChatBox.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/player_site/ChatBox.vue?vue&type=script&lang=js& ***!
@@ -49836,6 +50042,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/gm_site/MapDrowing.vue?vue&type=style&index=0&id=2c584e6c&scoped=true&lang=css&":
+/*!*****************************************************************************************************************!*\
+  !*** ./resources/js/components/gm_site/MapDrowing.vue?vue&type=style&index=0&id=2c584e6c&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MapDrowing_vue_vue_type_style_index_0_id_2c584e6c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MapDrowing.vue?vue&type=style&index=0&id=2c584e6c&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MapDrowing.vue?vue&type=style&index=0&id=2c584e6c&scoped=true&lang=css&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css&":
 /*!******************************************************************************************************************!*\
   !*** ./resources/js/components/player_site/ChatBox.vue?vue&type=style&index=0&id=ce2fa2e4&scoped=true&lang=css& ***!
@@ -50152,6 +50371,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleStage_vue_vue_type_template_id_df84baca_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusModuleStage_vue_vue_type_template_id_df84baca_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusModuleStage.vue?vue&type=template&id=df84baca&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MagusModuleStage.vue?vue&type=template&id=df84baca&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/gm_site/MapDrowing.vue?vue&type=template&id=2c584e6c&scoped=true&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/gm_site/MapDrowing.vue?vue&type=template&id=2c584e6c&scoped=true& ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MapDrowing_vue_vue_type_template_id_2c584e6c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MapDrowing_vue_vue_type_template_id_2c584e6c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MapDrowing_vue_vue_type_template_id_2c584e6c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MapDrowing.vue?vue&type=template&id=2c584e6c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MapDrowing.vue?vue&type=template&id=2c584e6c&scoped=true&");
 
 
 /***/ }),
@@ -55466,7 +55702,72 @@ var render = function () {
           ]
         ),
         _vm._v(" "),
-        _c("div"),
+        _c(
+          "div",
+          {
+            staticClass: "accordion",
+            attrs: { id: "accordionMap" + _vm.index },
+          },
+          [
+            _c("div", { staticClass: "accordion-item" }, [
+              _c(
+                "h2",
+                {
+                  staticClass: "accordion-header",
+                  attrs: { id: "headingMap" + _vm.index },
+                },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "accordion-button collapsed",
+                      attrs: {
+                        type: "button",
+                        "data-bs-toggle": "collapse",
+                        "data-bs-target": "#collapseMap" + _vm.index,
+                        "aria-expanded": "false",
+                        "aria-controls": "collapseMap" + _vm.index,
+                      },
+                    },
+                    [
+                      _c("b", { staticClass: "ms-4" }, [
+                        _vm._v("Jelenethez tartozó Térkép Készítése"),
+                      ]),
+                    ]
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "accordion-collapse collapse",
+                  attrs: {
+                    id: "collapseMap" + _vm.index,
+                    "aria-labelledby": "headingMap" + _vm.index,
+                    "data-bs-parent": "#accordionMap" + _vm.index,
+                  },
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "accordion-body" },
+                    [
+                      _c("map-drowing", {
+                        attrs: {
+                          "map-drow-data": _vm.localData.map,
+                          "canvas-id": "stageCanvas" + _vm.index,
+                        },
+                        on: { save: _vm.saveDrowing },
+                      }),
+                    ],
+                    1
+                  ),
+                ]
+              ),
+            ]),
+          ]
+        ),
       ]
     ),
     _vm._v(" "),
@@ -55825,6 +56126,169 @@ var staticRenderFns = [
           "aria-label": "Close",
         },
       }),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MapDrowing.vue?vue&type=template&id=2c584e6c&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/gm_site/MapDrowing.vue?vue&type=template&id=2c584e6c&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "tool-container" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "color-options" }, [
+        _c(
+          "div",
+          { staticClass: "ms-3 ps-1 border-start border-dark border-2" },
+          [
+            _c("p", { staticClass: "mt-2 mb-0 ms-2" }, [_vm._v("szinek:")]),
+            _vm._v(" "),
+            _c("span", {
+              staticClass: "color-field",
+              staticStyle: { "background-color": "black" },
+            }),
+            _vm._v(" "),
+            _c("span", {
+              staticClass: "color-field",
+              staticStyle: { "background-color": "rgb(29, 26, 26)" },
+            }),
+            _vm._v(" "),
+            _c("span", {
+              staticClass: "color-field",
+              staticStyle: { "background-color": "white" },
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.selectedColor,
+                  expression: "selectedColor",
+                },
+              ],
+              staticClass: "color-input",
+              attrs: { type: "color" },
+              domProps: { value: _vm.selectedColor },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.selectedColor = $event.target.value
+                },
+              },
+            }),
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "ms-3 ps-1 border-start border-dark border-2" },
+          [
+            _c("p", { staticClass: "mt-2 mb-0 ms-2" }, [_vm._v("ecset:")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.drowSize,
+                  expression: "drowSize",
+                },
+              ],
+              staticClass: "range-input",
+              attrs: { type: "range", min: "1", max: "25" },
+              domProps: { value: _vm.drowSize },
+              on: {
+                __r: function ($event) {
+                  _vm.drowSize = $event.target.value
+                },
+              },
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.drowSize,
+                  expression: "drowSize",
+                },
+              ],
+              staticClass: "number-input",
+              attrs: { type: "number", maxlength: "2" },
+              domProps: { value: _vm.drowSize },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.drowSize = $event.target.value
+                },
+              },
+            }),
+            _vm._v(" "),
+            _c("span", {
+              staticClass: "drow-size-show",
+              style: {
+                width: _vm.drowSize + "px",
+                height: _vm.drowSize + "px",
+                backgroundColor: _vm.selectedColor,
+              },
+            }),
+          ]
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c("canvas", {
+        staticClass: "drowing-canvas",
+        attrs: { id: _vm.canvasId },
+      }),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "m-3 button-container" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-outline-success", attrs: { type: "button" } },
+        [_vm._v("Mentés")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-outline-secondary ms-3",
+          attrs: { type: "button" },
+        },
+        [_vm._v("Törlés")]
+      ),
     ])
   },
 ]
