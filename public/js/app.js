@@ -7924,6 +7924,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     mapDrowData: {
@@ -7941,13 +7948,72 @@ __webpack_require__.r(__webpack_exports__);
     return {
       localMapData: [],
       drowSize: 2,
-      selectedColor: 'black'
+      selectedColor: '#000000',
+      isDrowing: false,
+      drowingContext: null,
+      canvas: null
     };
   },
   computed: {},
-  methods: {},
+  methods: {
+    drowStart: function drowStart(e) {
+      console.log(e);
+      console.log(e.clientX - e.offsetX);
+      console.log(e.clientY - e.offsetY);
+      this.isDrowing = true;
+      this.drowingContext.beginPath();
+      this.drowingContext.moveTo(e.clientX - (e.clientX - e.offsetX), e.clientY - (e.clientY - e.offsetY));
+      e.preventDefault();
+    },
+    drowing: function drowing(e) {
+      if (this.isDrowing) {
+        console.log('Drowing');
+        this.drowingContext.lineTo(e.clientX - (e.clientX - e.offsetX), e.clientY - (e.clientY - e.offsetY));
+        this.drowingContext.strokeStyle = this.selectedColor;
+        this.drowingContext.lineWidth = this.drowSize;
+        this.drowingContext.lineCap = "round";
+        this.drowingContext.lineJoin = "round";
+        this.drowingContext.stroke();
+      }
+
+      e.preventDefault(); //e.clientx - this.canvas.offsetLeft, e.clienty- this.canvas.offsetRight
+    },
+    drowEnd: function drowEnd(e) {
+      if (this.isDrowing) {
+        console.log('Drow End');
+        this.drowingContext.stroke();
+        this.drowingContext.closePath();
+        this.isDrowing = false;
+      }
+
+      e.preventDefault();
+    }
+  },
   mounted: function mounted() {
-    this.localMapData = this.mapDrowData;
+    var _this = this;
+
+    setTimeout(function () {
+      _this.localMapData = _this.mapDrowData;
+      _this.canvas = document.getElementById(_this.canvasId);
+      _this.drowingContext = _this.canvas.getContext("2d");
+      var canvasWidth = window.innerWidth;
+
+      if (canvasWidth < 768) {
+        canvasWidth = canvasWidth - 100;
+      } else if (canvasWidth > 768 && canvasWidth < 992) {
+        canvasWidth = 650;
+      } else if (canvasWidth > 992 && canvasWidth < 1200) {
+        canvasWidth = 900;
+      } else if (canvasWidth > 1200 && canvasWidth < 1400) {
+        canvasWidth = 1000;
+      } else {
+        canvasWidth = 1200;
+      }
+
+      console.log(canvasWidth);
+      _this.canvas.width = canvasWidth;
+      _this.canvas.height = 500;
+    }, 100);
   }
 });
 
@@ -29309,7 +29375,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.tool-container[data-v-2c584e6c] {\n    margin-top: 10px;\n    margin-bottom: 10px;\n    border: 1px solid gray;\n    display: flex;\n}\n.tool-container .button-container[data-v-2c584e6c] {\n    display: inline-block;\n}\n.tool-container .color-options[data-v-2c584e6c] {\n    display: inline-block;\n    display: flex;\n}\n.tool-container .color-options .color-field[data-v-2c584e6c] {\n    display: inline-block;\n    height: 30px;\n    width: 30px;\n    border: 2px solid gray;\n    border-radius: 50%;\n    margin: 0 10px;\n    cursor: pointer;\n    align-self: center;\n}\n.tool-container .color-options .color-input[data-v-2c584e6c] {\n    align-self: center;\n    margin: 0 10px;\n}\n.tool-container .color-options .range-input[data-v-2c584e6c] {\n    align-self: center;\n    margin: 0 10px;\n}\n.drowing-canvas[data-v-2c584e6c] {\n    margin: 20px;\n    width: 98%;\n    height: 500px;\n    min-height: 500px;\n    box-shadow: -3px 2px 9px 6px black;\n}\n.number-input[data-v-2c584e6c] {\n    width: 60px;\n}\n.drow-size-show[data-v-2c584e6c] {\n    display: inline-block;\n    margin: 0 10px;\n    border-radius: 50%;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.tool-container[data-v-2c584e6c] {\n    margin-top: 10px;\n    margin-bottom: 10px;\n    border: 1px solid gray;\n    display: flex;\n}\n.tool-container .button-container[data-v-2c584e6c] {\n    display: inline-block;\n}\n.tool-container .color-options[data-v-2c584e6c] {\n    display: inline-block;\n    display: flex;\n}\n.tool-container .color-options .color-field[data-v-2c584e6c] {\n    display: inline-block;\n    height: 30px;\n    width: 30px;\n    border: 2px solid gray;\n    border-radius: 50%;\n    margin: 0 10px;\n    cursor: pointer;\n    align-self: center;\n}\n.tool-container .color-options .color-input[data-v-2c584e6c] {\n    align-self: center;\n    margin: 0 10px;\n}\n.tool-container .color-options .range-input[data-v-2c584e6c] {\n    align-self: center;\n    margin: 0 10px;\n}\n.drowing-canvas[data-v-2c584e6c] {\n    margin: 20px;\n    box-shadow: -3px 2px 9px 6px black;\n}\n.number-input[data-v-2c584e6c] {\n    width: 60px;\n}\n.drow-size-show[data-v-2c584e6c] {\n    display: inline-block;\n    margin: 0 10px;\n    border-radius: 50%;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -56164,7 +56230,7 @@ var render = function () {
             _vm._v(" "),
             _c("span", {
               staticClass: "color-field",
-              staticStyle: { "background-color": "black" },
+              staticStyle: { "background-color": "rgb(0, 0, 0)" },
             }),
             _vm._v(" "),
             _c("span", {
@@ -56265,6 +56331,12 @@ var render = function () {
       _c("canvas", {
         staticClass: "drowing-canvas",
         attrs: { id: _vm.canvasId },
+        on: {
+          mousedown: _vm.drowStart,
+          mousemove: _vm.drowing,
+          mouseup: _vm.drowEnd,
+          mouseout: _vm.drowEnd,
+        },
       }),
     ]),
   ])

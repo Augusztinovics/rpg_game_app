@@ -9,7 +9,7 @@
             <div class="color-options">
                 <div class="ms-3 ps-1 border-start border-dark border-2">
                     <p class="mt-2 mb-0 ms-2">szinek:</p>
-                    <span class="color-field" style="background-color: black;"></span>
+                    <span class="color-field" style="background-color: rgb(0, 0, 0);"></span>
                     <span class="color-field" style="background-color: rgb(29, 26, 26);"></span>
                     <span class="color-field" style="background-color: white;"></span>
                     <input type="color" class="color-input" v-model="selectedColor">
@@ -24,7 +24,14 @@
             </div>
         </div>
         <div>
-            <canvas :id="canvasId" class="drowing-canvas"></canvas>
+            <canvas :id="canvasId" 
+                    class="drowing-canvas"
+                    @mousedown="drowStart"
+                    @mousemove="drowing"
+                    @mouseup="drowEnd"
+                    @mouseout="drowEnd"
+                >
+            </canvas>
         </div>
     </div>
 </template>
@@ -45,13 +52,69 @@ export default {
         return {
             localMapData: [],
             drowSize: 2,
-            selectedColor: 'black',
+            selectedColor: '#000000',
+            isDrowing: false,
+            drowingContext: null,
+            canvas: null,
         }
     },
     computed: {},
-    methods: {},
+    methods: {
+        drowStart(e) {
+            console.log(e);
+            console.log(e.clientX - e.offsetX);
+            console.log(e.clientY- e.offsetY);
+            this.isDrowing = true;
+            this.drowingContext.beginPath();
+            this.drowingContext.moveTo(e.clientX - (e.clientX - e.offsetX), e.clientY- (e.clientY - e.offsetY));
+            e.preventDefault();
+        },
+        drowing(e) {
+            if (this.isDrowing) {
+                 console.log('Drowing');
+                this.drowingContext.lineTo(e.clientX - (e.clientX - e.offsetX), e.clientY- (e.clientY - e.offsetY));
+                this.drowingContext.strokeStyle = this.selectedColor;
+                this.drowingContext.lineWidth = this.drowSize;
+                this.drowingContext.lineCap = "round";
+                this.drowingContext.lineJoin = "round";
+                this.drowingContext.stroke();
+            }
+            e.preventDefault();
+            //e.clientx - this.canvas.offsetLeft, e.clienty- this.canvas.offsetRight
+        },
+        drowEnd(e) {
+            if (this.isDrowing) {
+                 console.log('Drow End');
+                this.drowingContext.stroke();
+                this.drowingContext.closePath();
+                this.isDrowing = false;
+            }
+            e.preventDefault();
+        },
+    },
     mounted() {
-        this.localMapData = this.mapDrowData;
+        setTimeout(() => {
+            this.localMapData = this.mapDrowData;
+            this.canvas = document.getElementById(this.canvasId);
+            this.drowingContext = this.canvas.getContext("2d");
+            let canvasWidth = window.innerWidth;
+            if (canvasWidth < 768) {
+                canvasWidth = canvasWidth - 100;
+            } else if (canvasWidth > 768 && canvasWidth < 992) {
+                canvasWidth = 650;
+            } else if (canvasWidth > 992 && canvasWidth < 1200) {
+                canvasWidth = 900;
+            } else if (canvasWidth > 1200 && canvasWidth < 1400) {
+                canvasWidth = 1000;
+            }
+            else {
+                canvasWidth = 1200
+            }
+            console.log(canvasWidth);
+            this.canvas.width = canvasWidth;
+            this.canvas.height = 500;
+        }, 100);
+        
     }
 }
 </script>
@@ -90,9 +153,6 @@ export default {
     }
     .drowing-canvas {
         margin: 20px;
-        width: 98%;
-        height: 500px;
-        min-height: 500px;
         box-shadow: -3px 2px 9px 6px black;
     }
     .number-input {
