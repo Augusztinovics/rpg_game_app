@@ -7931,6 +7931,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     mapDrowData: {
@@ -7941,61 +7979,116 @@ __webpack_require__.r(__webpack_exports__);
     },
     canvasId: {
       type: String,
-      "default": 'canvas'
+      "default": "canvas"
     }
   },
   data: function data() {
     return {
       localMapData: [],
       drowSize: 2,
-      selectedColor: '#000000',
+      selectedColor: "rgb(0, 0, 0)",
       isDrowing: false,
       drowingContext: null,
-      canvas: null
+      canvas: null,
+      currentLine: {
+        startX: 0,
+        startY: 0,
+        size: 2,
+        color: '#000000',
+        path: []
+      }
     };
   },
   computed: {},
   methods: {
     drowStart: function drowStart(e) {
-      console.log(e);
-      console.log(e.clientX - e.offsetX);
-      console.log(e.clientY - e.offsetY);
       this.isDrowing = true;
       this.drowingContext.beginPath();
       this.drowingContext.moveTo(e.clientX - (e.clientX - e.offsetX), e.clientY - (e.clientY - e.offsetY));
+      this.currentLine.startX = e.clientX - (e.clientX - e.offsetX);
+      this.currentLine.startY = e.clientY - (e.clientY - e.offsetY);
+      this.currentLine.size = this.drowSize;
+      this.currentLine.color = this.selectedColor;
       e.preventDefault();
     },
     drowing: function drowing(e) {
       if (this.isDrowing) {
-        console.log('Drowing');
         this.drowingContext.lineTo(e.clientX - (e.clientX - e.offsetX), e.clientY - (e.clientY - e.offsetY));
         this.drowingContext.strokeStyle = this.selectedColor;
         this.drowingContext.lineWidth = this.drowSize;
         this.drowingContext.lineCap = "round";
         this.drowingContext.lineJoin = "round";
         this.drowingContext.stroke();
-      }
-
-      e.preventDefault(); //e.clientx - this.canvas.offsetLeft, e.clienty- this.canvas.offsetRight
-    },
-    drowEnd: function drowEnd(e) {
-      if (this.isDrowing) {
-        console.log('Drow End');
-        this.drowingContext.stroke();
-        this.drowingContext.closePath();
-        this.isDrowing = false;
+        var point = {
+          x: e.clientX - (e.clientX - e.offsetX),
+          y: e.clientY - (e.clientY - e.offsetY)
+        };
+        this.currentLine.path.push(point);
       }
 
       e.preventDefault();
+    },
+    drowEnd: function drowEnd(e) {
+      if (this.isDrowing) {
+        this.drowingContext.stroke();
+        this.drowingContext.closePath();
+        this.isDrowing = false;
+        this.localMapData.push(this.currentLine);
+        this.currentLine = {
+          startX: 0,
+          startY: 0,
+          size: 2,
+          color: '#000000',
+          path: []
+        };
+      }
+
+      e.preventDefault();
+    },
+    drowMap: function drowMap() {
+      var _this = this;
+
+      if (this.localMapData) {
+        this.localMapData.forEach(function (line) {
+          _this.drowingContext.beginPath();
+
+          _this.drowingContext.moveTo(line.startX, line.startY);
+
+          line.path.forEach(function (point) {
+            _this.drowingContext.lineTo(point.x, point.y);
+
+            _this.drowingContext.strokeStyle = line.color;
+            _this.drowingContext.lineWidth = line.size;
+            _this.drowingContext.lineCap = "round";
+            _this.drowingContext.lineJoin = "round";
+
+            _this.drowingContext.stroke();
+          });
+
+          _this.drowingContext.stroke();
+
+          _this.drowingContext.closePath();
+        });
+      }
+    },
+    saveMap: function saveMap() {
+      this.$emit('save', this.localMapData);
+    },
+    deleteMap: function deleteMap() {
+      this.localMapData = [];
+      this.drowingContext.fillStyle = '#ffffff';
+      this.drowingContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      this.drowingContext.fillRect(0, 0, this.canvas.width, this.canvas.height);
+      this.$emit('save', this.localMapData);
     }
   },
   mounted: function mounted() {
-    var _this = this;
+    var _this2 = this;
 
     setTimeout(function () {
-      _this.localMapData = _this.mapDrowData;
-      _this.canvas = document.getElementById(_this.canvasId);
-      _this.drowingContext = _this.canvas.getContext("2d");
+      _this2.localMapData = _this2.mapDrowData;
+      _this2.canvas = document.getElementById(_this2.canvasId);
+      _this2.drowingContext = _this2.canvas.getContext("2d");
       var canvasWidth = window.innerWidth;
 
       if (canvasWidth < 768) {
@@ -8011,8 +8104,10 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       console.log(canvasWidth);
-      _this.canvas.width = canvasWidth;
-      _this.canvas.height = 500;
+      _this2.canvas.width = canvasWidth;
+      _this2.canvas.height = 500;
+
+      _this2.drowMap();
     }, 100);
   }
 });
@@ -29375,7 +29470,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.tool-container[data-v-2c584e6c] {\n    margin-top: 10px;\n    margin-bottom: 10px;\n    border: 1px solid gray;\n    display: flex;\n}\n.tool-container .button-container[data-v-2c584e6c] {\n    display: inline-block;\n}\n.tool-container .color-options[data-v-2c584e6c] {\n    display: inline-block;\n    display: flex;\n}\n.tool-container .color-options .color-field[data-v-2c584e6c] {\n    display: inline-block;\n    height: 30px;\n    width: 30px;\n    border: 2px solid gray;\n    border-radius: 50%;\n    margin: 0 10px;\n    cursor: pointer;\n    align-self: center;\n}\n.tool-container .color-options .color-input[data-v-2c584e6c] {\n    align-self: center;\n    margin: 0 10px;\n}\n.tool-container .color-options .range-input[data-v-2c584e6c] {\n    align-self: center;\n    margin: 0 10px;\n}\n.drowing-canvas[data-v-2c584e6c] {\n    margin: 20px;\n    box-shadow: -3px 2px 9px 6px black;\n}\n.number-input[data-v-2c584e6c] {\n    width: 60px;\n}\n.drow-size-show[data-v-2c584e6c] {\n    display: inline-block;\n    margin: 0 10px;\n    border-radius: 50%;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.tool-container[data-v-2c584e6c] {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n    border: 1px solid gray;\r\n    display: flex;\n}\n.tool-container .button-container[data-v-2c584e6c] {\r\n    display: inline-block;\n}\n.tool-container .color-options[data-v-2c584e6c] {\r\n    display: inline-block;\r\n    display: flex;\n}\n.tool-container .color-options .color-field[data-v-2c584e6c] {\r\n    display: inline-block;\r\n    height: 30px;\r\n    width: 30px;\r\n    border: 2px solid gray;\r\n    border-radius: 50%;\r\n    margin: 0 10px;\r\n    cursor: pointer;\r\n    align-self: center;\n}\n.tool-container .color-options .color-input[data-v-2c584e6c] {\r\n    align-self: center;\r\n    margin: 0 10px;\n}\n.tool-container .color-options .range-input[data-v-2c584e6c] {\r\n    align-self: center;\r\n    margin: 0 10px;\n}\n.drowing-canvas[data-v-2c584e6c] {\r\n    margin: 20px;\r\n    box-shadow: -3px 2px 9px 6px black;\n}\n.number-input[data-v-2c584e6c] {\r\n    width: 60px;\n}\n.drow-size-show[data-v-2c584e6c] {\r\n    display: inline-block;\r\n    margin: 0 10px;\r\n    border-radius: 50%;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -56219,7 +56314,27 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "tool-container" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "m-3 button-container" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-outline-success",
+            attrs: { type: "button" },
+            on: { click: _vm.saveMap },
+          },
+          [_vm._v("\n                Mentés\n            ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-outline-secondary ms-3",
+            attrs: { type: "button" },
+            on: { click: _vm.deleteMap },
+          },
+          [_vm._v("\n                Törlés\n            ")]
+        ),
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "color-options" }, [
         _c(
@@ -56230,17 +56345,32 @@ var render = function () {
             _vm._v(" "),
             _c("span", {
               staticClass: "color-field",
-              staticStyle: { "background-color": "rgb(0, 0, 0)" },
+              staticStyle: { "background-color": "#000000" },
+              on: {
+                click: function ($event) {
+                  _vm.selectedColor = "#000000"
+                },
+              },
             }),
             _vm._v(" "),
             _c("span", {
               staticClass: "color-field",
-              staticStyle: { "background-color": "rgb(29, 26, 26)" },
+              staticStyle: { "background-color": "#1d1a1a" },
+              on: {
+                click: function ($event) {
+                  _vm.selectedColor = "#1d1a1a"
+                },
+              },
             }),
             _vm._v(" "),
             _c("span", {
               staticClass: "color-field",
-              staticStyle: { "background-color": "white" },
+              staticStyle: { "background-color": "#ffffff" },
+              on: {
+                click: function ($event) {
+                  _vm.selectedColor = "#ffffff"
+                },
+              },
             }),
             _vm._v(" "),
             _c("input", {
@@ -56341,29 +56471,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "m-3 button-container" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-outline-success", attrs: { type: "button" } },
-        [_vm._v("Mentés")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-outline-secondary ms-3",
-          attrs: { type: "button" },
-        },
-        [_vm._v("Törlés")]
-      ),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
