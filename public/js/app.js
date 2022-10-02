@@ -5481,6 +5481,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -5563,11 +5565,49 @@ __webpack_require__.r(__webpack_exports__);
     },
     moduleError: function moduleError(state) {
       this.error = state;
+    },
+    reorderModules: function reorderModules(_ref2) {
+      var _this3 = this;
+
+      var index = _ref2.index,
+          direction = _ref2.direction;
+      var firstModuleId = null;
+      var firstModuleOrder = null;
+      var secondModuleId = null;
+      var secondModuleOrder = null;
+
+      if (direction == 'UP') {
+        firstModuleOrder = this.magusGameData[index - 1].game_module_data_order;
+        firstModuleId = this.magusGameData[index].id;
+        secondModuleOrder = this.magusGameData[index].game_module_data_order;
+        secondModuleId = this.magusGameData[index - 1].id;
+      } else {
+        firstModuleOrder = this.magusGameData[index + 1].game_module_data_order;
+        firstModuleId = this.magusGameData[index].id;
+        secondModuleOrder = this.magusGameData[index].game_module_data_order;
+        secondModuleId = this.magusGameData[index + 1].id;
+      }
+
+      this.loading = true;
+      this.error = false;
+      axios.post('/gm/update-game-module-order/' + this.moduleId, {
+        firstModuleId: firstModuleId,
+        firstModuleOrder: firstModuleOrder,
+        secondModuleId: secondModuleId,
+        secondModuleOrder: secondModuleOrder
+      }).then(function (res) {
+        _this3.magusGameData = res.data;
+        _this3.loading = false;
+      })["catch"](function (err) {
+        _this3.loading = false;
+        _this3.error = true;
+        setTimeout(function () {
+          _this3.error = false;
+        }, 3000);
+      });
     }
   },
   mounted: function mounted() {
-    console.log(this.gameModule);
-    console.log(this.gameData);
     this.moduleName = this.gameModule.game_module_name;
     this.moduleId = this.gameModule.id;
 
@@ -7763,6 +7803,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -7771,7 +7824,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   props: {
     moduleData: Object,
-    index: Number
+    index: Number,
+    moduleCount: Number
   },
   data: function data() {
     return {
@@ -7800,6 +7854,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     noteModalId: function noteModalId() {
       return 'noteModal' + this.index;
+    },
+    upArrowShow: function upArrowShow() {
+      return this.moduleCount > 0 && this.index > 0;
+    },
+    downArrowShow: function downArrowShow() {
+      return this.moduleCount > 0 && this.index < this.moduleCount - 1;
     }
   }),
   methods: {
@@ -7872,6 +7932,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     saveDrowing: function saveDrowing(mapData) {
       this.localData.map = mapData;
       this.saveData();
+    },
+    reorderModule: function reorderModule(direction) {
+      this.$emit('reorder', {
+        index: this.index,
+        direction: direction
+      });
+    }
+  },
+  watch: {
+    moduleData: function moduleData() {
+      this.localOrder = this.moduleData.game_module_data_order;
+      this.localData = this.moduleData.module_data;
     }
   },
   mounted: function mounted() {
@@ -29446,7 +29518,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.stage-des[data-v-df84baca] {\n    position: relative;\n    text-align: center;\n}\n.stage-des-text[data-v-df84baca] {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n}\n.stage-text[data-v-df84baca] {\n    margin: 10px;\n    padding: 10px;\n    font-size: 1.2rem;\n    background: rgba(255, 255, 255, 0.7);\n    border-radius: 15%;\n    white-space: pre-wrap;\n}\n.bg-select[data-v-df84baca]{\n    margin: 10px;\n    padding: 3px;\n    border: 1px solid rgb(26, 26, 114);\n    width: 200px;\n    height: 120px;\n}\n.bg-select[data-v-df84baca]:hover {\n    border: 1px solid red;\n}\n.bg-selected[data-v-df84baca] {\n    border: 1px solid red;\n}\n.text-with-enter[data-v-df84baca] {\n    white-space: pre-wrap;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.stage-des[data-v-df84baca] {\n        position: relative;\n        text-align: center;\n}\n.stage-des-text[data-v-df84baca] {\n        position: absolute;\n        top: 50%;\n        left: 50%;\n        transform: translate(-50%, -50%);\n}\n.stage-text[data-v-df84baca] {\n        margin: 10px;\n        padding: 10px;\n        font-size: 1.2rem;\n        background: rgba(255, 255, 255, 0.7);\n        border-radius: 15%;\n        white-space: pre-wrap;\n}\n.bg-select[data-v-df84baca]{\n        margin: 10px;\n        padding: 3px;\n        border: 1px solid rgb(26, 26, 114);\n        width: 200px;\n        height: 120px;\n}\n.bg-select[data-v-df84baca]:hover {\n        border: 1px solid red;\n}\n.bg-selected[data-v-df84baca] {\n        border: 1px solid red;\n}\n.text-with-enter[data-v-df84baca] {\n        white-space: pre-wrap;\n}\n.header-contener[data-v-df84baca]{\n        position: relative;\n        height: 125px;\n}\n.header-img[data-v-df84baca] {\n        position: absolute;\n        top: 50%;\n        left: 50%;\n        transform: translate(-50%, -50%);\n}\n@media only screen and (max-width: 522px) {\n.header-img[data-v-df84baca] {\n        left: 50px;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -51319,11 +51391,16 @@ var render = function () {
             { key: "Data" + index },
             [
               _c("magus-module-stage", {
-                attrs: { moduleData: data, index: index },
+                attrs: {
+                  moduleData: data,
+                  index: index,
+                  moduleCount: _vm.dataCount,
+                },
                 on: {
                   updatedData: _vm.updatedMagusGameData,
                   loading: _vm.moduleLoading,
                   onError: _vm.moduleError,
+                  reorder: _vm.reorderModules,
                 },
               }),
             ],
@@ -55632,9 +55709,9 @@ var render = function () {
       "div",
       { staticClass: "container-md border border-secondary p-2 mt-4" },
       [
-        _c("div", { staticClass: "text-center" }, [
+        _c("div", { staticClass: "text-center  header-contener" }, [
           _c("img", {
-            staticClass: "d-block mx-auto mb-4",
+            staticClass: "header-img",
             attrs: {
               src: "/img/pentagram.png",
               alt: "",
@@ -55643,14 +55720,99 @@ var render = function () {
             },
           }),
           _vm._v(" "),
-          _c("div", { staticClass: "text-end" }, [
+          _c("div", { staticClass: "text-end mt-3" }, [
+            _vm.upArrowShow
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary btn-sm me-4 mb-3",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function ($event) {
+                        return _vm.reorderModule("UP")
+                      },
+                    },
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "bi bi-arrow-up-square",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "16",
+                          height: "16",
+                          fill: "currentColor",
+                          viewBox: "0 0 16 16",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "fill-rule": "evenodd",
+                            d: "M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
             _c("p", { staticClass: "me-4" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-danger btn-sm costum-btn me-3",
+                  attrs: { type: "button" },
+                },
+                [_vm._v("Jelenet törlése")]
+              ),
+              _vm._v(" "),
               _c(
                 "span",
                 { staticClass: "p-3 border border-secondary rounded-pill" },
                 [_vm._v(_vm._s(_vm.localOrder))]
               ),
             ]),
+            _vm._v(" "),
+            _vm.downArrowShow
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary btn-sm me-4",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function ($event) {
+                        return _vm.reorderModule("DOWN")
+                      },
+                    },
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "bi bi-arrow-down-square",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "16",
+                          height: "16",
+                          fill: "currentColor",
+                          viewBox: "0 0 16 16",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "fill-rule": "evenodd",
+                            d: "M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 2.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]
+                )
+              : _vm._e(),
           ]),
         ]),
         _vm._v(" "),

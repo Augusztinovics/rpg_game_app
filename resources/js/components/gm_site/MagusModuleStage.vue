@@ -3,10 +3,23 @@
         <!-- Jelenet kontener -->
         <div class="container-md border border-secondary p-2 mt-4">
             <!-- Jelenet sorszama -->
-            <div class="text-center">
-                <img class="d-block mx-auto mb-4" src="/img/pentagram.png" alt="" width="72" height="72">
-                <div class="text-end">
-                    <p class="me-4"><span class="p-3 border border-secondary rounded-pill">{{ localOrder }}</span></p>
+            <div class="text-center  header-contener">
+                <img class="header-img" src="/img/pentagram.png" alt="" width="72" height="72">
+                <div class="text-end mt-3">
+                    <button v-if="upArrowShow" type="button" class="btn btn-secondary btn-sm me-4 mb-3" @click="reorderModule('UP')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-square" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 9.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                        </svg>
+                    </button>
+                    <p class="me-4">
+                        <button type="button" class="btn btn-danger btn-sm costum-btn me-3">Jelenet törlése</button>
+                        <span class="p-3 border border-secondary rounded-pill">{{ localOrder }}</span>
+                    </p>
+                    <button v-if="downArrowShow" type="button" class="btn btn-secondary btn-sm me-4"  @click="reorderModule('DOWN')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-square" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.5 2.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
             <!-- Jelenet cim -->
@@ -166,7 +179,8 @@ export default {
     },
     props: {
         moduleData: Object,
-        index: Number
+        index: Number,
+        moduleCount: Number
     },
     data() {
         return {
@@ -196,6 +210,12 @@ export default {
         },
         noteModalId() {
             return 'noteModal' + this.index;
+        },
+        upArrowShow() {
+            return this.moduleCount > 0 && this.index > 0;
+        },
+        downArrowShow() {
+            return this.moduleCount > 0 && this.index < this.moduleCount - 1;
         }
     },
     methods: {
@@ -258,6 +278,15 @@ export default {
         saveDrowing(mapData) {
             this.localData.map = mapData;
             this.saveData();
+        },
+        reorderModule(direction) {
+            this.$emit('reorder', {index: this.index, direction: direction});
+        }
+    },
+    watch: {
+        moduleData() {
+            this.localOrder = this.moduleData.game_module_data_order;
+            this.localData = this.moduleData.module_data;
         }
     },
     mounted() {
@@ -302,4 +331,19 @@ export default {
     .text-with-enter {
         white-space: pre-wrap;
     }
+    .header-contener{
+        position: relative;
+        height: 125px;
+    }
+    .header-img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    @media only screen and (max-width: 522px) {
+    .header-img {
+        left: 50px;
+    }
+}
 </style>

@@ -51,9 +51,10 @@ class GameModuleMakerController extends Controller
                 return redirect()->route('home');
             }
 
+            $gameData = GameModuleData::where('game_module_id', $module->id)->orderBy('game_module_data_order', 'asc')->get();
             $data = [
                 'game_module' => $module,
-                'game_data' => $module->gameModuleDatas
+                'game_data' => $gameData
             ];
 
             return view('magusgameedit', $data);
@@ -168,7 +169,7 @@ class GameModuleMakerController extends Controller
        return response()->json($newModuleData, 200);
     }
 
-     /**
+    /**
      * updating game module data
      * 
      * @return json
@@ -186,4 +187,33 @@ class GameModuleMakerController extends Controller
        return response()->json($gameModule, 200);
     }
    
+    /**
+     * updating game module order
+     * 
+     * @return json
+     */
+    public function updateGameModuleDataOrder(Request $request, $id){
+
+        $module = GameModule::where('id', $id)->first();
+        if (!$module) {
+            return redirect()->route('home');
+        }
+        
+        $firsModuleId = $request->input('firstModuleId');
+        $firsModuleOrder = $request->input('firstModuleOrder');
+        $secondModuleId = $request->input('secondModuleId');
+        $secondModuleOrder = $request->input('secondModuleOrder');
+        
+        $firstGameModule = GameModuleData::findOrFail($firsModuleId);
+        $firstGameModule->game_module_data_order = $firsModuleOrder;
+        $firstGameModule->save();
+
+        $secondGameModule = GameModuleData::findOrFail($secondModuleId);
+        $secondGameModule->game_module_data_order = $secondModuleOrder;
+        $secondGameModule->save();
+
+        $gameData = GameModuleData::where('game_module_id', $module->id)->orderBy('game_module_data_order', 'asc')->get();
+        
+       return response()->json($gameData, 200);
+    }
 }

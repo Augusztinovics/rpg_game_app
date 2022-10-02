@@ -26,9 +26,11 @@
                 <magus-module-stage 
                     :moduleData="data"
                     :index="index"
+                    :moduleCount="dataCount"
                     @updatedData="updatedMagusGameData"
                     @loading="moduleLoading"
                     @onError="moduleError"
+                    @reorder="reorderModules"
                 />
             </div>
             <div class="text-center m-4">
@@ -162,10 +164,42 @@ export default {
         moduleError(state) {
             this.error = state;
         },
+        reorderModules({index, direction}) {
+            let firstModuleId = null;
+            let firstModuleOrder = null;
+            let secondModuleId = null;
+            let secondModuleOrder = null;
+            if (direction == 'UP') {
+                firstModuleOrder = this.magusGameData[index - 1].game_module_data_order;
+                firstModuleId = this.magusGameData[index].id;
+                secondModuleOrder = this.magusGameData[index].game_module_data_order;
+                secondModuleId = this.magusGameData[index - 1].id;
+            } else {
+                firstModuleOrder = this.magusGameData[index + 1].game_module_data_order;
+                firstModuleId = this.magusGameData[index].id;
+                secondModuleOrder = this.magusGameData[index].game_module_data_order;
+                secondModuleId = this.magusGameData[index + 1].id;
+            }
+            this.loading = true;
+            this.error = false;
+            axios.post('/gm/update-game-module-order/' + this.moduleId, {
+                firstModuleId: firstModuleId,
+                firstModuleOrder: firstModuleOrder,
+                secondModuleId: secondModuleId,
+                secondModuleOrder: secondModuleOrder
+            }).then( res => {
+                this.magusGameData = res.data;
+                this.loading = false;
+            }).catch( err => {
+                this.loading = false;
+                this.error = true;
+                setTimeout(() => {
+                    this.error = false;
+                }, 3000)
+            })
+        }
     },
     mounted() {
-        console.log(this.gameModule);
-        console.log(this.gameData);
         this.moduleName = this.gameModule.game_module_name;
         this.moduleId = this.gameModule.id;
         if (this.gameData) {
