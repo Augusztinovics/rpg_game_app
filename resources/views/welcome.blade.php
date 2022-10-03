@@ -59,7 +59,7 @@
                                     </li>
                                     @if (Auth::user()->level === 'ADMIN')
                                     <li>
-                                        <a class="dropdown-item" href="{{ route('admin') }}">Admin panel</a>
+                                        <a class="dropdown-item" href="{{ route('admin') }}">Admin Panel</a>
                                     </li>
                                     @endif
                                     @if (Auth::user()->level === 'GAME_MASTER' || Auth::user()->level === 'ADMIN')
@@ -89,8 +89,8 @@
         <main>
             <div class="cover-image">
                 <div class="cover-text">
-                    <h1 class="display-2 fw-bold pb-4">Welcome in RPG games</h1>
-                    <p class="lead fw-bold fs-4">Here you can play a different RPG games with your friends</p>
+                    <h1 class="display-2 fw-bold pb-4">Welcome to RPG games!</h1>
+                    <p class="lead fw-bold fs-4">Here you can play many different RPG games with your friends</p>
                 </div>  
             </div>
             <div class="container bg-light shadow-lg">
