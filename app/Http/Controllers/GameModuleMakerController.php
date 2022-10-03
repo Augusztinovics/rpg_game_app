@@ -216,4 +216,27 @@ class GameModuleMakerController extends Controller
         
        return response()->json($gameData, 200);
     }
+
+    /**
+     * delte game module data
+     * 
+     * @return json
+     */
+    public function deleteGameModuleData(Request $request, $id){
+
+        $gameModule = GameModuleData::findOrFail($id);
+        $moduleId = $gameModule->game_module_id;
+       
+        $gameModule->delete();
+
+        $gameData = GameModuleData::where('game_module_id', $moduleId)->orderBy('game_module_data_order', 'asc')->get();
+        foreach ($gameData as $index => $data) {
+            $data->game_module_data_order = $index + 1;
+            $data->save();
+        }
+
+        $gameData = GameModuleData::where('game_module_id', $moduleId)->orderBy('game_module_data_order', 'asc')->get();
+        
+       return response()->json($gameData, 200);
+    }
 }

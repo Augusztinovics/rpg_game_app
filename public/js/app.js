@@ -5483,6 +5483,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -5603,6 +5604,22 @@ __webpack_require__.r(__webpack_exports__);
         _this3.error = true;
         setTimeout(function () {
           _this3.error = false;
+        }, 3000);
+      });
+    },
+    deleteModule: function deleteModule(id) {
+      var _this4 = this;
+
+      this.loading = true;
+      this.error = false;
+      axios.post('/gm/delete-game-module-data/' + id, {}).then(function (res) {
+        _this4.magusGameData = res.data;
+        _this4.loading = false;
+      })["catch"](function (err) {
+        _this4.loading = false;
+        _this4.error = true;
+        setTimeout(function () {
+          _this4.error = false;
         }, 3000);
       });
     }
@@ -7816,6 +7833,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -7854,6 +7892,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     noteModalId: function noteModalId() {
       return 'noteModal' + this.index;
+    },
+    confirmDeleteId: function confirmDeleteId() {
+      return 'deleteConfirm' + this.index;
     },
     upArrowShow: function upArrowShow() {
       return this.moduleCount > 0 && this.index > 0;
@@ -7938,6 +7979,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         index: this.index,
         direction: direction
       });
+    },
+    deleteStage: function deleteStage() {
+      this.$emit('delete', this.moduleData.id);
     }
   },
   watch: {
@@ -51401,6 +51445,7 @@ var render = function () {
                   loading: _vm.moduleLoading,
                   onError: _vm.moduleError,
                   reorder: _vm.reorderModules,
+                  delete: _vm.deleteModule,
                 },
               }),
             ],
@@ -55764,7 +55809,11 @@ var render = function () {
                 "button",
                 {
                   staticClass: "btn btn-danger btn-sm costum-btn me-3",
-                  attrs: { type: "button" },
+                  attrs: {
+                    type: "button",
+                    "data-bs-toggle": "modal",
+                    "data-bs-target": "#" + _vm.confirmDeleteId,
+                  },
                 },
                 [_vm._v("Jelenet törlése")]
               ),
@@ -56408,6 +56457,49 @@ var render = function () {
         ]),
       ]
     ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: _vm.confirmDeleteId,
+          tabindex: "-1",
+          "aria-labelledby": "delModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _vm._m(3),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary costum-btn",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Bezár")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-danger costum-btn",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.deleteStage },
+                },
+                [_vm._v("Töröl")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
   ])
 }
 var staticRenderFns = [
@@ -56449,6 +56541,35 @@ var staticRenderFns = [
           "aria-label": "Close",
         },
       }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title", attrs: { id: "delModalLabel" } }, [
+        _vm._v("Jegyzet"),
+      ]),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-body" }, [
+      _c("div", { staticClass: "text-center m-4" }, [
+        _c("p", [_vm._v("Bisztosan törölni szeretné ezt a Jelenetet?")]),
+      ]),
     ])
   },
 ]

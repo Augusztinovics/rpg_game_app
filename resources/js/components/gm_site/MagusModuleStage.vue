@@ -12,7 +12,7 @@
                         </svg>
                     </button>
                     <p class="me-4">
-                        <button type="button" class="btn btn-danger btn-sm costum-btn me-3">Jelenet törlése</button>
+                        <button type="button" class="btn btn-danger btn-sm costum-btn me-3" data-bs-toggle="modal" :data-bs-target="'#' +confirmDeleteId">Jelenet törlése</button>
                         <span class="p-3 border border-secondary rounded-pill">{{ localOrder }}</span>
                     </p>
                     <button v-if="downArrowShow" type="button" class="btn btn-secondary btn-sm me-4"  @click="reorderModule('DOWN')">
@@ -166,6 +166,27 @@
                 </div>
             </div>
         </div>
+
+        <!-- DELETE CONFIRMATION -->
+        <div class="modal fade" :id="confirmDeleteId" tabindex="-1" aria-labelledby="delModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="delModalLabel">Jegyzet</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <div class="modal-body">
+                    <div class="text-center m-4">
+                        <p>Bisztosan törölni szeretné ezt a Jelenetet?</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary costum-btn" data-bs-dismiss="modal">Bezár</button>
+                    <button type="button" class="btn btn-danger costum-btn" @click="deleteStage" data-bs-dismiss="modal">Töröl</button>
+                </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -210,6 +231,9 @@ export default {
         },
         noteModalId() {
             return 'noteModal' + this.index;
+        },
+        confirmDeleteId() {
+            return 'deleteConfirm' + this.index;
         },
         upArrowShow() {
             return this.moduleCount > 0 && this.index > 0;

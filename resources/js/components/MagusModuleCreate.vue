@@ -31,6 +31,7 @@
                     @loading="moduleLoading"
                     @onError="moduleError"
                     @reorder="reorderModules"
+                    @delete="deleteModule"
                 />
             </div>
             <div class="text-center m-4">
@@ -197,7 +198,22 @@ export default {
                     this.error = false;
                 }, 3000)
             })
-        }
+        },
+        deleteModule(id) {
+            this.loading = true;
+            this.error = false;
+            axios.post('/gm/delete-game-module-data/' + id, {})
+            .then( res => {
+                this.magusGameData = res.data;
+                this.loading = false;
+            }).catch( err => {
+                this.loading = false;
+                this.error = true;
+                setTimeout(() => {
+                    this.error = false;
+                }, 3000)
+            })
+        },
     },
     mounted() {
         this.moduleName = this.gameModule.game_module_name;
