@@ -281,6 +281,9 @@ export default {
         },
         reorderModule(direction) {
             this.$emit('reorder', {index: this.index, direction: direction});
+        },
+        deleteStage() {
+            this.$emit('delete', this.moduleData.id);
         }
     },
     watch: {
