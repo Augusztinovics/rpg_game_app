@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\GameModule;
+use App\Models\MyFriend;
 
 class GmHomeController extends Controller
 {
@@ -62,6 +63,18 @@ class GmHomeController extends Controller
         $user = $request->user();
         $gameModules = GameModule::with('players')->where('gm_id', $user->id)->paginate(10); 
         return response()->json($gameModules, 200);
+    }
+
+    /**
+     * get friend list 
+     * 
+     * @return json
+     */
+    public function getFriendList(Request $request) {
+
+        $user = $request->user();
+        $friends = MyFriend::with('friend')->where('user_id', $user->id)->get();
+        return response()->json($friends, 200);
     }
 
 }

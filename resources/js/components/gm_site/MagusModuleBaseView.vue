@@ -1,5 +1,11 @@
 <template>
     <div>
+        <div v-if="error">
+            <div class="text-center bg-danger m-3">
+                <p class="text-light p-4">Hiba történt mentés közben...</p>
+            </div>
+        </div>
+
         <div>
             <div class="p-4 border-bottom border-primary m-2 text-center">
                 <a
@@ -56,6 +62,9 @@
                                 <button
                                     type="button"
                                     class="btn btn-success costum-btn m-1"
+                                    @click="openSelectFriendModal(index)"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#playerModal"
                                 >
                                     Játékost meghív
                                 </button>
@@ -90,6 +99,38 @@
         </div>
 
         <!-- Modals for adding player and deleting module -->
+        <div class="modal fade" id="playerModal" tabindex="-1" aria-labelledby="playerModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="playerModalLabel">Játékos meghívása</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <div class="modal-body">
+                    <ul class="list-unstyled">
+                        <li v-for="(friend, index) in friends" 
+                            :key="'FREND' + index"
+                            class="m-2"
+                        >
+                            {{ friend.friend.name }}
+                            <button v-if="haveInPlayerList(friend.friend.id)" class="btn btn-danger btn-sm costum-btn ms-4">Meghivás Visszavonása</button>
+                            <button v-else class="btn btn-success btn-sm costum-btn ms-4">Meghívás Játékosnak</button>
+                            
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary costum-btn" data-bs-dismiss="modal">Bezár</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div v-if="loading" id="overlay">
+            <div id="overlayText">
+                Töltés folyamatban...
+            </div>
+        </div>
     </div>
 </template>
 
@@ -99,6 +140,11 @@ export default {
         return {
             gameModules: [],
             pagLinks: [],
+            friends: [],
+            selectedFriends: [],
+            selectedModuleIndex: null,
+            loading: false,
+            error: false,
         };
     },
     computed: {
@@ -113,7 +159,6 @@ export default {
             .then((res) => {
                 this.gameModules = res.data.data;
                 this.pagLinks = res.data.links;
-                console.log(this.gameModules);
             })
             .catch((error) => {
                 console.log(error);
@@ -137,6 +182,33 @@ export default {
                 return 0;
             }
         },
+        fetchFriends() {
+            this.loading = true;
+            this.error = false;
+            axios
+            .get("gm/friend-list")
+            .then((res) => {
+                this.friends = res.data;
+                this.loading = false;
+                console.log(this.gameModules[this.selectedModuleIndex].players);
+                console.log(this.friends);
+            })
+            .catch((error) => {
+                console.log(error);
+                this.loading = false;
+                this.error = true;
+                setTimeout(() => {
+                    this.error = false;
+                }, 3000)
+            });
+        },
+        openSelectFriendModal(index) {
+            this.selectedModuleIndex = index;
+            this.fetchFriends();
+        },
+        haveInPlayerList(id) {
+            return this.gameModules[this.selectedModuleIndex].players.find(friend => friend.id == id);
+        }
     },
     mounted() {
         this.fetchGameModules();
@@ -145,7 +217,29 @@ export default {
 </script>
 
 <style scoped>
-.active {
-    border: 1px solid rgb(15, 91, 161);
-}
+    .active {
+        border: 1px solid rgb(15, 91, 161);
+    }
+
+     #overlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 200;
+    }
+
+    #overlayText{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 50px;
+        color: white;
+        transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+    }
 </style>

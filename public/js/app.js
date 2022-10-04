@@ -6786,11 +6786,57 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       gameModules: [],
-      pagLinks: []
+      pagLinks: [],
+      friends: [],
+      selectedFriends: [],
+      selectedModuleIndex: null,
+      loading: false,
+      error: false
     };
   },
   computed: {
@@ -6805,7 +6851,6 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("gm/game-modules/MAGUS").then(function (res) {
         _this.gameModules = res.data.data;
         _this.pagLinks = res.data.links;
-        console.log(_this.gameModules);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -6826,6 +6871,34 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         return 0;
       }
+    },
+    fetchFriends: function fetchFriends() {
+      var _this3 = this;
+
+      this.loading = true;
+      this.error = false;
+      axios.get("gm/friend-list").then(function (res) {
+        _this3.friends = res.data;
+        _this3.loading = false;
+        console.log(_this3.gameModules[_this3.selectedModuleIndex].players);
+        console.log(_this3.friends);
+      })["catch"](function (error) {
+        console.log(error);
+        _this3.loading = false;
+        _this3.error = true;
+        setTimeout(function () {
+          _this3.error = false;
+        }, 3000);
+      });
+    },
+    openSelectFriendModal: function openSelectFriendModal(index) {
+      this.selectedModuleIndex = index;
+      this.fetchFriends();
+    },
+    haveInPlayerList: function haveInPlayerList(id) {
+      return this.gameModules[this.selectedModuleIndex].players.find(function (friend) {
+        return friend.id == id;
+      });
     }
   },
   mounted: function mounted() {
@@ -29322,7 +29395,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#overlay[data-v-aebb2e04] {\nposition: fixed;\nwidth: 100%;\nheight: 100%;\ntop: 0;\nleft: 0;\nright: 0;\nbottom: 0;\nbackground-color: rgba(0,0,0,0.5);\nz-index: 200;\n}\n#overlayText[data-v-aebb2e04]{\nposition: absolute;\ntop: 50%;\nleft: 50%;\nfont-size: 50px;\ncolor: white;\ntransform: translate(-50%,-50%);\n-ms-transform: translate(-50%,-50%);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#overlay[data-v-aebb2e04] {\n    position: fixed;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: rgba(0,0,0,0.5);\n    z-index: 200;\n}\n#overlayText[data-v-aebb2e04]{\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    font-size: 50px;\n    color: white;\n    transform: translate(-50%,-50%);\n    -ms-transform: translate(-50%,-50%);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -29490,7 +29563,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.active[data-v-316bf2ee] {\r\n    border: 1px solid rgb(15, 91, 161);\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.active[data-v-316bf2ee] {\n    border: 1px solid rgb(15, 91, 161);\n}\n#overlay[data-v-316bf2ee] {\n    position: fixed;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: rgba(0,0,0,0.5);\n    z-index: 200;\n}\n#overlayText[data-v-316bf2ee]{\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    font-size: 50px;\n    color: white;\n    transform: translate(-50%,-50%);\n    -ms-transform: translate(-50%,-50%);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -53328,8 +53401,10 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _vm.error ? _c("div", [_vm._m(0)]) : _vm._e(),
+    _vm._v(" "),
     _c("div", [
-      _vm._m(0),
+      _vm._m(1),
       _vm._v(" "),
       _vm.havePagination
         ? _c(
@@ -53355,7 +53430,7 @@ var render = function () {
       _vm._v(" "),
       _c("div", { staticClass: "table-responsive m-4" }, [
         _c("table", { staticClass: "table table-striped" }, [
-          _vm._m(1),
+          _vm._m(2),
           _vm._v(" "),
           _c(
             "tbody",
@@ -53402,7 +53477,16 @@ var render = function () {
                     "button",
                     {
                       staticClass: "btn btn-success costum-btn m-1",
-                      attrs: { type: "button" },
+                      attrs: {
+                        type: "button",
+                        "data-bs-toggle": "modal",
+                        "data-bs-target": "#playerModal",
+                      },
+                      on: {
+                        click: function ($event) {
+                          return _vm.openSelectFriendModal(index)
+                        },
+                      },
                     },
                     [
                       _vm._v(
@@ -53466,9 +53550,87 @@ var render = function () {
           )
         : _vm._e(),
     ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "playerModal",
+          tabindex: "-1",
+          "aria-labelledby": "playerModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(3),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c(
+                "ul",
+                { staticClass: "list-unstyled" },
+                _vm._l(_vm.friends, function (friend, index) {
+                  return _c(
+                    "li",
+                    { key: "FREND" + index, staticClass: "m-2" },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(friend.friend.name) +
+                          "\n                        "
+                      ),
+                      _vm.haveInPlayerList(friend.friend.id)
+                        ? _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn btn-danger btn-sm costum-btn ms-4",
+                            },
+                            [_vm._v("Meghivás Visszavonása")]
+                          )
+                        : _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn btn-success btn-sm costum-btn ms-4",
+                            },
+                            [_vm._v("Meghívás Játékosnak")]
+                          ),
+                    ]
+                  )
+                }),
+                0
+              ),
+            ]),
+            _vm._v(" "),
+            _vm._m(4),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _vm.loading
+      ? _c("div", { attrs: { id: "overlay" } }, [
+          _c("div", { attrs: { id: "overlayText" } }, [
+            _vm._v("\n            Töltés folyamatban...\n        "),
+          ]),
+        ])
+      : _vm._e(),
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center bg-danger m-3" }, [
+      _c("p", { staticClass: "text-light p-4" }, [
+        _vm._v("Hiba történt mentés közben..."),
+      ]),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -53502,6 +53664,42 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Lehetőségek")]),
       ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "playerModalLabel" } },
+        [_vm._v("Játékos meghívása")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary costum-btn",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Bezár")]
+      ),
     ])
   },
 ]
