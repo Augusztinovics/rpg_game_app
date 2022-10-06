@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\GameModule;
 use App\Models\MyFriend;
+use App\Models\GameModulePlayer;
 
 class GmHomeController extends Controller
 {
@@ -75,6 +76,37 @@ class GmHomeController extends Controller
         $user = $request->user();
         $friends = MyFriend::with('friend')->where('user_id', $user->id)->get();
         return response()->json($friends, 200);
+    }
+
+    /**
+     * add player to module 
+     * 
+     * @return json
+     */
+    public function addPlayerToModule(Request $request, $id) {
+        $playerId = $request->input('playerId');
+        if ($playerId) {
+            GameModulePlayer::create([
+                'game_module_id' => $id,
+                'player_id' => $playerId
+            ]);
+        }
+        $players = GameModulePlayer::where('game_module_id', $id)->get();
+        return response()->json($players, 200);
+    }
+
+    /**
+     * remove player from module 
+     * 
+     * @return json
+     */
+    public function removePlayerFromModule(Request $request, $id) {
+        $playerId = $request->input('playerId');
+        if ($playerId) {
+            GameModulePlayer::where('game_module_id', $id)->where('player_id', $playerId)->delete();
+        }
+        $players = GameModulePlayer::where('game_module_id', $id)->get();
+        return response()->json($players, 200);
     }
 
 }

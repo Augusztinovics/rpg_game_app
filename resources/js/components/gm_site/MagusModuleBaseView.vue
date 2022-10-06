@@ -113,8 +113,8 @@
                             class="m-2"
                         >
                             {{ friend.friend.name }}
-                            <button v-if="haveInPlayerList(friend.friend.id)" class="btn btn-danger btn-sm costum-btn ms-4">Meghivás Visszavonása</button>
-                            <button v-else class="btn btn-success btn-sm costum-btn ms-4">Meghívás Játékosnak</button>
+                            <button v-if="haveInPlayerList(friend.friend.id)" class="btn btn-danger btn-sm costum-btn ms-4" @click="removePlayerFromModule(friend.friend.id)">Meghivás Visszavonása</button>
+                            <button v-else class="btn btn-success btn-sm costum-btn ms-4" @click="addPlayerToModule(friend.friend.id)">Meghívás Játékosnak</button>
                             
                         </li>
                     </ul>
@@ -141,7 +141,6 @@ export default {
             gameModules: [],
             pagLinks: [],
             friends: [],
-            selectedFriends: [],
             selectedModuleIndex: null,
             loading: false,
             error: false,
@@ -190,8 +189,6 @@ export default {
             .then((res) => {
                 this.friends = res.data;
                 this.loading = false;
-                console.log(this.gameModules[this.selectedModuleIndex].players);
-                console.log(this.friends);
             })
             .catch((error) => {
                 console.log(error);
@@ -207,7 +204,47 @@ export default {
             this.fetchFriends();
         },
         haveInPlayerList(id) {
-            return this.gameModules[this.selectedModuleIndex].players.find(friend => friend.id == id);
+            return this.gameModules[this.selectedModuleIndex].players.find(friend => friend.player_id == id);
+        },
+        addPlayerToModule(friendId) {
+            this.loading = true;
+            this.error = false;
+            axios
+            .post("gm/ad-game-module-player/" + this.gameModules[this.selectedModuleIndex].id, {
+                playerId: friendId
+            })
+            .then((res) => {
+                this.gameModules[this.selectedModuleIndex].players = res.data;
+                this.loading = false;
+            })
+            .catch((error) => {
+                console.log(error);
+                this.loading = false;
+                this.error = true;
+                setTimeout(() => {
+                    this.error = false;
+                }, 3000)
+            });
+        },
+        removePlayerFromModule(friendId) {
+            this.loading = true;
+            this.error = false;
+            axios
+            .post("gm/remove-game-module-player/" + this.gameModules[this.selectedModuleIndex].id, {
+                playerId: friendId
+            })
+            .then((res) => {
+                this.gameModules[this.selectedModuleIndex].players = res.data;
+                this.loading = false;
+            })
+            .catch((error) => {
+                console.log(error);
+                this.loading = false;
+                this.error = true;
+                setTimeout(() => {
+                    this.error = false;
+                }, 3000)
+            });
         }
     },
     mounted() {

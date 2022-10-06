@@ -76,6 +76,8 @@ Route::post('admin/news/delete/{id}', [AdminController::class, 'deleteNews']);
 //Gm routs
 Route::get('gm/game-modules/{game}', [GmHomeController::class, 'getAllGameModules']);
 Route::get('gm/friend-list', [GmHomeController::class, 'getFriendList']);
+Route::post('gm/ad-game-module-player/{id}', [GmHomeController::class, 'addPlayerToModule']);
+Route::post('gm/remove-game-module-player/{id}', [GmHomeController::class, 'removePlayerFromModule']);
 Route::get('gm/magus-game-module/{id}', [GameModuleMakerController::class, 'index']);
 Route::post('gm/update-magus-game-module-name/{id}', [GameModuleMakerController::class, 'updateGameModuleName']);
 Route::post('gm/update-magus-game-module-note/{id}', [GameModuleMakerController::class, 'updateGameModuleNote']);

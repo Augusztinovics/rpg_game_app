@@ -6833,7 +6833,6 @@ __webpack_require__.r(__webpack_exports__);
       gameModules: [],
       pagLinks: [],
       friends: [],
-      selectedFriends: [],
       selectedModuleIndex: null,
       loading: false,
       error: false
@@ -6880,8 +6879,6 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("gm/friend-list").then(function (res) {
         _this3.friends = res.data;
         _this3.loading = false;
-        console.log(_this3.gameModules[_this3.selectedModuleIndex].players);
-        console.log(_this3.friends);
       })["catch"](function (error) {
         console.log(error);
         _this3.loading = false;
@@ -6897,7 +6894,45 @@ __webpack_require__.r(__webpack_exports__);
     },
     haveInPlayerList: function haveInPlayerList(id) {
       return this.gameModules[this.selectedModuleIndex].players.find(function (friend) {
-        return friend.id == id;
+        return friend.player_id == id;
+      });
+    },
+    addPlayerToModule: function addPlayerToModule(friendId) {
+      var _this4 = this;
+
+      this.loading = true;
+      this.error = false;
+      axios.post("gm/ad-game-module-player/" + this.gameModules[this.selectedModuleIndex].id, {
+        playerId: friendId
+      }).then(function (res) {
+        _this4.gameModules[_this4.selectedModuleIndex].players = res.data;
+        _this4.loading = false;
+      })["catch"](function (error) {
+        console.log(error);
+        _this4.loading = false;
+        _this4.error = true;
+        setTimeout(function () {
+          _this4.error = false;
+        }, 3000);
+      });
+    },
+    removePlayerFromModule: function removePlayerFromModule(friendId) {
+      var _this5 = this;
+
+      this.loading = true;
+      this.error = false;
+      axios.post("gm/remove-game-module-player/" + this.gameModules[this.selectedModuleIndex].id, {
+        playerId: friendId
+      }).then(function (res) {
+        _this5.gameModules[_this5.selectedModuleIndex].players = res.data;
+        _this5.loading = false;
+      })["catch"](function (error) {
+        console.log(error);
+        _this5.loading = false;
+        _this5.error = true;
+        setTimeout(function () {
+          _this5.error = false;
+        }, 3000);
       });
     }
   },
@@ -53587,6 +53622,13 @@ var render = function () {
                             {
                               staticClass:
                                 "btn btn-danger btn-sm costum-btn ms-4",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.removePlayerFromModule(
+                                    friend.friend.id
+                                  )
+                                },
+                              },
                             },
                             [_vm._v("Meghivás Visszavonása")]
                           )
@@ -53595,6 +53637,11 @@ var render = function () {
                             {
                               staticClass:
                                 "btn btn-success btn-sm costum-btn ms-4",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.addPlayerToModule(friend.friend.id)
+                                },
+                              },
                             },
                             [_vm._v("Meghívás Játékosnak")]
                           ),
