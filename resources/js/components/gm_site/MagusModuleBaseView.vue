@@ -56,8 +56,8 @@
                                 </button>
                             </td>
                             <td>
-                                <a href="" class="btn btn-outline-success m-1"
-                                    >Megnéz</a
+                                <a :href="'gm/game-module-pdf/' + gameModule.id" class="btn btn-outline-success m-1"
+                                    >Letölt</a
                                 >
                                 <button
                                     type="button"
@@ -77,6 +77,9 @@
                                 <button
                                     type="button"
                                     class="btn btn-danger costum-btn m-1"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#confirmDelete"
+                                    @click="prepareForDelete(gameModule.id)"
                                 >
                                     Töröl
                                 </button>
@@ -126,6 +129,27 @@
             </div>
         </div>
 
+         <!-- DELETE CONFIRMATION -->
+        <div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="delModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="delModalLabel">Játék module törlése</h5>
+                        <button type="button" class="btn-close" @click="cancelDelete" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <div class="modal-body">
+                    <div class="text-center m-4">
+                        <p>Bisztosan törölni szeretné ezt a Játék Modult?</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary costum-btn" @click="cancelDelete" data-bs-dismiss="modal">Mégsem</button>
+                    <button type="button" class="btn btn-danger costum-btn" @click="deleteModule" data-bs-dismiss="modal">Töröl</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
         <div v-if="loading" id="overlay">
             <div id="overlayText">
                 Töltés folyamatban...
@@ -142,6 +166,7 @@ export default {
             pagLinks: [],
             friends: [],
             selectedModuleIndex: null,
+            idForDelete: null,
             loading: false,
             error: false,
         };
@@ -245,6 +270,33 @@ export default {
                     this.error = false;
                 }, 3000)
             });
+        },
+        deleteModule() {
+            if (this.idForDelete === null) {
+                return;
+            }
+            this.loading = true;
+            this.error = false;
+            axios
+            .post("gm/delete-game-module/" + this.idForDelete, {})
+            .then((res) => {
+                this.fetchGameModules();
+                this.loading = false;
+            })
+            .catch((error) => {
+                console.log(error);
+                this.loading = false;
+                this.error = true;
+                setTimeout(() => {
+                    this.error = false;
+                }, 3000)
+            });
+        },
+        prepareForDelete(id) {
+            this.idForDelete = id;
+        },
+        cancelDelete() {
+            this.idForDelete = null;
         }
     },
     mounted() {

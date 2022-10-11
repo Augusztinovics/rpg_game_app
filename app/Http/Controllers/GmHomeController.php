@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\GameModule;
+use App\Models\GameModuleData;
 use App\Models\MyFriend;
 use App\Models\GameModulePlayer;
+use PDF;
 
 class GmHomeController extends Controller
 {
@@ -109,4 +111,31 @@ class GmHomeController extends Controller
         return response()->json($players, 200);
     }
 
+    /**
+     * remove game module 
+     * 
+     * @return json
+     */
+    public function deleteGameModule(Request $request, $id) {
+        GameModuleData::where('game_module_id', $id)->delete();
+        GameModulePlayer::where('game_module_id', $id)->delete();
+        GameModule::where('id', $id)->delete();
+        return response()->json('sucess', 200);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function generateGameModulePDF($id)
+    {
+        $data = [
+            'title' => 'Test',
+        ];
+          
+        $pdf = PDF::loadView('pdf.gamemodule', $data);
+    
+        return $pdf->download('test.pdf');
+    }
 }

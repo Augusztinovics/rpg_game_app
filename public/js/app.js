@@ -6827,6 +6827,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -6834,6 +6858,7 @@ __webpack_require__.r(__webpack_exports__);
       pagLinks: [],
       friends: [],
       selectedModuleIndex: null,
+      idForDelete: null,
       loading: false,
       error: false
     };
@@ -6934,6 +6959,34 @@ __webpack_require__.r(__webpack_exports__);
           _this5.error = false;
         }, 3000);
       });
+    },
+    deleteModule: function deleteModule() {
+      var _this6 = this;
+
+      if (this.idForDelete === null) {
+        return;
+      }
+
+      this.loading = true;
+      this.error = false;
+      axios.post("gm/delete-game-module/" + this.idForDelete, {}).then(function (res) {
+        _this6.fetchGameModules();
+
+        _this6.loading = false;
+      })["catch"](function (error) {
+        console.log(error);
+        _this6.loading = false;
+        _this6.error = true;
+        setTimeout(function () {
+          _this6.error = false;
+        }, 3000);
+      });
+    },
+    prepareForDelete: function prepareForDelete(id) {
+      this.idForDelete = id;
+    },
+    cancelDelete: function cancelDelete() {
+      this.idForDelete = null;
     }
   },
   mounted: function mounted() {
@@ -53503,9 +53556,9 @@ var render = function () {
                     "a",
                     {
                       staticClass: "btn btn-outline-success m-1",
-                      attrs: { href: "" },
+                      attrs: { href: "gm/game-module-pdf/" + gameModule.id },
                     },
-                    [_vm._v("Megnéz")]
+                    [_vm._v("Letölt")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -53547,7 +53600,16 @@ var render = function () {
                     "button",
                     {
                       staticClass: "btn btn-danger costum-btn m-1",
-                      attrs: { type: "button" },
+                      attrs: {
+                        type: "button",
+                        "data-bs-toggle": "modal",
+                        "data-bs-target": "#confirmDelete",
+                      },
+                      on: {
+                        click: function ($event) {
+                          return _vm.prepareForDelete(gameModule.id)
+                        },
+                      },
                     },
                     [
                       _vm._v(
@@ -53658,6 +53720,66 @@ var render = function () {
       ]
     ),
     _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "confirmDelete",
+          tabindex: "-1",
+          "aria-labelledby": "delModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _c("div", { staticClass: "modal-header" }, [
+              _c(
+                "h5",
+                { staticClass: "modal-title", attrs: { id: "delModalLabel" } },
+                [_vm._v("Játék module törlése")]
+              ),
+              _vm._v(" "),
+              _c("button", {
+                staticClass: "btn-close",
+                attrs: {
+                  type: "button",
+                  "data-bs-dismiss": "modal",
+                  "aria-label": "Close",
+                },
+                on: { click: _vm.cancelDelete },
+              }),
+            ]),
+            _vm._v(" "),
+            _vm._m(5),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary costum-btn",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.cancelDelete },
+                },
+                [_vm._v("Mégsem")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-danger costum-btn",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.deleteModule },
+                },
+                [_vm._v("Töröl")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
     _vm.loading
       ? _c("div", { attrs: { id: "overlay" } }, [
           _c("div", { attrs: { id: "overlayText" } }, [
@@ -53747,6 +53869,16 @@ var staticRenderFns = [
         },
         [_vm._v("Bezár")]
       ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-body" }, [
+      _c("div", { staticClass: "text-center m-4" }, [
+        _c("p", [_vm._v("Bisztosan törölni szeretné ezt a Játék Modult?")]),
+      ]),
     ])
   },
 ]
@@ -56728,7 +56860,7 @@ var render = function () {
                   staticClass: "btn btn-secondary costum-btn",
                   attrs: { type: "button", "data-bs-dismiss": "modal" },
                 },
-                [_vm._v("Bezár")]
+                [_vm._v("Mégsem")]
               ),
               _vm._v(" "),
               _c(
@@ -56794,7 +56926,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
       _c("h5", { staticClass: "modal-title", attrs: { id: "delModalLabel" } }, [
-        _vm._v("Jegyzet"),
+        _vm._v("Jelenet törlése"),
       ]),
       _vm._v(" "),
       _c("button", {
