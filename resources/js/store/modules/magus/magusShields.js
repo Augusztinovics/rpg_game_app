@@ -8,7 +8,7 @@ const state = {
     shields: [
         {
             id: 'NON',
-            name: 'Nem rendelkezik pajzsal',
+            name: 'Nem rendelkezik pajzzsal',
             TamKor: '',
             Cat: '',
             Ve: 0,
@@ -34,7 +34,7 @@ const state = {
             },
             weight: '1kg',
             price: '6 ezüst',
-            description: 'A pjzs ugyan elsősorban a védelmet szolgálja, egyes helyzetekben azonban kiélezik a peremét. A másik, gyakoribb támadási mód a pajzzsal, mikor mikor lapjával megütik, vagy megtaszitják az ellenfelet. Kis pajzsnak nevezzük a hozzávetőleg fél méter átmérőjű, álltalában kerek pajszokat',
+            description: 'A pajzs ugyan elsősorban a védelmet szolgálja, egyes helyzetekben azonban kiélezik a peremét. A másik, gyakoribb támadási mód a pajzzsal, mikor lapjával megütik, vagy megtaszítják az ellenfelet. Kis pajzsnak nevezzük a hozzávetőleg fél méter átmérőjű, általában kerek pajzsokat.',
         },
         {
             id: 'PAJZS_KOZEPES',
@@ -49,7 +49,7 @@ const state = {
             },
             weight: '3kg',
             price: '1 arany 6 ezüst',
-            description: 'A pjzs ugyan elsősorban a védelmet szolgálja, egyes helyzetekben azonban kiélezik a peremét. A másik, gyakoribb támadási mód a pajzzsal, mikor mikor lapjával megütik, vagy megtaszitják az ellenfelet. A közepes pajzsok hosszúkásak és a felsőtestet védik, azaz kb egy méteresek.',
+            description: 'A pajzs ugyan elsősorban a védelmet szolgálja, egyes helyzetekben azonban kiélezik a peremét. A másik, gyakoribb támadási mód a pajzzsal, mikor lapjával megütik, vagy megtaszítják az ellenfelet. A közepes pajzsok hosszúkásak és a felsőtestet védik, azaz kb. egy méteresek.',
         },
         {
             id: 'PAJZS_NAGY',
@@ -64,7 +64,7 @@ const state = {
             },
             weight: '6kg',
             price: '6 arany',
-            description: 'A pjzs ugyan elsősorban a védelmet szolgálja, egyes helyzetekben azonban kiélezik a peremét. A másik, gyakoribb támadási mód a pajzzsal, mikor mikor lapjával megütik, vagy megtaszitják az ellenfelet. A nagy pajzsok embermagasak és a nehézvértezetű lovagok felszereléséhez tartoznak. Gyakran használnak ilyet a számszerijászok is fedezékként.',
+            description: 'A pajzs ugyan elsősorban a védelmet szolgálja, egyes helyzetekben azonban kiélezik a peremét. A másik, gyakoribb támadási mód a pajzzsal, mikor lapjával megütik, vagy megtaszítják az ellenfelet. A nagy pajzsok embermagasak és a nehézvértezetű lovagok felszereléséhez tartoznak. Gyakran használnak ilyet a számszeríjászok is fedezékként.',
         }
     ],
 };

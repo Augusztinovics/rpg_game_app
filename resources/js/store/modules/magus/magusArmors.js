@@ -28,7 +28,7 @@ const state = {
             Mgt: 0,     
             weight: '5 kg',
             price: '1 ezüst',
-            description: 'A posztóvért a szegényebb gyalogosok viselete. Vastag posztóból vagy puha bőrből készül, és valamenyire felfogja az ütéseket. A lábat combközépig vagy térdig fedi, a kart könyékig.',
+            description: 'A posztóvért a szegényebb gyalogosok viselete. Vastag posztóból vagy puha bőrből készül, és valamennyire felfogja az ütéseket. A lábat combközépig vagy térdig fedi, a kart könyékig.',
         },
         {
             id: 'BOR_SZEGECSELT',
@@ -40,11 +40,11 @@ const state = {
             Mgt: 0,     
             weight: '8 kg',
             price: '4 ezüst',
-            description: 'A kivert bőrpáncél puha, de vastag bőrből készül, amit szegecsekkel vernek ki. A felkart és a combot is fedi. Gyakran a combokra rálógó rész középen fel van hasitva, hogy lovagolni lehessen benne.',
+            description: 'A kivert bőrpáncél puha, de vastag bőrből készül, amit szegecsekkel vernek ki. A felkart és a combot is fedi. Gyakran a combokra rálógó rész középen fel van hasítva, hogy lovagolni lehessen benne.',
         },
         {
             id: 'BOR_KEMENY',
-            name: 'Keményitett bőr vért',
+            name: 'Keményített bőr vért',
             material: 'bőr',
             type: 'L',
             typeName: 'könnyű vért',
@@ -52,7 +52,7 @@ const state = {
             Mgt: 2,     
             weight: '7 kg',
             price: '5 ezüst',
-            description: 'A keményitett bőrpáncél vagy bőr mellvért olajban kifőzött, vastag bőrből készül, amely az eljárás hatására megkeményedik. Általában csak a felsőtestet védi, mert meglehetősen merev.',
+            description: 'A keményített bőrpáncél vagy bőr mellvért olajban kifőzött, vastag bőrből készül, amely az eljárás hatására megkeményedik. Általában csak a felsőtestet védi, mert meglehetősen merev.',
         },
         {
             id: 'BOR_GYURUS',
@@ -64,7 +64,7 @@ const state = {
             Mgt: 1,     
             weight: '12 kg',
             price: '2 arany',
-            description: 'A gyűrűspáncél a posztóvért továbbfejlesztett változata, ahol a posztóra vagy bőrre kivülről fém karikákat varrnak. A kivert bőrhöz hasonlóan a combot és a felkart is védi.',
+            description: 'A gyűrűspáncél a posztóvért továbbfejlesztett változata, ahol a posztóra vagy bőrre kívülről fém karikákat varrnak. A kivert bőrhöz hasonlóan a combot és a felkart is védi.',
         },
         {
             id: 'BRIGANTIN',
@@ -88,7 +88,7 @@ const state = {
             Mgt: 1,     
             weight: '20 kg',
             price: '10 arany',
-            description: 'A láncing egymásba bújtatott kis fémkarikák összesége, mintha csak valaki láncból készitett volna szövetet. Álltalában a felsőtestet és a felkart védi, de egyes változatai egészen csuklóig, illetve térdig lenyúlnak. Gyakran készitenek láncból egyébb, ruhadarabokat utánzó páncélokat is, például nadrágot, csuklyát vagy kesztyűt.',
+            description: 'A láncing egymásba bújtatott kis fémkarikák összessége, mintha csak valaki láncból készített volna szövetet. Általában a felsőtestet és a felkart védi, de egyes változatai egészen csuklóig, illetve térdig lenyúlnak. Gyakran készítenek láncból egyéb, ruhadarabokat utánzó páncélokat is, például nadrágot, csuklyát vagy kesztyűt.',
         },
         {
             id: 'SODRONY_FEM',
@@ -100,7 +100,7 @@ const state = {
             Mgt: 1,     
             weight: '20 kg',
             price: '12 arany',
-            description: 'A sodronying sokban hasonlit a láncinghez, de a láncszemek itt finomabbak, és az egymásra szőtt láncok meg vannak tekeredve, igy az egész láncszövet vastagabb, miáltal jobban véd.',
+            description: 'A sodronying sokban hasonlít a láncinghez, de a láncszemek itt finomabbak, és az egymásra szőtt láncok meg vannak tekeredve, így az egész láncszövet vastagabb, miáltal jobban véd.',
         },
         {
             id: 'SODRONY_ABIT',
@@ -112,7 +112,7 @@ const state = {
             Mgt: 0,     
             weight: '12 kg',
             price: '30 arany',
-            description: 'A sodronying sokban hasonlit a láncinghez, de a láncszemek itt finomabbak, és az egymásra szőtt láncok meg vannak tekeredve, igy az egész láncszövet vastagabb, miáltal jobban véd.',
+            description: 'A sodronying sokban hasonlít a láncinghez, de a láncszemek itt finomabbak, és az egymásra szőtt láncok meg vannak tekeredve, így az egész láncszövet vastagabb, miáltal jobban véd.',
         },
         {
             id: 'SODRONY_MIT',
@@ -124,7 +124,7 @@ const state = {
             Mgt: 0,     
             weight: '10 kg',
             price: '1200 arany',
-            description: 'A sodronying sokban hasonlit a láncinghez, de a láncszemek itt finomabbak, és az egymásra szőtt láncok meg vannak tekeredve, igy az egész láncszövet vastagabb, miáltal jobban véd.',
+            description: 'A sodronying sokban hasonlít a láncinghez, de a láncszemek itt finomabbak, és az egymásra szőtt láncok meg vannak tekeredve, így az egész láncszövet vastagabb, miáltal jobban véd.',
         },
         {
             id: 'PIKKELY_FEM',
@@ -136,7 +136,7 @@ const state = {
             Mgt: 2,     
             weight: '16 kg',
             price: '20 arany',
-            description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősitenek.',
+            description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősítenek.',
         },
         {
             id: 'PIKKELY_BRONZ',
@@ -148,7 +148,7 @@ const state = {
             Mgt: 2,     
             weight: '18 kg',
             price: '16 arany',
-            description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősitenek.',
+            description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősítenek.',
         },
         {
             id: 'PIKKELY_ABIT',
@@ -160,7 +160,7 @@ const state = {
             Mgt: 1,     
             weight: '7 kg',
             price: '50 arany',
-            description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősitenek.',
+            description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősítenek.',
         },
         {
             id: 'PIKKELY_MIT',
@@ -172,7 +172,7 @@ const state = {
             Mgt: 0,     
             weight: '5 kg',
             price: '2000 arany',
-            description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősitenek.',
+            description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősítenek.',
         },
         {
             id: 'LEMEZ_FEM',
@@ -184,7 +184,7 @@ const state = {
             Mgt: 3,     
             weight: '16 kg',
             price: '40 arany',
-            description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek álltalában téglalap alakúak, és úgy vannak meghajlitva, hogy kövessék a test vonalát. A válnál az ivelt lemezek átfedik egymást, szijakkal kapcsolódnak, igy nagyobb mozgásszabadságot bisztositanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást bisztosit.',
+            description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek általában téglalap alakúak, és úgy vannak meghajlítva, hogy kövessék a test vonalát. A válnál az ívelt lemezek átfedik egymást, szíjakkal kapcsolódnak, így nagyobb mozgásszabadságot biztosítanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást biztosít.',
         },
         {
             id: 'LEMEZ_BRONZ',
@@ -196,7 +196,7 @@ const state = {
             Mgt: 3,     
             weight: '18 kg',
             price: '30 arany',
-            description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek álltalában téglalap alakúak, és úgy vannak meghajlitva, hogy kövessék a test vonalát. A válnál az ivelt lemezek átfedik egymást, szijakkal kapcsolódnak, igy nagyobb mozgásszabadságot bisztositanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást bisztosit.',
+            description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek általában téglalap alakúak, és úgy vannak meghajlítva, hogy kövessék a test vonalát. A válnál az ívelt lemezek átfedik egymást, szíjakkal kapcsolódnak, így nagyobb mozgásszabadságot biztosítanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást biztosít.',
         },
         {
             id: 'LEMEZ_ABIT',
@@ -208,7 +208,7 @@ const state = {
             Mgt: 2,     
             weight: '7 kg',
             price: '100 arany',
-            description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek álltalában téglalap alakúak, és úgy vannak meghajlitva, hogy kövessék a test vonalát. A válnál az ivelt lemezek átfedik egymást, szijakkal kapcsolódnak, igy nagyobb mozgásszabadságot bisztositanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást bisztosit.',
+            description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek általában téglalap alakúak, és úgy vannak meghajlítva, hogy kövessék a test vonalát. A válnál az ívelt lemezek átfedik egymást, szíjakkal kapcsolódnak, így nagyobb mozgásszabadságot biztosítanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást biztosít.',
         },
         {
             id: 'LEMEZ_MIT',
@@ -220,7 +220,7 @@ const state = {
             Mgt: 1,     
             weight: '5 kg',
             price: '4000 arany',
-            description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek álltalában téglalap alakúak, és úgy vannak meghajlitva, hogy kövessék a test vonalát. A válnál az ivelt lemezek átfedik egymást, szijakkal kapcsolódnak, igy nagyobb mozgásszabadságot bisztositanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást bisztosit.',
+            description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek általában téglalap alakúak, és úgy vannak meghajlítva, hogy kövessék a test vonalát. A válnál az ívelt lemezek átfedik egymást, szíjakkal kapcsolódnak, így nagyobb mozgásszabadságot biztosítanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást biztosít.',
         },
         {
             id: 'MELL_FEM',
@@ -232,7 +232,7 @@ const state = {
             Mgt: 4,     
             weight: '18 kg',
             price: '80 arany',
-            description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Álltalában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.',
+            description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Általában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.',
         },
         {
             id: 'MELL_BRONZ',
@@ -244,7 +244,7 @@ const state = {
             Mgt: 4,     
             weight: '20 kg',
             price: '60 arany',
-            description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Álltalában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.',
+            description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Általában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.',
         },
         {
             id: 'MELL_ABIT',
@@ -256,7 +256,7 @@ const state = {
             Mgt: 2,     
             weight: '8 kg',
             price: '200 arany',
-            description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Álltalában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.',
+            description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Általában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.',
         },
         {
             id: 'MELL_MIT',
@@ -268,7 +268,7 @@ const state = {
             Mgt: 1,     
             weight: '6 kg',
             price: '8000 arany',
-            description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Álltalában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.',
+            description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Általában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.',
         },
         {
             id: 'FEL_FEM',
@@ -280,7 +280,7 @@ const state = {
             Mgt: 6,     
             weight: '30 kg',
             price: '120 arany',
-            description: 'A félvértezett mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szijakkal kapcsolódó lemezek összesége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvértel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.',
+            description: 'A félvértezet mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szíjakkal kapcsolódó lemezek összessége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvérttel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.',
         },
         {
             id: 'FEL_BRONZ',
@@ -292,7 +292,7 @@ const state = {
             Mgt: 6,     
             weight: '35 kg',
             price: '100 arany',
-            description: 'A félvértezett mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szijakkal kapcsolódó lemezek összesége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvértel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.',
+            description: 'A félvértezet mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szíjakkal kapcsolódó lemezek összessége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvérttel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.',
         },
         {
             id: 'FEL_ABIT',
@@ -304,7 +304,7 @@ const state = {
             Mgt: 4,     
             weight: '12 kg',
             price: '300 arany',
-            description: 'A félvértezett mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szijakkal kapcsolódó lemezek összesége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvértel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.',
+            description: 'A félvértezet mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szíjakkal kapcsolódó lemezek összessége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvérttel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.',
         },
         {
             id: 'FEL_MIT',
@@ -316,7 +316,7 @@ const state = {
             Mgt: 3,     
             weight: '8 kg',
             price: '12000 arany',
-            description: 'A félvértezett mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szijakkal kapcsolódó lemezek összesége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvértel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.',
+            description: 'A félvértezet mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szíjakkal kapcsolódó lemezek összessége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvérttel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.',
         },
         {
             id: 'TELJES_FEM',
@@ -328,7 +328,7 @@ const state = {
             Mgt: 8,     
             weight: '35 kg',
             price: '200 arany',
-            description: 'A teljes vértezet egész testet beboritó fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvértel együtt használják, ami megfelelő kipárnázást bisztosit. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.',
+            description: 'A teljes vértezet egész testet beborító fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvérttel együtt használják, ami megfelelő kipárnázást biztosít. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.',
         },
         {
             id: 'TELJES_BRONZ',
@@ -340,7 +340,7 @@ const state = {
             Mgt: 8,     
             weight: '40 kg',
             price: '160 arany',
-            description: 'A teljes vértezet egész testet beboritó fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvértel együtt használják, ami megfelelő kipárnázást bisztosit. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.',
+            description: 'A teljes vértezet egész testet beborító fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvérttel együtt használják, ami megfelelő kipárnázást biztosít. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.',
         },
         {
             id: 'TELJES_ABIT',
@@ -352,7 +352,7 @@ const state = {
             Mgt: 6,     
             weight: '15 kg',
             price: '500 arany',
-            description: 'A teljes vértezet egész testet beboritó fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvértel együtt használják, ami megfelelő kipárnázást bisztosit. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.',
+            description: 'A teljes vértezet egész testet beborító fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvérttel együtt használják, ami megfelelő kipárnázást biztosít. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.',
         },
         {
             id: 'TELJES_MIT',
@@ -364,7 +364,7 @@ const state = {
             Mgt: 4,     
             weight: '10 kg',
             price: '20000 arany',
-            description: 'A teljes vértezet egész testet beboritó fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvértel együtt használják, ami megfelelő kipárnázást bisztosit. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.',
+            description: 'A teljes vértezet egész testet beborító fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvérttel együtt használják, ami megfelelő kipárnázást biztosít. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.',
         },
     ],
 };
