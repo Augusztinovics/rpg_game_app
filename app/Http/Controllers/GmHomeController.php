@@ -130,12 +130,28 @@ class GmHomeController extends Controller
      */
     public function generateGameModulePDF($id)
     {
+        $gameModule = GameModule::find($id);
+        $moduleData = GameModuleData::where('game_module_id', $id)->get();
+        $gameModuleData = [];
+        foreach ($moduleData as $data) {
+            $oneData = [
+                'stageTitle' => $data->module_data->title ?? 'title',
+                'stageNote' => $data->module_data->note ?? ['note'],
+                'stageImg' => $data->module_data->img ?? 'default.jpg',
+                'stageMap' => $data->module_data->map ?? [],
+                'stageDescription' => $data->module_data->description ?? 'description',
+            ];
+            $gameModuleData[] = ($oneData);
+        }
         $data = [
-            'title' => 'Test',
+            'title' => $gameModule->game_module_name,
+            'notes' => $gameModule->global_note ?? [],
+            'npcs' => $gameModule->npc_data ?? [],
+            'stages' => $gameModuleData,
         ];
           
         $pdf = PDF::loadView('pdf.gamemodule', $data);
     
-        return $pdf->download('test.pdf');
+        return $pdf->download('Module - ' . $gameModule->game_module_name . '.pdf');
     }
 }

@@ -56136,7 +56136,7 @@ var render = function () {
             staticClass: "header-img",
             attrs: {
               src: "/img/pentagram.png",
-              alt: "",
+              alt: "pentagram",
               width: "72",
               height: "72",
             },

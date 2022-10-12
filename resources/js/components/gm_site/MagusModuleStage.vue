@@ -4,7 +4,7 @@
         <div class="container-md border border-secondary p-2 mt-4">
             <!-- Jelenet sorszama -->
             <div class="text-center  header-contener">
-                <img class="header-img" src="/img/pentagram.png" alt="" width="72" height="72">
+                <img class="header-img" src="/img/pentagram.png" alt="pentagram" width="72" height="72">
                 <div class="text-end mt-3">
                     <button v-if="upArrowShow" type="button" class="btn btn-secondary btn-sm me-4 mb-3" @click="reorderModule('UP')">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-square" viewBox="0 0 16 16">
