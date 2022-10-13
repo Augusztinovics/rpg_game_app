@@ -50,10 +50,10 @@
         <?php print_r($stages); ?>
         @foreach ($stages as $stage)
             <div>
-                <img class="header-img" src="/img/pentagram.png" alt="pentagram" width="72" height="72">
+                <img class="header-img" src="{{ public_path('/img/pentagram.png') }}" alt="pentagram" width="72" height="72">
                 <h2>{{ $stage['stageTitle'] }}</h2>
                 <div class="stage-des">
-                    <img src="/img/fantasy-bg/{{ $stage['stageImg'] }}" alt="stage background image" style="width:100%;">
+                    <img src="{{ public_path('/img/fantasy-bg/' . $stage['stageImg']) }}" alt="stage background image" style="width:100%;">
                     <div class="stage-des-text">
                         <p class="stage-text"><b>{{ $stage['stageDescription'] }}</b></p>
                     </div>

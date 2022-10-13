@@ -135,22 +135,22 @@ class GmHomeController extends Controller
         $gameModuleData = [];
         foreach ($moduleData as $data) {
             $oneData = [
-                'stageTitle' => $data->module_data->title ?? 'title',
-                'stageNote' => $data->module_data->note ?? ['note'],
-                'stageImg' => $data->module_data->img ?? 'default.jpg',
-                'stageMap' => $data->module_data->map ?? [],
-                'stageDescription' => $data->module_data->description ?? 'description',
+                'stageTitle' => $data->module_data['title'] ?? '',
+                'stageNote' => $data->module_data['note'] ?? '',
+                'stageImg' => $data->module_data['img'] ?? 'default.jpg',
+                'stageMap' => $data->module_data['map'] ?? [],
+                'stageDescription' => $data->module_data['description'] ?? '',
             ];
-            $gameModuleData[] = ($oneData);
+            $gameModuleData[] = $oneData;
         }
-        $data = [
+        $gameData = [
             'title' => $gameModule->game_module_name,
             'notes' => $gameModule->global_note ?? [],
             'npcs' => $gameModule->npc_data ?? [],
             'stages' => $gameModuleData,
         ];
           
-        $pdf = PDF::loadView('pdf.gamemodule', $data);
+        $pdf = PDF::loadView('pdf.gamemodule', $gameData);
     
         return $pdf->download('Module - ' . $gameModule->game_module_name . '.pdf');
     }
