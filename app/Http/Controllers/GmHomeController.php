@@ -136,7 +136,7 @@ class GmHomeController extends Controller
         foreach ($moduleData as $data) {
             $oneData = [
                 'stageTitle' => $data->module_data['title'] ?? '',
-                'stageNote' => $data->module_data['note'] ?? '',
+                'stageNote' => $data->module_data['note'] ?? [],
                 'stageImg' => $data->module_data['img'] ?? 'default.jpg',
                 'stageMap' => $data->module_data['map'] ?? [],
                 'stageDescription' => $data->module_data['description'] ?? '',
