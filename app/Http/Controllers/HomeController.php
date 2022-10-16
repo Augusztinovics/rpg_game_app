@@ -38,5 +38,31 @@ class HomeController extends Controller
         return view('home')->with($data);
     }
 
-    
+    /**
+     * Show the game master registrations.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function gmRegistryShow()
+    {
+        return view('home');
+    }
+
+     /**
+     * Process the game master registrations.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function gmRegistryProcess(Request $request)
+    {
+        $user = User::find(Auth::id());
+        if (!$user) {
+            return redirect()->route('/'); 
+        }
+        if ($user->level == 'PLAYER') {
+            $user->level == 'GAME_MASTER';
+            $user->save();
+        }
+        return redirect()->route('gmhome');
+    }
 }

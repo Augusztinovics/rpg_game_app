@@ -25,6 +25,7 @@ use App\Models\User;
 //Welcome page routs
 Route::get('/', [WlecomeController::class, 'index']);
 Route::get('/news', [WlecomeController::class, 'getNews']);
+Route::get('/game-downloads', [WlecomeController::class, 'gameDownloads']);
 
 Auth::routes();
 
@@ -52,6 +53,10 @@ Route::post('chat/friend-request', [ChatController::class, 'friendRequest']);
 Route::post('chat/accept-friend-request/{id}', [ChatController::class, 'acceptFriend']);
 Route::post('chat/delete-friend-request/{id}', [ChatController::class, 'deleteFriend']);
 Route::get('socket.io/', [ChatController::class, 'ioSend']);
+
+//Gm registry routs
+Route::get('gm-registry/registry-show', [HomeController::class, 'gmRegistryShow']);
+Route::post('gm-registry/registry', [HomeController::class, 'gmRegistryProcess']);
 
 //Admin routs
 //users

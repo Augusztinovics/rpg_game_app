@@ -10,7 +10,6 @@ use App\Models\PageView;
 
 class WlecomeController extends Controller
 {
-    //
     /**
      * Show the welcome page.
      *
@@ -47,4 +46,15 @@ class WlecomeController extends Controller
         
        return response()->json($news, 200);
     }
+
+    /**
+     * Show the welcome page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function gameDownloads()
+    {
+        return view('gamedownloads');
+    }
+
 }

@@ -35,7 +35,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('game-downloads') }}">Különböző Letöltések</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -60,16 +62,16 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
-                                        <a class="dropdown-item" href="{{ route('home') }}">Player Dashboard</a>
+                                        <a class="dropdown-item" href="{{ route('home') }}">Játékos Panel</a>
                                     </li>
                                     @if (Auth::user()->level === 'ADMIN')
                                     <li>
-                                        <a class="dropdown-item" href="{{ route('admin') }}">Admin panel</a>
+                                        <a class="dropdown-item" href="{{ route('admin') }}">Admin Panel</a>
                                     </li>
                                     @endif
                                     @if (Auth::user()->level === 'GAME_MASTER' || Auth::user()->level === 'ADMIN')
                                     <li>
-                                        <a class="dropdown-item" href="{{ route('gmhome') }}">Game Master Dashboard</a>
+                                        <a class="dropdown-item" href="{{ route('gmhome') }}">Játékmester Panel</a>
                                     </li>
                                     @endif
                                     <li>
@@ -88,7 +90,7 @@
                             </li>
                             @if (Auth::user()->level === 'PLAYER')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Become a Game Master</a>
+                                    <a class="nav-link" href="{{ route('gm-registry/registry-show') }}">Átépítés Játékmesterre</a>
                                 </li>
                             @endif
                         @endguest

@@ -36,26 +36,6 @@ class GmHomeController extends Controller
         return view('gmhome');
     }
 
-     /**
-     * Show the game master registrations.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function gmRegistryShow()
-    {
-        return view('home');
-    }
-
-     /**
-     * Process the game master registrations.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function gmRegistryProcess()
-    {
-        return view('home');
-    }
-
     /**
      * get all game module 
      * 

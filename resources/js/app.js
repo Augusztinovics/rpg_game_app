@@ -29,6 +29,7 @@ Vue.component('admin-site', require('./components/AdminSite.vue').default);
 Vue.component('welcome-news', require('./components/WelcomeNews.vue').default);
 Vue.component('gm-site', require('./components/GmSite.vue').default);
 Vue.component('magus-module-create', require('./components/MagusModuleCreate.vue').default);
+Vue.component('game-downloads', require('./components/GameDownloads.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

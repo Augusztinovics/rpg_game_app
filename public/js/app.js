@@ -5324,6 +5324,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameDownloads.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameDownloads.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {},
+  mounted: function mounted() {}
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GmSite.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GmSite.vue?vue&type=script&lang=js& ***!
@@ -16202,6 +16255,7 @@ vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('admin-site', (__webpack_r
 vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('welcome-news', (__webpack_require__(/*! ./components/WelcomeNews.vue */ "./resources/js/components/WelcomeNews.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('gm-site', (__webpack_require__(/*! ./components/GmSite.vue */ "./resources/js/components/GmSite.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('magus-module-create', (__webpack_require__(/*! ./components/MagusModuleCreate.vue */ "./resources/js/components/MagusModuleCreate.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('game-downloads', (__webpack_require__(/*! ./components/GameDownloads.vue */ "./resources/js/components/GameDownloads.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -17152,7 +17206,7 @@ var state = {
     Mgt: 0,
     weight: '5 kg',
     price: '1 ezüst',
-    description: 'A posztóvért a szegényebb gyalogosok viselete. Vastag posztóból vagy puha bőrből készül, és valamenyire felfogja az ütéseket. A lábat combközépig vagy térdig fedi, a kart könyékig.'
+    description: 'A posztóvért a szegényebb gyalogosok viselete. Vastag posztóból vagy puha bőrből készül, és valamennyire felfogja az ütéseket. A lábat combközépig vagy térdig fedi, a kart könyékig.'
   }, {
     id: 'BOR_SZEGECSELT',
     name: 'Kivert bőr vért',
@@ -17163,10 +17217,10 @@ var state = {
     Mgt: 0,
     weight: '8 kg',
     price: '4 ezüst',
-    description: 'A kivert bőrpáncél puha, de vastag bőrből készül, amit szegecsekkel vernek ki. A felkart és a combot is fedi. Gyakran a combokra rálógó rész középen fel van hasitva, hogy lovagolni lehessen benne.'
+    description: 'A kivert bőrpáncél puha, de vastag bőrből készül, amit szegecsekkel vernek ki. A felkart és a combot is fedi. Gyakran a combokra rálógó rész középen fel van hasítva, hogy lovagolni lehessen benne.'
   }, {
     id: 'BOR_KEMENY',
-    name: 'Keményitett bőr vért',
+    name: 'Keményített bőr vért',
     material: 'bőr',
     type: 'L',
     typeName: 'könnyű vért',
@@ -17174,7 +17228,7 @@ var state = {
     Mgt: 2,
     weight: '7 kg',
     price: '5 ezüst',
-    description: 'A keményitett bőrpáncél vagy bőr mellvért olajban kifőzött, vastag bőrből készül, amely az eljárás hatására megkeményedik. Általában csak a felsőtestet védi, mert meglehetősen merev.'
+    description: 'A keményített bőrpáncél vagy bőr mellvért olajban kifőzött, vastag bőrből készül, amely az eljárás hatására megkeményedik. Általában csak a felsőtestet védi, mert meglehetősen merev.'
   }, {
     id: 'BOR_GYURUS',
     name: 'Gyűrűspáncél',
@@ -17185,7 +17239,7 @@ var state = {
     Mgt: 1,
     weight: '12 kg',
     price: '2 arany',
-    description: 'A gyűrűspáncél a posztóvért továbbfejlesztett változata, ahol a posztóra vagy bőrre kivülről fém karikákat varrnak. A kivert bőrhöz hasonlóan a combot és a felkart is védi.'
+    description: 'A gyűrűspáncél a posztóvért továbbfejlesztett változata, ahol a posztóra vagy bőrre kívülről fém karikákat varrnak. A kivert bőrhöz hasonlóan a combot és a felkart is védi.'
   }, {
     id: 'BRIGANTIN',
     name: 'Brigantin',
@@ -17207,7 +17261,7 @@ var state = {
     Mgt: 1,
     weight: '20 kg',
     price: '10 arany',
-    description: 'A láncing egymásba bújtatott kis fémkarikák összesége, mintha csak valaki láncból készitett volna szövetet. Álltalában a felsőtestet és a felkart védi, de egyes változatai egészen csuklóig, illetve térdig lenyúlnak. Gyakran készitenek láncból egyébb, ruhadarabokat utánzó páncélokat is, például nadrágot, csuklyát vagy kesztyűt.'
+    description: 'A láncing egymásba bújtatott kis fémkarikák összessége, mintha csak valaki láncból készített volna szövetet. Általában a felsőtestet és a felkart védi, de egyes változatai egészen csuklóig, illetve térdig lenyúlnak. Gyakran készítenek láncból egyéb, ruhadarabokat utánzó páncélokat is, például nadrágot, csuklyát vagy kesztyűt.'
   }, {
     id: 'SODRONY_FEM',
     name: 'Vas sodronying',
@@ -17218,7 +17272,7 @@ var state = {
     Mgt: 1,
     weight: '20 kg',
     price: '12 arany',
-    description: 'A sodronying sokban hasonlit a láncinghez, de a láncszemek itt finomabbak, és az egymásra szőtt láncok meg vannak tekeredve, igy az egész láncszövet vastagabb, miáltal jobban véd.'
+    description: 'A sodronying sokban hasonlít a láncinghez, de a láncszemek itt finomabbak, és az egymásra szőtt láncok meg vannak tekeredve, így az egész láncszövet vastagabb, miáltal jobban véd.'
   }, {
     id: 'SODRONY_ABIT',
     name: 'Abitacél sodronying',
@@ -17229,7 +17283,7 @@ var state = {
     Mgt: 0,
     weight: '12 kg',
     price: '30 arany',
-    description: 'A sodronying sokban hasonlit a láncinghez, de a láncszemek itt finomabbak, és az egymásra szőtt láncok meg vannak tekeredve, igy az egész láncszövet vastagabb, miáltal jobban véd.'
+    description: 'A sodronying sokban hasonlít a láncinghez, de a láncszemek itt finomabbak, és az egymásra szőtt láncok meg vannak tekeredve, így az egész láncszövet vastagabb, miáltal jobban véd.'
   }, {
     id: 'SODRONY_MIT',
     name: 'Mithrill sodronying',
@@ -17240,7 +17294,7 @@ var state = {
     Mgt: 0,
     weight: '10 kg',
     price: '1200 arany',
-    description: 'A sodronying sokban hasonlit a láncinghez, de a láncszemek itt finomabbak, és az egymásra szőtt láncok meg vannak tekeredve, igy az egész láncszövet vastagabb, miáltal jobban véd.'
+    description: 'A sodronying sokban hasonlít a láncinghez, de a láncszemek itt finomabbak, és az egymásra szőtt láncok meg vannak tekeredve, így az egész láncszövet vastagabb, miáltal jobban véd.'
   }, {
     id: 'PIKKELY_FEM',
     name: 'Vas pikkelyvért',
@@ -17251,7 +17305,7 @@ var state = {
     Mgt: 2,
     weight: '16 kg',
     price: '20 arany',
-    description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősitenek.'
+    description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősítenek.'
   }, {
     id: 'PIKKELY_BRONZ',
     name: 'Bronz pikkelyvért',
@@ -17262,7 +17316,7 @@ var state = {
     Mgt: 2,
     weight: '18 kg',
     price: '16 arany',
-    description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősitenek.'
+    description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősítenek.'
   }, {
     id: 'PIKKELY_ABIT',
     name: 'Abitacél pikkelyvért',
@@ -17273,7 +17327,7 @@ var state = {
     Mgt: 1,
     weight: '7 kg',
     price: '50 arany',
-    description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősitenek.'
+    description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősítenek.'
   }, {
     id: 'PIKKELY_MIT',
     name: 'Mithrill pikkelyvért',
@@ -17284,7 +17338,7 @@ var state = {
     Mgt: 0,
     weight: '5 kg',
     price: '2000 arany',
-    description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősitenek.'
+    description: 'A pikkelyvért kis kör vagy félkör alakú lemezek sokasága, amelyeket egymáshoz vagy egy posztóhoz erősítenek.'
   }, {
     id: 'LEMEZ_FEM',
     name: 'Vas lemezvértezet',
@@ -17295,7 +17349,7 @@ var state = {
     Mgt: 3,
     weight: '16 kg',
     price: '40 arany',
-    description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek álltalában téglalap alakúak, és úgy vannak meghajlitva, hogy kövessék a test vonalát. A válnál az ivelt lemezek átfedik egymást, szijakkal kapcsolódnak, igy nagyobb mozgásszabadságot bisztositanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást bisztosit.'
+    description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek általában téglalap alakúak, és úgy vannak meghajlítva, hogy kövessék a test vonalát. A válnál az ívelt lemezek átfedik egymást, szíjakkal kapcsolódnak, így nagyobb mozgásszabadságot biztosítanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást biztosít.'
   }, {
     id: 'LEMEZ_BRONZ',
     name: 'Bronz lemezvértezet',
@@ -17306,7 +17360,7 @@ var state = {
     Mgt: 3,
     weight: '18 kg',
     price: '30 arany',
-    description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek álltalában téglalap alakúak, és úgy vannak meghajlitva, hogy kövessék a test vonalát. A válnál az ivelt lemezek átfedik egymást, szijakkal kapcsolódnak, igy nagyobb mozgásszabadságot bisztositanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást bisztosit.'
+    description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek általában téglalap alakúak, és úgy vannak meghajlítva, hogy kövessék a test vonalát. A válnál az ívelt lemezek átfedik egymást, szíjakkal kapcsolódnak, így nagyobb mozgásszabadságot biztosítanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást biztosít.'
   }, {
     id: 'LEMEZ_ABIT',
     name: 'Abitacél lemezvértezet',
@@ -17317,7 +17371,7 @@ var state = {
     Mgt: 2,
     weight: '7 kg',
     price: '100 arany',
-    description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek álltalában téglalap alakúak, és úgy vannak meghajlitva, hogy kövessék a test vonalát. A válnál az ivelt lemezek átfedik egymást, szijakkal kapcsolódnak, igy nagyobb mozgásszabadságot bisztositanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást bisztosit.'
+    description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek általában téglalap alakúak, és úgy vannak meghajlítva, hogy kövessék a test vonalát. A válnál az ívelt lemezek átfedik egymást, szíjakkal kapcsolódnak, így nagyobb mozgásszabadságot biztosítanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást biztosít.'
   }, {
     id: 'LEMEZ_MIT',
     name: 'Mithrill lemezvértezet',
@@ -17328,7 +17382,7 @@ var state = {
     Mgt: 1,
     weight: '5 kg',
     price: '4000 arany',
-    description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek álltalában téglalap alakúak, és úgy vannak meghajlitva, hogy kövessék a test vonalát. A válnál az ivelt lemezek átfedik egymást, szijakkal kapcsolódnak, igy nagyobb mozgásszabadságot bisztositanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást bisztosit.'
+    description: 'A lemezvértezet hosszabb-rövidebb egymáshoz kapcsolt fémlapokból áll. Ezek általában téglalap alakúak, és úgy vannak meghajlítva, hogy kövessék a test vonalát. A válnál az ívelt lemezek átfedik egymást, szíjakkal kapcsolódnak, így nagyobb mozgásszabadságot biztosítanak. A felsőtestet és a felkart védi, egyes esetekben elöl combközépig ér. Alá legtöbbször posztóvértet vagy vastag ruhát vesznek, ami megfelelő kipárnázást biztosít.'
   }, {
     id: 'MELL_FEM',
     name: 'Vas mellvért',
@@ -17339,7 +17393,7 @@ var state = {
     Mgt: 4,
     weight: '18 kg',
     price: '80 arany',
-    description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Álltalában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.'
+    description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Általában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.'
   }, {
     id: 'MELL_BRONZ',
     name: 'Bronz mellvért',
@@ -17350,7 +17404,7 @@ var state = {
     Mgt: 4,
     weight: '20 kg',
     price: '60 arany',
-    description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Álltalában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.'
+    description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Általában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.'
   }, {
     id: 'MELL_ABIT',
     name: 'Abitacél mellvért',
@@ -17361,7 +17415,7 @@ var state = {
     Mgt: 2,
     weight: '8 kg',
     price: '200 arany',
-    description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Álltalában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.'
+    description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Általában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.'
   }, {
     id: 'MELL_MIT',
     name: 'Mithrill mellvért',
@@ -17372,7 +17426,7 @@ var state = {
     Mgt: 1,
     weight: '6 kg',
     price: '8000 arany',
-    description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Álltalában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.'
+    description: 'A mellvért egyetlen lemezből kovácsolt páncél, amely többé-kevésbé illeszkedik a testhez. Csak a felsőtestet védi, de az hátul is. Gyakran egészül ki alkar- és lábszárvédőkkel. Általában posztóvérttel vagy vastag ruhával hordják a megfelelő kipárnázás miatt. Néha a védtelen helyeken láncruhával egészül ki. Sisakot vagy lánccsuklyát hordanak hozzá.'
   }, {
     id: 'FEL_FEM',
     name: 'Vas félvértezet',
@@ -17383,7 +17437,7 @@ var state = {
     Mgt: 6,
     weight: '30 kg',
     price: '120 arany',
-    description: 'A félvértezett mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szijakkal kapcsolódó lemezek összesége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvértel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.'
+    description: 'A félvértezet mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szíjakkal kapcsolódó lemezek összessége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvérttel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.'
   }, {
     id: 'FEL_BRONZ',
     name: 'Bronz félvértezet',
@@ -17394,7 +17448,7 @@ var state = {
     Mgt: 6,
     weight: '35 kg',
     price: '100 arany',
-    description: 'A félvértezett mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szijakkal kapcsolódó lemezek összesége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvértel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.'
+    description: 'A félvértezet mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szíjakkal kapcsolódó lemezek összessége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvérttel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.'
   }, {
     id: 'FEL_ABIT',
     name: 'Abitacél félvértezet',
@@ -17405,7 +17459,7 @@ var state = {
     Mgt: 4,
     weight: '12 kg',
     price: '300 arany',
-    description: 'A félvértezett mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szijakkal kapcsolódó lemezek összesége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvértel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.'
+    description: 'A félvértezet mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szíjakkal kapcsolódó lemezek összessége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvérttel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.'
   }, {
     id: 'FEL_MIT',
     name: 'Mithrill félvértezett',
@@ -17416,7 +17470,7 @@ var state = {
     Mgt: 3,
     weight: '8 kg',
     price: '12000 arany',
-    description: 'A félvértezett mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szijakkal kapcsolódó lemezek összesége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvértel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.'
+    description: 'A félvértezet mellvértből, teljes karvértből, vaskesztyűből, nyakvédőből, acélsisakból és csataszoknyából áll. A csataszoknya a mellvért alsó részéhez szíjakkal kapcsolódó lemezek összessége. Combközépig ér, és csak elöl fedi viselőjét. Posztóvérttel vagy vastag ruhával hordják, a megfelelő kipárnázás miatt. Néha láncnadrággal egészül ki.'
   }, {
     id: 'TELJES_FEM',
     name: 'Vas teljes vértezet',
@@ -17427,7 +17481,7 @@ var state = {
     Mgt: 8,
     weight: '35 kg',
     price: '200 arany',
-    description: 'A teljes vértezet egész testet beboritó fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvértel együtt használják, ami megfelelő kipárnázást bisztosit. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.'
+    description: 'A teljes vértezet egész testet beborító fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvérttel együtt használják, ami megfelelő kipárnázást biztosít. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.'
   }, {
     id: 'TELJES_BRONZ',
     name: 'Bronz teljes vértezet',
@@ -17438,7 +17492,7 @@ var state = {
     Mgt: 8,
     weight: '40 kg',
     price: '160 arany',
-    description: 'A teljes vértezet egész testet beboritó fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvértel együtt használják, ami megfelelő kipárnázást bisztosit. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.'
+    description: 'A teljes vértezet egész testet beborító fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvérttel együtt használják, ami megfelelő kipárnázást biztosít. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.'
   }, {
     id: 'TELJES_ABIT',
     name: 'Abitacél teljes vértezet',
@@ -17449,7 +17503,7 @@ var state = {
     Mgt: 6,
     weight: '15 kg',
     price: '500 arany',
-    description: 'A teljes vértezet egész testet beboritó fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvértel együtt használják, ami megfelelő kipárnázást bisztosit. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.'
+    description: 'A teljes vértezet egész testet beborító fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvérttel együtt használják, ami megfelelő kipárnázást biztosít. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.'
   }, {
     id: 'TELJES_MIT',
     name: 'Mithrill teljes vértezet',
@@ -17460,7 +17514,7 @@ var state = {
     Mgt: 4,
     weight: '10 kg',
     price: '20000 arany',
-    description: 'A teljes vértezet egész testet beboritó fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvértel együtt használják, ami megfelelő kipárnázást bisztosit. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.'
+    description: 'A teljes vértezet egész testet beborító fémlemezekből áll. A sisak pontosan illeszkedik a nyakvérthez, az arcot rostély védi. Csak posztóvérttel együtt használják, ami megfelelő kipárnázást biztosít. Teljes vértezetben harcolni vagy megerőltető tevékenységet végezni legfeljebb 15-20 percig lehet.'
   }]
 };
 var getters = {
@@ -22590,7 +22644,7 @@ __webpack_require__.r(__webpack_exports__);
 var state = {
   shields: [{
     id: 'NON',
-    name: 'Nem rendelkezik pajzsal',
+    name: 'Nem rendelkezik pajzzsal',
     TamKor: '',
     Cat: '',
     Ve: 0,
@@ -22615,7 +22669,7 @@ var state = {
     },
     weight: '1kg',
     price: '6 ezüst',
-    description: 'A pjzs ugyan elsősorban a védelmet szolgálja, egyes helyzetekben azonban kiélezik a peremét. A másik, gyakoribb támadási mód a pajzzsal, mikor mikor lapjával megütik, vagy megtaszitják az ellenfelet. Kis pajzsnak nevezzük a hozzávetőleg fél méter átmérőjű, álltalában kerek pajszokat'
+    description: 'A pajzs ugyan elsősorban a védelmet szolgálja, egyes helyzetekben azonban kiélezik a peremét. A másik, gyakoribb támadási mód a pajzzsal, mikor lapjával megütik, vagy megtaszítják az ellenfelet. Kis pajzsnak nevezzük a hozzávetőleg fél méter átmérőjű, általában kerek pajzsokat.'
   }, {
     id: 'PAJZS_KOZEPES',
     name: 'Közepes pajzs',
@@ -22629,7 +22683,7 @@ var state = {
     },
     weight: '3kg',
     price: '1 arany 6 ezüst',
-    description: 'A pjzs ugyan elsősorban a védelmet szolgálja, egyes helyzetekben azonban kiélezik a peremét. A másik, gyakoribb támadási mód a pajzzsal, mikor mikor lapjával megütik, vagy megtaszitják az ellenfelet. A közepes pajzsok hosszúkásak és a felsőtestet védik, azaz kb egy méteresek.'
+    description: 'A pajzs ugyan elsősorban a védelmet szolgálja, egyes helyzetekben azonban kiélezik a peremét. A másik, gyakoribb támadási mód a pajzzsal, mikor lapjával megütik, vagy megtaszítják az ellenfelet. A közepes pajzsok hosszúkásak és a felsőtestet védik, azaz kb. egy méteresek.'
   }, {
     id: 'PAJZS_NAGY',
     name: 'Nagy pajzs',
@@ -22643,7 +22697,7 @@ var state = {
     },
     weight: '6kg',
     price: '6 arany',
-    description: 'A pjzs ugyan elsősorban a védelmet szolgálja, egyes helyzetekben azonban kiélezik a peremét. A másik, gyakoribb támadási mód a pajzzsal, mikor mikor lapjával megütik, vagy megtaszitják az ellenfelet. A nagy pajzsok embermagasak és a nehézvértezetű lovagok felszereléséhez tartoznak. Gyakran használnak ilyet a számszerijászok is fedezékként.'
+    description: 'A pajzs ugyan elsősorban a védelmet szolgálja, egyes helyzetekben azonban kiélezik a peremét. A másik, gyakoribb támadási mód a pajzzsal, mikor lapjával megütik, vagy megtaszítják az ellenfelet. A nagy pajzsok embermagasak és a nehézvértezetű lovagok felszereléséhez tartoznak. Gyakran használnak ilyet a számszeríjászok is fedezékként.'
   }]
 };
 var getters = {
@@ -48197,6 +48251,45 @@ component.options.__file = "resources/js/components/AdminSite.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/GameDownloads.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/GameDownloads.vue ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _GameDownloads_vue_vue_type_template_id_6ec5543e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GameDownloads.vue?vue&type=template&id=6ec5543e& */ "./resources/js/components/GameDownloads.vue?vue&type=template&id=6ec5543e&");
+/* harmony import */ var _GameDownloads_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GameDownloads.vue?vue&type=script&lang=js& */ "./resources/js/components/GameDownloads.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _GameDownloads_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _GameDownloads_vue_vue_type_template_id_6ec5543e___WEBPACK_IMPORTED_MODULE_0__.render,
+  _GameDownloads_vue_vue_type_template_id_6ec5543e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/GameDownloads.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/GmSite.vue":
 /*!********************************************!*\
   !*** ./resources/js/components/GmSite.vue ***!
@@ -49729,6 +49822,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/GameDownloads.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/GameDownloads.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GameDownloads_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./GameDownloads.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameDownloads.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GameDownloads_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/GmSite.vue?vue&type=script&lang=js&":
 /*!*********************************************************************!*\
   !*** ./resources/js/components/GmSite.vue?vue&type=script&lang=js& ***!
@@ -50575,6 +50684,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/GameDownloads.vue?vue&type=template&id=6ec5543e&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/GameDownloads.vue?vue&type=template&id=6ec5543e& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameDownloads_vue_vue_type_template_id_6ec5543e___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameDownloads_vue_vue_type_template_id_6ec5543e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameDownloads_vue_vue_type_template_id_6ec5543e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./GameDownloads.vue?vue&type=template&id=6ec5543e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameDownloads.vue?vue&type=template&id=6ec5543e&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/GmSite.vue?vue&type=template&id=1148bcf8&":
 /*!***************************************************************************!*\
   !*** ./resources/js/components/GmSite.vue?vue&type=template&id=1148bcf8& ***!
@@ -51404,6 +51530,85 @@ var staticRenderFns = [
         ]),
       ]
     )
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameDownloads.vue?vue&type=template&id=6ec5543e&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameDownloads.vue?vue&type=template&id=6ec5543e& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container-fluid" }, [
+      _c(
+        "ul",
+        {
+          staticClass: "nav nav-pills mb-3 border border-success rounded p-3",
+          attrs: { id: "pills-tab", role: "tablist" },
+        },
+        [
+          _c(
+            "li",
+            { staticClass: "nav-item", attrs: { role: "presentation" } },
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "nav-link active",
+                  attrs: {
+                    id: "pills-magus-tab",
+                    "data-bs-toggle": "pill",
+                    "data-bs-target": "#pills-magus",
+                    type: "button",
+                    role: "tab",
+                    "aria-controls": "pills-magus",
+                    "aria-selected": "true",
+                  },
+                },
+                [_vm._v("\n                MAGUS\n            ")]
+              ),
+            ]
+          ),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "tab-content", attrs: { id: "pills-tabContent" } },
+        [
+          _c("div", {
+            staticClass: "tab-pane fade show active",
+            attrs: {
+              id: "pills-magus",
+              role: "tabpanel",
+              "aria-labelledby": "pills-magus-tab",
+            },
+          }),
+        ]
+      ),
+    ])
   },
 ]
 render._withStripped = true
