@@ -44,7 +44,7 @@ class GmHomeController extends Controller
     public function getAllGameModules(Request $request, $game) {
 
         $user = $request->user();
-        $gameModules = GameModule::with('players')->where('gm_id', $user->id)->paginate(10); 
+        $gameModules = GameModule::with('players')->where('gm_id', $user->id)->where('game', $game)->paginate(10); 
         return response()->json($gameModules, 200);
     }
 

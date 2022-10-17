@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Carbon\Carbon;
 use App\Models\WhatsNew;
 use App\Models\PageView;
+use App\Models\PublicGameModule;
 
 class WlecomeController extends Controller
 {
@@ -57,4 +58,15 @@ class WlecomeController extends Controller
         return view('gamedownloads');
     }
 
+    /**
+     * get all game module 
+     * 
+     * @return json
+     */
+    public function getAllPublicGameModules(Request $request, $game)
+    {
+        $gameModules = PublicGameModule::where('game', $game)->paginate(10);
+
+        return response()->json($gameModules, 200);
+    }
 }

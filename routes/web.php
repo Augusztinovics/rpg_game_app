@@ -25,7 +25,8 @@ use App\Models\User;
 //Welcome page routs
 Route::get('/', [WlecomeController::class, 'index']);
 Route::get('/news', [WlecomeController::class, 'getNews']);
-Route::get('/game-downloads', [WlecomeController::class, 'gameDownloads']);
+Route::get('/game-downloads', [WlecomeController::class, 'gameDownloads'])->name('game-downloads');
+Route::get('public/game-modules/{game}', [WlecomeController::class, 'getAllPublicGameModules']);
 
 Auth::routes();
 

@@ -27,17 +27,25 @@
                 role="tabpanel"
                 aria-labelledby="pills-magus-tab"
             >
-               
+               <div class="text-center m-3">
+                   <button class="btn btn-link">Üres Mágus karakterlap letöltése</button>
+               </div>
+               <hr>
+               <div>
+                   <!-- Nyilvanos/Megosztott jatekmodulok -->
+                   <magus-module-downloads />
+               </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import MagusModuleDownloads from './download_site/MagusModuleDownloads.vue';
 
 export default {
     components: {
-        
+        MagusModuleDownloads,
     },
     mounted() {},
 };
