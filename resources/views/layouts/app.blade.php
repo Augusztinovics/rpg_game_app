@@ -90,7 +90,7 @@
                             </li>
                             @if (Auth::user()->level === 'PLAYER')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('gm-registry/registry-show') }}">Átépítés Játékmesterre</a>
+                                    <a class="nav-link" href="{{ route('gm-registry') }}">Átépítés Kalandmesterre</a>
                                 </li>
                             @endif
                         @endguest

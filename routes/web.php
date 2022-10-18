@@ -56,7 +56,7 @@ Route::post('chat/delete-friend-request/{id}', [ChatController::class, 'deleteFr
 Route::get('socket.io/', [ChatController::class, 'ioSend']);
 
 //Gm registry routs
-Route::get('gm-registry/registry-show', [HomeController::class, 'gmRegistryShow']);
+Route::get('gm-registry/registry-show', [HomeController::class, 'gmRegistryShow'])->name('gm-registry');
 Route::post('gm-registry/registry', [HomeController::class, 'gmRegistryProcess']);
 
 //Admin routs

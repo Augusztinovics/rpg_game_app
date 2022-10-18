@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\LoginCount;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -45,7 +46,7 @@ class HomeController extends Controller
      */
     public function gmRegistryShow()
     {
-        return view('home');
+        return view('gmupgrade');
     }
 
      /**
@@ -56,13 +57,15 @@ class HomeController extends Controller
     public function gmRegistryProcess(Request $request)
     {
         $user = User::find(Auth::id());
+        
         if (!$user) {
             return redirect()->route('/'); 
         }
         if ($user->level == 'PLAYER') {
-            $user->level == 'GAME_MASTER';
+            $user->level = 'GAME_MASTER';
             $user->save();
         }
+
         return redirect()->route('gmhome');
     }
 }
