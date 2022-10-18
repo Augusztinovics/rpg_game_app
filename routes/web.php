@@ -6,7 +6,7 @@ use App\Http\Controllers\GmHomeController;
 use App\Http\Controllers\GameModuleMakerController;
 use App\Http\Controllers\CharacterSheetsController;
 use App\Http\Controllers\ChatController;
-use App\Http\Controllers\WlecomeController;
+use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CostumerSupportController;
 use App\Models\User;
@@ -23,10 +23,10 @@ use App\Models\User;
 */
 
 //Welcome page routs
-Route::get('/', [WlecomeController::class, 'index']);
-Route::get('/news', [WlecomeController::class, 'getNews']);
-Route::get('/game-downloads', [WlecomeController::class, 'gameDownloads'])->name('game-downloads');
-Route::get('public/game-modules/{game}', [WlecomeController::class, 'getAllPublicGameModules']);
+Route::get('/', [WelcomeController::class, 'index']);
+Route::get('/news', [WelcomeController::class, 'getNews']);
+Route::get('/game-downloads', [WelcomeController::class, 'gameDownloads'])->name('game-downloads');
+Route::get('public/game-modules/{game}', [WelcomeController::class, 'getAllPublicGameModules']);
 
 Auth::routes();
 
@@ -86,6 +86,8 @@ Route::post('gm/ad-game-module-player/{id}', [GmHomeController::class, 'addPlaye
 Route::post('gm/remove-game-module-player/{id}', [GmHomeController::class, 'removePlayerFromModule']);
 Route::post('gm/delete-game-module/{id}', [GmHomeController::class, 'deleteGameModule']);
 Route::get('gm/game-module-pdf/{id}', [GmHomeController::class, 'generateGameModulePDF']);
+Route::post('gm/share-game-module/{gameModule}', [GmHomeController::class, 'shareGameModule']);
+Route::post('gm/use-public-game-module/{publicGameModule}', [GmHomeController::class, 'usePublicGameModule']);
 
 Route::get('gm/magus-game-module/{id}', [GameModuleMakerController::class, 'index']);
 Route::post('gm/update-magus-game-module-name/{id}', [GameModuleMakerController::class, 'updateGameModuleName']);

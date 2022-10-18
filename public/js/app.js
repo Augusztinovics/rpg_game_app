@@ -6821,11 +6821,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       gameModules: [],
       pagLinks: [],
+      isGm: false,
       loading: false,
       error: false
     };
@@ -6840,8 +6848,10 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("public/game-modules/MAGUS").then(function (res) {
-        _this.gameModules = res.data.data;
-        _this.pagLinks = res.data.links;
+        console.log(res);
+        _this.gameModules = res.data.gameModules.data;
+        _this.isGm = res.data.isGm;
+        _this.pagLinks = res.data.gameModules.links;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -6850,10 +6860,27 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.get(link).then(function (res) {
-        _this2.gameModules = res.data.data;
-        _this2.pagLinks = res.data.links;
+        _this2.gameModules = res.data.gameModules.data;
+        _this2.isGm = res.data.isGm;
+        _this2.pagLinks = res.data.gameModules.links;
       })["catch"](function (error) {
         console.log(error);
+      });
+    },
+    usePublicGameModule: function usePublicGameModule(id) {
+      var _this3 = this;
+
+      this.loading = true;
+      this.error = false;
+      axios.post("gm/use-public-game-module/" + id).then(function (res) {
+        _this3.loading = false;
+      })["catch"](function (error) {
+        console.log(error.response.data.message);
+        _this3.loading = false;
+        _this3.error = true;
+        setTimeout(function () {
+          _this3.error = false;
+        }, 3000);
       });
     }
   },
@@ -6875,6 +6902,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7101,23 +7136,16 @@ __webpack_require__.r(__webpack_exports__);
       this.selectedModuleIndex = index;
       this.fetchFriends();
     },
-    haveInPlayerList: function haveInPlayerList(id) {
-      return this.gameModules[this.selectedModuleIndex].players.find(function (friend) {
-        return friend.player_id == id;
-      });
-    },
-    addPlayerToModule: function addPlayerToModule(friendId) {
+    shareGameModule: function shareGameModule(id, index) {
       var _this4 = this;
 
       this.loading = true;
       this.error = false;
-      axios.post("gm/ad-game-module-player/" + this.gameModules[this.selectedModuleIndex].id, {
-        playerId: friendId
-      }).then(function (res) {
-        _this4.gameModules[_this4.selectedModuleIndex].players = res.data;
+      axios.post("gm/share-game-module/" + id).then(function (res) {
         _this4.loading = false;
+        _this4.gameModules[index].shared = true;
       })["catch"](function (error) {
-        console.log(error);
+        console.log(error.response.data.message);
         _this4.loading = false;
         _this4.error = true;
         setTimeout(function () {
@@ -7125,12 +7153,17 @@ __webpack_require__.r(__webpack_exports__);
         }, 3000);
       });
     },
-    removePlayerFromModule: function removePlayerFromModule(friendId) {
+    haveInPlayerList: function haveInPlayerList(id) {
+      return this.gameModules[this.selectedModuleIndex].players.find(function (friend) {
+        return friend.player_id == id;
+      });
+    },
+    addPlayerToModule: function addPlayerToModule(friendId) {
       var _this5 = this;
 
       this.loading = true;
       this.error = false;
-      axios.post("gm/remove-game-module-player/" + this.gameModules[this.selectedModuleIndex].id, {
+      axios.post("gm/ad-game-module-player/" + this.gameModules[this.selectedModuleIndex].id, {
         playerId: friendId
       }).then(function (res) {
         _this5.gameModules[_this5.selectedModuleIndex].players = res.data;
@@ -7144,8 +7177,27 @@ __webpack_require__.r(__webpack_exports__);
         }, 3000);
       });
     },
-    deleteModule: function deleteModule() {
+    removePlayerFromModule: function removePlayerFromModule(friendId) {
       var _this6 = this;
+
+      this.loading = true;
+      this.error = false;
+      axios.post("gm/remove-game-module-player/" + this.gameModules[this.selectedModuleIndex].id, {
+        playerId: friendId
+      }).then(function (res) {
+        _this6.gameModules[_this6.selectedModuleIndex].players = res.data;
+        _this6.loading = false;
+      })["catch"](function (error) {
+        console.log(error);
+        _this6.loading = false;
+        _this6.error = true;
+        setTimeout(function () {
+          _this6.error = false;
+        }, 3000);
+      });
+    },
+    deleteModule: function deleteModule() {
+      var _this7 = this;
 
       if (this.idForDelete === null) {
         return;
@@ -7154,15 +7206,15 @@ __webpack_require__.r(__webpack_exports__);
       this.loading = true;
       this.error = false;
       axios.post("gm/delete-game-module/" + this.idForDelete, {}).then(function (res) {
-        _this6.fetchGameModules();
+        _this7.fetchGameModules();
 
-        _this6.loading = false;
+        _this7.loading = false;
       })["catch"](function (error) {
         console.log(error);
-        _this6.loading = false;
-        _this6.error = true;
+        _this7.loading = false;
+        _this7.error = true;
         setTimeout(function () {
-          _this6.error = false;
+          _this7.error = false;
         }, 3000);
       });
     },
@@ -29908,7 +29960,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#overlay[data-v-c913c54a] {\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    z-index: 200;\n}\n#overlayText[data-v-c913c54a] {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    font-size: 50px;\r\n    color: white;\r\n    transform: translate(-50%, -50%);\r\n    -ms-transform: translate(-50%, -50%);\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#overlay[data-v-c913c54a] {\n    position: fixed;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: rgba(0, 0, 0, 0.5);\n    z-index: 200;\n}\n#overlayText[data-v-c913c54a] {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    font-size: 50px;\n    color: white;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -29956,7 +30008,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.tool-container[data-v-2c584e6c] {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n    border: 1px solid gray;\r\n    display: flex;\n}\n.tool-container .button-container[data-v-2c584e6c] {\r\n    display: inline-block;\n}\n.tool-container .color-options[data-v-2c584e6c] {\r\n    display: inline-block;\r\n    display: flex;\n}\n.tool-container .color-options .color-field[data-v-2c584e6c] {\r\n    display: inline-block;\r\n    height: 30px;\r\n    width: 30px;\r\n    border: 2px solid gray;\r\n    border-radius: 50%;\r\n    margin: 0 10px;\r\n    cursor: pointer;\r\n    align-self: center;\n}\n.tool-container .color-options .color-input[data-v-2c584e6c] {\r\n    align-self: center;\r\n    margin: 0 10px;\n}\n.tool-container .color-options .range-input[data-v-2c584e6c] {\r\n    align-self: center;\r\n    margin: 0 10px;\n}\n.drowing-canvas[data-v-2c584e6c] {\r\n    margin: 20px;\r\n    box-shadow: -3px 2px 9px 6px black;\n}\n.number-input[data-v-2c584e6c] {\r\n    width: 60px;\n}\n.drow-size-show[data-v-2c584e6c] {\r\n    display: inline-block;\r\n    margin: 0 10px;\r\n    border-radius: 50%;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.tool-container[data-v-2c584e6c] {\n    margin-top: 10px;\n    margin-bottom: 10px;\n    border: 1px solid gray;\n    display: flex;\n}\n.tool-container .button-container[data-v-2c584e6c] {\n    display: inline-block;\n}\n.tool-container .color-options[data-v-2c584e6c] {\n    display: inline-block;\n    display: flex;\n}\n.tool-container .color-options .color-field[data-v-2c584e6c] {\n    display: inline-block;\n    height: 30px;\n    width: 30px;\n    border: 2px solid gray;\n    border-radius: 50%;\n    margin: 0 10px;\n    cursor: pointer;\n    align-self: center;\n}\n.tool-container .color-options .color-input[data-v-2c584e6c] {\n    align-self: center;\n    margin: 0 10px;\n}\n.tool-container .color-options .range-input[data-v-2c584e6c] {\n    align-self: center;\n    margin: 0 10px;\n}\n.drowing-canvas[data-v-2c584e6c] {\n    margin: 20px;\n    box-shadow: -3px 2px 9px 6px black;\n}\n.number-input[data-v-2c584e6c] {\n    width: 60px;\n}\n.drow-size-show[data-v-2c584e6c] {\n    display: inline-block;\n    margin: 0 10px;\n    border-radius: 50%;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -54019,7 +54071,39 @@ var render = function () {
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(gameModule.game_module_name))]),
                 _vm._v(" "),
-                _vm._m(2, true),
+                _c("td", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-outline-success m-1",
+                      attrs: { href: "" },
+                    },
+                    [
+                      _vm._v(
+                        "\n                                Letölt\n                            "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm.isGm
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-success m-1",
+                          on: {
+                            click: function ($event) {
+                              return _vm.usePublicGameModule(gameModule.id)
+                            },
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                                Játék átvétele\n                            "
+                          ),
+                        ]
+                      )
+                    : _vm._e(),
+                ]),
               ])
             }),
             0
@@ -54082,18 +54166,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Lehetőségek")]),
       ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c(
-        "a",
-        { staticClass: "btn btn-outline-success m-1", attrs: { href: "" } },
-        [_vm._v("Letölt")]
-      ),
     ])
   },
 ]
@@ -54248,6 +54320,26 @@ var render = function () {
                       ),
                     ]
                   ),
+                  _vm._v(" "),
+                  !gameModule.shared
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-success costum-btn m-1",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.shareGameModule(gameModule.id, index)
+                            },
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                                Megosztás\n                            "
+                          ),
+                        ]
+                      )
+                    : _vm._e(),
                 ]),
               ])
             }),
@@ -61496,7 +61588,7 @@ var render = function () {
                           },
                           [
                             _vm._v(
-                              "\r\n                                Nem akarok páncélt\r\n                            "
+                              "\n                                Nem akarok páncélt\n                            "
                             ),
                           ]
                         ),
@@ -61564,7 +61656,7 @@ var render = function () {
                           },
                           [
                             _vm._v(
-                              "\r\n                                Nem akarok páncélt\r\n                            "
+                              "\n                                Nem akarok páncélt\n                            "
                             ),
                           ]
                         ),
@@ -85532,7 +85624,7 @@ var index = {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21","name":"axios","escapedName":"axios","rawSpec":"^0.21","saveSpec":null,"fetchSpec":"^0.21"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21","_where":"C:\\\\laravel\\\\rpgapp","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","/Users/vernerd/www/rpg_game_app"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"/Users/vernerd/www/rpg_game_app","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 

@@ -8,8 +8,9 @@ use Carbon\Carbon;
 use App\Models\WhatsNew;
 use App\Models\PageView;
 use App\Models\PublicGameModule;
+use Illuminate\Support\Facades\Auth;
 
-class WlecomeController extends Controller
+class WelcomeController extends Controller
 {
     /**
      * Show the welcome page.
@@ -38,13 +39,13 @@ class WlecomeController extends Controller
 
      /**
      * getting all published news
-     * 
+     *
      * @return json
      */
     public function getNews(Request $request){
-        
+
         $news = WhatsNew::where('published', 1)->orderBy('publushed_at', 'asc')->paginate(1);
-        
+
        return response()->json($news, 200);
     }
 
@@ -59,14 +60,19 @@ class WlecomeController extends Controller
     }
 
     /**
-     * get all game module 
-     * 
+     * get all game module
+     *
      * @return json
      */
     public function getAllPublicGameModules(Request $request, $game)
     {
         $gameModules = PublicGameModule::where('game', $game)->paginate(10);
 
-        return response()->json($gameModules, 200);
+        return response()->json(
+            [
+                'gameModules' => $gameModules,
+                'isGm' => optional(Auth::user())->level === 'GAME_MASTER'
+            ],
+            200);
     }
 }

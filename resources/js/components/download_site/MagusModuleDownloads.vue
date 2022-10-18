@@ -35,9 +35,16 @@
                             <td>{{ gameModule.id }}</td>
                             <td>{{ gameModule.game_module_name }}</td>
                             <td>
-                                <a href="" class="btn btn-outline-success m-1"
-                                    >Letölt</a
+                                <a href="" class="btn btn-outline-success m-1">
+                                    Letölt
+                                </a>
+                                <button
+                                    v-if="isGm"
+                                    class="btn btn-outline-success m-1"
+                                    @click="usePublicGameModule(gameModule.id)"
                                 >
+                                    Játék átvétele
+                                </button>
                             </td>
                         </tr>
                     </tbody>
@@ -70,6 +77,7 @@ export default {
         return {
             gameModules: [],
             pagLinks: [],
+            isGm: false,
             loading: false,
             error: false,
         };
@@ -84,8 +92,10 @@ export default {
             axios
             .get("public/game-modules/MAGUS")
             .then((res) => {
-                this.gameModules = res.data.data;
-                this.pagLinks = res.data.links;
+                console.log(res);
+                this.gameModules = res.data.gameModules.data;
+                this.isGm = res.data.isGm;
+                this.pagLinks = res.data.gameModules.links;
             })
             .catch((error) => {
                 console.log(error);
@@ -95,13 +105,31 @@ export default {
             axios
             .get(link)
             .then((res) => {
-                this.gameModules = res.data.data;
-                this.pagLinks = res.data.links;
+                this.gameModules = res.data.gameModules.data;
+                this.isGm = res.data.isGm;
+                this.pagLinks = res.data.gameModules.links;
             })
             .catch((error) => {
                 console.log(error);
             });
         },
+        usePublicGameModule(id){
+            this.loading = true;
+            this.error = false;
+            axios
+                .post("gm/use-public-game-module/" + id)
+                .then((res) => {
+                    this.loading = false;
+                })
+                .catch((error) => {
+                    console.log(error.response.data.message);
+                    this.loading = false;
+                    this.error = true;
+                    setTimeout(() => {
+                        this.error = false;
+                    }, 3000)
+                });
+        }
     },
     mounted() {
         this.fetchGameModules();
