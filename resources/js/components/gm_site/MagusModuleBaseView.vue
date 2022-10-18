@@ -83,6 +83,14 @@
                                 >
                                     Töröl
                                 </button>
+                                <button
+                                    v-if="!gameModule.shared"
+                                    type="button"
+                                    class="btn btn-success costum-btn m-1"
+                                    @click="shareGameModule(gameModule.id, index)"
+                                >
+                                    Megosztás
+                                </button>
                             </td>
                         </tr>
                     </tbody>
@@ -111,14 +119,14 @@
                     </div>
                 <div class="modal-body">
                     <ul class="list-unstyled">
-                        <li v-for="(friend, index) in friends" 
+                        <li v-for="(friend, index) in friends"
                             :key="'FREND' + index"
                             class="m-2"
                         >
                             {{ friend.friend.name }}
                             <button v-if="haveInPlayerList(friend.friend.id)" class="btn btn-danger btn-sm costum-btn ms-4" @click="removePlayerFromModule(friend.friend.id)">Meghivás Visszavonása</button>
                             <button v-else class="btn btn-success btn-sm costum-btn ms-4" @click="addPlayerToModule(friend.friend.id)">Meghívás Játékosnak</button>
-                            
+
                         </li>
                     </ul>
                 </div>
@@ -227,6 +235,24 @@ export default {
         openSelectFriendModal(index) {
             this.selectedModuleIndex = index;
             this.fetchFriends();
+        },
+        shareGameModule(id, index) {
+            this.loading = true;
+            this.error = false;
+            axios
+                .post("gm/share-game-module/" + id)
+                .then((res) => {
+                    this.loading = false;
+                    this.gameModules[index].shared = true;
+                })
+                .catch((error) => {
+                    console.log(error.response.data.message);
+                    this.loading = false;
+                    this.error = true;
+                    setTimeout(() => {
+                        this.error = false;
+                    }, 3000)
+                });
         },
         haveInPlayerList(id) {
             return this.gameModules[this.selectedModuleIndex].players.find(friend => friend.player_id == id);

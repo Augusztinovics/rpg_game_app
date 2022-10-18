@@ -143,6 +143,10 @@ class GmHomeController extends Controller
 
     public function shareGameModule(GameModule $gameModule, Request $request)
     {
+        if ($gameModule->shared){
+            abort(Response::HTTP_EXPECTATION_FAILED, 'Game module already shared, id= ' . $gameModule->id);
+        }
+
         return DB::transaction(function() use($gameModule){
             $publicGameModule = PublicGameModule::query()->create([
                 'game' => $gameModule->game,
@@ -151,8 +155,10 @@ class GmHomeController extends Controller
                 'npc_data' => $gameModule->npc_data
             ]);
 
+            $gameModuleDatas = $gameModule->gameModuleDatas()->orderBy('game_module_data_order')->get();
+
             /** @var GameModuleData $moduleData */
-            foreach($gameModule->gameModuleDatas as $gameModuleData) {
+            foreach($gameModuleDatas as $gameModuleData) {
                 PublicGameModuleData::query()->create([
                     'public_game_module_id' => $publicGameModule->id,
                     'module_data' => $gameModuleData->module_data
@@ -179,9 +185,10 @@ class GmHomeController extends Controller
             ]);
 
             /** @var PublicGameModule $publicGameModuleData */
-            foreach($publicGameModule->publicGameModuleDatas as $publicGameModuleData) {
+            foreach($publicGameModule->publicGameModuleDatas as $index => $publicGameModuleData) {
                 GameModuleData::query()->create([
                     'game_module_id' => $gameModule->id,
+                    'game_module_data_order' => $index + 1,
                     'module_data' => $publicGameModuleData->module_data
                 ]);
             }
