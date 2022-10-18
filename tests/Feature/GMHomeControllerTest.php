@@ -41,8 +41,8 @@ class GMHomeControllerTest extends TestCase
         $this->assertDatabaseHas('public_game_modules', [
             'game' => $gameModuleToShare->game,
             'game_module_name' => $gameModuleToShare->game_module_name,
-            'global_note' => $this->castAsJson($gameModuleToShare->global_note),
-            'npc_data' => $this->castAsJson($gameModuleToShare->npc_data),
+            'global_note' => json_encode($gameModuleToShare->global_note),
+            'npc_data' => json_encode($gameModuleToShare->npc_data),
         ]);
 
         $this->assertDatabaseHas('game_modules', [
@@ -52,7 +52,7 @@ class GMHomeControllerTest extends TestCase
 
         foreach($gameModuleToShare->gameModuleDatas as $gameModuleData){
             $this->assertDatabaseHas('public_game_module_data', [
-                'module_data' => $this->castAsJson($gameModuleData->module_data)
+                'module_data' => json_encode($gameModuleData->module_data)
             ]);
         }
     }
@@ -75,14 +75,14 @@ class GMHomeControllerTest extends TestCase
             'gm_id' => $user->id,
             'game' => $publicGameModule->game,
             'game_module_name' => $publicGameModule->game_module_name,
-            'global_note' => $this->castAsJson($publicGameModule->global_note),
-            'npc_data' => $this->castAsJson($publicGameModule->npc_data),
+            'global_note' => json_encode($publicGameModule->global_note),
+            'npc_data' => json_encode($publicGameModule->npc_data),
             'shared' => true
         ]);
 
         foreach($publicGameModule->publicGameModuleDatas as $publicGameModuleData){
             $this->assertDatabaseHas('game_module_data', [
-                'module_data' => $this->castAsJson($publicGameModuleData->module_data)
+                'module_data' => json_encode($publicGameModuleData->module_data)
             ]);
         }
     }
