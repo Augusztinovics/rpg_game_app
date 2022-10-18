@@ -87,6 +87,7 @@ Route::post('gm/remove-game-module-player/{id}', [GmHomeController::class, 'remo
 Route::post('gm/delete-game-module/{id}', [GmHomeController::class, 'deleteGameModule']);
 Route::get('gm/game-module-pdf/{id}', [GmHomeController::class, 'generateGameModulePDF']);
 Route::post('gm/share-game-module/{gameModule}', [GmHomeController::class, 'shareGameModule']);
+Route::post('gm/use-public-game-module/{publicGameModule}', [GmHomeController::class, 'usePublicGameModule']);
 
 Route::get('gm/magus-game-module/{id}', [GameModuleMakerController::class, 'index']);
 Route::post('gm/update-magus-game-module-name/{id}', [GameModuleMakerController::class, 'updateGameModuleName']);

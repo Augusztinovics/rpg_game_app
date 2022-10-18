@@ -12,6 +12,7 @@ use App\Models\GameModule;
 use App\Models\GameModuleData;
 use App\Models\MyFriend;
 use App\Models\GameModulePlayer;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use PDF;
 
@@ -143,7 +144,12 @@ class GmHomeController extends Controller
     public function shareGameModule(GameModule $gameModule, Request $request)
     {
         return DB::transaction(function() use($gameModule){
-            $publicGameModule = PublicGameModule::query()->create($gameModule->attributesToArray());
+            $publicGameModule = PublicGameModule::query()->create([
+                'game' => $gameModule->game,
+                'game_module_name' => $gameModule->game_module_name,
+                'global_note' => $gameModule->global_note,
+                'npc_data' => $gameModule->npc_data
+            ]);
 
             /** @var GameModuleData $moduleData */
             foreach($gameModule->gameModuleDatas as $gameModuleData) {
@@ -157,6 +163,30 @@ class GmHomeController extends Controller
             $gameModule->save();
 
             return $publicGameModule;
+        });
+    }
+
+    public function usePublicGameModule(PublicGameModule $publicGameModule, Request $request)
+    {
+        return DB::transaction(function() use($publicGameModule){
+            $gameModule = GameModule::query()->create([
+                'gm_id' => Auth::id(),
+                'game' => $publicGameModule->game,
+                'game_module_name' => $publicGameModule->game_module_name,
+                'global_note' => $publicGameModule->global_note,
+                'npc_data' => $publicGameModule->npc_data,
+                'shared' => true
+            ]);
+
+            /** @var PublicGameModule $publicGameModuleData */
+            foreach($publicGameModule->publicGameModuleDatas as $publicGameModuleData) {
+                GameModuleData::query()->create([
+                    'game_module_id' => $gameModule->id,
+                    'module_data' => $publicGameModuleData->module_data
+                ]);
+            }
+
+            return $gameModule;
         });
     }
 }
