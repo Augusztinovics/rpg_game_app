@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PublicGameModule;
 use App\Models\PublicGameModuleData;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Response;
 use App\Models\GameModule;
 use App\Models\GameModuleData;
