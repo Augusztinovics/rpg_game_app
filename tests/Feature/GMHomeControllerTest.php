@@ -36,7 +36,7 @@ class GMHomeControllerTest extends TestCase
         ]);
 
         $response = $this->actingAs($user)->postJson('/gm/share-game-module/' . $gameModuleToShare->id);
-        $response->assertStatus(201);
+        $response->assertOk();
 
         $this->assertDatabaseHas('public_game_modules', [
             'game' => $gameModuleToShare->game,
@@ -69,7 +69,7 @@ class GMHomeControllerTest extends TestCase
             ->create();
 
         $response = $this->actingAs($user)->postJson('/gm/use-public-game-module/' . $publicGameModule->id);
-        $response->assertStatus(201);
+        $response->assertOk();
 
         $this->assertDatabaseHas('game_modules', [
             'gm_id' => $user->id,

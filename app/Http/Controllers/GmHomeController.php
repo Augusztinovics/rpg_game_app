@@ -166,7 +166,7 @@ class GmHomeController extends Controller
             $gameModule->shared = true;
             $gameModule->save();
 
-            return $publicGameModule;
+            return response()->json($publicGameModule, 200);
         });
     }
 
@@ -191,7 +191,7 @@ class GmHomeController extends Controller
                 ]);
             }
 
-            return $gameModule;
+            return response()->json($gameModule, 200);
         });
     }
 }
