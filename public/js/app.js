@@ -6828,6 +6828,129 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -6835,7 +6958,9 @@ __webpack_require__.r(__webpack_exports__);
       pagLinks: [],
       isGm: false,
       loading: false,
-      error: false
+      error: false,
+      moduleData: [],
+      selectedIndex: null
     };
   },
   computed: {
@@ -6874,12 +6999,31 @@ __webpack_require__.r(__webpack_exports__);
       this.error = false;
       axios.post("gm/use-public-game-module/" + id).then(function (res) {
         _this3.loading = false;
+        alert('A játék sikeresen átvéve');
       })["catch"](function (error) {
         console.log(error.response.data.message);
         _this3.loading = false;
         _this3.error = true;
         setTimeout(function () {
           _this3.error = false;
+        }, 3000);
+      });
+    },
+    getModuleDatas: function getModuleDatas(id, index) {
+      var _this4 = this;
+
+      this.selectedIndex = index;
+      this.loading = true;
+      this.error = false;
+      axios.get("public/game-module-data/" + id).then(function (res) {
+        _this4.loading = false;
+        _this4.moduleData = res.data;
+      })["catch"](function (error) {
+        console.log(error.response.data.message);
+        _this4.loading = false;
+        _this4.error = true;
+        setTimeout(function () {
+          _this4.error = false;
         }, 3000);
       });
     }
@@ -29888,7 +30032,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.active[data-v-6d53a16a] {\n    border: 1px solid rgb(15, 91, 161);\n}\n#overlay[data-v-6d53a16a] {\n    position: fixed;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: rgba(0,0,0,0.5);\n    z-index: 200;\n}\n#overlayText[data-v-6d53a16a]{\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    font-size: 50px;\n    color: white;\n    transform: translate(-50%,-50%);\n    -ms-transform: translate(-50%,-50%);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.active[data-v-6d53a16a] {\n    border: 1px solid rgb(15, 91, 161);\n}\n#overlay[data-v-6d53a16a] {\n    position: fixed;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: rgba(0,0,0,0.5);\n    z-index: 200;\n}\n#overlayText[data-v-6d53a16a]{\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    font-size: 50px;\n    color: white;\n    transform: translate(-50%,-50%);\n    -ms-transform: translate(-50%,-50%);\n}\n.header-img[data-v-6d53a16a] {\n    display: inline-block;\n    margin-right: auto;\n}\n.stage-des-text[data-v-6d53a16a] {\n    text-align: center;\n}\n.stage-text[data-v-6d53a16a] {\n    margin: 10px;\n    padding: 10px;\n    font-size: 1.2rem;\n    background: rgba(255, 255, 255, 0.7);\n    border-radius: 15%;\n    white-space: pre-wrap;\n}\n.stage-title[data-v-6d53a16a] {\n    margin: 10;\n    text-align: center;\n}\n.one-row[data-v-6d53a16a] {\n    display: inline-block;\n    width: 45%;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -29960,7 +30104,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#overlay[data-v-c913c54a] {\n    position: fixed;\n    width: 100%;\n    height: 100%;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: rgba(0, 0, 0, 0.5);\n    z-index: 200;\n}\n#overlayText[data-v-c913c54a] {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    font-size: 50px;\n    color: white;\n    transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#overlay[data-v-c913c54a] {\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    z-index: 200;\n}\n#overlayText[data-v-c913c54a] {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    font-size: 50px;\r\n    color: white;\r\n    transform: translate(-50%, -50%);\r\n    -ms-transform: translate(-50%, -50%);\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30008,7 +30152,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.tool-container[data-v-2c584e6c] {\n    margin-top: 10px;\n    margin-bottom: 10px;\n    border: 1px solid gray;\n    display: flex;\n}\n.tool-container .button-container[data-v-2c584e6c] {\n    display: inline-block;\n}\n.tool-container .color-options[data-v-2c584e6c] {\n    display: inline-block;\n    display: flex;\n}\n.tool-container .color-options .color-field[data-v-2c584e6c] {\n    display: inline-block;\n    height: 30px;\n    width: 30px;\n    border: 2px solid gray;\n    border-radius: 50%;\n    margin: 0 10px;\n    cursor: pointer;\n    align-self: center;\n}\n.tool-container .color-options .color-input[data-v-2c584e6c] {\n    align-self: center;\n    margin: 0 10px;\n}\n.tool-container .color-options .range-input[data-v-2c584e6c] {\n    align-self: center;\n    margin: 0 10px;\n}\n.drowing-canvas[data-v-2c584e6c] {\n    margin: 20px;\n    box-shadow: -3px 2px 9px 6px black;\n}\n.number-input[data-v-2c584e6c] {\n    width: 60px;\n}\n.drow-size-show[data-v-2c584e6c] {\n    display: inline-block;\n    margin: 0 10px;\n    border-radius: 50%;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.tool-container[data-v-2c584e6c] {\r\n    margin-top: 10px;\r\n    margin-bottom: 10px;\r\n    border: 1px solid gray;\r\n    display: flex;\n}\n.tool-container .button-container[data-v-2c584e6c] {\r\n    display: inline-block;\n}\n.tool-container .color-options[data-v-2c584e6c] {\r\n    display: inline-block;\r\n    display: flex;\n}\n.tool-container .color-options .color-field[data-v-2c584e6c] {\r\n    display: inline-block;\r\n    height: 30px;\r\n    width: 30px;\r\n    border: 2px solid gray;\r\n    border-radius: 50%;\r\n    margin: 0 10px;\r\n    cursor: pointer;\r\n    align-self: center;\n}\n.tool-container .color-options .color-input[data-v-2c584e6c] {\r\n    align-self: center;\r\n    margin: 0 10px;\n}\n.tool-container .color-options .range-input[data-v-2c584e6c] {\r\n    align-self: center;\r\n    margin: 0 10px;\n}\n.drowing-canvas[data-v-2c584e6c] {\r\n    margin: 20px;\r\n    box-shadow: -3px 2px 9px 6px black;\n}\n.number-input[data-v-2c584e6c] {\r\n    width: 60px;\n}\n.drow-size-show[data-v-2c584e6c] {\r\n    display: inline-block;\r\n    margin: 0 10px;\r\n    border-radius: 50%;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -54073,6 +54217,27 @@ var render = function () {
                 _vm._v(" "),
                 _c("td", [
                   _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-success m-1",
+                      attrs: {
+                        "data-bs-toggle": "modal",
+                        "data-bs-target": "#previewModal",
+                      },
+                      on: {
+                        click: function ($event) {
+                          return _vm.getModuleDatas(gameModule.id, index)
+                        },
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "\n                                Áttekintés\n                            "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
                     "a",
                     {
                       staticClass: "btn btn-outline-success m-1",
@@ -54134,6 +54299,354 @@ var render = function () {
         : _vm._e(),
     ]),
     _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "previewModal",
+          tabindex: "-1",
+          "aria-labelledby": "previewModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-fullscreen" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _vm.gameModules[_vm.selectedIndex]
+                ? _c(
+                    "div",
+                    [
+                      _c("div", [
+                        _c("div", { staticClass: "stage-title" }, [
+                          _c("img", {
+                            staticClass: "header-img",
+                            attrs: {
+                              src: "/img/pentagram.png",
+                              alt: "pentagram",
+                              width: "72",
+                              height: "72",
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c("h1", [
+                            _vm._v(
+                              _vm._s(
+                                _vm.gameModules[_vm.selectedIndex]
+                                  .game_module_name
+                              )
+                            ),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          [
+                            _c("h2", [_vm._v("A játék fő történésvonala:")]),
+                            _vm._v(" "),
+                            _vm._l(
+                              _vm.gameModules[_vm.selectedIndex].global_note,
+                              function (note, index) {
+                                return _c("p", { key: "GNOTE" + index }, [
+                                  _vm._m(3, true),
+                                  _vm._v(_vm._s(note.note)),
+                                ])
+                              }
+                            ),
+                          ],
+                          2
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("hr"),
+                      _vm._v(" "),
+                      _vm._l(_vm.moduleData, function (stage, index) {
+                        return _c("div", { key: "STAGE" + index }, [
+                          _c("div", [
+                            _c("div", { staticClass: "stage-title" }, [
+                              _c("img", {
+                                staticClass: "header-img",
+                                attrs: {
+                                  src: "/img/pentagram.png",
+                                  alt: "pentagram",
+                                  width: "72",
+                                  height: "72",
+                                },
+                              }),
+                              _vm._v(" "),
+                              _c("h2", [
+                                _vm._v(_vm._s(stage.module_data.title)),
+                              ]),
+                            ]),
+                            _vm._v(" "),
+                            _c("div", [
+                              _c("img", {
+                                staticStyle: { width: "100%" },
+                                attrs: {
+                                  src:
+                                    "/img/fantasy-bg/" + stage.module_data.img,
+                                  alt: "stage background image",
+                                },
+                              }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "stage-des-text" }, [
+                                _c("p", { staticClass: "stage-text" }, [
+                                  _c("b", [
+                                    _vm._v(
+                                      _vm._s(stage.module_data.description)
+                                    ),
+                                  ]),
+                                ]),
+                              ]),
+                            ]),
+                          ]),
+                          _vm._v(" "),
+                          _c("hr"),
+                          _vm._v(" "),
+                          stage.module_data.note.lenght > 0
+                            ? _c("div", [
+                                _c("div", [
+                                  _c("div", { staticClass: "stage-title" }, [
+                                    _c("img", {
+                                      staticClass: "header-img",
+                                      attrs: {
+                                        src: "/img/pentagram.png",
+                                        alt: "pentagram",
+                                        width: "72",
+                                        height: "72",
+                                      },
+                                    }),
+                                    _vm._v(" "),
+                                    _c("h2", [
+                                      _vm._v(_vm._s(stage.module_data.title)),
+                                    ]),
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._m(4, true),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    _vm._l(
+                                      stage.module_data.note,
+                                      function (note, index) {
+                                        return _c(
+                                          "p",
+                                          { key: "SNote" + stage.id + index },
+                                          [
+                                            _vm._m(5, true),
+                                            _vm._v(_vm._s(note)),
+                                          ]
+                                        )
+                                      }
+                                    ),
+                                    0
+                                  ),
+                                ]),
+                              ])
+                            : _vm._e(),
+                        ])
+                      }),
+                      _vm._v(" "),
+                      _vm.gameModules[_vm.selectedIndex].npc_data
+                        ? _c(
+                            "div",
+                            [
+                              _vm._m(6),
+                              _vm._v(" "),
+                              _c("hr"),
+                              _vm._v(" "),
+                              _vm._l(
+                                _vm.gameModules[_vm.selectedIndex].npc_data,
+                                function (npc, index) {
+                                  return _c("div", { key: "NPC" + index }, [
+                                    _c("div", [
+                                      _c("h2", [_vm._v(_vm._s(npc.name))]),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", [
+                                      _vm._v(
+                                        "------------------------------------------"
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", [
+                                      _c("div", [
+                                        _c("div", { staticClass: "one-row" }, [
+                                          _vm._m(7, true),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _vm._v("Erő: " + _vm._s(npc.ERO)),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _vm._v(
+                                              "Gyorsaság: " + _vm._s(npc.GYORS)
+                                            ),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _vm._v(
+                                              "Ügyesség: " + _vm._s(npc.UGY)
+                                            ),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _vm._v(
+                                              "Állóképesség: " +
+                                                _vm._s(npc.ALLO)
+                                            ),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _vm._v(
+                                              "Egészség: " + _vm._s(npc.EG)
+                                            ),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _vm._v(
+                                              "Szépség: " + _vm._s(npc.SZEP)
+                                            ),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _vm._v(
+                                              "Inteligencia: " + _vm._s(npc.INT)
+                                            ),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _vm._v(
+                                              "Akaraterő: " + _vm._s(npc.AK)
+                                            ),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _vm._v(
+                                              "Asztrál: " + _vm._s(npc.ASZT)
+                                            ),
+                                          ]),
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "one-row" }, [
+                                          _c("p", [
+                                            _c("b", [_vm._v("Faj: ")]),
+                                            _vm._v(" " + _vm._s(npc.race)),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _c("b", [_vm._v("Szint: ")]),
+                                            _vm._v(" " + _vm._s(npc.level)),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _c("b", [_vm._v("TP érték: ")]),
+                                            _vm._v(" " + _vm._s(npc.exp)),
+                                          ]),
+                                          _vm._v(" "),
+                                          _vm._m(8, true),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _vm._v(
+                                              "Életerő Pontok ( Ép ): " +
+                                                _vm._s(npc.EP)
+                                            ),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _vm._v(
+                                              "\n                                                Fájdalomtűrési Pontok ( Fp ): " +
+                                                _vm._s(npc.FP) +
+                                                "\n                                            "
+                                            ),
+                                          ]),
+                                          _vm._v(" "),
+                                          _vm._m(9, true),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _vm._v(
+                                              "Kezdeményező Érték ( KÉ ): " +
+                                                _vm._s(npc.KE)
+                                            ),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _vm._v(
+                                              "Támadó Érték ( TÉ ): " +
+                                                _vm._s(npc.TE)
+                                            ),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _vm._v(
+                                              "Védő Érték ( VÉ ): " +
+                                                _vm._s(npc.VE)
+                                            ),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _vm._v(
+                                              "Célzó Érték ( CÉ ): " +
+                                                _vm._s(npc.CE)
+                                            ),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _vm._v(
+                                              "Sebzés ( Sp ): " + _vm._s(npc.SP)
+                                            ),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("p", [
+                                            _vm._v(
+                                              "\n                                                Sebzés Felfogó Érték ( SFÉ ): " +
+                                                _vm._s(npc.SFE) +
+                                                "\n                                            "
+                                            ),
+                                          ]),
+                                        ]),
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("div", [
+                                        _vm._m(10, true),
+                                        _vm._v(" "),
+                                        _c("p", [
+                                          _vm._v(_vm._s(npc.description)),
+                                        ]),
+                                        _vm._v(" "),
+                                        _vm._m(11, true),
+                                        _vm._v(" "),
+                                        _c("p", [_vm._v(_vm._s(npc.role))]),
+                                        _vm._v(" "),
+                                        _vm._m(12, true),
+                                        _vm._v(" "),
+                                        _c("p", [_vm._v(_vm._s(npc.sablon))]),
+                                      ]),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("hr"),
+                                  ])
+                                }
+                              ),
+                            ],
+                            2
+                          )
+                        : _vm._e(),
+                    ],
+                    2
+                  )
+                : _vm._e(),
+            ]),
+            _vm._v(" "),
+            _vm._m(13),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
     _vm.loading
       ? _c("div", { attrs: { id: "overlay" } }, [
           _c("div", { attrs: { id: "overlayText" } }, [
@@ -54166,6 +54679,114 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Lehetőségek")]),
       ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "previewModalLabel" } },
+        [_vm._v("Játék áttekintése")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [_c("b", [_vm._v("- ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("A jelenet történési menete:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", [_c("b", [_vm._v("- ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "stage-title" }, [
+      _c("img", {
+        staticClass: "header-img",
+        attrs: {
+          src: "/img/pentagram.png",
+          alt: "pentagram",
+          width: "72",
+          height: "72",
+        },
+      }),
+      _vm._v(" "),
+      _c("h2", [_vm._v("Bestiárium")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Tulajdonságok:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Életerő:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Harcértékek: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Az NJK álltalános leírása:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK Szerepe a játékban: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK viselkedési mintája: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary costum-btn",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Bezár")]
+      ),
     ])
   },
 ]
@@ -61588,7 +62209,7 @@ var render = function () {
                           },
                           [
                             _vm._v(
-                              "\n                                Nem akarok páncélt\n                            "
+                              "\r\n                                Nem akarok páncélt\r\n                            "
                             ),
                           ]
                         ),
@@ -61656,7 +62277,7 @@ var render = function () {
                           },
                           [
                             _vm._v(
-                              "\n                                Nem akarok páncélt\n                            "
+                              "\r\n                                Nem akarok páncélt\r\n                            "
                             ),
                           ]
                         ),
@@ -85624,7 +86245,7 @@ var index = {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","/Users/vernerd/www/rpg_game_app"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"/Users/vernerd/www/rpg_game_app","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21","name":"axios","escapedName":"axios","rawSpec":"^0.21","saveSpec":null,"fetchSpec":"^0.21"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21","_where":"C:\\\\laravel\\\\rpgapp","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 

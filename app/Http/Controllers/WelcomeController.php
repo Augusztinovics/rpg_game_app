@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use App\Models\WhatsNew;
 use App\Models\PageView;
 use App\Models\PublicGameModule;
+use App\Models\PublicGameModuleData;
 use Illuminate\Support\Facades\Auth;
 
 class WelcomeController extends Controller
@@ -71,8 +72,20 @@ class WelcomeController extends Controller
         return response()->json(
             [
                 'gameModules' => $gameModules,
-                'isGm' => optional(Auth::user())->level === 'GAME_MASTER'
+                'isGm' => optional(Auth::user())->level !== 'PLAYER'
             ],
-            200);
+        200);
+    }
+
+    /**
+     * get all game module
+     *
+     * @return json
+     */
+    public function getPublicGameModuleData(Request $request, $id)
+    {
+        $gameModuleDatas = PublicGameModuleData::where('public_game_module_id', $id)->get();
+
+        return response()->json($gameModuleDatas, 200);
     }
 }

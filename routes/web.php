@@ -27,6 +27,7 @@ Route::get('/', [WelcomeController::class, 'index']);
 Route::get('/news', [WelcomeController::class, 'getNews']);
 Route::get('/game-downloads', [WelcomeController::class, 'gameDownloads'])->name('game-downloads');
 Route::get('public/game-modules/{game}', [WelcomeController::class, 'getAllPublicGameModules']);
+Route::get('public/game-module-data/{id}', [WelcomeController::class, 'getPublicGameModuleData']);
 
 Auth::routes();
 
