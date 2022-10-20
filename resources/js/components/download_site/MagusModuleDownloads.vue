@@ -43,9 +43,9 @@
                                 >
                                     Áttekintés
                                 </button>
-                                <a href="" class="btn btn-outline-success m-1">
-                                    Letölt
-                                </a>
+                                <a :href="'public/game-module-pdf/' + gameModule.id" class="btn btn-outline-success m-1"
+                                    >Letölt</a
+                                >
                                 <button
                                     v-if="isGm"
                                     class="btn btn-outline-success m-1"
@@ -180,6 +180,18 @@
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <div v-if="gameModules[selectedIndex]">
+                            <a :href="'public/game-module-pdf/' + gameModules[selectedIndex].id" class="btn btn-outline-success m-1"
+                            >Letölt</a
+                            >
+                            <button
+                                v-if="isGm"
+                                class="btn btn-outline-success m-1"
+                                @click="usePublicGameModule(gameModules[selectedIndex].id)"
+                            >
+                                Játék átvétele
+                            </button>
+                        </div>
                         <button type="button" class="btn btn-secondary costum-btn" data-bs-dismiss="modal">Bezár</button>
                     </div>
                 </div>

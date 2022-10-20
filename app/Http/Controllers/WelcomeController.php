@@ -10,6 +10,7 @@ use App\Models\PageView;
 use App\Models\PublicGameModule;
 use App\Models\PublicGameModuleData;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class WelcomeController extends Controller
 {
@@ -87,5 +88,37 @@ class WelcomeController extends Controller
         $gameModuleDatas = PublicGameModuleData::where('public_game_module_id', $id)->get();
 
         return response()->json($gameModuleDatas, 200);
+    }
+
+    /**
+     * Download module.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function generatePublicGameModulePDF($id)
+    {
+        $gameModule = PublicGameModule::find($id);
+        $moduleData = PublicGameModuleData::where('public_game_module_id', $id)->get();
+        $gameModuleData = [];
+        foreach ($moduleData as $data) {
+            $oneData = [
+                'stageTitle' => $data->module_data['title'] ?? '',
+                'stageNote' => $data->module_data['note'] ?? [],
+                'stageImg' => $data->module_data['img'] ?? 'default.jpg',
+                'stageMap' => $data->module_data['map'] ?? [],
+                'stageDescription' => $data->module_data['description'] ?? '',
+            ];
+            $gameModuleData[] = $oneData;
+        }
+        $gameData = [
+            'title' => $gameModule->game_module_name,
+            'notes' => $gameModule->global_note ?? [],
+            'npcs' => $gameModule->npc_data ?? [],
+            'stages' => $gameModuleData,
+        ];
+
+        $pdf = PDF::loadView('pdf.gamemodule', $gameData);
+
+        return $pdf->download('Module - ' . $gameModule->game_module_name . '.pdf');
     }
 }

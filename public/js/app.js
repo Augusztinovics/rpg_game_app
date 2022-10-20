@@ -6951,6 +6951,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -54241,13 +54253,11 @@ var render = function () {
                     "a",
                     {
                       staticClass: "btn btn-outline-success m-1",
-                      attrs: { href: "" },
+                      attrs: {
+                        href: "public/game-module-pdf/" + gameModule.id,
+                      },
                     },
-                    [
-                      _vm._v(
-                        "\n                                Letölt\n                            "
-                      ),
-                    ]
+                    [_vm._v("Letölt")]
                   ),
                   _vm._v(" "),
                   _vm.isGm
@@ -54641,7 +54651,54 @@ var render = function () {
                 : _vm._e(),
             ]),
             _vm._v(" "),
-            _vm._m(13),
+            _c("div", { staticClass: "modal-footer" }, [
+              _vm.gameModules[_vm.selectedIndex]
+                ? _c("div", [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn btn-outline-success m-1",
+                        attrs: {
+                          href:
+                            "public/game-module-pdf/" +
+                            _vm.gameModules[_vm.selectedIndex].id,
+                        },
+                      },
+                      [_vm._v("Letölt")]
+                    ),
+                    _vm._v(" "),
+                    _vm.isGm
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-outline-success m-1",
+                            on: {
+                              click: function ($event) {
+                                return _vm.usePublicGameModule(
+                                  _vm.gameModules[_vm.selectedIndex].id
+                                )
+                              },
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\n                            Játék átvétele\n                        "
+                            ),
+                          ]
+                        )
+                      : _vm._e(),
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary costum-btn",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                },
+                [_vm._v("Bezár")]
+              ),
+            ]),
           ]),
         ]),
       ]
@@ -54773,21 +54830,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", [_c("b", [_vm._v("NJK viselkedési mintája: ")])])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary costum-btn",
-          attrs: { type: "button", "data-bs-dismiss": "modal" },
-        },
-        [_vm._v("Bezár")]
-      ),
-    ])
   },
 ]
 render._withStripped = true

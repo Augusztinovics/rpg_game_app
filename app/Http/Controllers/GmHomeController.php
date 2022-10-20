@@ -108,7 +108,7 @@ class GmHomeController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Download module.
      *
      * @return \Illuminate\Http\Response
      */
