@@ -7950,12 +7950,313 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusBestiarium', {
-    friendlyNpcs: 'friendlyNpcs',
-    enemyNpc: 'enemyNpc',
-    monsters: 'monsters'
+    aquirs: 'aquirs',
+    animals: 'animals',
+    monsters: 'monsters',
+    demons: 'demons',
+    jins: 'jins',
+    elementals: 'elementals',
+    undeads: 'undeads',
+    plants: 'plants'
   })),
   methods: {
     npcAdd: function npcAdd(npc) {
@@ -18852,110 +19153,6 @@ __webpack_require__.r(__webpack_exports__);
  * -------------------------------------------
  */
 var state = {
-  //need at least 5 for begining
-  friendlyNpcs: [{
-    name: 'Done a Kocsmáros',
-    race: 'Ember',
-    level: '1',
-    exp: '10',
-    ERO: '12',
-    GYORS: '10',
-    UGY: '14',
-    ALLO: '10',
-    EG: '11',
-    SZEP: '13',
-    INT: '12',
-    AK: '16',
-    ASZT: '8',
-    KE: '15',
-    TE: '27',
-    VE: '73',
-    CE: '4',
-    SP: 'k6',
-    SFE: '0',
-    EP: '5',
-    FP: '9',
-    description: 'Nagy darab kocsmáros ember, aki mindenki barátja ( ha fizetnek neki ), de hamar dühbe gurul. Ha harcra kerül sor fegyvert nem használ, csak a keze ügyébe akadó tárgyakat ( kocsmai verekedés af). Alkudni nehéz vele, mert nagyon akaratos, és tudja minek mi az értéke ( értékbecslés af ). Védelmi pénzt fizet a helyi tolvajklánnak, ugyhogy, ha baja esne, az elkövetőknek a tolvajklán bérgyilkosaival gyülne meg a baja. Alvilági kapcsolatai révén jó információforrás lehet, és tudását szívesen éruba bocsájtsa, persze a megfelelő ellenjuttatás fejében.',
-    role: 'Elsősorban kocsmáros és információ diller.',
-    sablon: 'A vendégeket kiszolgálja, ha kérdezik valamiről rögtön az információ árába akar megalkudni, néha várni kell az infóra egy-két napot, de legtöbbször van valami használható információja, ha véletlenül nincs, akkor sem fizeti vissza az info árát.'
-  }, {
-    name: 'Linhard a Kovács',
-    race: 'Ember',
-    level: '1',
-    exp: '20',
-    ERO: '17',
-    GYORS: '11',
-    UGY: '14',
-    ALLO: '16',
-    EG: '14',
-    SZEP: '10',
-    INT: '12',
-    AK: '12',
-    ASZT: '10',
-    KE: '17',
-    TE: '35',
-    VE: '82',
-    CE: '4',
-    SP: 'k6+2',
-    SFE: '1',
-    EP: '8',
-    FP: '14',
-    description: 'A város legjobb fegyverkovácsa, mindég pontos és gyors munkát végez. Ha a karaktereknek van eladó használt fegyvere, vértje syívesen felvásárolja az értéke feléért. Bár erős, nem kedveli a harcot, ha lehet elkerüli azt, ha rákényszerítik kalapácsával támad, de sosem öl ( ha mégis, az csak baleset, nem szándékos ). Vastag bőr kovácsköténye 1 SFÉ védelmet bisztosít neki.',
-    role: 'Elsősorban kovács, olcsón karbantarthatja a karakterek felszerelését, vagy normál áron eladhat, valamint felvásárolhatja az esetleges szerzett felszereléseket féláron. Egy kicsit ért a páncélkovácsoláshoz is, ez nem elegendő, hogy készítsen páncélokat, de megjavíthatja azokat.',
-    sablon: 'Mindég kedves, jókedvű, igyekszik a vásárlók kedvében járni. Ha ellenségesen viselkednek vele, próbálja viccekkel, lebeszélni, ha így is harcra kényszerül támadásaival mindég leütésre megy, nem ölésre.'
-  }],
-  //need at least 5 for begining
-  enemyNpc: [{
-    name: 'Bandita',
-    race: 'Ember',
-    level: '1',
-    exp: '15',
-    ERO: '14',
-    GYORS: '12',
-    UGY: '13',
-    ALLO: '11',
-    EG: '12',
-    SZEP: '10',
-    INT: '10',
-    AK: '14',
-    ASZT: '9',
-    KE: '20',
-    TE: '42',
-    VE: '85',
-    CE: '3',
-    SP: 'k6+1',
-    SFE: '1',
-    EP: '6',
-    FP: '11',
-    description: 'Kereskedőket és utazókat támad, hogy azok értékeit eltulajdonítsa. Álltalában kissebb csapatban (3-5 fő ) dolgoznak és legalább egy közülük ért a csabdaállításhoz ésnyomolvasáshoz. Felszerelésük álltalában csatabár, rövidkatd esetleg furkósbot, páncélként posztóvértet vagy puha bőrvértet használnak.',
-    role: 'A kereskedelmi utak erdőn áthaladó részén tanyáznak, és minden utazót, amely náluk gyengébbnek látszik, megtámadnak ( ha az utazók szemlátomást erősebbek, rejtekben maradnak, így elfogásukhoz azt a látcatot kell kelltenie a csapatnak, hogy gyenge utazók, vagy nyomolvasás mesterfokát használva lekövetni táborhelyüket ).',
-    sablon: 'Lesből vetik magukat az utazókra, hogy ne legyen alkalmuk védekezni, de ha az utazók jól fel vannak fegyverezve, erősnek látszanak, akkor nem támadnak, és várják a következő álldozatot. Ha a támadás után derül ki, hpgy az utazókat alábecsülték, megpróbálnak elszökni, ilyenkor mindegyikük fut ki merre lát.'
-  }, {
-    name: 'Bérgyilkos',
-    race: 'Ember',
-    level: '1',
-    exp: '20',
-    ERO: '12',
-    GYORS: '16',
-    UGY: '14',
-    ALLO: '12',
-    EG: '10',
-    SZEP: '11',
-    INT: '12',
-    AK: '14',
-    ASZT: '12',
-    KE: '30',
-    TE: '45',
-    VE: '80',
-    CE: '10',
-    SP: 'k6+1 ( vagy fegyver/méreg szerint )',
-    SFE: '0',
-    EP: '6',
-    FP: '9',
-    description: 'A helyi tolvajcég bérgyilkosa. Eredeti kasztja tolvaj, nem pedig fejvadász. Mindég lesből támad vagy mérgezi ellenfelét. Szereti magát állcázni, elvegyülni a tömegben, az álldozat mögé sodródni, majd mérgezett fegyverrel hátbaszúrni azt. Vagy tetőről mérgezett nyíllal meglőni álldozatát.',
-    role: 'Ha a karakterek olyan szervezet tyúkszemére lépnek, amely nem riad vissza a vérontástól, nagy esélyel egy ehhez hasonló bérgyilkossal kerülnek szembe ( hacsak megnem engedheti magának a szervezett a jóval drágább fejvadászok felbérlését ).',
-    sablon: 'Álcázza magát, hogy a célpont közelébe férjen, majd vagy megpróbálja megmérgezni, vagy hátbaszúrni azt. ( hátbaszúrás af, álcázás/álruha af, lopakodás: 35%, rejtőzködés: 40% ), ha harcra kerülne a sor inkább elmenekül, ha bír, és később újrapróbálkozik.'
-  }],
   //need at least 15 for begining
   monsters: [{
     name: 'Goblin',
@@ -18982,9 +19179,85 @@ var state = {
     description: 'A nagyobb törzsektől elszökött kis goblin csapat gyakori jelenség szinte minden erdőben, völgyben. Álltalában 3-10 fős csapatocska, akik szinte mindenkit megtámadnak, ha azok nem szemmel láthatólag erősebbek náluk. Fegyverzetük álltalában furkósbot, de néha szert tesznek más fegyverekre is.',
     role: 'A goblin csapatok rendszeressen megtámadják a falvakat és utazókat, igy elsődleges célpontjai a ki kell írtani őket küldetéseknek.',
     sablon: 'Megtámadnak mindenkit akit meglátnak, kivéve, ha az illetők szemmelláthatóan erősebbek, ilyenkor szöknek és csak akkor harcolnak, ha nincs más lehetőség. Ha valakit megtámadtak és a megtámadotak kezdenek felülkerekesni ( a goblinok egyharmada halott, vagy harcképtelen ), menekülőre fogják a dolgot.'
+  }],
+  animals: [{
+    name: 'Barrakuda, a tengeri farkas',
+    race: 'hal',
+    level: '1',
+    exp: '15',
+    ERO: '10',
+    GYORS: '13',
+    UGY: '12',
+    ALLO: '14',
+    EG: '10',
+    SZEP: '3',
+    INT: '5',
+    AK: '15',
+    ASZT: '3',
+    KE: '40',
+    TE: '100',
+    VE: '150',
+    CE: '0',
+    SP: 'k10',
+    SFE: '0',
+    EP: '5',
+    FP: '20',
+    description: 'E tengeri csukafajtától egyes helyeken jobban félnek mint a cápától. Gyorsan úszik, nagyra tátható szájában tűhegyes fogak sorakoznak. Hossza elérheti a 2 - 2,5 métert.',
+    role: 'A vízbe esett ficánkoló lényeket támadja partközelben.',
+    sablon: '2 - 20 fős csoportokban támadnak.'
   }, {
-    name: 'Kóborló',
-    race: 'Zombi',
+    name: 'Denevér',
+    race: 'Állat',
+    level: '1',
+    exp: '2',
+    ERO: '3',
+    GYORS: '10',
+    UGY: '10',
+    ALLO: '6',
+    EG: '10',
+    SZEP: '3',
+    INT: '3',
+    AK: '8',
+    ASZT: '3',
+    KE: '20',
+    TE: '20',
+    VE: '92',
+    CE: '0',
+    SP: '1',
+    SFE: '0',
+    EP: '2',
+    FP: '5',
+    description: 'Szinte mindenhol előfordulnak, nappal barlangok mélyén, padlásokon, faodvakban tanyáznak. Este álltalában alvó állatok vérével táplálkoznak. Méretük ritkán haladja meg a 30 centit.',
+    role: 'Sötét helyeken tanyáznak, álltalában nem jelentenek veszélyt az emberre, ha nem zavarják meg őket. Legegyszerűbb kifüstölni őket.',
+    sablon: 'Ha felzavarják őket, csapatban a karakterekre vetik magukat és vérüket szívják. Körönként 1 sp sebzést mindenképp okoznak, hacsak a karakter teljesen le van fedve legalább 1 SFÉ értékű páncéllal. Elzavarni őket könnyebb, mint egyenként levadázsni. Álltalában 2 - 20 fős rajban gyülekeznek, de akár 100 fős raj sem ritka.'
+  }, {
+    name: 'Farkas',
+    race: 'Állat',
+    level: '1',
+    exp: '5',
+    ERO: '10',
+    GYORS: '12',
+    UGY: '13',
+    ALLO: '14',
+    EG: '12',
+    SZEP: '10',
+    INT: '5',
+    AK: '14',
+    ASZT: '6',
+    KE: '10',
+    TE: '35',
+    VE: '60',
+    CE: '0',
+    SP: 'k6',
+    SFE: '0',
+    EP: '18',
+    FP: '38',
+    description: '',
+    role: '',
+    sablon: ''
+  }, {
+    name: '',
+    race: '',
     level: '1',
     exp: '10',
     ERO: '20',
@@ -19004,20 +19277,341 @@ var state = {
     SFE: '0',
     EP: '4',
     FP: '-',
-    description: 'Necrográfiai osztály első csoportjába tartozó tudattalan élőhalott. Kóbrol halálának helyszíne körül és megtámad minden élőlényt aki arra téved. Tudata, inteligenciája nincsen, így sem asztrál sem pedig mentálmágiával nem lehet rá hatni ( kivéve egyes nekromancia varázslatokat ). A test lomhán gépiesen mozog és csak egyetlen célja van: minden élő elpusztítása. A kóborlót csak túlütéssel lehet sebezni.',
-    role: 'Temetőkben, régi csataterek helyszínén előforduló lény, a ki kell írtani lista élén található. Néha messze elkóborolnak haláluk helyszínétől, így szinte akárhol találkozhat velük az ember.',
-    sablon: 'Gépiessen, lomhán mozog, és minden élőt megtámad. Mindég a hozzá legközelebbet. Soha nem szökik, vagy áll meg, egészen addig míg el nem pusztítsák, bár lomha mozgása miatt könnyű elszökni előle, célpontját addig követi, míg az 20 lábtól távolabb nem kerül tőle, ezután folytatja kóborlását, valószínűleg abban az irányban, amely felé az álldozat szökött.'
+    description: '',
+    role: '',
+    sablon: ''
+  }, {
+    name: '',
+    race: '',
+    level: '1',
+    exp: '10',
+    ERO: '20',
+    GYORS: '3',
+    UGY: '3',
+    ALLO: '20',
+    EG: '10',
+    SZEP: '3',
+    INT: '0',
+    AK: '0',
+    ASZT: '0',
+    KE: '0',
+    TE: '10',
+    VE: '55',
+    CE: '0',
+    SP: 'k6+5',
+    SFE: '0',
+    EP: '4',
+    FP: '-',
+    description: '',
+    role: '',
+    sablon: ''
+  }, {
+    name: '',
+    race: '',
+    level: '1',
+    exp: '10',
+    ERO: '20',
+    GYORS: '3',
+    UGY: '3',
+    ALLO: '20',
+    EG: '10',
+    SZEP: '3',
+    INT: '0',
+    AK: '0',
+    ASZT: '0',
+    KE: '0',
+    TE: '10',
+    VE: '55',
+    CE: '0',
+    SP: 'k6+5',
+    SFE: '0',
+    EP: '4',
+    FP: '-',
+    description: '',
+    role: '',
+    sablon: ''
+  }, {
+    name: '',
+    race: '',
+    level: '1',
+    exp: '10',
+    ERO: '20',
+    GYORS: '3',
+    UGY: '3',
+    ALLO: '20',
+    EG: '10',
+    SZEP: '3',
+    INT: '0',
+    AK: '0',
+    ASZT: '0',
+    KE: '0',
+    TE: '10',
+    VE: '55',
+    CE: '0',
+    SP: 'k6+5',
+    SFE: '0',
+    EP: '4',
+    FP: '-',
+    description: '',
+    role: '',
+    sablon: ''
+  }, {
+    name: '',
+    race: '',
+    level: '1',
+    exp: '10',
+    ERO: '20',
+    GYORS: '3',
+    UGY: '3',
+    ALLO: '20',
+    EG: '10',
+    SZEP: '3',
+    INT: '0',
+    AK: '0',
+    ASZT: '0',
+    KE: '0',
+    TE: '10',
+    VE: '55',
+    CE: '0',
+    SP: 'k6+5',
+    SFE: '0',
+    EP: '4',
+    FP: '-',
+    description: '',
+    role: '',
+    sablon: ''
+  }, {
+    name: '',
+    race: '',
+    level: '1',
+    exp: '10',
+    ERO: '20',
+    GYORS: '3',
+    UGY: '3',
+    ALLO: '20',
+    EG: '10',
+    SZEP: '3',
+    INT: '0',
+    AK: '0',
+    ASZT: '0',
+    KE: '0',
+    TE: '10',
+    VE: '55',
+    CE: '0',
+    SP: 'k6+5',
+    SFE: '0',
+    EP: '4',
+    FP: '-',
+    description: '',
+    role: '',
+    sablon: ''
+  }, {
+    name: '',
+    race: '',
+    level: '1',
+    exp: '10',
+    ERO: '20',
+    GYORS: '3',
+    UGY: '3',
+    ALLO: '20',
+    EG: '10',
+    SZEP: '3',
+    INT: '0',
+    AK: '0',
+    ASZT: '0',
+    KE: '0',
+    TE: '10',
+    VE: '55',
+    CE: '0',
+    SP: 'k6+5',
+    SFE: '0',
+    EP: '4',
+    FP: '-',
+    description: '',
+    role: '',
+    sablon: ''
+  }],
+  aquirs: [{
+    name: '',
+    race: '',
+    level: '1',
+    exp: '10',
+    ERO: '20',
+    GYORS: '3',
+    UGY: '3',
+    ALLO: '20',
+    EG: '10',
+    SZEP: '3',
+    INT: '0',
+    AK: '0',
+    ASZT: '0',
+    KE: '0',
+    TE: '10',
+    VE: '55',
+    CE: '0',
+    SP: 'k6+5',
+    SFE: '0',
+    EP: '4',
+    FP: '-',
+    description: '',
+    role: '',
+    sablon: ''
+  }],
+  demons: [{
+    name: '',
+    race: '',
+    level: '1',
+    exp: '10',
+    ERO: '20',
+    GYORS: '3',
+    UGY: '3',
+    ALLO: '20',
+    EG: '10',
+    SZEP: '3',
+    INT: '0',
+    AK: '0',
+    ASZT: '0',
+    KE: '0',
+    TE: '10',
+    VE: '55',
+    CE: '0',
+    SP: 'k6+5',
+    SFE: '0',
+    EP: '4',
+    FP: '-',
+    description: '',
+    role: '',
+    sablon: ''
+  }],
+  jins: [{
+    name: '',
+    race: '',
+    level: '1',
+    exp: '10',
+    ERO: '20',
+    GYORS: '3',
+    UGY: '3',
+    ALLO: '20',
+    EG: '10',
+    SZEP: '3',
+    INT: '0',
+    AK: '0',
+    ASZT: '0',
+    KE: '0',
+    TE: '10',
+    VE: '55',
+    CE: '0',
+    SP: 'k6+5',
+    SFE: '0',
+    EP: '4',
+    FP: '-',
+    description: '',
+    role: '',
+    sablon: ''
+  }],
+  elementals: [{
+    name: '',
+    race: '',
+    level: '1',
+    exp: '10',
+    ERO: '20',
+    GYORS: '3',
+    UGY: '3',
+    ALLO: '20',
+    EG: '10',
+    SZEP: '3',
+    INT: '0',
+    AK: '0',
+    ASZT: '0',
+    KE: '0',
+    TE: '10',
+    VE: '55',
+    CE: '0',
+    SP: 'k6+5',
+    SFE: '0',
+    EP: '4',
+    FP: '-',
+    description: '',
+    role: '',
+    sablon: ''
+  }],
+  undeads: [{
+    name: '',
+    race: '',
+    level: '1',
+    exp: '10',
+    ERO: '20',
+    GYORS: '3',
+    UGY: '3',
+    ALLO: '20',
+    EG: '10',
+    SZEP: '3',
+    INT: '0',
+    AK: '0',
+    ASZT: '0',
+    KE: '0',
+    TE: '10',
+    VE: '55',
+    CE: '0',
+    SP: 'k6+5',
+    SFE: '0',
+    EP: '4',
+    FP: '-',
+    description: '',
+    role: '',
+    sablon: ''
+  }],
+  plants: [{
+    name: '',
+    race: '',
+    level: '1',
+    exp: '10',
+    ERO: '20',
+    GYORS: '3',
+    UGY: '3',
+    ALLO: '20',
+    EG: '10',
+    SZEP: '3',
+    INT: '0',
+    AK: '0',
+    ASZT: '0',
+    KE: '0',
+    TE: '10',
+    VE: '55',
+    CE: '0',
+    SP: 'k6+5',
+    SFE: '0',
+    EP: '4',
+    FP: '-',
+    description: '',
+    role: '',
+    sablon: ''
   }]
 };
 var getters = {
-  friendlyNpcs: function friendlyNpcs() {
-    return state.friendlyNpcs;
-  },
-  enemyNpc: function enemyNpc() {
-    return state.enemyNpc;
-  },
   monsters: function monsters() {
     return state.monsters;
+  },
+  animals: function animals() {
+    return state.animals;
+  },
+  aquirs: function aquirs() {
+    return state.aquirs;
+  },
+  demons: function demons() {
+    return state.demons;
+  },
+  jins: function jins() {
+    return state.jins;
+  },
+  elementals: function elementals() {
+    return state.elementals;
+  },
+  undeads: function undeads() {
+    return state.undeads;
+  },
+  plants: function plants() {
+    return state.plants;
   }
 };
 var mutations = {};
@@ -55817,21 +56411,21 @@ var render = function () {
           {
             staticClass: "tab-pane fade show active",
             attrs: {
-              id: "pills-npc",
+              id: "pills-aquir",
               role: "tabpanel",
-              "aria-labelledby": "pills-npc-tab",
+              "aria-labelledby": "pills-aquir-tab",
             },
           },
-          _vm._l(_vm.friendlyNpcs, function (npc, index) {
+          _vm._l(_vm.aquirs, function (npc, index) {
             return _c(
               "div",
-              { key: "NPC" + index, staticClass: "accordion-item" },
+              { key: "AQUIR" + index, staticClass: "accordion-item" },
               [
                 _c(
                   "h2",
                   {
                     staticClass: "accordion-header",
-                    attrs: { id: "NPC" + index + "-heading" },
+                    attrs: { id: "AQUIR" + index + "-heading" },
                   },
                   [
                     _c(
@@ -55841,9 +56435,9 @@ var render = function () {
                         attrs: {
                           type: "button",
                           "data-bs-toggle": "collapse",
-                          "data-bs-target": "#" + "NPC" + index,
+                          "data-bs-target": "#" + "AQUIR" + index,
                           "aria-expanded": "false",
-                          "aria-controls": "NPC" + index,
+                          "aria-controls": "AQUIR" + index,
                         },
                       },
                       [
@@ -55862,8 +56456,8 @@ var render = function () {
                   {
                     staticClass: "accordion-collapse collapse",
                     attrs: {
-                      id: "NPC" + index,
-                      "aria-labelledby": "NPC" + index + "-heading",
+                      id: "AQUIR" + index,
+                      "aria-labelledby": "AQUIR" + index + "-heading",
                     },
                   },
                   [
@@ -55996,21 +56590,21 @@ var render = function () {
           {
             staticClass: "tab-pane fade",
             attrs: {
-              id: "pills-npcEnemy",
+              id: "pills-animals",
               role: "tabpanel",
-              "aria-labelledby": "pills-npcEnemy-tab",
+              "aria-labelledby": "pills-animals-tab",
             },
           },
-          _vm._l(_vm.enemyNpc, function (npc, index) {
+          _vm._l(_vm.animals, function (npc, index) {
             return _c(
               "div",
-              { key: "ENPC" + index, staticClass: "accordion-item" },
+              { key: "ANIMALS" + index, staticClass: "accordion-item" },
               [
                 _c(
                   "h2",
                   {
                     staticClass: "accordion-header",
-                    attrs: { id: "ENPC" + index + "-heading" },
+                    attrs: { id: "ANIMALS" + index + "-heading" },
                   },
                   [
                     _c(
@@ -56020,9 +56614,9 @@ var render = function () {
                         attrs: {
                           type: "button",
                           "data-bs-toggle": "collapse",
-                          "data-bs-target": "#" + "ENPC" + index,
+                          "data-bs-target": "#" + "ANIMALS" + index,
                           "aria-expanded": "false",
-                          "aria-controls": "ENPC" + index,
+                          "aria-controls": "ANIMALS" + index,
                         },
                       },
                       [
@@ -56041,8 +56635,8 @@ var render = function () {
                   {
                     staticClass: "accordion-collapse collapse",
                     attrs: {
-                      id: "ENPC" + index,
-                      "aria-labelledby": "ENPC" + index + "-heading",
+                      id: "ANIMALS" + index,
+                      "aria-labelledby": "ANIMALS" + index + "-heading",
                     },
                   },
                   [
@@ -56175,21 +56769,21 @@ var render = function () {
           {
             staticClass: "tab-pane fade",
             attrs: {
-              id: "pills-bestia",
+              id: "pills-demons",
               role: "tabpanel",
-              "aria-labelledby": "pills-bestia-tab",
+              "aria-labelledby": "pills-demons-tab",
             },
           },
-          _vm._l(_vm.monsters, function (npc, index) {
+          _vm._l(_vm.demons, function (npc, index) {
             return _c(
               "div",
-              { key: "BESTIA" + index, staticClass: "accordion-item" },
+              { key: "DEMONS" + index, staticClass: "accordion-item" },
               [
                 _c(
                   "h2",
                   {
                     staticClass: "accordion-header",
-                    attrs: { id: "BESTIA" + index + "-heading" },
+                    attrs: { id: "DEMONS" + index + "-heading" },
                   },
                   [
                     _c(
@@ -56199,9 +56793,9 @@ var render = function () {
                         attrs: {
                           type: "button",
                           "data-bs-toggle": "collapse",
-                          "data-bs-target": "#" + "BESTIA" + index,
+                          "data-bs-target": "#" + "DEMONS" + index,
                           "aria-expanded": "false",
-                          "aria-controls": "BESTIA" + index,
+                          "aria-controls": "DEMONS" + index,
                         },
                       },
                       [
@@ -56220,8 +56814,8 @@ var render = function () {
                   {
                     staticClass: "accordion-collapse collapse",
                     attrs: {
-                      id: "BESTIA" + index,
-                      "aria-labelledby": "BESTIA" + index + "-heading",
+                      id: "DEMONS" + index,
+                      "aria-labelledby": "DEMONS" + index + "-heading",
                     },
                   },
                   [
@@ -56348,6 +56942,901 @@ var render = function () {
           }),
           0
         ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "tab-pane fade",
+            attrs: {
+              id: "pills-elementals",
+              role: "tabpanel",
+              "aria-labelledby": "pills-elementals-tab",
+            },
+          },
+          _vm._l(_vm.elementals, function (npc, index) {
+            return _c(
+              "div",
+              { key: "ELEMENTALS" + index, staticClass: "accordion-item" },
+              [
+                _c(
+                  "h2",
+                  {
+                    staticClass: "accordion-header",
+                    attrs: { id: "ELEMENTALS" + index + "-heading" },
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "accordion-button collapsed",
+                        attrs: {
+                          type: "button",
+                          "data-bs-toggle": "collapse",
+                          "data-bs-target": "#" + "ELEMENTALS" + index,
+                          "aria-expanded": "false",
+                          "aria-controls": "ELEMENTALS" + index,
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(npc.name) +
+                            "\n                    "
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "accordion-collapse collapse",
+                    attrs: {
+                      id: "ELEMENTALS" + index,
+                      "aria-labelledby": "ELEMENTALS" + index + "-heading",
+                    },
+                  },
+                  [
+                    _c("div", { staticClass: "accordion-body" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm" }, [
+                          _c("p", [
+                            _c("b", [_vm._v("Faj: ")]),
+                            _vm._v(" " + _vm._s(npc.race) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _c("b", [_vm._v("Szint: ")]),
+                            _vm._v(" " + _vm._s(npc.level) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _c("b", [_vm._v("TP érték: ")]),
+                            _vm._v(" " + _vm._s(npc.exp) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(19, true),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Életerő Pontok ( Ép ): " + _vm._s(npc.EP)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Fájdalomtűrési Pontok ( Fp ): " + _vm._s(npc.FP)
+                            ),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm" }, [
+                          _vm._m(20, true),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Erő: " + _vm._s(npc.ERO))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Gyorsaság: " + _vm._s(npc.GYORS))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Ügyesség: " + _vm._s(npc.UGY))]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Állóképesség: " + _vm._s(npc.ALLO)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Egészség: " + _vm._s(npc.EG))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Szépség: " + _vm._s(npc.SZEP))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Inteligencia: " + _vm._s(npc.INT))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Akaraterő: " + _vm._s(npc.AK))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Asztrál: " + _vm._s(npc.ASZT))]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm" }, [
+                          _vm._m(21, true),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Kezdeményező Érték ( KÉ ): " + _vm._s(npc.KE)
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Támadó Érték ( TÉ ): " + _vm._s(npc.TE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Védő Érték ( VÉ ): " + _vm._s(npc.VE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Célzó Érték ( CÉ ): " + _vm._s(npc.CE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Sebzés ( Sp ): " + _vm._s(npc.SP))]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Sebzés Felfogó Érték ( SFÉ ): " + _vm._s(npc.SFE)
+                            ),
+                          ]),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _vm._m(22, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.description))]),
+                        _vm._v(" "),
+                        _vm._m(23, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.role))]),
+                        _vm._v(" "),
+                        _vm._m(24, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.sablon))]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-center m-2" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success costum-btn m-3",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.npcAdd(npc)
+                              },
+                            },
+                          },
+                          [_vm._v("NJK hozzáadása a listához")]
+                        ),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]
+            )
+          }),
+          0
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "tab-pane fade",
+            attrs: {
+              id: "pills-undeads",
+              role: "tabpanel",
+              "aria-labelledby": "pills-undeads-tab",
+            },
+          },
+          _vm._l(_vm.undeads, function (npc, index) {
+            return _c(
+              "div",
+              { key: "UNDEADS" + index, staticClass: "accordion-item" },
+              [
+                _c(
+                  "h2",
+                  {
+                    staticClass: "accordion-header",
+                    attrs: { id: "UNDEADS" + index + "-heading" },
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "accordion-button collapsed",
+                        attrs: {
+                          type: "button",
+                          "data-bs-toggle": "collapse",
+                          "data-bs-target": "#" + "UNDEADS" + index,
+                          "aria-expanded": "false",
+                          "aria-controls": "UNDEADS" + index,
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(npc.name) +
+                            "\n                    "
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "accordion-collapse collapse",
+                    attrs: {
+                      id: "UNDEADS" + index,
+                      "aria-labelledby": "UNDEADS" + index + "-heading",
+                    },
+                  },
+                  [
+                    _c("div", { staticClass: "accordion-body" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm" }, [
+                          _c("p", [
+                            _c("b", [_vm._v("Faj: ")]),
+                            _vm._v(" " + _vm._s(npc.race) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _c("b", [_vm._v("Szint: ")]),
+                            _vm._v(" " + _vm._s(npc.level) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _c("b", [_vm._v("TP érték: ")]),
+                            _vm._v(" " + _vm._s(npc.exp) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(25, true),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Életerő Pontok ( Ép ): " + _vm._s(npc.EP)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Fájdalomtűrési Pontok ( Fp ): " + _vm._s(npc.FP)
+                            ),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm" }, [
+                          _vm._m(26, true),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Erő: " + _vm._s(npc.ERO))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Gyorsaság: " + _vm._s(npc.GYORS))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Ügyesség: " + _vm._s(npc.UGY))]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Állóképesség: " + _vm._s(npc.ALLO)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Egészség: " + _vm._s(npc.EG))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Szépség: " + _vm._s(npc.SZEP))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Inteligencia: " + _vm._s(npc.INT))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Akaraterő: " + _vm._s(npc.AK))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Asztrál: " + _vm._s(npc.ASZT))]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm" }, [
+                          _vm._m(27, true),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Kezdeményező Érték ( KÉ ): " + _vm._s(npc.KE)
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Támadó Érték ( TÉ ): " + _vm._s(npc.TE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Védő Érték ( VÉ ): " + _vm._s(npc.VE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Célzó Érték ( CÉ ): " + _vm._s(npc.CE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Sebzés ( Sp ): " + _vm._s(npc.SP))]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Sebzés Felfogó Érték ( SFÉ ): " + _vm._s(npc.SFE)
+                            ),
+                          ]),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _vm._m(28, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.description))]),
+                        _vm._v(" "),
+                        _vm._m(29, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.role))]),
+                        _vm._v(" "),
+                        _vm._m(30, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.sablon))]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-center m-2" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success costum-btn m-3",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.npcAdd(npc)
+                              },
+                            },
+                          },
+                          [_vm._v("NJK hozzáadása a listához")]
+                        ),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]
+            )
+          }),
+          0
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "tab-pane fade",
+            attrs: {
+              id: "pills-jins",
+              role: "tabpanel",
+              "aria-labelledby": "pills-jins-tab",
+            },
+          },
+          _vm._l(_vm.jins, function (npc, index) {
+            return _c(
+              "div",
+              { key: "JINS" + index, staticClass: "accordion-item" },
+              [
+                _c(
+                  "h2",
+                  {
+                    staticClass: "accordion-header",
+                    attrs: { id: "JINS" + index + "-heading" },
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "accordion-button collapsed",
+                        attrs: {
+                          type: "button",
+                          "data-bs-toggle": "collapse",
+                          "data-bs-target": "#" + "JINS" + index,
+                          "aria-expanded": "false",
+                          "aria-controls": "JINS" + index,
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(npc.name) +
+                            "\n                    "
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "accordion-collapse collapse",
+                    attrs: {
+                      id: "JINS" + index,
+                      "aria-labelledby": "JINS" + index + "-heading",
+                    },
+                  },
+                  [
+                    _c("div", { staticClass: "accordion-body" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm" }, [
+                          _c("p", [
+                            _c("b", [_vm._v("Faj: ")]),
+                            _vm._v(" " + _vm._s(npc.race) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _c("b", [_vm._v("Szint: ")]),
+                            _vm._v(" " + _vm._s(npc.level) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _c("b", [_vm._v("TP érték: ")]),
+                            _vm._v(" " + _vm._s(npc.exp) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(31, true),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Életerő Pontok ( Ép ): " + _vm._s(npc.EP)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Fájdalomtűrési Pontok ( Fp ): " + _vm._s(npc.FP)
+                            ),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm" }, [
+                          _vm._m(32, true),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Erő: " + _vm._s(npc.ERO))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Gyorsaság: " + _vm._s(npc.GYORS))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Ügyesség: " + _vm._s(npc.UGY))]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Állóképesség: " + _vm._s(npc.ALLO)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Egészség: " + _vm._s(npc.EG))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Szépség: " + _vm._s(npc.SZEP))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Inteligencia: " + _vm._s(npc.INT))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Akaraterő: " + _vm._s(npc.AK))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Asztrál: " + _vm._s(npc.ASZT))]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm" }, [
+                          _vm._m(33, true),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Kezdeményező Érték ( KÉ ): " + _vm._s(npc.KE)
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Támadó Érték ( TÉ ): " + _vm._s(npc.TE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Védő Érték ( VÉ ): " + _vm._s(npc.VE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Célzó Érték ( CÉ ): " + _vm._s(npc.CE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Sebzés ( Sp ): " + _vm._s(npc.SP))]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Sebzés Felfogó Érték ( SFÉ ): " + _vm._s(npc.SFE)
+                            ),
+                          ]),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _vm._m(34, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.description))]),
+                        _vm._v(" "),
+                        _vm._m(35, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.role))]),
+                        _vm._v(" "),
+                        _vm._m(36, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.sablon))]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-center m-2" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success costum-btn m-3",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.npcAdd(npc)
+                              },
+                            },
+                          },
+                          [_vm._v("NJK hozzáadása a listához")]
+                        ),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]
+            )
+          }),
+          0
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "tab-pane fade",
+            attrs: {
+              id: "pills-plants",
+              role: "tabpanel",
+              "aria-labelledby": "pills-plants-tab",
+            },
+          },
+          _vm._l(_vm.plants, function (npc, index) {
+            return _c(
+              "div",
+              { key: "PLANTS" + index, staticClass: "accordion-item" },
+              [
+                _c(
+                  "h2",
+                  {
+                    staticClass: "accordion-header",
+                    attrs: { id: "PLANTS" + index + "-heading" },
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "accordion-button collapsed",
+                        attrs: {
+                          type: "button",
+                          "data-bs-toggle": "collapse",
+                          "data-bs-target": "#" + "PLANTS" + index,
+                          "aria-expanded": "false",
+                          "aria-controls": "PLANTS" + index,
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(npc.name) +
+                            "\n                    "
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "accordion-collapse collapse",
+                    attrs: {
+                      id: "PLANTS" + index,
+                      "aria-labelledby": "PLANTS" + index + "-heading",
+                    },
+                  },
+                  [
+                    _c("div", { staticClass: "accordion-body" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm" }, [
+                          _c("p", [
+                            _c("b", [_vm._v("Faj: ")]),
+                            _vm._v(" " + _vm._s(npc.race) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _c("b", [_vm._v("Szint: ")]),
+                            _vm._v(" " + _vm._s(npc.level) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _c("b", [_vm._v("TP érték: ")]),
+                            _vm._v(" " + _vm._s(npc.exp) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(37, true),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Életerő Pontok ( Ép ): " + _vm._s(npc.EP)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Fájdalomtűrési Pontok ( Fp ): " + _vm._s(npc.FP)
+                            ),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm" }, [
+                          _vm._m(38, true),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Erő: " + _vm._s(npc.ERO))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Gyorsaság: " + _vm._s(npc.GYORS))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Ügyesség: " + _vm._s(npc.UGY))]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Állóképesség: " + _vm._s(npc.ALLO)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Egészség: " + _vm._s(npc.EG))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Szépség: " + _vm._s(npc.SZEP))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Inteligencia: " + _vm._s(npc.INT))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Akaraterő: " + _vm._s(npc.AK))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Asztrál: " + _vm._s(npc.ASZT))]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm" }, [
+                          _vm._m(39, true),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Kezdeményező Érték ( KÉ ): " + _vm._s(npc.KE)
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Támadó Érték ( TÉ ): " + _vm._s(npc.TE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Védő Érték ( VÉ ): " + _vm._s(npc.VE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Célzó Érték ( CÉ ): " + _vm._s(npc.CE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Sebzés ( Sp ): " + _vm._s(npc.SP))]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Sebzés Felfogó Érték ( SFÉ ): " + _vm._s(npc.SFE)
+                            ),
+                          ]),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _vm._m(40, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.description))]),
+                        _vm._v(" "),
+                        _vm._m(41, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.role))]),
+                        _vm._v(" "),
+                        _vm._m(42, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.sablon))]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-center m-2" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success costum-btn m-3",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.npcAdd(npc)
+                              },
+                            },
+                          },
+                          [_vm._v("NJK hozzáadása a listához")]
+                        ),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]
+            )
+          }),
+          0
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "tab-pane fade",
+            attrs: {
+              id: "pills-bestia",
+              role: "tabpanel",
+              "aria-labelledby": "pills-bestia-tab",
+            },
+          },
+          _vm._l(_vm.monsters, function (npc, index) {
+            return _c(
+              "div",
+              { key: "BESTIA" + index, staticClass: "accordion-item" },
+              [
+                _c(
+                  "h2",
+                  {
+                    staticClass: "accordion-header",
+                    attrs: { id: "BESTIA" + index + "-heading" },
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "accordion-button collapsed",
+                        attrs: {
+                          type: "button",
+                          "data-bs-toggle": "collapse",
+                          "data-bs-target": "#" + "BESTIA" + index,
+                          "aria-expanded": "false",
+                          "aria-controls": "BESTIA" + index,
+                        },
+                      },
+                      [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(npc.name) +
+                            "\n                    "
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "accordion-collapse collapse",
+                    attrs: {
+                      id: "BESTIA" + index,
+                      "aria-labelledby": "BESTIA" + index + "-heading",
+                    },
+                  },
+                  [
+                    _c("div", { staticClass: "accordion-body" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-sm" }, [
+                          _c("p", [
+                            _c("b", [_vm._v("Faj: ")]),
+                            _vm._v(" " + _vm._s(npc.race) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _c("b", [_vm._v("Szint: ")]),
+                            _vm._v(" " + _vm._s(npc.level) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _c("b", [_vm._v("TP érték: ")]),
+                            _vm._v(" " + _vm._s(npc.exp) + " "),
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(43, true),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Életerő Pontok ( Ép ): " + _vm._s(npc.EP)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Fájdalomtűrési Pontok ( Fp ): " + _vm._s(npc.FP)
+                            ),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm" }, [
+                          _vm._m(44, true),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Erő: " + _vm._s(npc.ERO))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Gyorsaság: " + _vm._s(npc.GYORS))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Ügyesség: " + _vm._s(npc.UGY))]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Állóképesség: " + _vm._s(npc.ALLO)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Egészség: " + _vm._s(npc.EG))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Szépség: " + _vm._s(npc.SZEP))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Inteligencia: " + _vm._s(npc.INT))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Akaraterő: " + _vm._s(npc.AK))]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Asztrál: " + _vm._s(npc.ASZT))]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm" }, [
+                          _vm._m(45, true),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Kezdeményező Érték ( KÉ ): " + _vm._s(npc.KE)
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Támadó Érték ( TÉ ): " + _vm._s(npc.TE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Védő Érték ( VÉ ): " + _vm._s(npc.VE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Célzó Érték ( CÉ ): " + _vm._s(npc.CE)),
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("Sebzés ( Sp ): " + _vm._s(npc.SP))]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v(
+                              "Sebzés Felfogó Érték ( SFÉ ): " + _vm._s(npc.SFE)
+                            ),
+                          ]),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _vm._m(46, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.description))]),
+                        _vm._v(" "),
+                        _vm._m(47, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.role))]),
+                        _vm._v(" "),
+                        _vm._m(48, true),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(npc.sablon))]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-center m-2" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-success costum-btn m-3",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function ($event) {
+                                return _vm.npcAdd(npc)
+                              },
+                            },
+                          },
+                          [_vm._v("NJK hozzáadása a listához")]
+                        ),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]
+            )
+          }),
+          0
+        ),
       ]
     ),
     _vm._v(" "),
@@ -56382,16 +57871,16 @@ var staticRenderFns = [
             {
               staticClass: "nav-link active",
               attrs: {
-                id: "pills-npc-tab",
+                id: "pills-aquir-tab",
                 "data-bs-toggle": "pill",
-                "data-bs-target": "#pills-npc",
+                "data-bs-target": "#pills-aquir",
                 type: "button",
                 role: "tab",
-                "aria-controls": "pills-npc",
+                "aria-controls": "pills-aquir",
                 "aria-selected": "true",
               },
             },
-            [_vm._v("Baráti Nem Játékos Karakterek")]
+            [_vm._v("Aquirok")]
           ),
         ]),
         _vm._v(" "),
@@ -56401,16 +57890,111 @@ var staticRenderFns = [
             {
               staticClass: "nav-link",
               attrs: {
-                id: "pills-npcEnemy-tab",
+                id: "pills-animals-tab",
                 "data-bs-toggle": "pill",
-                "data-bs-target": "#pills-npcEnemy",
+                "data-bs-target": "#pills-animals",
                 type: "button",
                 role: "tab",
-                "aria-controls": "pills-npcEnemy",
+                "aria-controls": "pills-animals",
                 "aria-selected": "false",
               },
             },
-            [_vm._v("Ellenséges Nem Játékos Karakterek")]
+            [_vm._v("Állatok")]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item", attrs: { role: "presentation" } }, [
+          _c(
+            "button",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "pills-demons-tab",
+                "data-bs-toggle": "pill",
+                "data-bs-target": "#pills-demons",
+                type: "button",
+                role: "tab",
+                "aria-controls": "pills-demons",
+                "aria-selected": "false",
+              },
+            },
+            [_vm._v("Démonok")]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item", attrs: { role: "presentation" } }, [
+          _c(
+            "button",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "pills-elementals-tab",
+                "data-bs-toggle": "pill",
+                "data-bs-target": "#pills-elementals",
+                type: "button",
+                role: "tab",
+                "aria-controls": "pills-elementals",
+                "aria-selected": "false",
+              },
+            },
+            [_vm._v("Elementálok")]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item", attrs: { role: "presentation" } }, [
+          _c(
+            "button",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "pills-undeads-tab",
+                "data-bs-toggle": "pill",
+                "data-bs-target": "#pills-undeads",
+                type: "button",
+                role: "tab",
+                "aria-controls": "pills-undeads",
+                "aria-selected": "false",
+              },
+            },
+            [_vm._v("Élőholtak")]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item", attrs: { role: "presentation" } }, [
+          _c(
+            "button",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "pills-jins-tab",
+                "data-bs-toggle": "pill",
+                "data-bs-target": "#pills-jins",
+                type: "button",
+                role: "tab",
+                "aria-controls": "pills-jins",
+                "aria-selected": "false",
+              },
+            },
+            [_vm._v("Dzsinnek")]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item", attrs: { role: "presentation" } }, [
+          _c(
+            "button",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "pills-plants-tab",
+                "data-bs-toggle": "pill",
+                "data-bs-target": "#pills-plants",
+                type: "button",
+                role: "tab",
+                "aria-controls": "pills-plants",
+                "aria-selected": "false",
+              },
+            },
+            [_vm._v("Növények")]
           ),
         ]),
         _vm._v(" "),
@@ -56429,11 +58013,191 @@ var staticRenderFns = [
                 "aria-selected": "false",
               },
             },
-            [_vm._v("Szörnyek")]
+            [_vm._v("Különböző Szörnyek")]
           ),
         ]),
       ]
     )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Életerő:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Tulajdonságok:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Harcértékek: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Az NJK álltalános leírása:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK Szerepe a játékban: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK viselkedési mintája: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Életerő:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Tulajdonságok:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Harcértékek: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Az NJK álltalános leírása:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK Szerepe a játékban: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK viselkedési mintája: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Életerő:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Tulajdonságok:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Harcértékek: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Az NJK álltalános leírása:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK Szerepe a játékban: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK viselkedési mintája: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Életerő:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Tulajdonságok:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Harcértékek: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Az NJK álltalános leírása:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK Szerepe a játékban: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK viselkedési mintája: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Életerő:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Tulajdonságok:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Harcértékek: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Az NJK álltalános leírása:")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK Szerepe a játékban: ")])])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("NJK viselkedési mintája: ")])])
   },
   function () {
     var _vm = this
