@@ -8187,65 +8187,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusBestiarium', {
@@ -8255,8 +8196,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     demons: 'demons',
     jins: 'jins',
     elementals: 'elementals',
-    undeads: 'undeads',
-    plants: 'plants'
+    undeads: 'undeads'
   })),
   methods: {
     npcAdd: function npcAdd(npc) {
@@ -19155,6 +19095,31 @@ __webpack_require__.r(__webpack_exports__);
 var state = {
   //need at least 15 for begining
   monsters: [{
+    name: '',
+    race: '',
+    level: '1',
+    exp: '10',
+    ERO: '20',
+    GYORS: '3',
+    UGY: '3',
+    ALLO: '20',
+    EG: '10',
+    SZEP: '3',
+    INT: '0',
+    AK: '0',
+    ASZT: '0',
+    KE: '0',
+    TE: '10',
+    VE: '55',
+    CE: '0',
+    SP: 'k6+5',
+    SFE: '0',
+    EP: '4',
+    FP: '-',
+    description: '',
+    role: '',
+    sablon: ''
+  }, {
     name: 'Goblin',
     race: 'Goblin',
     level: '1',
@@ -19558,134 +19523,658 @@ var state = {
     sablon: 'Fegyvertől és felszereléstől függően ugy harcolnak mind bármely katonai hadtest ( portyázó csapat ).'
   }],
   demons: [{
-    name: '',
-    race: '',
+    name: 'Daronne ( az Árny )',
+    race: 'Közdémon',
     level: '1',
-    exp: '10',
-    ERO: '20',
-    GYORS: '3',
-    UGY: '3',
-    ALLO: '20',
-    EG: '10',
-    SZEP: '3',
-    INT: '0',
-    AK: '0',
-    ASZT: '0',
-    KE: '0',
-    TE: '10',
-    VE: '55',
+    exp: '3550',
+    ERO: '16',
+    GYORS: '15',
+    UGY: '15',
+    ALLO: '14',
+    EG: '14',
+    SZEP: '5',
+    INT: '16',
+    AK: '14',
+    ASZT: '9',
+    KE: '300',
+    TE: '100',
+    VE: '160',
     CE: '0',
-    SP: 'k6+5',
+    SP: '2k10 vagy k10 / k10',
+    SFE: '0',
+    EP: '20',
+    FP: '48',
+    description: 'A daronne a sötétség démona, minden élő és élet esküdt ellensége. Valós alakját csak kevesen látják, mivel mindég 5m sugarú körben elemi sötétség veszi körül, ami blockolja az infra vagy ultralátást is. Elemi fénnyel csökkenthető a sötétség, de ilyenkor a daronne körönként 4E vel növeli az auráját max 20E ig. Ha a sötétség eloszlott a fény minden E-je 2Sp-t sebez rajta.',
+    role: 'Ha megidézik nehéz kordában tartani, mert aljas és kiszámíthatatlan. Harcolni ellene míg az aurája aktív csak harc vakon módosítókkal lehet ( vakharc csökkenti a módosítókat ). Imunis ( mint minden démon ) az Asztrál, Mentál és elemi mágiákra ( kivéve a fényt ), csak mágikus fegyverrel sebezhető.',
+    sablon: 'Álltalában a levegőből harcol és farkával támad körönként egyszer, találatnál 2k10-et sebez és mérgez, ami sikertelen ( -2 es módosítással ) egészségpróba esetén gyengeséget okoz. Ha a támadásai nem járnak sikerrel lejebb ereszkedik és karmaival támad 2x k10-et képes sebezni és mérgez, amely sikertelen ( -2-es ) Egészségpróba esetén émelygést okoz.'
+  }, {
+    name: 'Furud ( a Vadázs )',
+    race: 'Közdémon',
+    level: '1',
+    exp: '2500',
+    ERO: '18',
+    GYORS: '18',
+    UGY: '16',
+    ALLO: '16',
+    EG: '14',
+    SZEP: '10',
+    INT: '14',
+    AK: '18',
+    ASZT: '10',
+    KE: '70',
+    TE: '110',
+    VE: '160',
+    CE: '0',
+    SP: '3k10 ( harapás ) / 2k6 / 2k6 ( mancs )',
+    SFE: '0',
+    EP: '20',
+    FP: '60',
+    description: 'Felice feltétlen követője, hűséges, szinte csak a vadászat öröméért él. Teste macskáéhoz hasonló, de felsőteste emberi kivéve a száját amiben hatalmas tépőfogak sorakoznak. Felice hívei gyakran folyamodnak segítségéhez, mivel tökéletes vadász lévén kiválló orrgyilkosok.',
+    role: 'Felice hívei gíakran orrgyilkosként használják őket. Nyomolvasás/eltüntetés Erdőjárás Vadászat Mf, Lopakodás, Rejtőzködés és Esés 100%',
+    sablon: 'Hangtalanul becserkészik álldozatukat, majd meglepetésszerűen lecsapnak rá.'
+  }, {
+    name: 'Molamoth ( a Szolga )',
+    race: 'Közdémon',
+    level: '1',
+    exp: '1000',
+    ERO: '15',
+    GYORS: '15',
+    UGY: '19',
+    ALLO: '12',
+    EG: '14',
+    SZEP: '8',
+    INT: '15',
+    AK: '8',
+    ASZT: '8',
+    KE: '25',
+    TE: '55',
+    VE: '95',
+    CE: '0',
+    SP: 'k3 + méreg',
+    SFE: '0',
+    EP: '8',
+    FP: '45',
+    description: 'Rosszindulatú, kárörvendő, szívesen okoz bosszúságot az embereknek, a komoly gaztettektől csak határtalan gyávasága tartja vissza. A Molamoth 150 centiméter magas, torz testalkatú humanoid. Feje aránytalanul nagy, orra kampós és óriási, füle hegyes. A harcban nem jeleskedik inkább csapdák állításában és gonosz trükkök kiagyalásában.',
+    role: 'A démonurak csak közönséges szolgaként tartják, fontos dolgot nem bíznak rá, varázslók gyakran megidézik, mert egyszerű feladatokra alkalmas és könnyen megfélemlíthető.',
+    sablon: 'Csak akkor harcol, ha az ellenfele szemlátomást gyengébb, vagy ha nagyon felbőszítik.'
+  }, {
+    name: 'Morquor ( a Tűzköpő )',
+    race: 'Közdémon',
+    level: '1',
+    exp: '50000',
+    ERO: '16',
+    GYORS: '18',
+    UGY: '17',
+    ALLO: '18',
+    EG: '16',
+    SZEP: '10',
+    INT: '17',
+    AK: '12',
+    ASZT: '9',
+    KE: '30',
+    TE: '75',
+    VE: '100',
+    CE: '0',
+    SP: 'Leírásban',
+    SFE: '0',
+    EP: '18',
+    FP: '66',
+    description: 'Sértődékeny, bosszúálló, könnyen felingerelhető. Ha nem kezelik kellő tisztelettel, menten haragra gerjed. Meglehetősen értelmes, ám eltúlzott tisztelettel és udvariassággal hamar lekenyerezhető. Két méter magas humanoid, testét vörösessárga, fényes pikkelyek borítják, testét legtöbbször tűzaura övezi. Álltalában a tűzmágia különféle formáival harcol, nem puszta kézzel vagy fegyverrel. A varázslatainak ereje megegyezik Ép-inek számával, zónája 100 m.',
+    role: 'Ritkán fordul elő',
+    sablon: 'Ha közelharcra kényszerítik tűzaurát von maga körül és megpróbálja megérinteni ellenfelét. Körönként 4-szer varázsolhat a következő mágiákat: Tűzaura ( fentarthatja bármeddig ), Tűznyil, Tűzkitörés, Tűzcsóva ( fentarthatja 1 körig ), Tűzszőnyeg ( fentarthatja 1 körig ), Tűzzápor ( fentarthatja 1 körig ), Tűzfal ( fentarthatja 1 körig ).'
+  }, {
+    name: 'Shereb ( a Katona )',
+    race: 'Közdémon',
+    level: '1',
+    exp: '3000',
+    ERO: '19',
+    GYORS: '14',
+    UGY: '16',
+    ALLO: '16',
+    EG: '16',
+    SZEP: '8',
+    INT: '10',
+    AK: '14',
+    ASZT: '10',
+    KE: '50',
+    TE: '105',
+    VE: '145',
+    CE: '0',
+    SP: '3k6+6 + méreg',
+    SFE: '0',
+    EP: '35',
+    FP: '75',
+    description: 'Egyetlen hűséget ismerő démon.Ostoba, könnyen megtéveszthető, ám ha valakit már elfogadott urának, a tőle kapott parancsokat vakon követi. Meglehetősen gyáva, de álltalában jobban fél urától, mint a veszélyektől. A Shereb jól megtermett, természetellenesen izmos farkasra emlékeztett. Helyből 8-10 m,tert képes ugrani',
+    role: 'Álltalában a katona szerepét tölti be. Démonidézők körében közkedvelt, mert a gondolati sémája szolgálatra alkalmas és könnyen megfélemlíthető.',
+    sablon: 'Harc közben harapásra hagyatkozik, nem védekezik hanem kitér a támadások elől.'
+  }, {
+    name: 'Wirg ( az Elvetemült )',
+    race: 'Közdémon',
+    level: '1',
+    exp: '550',
+    ERO: '12',
+    GYORS: '13',
+    UGY: '13',
+    ALLO: '12',
+    EG: '14',
+    SZEP: '6',
+    INT: '16',
+    AK: '12',
+    ASZT: '10',
+    KE: '36',
+    TE: '40',
+    VE: '80',
+    CE: '10',
+    SP: 'fegyver szerint',
     SFE: '0',
     EP: '4',
     FP: '-',
-    description: '',
-    role: '',
-    sablon: ''
+    description: 'A wirgek a legmélyebb és legsötétebb démoni gonoszság megtestesítői. Lételemük az aljasság, bárkinek képesek ártani, függetlenül attól, hogy fűződik-e érdekük hozzá vagy sem. Testük apró, denevérre emlékeztető a fejük torz emberéhez hasonló. Képesek anyagi mágiát használni 80 Mp-ig.',
+    role: 'Gyakran megtalálják a módját, hogy átszökjenek az Elsődleges Anyagi síkra. Gonosztetteik nem mindig anyagi vagy fizikai kárt okoz, igyekeznek a lehető legnagyobb lelki sérülést okozni az álldozatban.',
+    sablon: 'Igyekeznek észrevétlenek maradni, mágiájukkal közvetlen nem képesek az emberre hatást gyakorolni, de átváltoztatják a tárgyakat, vagy ha harcra kerül sor, saját magukat valami félelmetes lényre.'
   }],
   jins: [{
-    name: '',
-    race: '',
+    name: 'Jahred',
+    race: 'Közdzsin',
     level: '1',
-    exp: '10',
-    ERO: '20',
-    GYORS: '3',
-    UGY: '3',
-    ALLO: '20',
-    EG: '10',
-    SZEP: '3',
-    INT: '0',
-    AK: '0',
-    ASZT: '0',
-    KE: '0',
-    TE: '10',
-    VE: '55',
-    CE: '0',
-    SP: 'k6+5',
+    exp: '8000',
+    ERO: '18',
+    GYORS: '15',
+    UGY: '15',
+    ALLO: '16',
+    EG: '18',
+    SZEP: '16',
+    INT: '16',
+    AK: '15',
+    ASZT: '14',
+    KE: '60',
+    TE: '100',
+    VE: '160',
+    CE: '30',
+    SP: 'k6+1 / k6+1',
     SFE: '0',
-    EP: '4',
-    FP: '-',
-    description: '',
-    role: '',
-    sablon: ''
+    EP: '12',
+    FP: '22',
+    description: 'A jahred a dzsinnek népének harcos szolgái, aki testőrt vagy fegyveres segítséget akarnak, annak kiválóan megfelelnek. Pszi pontjaik 30, Mana-pontjaik: 50. Mágiák amit használhatnak: Fénymágia ( Bűvharc, Félelmetes fegyver, Fényvért, Ködalak, Vakság okozása ), Kis Arkánum Rituáléi ( Fanatizálás, Villámcsapás ), Villámmágiák, Elemi mágia.',
+    role: 'Testőr vagy harcos',
+    sablon: 'Páncélt nem használnak, fegyverük mágikus jatagán ( a harcértékek már beleszámítva az értékekben ), kaputárgyaik: páncélok és fegyverek.'
+  }, {
+    name: 'Huri',
+    race: 'Közdzsin',
+    level: '1',
+    exp: '400',
+    ERO: '12',
+    GYORS: '14',
+    UGY: '20',
+    ALLO: '12',
+    EG: '12',
+    SZEP: '20+',
+    INT: '16',
+    AK: '14',
+    ASZT: '16',
+    KE: '15',
+    TE: '25',
+    VE: '60',
+    CE: '0',
+    SP: 'k3',
+    SFE: '0',
+    EP: '8',
+    FP: '15',
+    description: 'A Huri legveszedelmesebb fegyvere a megjelenése, a megidéző számára 22 Szépséggel rendelkezik. Kiváló táncosok, és a szexuális kultúrán olyan magas szinten űzik, hogy a mesterfok számukra sértő.',
+    role: 'Álltalában szórakoztatás végett idézik meg, de a megidéző álltalában beleszeret.',
+    sablon: 'Egyes kaputárgyak 20-25000 aranyat is elérhetik.'
+  }, {
+    name: 'Kharad',
+    race: 'Közdzsin',
+    level: '1',
+    exp: '400',
+    ERO: '14',
+    GYORS: '15',
+    UGY: '16',
+    ALLO: '12',
+    EG: '14',
+    SZEP: '18',
+    INT: '15',
+    AK: '14',
+    ASZT: '12',
+    KE: '15',
+    TE: '25',
+    VE: '60',
+    CE: '0',
+    SP: 'k6',
+    SFE: '0',
+    EP: '8',
+    FP: '15',
+    description: 'A kharadok a leggyakoribb dzsinnek, még saját síkjukon is. Álltalában jóvágású dzsad ifijakra emlékeztetnek. Max Mp-jük 40 és a következő mágiákat képesek használni: Természetes anyagok mágiája, Asztrálmágia, Mentálmágia, Időmágia, Térmágia és Egyébb mágikus módszerek.',
+    role: 'Képességeik meglehetősen korlátozottak a többi dzsinhez képest.',
+    sablon: '-'
   }],
   elementals: [{
-    name: '',
-    race: '',
+    name: 'Tűzelementál, szolga',
+    race: 'Elementál',
     level: '1',
-    exp: '10',
-    ERO: '20',
-    GYORS: '3',
-    UGY: '3',
-    ALLO: '20',
-    EG: '10',
-    SZEP: '3',
-    INT: '0',
-    AK: '0',
-    ASZT: '0',
-    KE: '0',
-    TE: '10',
-    VE: '55',
+    exp: '15',
+    ERO: '10',
+    GYORS: '12',
+    UGY: '12',
+    ALLO: '12',
+    EG: '-',
+    SZEP: '10',
+    INT: '-',
+    AK: '-',
+    ASZT: '-',
+    KE: '35',
+    TE: '75',
+    VE: '95',
     CE: '0',
-    SP: 'k6+5',
+    SP: '3k6',
     SFE: '0',
-    EP: '4',
+    EP: '11',
     FP: '-',
-    description: '',
-    role: '',
-    sablon: ''
+    description: 'Minden elementál a saját eleméből épül fel, leginkább az ellentétes elemmel sebezhető és immunis saját elemére. Az ellentétek: tűz-víz, föld-levegő. Mágikus fegyverrel csak túlütéssel sebezhető és a sebzés feleződik.A szolga ugy 2 méter magas',
+    role: '-',
+    sablon: '-'
+  }, {
+    name: 'Tűzelementál, harcos',
+    race: 'Elementál',
+    level: '1',
+    exp: '42',
+    ERO: '12',
+    GYORS: '14',
+    UGY: '14',
+    ALLO: '14',
+    EG: '-',
+    SZEP: '10',
+    INT: '6',
+    AK: '12',
+    ASZT: '12',
+    KE: '45',
+    TE: '95',
+    VE: '115',
+    CE: '0',
+    SP: '3k10',
+    SFE: '0',
+    EP: '20',
+    FP: '-',
+    description: 'Minden elementál a saját eleméből épül fel, leginkább az ellentétes elemmel sebezhető és immunis saját elemére. Az ellentétek: tűz-víz, föld-levegő. Mágikus fegyverrel csak túlütéssel sebezhető és a sebzés feleződik.A harcos ugy 3 méter magas',
+    role: '-',
+    sablon: '-'
+  }, {
+    name: 'Vízelementál, szolga',
+    race: 'Elementál',
+    level: '1',
+    exp: '12',
+    ERO: '8',
+    GYORS: '10',
+    UGY: '10',
+    ALLO: '12',
+    EG: '-',
+    SZEP: '12',
+    INT: '-',
+    AK: '-',
+    ASZT: '-',
+    KE: '35',
+    TE: '65',
+    VE: '85',
+    CE: '0',
+    SP: 'k10+2',
+    SFE: '0',
+    EP: '10',
+    FP: '-',
+    description: 'Minden elementál a saját eleméből épül fel, leginkább az ellentétes elemmel sebezhető és immunis saját elemére. Az ellentétek: tűz-víz, föld-levegő. Mágikus fegyverrel csak túlütéssel sebezhető és a sebzés feleződik.A szolga ugy 2 méter magas',
+    role: '-',
+    sablon: '-'
+  }, {
+    name: 'Vízelementál, harcos',
+    race: 'Elementál',
+    level: '1',
+    exp: '38',
+    ERO: '10',
+    GYORS: '12',
+    UGY: '12',
+    ALLO: '14',
+    EG: '-',
+    SZEP: '12',
+    INT: '6',
+    AK: '12',
+    ASZT: '12',
+    KE: '25',
+    TE: '75',
+    VE: '105',
+    CE: '0',
+    SP: '3k6',
+    SFE: '0',
+    EP: '24',
+    FP: '-',
+    description: 'Minden elementál a saját eleméből épül fel, leginkább az ellentétes elemmel sebezhető és immunis saját elemére. Az ellentétek: tűz-víz, föld-levegő. Mágikus fegyverrel csak túlütéssel sebezhető és a sebzés feleződik.A harcos ugy 3 méter magas',
+    role: '-',
+    sablon: '-'
+  }, {
+    name: 'Levegőelementál, szolga',
+    race: 'Elementál',
+    level: '1',
+    exp: '14',
+    ERO: '5',
+    GYORS: '16',
+    UGY: '14',
+    ALLO: '10',
+    EG: '-',
+    SZEP: '10',
+    INT: '-',
+    AK: '-',
+    ASZT: '-',
+    KE: '55',
+    TE: '85',
+    VE: '110',
+    CE: '0',
+    SP: 'k6+1',
+    SFE: '0',
+    EP: '9',
+    FP: '-',
+    description: 'Minden elementál a saját eleméből épül fel, leginkább az ellentétes elemmel sebezhető és immunis saját elemére. Az ellentétek: tűz-víz, föld-levegő. Mágikus fegyverrel csak túlütéssel sebezhető és a sebzés feleződik.A szolga ugy 2 méter magas',
+    role: '-',
+    sablon: '-'
+  }, {
+    name: 'Levegőelementál, harcos',
+    race: 'Elementál',
+    level: '1',
+    exp: '38',
+    ERO: '8',
+    GYORS: '18',
+    UGY: '16',
+    ALLO: '10',
+    EG: '-',
+    SZEP: '10',
+    INT: '6',
+    AK: '12',
+    ASZT: '12',
+    KE: '75',
+    TE: '105',
+    VE: '130',
+    CE: '0',
+    SP: 'k10',
+    SFE: '0',
+    EP: '16',
+    FP: '-',
+    description: 'Minden elementál a saját eleméből épül fel, leginkább az ellentétes elemmel sebezhető és immunis saját elemére. Az ellentétek: tűz-víz, föld-levegő. Mágikus fegyverrel csak túlütéssel sebezhető és a sebzés feleződik.A harcos ugy 3 méter magas',
+    role: '-',
+    sablon: '-'
+  }, {
+    name: 'Földelementál, szolga',
+    race: 'Elementál',
+    level: '1',
+    exp: '15',
+    ERO: '16',
+    GYORS: '8',
+    UGY: '8',
+    ALLO: '14',
+    EG: '-',
+    SZEP: '10',
+    INT: '-',
+    AK: '-',
+    ASZT: '-',
+    KE: '20',
+    TE: '65',
+    VE: '100',
+    CE: '0',
+    SP: '2k6+3',
+    SFE: '0',
+    EP: '14',
+    FP: '-',
+    description: 'Minden elementál a saját eleméből épül fel, leginkább az ellentétes elemmel sebezhető és immunis saját elemére. Az ellentétek: tűz-víz, föld-levegő. Mágikus fegyverrel csak túlütéssel sebezhető és a sebzés feleződik.A szolga ugy 2 méter magas',
+    role: '-',
+    sablon: '-'
+  }, {
+    name: 'Földelementál, harcos',
+    race: 'Elementál',
+    level: '1',
+    exp: '40',
+    ERO: '18',
+    GYORS: '8',
+    UGY: '8',
+    ALLO: '16',
+    EG: '-',
+    SZEP: '10',
+    INT: '6',
+    AK: '12',
+    ASZT: '12',
+    KE: '35',
+    TE: '75',
+    VE: '120',
+    CE: '0',
+    SP: '2k10+5',
+    SFE: '0',
+    EP: '26',
+    FP: '-',
+    description: 'Minden elementál a saját eleméből épül fel, leginkább az ellentétes elemmel sebezhető és immunis saját elemére. Az ellentétek: tűz-víz, föld-levegő. Mágikus fegyverrel csak túlütéssel sebezhető és a sebzés feleződik.A harcos ugy 3 méter magas',
+    role: '-',
+    sablon: '-'
   }],
   undeads: [{
-    name: '',
-    race: '',
+    name: 'Árny ( Arich )',
+    race: 'Élőholt',
     level: '1',
-    exp: '10',
-    ERO: '20',
+    exp: '2500',
+    ERO: '-',
+    GYORS: '12',
+    UGY: '12',
+    ALLO: '-',
+    EG: '-',
+    SZEP: '3',
+    INT: '-',
+    AK: '-',
+    ASZT: '3',
+    KE: '20',
+    TE: '50',
+    VE: '90',
+    CE: '0',
+    SP: 'k10',
+    SFE: '0',
+    EP: '30',
+    FP: '-',
+    description: 'Necrografiai osztály: V. lidérc. Az árnyak a boszorkánymágia áldozatául esett emberek megkeseredett kísértetei. Megjelenésben egy közönséges árnyákhoz hasonlít, de önállóan mozok és képes lelépni a falról. Teste teljesen légies így csak mágikus fegyver sebzi.',
+    role: 'Sötét helyeken, barlangokban, pincékben csatornákban fordulhat elő. Érzékeny a fényre, az alkonynál erősebb fény körönként k6 Ép-t sebez rajta, de a teljes sötétség gyógyítja. Félhomályban szinte láthatatlan.',
+    sablon: 'Amikor megtámadja álldozatát, megpróbál átnyúlni annak testén. Ha tólüti áldozatát Ép-t is sebez és eggyel csökken annak gyorsasága, ami ha eléri a nullát lebénul.'
+  }, {
+    name: 'Bosszúálló ( Beid )',
+    race: 'Élőholt',
+    level: '1',
+    exp: '50',
+    ERO: '14',
+    GYORS: '10',
+    UGY: '10',
+    ALLO: '20',
+    EG: '-',
+    SZEP: '5',
+    INT: '3',
+    AK: '14',
+    ASZT: '3',
+    KE: '10',
+    TE: '30',
+    VE: '70',
+    CE: '0',
+    SP: 'k6 vagy fegyver',
+    SFE: '0',
+    EP: '10',
+    FP: '-',
+    description: 'Necrografiai osztály: II.éji rém. A bosszúálló olyan élőholt, melyet egyetlen vágy hajt: elpusztítani gyilkosát. Olyan ember akit aljasul elárultak és különös kegyetlenséggel kínoztak halálra.',
+    role: 'Halála után három nappal kikel a sírjából, hogy bosszút áljon. Fontos megjegyezni, hogy az üldözi aki a haláláért felelős ( például a bírát aki elítélte, és nem a hóhért ). Megérzi célpontja hollétét.',
+    sablon: 'Aki akadályozni próbálja megtámadja, ha a célpontja meghal visszatér a sírjába és békében nyugszik az idők végezetéig.'
+  }, {
+    name: 'Démonfattya ( Denebola )',
+    race: 'Élőholt',
+    level: '1',
+    exp: '25',
+    ERO: '16',
+    GYORS: '5',
+    UGY: '5',
+    ALLO: '20',
+    EG: '-',
+    SZEP: '3',
+    INT: '-',
+    AK: '-',
+    ASZT: '-',
+    KE: '0',
+    TE: '15',
+    VE: '60',
+    CE: '0',
+    SP: 'k6+1',
+    SFE: '0',
+    EP: '20',
+    FP: '-',
+    description: 'Necrografiai osztály: I. tudattalan élőholt. A démonfattyak egykor élt emberek, akiket valamely démoni erő elragadott és a külső démoni síkok egyikére hurcolt. A lelkét kiszakították, a test tovább bolyong a démoni síkon átvéve annak essenciáját.',
+    role: 'Az anyagi világba álltalában idézés, vagy valamely démon szolgálatába kerül. Teste csak mágikus fegyverrel sebezhető.',
+    sablon: '-'
+  }, {
+    name: 'Fantom',
+    race: 'Élőholt',
+    level: '1',
+    exp: '50',
+    ERO: '-',
+    GYORS: '10',
+    UGY: '10',
+    ALLO: '-',
+    EG: '-',
+    SZEP: '8',
+    INT: '-',
+    AK: '-',
+    ASZT: '9',
+    KE: '15',
+    TE: '45',
+    VE: '70',
+    CE: '0',
+    SP: 'k6',
+    SFE: '0',
+    EP: '32',
+    FP: '-',
+    description: 'Necrografiai osztály: V. lidérc. Az Örök Kárhozat átkával súlytott szerencsétlen emberek.Testük valamelyest hasonlít volt emberi mivoltukra, de testük légies, mintha sűrű szürke masszából épülne fel. Lelkük eltorzult, mentáltestük teljesen eltűnt, az asztrál testben csak negatív érzelmek vannak. Csak mágikus eszközökkel támadhatóak.',
+    role: '-',
+    sablon: 'Képes asztrális támadásra 10 Erősítéssel negatív érzelmeket kelteni, fizikai támadásai Ép-t nem sebeznek.'
+  }, {
+    name: 'Gahul',
+    race: 'Élőholt',
+    level: '1',
+    exp: '75',
+    ERO: '17',
+    GYORS: '12',
+    UGY: '12',
+    ALLO: '20',
+    EG: '-',
+    SZEP: '4',
+    INT: '12',
+    AK: '12',
+    ASZT: '6',
+    KE: '15',
+    TE: '40',
+    VE: '80',
+    CE: '0',
+    SP: 'k6+2',
+    SFE: '0',
+    EP: '25',
+    FP: '-',
+    description: 'Necrografiai osztály: IV. vérivó élőholt. A gahul nemcsak álldozatai vérét issza, de hísukat is felzabálja, dögött nem eszik, csak amiben érzi még az életet. Teste természetes anyagokból van és folyamatosan rothad. Ha 5 méternél közelebb kerül valaki hozzá Egészségpróbát kell dobnia, különben elhatalmasodik rajta a rosszullét, és levonásokkal harcol tovább.Ha a gahul nem zabálja fel teljesen álldozatát, néhány napon belül az is gahullá változik.',
+    role: '-',
+    sablon: '-'
+  }, {
+    name: 'Múmia ( Muliphein )',
+    race: 'Élőholt',
+    level: '1',
+    exp: '20000( 10. színtű pap esetén )',
+    ERO: '12',
+    GYORS: '10',
+    UGY: '10',
+    ALLO: '-',
+    EG: '-',
+    SZEP: '5',
+    INT: '16',
+    AK: '16',
+    ASZT: '14',
+    KE: '20',
+    TE: '70',
+    VE: '110',
+    CE: '0',
+    SP: 'k6 vagy fegyver szerint',
+    SFE: '0',
+    EP: '18',
+    FP: '-',
+    description: 'Necrografiai osztály: II. éji rém. A múmia magasrangú és nagytudású papok rituálisan bebalzsamozott holttestei, melybe holtuk után visszatér a gonosz lélek. Képesek az életükbe használt mágiákat holtukban is alkalmazni. A leghatékonyabb a tűz ellenük, mely 1.5x-öset sebez rajtuk.',
+    role: '-',
+    sablon: '-'
+  }, {
+    name: 'Ragályhalál ( Rutilicus )',
+    race: 'Élőholt',
+    level: '1',
+    exp: '130',
+    ERO: '-',
+    GYORS: '8',
+    UGY: '8',
+    ALLO: '-',
+    EG: '-',
+    SZEP: '3',
+    INT: '-',
+    AK: '-',
+    ASZT: '-',
+    KE: '15',
+    TE: '50',
+    VE: '70',
+    CE: '0',
+    SP: 'k6 + betegség',
+    SFE: '0',
+    EP: '18',
+    FP: '-',
+    description: 'Necrografiai osztály: VI. szellem.Boszorkánymester megátkozta ember, aki belehalt a mágikus kórba és holta után kísért és terjeszti a kórt tovább. Kinézetle egy embert takaró fátyolra emlékeztett.',
+    role: 'Akit megérint fájdalmat érez és ha elvéti egészségpróbáját megfertőződik a boszorkánymester Vörös Halál nevű kórjával.',
+    sablon: 'Minden élőt gyűlöl és igyekszik elpusztítani azokat.'
+  }, {
+    name: 'Vérfarkas',
+    race: 'Élőholt',
+    level: '1',
+    exp: '300',
+    ERO: '18',
+    GYORS: '16',
+    UGY: '16',
+    ALLO: '20',
+    EG: '-',
+    SZEP: '8',
+    INT: '14',
+    AK: '18',
+    ASZT: '8',
+    KE: '25',
+    TE: '50',
+    VE: '75',
+    CE: '0',
+    SP: 'k10 ( harapás )',
+    SFE: '0',
+    EP: '-',
+    FP: '44',
+    description: 'Necrografiai osztály: III. kóborló dög. A vérfarkas olyan ember melyet egy kóborló dög szállt meg. Amikor a megszállot öl 5% halmozódó esélyel maga is vérfarkassá válik, mikor ez megtörténik a dög elhagya a testet és új álldozat után néz. Az ezüst az egyetlen amit a dög megérez, ha nullára csökken fp-i egy évig nem képes megszállni senkit és az álldozat visszaváltozik emberré. Ha a test elpusztul, csak új álldozat után néz.',
+    role: '-',
+    sablon: '-'
+  }, {
+    name: 'Zombi ( Zaurak )',
+    race: 'Élőholt',
+    level: '1',
+    exp: '15',
+    ERO: '15',
     GYORS: '3',
     UGY: '3',
-    ALLO: '20',
-    EG: '10',
-    SZEP: '3',
-    INT: '0',
-    AK: '0',
-    ASZT: '0',
+    ALLO: '-',
+    EG: '-',
+    SZEP: '5',
+    INT: '-',
+    AK: '-',
+    ASZT: '-',
     KE: '0',
     TE: '10',
-    VE: '55',
+    VE: '40',
     CE: '0',
-    SP: 'k6+5',
+    SP: 'k6 vagy fegyver',
     SFE: '0',
-    EP: '4',
+    EP: '15',
     FP: '-',
-    description: '',
-    role: '',
-    sablon: ''
-  }],
-  plants: [{
-    name: '',
-    race: '',
-    level: '1',
-    exp: '10',
-    ERO: '20',
-    GYORS: '3',
-    UGY: '3',
-    ALLO: '20',
-    EG: '10',
-    SZEP: '3',
-    INT: '0',
-    AK: '0',
-    ASZT: '0',
-    KE: '0',
-    TE: '10',
-    VE: '55',
-    CE: '0',
-    SP: 'k6+5',
-    SFE: '0',
-    EP: '4',
-    FP: '-',
-    description: '',
-    role: '',
-    sablon: ''
+    description: 'Necrografiai osztály: I. tudattalan élőholt. A zombik lélekkel nem rendelkező mágiával mozgatott holtestek. Teremtőjük egyszerű parancsait követik, vagy gépiesen megtámadnak minden élőt.',
+    role: '-',
+    sablon: '-'
   }]
 };
 var getters = {
@@ -19709,9 +20198,6 @@ var getters = {
   },
   undeads: function undeads() {
     return state.undeads;
-  },
-  plants: function plants() {
-    return state.plants;
   }
 };
 var mutations = {};
@@ -57585,21 +58071,21 @@ var render = function () {
           {
             staticClass: "tab-pane fade",
             attrs: {
-              id: "pills-plants",
+              id: "pills-bestia",
               role: "tabpanel",
-              "aria-labelledby": "pills-plants-tab",
+              "aria-labelledby": "pills-bestia-tab",
             },
           },
-          _vm._l(_vm.plants, function (npc, index) {
+          _vm._l(_vm.monsters, function (npc, index) {
             return _c(
               "div",
-              { key: "PLANTS" + index, staticClass: "accordion-item" },
+              { key: "BESTIA" + index, staticClass: "accordion-item" },
               [
                 _c(
                   "h2",
                   {
                     staticClass: "accordion-header",
-                    attrs: { id: "PLANTS" + index + "-heading" },
+                    attrs: { id: "BESTIA" + index + "-heading" },
                   },
                   [
                     _c(
@@ -57609,9 +58095,9 @@ var render = function () {
                         attrs: {
                           type: "button",
                           "data-bs-toggle": "collapse",
-                          "data-bs-target": "#" + "PLANTS" + index,
+                          "data-bs-target": "#" + "BESTIA" + index,
                           "aria-expanded": "false",
-                          "aria-controls": "PLANTS" + index,
+                          "aria-controls": "BESTIA" + index,
                         },
                       },
                       [
@@ -57630,8 +58116,8 @@ var render = function () {
                   {
                     staticClass: "accordion-collapse collapse",
                     attrs: {
-                      id: "PLANTS" + index,
-                      "aria-labelledby": "PLANTS" + index + "-heading",
+                      id: "BESTIA" + index,
+                      "aria-labelledby": "BESTIA" + index + "-heading",
                     },
                   },
                   [
@@ -57731,185 +58217,6 @@ var render = function () {
                         _c("p", [_vm._v(_vm._s(npc.role))]),
                         _vm._v(" "),
                         _vm._m(42, true),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(npc.sablon))]),
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "text-center m-2" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-success costum-btn m-3",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function ($event) {
-                                return _vm.npcAdd(npc)
-                              },
-                            },
-                          },
-                          [_vm._v("NJK hozzáadása a listához")]
-                        ),
-                      ]),
-                    ]),
-                  ]
-                ),
-              ]
-            )
-          }),
-          0
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "tab-pane fade",
-            attrs: {
-              id: "pills-bestia",
-              role: "tabpanel",
-              "aria-labelledby": "pills-bestia-tab",
-            },
-          },
-          _vm._l(_vm.monsters, function (npc, index) {
-            return _c(
-              "div",
-              { key: "BESTIA" + index, staticClass: "accordion-item" },
-              [
-                _c(
-                  "h2",
-                  {
-                    staticClass: "accordion-header",
-                    attrs: { id: "BESTIA" + index + "-heading" },
-                  },
-                  [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "accordion-button collapsed",
-                        attrs: {
-                          type: "button",
-                          "data-bs-toggle": "collapse",
-                          "data-bs-target": "#" + "BESTIA" + index,
-                          "aria-expanded": "false",
-                          "aria-controls": "BESTIA" + index,
-                        },
-                      },
-                      [
-                        _vm._v(
-                          "\n                        " +
-                            _vm._s(npc.name) +
-                            "\n                    "
-                        ),
-                      ]
-                    ),
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "accordion-collapse collapse",
-                    attrs: {
-                      id: "BESTIA" + index,
-                      "aria-labelledby": "BESTIA" + index + "-heading",
-                    },
-                  },
-                  [
-                    _c("div", { staticClass: "accordion-body" }, [
-                      _c("div", { staticClass: "row" }, [
-                        _c("div", { staticClass: "col-sm" }, [
-                          _c("p", [
-                            _c("b", [_vm._v("Faj: ")]),
-                            _vm._v(" " + _vm._s(npc.race) + " "),
-                          ]),
-                          _vm._v(" "),
-                          _c("p", [
-                            _c("b", [_vm._v("Szint: ")]),
-                            _vm._v(" " + _vm._s(npc.level) + " "),
-                          ]),
-                          _vm._v(" "),
-                          _c("p", [
-                            _c("b", [_vm._v("TP érték: ")]),
-                            _vm._v(" " + _vm._s(npc.exp) + " "),
-                          ]),
-                          _vm._v(" "),
-                          _vm._m(43, true),
-                          _vm._v(" "),
-                          _c("p", [
-                            _vm._v("Életerő Pontok ( Ép ): " + _vm._s(npc.EP)),
-                          ]),
-                          _vm._v(" "),
-                          _c("p", [
-                            _vm._v(
-                              "Fájdalomtűrési Pontok ( Fp ): " + _vm._s(npc.FP)
-                            ),
-                          ]),
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "col-sm" }, [
-                          _vm._m(44, true),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Erő: " + _vm._s(npc.ERO))]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Gyorsaság: " + _vm._s(npc.GYORS))]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Ügyesség: " + _vm._s(npc.UGY))]),
-                          _vm._v(" "),
-                          _c("p", [
-                            _vm._v("Állóképesség: " + _vm._s(npc.ALLO)),
-                          ]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Egészség: " + _vm._s(npc.EG))]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Szépség: " + _vm._s(npc.SZEP))]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Inteligencia: " + _vm._s(npc.INT))]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Akaraterő: " + _vm._s(npc.AK))]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Asztrál: " + _vm._s(npc.ASZT))]),
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "col-sm" }, [
-                          _vm._m(45, true),
-                          _vm._v(" "),
-                          _c("p", [
-                            _vm._v(
-                              "Kezdeményező Érték ( KÉ ): " + _vm._s(npc.KE)
-                            ),
-                          ]),
-                          _vm._v(" "),
-                          _c("p", [
-                            _vm._v("Támadó Érték ( TÉ ): " + _vm._s(npc.TE)),
-                          ]),
-                          _vm._v(" "),
-                          _c("p", [
-                            _vm._v("Védő Érték ( VÉ ): " + _vm._s(npc.VE)),
-                          ]),
-                          _vm._v(" "),
-                          _c("p", [
-                            _vm._v("Célzó Érték ( CÉ ): " + _vm._s(npc.CE)),
-                          ]),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Sebzés ( Sp ): " + _vm._s(npc.SP))]),
-                          _vm._v(" "),
-                          _c("p", [
-                            _vm._v(
-                              "Sebzés Felfogó Érték ( SFÉ ): " + _vm._s(npc.SFE)
-                            ),
-                          ]),
-                        ]),
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _vm._m(46, true),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(npc.description))]),
-                        _vm._v(" "),
-                        _vm._m(47, true),
-                        _vm._v(" "),
-                        _c("p", [_vm._v(_vm._s(npc.role))]),
-                        _vm._v(" "),
-                        _vm._m(48, true),
                         _vm._v(" "),
                         _c("p", [_vm._v(_vm._s(npc.sablon))]),
                       ]),
@@ -58085,25 +58392,6 @@ var staticRenderFns = [
             {
               staticClass: "nav-link",
               attrs: {
-                id: "pills-plants-tab",
-                "data-bs-toggle": "pill",
-                "data-bs-target": "#pills-plants",
-                type: "button",
-                role: "tab",
-                "aria-controls": "pills-plants",
-                "aria-selected": "false",
-              },
-            },
-            [_vm._v("Növények")]
-          ),
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "nav-item", attrs: { role: "presentation" } }, [
-          _c(
-            "button",
-            {
-              staticClass: "nav-link",
-              attrs: {
                 id: "pills-bestia-tab",
                 "data-bs-toggle": "pill",
                 "data-bs-target": "#pills-bestia",
@@ -58118,42 +58406,6 @@ var staticRenderFns = [
         ]),
       ]
     )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [_c("b", [_vm._v("Életerő:")])])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [_c("b", [_vm._v("Tulajdonságok:")])])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [_c("b", [_vm._v("Harcértékek: ")])])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [_c("b", [_vm._v("Az NJK álltalános leírása:")])])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [_c("b", [_vm._v("NJK Szerepe a játékban: ")])])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [_c("b", [_vm._v("NJK viselkedési mintája: ")])])
   },
   function () {
     var _vm = this
