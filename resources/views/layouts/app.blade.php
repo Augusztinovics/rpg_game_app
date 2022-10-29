@@ -38,6 +38,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('game-downloads') }}">Különböző Letöltések</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('character-sheet') }}">Karakterlap</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
