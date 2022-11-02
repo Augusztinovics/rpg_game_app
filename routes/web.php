@@ -29,7 +29,7 @@ Route::get('/game-downloads', [WelcomeController::class, 'gameDownloads'])->name
 Route::get('public/game-modules/{game}', [WelcomeController::class, 'getAllPublicGameModules']);
 Route::get('public/game-module-data/{id}', [WelcomeController::class, 'getPublicGameModuleData']);
 Route::get('public/game-module-pdf/{id}', [WelcomeController::class, 'generatePublicGameModulePDF']);
-Route::get('public/magus-character-sheet', [WelcomeController::class, 'downloadMagusCharacterSheet'])->name('character-sheet');
+Route::get('public/magus-character-sheet', [WelcomeController::class, 'downloadMagusCharacterSheet']);
 
 Auth::routes();
 

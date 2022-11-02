@@ -129,6 +129,8 @@ class WelcomeController extends Controller
      */
     public function downloadMagusCharacterSheet()
     {
-        return view('pdf.maguscharactersheet');
+        $pdf = PDF::loadView('pdf.maguscharactersheet');
+
+        return $pdf->download('Karakterlap.pdf');
     }
 }
