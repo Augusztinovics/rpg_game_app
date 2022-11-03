@@ -28,7 +28,7 @@
                 aria-labelledby="pills-magus-tab"
             >
                <div class="text-center m-3">
-                   <button class="btn btn-link">Üres Mágus karakterlap letöltése</button>
+                   <a href="public/magus-character-sheet" class="btn btn-link">Üres Mágus karakterlap letöltése</a>
                </div>
                <hr>
                <div>

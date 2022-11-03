@@ -121,4 +121,16 @@ class WelcomeController extends Controller
 
         return $pdf->download('Module - ' . $gameModule->game_module_name . '.pdf');
     }
+
+    /**
+     * Download emty caractersheet
+     * 
+     *  @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function downloadMagusCharacterSheet()
+    {
+        $pdf = PDF::loadView('pdf.maguscharactersheet');
+
+        return $pdf->download('Karakterlap.pdf');
+    }
 }
