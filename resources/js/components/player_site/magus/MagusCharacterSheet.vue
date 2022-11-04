@@ -366,7 +366,9 @@
 <style scoped>
     .img-bg {
         background-image: url("/img/stone-green.jpg");
-        background-repeat: repeat;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
         border: 5px solid green;
         border-radius: 10px;
     }

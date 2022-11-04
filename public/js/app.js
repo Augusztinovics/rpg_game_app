@@ -7226,6 +7226,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -7235,7 +7259,9 @@ __webpack_require__.r(__webpack_exports__);
       selectedModuleIndex: null,
       idForDelete: null,
       loading: false,
-      error: false
+      error: false,
+      shareId: null,
+      shareIndex: null
     };
   },
   computed: {
@@ -7292,14 +7318,18 @@ __webpack_require__.r(__webpack_exports__);
       this.selectedModuleIndex = index;
       this.fetchFriends();
     },
-    shareGameModule: function shareGameModule(id, index) {
+    shareGameModule: function shareGameModule() {
       var _this4 = this;
+
+      if (!this.shareId && this.shareIndex) {
+        return;
+      }
 
       this.loading = true;
       this.error = false;
-      axios.post("gm/share-game-module/" + id).then(function (res) {
+      axios.post("gm/share-game-module/" + this.shareId).then(function (res) {
         _this4.loading = false;
-        _this4.gameModules[index].shared = true;
+        _this4.gameModules[_this4.shareIndex].shared = true;
       })["catch"](function (error) {
         console.log(error.response.data.message);
         _this4.loading = false;
@@ -7308,6 +7338,14 @@ __webpack_require__.r(__webpack_exports__);
           _this4.error = false;
         }, 3000);
       });
+    },
+    prepareForShare: function prepareForShare(id, index) {
+      this.shareId = id;
+      this.shareIndex = index;
+    },
+    cancelShare: function cancelShare() {
+      this.shareId = null;
+      this.shareIndex = null;
     },
     haveInPlayerList: function haveInPlayerList(id) {
       return this.gameModules[this.selectedModuleIndex].players.find(function (friend) {
@@ -31640,7 +31678,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.img-bg[data-v-1d778a38] {\n    background-image: url(\"/img/stone-green.jpg\");\n    background-repeat: repeat;\n    border: 5px solid green;\n    border-radius: 10px;\n}\n.overlay[data-v-1d778a38] {\n    position: fixed; /* Sit on top of the page content */\n    width: 100%; /* Full width (cover the whole page) */\n    height: 100%; /* Full height (cover the whole page) */\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: rgba(0,0,0,0.5); /* Black background with opacity */\n    z-index: 200; /* Specify a stack order in case you're using a different order for other elements */\n}\n.spin[data-v-1d778a38] {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    height: 200px;\n    width: 200px;\n    transform: translate(-50%,-50%);\n    -ms-transform: translate(-50%,-50%);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.img-bg[data-v-1d778a38] {\n    background-image: url(\"/img/stone-green.jpg\");\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: cover;\n    border: 5px solid green;\n    border-radius: 10px;\n}\n.overlay[data-v-1d778a38] {\n    position: fixed; /* Sit on top of the page content */\n    width: 100%; /* Full width (cover the whole page) */\n    height: 100%; /* Full height (cover the whole page) */\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-color: rgba(0,0,0,0.5); /* Black background with opacity */\n    z-index: 200; /* Specify a stack order in case you're using a different order for other elements */\n}\n.spin[data-v-1d778a38] {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    height: 200px;\n    width: 200px;\n    transform: translate(-50%,-50%);\n    -ms-transform: translate(-50%,-50%);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -56374,10 +56412,14 @@ var render = function () {
                         "button",
                         {
                           staticClass: "btn btn-success costum-btn m-1",
-                          attrs: { type: "button" },
+                          attrs: {
+                            type: "button",
+                            "data-bs-toggle": "modal",
+                            "data-bs-target": "#confirmShare",
+                          },
                           on: {
                             click: function ($event) {
-                              return _vm.shareGameModule(gameModule.id, index)
+                              return _vm.prepareForShare(gameModule.id, index)
                             },
                           },
                         },
@@ -56551,6 +56593,69 @@ var render = function () {
       ]
     ),
     _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "confirmShare",
+          tabindex: "-1",
+          "aria-labelledby": "shareModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _c("div", { staticClass: "modal-header" }, [
+              _c(
+                "h5",
+                {
+                  staticClass: "modal-title",
+                  attrs: { id: "shareModalLabel" },
+                },
+                [_vm._v("Játék module megosztása")]
+              ),
+              _vm._v(" "),
+              _c("button", {
+                staticClass: "btn-close",
+                attrs: {
+                  type: "button",
+                  "data-bs-dismiss": "modal",
+                  "aria-label": "Close",
+                },
+                on: { click: _vm.cancelShare },
+              }),
+            ]),
+            _vm._v(" "),
+            _vm._m(6),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary costum-btn",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.cancelShare },
+                },
+                [_vm._v("Mégsem")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-success costum-btn",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.shareGameModule },
+                },
+                [_vm._v("Megosztás")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
     _vm.loading
       ? _c("div", { attrs: { id: "overlay" } }, [
           _c("div", { attrs: { id: "overlayText" } }, [
@@ -56649,6 +56754,18 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-body" }, [
       _c("div", { staticClass: "text-center m-4" }, [
         _c("p", [_vm._v("Bisztosan törölni szeretné ezt a Játék Modult?")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-body" }, [
+      _c("div", { staticClass: "text-center m-4" }, [
+        _c("p", [_vm._v("Bisztosan meg szeretné osztani ezt a Játék Modult?")]),
+        _vm._v(" "),
+        _c("p", [_vm._v("Minden modult csak egyszer lehet megosztani!")]),
       ]),
     ])
   },

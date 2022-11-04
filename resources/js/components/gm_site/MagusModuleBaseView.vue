@@ -87,7 +87,9 @@
                                     v-if="!gameModule.shared"
                                     type="button"
                                     class="btn btn-success costum-btn m-1"
-                                    @click="shareGameModule(gameModule.id, index)"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#confirmShare"
+                                    @click="prepareForShare(gameModule.id, index)"
                                 >
                                     Megosztás
                                 </button>
@@ -137,7 +139,7 @@
             </div>
         </div>
 
-         <!-- DELETE CONFIRMATION -->
+        <!-- DELETE CONFIRMATION -->
         <div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="delModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -153,6 +155,28 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary costum-btn" @click="cancelDelete" data-bs-dismiss="modal">Mégsem</button>
                     <button type="button" class="btn btn-danger costum-btn" @click="deleteModule" data-bs-dismiss="modal">Töröl</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHARE CONFIRMATION -->
+        <div class="modal fade" id="confirmShare" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="shareModalLabel">Játék module megosztása</h5>
+                        <button type="button" class="btn-close" @click="cancelShare" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <div class="modal-body">
+                    <div class="text-center m-4">
+                        <p>Bisztosan meg szeretné osztani ezt a Játék Modult?</p>
+                        <p>Minden modult csak egyszer lehet megosztani!</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary costum-btn" @click="cancelShare" data-bs-dismiss="modal">Mégsem</button>
+                    <button type="button" class="btn btn-success costum-btn" @click="shareGameModule" data-bs-dismiss="modal">Megosztás</button>
                 </div>
                 </div>
             </div>
@@ -177,6 +201,8 @@ export default {
             idForDelete: null,
             loading: false,
             error: false,
+            shareId: null,
+            shareIndex: null,
         };
     },
     computed: {
@@ -236,14 +262,17 @@ export default {
             this.selectedModuleIndex = index;
             this.fetchFriends();
         },
-        shareGameModule(id, index) {
+        shareGameModule() {
+            if (!this.shareId && this.shareIndex) {
+                return;
+            }
             this.loading = true;
             this.error = false;
             axios
-                .post("gm/share-game-module/" + id)
+                .post("gm/share-game-module/" + this.shareId)
                 .then((res) => {
                     this.loading = false;
-                    this.gameModules[index].shared = true;
+                    this.gameModules[this.shareIndex].shared = true;
                 })
                 .catch((error) => {
                     console.log(error.response.data.message);
@@ -253,6 +282,14 @@ export default {
                         this.error = false;
                     }, 3000)
                 });
+        },
+        prepareForShare(id,index) {
+            this.shareId = id;
+            this.shareIndex = index;
+        },
+        cancelShare() {
+            this.shareId = null;
+            this.shareIndex = null;
         },
         haveInPlayerList(id) {
             return this.gameModules[this.selectedModuleIndex].players.find(friend => friend.player_id == id);
