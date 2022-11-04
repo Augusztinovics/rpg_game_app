@@ -32,21 +32,21 @@ body {
 }
 .bg-green-leather {
     background-image: url("/img/lether-green.jpg");
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
 }
 .bg-red-leather {
     background-image: url("/img/lether-red.jpg");
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
 }
 .bg-blue-leather {
     background-image: url("/img/lether-blue.jpg");
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
 }
 .costum-btn {
     border-radius: 15px;
