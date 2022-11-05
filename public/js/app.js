@@ -6963,6 +6963,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -6972,7 +6981,8 @@ __webpack_require__.r(__webpack_exports__);
       loading: false,
       error: false,
       moduleData: [],
-      selectedIndex: null
+      selectedIndex: null,
+      isAdmin: false
     };
   },
   computed: {
@@ -6988,6 +6998,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(res);
         _this.gameModules = res.data.gameModules.data;
         _this.isGm = res.data.isGm;
+        _this.isAdmin = res.data.isAdmin;
         _this.pagLinks = res.data.gameModules.links;
       })["catch"](function (error) {
         console.log(error);
@@ -6999,6 +7010,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get(link).then(function (res) {
         _this2.gameModules = res.data.gameModules.data;
         _this2.isGm = res.data.isGm;
+        _this2.isAdmin = res.data.isAdmin;
         _this2.pagLinks = res.data.gameModules.links;
       })["catch"](function (error) {
         console.log(error);
@@ -7038,6 +7050,9 @@ __webpack_require__.r(__webpack_exports__);
           _this4.error = false;
         }, 3000);
       });
+    },
+    deletePublicGameModule: function deletePublicGameModule(id) {
+      console.log('Torolve');
     }
   },
   mounted: function mounted() {
@@ -55648,6 +55663,8 @@ var render = function () {
               return _c("tr", { key: "GM" + index }, [
                 _c("td", [_vm._v(_vm._s(gameModule.id))]),
                 _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(gameModule.author_name))]),
+                _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(gameModule.game_module_name))]),
                 _vm._v(" "),
                 _c("td", [
@@ -55697,6 +55714,25 @@ var render = function () {
                         [
                           _vm._v(
                             "\n                                Játék átvétele\n                            "
+                          ),
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.isAdmin
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-danger m-1",
+                          on: {
+                            click: function ($event) {
+                              return _vm.deletePublicGameModule(gameModule.id)
+                            },
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                                Játék törlése\n                            "
                           ),
                         ]
                       )
@@ -56154,6 +56190,8 @@ var staticRenderFns = [
     return _c("thead", [
       _c("tr", [
         _c("th", [_vm._v("Id")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Szerző")]),
         _vm._v(" "),
         _c("th", [_vm._v("Játék modul neve")]),
         _vm._v(" "),

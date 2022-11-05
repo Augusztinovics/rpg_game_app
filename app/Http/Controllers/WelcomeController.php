@@ -73,7 +73,8 @@ class WelcomeController extends Controller
         return response()->json(
             [
                 'gameModules' => $gameModules,
-                'isGm' => optional(Auth::user())->level !== 'PLAYER'
+                'isGm' => optional(Auth::user())->level !== 'PLAYER',
+                'isAdmin' => optional(Auth::user())->level === 'ADMIN'
             ],
         200);
     }

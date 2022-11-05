@@ -23,6 +23,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>Szerző</th>
                             <th>Játék modul neve</th>
                             <th>Lehetőségek</th>
                         </tr>
@@ -33,6 +34,7 @@
                             :key="'GM' + index"
                         >
                             <td>{{ gameModule.id }}</td>
+                            <td>{{ gameModule.author_name }}</td>
                             <td>{{ gameModule.game_module_name }}</td>
                             <td>
                                 <button
@@ -52,6 +54,13 @@
                                     @click="usePublicGameModule(gameModule.id)"
                                 >
                                     Játék átvétele
+                                </button>
+                                <button
+                                    v-if="isAdmin"
+                                    class="btn btn-outline-danger m-1"
+                                    @click="deletePublicGameModule(gameModule.id)"
+                                >
+                                    Játék törlése
                                 </button>
                             </td>
                         </tr>
@@ -216,7 +225,8 @@ export default {
             loading: false,
             error: false,
             moduleData: [],
-            selectedIndex: null
+            selectedIndex: null,
+            isAdmin: false,
         };
     },
     computed: {
@@ -232,6 +242,7 @@ export default {
                 console.log(res);
                 this.gameModules = res.data.gameModules.data;
                 this.isGm = res.data.isGm;
+                this.isAdmin = res.data.isAdmin;
                 this.pagLinks = res.data.gameModules.links;
             })
             .catch((error) => {
@@ -244,6 +255,7 @@ export default {
             .then((res) => {
                 this.gameModules = res.data.gameModules.data;
                 this.isGm = res.data.isGm;
+                this.isAdmin = res.data.isAdmin;
                 this.pagLinks = res.data.gameModules.links;
             })
             .catch((error) => {
@@ -286,6 +298,9 @@ export default {
                         this.error = false;
                     }, 3000)
             });
+        },
+        deletePublicGameModule(id) {
+            console.log('Torolve');
         }
     },
     mounted() {

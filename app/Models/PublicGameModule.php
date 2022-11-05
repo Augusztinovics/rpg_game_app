@@ -19,6 +19,8 @@ class PublicGameModule extends Model
         'game_module_name',
         'global_note',
         'npc_data',
+        'author_id',
+        'author_name',
     ];
 
     /**
