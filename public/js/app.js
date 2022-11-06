@@ -5378,6 +5378,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -6972,6 +6979,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -6982,7 +7003,9 @@ __webpack_require__.r(__webpack_exports__);
       error: false,
       moduleData: [],
       selectedIndex: null,
-      isAdmin: false
+      isAdmin: false,
+      searchByAuthor: '',
+      searchByTitle: ''
     };
   },
   computed: {
@@ -6995,7 +7018,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("public/game-modules/MAGUS").then(function (res) {
-        console.log(res);
         _this.gameModules = res.data.gameModules.data;
         _this.isGm = res.data.isGm;
         _this.isAdmin = res.data.isAdmin;
@@ -7052,7 +7074,47 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     deletePublicGameModule: function deletePublicGameModule(id) {
-      console.log('Torolve');
+      var _this5 = this;
+
+      this.loading = true;
+      this.error = false;
+      axios.post("admin/delete-public-game-module/" + id).then(function (res) {
+        _this5.loading = false;
+
+        _this5.fetchGameModules();
+      })["catch"](function (error) {
+        console.log(error.response.data.message);
+        _this5.loading = false;
+        _this5.error = true;
+        setTimeout(function () {
+          _this5.error = false;
+        }, 3000);
+      });
+    },
+    searchModules: function searchModules() {
+      var _this6 = this;
+
+      if (!this.searchByAuthor && !this.searchByTitle) {
+        this.fetchGameModules();
+        return;
+      }
+
+      this.loading = true;
+      this.error = false;
+      axios.get("public/game-modules/MAGUS?author=" + this.searchByAuthor + '&title=' + this.searchByTitle).then(function (res) {
+        _this6.gameModules = res.data.gameModules;
+        _this6.isGm = res.data.isGm;
+        _this6.isAdmin = res.data.isAdmin;
+        _this6.pagLinks = [];
+        _this6.loading = false;
+      })["catch"](function (error) {
+        console.log(error);
+        _this6.loading = false;
+        _this6.error = true;
+        setTimeout(function () {
+          _this6.error = false;
+        }, 3000);
+      });
     }
   },
   mounted: function mounted() {
@@ -53485,7 +53547,60 @@ var render = function () {
             },
           },
           [
-            _vm._m(1),
+            _c("div", { staticClass: "text-center m-3" }, [
+              _c("img", {
+                staticClass: "me-5",
+                attrs: {
+                  src: "/img/pentagram.png",
+                  alt: "pentagram",
+                  width: "50",
+                  height: "50",
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-link",
+                  attrs: { href: "public/magus-character-sheet" },
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "bi bi-book",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "16",
+                        height: "16",
+                        fill: "currentColor",
+                        viewBox: "0 0 16 16",
+                      },
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d: "M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z",
+                        },
+                      }),
+                    ]
+                  ),
+                  _vm._v(
+                    "\n                    Üres Mágus karakterlap letöltése ( pdf )\n               "
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "ms-5",
+                attrs: {
+                  src: "/img/pentagram.png",
+                  alt: "pentagram",
+                  width: "50",
+                  height: "50",
+                },
+              }),
+            ]),
             _vm._v(" "),
             _c("hr"),
             _vm._v(" "),
@@ -53528,21 +53643,6 @@ var staticRenderFns = [
         ]),
       ]
     )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center m-3" }, [
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-link",
-          attrs: { href: "public/magus-character-sheet" },
-        },
-        [_vm._v("Üres Mágus karakterlap letöltése")]
-      ),
-    ])
   },
 ]
 render._withStripped = true
@@ -55630,6 +55730,80 @@ var render = function () {
   return _c("div", [
     _vm.error ? _c("div", [_vm._m(0)]) : _vm._e(),
     _vm._v(" "),
+    _c("div", { staticClass: "row my-3" }, [
+      _c("p", { staticClass: "ms-5" }, [_vm._v("Keresési lehetőségek:")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "input-group mb-3" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.searchByAuthor,
+                expression: "searchByAuthor",
+              },
+            ],
+            staticClass: "form-control ms-5",
+            attrs: {
+              type: "text",
+              placeholder: "Szerző neve",
+              "aria-label": "Search by author",
+              "aria-describedby": "button-addon1",
+            },
+            domProps: { value: _vm.searchByAuthor },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.searchByAuthor = $event.target.value
+              },
+            },
+          }),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.searchByTitle,
+                expression: "searchByTitle",
+              },
+            ],
+            staticClass: "form-control ms-2",
+            attrs: {
+              type: "text",
+              placeholder: "Module címe",
+              "aria-label": "Search by title",
+              "aria-describedby": "button-addon1",
+            },
+            domProps: { value: _vm.searchByTitle },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.searchByTitle = $event.target.value
+              },
+            },
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-secondary me-5",
+              attrs: { type: "button", id: "button-addon1" },
+              on: { click: _vm.searchModules },
+            },
+            [_vm._v("Keresés")]
+          ),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
     _c("div", [
       _vm.havePagination
         ? _c(
@@ -55666,6 +55840,18 @@ var render = function () {
                 _c("td", [_vm._v(_vm._s(gameModule.author_name))]),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(gameModule.game_module_name))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(gameModule.downloaded))]),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  _vm._l(gameModule.taked_by, function (gm, index) {
+                    return _c("p", { key: "Taken" + index }, [
+                      _vm._v(_vm._s(gm)),
+                    ])
+                  }),
+                  0
+                ),
                 _vm._v(" "),
                 _c("td", [
                   _c(
@@ -56194,6 +56380,10 @@ var staticRenderFns = [
         _c("th", [_vm._v("Szerző")]),
         _vm._v(" "),
         _c("th", [_vm._v("Játék modul neve")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Letöltve")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Átvette")]),
         _vm._v(" "),
         _c("th", [_vm._v("Lehetőségek")]),
       ]),

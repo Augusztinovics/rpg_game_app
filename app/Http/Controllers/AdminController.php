@@ -9,6 +9,8 @@ use App\Models\CharacterSheet;
 use App\Models\CostumerSupport;
 use App\Models\WhatsNew;
 use App\Models\PageView;
+use App\Models\PublicGameModule;
+use App\Models\PublicGameModuleData;
 
 class AdminController extends Controller
 {
@@ -337,5 +339,19 @@ class AdminController extends Controller
         $data = PageView::latest()->paginate(7);
        
        return response()->json($data, 200);
+    }
+
+    /**
+     * remove public game module
+     *
+     * @return json
+     */
+    public function deletePublicGameModule(Request $request, $id) {
+        if ($request->user()->level !== 'ADMIN') {
+            return response()->json('forbitten', 403);
+        }
+        PublicGameModuleData::where('public_game_module_id', $id)->delete();
+        PublicGameModule::where('id', $id)->delete();
+        return response()->json('sucess', 200);
     }
 }

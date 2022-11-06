@@ -153,6 +153,8 @@ class GmHomeController extends Controller
                 'npc_data' => $gameModule->npc_data,
                 'author_id' => $gameModule->gm_id,
                 'author_name' => Auth::user()->name,
+                'taked_by' => [],
+                'downloaded' => 0,
             ]);
 
             $gameModuleDatas = $gameModule->gameModuleDatas()->orderBy('game_module_data_order')->get();
@@ -192,7 +194,15 @@ class GmHomeController extends Controller
                     'module_data' => $publicGameModuleData->module_data
                 ]);
             }
-
+            $taken = $publicGameModule->taked_by;
+            if (!$taken) {
+                $taken = [Auth::user()->name];
+            } else {
+                $taken[] = Auth::user()->name;
+            }
+            $publicGameModule->taked_by = $taken;
+            $publicGameModule->save();
+            
             return response()->json($gameModule, 200);
         });
     }
