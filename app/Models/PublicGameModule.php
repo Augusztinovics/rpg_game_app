@@ -19,6 +19,10 @@ class PublicGameModule extends Model
         'game_module_name',
         'global_note',
         'npc_data',
+        'author_id',
+        'author_name',
+        'downloaded',
+        'taked_by',
     ];
 
     /**
@@ -29,6 +33,7 @@ class PublicGameModule extends Model
     protected $casts = [
         'global_note' => 'array',
         'npc_data' => 'array',
+        'taked_by' =>'array',
     ];
 
     public function publicGameModuleDatas()

@@ -5,7 +5,17 @@
                 <p class="text-light p-4">Valami Hiba történt...</p>
             </div>
         </div>
-
+        <div class="row my-3">
+            <p class="ms-5">Keresési lehetőségek:</p>
+            <div class="col">
+                <div class="input-group mb-3">
+                    <input type="text" v-model="searchByAuthor" class="form-control ms-5" placeholder="Szerző neve" aria-label="Search by author" aria-describedby="button-addon1">
+                    <input type="text" v-model="searchByTitle" class="form-control ms-2" placeholder="Module címe" aria-label="Search by title" aria-describedby="button-addon1">
+                    <button class="btn btn-outline-secondary me-5" type="button" id="button-addon1" @click="searchModules">Keresés</button>
+                </div>
+            </div>
+        </div>
+        <hr>
         <div>
             <div v-if="havePagination" class="text-center mt-4">
                 <button
@@ -23,7 +33,10 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>Szerző</th>
                             <th>Játék modul neve</th>
+                            <th>Letöltve</th>
+                            <th>Átvette</th>
                             <th>Lehetőségek</th>
                         </tr>
                     </thead>
@@ -33,7 +46,10 @@
                             :key="'GM' + index"
                         >
                             <td>{{ gameModule.id }}</td>
+                            <td>{{ gameModule.author_name }}</td>
                             <td>{{ gameModule.game_module_name }}</td>
+                            <td>{{ gameModule.downloaded }}</td>
+                            <td><p v-for="(gm, index) in gameModule.taked_by" :key="'Taken' + index">{{ gm }}</p></td>
                             <td>
                                 <button
                                     class="btn btn-outline-success m-1"
@@ -52,6 +68,13 @@
                                     @click="usePublicGameModule(gameModule.id)"
                                 >
                                     Játék átvétele
+                                </button>
+                                <button
+                                    v-if="isAdmin"
+                                    class="btn btn-outline-danger m-1"
+                                    @click="deletePublicGameModule(gameModule.id)"
+                                >
+                                    Játék törlése
                                 </button>
                             </td>
                         </tr>
@@ -216,7 +239,10 @@ export default {
             loading: false,
             error: false,
             moduleData: [],
-            selectedIndex: null
+            selectedIndex: null,
+            isAdmin: false,
+            searchByAuthor: '',
+            searchByTitle: '',
         };
     },
     computed: {
@@ -229,9 +255,9 @@ export default {
             axios
             .get("public/game-modules/MAGUS")
             .then((res) => {
-                console.log(res);
                 this.gameModules = res.data.gameModules.data;
                 this.isGm = res.data.isGm;
+                this.isAdmin = res.data.isAdmin;
                 this.pagLinks = res.data.gameModules.links;
             })
             .catch((error) => {
@@ -244,6 +270,7 @@ export default {
             .then((res) => {
                 this.gameModules = res.data.gameModules.data;
                 this.isGm = res.data.isGm;
+                this.isAdmin = res.data.isAdmin;
                 this.pagLinks = res.data.gameModules.links;
             })
             .catch((error) => {
@@ -286,7 +313,50 @@ export default {
                         this.error = false;
                     }, 3000)
             });
-        }
+        },
+        deletePublicGameModule(id) {
+            this.loading = true;
+            this.error = false;
+            axios
+                .post("admin/delete-public-game-module/" + id)
+                .then((res) => {
+                    this.loading = false;
+                    this.fetchGameModules();
+                })
+                .catch((error) => {
+                    console.log(error.response.data.message);
+                    this.loading = false;
+                    this.error = true;
+                    setTimeout(() => {
+                        this.error = false;
+                    }, 3000)
+            });
+        },
+        searchModules() {
+            if (!this.searchByAuthor && !this.searchByTitle) {
+                this.fetchGameModules();
+                return;
+            }
+            this.loading = true;
+            this.error = false;
+            axios
+            .get("public/game-modules/MAGUS?author=" + this.searchByAuthor + '&title=' + this.searchByTitle)
+            .then((res) => {
+                this.gameModules = res.data.gameModules;
+                this.isGm = res.data.isGm;
+                this.isAdmin = res.data.isAdmin;
+                this.pagLinks = [];
+                this.loading = false;
+            })
+            .catch((error) => {
+                console.log(error);
+                this.loading = false;
+                this.error = true;
+                setTimeout(() => {
+                    this.error = false;
+                }, 3000)
+            });
+        },
     },
     mounted() {
         this.fetchGameModules();

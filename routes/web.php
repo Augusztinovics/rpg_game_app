@@ -81,6 +81,8 @@ Route::post('admin/news/create', [AdminController::class, 'storeNews']);
 Route::post('admin/news/publish/{id}', [AdminController::class, 'publishUnpublishNews']);
 Route::post('admin/news/update/{id}', [AdminController::class, 'updateNews']);
 Route::post('admin/news/delete/{id}', [AdminController::class, 'deleteNews']);
+//public game modules
+Route::post('admin/delete-public-game-module/{id}', [AdminController::class, 'deletePublicGameModule']);
 
 //Gm routs
 Route::get('gm/game-modules/{game}', [GmHomeController::class, 'getAllGameModules']);

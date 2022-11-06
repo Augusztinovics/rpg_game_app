@@ -68,12 +68,24 @@ class WelcomeController extends Controller
      */
     public function getAllPublicGameModules(Request $request, $game)
     {
-        $gameModules = PublicGameModule::where('game', $game)->paginate(10);
+        $searchAuthor = $request->query('author');
+        $searchTitle = $request->query('title');
+
+        if ($searchAuthor && $searchTitle) {
+            $gameModules = PublicGameModule::where('author_name', 'LIKE', '%' . $searchAuthor . '%')->where('game_module_name', 'LIKE', '%' . $searchTitle . '%')->where('game', $game)->get();
+        } elseif ($searchAuthor) {
+            $gameModules = PublicGameModule::where('author_name', 'LIKE', '%' . $searchAuthor . '%')->where('game', $game)->get();
+        } elseif ($searchTitle) {
+            $gameModules = PublicGameModule::where('game_module_name', 'LIKE', '%' . $searchTitle . '%')->where('game', $game)->get();
+        } else {
+            $gameModules = PublicGameModule::where('game', $game)->paginate(10);
+        }
 
         return response()->json(
             [
                 'gameModules' => $gameModules,
-                'isGm' => optional(Auth::user())->level !== 'PLAYER'
+                'isGm' => optional(Auth::user())->level !== 'PLAYER',
+                'isAdmin' => optional(Auth::user())->level === 'ADMIN'
             ],
         200);
     }
@@ -98,6 +110,18 @@ class WelcomeController extends Controller
     public function generatePublicGameModulePDF($id)
     {
         $gameModule = PublicGameModule::find($id);
+        if (!$gameModule) {
+            return response()->json('Cant find game module', 417);
+        }
+        $count = $gameModule->downloaded;
+        if (!$count) {
+            $count = 1;
+        } else {
+            $count += 1;
+        }
+        $gameModule->downloaded = $count;
+        $gameModule->save();
+
         $moduleData = PublicGameModuleData::where('public_game_module_id', $id)->get();
         $gameModuleData = [];
         foreach ($moduleData as $data) {
