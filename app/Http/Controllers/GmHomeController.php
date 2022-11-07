@@ -9,6 +9,7 @@ use Illuminate\Http\Response;
 use App\Models\GameModule;
 use App\Models\GameModuleData;
 use App\Models\MyFriend;
+use App\Models\User;
 use App\Models\GameModulePlayer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -145,6 +146,17 @@ class GmHomeController extends Controller
             abort(Response::HTTP_EXPECTATION_FAILED, 'Game module already shared, id= ' . $gameModule->id);
         }
 
+        $author = User::find($gameModule->gm_id);
+        if ($author) {
+            if ($author->gold) {
+                $gold = $author->gold + config('gold.share', 10);
+                $author->gold = $gold;
+            } else {
+                $author->gold = config('gold.share', 10);
+            }
+            $author->save();
+        }
+
         return DB::transaction(function() use($gameModule){
             $publicGameModule = PublicGameModule::query()->create([
                 'game' => $gameModule->game,
@@ -176,6 +188,18 @@ class GmHomeController extends Controller
 
     public function usePublicGameModule(PublicGameModule $publicGameModule, Request $request)
     {
+
+        $author = User::find($publicGameModule->author_id);
+        if ($author) {
+            if ($author->gold) {
+                $gold = $author->gold + config('gold.use', 5);
+                $author->gold = $gold;
+            } else {
+                $author->gold = config('gold.use', 5);
+            }
+            $author->save();
+        }
+
         return DB::transaction(function() use($publicGameModule){
             $gameModule = GameModule::query()->create([
                 'gm_id' => Auth::id(),
