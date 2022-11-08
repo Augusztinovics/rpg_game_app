@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GmHomeController;
+use App\Http\Controllers\GoldController;
 use App\Http\Controllers\GameModuleMakerController;
 use App\Http\Controllers\CharacterSheetsController;
 use App\Http\Controllers\ChatController;
@@ -37,6 +38,7 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/gmhome', [GmHomeController::class, 'index'])->name('gmhome');
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+Route::get('/gold', [GoldController::class, 'index'])->name('gold');
 
 
 //Json game data routs

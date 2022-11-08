@@ -9,6 +9,7 @@ use App\Models\WhatsNew;
 use App\Models\PageView;
 use App\Models\PublicGameModule;
 use App\Models\PublicGameModuleData;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use PDF;
 
@@ -121,6 +122,17 @@ class WelcomeController extends Controller
         }
         $gameModule->downloaded = $count;
         $gameModule->save();
+
+        $author = User::find($gameModule->author_id);
+        if ($author) {
+            if ($author->gold) {
+                $gold = $author->gold + config('gold.download', 5);
+                $author->gold = $gold;
+            } else {
+                $author->gold = config('gold.download', 5);
+            }
+            $author->save();
+        }
 
         $moduleData = PublicGameModuleData::where('public_game_module_id', $id)->get();
         $gameModuleData = [];

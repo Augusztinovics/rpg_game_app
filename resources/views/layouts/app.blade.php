@@ -56,6 +56,14 @@
                                 </li>
                             @endif
                         @else
+                            @if (Auth::user()->gold)
+                            <li class="nav-item border border-warning rounded-2">
+                                <a class="nav-link text-warning" href="{{ route('gold') }}">
+                                    <img class="me-1" src="/img/gold.png" alt="pentagram" width="30" height="30">
+                                    Arany: {{ Auth::user()->gold }}
+                                </a>
+                            </li>
+                            @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
