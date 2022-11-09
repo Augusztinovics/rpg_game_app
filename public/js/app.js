@@ -6092,13 +6092,75 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       metrickData: [],
       loading: false,
       haveError: false,
-      pagLinks: []
+      pagLinks: [],
+      magusCharacterSheet: 0,
+      magusGameDownloaded: 0,
+      allDownload: 0,
+      magusGameShared: 0,
+      magusGameUsed: 0
     };
   },
   computed: {
@@ -6136,6 +6198,24 @@ __webpack_require__.r(__webpack_exports__);
         _this2.loading = false;
       })["catch"](function (error) {
         _this2.haveError = true;
+        console.log(error);
+      });
+    },
+    fetchDownloadedData: function fetchDownloadedData() {
+      var _this3 = this;
+
+      this.loading = true;
+      this.haveError = false;
+      axios.get('/admin/download-data').then(function (res) {
+        _this3.magusCharacterSheet = res.data.magus_character_sheet;
+        _this3.magusGameDownloaded = res.data.magus_game_downloaded;
+        _this3.allDownload = res.data.all_download;
+        _this3.magusGameShared = res.data.magus_game_shared;
+        _this3.magusGameUsed = res.data.magus_game_used;
+        _this3.loading = false;
+      })["catch"](function (error) {
+        _this3.loading = false;
+        _this3.haveError = true;
         console.log(error);
       });
     }
@@ -31467,7 +31547,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.active[data-v-f7ff589c] {\n    border: 1px solid rgb(15, 91, 161);\n}\n.bar[data-v-f7ff589c] {\n    width: 10px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.active[data-v-f7ff589c] {\n    border: 1px solid rgb(15, 91, 161);\n}\n.bar[data-v-f7ff589c] {\n    width: 20px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -54624,11 +54704,13 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
     _c(
       "div",
       {
         staticClass:
-          "bg-ligh bg-gradient border border-success rounded mt-4 mb-4 text-end",
+          "bg-ligh bg-gradient border border-success rounded mt-4 mb-4 text-center",
       },
       [
         _c(
@@ -54638,7 +54720,7 @@ var render = function () {
             attrs: { type: "button" },
             on: { click: _vm.fetchMetrickData },
           },
-          [_vm._v("Fetch Data")]
+          [_vm._v("Fetch View Data")]
         ),
       ]
     ),
@@ -54651,7 +54733,7 @@ var render = function () {
             _vm._l(_vm.metrickData, function (metrick) {
               return _c("div", { key: metrick.id, staticClass: "col" }, [
                 _c("div", { staticClass: "text-center mb-3" }, [
-                  _c("p", [_vm._v(_vm._s(metrick.views))]),
+                  _c("p", [_vm._v(_vm._s(metrick.updated_at))]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "d-flex justify-content-center" }, [
@@ -54662,7 +54744,7 @@ var render = function () {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "text-center mt-3" }, [
-                  _c("p", [_vm._v(_vm._s(metrick.updated_at))]),
+                  _c("p", [_vm._v(_vm._s(metrick.views))]),
                 ]),
               ])
             }),
@@ -54692,9 +54774,158 @@ var render = function () {
             : _vm._e(),
         ])
       : _vm._e(),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c("div", [
+      _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "bg-ligh bg-gradient border border-success rounded mt-4 mb-4 text-center",
+        },
+        [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success m-3",
+              attrs: { type: "button" },
+              on: { click: _vm.fetchDownloadedData },
+            },
+            [_vm._v("Fetch Downloaded Data")]
+          ),
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "p-3 border border-secondary rounded m-2" }, [
+        _c("div", { staticClass: "row" }, [
+          _vm._m(2),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "text-center p-3 mb-2 bg-secondary text-white border border-3 border-primary rounded-2",
+              },
+              [
+                _c("h3", [_vm._v("Magus Character Sheets Downloads")]),
+                _vm._v(" "),
+                _c("h3", [_vm._v(_vm._s(_vm.magusCharacterSheet))]),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "text-center p-3 mb-2 bg-secondary text-white border border-3 border-primary rounded-2",
+              },
+              [
+                _c("h3", [_vm._v("Magus Game Modules Downloads")]),
+                _vm._v(" "),
+                _c("h3", [_vm._v(_vm._s(_vm.magusGameDownloaded))]),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "text-center p-3 mb-2 bg-secondary text-white border border-3 border-primary rounded-2",
+              },
+              [
+                _c("h3", [_vm._v("All Downloads")]),
+                _vm._v(" "),
+                _c("h3", [_vm._v(_vm._s(_vm.allDownload))]),
+              ]
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _vm._m(3),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "text-center p-3 mb-2 bg-secondary text-white border border-3 border-primary rounded-2",
+              },
+              [
+                _c("h3", [_vm._v("Magus Game Module Shared")]),
+                _vm._v(" "),
+                _c("h3", [_vm._v(_vm._s(_vm.magusGameShared))]),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "text-center p-3 mb-2 bg-secondary text-white border border-3 border-primary rounded-2",
+              },
+              [
+                _c("h3", [_vm._v("Magus Game Module Used")]),
+                _vm._v(" "),
+                _c("h3", [_vm._v(_vm._s(_vm.magusGameUsed))]),
+              ]
+            ),
+          ]),
+        ]),
+      ]),
+    ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c("h2", [_vm._v("Landing Page Views")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c("h2", [_vm._v("Download and Shared Data")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c("h2", [_vm._v("Downloads:")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c("h2", [_vm._v("Game Module Share and Use")]),
+    ])
+  },
+]
 render._withStripped = true
 
 

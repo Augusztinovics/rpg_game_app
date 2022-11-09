@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Models\DownloadCount;
 use App\Models\User;
 use App\Models\CharacterSheet;
 use App\Models\CostumerSupport;
@@ -325,8 +326,8 @@ class AdminController extends Controller
        
     }
 
-     /**
-     * getting all users
+    /**
+     * getting metric data
      * 
      * @return json
      */
@@ -339,6 +340,41 @@ class AdminController extends Controller
         $data = PageView::latest()->paginate(7);
        
        return response()->json($data, 200);
+    }
+
+    /**
+     * getting download and shared data
+     * 
+     * @return json
+     */
+    public function getDownloadedData(Request $request){
+        
+        if ($request->user()->level !== 'ADMIN'){
+            return response()->json('forbitten', 403);
+        }
+        
+        $downloadCount = DownloadCount::first();
+        $data = [
+            'magus_character_sheet' => 0,
+            'magus_game_downloaded' => 0,
+            'all_download'          => 0,
+            'magus_game_shared'     => 0,
+            'magus_game_used'       => 0
+        ];
+        if ($downloadCount) {
+            $sheet = $downloadCount->magus_character_sheet ?? 0;
+            $game = $downloadCount->magus_game_downloaded ?? 0;
+            $data = [
+                'magus_character_sheet' => $sheet,
+                'magus_game_downloaded' => $game,
+                'all_download'          => $sheet + $game,
+                'magus_game_shared'     => $downloadCount->magus_game_shared ?? 0,
+                'magus_game_used'       => $downloadCount->magus_game_used ?? 0
+            ];
+        }
+        
+       
+        return response()->json($data, 200);
     }
 
     /**
