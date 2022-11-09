@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Carbon\Carbon;
+use App\Models\DownloadCount;
 use App\Models\WhatsNew;
 use App\Models\PageView;
 use App\Models\PublicGameModule;
@@ -153,6 +154,22 @@ class WelcomeController extends Controller
             'stages' => $gameModuleData,
         ];
 
+        $downloadCount = DownloadCount::first();
+        if(!$downloadCount) {
+            DownloadCount::create([
+                'magus_game_downloaded' => 1
+            ]);
+        } else {
+            $count = $downloadCount->magus_game_downloaded;
+            if (!$count) {
+                $count = 1;
+            } else {
+                $count +=1;
+            }
+            $downloadCount->magus_game_downloaded = $count;
+            $downloadCount->save();
+        }
+
         $pdf = PDF::loadView('pdf.gamemodule', $gameData);
 
         return $pdf->download('Module - ' . $gameModule->game_module_name . '.pdf');
@@ -165,6 +182,22 @@ class WelcomeController extends Controller
      */
     public function downloadMagusCharacterSheet()
     {
+        $downloadCount = DownloadCount::first();
+        if(!$downloadCount) {
+            DownloadCount::create([
+                'magus_character_sheet' => 1
+            ]);
+        } else {
+            $count = $downloadCount->magus_character_sheet;
+            if (!$count) {
+                $count = 1;
+            } else {
+                $count +=1;
+            }
+            $downloadCount->magus_character_sheet = $count;
+            $downloadCount->save();
+        }
+        
         $pdf = PDF::loadView('pdf.maguscharactersheet');
 
         return $pdf->download('Karakterlap.pdf');

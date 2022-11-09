@@ -6,6 +6,7 @@ use App\Models\PublicGameModule;
 use App\Models\PublicGameModuleData;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Models\DownloadCount;
 use App\Models\GameModule;
 use App\Models\GameModuleData;
 use App\Models\MyFriend;
@@ -135,6 +136,22 @@ class GmHomeController extends Controller
             'stages' => $gameModuleData,
         ];
 
+        $downloadCount = DownloadCount::first();
+        if(!$downloadCount) {
+            DownloadCount::create([
+                'magus_game_downloaded' => 1
+            ]);
+        } else {
+            $count = $downloadCount->magus_game_downloaded;
+            if (!$count) {
+                $count = 1;
+            } else {
+                $count +=1;
+            }
+            $downloadCount->magus_game_downloaded = $count;
+            $downloadCount->save();
+        }
+
         $pdf = PDF::loadView('pdf.gamemodule', $gameData);
 
         return $pdf->download('Module - ' . $gameModule->game_module_name . '.pdf');
@@ -182,6 +199,22 @@ class GmHomeController extends Controller
             $gameModule->shared = true;
             $gameModule->save();
 
+            $downloadCount = DownloadCount::first();
+            if(!$downloadCount) {
+                DownloadCount::create([
+                    'magus_game_shared' => 1
+                ]);
+            } else {
+                $count = $downloadCount->magus_game_shared;
+                if (!$count) {
+                    $count = 1;
+                } else {
+                    $count +=1;
+                }
+                $downloadCount->magus_game_shared = $count;
+                $downloadCount->save();
+            }
+
             return response()->json($publicGameModule, 200);
         });
     }
@@ -226,6 +259,22 @@ class GmHomeController extends Controller
             }
             $publicGameModule->taked_by = $taken;
             $publicGameModule->save();
+
+            $downloadCount = DownloadCount::first();
+            if(!$downloadCount) {
+                DownloadCount::create([
+                    'magus_game_used' => 1
+                ]);
+            } else {
+                $count = $downloadCount->magus_game_used;
+                if (!$count) {
+                    $count = 1;
+                } else {
+                    $count +=1;
+                }
+                $downloadCount->magus_game_used = $count;
+                $downloadCount->save();
+            }
             
             return response()->json($gameModule, 200);
         });
