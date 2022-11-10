@@ -27,7 +27,7 @@
             sfera: ['H', 'L', 'T'],
             sferaText: 'Halál, Lélek, Természet',
             description: [
-                'Az erkölcstől mentes gondolkodást és a hűvös logikát részesiti előnybe. Az egyén kiemelkedhet és mások fölé kerülhet. Gorvick és Krán államvallása.',
+                'Az erkölcstől mentes gondolkodást és a hűvös logikát részesíti előnybe. Az egyén kiemelkedhet és mások fölé kerülhet. Gorvick és Krán államvallása.',
             ],
         },
         {
@@ -162,7 +162,7 @@
             sfera: ['E', 'T', 'L'],
             sferaText: 'Élet, Természet, Lélek',
             description: [
-                'A Tudás és a tudást szomjazók istene, az örök újitó.A tűz Őrzője.',
+                'A Tudás és a tudást szomjazók istene, az örök újító.A tűz Őrzője.',
             ],
         },
         {
@@ -171,7 +171,7 @@
             sfera: ['L', 'H'],
             sferaText: 'Lélek, Halál',
             description: [
-                'A Káosz, a Sötétség és a Pusztitás Istene.',
+                'A Káosz, a Sötétség és a Pusztítás Istene.',
             ],
         },
         {
