@@ -42,7 +42,7 @@
             },
             weight: '2 kg',
             price: '6 ezüst',
-            description: 'A csatabárd a balta harcban használt rokona. Egy hoszabb rövidebb fa nyélhez erősitenek egy vagy akár két éles pengét.Az egykezes változat fél méteres. A törpék kedvenc fegyvere.',
+            description: 'A csatabárd a balta harcban használt rokona. Egy hoszabb rövidebb fa nyélhez erősítenek egy vagy akár két éles pengét. Az egykezes változat fél méteres. A törpék kedvenc fegyvere.',
         },
         {
             id: 'CSATABARD_KETKEZES',
@@ -61,7 +61,7 @@
             },
             weight: '5 kg',
             price: '2 arany',
-            description: 'A csatabárd a balta harcban használt rokona. Egy hoszabb rövidebb fa nyélhez erősitenek egy vagy akár két éles pengét.A kétkezes változat egy méteres. A törpék kedvenc fegyvere.',
+            description: 'A csatabárd a balta harcban használt rokona. Egy hoszabb rövidebb fa nyélhez erősítenek egy vagy akár két éles pengét. A kétkezes változat egy méteres. A törpék kedvenc fegyvere.',
         },
         {
             id: 'CSATACSAKANY',
@@ -80,7 +80,7 @@
             },
             weight: '2,5 kg',
             price: '8 ezüst',
-            description: 'A csatacsákány, más néven fokos sokban hasonlit a közönséges csákányhoz, ám feje jóval rövidebb, úgy egyarasznyi. Gyakran két hegyel látják el.',
+            description: 'A csatacsákány, más néven fokos sokban hasonlít a közönséges csákányhoz, ám feje jóval rövidebb, úgy egyarasznyi. Gyakran két hegyel látják el.',
         },
         {
             id: 'HAJITOBARD',
@@ -99,7 +99,7 @@
             },
             weight: '1,2 kg',
             price: '1 ezüst',
-            description: 'A hajitóbárd két fő változatban készül, az egyik egy teljesen hagyományos kisbalta, a másik -gyakoribb- változat teljes egészében fémből készül.',
+            description: 'A hajitóbárd két fő változatban készül, az egyik egy teljesen hagyományos kisbalta, a másik - gyakoribb - változat teljes egészében fémből készül.',
         },
         {
             id: 'KARD_ROVID',
@@ -118,7 +118,7 @@
             },
             weight: '1 kg',
             price: '1 arany',
-            description: 'A rövidkard 40-60 cm hosszú, egyenes pengéje mindkét oldalon ki van élezve. Gyakran ijászok második fegyvere.',
+            description: 'A rövidkard 40-60 cm hosszú, egyenes pengéje mindkét oldalon ki van élezve. Gyakran íjászok második fegyvere.',
         },
         {
             id: 'KARD_HOSSZU',
@@ -175,7 +175,7 @@
             },
             weight: '3,5 kg',
             price: '3 arany',
-            description: 'A lovagi kard a lovagok kedvenc fegyvere. Egyenes, kétélű pengéje 80-120 cm hosszú. A vége lekerekitett, vagy igen tompa szögben csúcsos. Keresztvasa gyakran S alakú.',
+            description: 'A lovagi kard a lovagok kedvenc fegyvere. Egyenes, kétélű pengéje 80-120 cm hosszú. A vége lekerekített, vagy igen tompa szögben csúcsos. Keresztvasa gyakran S alakú.',
         },
         {
             id: 'KARD_PALLOS',
@@ -213,7 +213,7 @@
             },
             weight: '1,5 kg',
             price: '1 arany 6 ezüst',
-            description: 'A szablya pengéje 60-80 cm hosszú és enyhén hajlitott. Csak a külső iv van kiélezve. Ivelése miatt sokkal jobban lehet vele vágni, mint az egyenes kardokkal -szúrásra, döfésre ritkán használják.',
+            description: 'A szablya pengéje 60-80 cm hosszú és enyhén hajlított. Csak a külső ív van kiélezve. Ívelése miatt sokkal jobban lehet vele vágni, mint az egyenes kardokkal - szúrásra, döfésre ritkán használják.',
         },
         {
             id: 'KARD_DZSENN_SZABLYA',
@@ -232,7 +232,7 @@
             },
             weight: '0,5 kg',
             price: '120 arany',
-            description: 'A dzsenn szablya szokatlanul keskeny és hosszú, ivelt pengéjű, mágikus úton készitett, ám mágikus tulajdonságokkal nem rendelkező fegyver. Gyakorlatilag törhetetlen.',
+            description: 'A dzsenn szablya szokatlanul keskeny és hosszú, ívelt pengéjű, mágikus úton készített, ám mágikus tulajdonságokkal nem rendelkező fegyver. Gyakorlatilag törhetetlen.',
         },
         {
             id: 'KARD_JATAGAN',
@@ -251,7 +251,7 @@
             },
             weight: '0,8 kg',
             price: '1 arany 4 ezüst',
-            description: 'A jatagán elnyújtott S alakot formázó, egyélű pengéje rővid, a kiszélesedő hegy ráadás pengéje visszahúzáskor mélyit a seben',
+            description: 'A jatagán elnyújtott S alakot formázó, egyélű pengéje rövid, a kiszélesedő hegy ráadás pengéje visszahúzáskor mélyít a seben',
         },
         {
             id: 'KARD_HANDZSAR',
@@ -270,7 +270,7 @@
             },
             weight: '2 kg',
             price: '1 arany 5 ezüst',
-            description: 'A handzsár a dzsadok kedvelt fegyvere. Erősen ivelt, csak a külső éle van kifenve. Jellegzetessége, hogy a penge a keresztvasnál allig tenyérnyi, a hegynél viszont jó másféltenyérnyi széles.',
+            description: 'A handzsár a dzsadok kedvelt fegyvere. Erősen ívelt, csak a külső éle van kifenve. Jellegzetessége, hogy a penge a keresztvasnál allig tenyérnyi, a hegynél viszont jó másféltenyérnyi széles.',
         },
         {
             id: 'KARD_FEJVADASZ',
@@ -289,7 +289,7 @@
             },
             weight: '0,8 kg',
             price: '2 arany',
-            description: 'A fejvadászkard speciális, kétmarkolatú fegyver, Gorviktól Kránig szinte mindenütt alkalmazzák. Hossza személyre szabott, alsó, úgynevezett tonfa-markolatnál fogva, az alkarra szoritva épp könyékig ér. Külső élre és hegyre fenik.',
+            description: 'A fejvadászkard speciális, kétmarkolatú fegyver, Gorviktól Kránig szinte mindenütt alkalmazzák. Hossza személyre szabott, alsó, úgynevezett tonfa-markolatnál fogva, az alkarra szorítva épp könyékig ér. Külső élre és hegyre fenik.',
         },
         {
             id: 'KARD_SLAN',
@@ -308,11 +308,11 @@
             },
             weight: '1,4 kg',
             price: '100 arany',
-            description: 'A Slan kard a kardművész fegyvere. Keskeny enyhén ivelt pengéjének csak a külső ivét fenik ki. Hossza 1,1 méter amiből 30 cm a markolat. Keresztvasa kicsi, kör alakú. Különleges kovácsolási eljárással készül, nagyon nehezen törik, borotvaélles.',
+            description: 'A Slan kard a kardművész fegyvere. Keskeny enyhén ívelt pengéjének csak a külső ívét fenik ki. Hossza 1,1 méter amiből 30 cm a markolat. Keresztvasa kicsi, kör alakú. Különleges kovácsolási eljárással készül, nagyon nehezen törik, borotvaélles.',
         },
         {
             id: 'KARD_KIGYO',
-            name: 'Kigyó kard',
+            name: 'Kígyó kard',
             TamKor: '1',
             Type: 'Szúró/vágófegyver',
             Hand: 1,
@@ -327,7 +327,7 @@
             },
             weight: '1,4 kg',
             price: '6 arany',
-            description: 'A kigyókard szinte kizárólag a Tharr-papok fegyvertárában lelhető fel. Hossza 1,1 méter, kétélű pengéje enyhén hullámos. Egykezes fegyver.',
+            description: 'A kígyókard szinte kizárólag a Tharr-papok fegyvertárában lelhető fel. Hossza 1,1 méter, kétélű pengéje enyhén hullámos. Egykezes fegyver.',
         },
         {
             id: 'KES',
@@ -365,7 +365,7 @@
             },
             weight: '1 kg',
             price: '2 arany',
-            description: 'A mara-sequor 1 méter hosszúságú, enyhe ivben hajló, hegyénél kétélű, belső pengére fent vágókard. Hagyományos kráni fejvadászeszköz-lásd még sequor.',
+            description: 'A mara-sequor 1 méter hosszúságú, enyhe ívben hajló, hegyénél kétélű, belső pengére fent vágókard. Hagyományos kráni fejvadászeszköz - lásd még sequor.',
         },
         {
             id: 'RAMIERA',
@@ -384,7 +384,7 @@
             },
             weight: '0,8 kg',
             price: '2 arany',
-            description: 'A ramiera jó 40 cm hosszúságú, levélkeresztbetszetű, keskeny, kétélű és tűhegyes szúrófegyver, a gorviki fejvadászok és orgyilkosok kedvenc eszköze.',
+            description: 'A ramiera jó 40 cm hosszúságú, levélkeresztmetszetű, keskeny, kétélű és tűhegyes szúrófegyver, a gorviki fejvadászok és orgyilkosok kedvenc eszköze.',
         },
         {
             id: 'SEQUOR',
@@ -403,7 +403,7 @@
             },
             weight: '0,4 kg',
             price: '1 arany 3 ezüst',
-            description: 'A sequor erősen görbitett pengéjű, kétélű és borotvaéles vágótőr. Krán fejvadászainak hagyományos fegyvere. Rajtuk kivül szinte csak egy yllinori embervadász-iskola beavatottai alkalmazzák.',
+            description: 'A sequor erősen görbített pengéjű, kétélű és borotvaéles vágótőr. Krán fejvadászainak hagyományos fegyvere. Rajtuk kívül szinte csak egy yllinori embervadász-iskola beavatottai alkalmazzák.',
         },
         {
             id: 'SLAN_CSILLAG',
@@ -479,7 +479,7 @@
             },
             weight: '0,8 kg',
             price: '70 arany',
-            description: 'A Slan tőr sokban hasonlit a Slan kardra, csak rövidebb. Felépitésében inkább kardra, mint tőrre emlékeztet, de pengéje hossza nem haladja meg a 40 cm-t.',
+            description: 'A Slan tőr sokban hasonlit a Slan kardra, csak rövidebb. Felépítésében inkább kardra, mint tőrre emlékeztet, de pengéje hossza nem haladja meg a 40 cm-t.',
         },
         {
             id: 'TORKARD',
@@ -498,7 +498,7 @@
             },
             weight: '0,8 kg',
             price: '2 arany',
-            description: 'A tőrkard vagy rapir pengéje 80 cm hosszú, keskeny és egyenes. Mindkét oldalán ki van élezve, de főleg döfésre használják. Keskeny pengéje kivételes hajlékonyságot tesz lehetővé, ezért is terjedt el vivóeszközként. Keresztvasa diszes, a markolatot gyakran kosár védi.',
+            description: 'A tőrkard vagy rapír pengéje 80 cm hosszú, keskeny és egyenes. Mindkét oldalán ki van élezve, de főleg döfésre használják. Keskeny pengéje kivételes hajlékonyságot tesz lehetővé, ezért is terjedt el vívóeszközként. Keresztvasa díszes, a markolatot gyakran kosár védi.',
         },
         {
             id: 'BOT_HOSSZU',
@@ -517,7 +517,7 @@
             },
             weight: '1,2 kg',
             price: '50 réz',
-            description: 'A botot, mint fegyvert, Ynev-szerte alkalmazzák, bár általában lenézik használóját. Niarén és Enoszukén kivül inkább csak furkósbotot forgatnak, ami lehet akár egy frissen vágot husáng is - az előbb emlitett országok harcművészei viszont tökélyre fejlesztették a botok használatának tudományát.',
+            description: 'A botot, mint fegyvert, Ynev-szerte alkalmazzák, bár álltalában lenézik használóját. Niarén és Enoszukén kívül inkább csak furkósbotot forgatnak, ami lehet akár egy frissen vágot husáng is - az előbb emlitett országok harcművészei viszont tökélyre fejlesztették a botok használatának tudományát.',
         },
         {
             id: 'BOT_ROVID',
@@ -536,7 +536,7 @@
             },
             weight: '0,7 kg',
             price: '30 réz',
-            description: 'A botot, mint fegyvert, Ynev-szerte alkalmazzák, bár általában lenézik használóját. Niarén és Enoszukén kivül inkább csak furkósbotot forgatnak, ami lehet akár egy frissen vágot husáng is - az előbb emlitett országok harcművészei viszont tökélyre fejlesztették a botok használatának tudományát.',
+            description: 'A botot, mint fegyvert, Ynev-szerte alkalmazzák, bár álltalában lenézik használóját. Niarén és Enoszukén kivül inkább csak furkósbotot forgatnak, ami lehet akár egy frissen vágot husáng is - az előbb emlitett országok harcművészei viszont tökélyre fejlesztették a botok használatának tudományát.',
         },
         {
             id: 'BOT_FURKOS',
@@ -555,7 +555,7 @@
             },
             weight: '1,3 kg',
             price: 'ingyen',
-            description: 'A botot, mint fegyvert, Ynev-szerte alkalmazzák, bár általában lenézik használóját. Niarén és Enoszukén kivül inkább csak furkósbotot forgatnak, ami lehet akár egy frissen vágot husáng is - az előbb emlitett országok harcművészei viszont tökélyre fejlesztették a botok használatának tudományát.',
+            description: 'A botot, mint fegyvert, Ynev-szerte alkalmazzák, bár álltalában lenézik használóját. Niarén és Enoszukén kivül inkább csak furkósbotot forgatnak, ami lehet akár egy frissen vágot husáng is - az előbb emlitett országok harcművészei viszont tökélyre fejlesztették a botok használatának tudományát.',
         },
         {
             id: 'BUZOGANY_EGYKEZES',
@@ -574,7 +574,7 @@
             },
             weight: '2 kg',
             price: '8 ezüst',
-            description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.',
+            description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, míg a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.',
         },
         {
             id: 'BUZOGANY_KETKEZES',
@@ -593,7 +593,7 @@
             },
             weight: '3 kg',
             price: '1 arany 2 ezüst',
-            description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.',
+            description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, míg a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.',
         },
         {
             id: 'BUZOGANY_TUSKES',
@@ -612,7 +612,7 @@
             },
             weight: '2 kg',
             price: '1 arany',
-            description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.',
+            description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, míg a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.',
         },
         {
             id: 'BUZOGANY_TOLLAS',
@@ -631,7 +631,7 @@
             },
             weight: '2 kg',
             price: '1 arany 1 ezüst',
-            description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.',
+            description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, míg a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.',
         },
         {
             id: 'BUZOGANY_LANCOS',
@@ -650,7 +650,7 @@
             },
             weight: '2 kg',
             price: '1 arany 2 ezüst',
-            description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.',
+            description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, míg a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.',
         },
         {
             id: 'CSEPHADARO',
@@ -669,7 +669,7 @@
             },
             weight: '2,5 kg',
             price: '7 ezüst',
-            description: 'A cséphadaró a láncos buzogány távoli rokona. Egy hosszú nyélre lánc segitségével egy fél méteres fa- vagy vasnehezéket erősitenek. Néha a nehezéket szögekkel is kiverik.',
+            description: 'A cséphadaró a láncos buzogány távoli rokona. Egy hosszú nyélre lánc segitségével egy fél méteres fa- vagy vasnehezéket erősítenek. Néha a nehezéket szögekkel is kiverik.',
         },
         {
             id: 'HARCIKALAPACS',
@@ -726,7 +726,7 @@
             },
             weight: '1,5 kg',
             price: '5 ezüst',
-            description: 'A dárda rövid, másfél méteres nyelén keskeny, hegyes penge helyeszkedik el, melynek gyakorta még éle sincs. Súlyelosztása miatt kiválóan dobható.',
+            description: 'A dárda rövid, másfél méteres nyelén keskeny, hegyes penge helyeszkedik el, melynek gyakorta még éle sincs. Súlyelosztása miatt kivállóan dobható.',
         },
         {
             id: 'KOPJA_KONNYU',
@@ -745,7 +745,7 @@
             },
             weight: '2 kg',
             price: '9 ezüst',
-            description: 'A könnyű kopját lovasok és gyalogosok egyaránt használják. Nyele 2-3 méteres, feje keskeny hegybe végződik. A fej alá gyakorta zászlót is erősitenek.',
+            description: 'A könnyű kopját lovasok és gyalogosok egyaránt használják. Nyele 2-3 méteres, feje keskeny hegybe végződik. A fej alá gyakorta zászlót is erősítenek.',
         },
         {
             id: 'KOPJA_LOVAS',
@@ -821,7 +821,7 @@
             },
             weight: '2 kg',
             price: '5 ezüst',
-            description: 'A szigony a halásznépek egész különleges lándzsája. Hegye olyan keskeny, akár a nyél, és visszahajló tüskék sorakoznak rajta, ami megneheziti eltávolitását a sebből. Másik változatában a hegye két- vagy háromfelé ágazik szét.',
+            description: 'A szigony a halásznépek egész különleges lándzsája. Hegye olyan keskeny, akár a nyél, és visszahajló tüskék sorakoznak rajta, ami megnehezíti eltávolitását a sebből. Másik változatában a hegye két- vagy háromfelé ágazik szét.',
         },
         {
             id: 'BOLA',
@@ -840,7 +840,7 @@
             },
             weight: '0,8 kg',
             price: '40 réz',
-            description: 'A bola három rövid kötél- vagy szijdarab, ezeket a szijakat egyik végükön egymáshoz, a másikon ökölnyi nehezékhez rögzitik. A csomónál megfogva, megpörgetve és elhajitva sikeres Támadás esetén a kötelek ( szijak ) az álldozat valamelyik testrészére ( kivátképp a nyak a cél ) tekerednek, a feltekeredő súlyok pedig kábitó, nem ritkán halálos ütést mérnek rá. Az ellenfél -ha egyáltalán talpon marad- a továbbiakban 15-el csökkent VÉ-vel küzd, hisz mozgása nehézkesebbé válik.',
+            description: 'A bola három rövid kötél- vagy szíjdarab, ezeket a szíjakat egyik végükön egymáshoz, a másikon ökölnyi nehezékhez rögzítik. A csomónál megfogva, megpörgetve és elhajítva sikeres Támadás esetén a kötelek ( szíjak ) az álldozat valamelyik testrészére ( kivátképp a nyak a cél ) tekerednek, a feltekeredő súlyok pedig kábító, nem ritkán halálos ütést mérnek rá. Az ellenfél -ha egyáltalán talpon marad- a továbbiakban 15-el csökkent VÉ-vel küzd, hisz mozgása nehézkesebbé válik.',
         },
         {
             id: 'DOBOHALO',
@@ -859,7 +859,7 @@
             },
             weight: '1 kg',
             price: '3 ezüst',
-            description: 'A dobóháló az abasziszi gladiátorok egyik közkedvelt fegyvere. A hozzávetőleg egy-két négyzetméteres, nem túl sürü szövésű hálót a baljukba tartják összefogva. A megfelelő pillanatban elhajitva a hálót, az a szélére erősitett sulyok hatására kibomlik, az ellenfélre terül, aki minden heves mozdulatával csak jobban belegabalyodik. A háló közepén akad egy külső kötél, amelynek végét a gladiátor mindvégig a kezében tartja. Sikeres támadásnál ezzel még jobban ráhurkolja a hálót az ellenfelére, sikertelen támadásnál ezzel ránthatja vissza fegyverét egy esetleges újrabróbálkozás reményében.A második és az összes többi támadásnál a támadó TÉ-jéből 15 levonódik - mivel hálója egyszer kibomlott már, és harc közben csak tessék -lássék lehet feltekerni. Ugynezen okból a hálóval legfeljebb minden harmadik körben kisérelhet meg támadást a használója. Ha a támadás sikeres, az ellenfél VÉ-je 40-el csökken.',
+            description: 'A dobóháló az abasziszi gladiátorok egyik közkedvelt fegyvere. A hozzávetőleg egy-két négyzetméteres, nem túl sűrű szövésű hálót a baljukba tartják összefogva. A megfelelő pillanatban elhajítva a hálót, az a szélére erősitett sulyok hatására kibomlik, az ellenfélre terül, aki minden heves mozdulatával csak jobban belegabalyodik. A háló közepén akad egy külső kötél, amelynek végét a gladiátor mindvégig a kezében tartja. Sikeres támadásnál ezzel még jobban ráhurkolja a hálót az ellenfelére, sikertelen támadásnál ezzel ránthatja vissza fegyverét egy esetleges újrabróbálkozás reményében.A második és az összes többi támadásnál a támadó TÉ-jéből 15 levonódik - mivel hálója egyszer kibomlott már, és harc közben csak tessék -lássék lehet feltekerni. Ugynezen okból a hálóval legfeljebb minden harmadik körben kísérelhet meg támadást a használója. Ha a támadás sikeres, az ellenfél VÉ-je 40-el csökken.',
         },
         {
             id: 'GAROTT',
@@ -878,11 +878,11 @@
             },
             weight: '0,1 kg',
             price: '1 ezüst',
-            description: 'A garott vagy fojtóhurok jellegzetes orrgyilkos fegyver. Nem más, mint egy hozzávetőleg 60-80 centiméteres acélhuzal, két végén foggantyúval. A támadó álldozata háta mögé osonva hurkot vett annak nyakába és addig szoritja, mig az meg nem fullad, vagy át nem vágja a torkát a vékony huzal. Az álldozat körönkénk 1k10-Sp-t veszit, mig meg nem hall-vagy ki nem szabadul. Szabadságra igen kicsi az esélye, hiszen szorongatot helyzete miatt kevesett tehet, csak az alábbi levonásokkal támadhat sikeres Akaraterőbróba után: Gyorsaság -5, Ügyesség -5, KÉ -10, TÉ -15, VÉ -20.Persze a támadó sajátossan kiszolgáltatott helyzetben van, mig a gyilkosság elkövetésére öszpontosit, ezért az ő VÉ-je is 20-szal csökken. Ha az álldozat sikeres támadást hajt végre támadója ellen, akkor annak kell Akaraterő próbát tennie, vajon sikerül-e továbbra is kitartania. Természetesen ez a fegyver csakis és kizárólag hátulról és meglepetésszerűen alkalmazható ( azaz csakis ha a Kezdeményezés a támadóé ), nyilt közelharcban semmi haszna. TÉ-je is csak a hátbatámadásra vonatkozik. Túlütés esetén az első körben -és csakis akkor - a garott Ép-t is sebezhet, a hirtelen rántás következtében.',
+            description: 'A garott vagy fojtóhurok jellegzetes orrgyilkos fegyver. Nem más, mint egy hozzávetőleg 60-80 centiméteres acélhuzal, két végén foggantyúval. A támadó álldozata háta mögé osonva hurkot vett annak nyakába és addig szorítja, míg az meg nem fullad, vagy át nem vágja a torkát a vékony huzal. Az álldozat körönkénk 1k10-Sp-t veszít, míg meg nem hall - vagy ki nem szabadul. Szabadságra igen kicsi az esélye, hiszen szorongatot helyzete miatt kevesett tehet, csak az alábbi levonásokkal támadhat sikeres Akaraterőbróba után: Gyorsaság -5, Ügyesség -5, KÉ -10, TÉ -15, VÉ -20. Persze a támadó sajátossan kiszolgáltatott helyzetben van, míg a gyilkosság elkövetésére öszpontosít, ezért az ő VÉ-je is 20-szal csökken. Ha az álldozat sikeres támadást hajt végre támadója ellen, akkor annak kell Akaraterő próbát tennie, vajon sikerül-e továbbra is kitartania. Természetesen ez a fegyver csakis és kizárólag hátulról és meglepetésszerűen alkalmazható ( azaz csakis ha a Kezdeményezés a támadóé ), nyílt közelharcban semmi haszna. TÉ-je is csak a hátbatámadásra vonatkozik. Túlütés esetén az első körben - és csakis akkor - a garott Ép-t is sebezhet, a hirtelen rántás következtében.',
         },
         {
             id: 'HARITOTOR',
-            name: 'Háritótőr',
+            name: 'Hárítótőr',
             TamKor: '2',
             Type: 'Egyébb fegyverek',
             Hand: 1,
@@ -897,7 +897,7 @@
             },
             weight: '0,3 kg',
             price: '2 ezüst',
-            description: 'A háritótőr egy különlegessen széles keresztvasú tőr, amit a vivó álltalában bal kézben forgat, felfogva vele ellenfele csapásait. A markolatot kosár védi. A háritótőr támadásra is használható, bár pengéje gyakran csak hegyes, éle nincs.',
+            description: 'A hárítótőr egy különlegessen széles keresztvasú tőr, amit a vívó álltalában bal kézben forgat, felfogva vele ellenfele csapásait. A markolatot kosár védi. A hárítótőr támadásra is használható, bár pengéje gyakran csak hegyes, éle nincs.',
         },
         {
             id: 'KORBACS',
@@ -916,7 +916,7 @@
             },
             weight: '0,5 kg',
             price: '1 ezüst 20 réz',
-            description: 'A korbács sok helyen fenyitő eszköz. Egy-másfélméteres fonott bőrszij, vég tüskékkel, nehezékekkel kirakva. Túlütésnél nem sebez Ép-t, hanem kétszeres mennyiségű Fp-t, tekintettel arra, hogy ez az eszköz elsősorban kinozásra készült.',
+            description: 'A korbács sok helyen fenyítő eszköz. Egy-másfélméteres fonott bőrszíj, végin tüskékkel, nehezékekkel kirakva. Túlütésnél nem sebez Ép-t, hanem kétszeres mennyiségű Fp-t, tekintettel arra, hogy ez az eszköz elsősorban kínozásra készült.',
         },
         {
             id: 'LASSZO',
@@ -954,7 +954,7 @@
             },
             weight: '0,6 kg',
             price: '1 ezüst',
-            description: 'Az ostor nem csak lovak ösztönzésére használható, de harcban és mászásban egyaránt nagy segitség. Harci értéke nem sebzésében rejlik, hanem abban, hogy rátekeredik ellenfelére, megbénitva vagy lefegyverezve azt. Sikeres támadás esetén áldozata Vé-je 15-el csökken.',
+            description: 'Az ostor nem csak lovak ösztönzésére használható, de harcban és mászásban egyaránt nagy segítség. Harci értéke nem sebzésében rejlik, hanem abban, hogy rátekeredik ellenfelére, megbénítva vagy lefegyverezve azt. Sikeres támadás esetén áldozata Vé-je 15-el csökken.',
         },
         {
             id: 'OKOL',
@@ -1011,11 +1011,11 @@
             },
             weight: '0,2 kg',
             price: '6 ezüst',
-            description: 'A fúvócső tűlövedékek kilövésére alkalmas. Lesből, méreggel használják, nyilt harcban vajmi kevés előnye van.',
+            description: 'A fúvócső tűlövedékek kilövésére alkalmas. Lesből, méreggel használják, nyílt harcban vajmi kevés előnye van.',
         },
         {
             id: 'IJ_ROVID',
-            name: 'Rövidij',
+            name: 'Rövidíj',
             Hand: 2,
             TamKor: '2',
             Cat: 'R',
@@ -1028,11 +1028,11 @@
             },
             weight: '0,6 kg',
             price: '3 arany',
-            description: 'A rövid és a hosszú ijak csak méretükben különböznek, felépitésük ugynolyan. Mindkettő egyszeresen hajlitott. Mivel a hosszú ij fája jobban hajlik, nagyobb erővel repiti a vesszőt.',
+            description: 'A rövid és a hosszú íjak csak méretükben különböznek, felépitésük ugynolyan. Mindkettő egyszeresen hajlított. Mivel a hosszú íj fája jobban hajlik, nagyobb erővel repíti a vesszőt.',
         },
         {
             id: 'IJ_HOSSZU',
-            name: 'Hosszúij',
+            name: 'Hosszúíj',
             Hand: 2,
             TamKor: '2',
             Cat: 'R',
@@ -1045,11 +1045,11 @@
             },
             weight: '0,7 kg',
             price: '3 arany 5 ezüst',
-            description: 'A rövid és a hosszú ijak csak méretükben különböznek, felépitésük ugynolyan. Mindkettő egyszeresen hajlitott. Mivel a hosszú ij fája jobban hajlik, nagyobb erővel repiti a vesszőt.',
+            description: 'A rövid és a hosszú íjak csak méretükben különböznek, felépitésük ugynolyan. Mindkettő egyszeresen hajlított. Mivel a hosszú íj fája jobban hajlik, nagyobb erővel repíti a vesszőt.',
         },
         {
             id: 'IJ_VISSZACSAPO',
-            name: 'Visszacsapóij',
+            name: 'Visszacsapóíj',
             Hand: 2,
             TamKor: '2',
             Cat: 'R',
@@ -1062,11 +1062,11 @@
             },
             weight: '0,8 kg',
             price: '25 arany',
-            description: 'A visszacsapó vagy nomád ij lényegesen különbözik a rövid- hosszú ijaktól. Rétegzett fából, csontból és esetenként fémből készül. Kétszeresen hajlitott, igy lényegesen nagyobb rugalmas erő halmozódik föl benne.',
+            description: 'A visszacsapó vagy nomád íj lényegesen különbözik a rövid- hosszú íjaktól. Rétegzett fából, csontból és esetenként fémből készül. Kétszeresen hajlított, igy lényegesen nagyobb rugalmas erő halmozódik föl benne.',
         },
         {
             id: 'IJ_ELF',
-            name: 'Elf ij',
+            name: 'Elf íj',
             Hand: 2,
             TamKor: '2',
             Cat: 'R',
@@ -1079,7 +1079,7 @@
             },
             weight: '0,7 kg',
             price: '120 arany',
-            description: 'Az elf ij mágikus úton készitett, enyhe mágikus hatású fegyver. A hatás főként felhúzáskor érvényesül, és a lendülethez, lövéstávhoz viszonyitva csekély erőfeszitést követel -preciziós célzásra kiválóan alkalmas.',
+            description: 'Az elf íj mágikus úton készitett, enyhe mágikus hatású fegyver. A hatás főként felhúzáskor érvényesül, és a lendülethez, lövéstávhoz viszonyítva csekély erőfeszítést követel -precíziós célzásra kiválóan alkalmas.',
         },
         {
             id: 'NYILPUSKA_AQUIR',
@@ -1198,7 +1198,7 @@
             },
             weight: '0,1 kg',
             price: '30 réz',
-            description: 'A parittya egy hosszú bőrszij, kiszélesedő középső részel, ide kerül a kő. A félbehajtott szijat megforgatva, majd az egyik végét elengedve veti ki a követ a parittyás.',
+            description: 'A parittya egy hosszú bőrszíj, kiszélesedő középső részel, ide kerül a kő. A félbehajtott szíjat megforgatva, majd az egyik végét elengedve veti ki a követ a parittyás.',
         },
     ],
 };
