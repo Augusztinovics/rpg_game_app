@@ -5,6 +5,11 @@
                 <p class="text-light p-4">Hiba történt mentés közben...</p>
             </div>
         </div>
+        <div class="text-end">
+            <dice-generator
+                :dices="[6, 10, 100]"
+            />
+        </div>
         <!-- module cime -->
         <div class="text-center m-5">
             <h1 class="mb-5">{{ moduleName }}</h1>
@@ -91,6 +96,7 @@
 import GameModuleGlobalNote from './gm_site/MagusModuleGlobalNote.vue';
 import GameModuleGlobalNpc from './gm_site/MagusModuleGlobalNpc.vue';
 import MagusModuleStage from './gm_site/MagusModuleStage.vue';
+import DiceGenerator from './DiceGenerator.vue';
 
 export default {
     props: {
@@ -100,7 +106,8 @@ export default {
     components: {
         GameModuleGlobalNote,
         GameModuleGlobalNpc,
-        MagusModuleStage
+        MagusModuleStage,
+        DiceGenerator,
     },
     data() {
         return {

@@ -1,5 +1,10 @@
 <template>
     <div class="container-fluid bg-white-leather">
+        <div class="text-end">
+            <dice-generator
+                :dices="[6, 10, 100]"
+            />
+        </div>
         <div v-if="basic==1">
 
             <header>          
@@ -243,6 +248,7 @@
     import MagusCharacterCreate from './MagusCharacterCreate.vue';
     import MagusCharacterSheet from './magus/MagusCharacterSheet.vue'
     import MagusKasztPreview from './magus/MagusKasztPreview.vue';
+    import DiceGenerator from '../DiceGenerator.vue';
     import { mapGetters, mapActions, mapMutations } from 'vuex';
 
     export default {
@@ -250,6 +256,7 @@
             MagusCharacterCreate,
             MagusCharacterSheet,
             MagusKasztPreview,
+            DiceGenerator,
         },
         data() {
             return {
