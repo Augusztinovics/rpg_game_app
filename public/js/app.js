@@ -5324,6 +5324,88 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DiceGenerator.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DiceGenerator.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    dices: {
+      type: Array,
+      "default": [6]
+    }
+  },
+  data: function data() {
+    return {
+      rollResult: 0,
+      rollLabel: 'Még nem történt kockadobás'
+    };
+  },
+  methods: {
+    rollDice: function rollDice(dice) {
+      this.rollResult = Math.floor(Math.random() * (dice - 1 + 1)) + 1;
+      this.rollLabel = 'A K' + dice + ' dobás eredménye';
+      this.$emit('roll', this.rollResult);
+    },
+    closeModal: function closeModal() {
+      this.rollResult = 0;
+      this.rollLabel = 'Még nem történt kockadobás';
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameDownloads.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameDownloads.vue?vue&type=script&lang=js& ***!
@@ -5466,6 +5548,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _gm_site_MagusModuleGlobalNote_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gm_site/MagusModuleGlobalNote.vue */ "./resources/js/components/gm_site/MagusModuleGlobalNote.vue");
 /* harmony import */ var _gm_site_MagusModuleGlobalNpc_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./gm_site/MagusModuleGlobalNpc.vue */ "./resources/js/components/gm_site/MagusModuleGlobalNpc.vue");
 /* harmony import */ var _gm_site_MagusModuleStage_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./gm_site/MagusModuleStage.vue */ "./resources/js/components/gm_site/MagusModuleStage.vue");
+/* harmony import */ var _DiceGenerator_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DiceGenerator.vue */ "./resources/js/components/DiceGenerator.vue");
 //
 //
 //
@@ -5555,6 +5638,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 
@@ -5566,7 +5655,8 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     GameModuleGlobalNote: _gm_site_MagusModuleGlobalNote_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     GameModuleGlobalNpc: _gm_site_MagusModuleGlobalNpc_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    MagusModuleStage: _gm_site_MagusModuleStage_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    MagusModuleStage: _gm_site_MagusModuleStage_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    DiceGenerator: _DiceGenerator_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -9822,7 +9912,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MagusCharacterCreate_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusCharacterCreate.vue */ "./resources/js/components/player_site/MagusCharacterCreate.vue");
 /* harmony import */ var _magus_MagusCharacterSheet_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./magus/MagusCharacterSheet.vue */ "./resources/js/components/player_site/magus/MagusCharacterSheet.vue");
 /* harmony import */ var _magus_MagusKasztPreview_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./magus/MagusKasztPreview.vue */ "./resources/js/components/player_site/magus/MagusKasztPreview.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _DiceGenerator_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../DiceGenerator.vue */ "./resources/js/components/DiceGenerator.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -10070,6 +10161,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+
 
 
 
@@ -10078,36 +10175,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   components: {
     MagusCharacterCreate: _MagusCharacterCreate_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     MagusCharacterSheet: _magus_MagusCharacterSheet_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    MagusKasztPreview: _magus_MagusKasztPreview_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    MagusKasztPreview: _magus_MagusKasztPreview_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    DiceGenerator: _DiceGenerator_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
       basic: 1
     };
   },
-  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)('userCharacters', {
+  computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapGetters)('userCharacters', {
     magusCharacters: 'magusCharacters'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)('magusClasses', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapGetters)('magusClasses', {
     magusKaszt: 'magusClass',
     magusClasses: 'magusClasses'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)('magusRaces', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapGetters)('magusRaces', {
     races: 'races'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)('magusSkills', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapGetters)('magusSkills', {
     skills: 'skills',
     skillsPrecent: 'skillsPrecent',
     skill: 'skill',
     skillPrecent: 'skillPrecent'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)('magusWeapons', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapGetters)('magusWeapons', {
     weapons: 'weapons',
     rangedWeapons: 'rangedWeapons'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)('magusShields', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapGetters)('magusShields', {
     shields: 'shields'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)('magusArmors', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapGetters)('magusArmors', {
     armors: 'armors'
   })),
-  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapActions)('userCharacters', {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapActions)('userCharacters', {
     loadMagusCharacters: 'loadMagusCharacters'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapMutations)('currentCharacter', {
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapMutations)('currentCharacter', {
     addCharacter: 'addCharacter'
   })), {}, {
     Kaszt: function Kaszt(kasztId) {
@@ -17871,23 +17969,23 @@ var state = {
   aligments: [{
     id: 'E',
     name: 'Élet - Unikornis',
-    description: 'Az élet jelleműek nagy becsben tartanak minden élőlényt, s ha tehetik megakadályozzák az erőszakos halált. Őrizkednek mások szabadságának korlátozásától, elutasitanak mindenfajta fenyegetéssel, erőszakkal járó tettet - ám fegyvert ragadnak, ha az Élet szabadságát veszélyben érzik, ilyenkor nem riadnak vissza a vérontástól sem.'
+    description: 'Az élet jelleműek nagy becsben tartanak minden élőlényt, s ha tehetik megakadályozzák az erőszakos halált. Őrizkednek mások szabadságának korlátozásától, elutasítanak mindenfajta fenyegetéssel, erőszakkal járó tettet - ám fegyvert ragadnak, ha az Élet szabadságát veszélyben érzik, ilyenkor nem riadnak vissza a vérontástól sem.'
   }, {
     id: 'H',
     name: 'Halál - Mantikor',
-    description: 'A Halál jellembe sorolhatók semmire sem becsülik az életet. Lelkiismeret nélkül pusztitanak el mindent ami az utjukba kerül.Sokan azért lelik örömüket az élők elpusztitásában, mert maguknak nem adatott meg a jog az élethez - ebbe a csoportba tartozik az élőhalottak jelentős része.Mások megvetnek minden életet , kivéve a sajátjukat. Előfordulnak azonban olyanok is, akiknek a létezés nem nyújt semmi üdvözitöt, s saját életüket ugyanolyan értéktelennek tartják, mint bárki másét.Többen az Istenek követének érzik magukat, akinek joga, mi több kötelessége eldönteni, kinek van illetve nincs maradása az anyagi világban.'
+    description: 'A Halál jellembe sorolhatók semmire sem becsülik az életet. Lelkiismeret nélkül pusztítanak el mindent ami az útjukba kerül.Sokan azért lelik örömüket az élők elpusztításában, mert maguknak nem adatott meg a jog az élethez - ebbe a csoportba tartozik az élőhalottak jelentős része.Mások megvetnek minden életet , kivéve a sajátjukat. Előfordulnak azonban olyanok is, akiknek a létezés nem nyújt semmi üdvözítöt, s saját életüket ugyanolyan értéktelennek tartják, mint bárki másét.Többen az Istenek követének érzik magukat, akinek joga, mi több kötelessége eldönteni, kinek van illetve nincs maradása az anyagi világban.'
   }, {
     id: 'R',
     name: 'Rend - Draco',
-    description: 'A Rend hivei valják, hogy az őket körülvevő univerzumban bekövetkező változások az Istenek létezésének következményeképp megfoghatatlan harmóniát alkotnak. Ezt szeretnének megvalósitani saját életükben, munkájukban is. Céljuk az épités, a helyes élet törvényeinek megalkotása. Harmóniát keresnek a természettel, s elutasitanak minden olyan cselekedetet, amely az egyetemes törvények megszegését jelenti. Sokszor tekintik fontosabbnak  a közösség érdekeit saját jólétüknél, s elejét veszik minden olyan cselekedetnek, mely a közösség kárára válhat.'
+    description: 'A Rend hívei valják, hogy az őket körülvevő univerzumban bekövetkező változások az Istenek létezésének következményeképp megfoghatatlan harmóniát alkotnak. Ezt szeretnének megvalósítani saját életükben, munkájukban is. Céljuk az építés, a helyes élet törvényeinek megalkotása. Harmóniát keresnek a természettel, s elutasítanak minden olyan cselekedetet, amely az egyetemes törvények megszegését jelenti. Sokszor tekintik fontosabbnak  a közösség érdekeit saját jóllétüknél, s elejét veszik minden olyan cselekedetnek, mely a közösség kárára válhat.'
   }, {
     id: 'K',
     name: 'Káosz - Traclon',
-    description: 'A Káosz szolgái nincsenek tekintettel semilyen befolyásoló erőre, mely meggátolná őket szabad akaratuk érvényesitésében. Sokszor nem is saját jólétükért, hanem függetlenségük bizonyitására cselekednek minden logika ellenében. Nem lételemük a pusztitás, de alkalmasint örömüket lelhetik benne. Előfordulhat, hogy csak azért rombolnak, mert valaki kisérletet tett megfékezésükre, s ezt minden tiltást elutasitó lelkük nem képes elviselni.'
+    description: 'A Káosz szolgái nincsenek tekintettel semilyen befolyásoló erőre, mely meggátolná őket szabad akaratuk érvényesítésében. Sokszor nem is saját jóllétükért, hanem függetlenségük bizonyítására cselekednek minden logika ellenében. Nem lételemük a pusztítás, de alkalmasint örömüket lelhetik benne. Előfordulhat, hogy csak azért rombolnak, mert valaki kísérletet tett megfékezésükre, s ezt minden tiltást elutasító lelkük nem képes elviselni.'
   }, {
     id: 'ER',
     name: 'Élet, Rend - Kerub',
-    description: 'A Kerub jelleműek amellett, hogy az élet szentségét védelmezik, mindig figyelembe veszik a fenálló -akár isteni, akár emberi -törvények betartását is, noha a vérontást mindenképp kerülendőnek tartják. Ha kell, ennek érdekében még a törvények megszegésére is hajlandóak, ameddig ez nem segiti elő a Halál vagy Káosz erőinek térnyerését.'
+    description: 'A Kerub jelleműek amellett, hogy az élet szentségét védelmezik, mindég figyelembe veszik a fenálló -akár isteni, akár emberi -törvények betartását is, noha a vérontást mindenképp kerülendőnek tartják. Ha kell, ennek érdekében még a törvények megszegésére is hajlandóak, ameddig ez nem segíti elő a Halál vagy Káosz erőinek térnyerését.'
   }, {
     id: 'EK',
     name: 'Élet, Káosz - Sellő',
@@ -17895,11 +17993,11 @@ var state = {
   }, {
     id: 'HR',
     name: 'Halál, Rend - Krák',
-    description: 'A Krák jelleműek nem tulajdonitanak nagy fontosságot mások életének, gyakorta a ragadozók kegyetlenségével gyilkolnak, de soha nem puszta szeszélyből. Álltalában egész eszmerendszer áll a hátuk mögött, olykor nagy hatalmú szervezetek, amelyek soha nem riadnak vissza a vér látványától. Hidegvérű gyilkosok. Ideológiájuk legalább annyira megvetik a Káosz különféle megjelenési formáit, mint a cél nélküli létet.'
+    description: 'A Krák jelleműek nem tulajdonítanak nagy fontosságot mások életének, gyakorta a ragadozók kegyetlenségével gyilkolnak, de soha nem puszta szeszélyből. Álltalában egész eszmerendszer áll a hátuk mögött, olykor nagy hatalmú szervezetek, amelyek soha nem riadnak vissza a vér látványától. Hidegvérű gyilkosok. Ideológiájuk legalább annyira megvetik a Káosz különféle megjelenési formáit, mint a cél nélküli létet.'
   }, {
     id: 'HK',
     name: 'Halál, Káosz - Kiméra',
-    description: 'A Kiméra jellemű karakterek egyesitik magukban mindazt, ami gyűlöletes a magukat józan gondolkodóknak nevezők szemében. Számukra az élet -gyakorta a sajátjuk is -mit sem ér, nem ritka az olyan sem, aki kifejezetten gyűlöli mindazokat, akik szervezett államokban, közösségekben laknak. Módszereikben nem válogatnak, gyakorta elhamarkodottan döntenek. Céljuk között szerepel, hogy ne csak hatékonyan, de látványosan is cselekedjenek.'
+    description: 'A Kiméra jellemű karakterek egyesítik magukban mindazt, ami gyűlöletes a magukat józan gondolkodóknak nevezők szemében. Számukra az élet -gyakorta a sajátjuk is -mit sem ér, nem ritka az olyan sem, aki kifejezetten gyűlöli mindazokat, akik szervezett államokban, közösségekben laknak. Módszereikben nem válogatnak, gyakorta elhamarkodottan döntenek. Céljuk között szerepel, hogy ne csak hatékonyan, de látványosan is cselekedjenek.'
   }, {
     id: 'RE',
     name: 'Rend, Élet - Griff',
@@ -17907,11 +18005,11 @@ var state = {
   }, {
     id: 'RH',
     name: 'Rend, Halál - Hastin',
-    description: 'Méltón kapták a nevüket a legszivósabb harci kutyáról a Hastin jelleműek. Szolgálnak és ölnek, ha kell kérlelhetetlen és könyörtelen gyilkosok, mihelyt arra valakitől parancsot kaptak, vagy érdekeik, hitük igy követeli. Nem életcéljuk azonban más életének kioltása és semmiféleképpen nem ölnek szórakozásból. Álltalában hideg és számitó eszmerendszereket vallanak magukénak, nem ritkán felsőbbrendűség ideáját szolgálják.'
+    description: 'Méltón kapták a nevüket a legszívósabb harci kutyáról a Hastin jelleműek. Szolgálnak és ölnek, ha kell kérlelhetetlen és könyörtelen gyilkosok, mihelyt arra valakitől parancsot kaptak, vagy érdekeik, hitük így követeli. Nem életcéljuk azonban más életének kioltása és semmiféleképpen nem ölnek szórakozásból. Álltalában hideg és számitó eszmerendszereket vallanak magukénak, nem ritkán felsőbbrendűség ideáját szolgálják.'
   }, {
     id: 'KE',
     name: 'Káosz, Élet - Pegazus',
-    description: 'Öntörvényű és önfejű alakok a Pegazus jelleműek, ha valakit szolgálnak, azt csakis saját érdekükben teszik. Mindenfajta korlátozást nyűgnek, szabadságuk megkurtitására tett kisérletnek tekintenek -bármit tesznek azonban, ha módjukban áll, igyekeznek megkimélni ellenfeleik vagy áldozataik életét.'
+    description: 'Öntörvényű és önfejű alakok a Pegazus jelleműek, ha valakit szolgálnak, azt csakis saját érdekükben teszik. Mindenfajta korlátozást nyűgnek, szabadságuk megkurtítására tett kísérletnek tekintenek -bármit tesznek azonban, ha módjukban áll, igyekeznek megkimélni ellenfeleik vagy áldozataik életét.'
   }, {
     id: 'KH',
     name: 'Káosz, Halál - Démon',
@@ -23796,7 +23894,7 @@ var state = {
     ME: '-',
     medTime: '1 óra vagy 2 kör vagy 5 szegmens',
     activeTime: '-',
-    description: ['A Kyr metódus legalapvetőbb diszciplínája, a varázslók tudományának az alapja. Segítségével a varázsló elméjébe gyűjtheti a világegyetemet átható mágikus energiákat ( Manna-pont ), az energiát melyből varázslatait létrehozza. Természetesen egyszerre maximum annyit, amennyit befogadni képes. Erről a mennyiségről a Tapasztalati Szint függvényében a Max Manna-pont tudósit. Az Energiagyűjtés leegyszerűsítve nem más, mint a Pszi-pontok Manna-pontokra váltása - a váltószám az Energiagyűjtés alkalmazott módszerétől függ. Itt csak a három alapvető módszert ismertetjük: a Meditációs formula, a Kivonás és a Kisajtolás.', 'A meditációs formula ( 1 Pszi-pont = 10 Mp ) alkalmazásához a varázslónak Meditációs Varázskörben kell tartózkodnia ( ennek elkészítése 18 Mp-ba kerül és 30 percbe telik ) és ott 1 óra hosszan transzállapotban meditálni. Már ebből is látszik, hogy ennél a módszernél jelentős előkészületekre van szükség, s a varázsló másfél óra hosszat helyhez van kötve. Mégis, a varázslók, ha idejük és a körülmények engedik, ehhez az energiagyűjtési módszerhez folyamodnak, mert így juthatnak a legtöbb mágikus energiához (Mp) a legkevesebb pszi-pontért. Ha a meditáció bármely okból félbeszakad, az Energiagyűjtés sikertelen lesz, s a felhasznált pszi-pontok is elvesznek. Mi több a varázsló elméjéből elillan a már korábban begyűjtött energia is, azaz Manna-pontjainak száma nullára zuhan. Ha az 1 órás meditáció zavartalanul véget ér, azzal a varázsló sikeresen gyűjtötte az elméjébe a kívánt mennyiségű mágikus energiát. Tízszer annyi Manna-pontot kap, mint ahány pszi-pontot a diszciplína alkalmazására fordított, tehát a meditációs formula alkalmazásával 1 pszi-pontért 10 Manna-pont jár.', 'Kivonáshoz ( 1 pszi-pont 3 Mp ) a varázslók olyankor folyamodnak, ha kifogytak az elméjükben tárolt energiákból, és sürgősen utánpótlásra van szükségük. A sietségért cserébe a kisebb hatékonysággal fizetnek - a módszer a pszi-pontok valóságos pazarlása! Ellenben csak 2 körig tart, és sem Transz, sem Meditációs Varázskör nem kell hozzá: azaz semmiféle előkészületet nem igényel, mindössze némi összpontosítást. Közben a varázsló sétálhat, léptethet a lován, de nem harcolhat, varázsolhat, s nem alkalmazhat más diszciplínát. A módszer alkalmazásakor a varázsló kivonja a környezetéből a többletenergiákat, mindenhonnan csak keveset és csak a felesleget- nem árt senkinek és semminek. Kivonással háromszor annyi Manna-ponthoz jut, mint amennyi pszi-pontot a diszciplínára áldozott, tehát 1 pszi-pontért 3 Manna-pontot nyer.', 'A Kisajtolás ( 1 pszi-pont = 5 Mp )természetéből fakadóan fekete mágia! Alkalmazásakor a varázsló nem a felesleget vonja el környezetétől, hanem kisajtol abból annyi energiát amennyit csak képes. A folyamat eredményeképpen a varázsló Zónájában ( 20m sugarú gömb ) a növények elszáradnak ( csak 20 Mp felett ) és az élőlények kínzó fájdalmat éreznek egész testükben. A fájdalom nem jár sebbel, de Fp vesztést okoz a varázsló Zónájában tartózkodó összes lénynek. A veszteség minden megkezdett 20 Mp után K6 ( Fp pl: 20 Mp = K6 Fp, 25 Mp = 2K6 Fp, 70 Mp = 4K6 Fp ). Az áldozat ilyen módon Ép-t soha nem veszíthet. A Kisajtolás 5 szegmens alatt elvégezhető, és 5-ször annyi Mp-ot eredményez, mint amennyi pszi-pontot a varázsló a diszciplínára elhasznált, vagyis 1 pszi-pontért 5 Manna-pont jár. A leírtak kivételével a Kisajtolás módszere teljesen azonos a Kivonással.']
+    description: ['A Kyr metódus legalapvetőbb diszciplínája, a varázslók tudományának az alapja. Segítségével a varázsló elméjébe gyűjtheti a világegyetemet átható mágikus energiákat ( Mana-pont ), az energiát melyből varázslatait létrehozza. Természetesen egyszerre maximum annyit, amennyit befogadni képes. Erről a mennyiségről a Tapasztalati Szint függvényében a Max Mana-pont tudósít. Az Energiagyűjtés leegyszerűsítve nem más, mint a Pszi-pontok Mana-pontokra váltása - a váltószám az Energiagyűjtés alkalmazott módszerétől függ. Itt csak a három alapvető módszert ismertetjük: a Meditációs formula, a Kivonás és a Kisajtolás.', 'A meditációs formula ( 1 Pszi-pont = 10 Mp ) alkalmazásához a varázslónak Meditációs Varázskörben kell tartózkodnia ( ennek elkészítése 18 Mp-ba kerül és 30 percbe telik ) és ott 1 óra hosszan transzállapotban meditálni. Már ebből is látszik, hogy ennél a módszernél jelentős előkészületekre van szükség, s a varázsló másfél óra hosszat helyhez van kötve. Mégis, a varázslók, ha idejük és a körülmények engedik, ehhez az energiagyűjtési módszerhez folyamodnak, mert így juthatnak a legtöbb mágikus energiához (Mp) a legkevesebb pszi-pontért. Ha a meditáció bármely okból félbeszakad, az Energiagyűjtés sikertelen lesz, s a felhasznált pszi-pontok is elvesznek. Mi több a varázsló elméjéből elillan a már korábban begyűjtött energia is, azaz Mana-pontjainak száma nullára zuhan. Ha az 1 órás meditáció zavartalanul véget ér, azzal a varázsló sikeresen gyűjtötte az elméjébe a kívánt mennyiségű mágikus energiát. Tízszer annyi Mana-pontot kap, mint ahány pszi-pontot a diszciplína alkalmazására fordított, tehát a meditációs formula alkalmazásával 1 pszi-pontért 10 Mana-pont jár.', 'Kivonáshoz ( 1 pszi-pont 3 Mp ) a varázslók olyankor folyamodnak, ha kifogytak az elméjükben tárolt energiákból, és sürgősen utánpótlásra van szükségük. A sietségért cserébe a kisebb hatékonysággal fizetnek - a módszer a pszi-pontok valóságos pazarlása! Ellenben csak 2 körig tart, és sem Transz, sem Meditációs Varázskör nem kell hozzá: azaz semmiféle előkészületet nem igényel, mindössze némi összpontosítást. Közben a varázsló sétálhat, léptethet a lován, de nem harcolhat, varázsolhat, s nem alkalmazhat más diszciplínát. A módszer alkalmazásakor a varázsló kivonja a környezetéből a többletenergiákat, mindenhonnan csak keveset és csak a felesleget- nem árt senkinek és semminek. Kivonással háromszor annyi Mana-ponthoz jut, mint amennyi pszi-pontot a diszciplínára áldozott, tehát 1 pszi-pontért 3 Mana-pontot nyer.', 'A Kisajtolás ( 1 pszi-pont = 5 Mp )természetéből fakadóan fekete mágia! Alkalmazásakor a varázsló nem a felesleget vonja el környezetétől, hanem kisajtol abból annyi energiát amennyit csak képes. A folyamat eredményeképpen a varázsló Zónájában ( 20m sugarú gömb ) a növények elszáradnak ( csak 20 Mp felett ) és az élőlények kínzó fájdalmat éreznek egész testükben. A fájdalom nem jár sebbel, de Fp vesztést okoz a varázsló Zónájában tartózkodó összes lénynek. A veszteség minden megkezdett 20 Mp után K6 ( Fp pl: 20 Mp = K6 Fp, 25 Mp = 2K6 Fp, 70 Mp = 4K6 Fp ). Az áldozat ilyen módon Ép-t soha nem veszíthet. A Kisajtolás 5 szegmens alatt elvégezhető, és 5-ször annyi Mp-ot eredményez, mint amennyi pszi-pontot a varázsló a diszciplínára elhasznált, vagyis 1 pszi-pontért 5 Mana-pont jár. A leírtak kivételével a Kisajtolás módszere teljesen azonos a Kivonással.']
   }, {
     name: 'Transz',
     psiPoint: 1,
@@ -24217,7 +24315,7 @@ var state = {
         titkosajto: 0
       }
     },
-    description: ['Az emberek Ynev legelterjetebb népe. Nem rendelkeznek semilyen különleges képességgel, a kasztok és leirások átlaga rájuk vonatkozik. Átlag életkoruk ugy 60-70 év.']
+    description: ['Az emberek Ynev legelterjetebb népe. Nem rendelkeznek semilyen különleges képességgel, a kasztok és leírások átlaga rájuk vonatkozik. Átlag életkoruk úgy 60-70 év.']
   }, {
     id: 'ELF',
     name: 'Elf',
@@ -24249,7 +24347,7 @@ var state = {
         titkosajto: 0
       }
     },
-    description: ['Az elfeket két különböző csoportba oszthatjuk: a közönséges elfekre - akiknek jó néhány alfaja létezik, és az óelfekre. Miután a MAGUS rendszerében csak közönséges elffel lehet játszani, ezért itt és most csak rájuk térünk ki.', 'Negyvenezer éve még csak Dél-Zneven léteztek elfek. Származásukat illetően csupán legendáikra hagyatkozhatunk - a legtöbb bölcs Larion szigetét tartja őshazájuknak. A kráni Sötét Hatalom megjelenése után a Délen virágzó elf birodalom hanyatlásnak indult. Életterük egyre szűkült, némely csoportjaik a fenyegetés elől Északra menekültek, mig a délen maradottak beszorultak Tzsson Larba, hogy azután onnan is tovább meneküljenek Lasmosiüfélszigetre. Itt élnek ma is, Elfendelnek nevezett királyságukban. Északra költözött társaik szerencsésebbnek bizonyultak: a Nyugati-óceán partjától a kontinens belsejéig húzódó komor erdőségekben - távol majd minden emberi civilizációtól - telepedtek meg. Birodalmukat Sirenar Szövetség néven jegyzik az ynevi bölcsek.', 'Az elf elzárkózásra hajlamos, a világot csöndes méltóságal szemlélő nép - egyes feltételezések szerint a lélekvándorlás egy magasabb lépcsőfokát jelentik. Mérhetelenül hosszú ideig élnek az embernépekhez képest, s ez gondolkodásmódjukra, és viselkedésükre egyaránt rányomja bélyegét. Türelmesek, emberi mércével gyönyörűek, bölcsességük, felhalmozott tudásuk elképesztő. A természet gyermekei, mindenki másnál jobban ismerik az élővilágot, tisztelettel és végtelen megbecsüléssel közelitenek hozzá. Városaik, településeik erdők mélyén állnak, követ csak elvétve használnak felépitésükhöz, ám művészetük és hozzáértésük folytán a fából készült házaik vetekednek a leggondosabban, legpazarabban megépitett kőpalotával is. Idejük nagy részét elmélkedéssel, művészeteik gyakorlásával töltik, de az univerzum legkitűnőbb ijászai is egyben, s nem kétséges: náluk jobb lovasokat még nem hordott hátán Ynev. Testfelépitésük, mozgásuk inkább könnyed és légies, mint erőtől duzzadó, de gyorsak akár a szarvas, és kézügyességük is párját ritkitja. Bőrük halovány, hajuk aranyszőke, szemük borostyánszinű vagy mélykék. Mindent összevetve csodálatos nép ez: egyedi- bárhova is vetődjenek Yneven - csodálatot, olykor azonban, a babonaságok, előitéletek miatt, félelmet váltanak ki más fajok szülötteiből. Közönbös azonban senki sem marad irántuk.', 'Nyugodt, türelmes életüket, megszokott környezetüket nem szivessen hagyják el, az embernépek mentalitása teljesen idegen tőlük. Nyiltak és egyenesek, igaztalanságon, vagy hazugságon nem kaphatja őket még ellenségeik sem. Jellemük az Élet és a Rend értékeinek leghivebb tükre. Hogy olykor rosz hirüket keltik, arról kizárólag az emberi civilizációban nevelkedett - s attól megrontott - fajtársaik tehetnek, akiket - bár látszólag mindenben azonosak elf birodalmakban élő társaikkal - gondolkodását, erkölcseit már eltorzitotta a fiatalabb népek kultúrája.', 'Igazi elfek csak igen ritkán kapják el a kalandozó-kórt, igy a legtöbb elf kalandozó valamelyik emberbirodalomból, annak elf közösségéből származik. Noha nem zárható ki, hogy az ősi földön élők némelyikében is kiváncsiság ebred a születésük óta jócskán megváltozott külvilág iránt, ennek valószinűsége egy az ezerhez.', 'Bármilyen eltorzult is az emberek közt nevelkedett elfek értékrendje, némely ösztönüket sosem vetkőzik le. Minden elf - származzon bárhonnét - nehezen viseli a kővárosokat, s a csillagos eget jobban kedveli fedél gyanánt, mint a cserepes tetőt. Az Élet szeretete ott fészkell bennük, s -legyenek bár rettenthetetlen harcosok, netán hires gladiátorok - az öncélú pusztitás, a kegyetlenség távol áll tőlük. A természet egyébb teremtményeivel kialakult évezredes jó kapcsolat sem múlik el nyomtalanul: nincs az az elf, aki tétlenül tűrné, hogy egy állatot megkinozzanak, vagy egy ligetet fölöslegesen kivágjanak. Ez persze kölcsönös, az erdő-mező vadjai ösztönös bizalommal viseltetnek irányukban, s ha egy nekivadult lovat, vagy örjöngő kutyát kell lecsillapitani, azt elfeknél jobban senki sem képes teljesiteni.', 'Az elfek természetétől leginkább a feketemágia - Nekromancia - esik távol, ezért az efféle varázslatoknak kevésbé birnak ellenszegülni, mint mások.']
+    description: ['Az elfeket két különböző csoportba oszthatjuk: a közönséges elfekre - akiknek jó néhány alfaja létezik, és az óelfekre. Miután a MAGUS rendszerében csak közönséges elffel lehet játszani, ezért itt és most csak rájuk térünk ki.', 'Negyvenezer éve még csak Dél-Yneven léteztek elfek. Származásukat illetően csupán legendáikra hagyatkozhatunk - a legtöbb bölcs Larion szigetét tartja őshazájuknak. A kráni Sötét Hatalom megjelenése után a Délen virágzó elf birodalom hanyatlásnak indult. Életterük egyre szűkült, némely csoportjaik a fenyegetés elől Északra menekültek, míg a délen maradottak beszorultak Tysson Larba, hogy azután onnan is tovább meneküljenek Lasmosi-félszigetre. Itt élnek ma is, Elfendelnek nevezett királyságukban. Északra költözött társaik szerencsésebbnek bizonyultak: a Nyugati-óceán partjától a kontinens belsejéig húzódó komor erdőségekben - távol majd minden emberi civilizációtól - telepedtek meg. Birodalmukat Sirenar Szövetség néven jegyzik az ynevi bölcsek.', 'Az elf elzárkózásra hajlamos, a világot csöndes méltóságal szemlélő nép - egyes feltételezések szerint a lélekvándorlás egy magasabb lépcsőfokát jelentik. Mérhetelenül hosszú ideig élnek az embernépekhez képest, s ez gondolkodásmódjukra, és viselkedésükre egyaránt rányomja bélyegét. Türelmesek, emberi mércével gyönyörűek, bölcsességük, felhalmozott tudásuk elképesztő. A természet gyermekei, mindenki másnál jobban ismerik az élővilágot, tisztelettel és végtelen megbecsüléssel közelítenek hozzá. Városaik, településeik erdők mélyén állnak, követ csak elvétve használnak felépítésükhöz, ám művészetük és hozzáértésük folytán a fából készült házaik vetekednek a leggondosabban, legpazarabban megépített kőpalotával is. Idejük nagy részét elmélkedéssel, művészeteik gyakorlásával töltik, de az univerzum legkitűnőbb íjászai is egyben, s nem kétséges: náluk jobb lovasokat még nem hordott hátán Ynev. Testfelépítésük, mozgásuk inkább könnyed és légies, mint erőtől duzzadó, de gyorsak akár a szarvas, és kézügyességük is párját ritkítja. Bőrük halovány, hajuk aranyszőke, szemük borostyánszínű vagy mélykék. Mindent összevetve csodálatos nép ez: egyedi- bárhova is vetődjenek Yneven - csodálatot, olykor azonban, a babonaságok, előítéletek miatt, félelmet váltanak ki más fajok szülötteiből. Közönbös azonban senki sem marad irántuk.', 'Nyugodt, türelmes életüket, megszokott környezetüket nem szívessen hagyják el, az embernépek mentalitása teljesen idegen tőlük. Nyiltak és egyenesek, igaztalanságon, vagy hazugságon nem kaphatja őket még ellenségeik sem. Jellemük az Élet és a Rend értékeinek leghívebb tükre. Hogy olykor rosz hírüket keltik, arról kizárólag az emberi civilizációban nevelkedett - s attól megrontott - fajtársaik tehetnek, akiket - bár látszólag mindenben azonosak elf birodalmakban élő társaikkal - gondolkodását, erkölcseit már eltorzította a fiatalabb népek kultúrája.', 'Igazi elfek csak igen ritkán kapják el a kalandozó-kórt, igy a legtöbb elf kalandozó valamelyik emberbirodalomból, annak elf közösségéből származik. Noha nem zárható ki, hogy az ősi földön élők némelyikében is kiváncsiság ébred a születésük óta jócskán megváltozott külvilág iránt, ennek valószínűsége egy az ezerhez.', 'Bármilyen eltorzult is az emberek közt nevelkedett elfek értékrendje, némely ösztönüket sosem vetkőzik le. Minden elf - származzon bárhonnét - nehezen viseli a kővárosokat, s a csillagos eget jobban kedveli fedél gyanánt, mint a cserepes tetőt. Az Élet szeretete ott fészkell bennük, s -legyenek bár rettenthetetlen harcosok, netán híres gladiátorok - az öncélú pusztítás, a kegyetlenség távol áll tőlük. A természet egyébb teremtményeivel kialakult évezredes jó kapcsolat sem múlik el nyomtalanul: nincs az az elf, aki tétlenül tűrné, hogy egy állatot megkínozzanak, vagy egy ligetet fölöslegesen kivágjanak. Ez persze kölcsönös, az erdő-mező vadjai ösztönös bizalommal viseltetnek irányukban, s ha egy nekivadult lovat, vagy örjöngő kutyát kell lecsillapítani, azt elfeknél jobban senki sem képes teljesíteni.', 'Az elfek természetétől leginkább a feketemágia - Nekromancia - esik távol, ezért az efféle varázslatoknak kevésbé bírnak ellenszegülni, mint mások.']
   }, {
     id: 'HALF_ELF',
     name: 'Félelf',
@@ -24281,7 +24379,7 @@ var state = {
         titkosajto: 0
       }
     },
-    description: ['A félelfek Ynev legkülönösebb jellemű lényei. Egyik szülőjük elf, mig a másik ember, s ez a kettőség egész - igen hosszú - életük során végigkiséri őket. Igazán nem képesek beilleszkedni egyik nép világába sem - az embereknek túlságosan elfek, az elfeknek túlságosan emberek. Gondolkodásmódjukban közelebb állnak az emberekhez - noha mindég egyfajta töprengő, a világ dolgain merengő hozzáállás jellemzi őket -, külsejük azonban magán hordozza elfőseik örökségét. Légiesebbek, könnyedebbek mint az emberek - igaz, az elfeknél erősebb testalkatúak -,vonásaik megnyerőek, hajuk szőke, olykor ezüstszin, szemük legtöbbször ibolyakék. Állandóan nyughatatlanok. Egyszer egy Dorani bölcs azt találta állitani róluk, hogy örökké helyüket keresik a világban, s ez kissé profán általánositás, van benn némi igazság. Igen sok kalandozó kerül ki közülük, ennek oka nyilván a fenti tényekben keresendő. A két faj számtalan kitünő tulajdonságát egyesiti, ám vég nélkül - önmaguk számára is megmafyarázhatatlan - elégedetlenségük olyan átok, mely megakadályozza őket abban, hogy népük döntő befolyásolással birjon a világ sorsának alakitásában. A természet furcsa fintora, hogy két félelf utódja is félelf lesz, sőt egy flelf és egy tisztavérú elf frigyéből is csak félelf születhet. Félelf és ember kapcsolatából mindég ember születik.', 'A félelfek is rajongva szeretik a természetet és az élőlényeket, noha korántsem olyan töretlen a kapcsolatuk vele, mint tisztavérű társaiké. Éltalában az Élet és a Rend erkölcsei szerint élik életüket, noha találhatunk köztük velejéig romlott, önmaguktól és a világtól megkeseredett gyilkosokat is. Hazudni hamar megtanultak, ám a barátság szentségét még a legelvetemültebbek sem gyalázzák meg.', 'A félelfek természetétől - akárcsak elf szüleikétől - leginkább a Nekromancia esik távol, ezért az efféle varázslatoknak kevésbé birnak ellenszegülni, mint mások.']
+    description: ['A félelfek Ynev legkülönösebb jellemű lényei. Egyik szülőjük elf, mig a másik ember, s ez a kettőség egész - igen hosszú - életük során végigkíséri őket. Igazán nem képesek beilleszkedni egyik nép világába sem - az embereknek túlságosan elfek, az elfeknek túlságosan emberek. Gondolkodásmódjukban közelebb állnak az emberekhez - noha mindég egyfajta töprengő, a világ dolgain merengő hozzáállás jellemzi őket -, külsejük azonban magán hordozza elfőseik örökségét. Légiesebbek, könnyedebbek mint az emberek - igaz, az elfeknél erősebb testalkatúak -,vonásaik megnyerőek, hajuk szőke, olykor ezüstszín, szemük legtöbbször ibolyakék. Állandóan nyughatatlanok. Egyszer egy Dorani bölcs azt találta állítani róluk, hogy örökké helyüket keresik a világban, s ez kissé profán általánosítás, van benn némi igazság. Igen sok kalandozó kerül ki közülük, ennek oka nyilván a fenti tényekben keresendő. A két faj számtalan kitünő tulajdonságát egyesíti, ám vég nélkül - önmaguk számára is megmagyarázhatatlan - elégedetlenségük olyan átok, mely megakadályozza őket abban, hogy népük döntő befolyásolással bírjon a világ sorsának alakításában. A természet furcsa fintora, hogy két félelf utódja is félelf lesz, sőt egy félelf és egy tisztavérű elf frigyéből is csak félelf születhet. Félelf és ember kapcsolatából mindég ember születik.', 'A félelfek is rajongva szeretik a természetet és az élőlényeket, noha korántsem olyan töretlen a kapcsolatuk vele, mint tisztavérű társaiké. Álltalában az Élet és a Rend erkölcsei szerint élik életüket, noha találhatunk köztük velejéig romlott, önmaguktól és a világtól megkeseredett gyilkosokat is. Hazudni hamar megtanultak, ám a barátság szentségét még a legelvetemültebbek sem gyalázzák meg.', 'A félelfek természetétől - akárcsak elf szüleikétől - leginkább a Nekromancia esik távol, ezért az efféle varázslatoknak kevésbé bírnak ellenszegülni, mint mások.']
   }, {
     id: 'TORPE',
     name: 'Törpe',
@@ -24313,7 +24411,7 @@ var state = {
         titkosajto: 30
       }
     },
-    description: ['A törpék Beriquelről érkeztek, a P.sz. 1200-as években. Hamarosan barátságot kötöttek az Északi Szövetség népeivel, akik eleinte ugyan különösnek találták ezt az apró termetű fajt, mely szokásában és gondolkodásában igen elüt az embertől - ám rövidesen rádöbbentek, milyen kemény harcosokra, milyen hű barátokra tettek szert.', 'Való igaz: a törpéknél, az épitészet, a statika szerelmeseinél keresve sem találni rendithetetlenebb társakat. Életük egész tartalma alatt az állandóságot a nyugalmat keresik - ám mivel Ynev és a valóság talaján is két lábbal állnak, pontosan felmérik, hogy az állandósághoy, a nyugalomhoz és a kényelemhez munkára, vagyonra, vagyis kiemelkedetségre van szükség.', 'Az átlag fölé emelkedés egyik módja: maradandót alkotni. Aki látot már törpék épitette palotát, netán megfordult a Tarini-hegység mélyén kialakitott barlangvárosaik valamelyikében, tudja, miként viszonyulnak ehhez a kérdéshez. Épületeik, hidjaik bámulatosan szilárdak, századokig, sőt, akár ezredévekig is dacolnak az idővel. A törpék azonban nem csak az épitészet terén alkottak nagyot. Erről azok mondhatnának bővebbet, akik viseltek már ütközetben törpék álltal kovácsolt páncélt, láncinget és pajzsot, vagy küzdöttek már tarini csadabárddal nem tarini vértbe öltözött szerencsétlenekkel.', 'A kiemelkedés másik bevett módja a katonáskodás - s Tarin törpéi nagy számban élnek ezzel a lehetőséggel. Az Északi Szövetség ármádiájának gyalogos derékhadát adják háború idején, de rettegést keltenek az ellenség szivében villámgyors mozgású rackla-lovasaik is.Feljebbvalóik parancsát mindenkor képességeik legjavát adva teljesitik. Ha nem természetes akadály álja útjukat, szétrombolják, legyen az fatörzsek torlasza, vagy roppant kövekből rakott fal, ha szorult helyzetbe kerülnek, utolsó törpéig harcolnak, megadni sosem szokták magukat. Valamennyi törpe harcos számára adott az előmenetel lehetősége, hadijelvényeik alatt nincs más mérce, csak a rátermettség.', 'Azok a törpék akik a fejüket kalandozásra adják, a harmadik megoldás mellett teszik le voksukat, mely kockázat tekintetében vetekszik ugyan a másodikkal, viszont gyorsabb - és bisztosabb - kiemelkedést tesz lehetővé az elsőnél. Északon gyakorta látható, az aranyaikat elmélyülten számoló törpe kalandozók. Erionnál meszebbre azonban nem szivesen merészkednek, mert Dél emberközpontú birodalmai nem igazán az ő izlésüknek valók.', 'Ha további nyugodt életük anyagi/erkölcsi feltételeit biztositva látják, visszavonulnak otthonukba, melyet - minden tartozékával együtt - egy royzomák elszántságával védenek. Előfordul persze, hogy egy - kezdetben csak anyagi érdekből kalandozó - törpe a nagyvilág, a kötetlen munka és a kockázat szerelmesévé válik, s egész hosszú ( kb 800 év ) életét ennek szenteli.', 'A törpék átlagos testmagassága 130 cm, alkatuk tömbszerű, nagy erőkifejtésre képesek, kitartásuk párját ritkitja. Arcuk széles, gyakorta - de nem mindég - szakáll ékiti. Szemük sötét árnyalatú, az egészen ősi, beriqueli vérvonal képviselőié azonban gleccserkék is lehet. Rendszerint csak egyszer házasodnak, a hűség fogalmának, az emberektől eltérő módon, csak egy változatát, a sirig tartót ismerik.']
+    description: ['A törpék Beriquelről érkeztek, a P.sz. 1200-as években. Hamarosan barátságot kötöttek az Északi Szövetség népeivel, akik eleinte ugyan különösnek találták ezt az apró termetű fajt, mely szokásában és gondolkodásában igen elüt az embertől - ám rövidesen rádöbbentek, milyen kemény harcosokra, milyen hű barátokra tettek szert.', 'Való igaz: a törpéknél, az építészet, a statika szerelmeseinél keresve sem találni rendíthetetlenebb társakat. Életük egész tartalma alatt az állandóságot a nyugalmat keresik - ám mivel Ynev és a valóság talaján is két lábbal állnak, pontosan felmérik, hogy az állandósághoz, a nyugalomhoz és a kényelemhez munkára, vagyonra, vagyis kiemelkedetségre van szükség.', 'Az átlag fölé emelkedés egyik módja: maradandót alkotni. Aki látot már törpék építette palotát, netán megfordult a Tarini-hegység mélyén kialakított barlangvárosaik valamelyikében, tudja, miként viszonyulnak ehhez a kérdéshez. Épületeik, hídjaik bámulatosan szilárdak, századokig, sőt, akár ezredévekig is dacolnak az idővel. A törpék azonban nem csak az építészet terén alkottak nagyot. Erről azok mondhatnának bővebbet, akik viseltek már ütközetben törpék álltal kovácsolt páncélt, láncinget és pajzsot, vagy küzdöttek már tarini csadabárddal nem tarini vértbe öltözött szerencsétlenekkel.', 'A kiemelkedés másik bevett módja a katonáskodás - s Tarin törpéi nagy számban élnek ezzel a lehetőséggel. Az Északi Szövetség ármádiájának gyalogos derékhadát adják háború idején, de rettegést keltenek az ellenség szívében villámgyors mozgású rackla-lovasaik is.Feljebbvalóik parancsát mindenkor képességeik legjavát adva teljesítik. Ha nem természetes akadály álja útjukat, szétrombolják, legyen az fatörzsek torlasza, vagy roppant kövekből rakott fal, ha szorult helyzetbe kerülnek, utolsó törpéig harcolnak, megadni sosem szokták magukat. Valamennyi törpe harcos számára adott az előmenetel lehetősége, hadijelvényeik alatt nincs más mérce, csak a rátermettség.', 'Azok a törpék akik a fejüket kalandozásra adják, a harmadik megoldás mellett teszik le voksukat, mely kockázat tekintetében vetekszik ugyan a másodikkal, viszont gyorsabb - és bisztosabb - kiemelkedést tesz lehetővé az elsőnél. Északon gyakorta látható, az aranyaikat elmélyülten számoló törpe kalandozók. Erionnál meszebbre azonban nem szívesen merészkednek, mert Dél emberközpontú birodalmai nem igazán az ő ízlésüknek valók.', 'Ha további nyugodt életük anyagi/erkölcsi feltételeit biztosítva látják, visszavonulnak otthonukba, melyet - minden tartozékával együtt - egy rozomák elszántságával védenek. Előfordul persze, hogy egy - kezdetben csak anyagi érdekből kalandozó - törpe a nagyvilág, a kötetlen munka és a kockázat szerelmesévé válik, s egész hosszú ( kb 800 év ) életét ennek szenteli.', 'A törpék átlagos testmagassága 130 cm, alkatuk tömbszerű, nagy erőkifejtésre képesek, kitartásuk párját ritkítja. Arcuk széles, gyakorta - de nem mindég - szakáll ékíti. Szemük sötét árnyalatú, az egészen ősi, beriqueli vérvonal képviselőié azonban gleccserkék is lehet. Rendszerint csak egyszer házasodnak, a hűség fogalmának, az emberektől eltérő módon, csak egy változatát, a sírig tartót ismerik.']
   }, {
     id: 'HALF_ORK',
     name: 'Udvari Ork',
@@ -24345,7 +24443,7 @@ var state = {
         titkosajto: 10
       }
     },
-    description: ['Mágikus beavatkozás eredménye képpen létrejött faj, melynek egyedei az orkok legértékesebb tulajdonságait csillogtatják: a makacsságig menő kitartást, a természetes, állati inteligenciát, a kérhetetlen vadságot - ezúttal az emberiség céljai érdekében.', 'Az udvari - másnéven nemesitett - orkok Északon jelentek meg, első osztaguk egy ottani hatalmasság szolgálatában állt. A világhir, azaz inkább a koronás fők divathóbortja akkor kapta szárnyára őket, mikor kemény küzdelemben megmentették a szorongatott nagyúr életét.', 'Alkotóik, mikor magasabb inteligenciával ruházták fel őket, csak bizonyos problémák kiküszöbölésére törekedtek, nem szenteltek elég figyelmet az igy létrhivott új faj asztrális és mentális adotságainak növekedésével. Az emberi értelemben vett érzelmek a természetes körülmények közt élő közönséges orkoknál sem mennek ritkaságszámba, az udvari orkok gondolkodásvilága azonban annyira kifinomult, hogy ideális táptalajt jelentet az öncélú lelki folyamatok -pl. szépelgés, melankólia - számára is. Bármely udvari ork képes bonyolult gondolatfüzéreit akár egy álló héten át is gombolyitani, mielőtt rászánná magát, hogy végkövetkeztetéseit egy arra alkalmasnak látszó emberrel megossza. Ha megteszi, rendszerint csalódás az osztályrésze: gondolatai hiába magvasak, szinte minden esetben sok ezer éve ismertek már, réges rég papirra vetette őket azóta elporlat tollforgatók. Az udvari orkok kisebbrendűség érzése allighanem épp e szerencsétlen fáziseltolódás következménye. Filozófiáról, művészetekről egyszerűen képtelenek újat mondani alkotójuknak, az embernek - azt pedig, hogy személyiségük, személyük is értékek hordozója lehet, nemigen tudják felfogni.', 'Az udvari orkok az Északi szövetség országaiban mindenütt megtalálhatók, ám uraik kiséretében Ynev majd minden tájára eljuthatnak. Az utóbbi évszázadban vált álltalánossá az a gyakorlat, hogy a főnemesek a kiemelkedő képességű udvari orkjaikat tanittatják, netán szélnek is eresztik - ekkor jelentek meg a kontinensen a kalandkeresők között.', 'A kalandozók nem sokat adnak a külsőre, annál többet a belső értékekre: társaságuk ideális a gátlásoktól gyötört, melankóliára hajlamos udvari orkok számára, akiket bizonyos idő elteltével bisztosan helyre ráznak. Egy-egy kalandozócsapat roppant vegyes összetételű lehet - Erion csapszékeiben hallani történeteket olyan vitézi különitményről, melynek vezetője és esze udvari orkként kezdte pályafutását.', 'Az udvari orkok átlagos testmagassága 180 cm, szőrzetük világosabb árnyalatú Káosz teremtette társaiknál, arcukon és nyakukon kimondottan ritkás - és jó hogy az, mert a boldogtalanokat még ez is szégyenérzettel tölti el. Ha egy udvari ork kalandozó társai nem ügyelnek eléggé, ha a férfiak nem tartják állandóan maguknál a borotvájukat, egy reggel azon vehetik észre magukat, hogy egy csupasz képű szörnyeteg az utitársuk. Az udvari orkok szeme savószinű, ritkábban földbarna. Kinosan tiszták - egy természetes állapotú, közönséges ork éppúgy undorral tölti el őket, mint az embereket. Az igazi orkokhoz fűződő viszonyuk egyébbként is sajátságos: mindkét faj képviselőji saját torzképüknek tekintik a másikat. Az udvari orkok azért gyűlölik a vadon élőket, mert őket teszik felelőssé az emberek előitéleteiért - a vadon élő orkok pedig faja minden -amúgy kétes- értékének árulóját látja az udvariban. Keveredés a két faj között sosem fordul elő.']
+    description: ['Mágikus beavatkozás eredményeképpen létrejött faj, melynek egyedei az orkok legértékesebb tulajdonságait csillogtatják: a makacsságig menő kitartást, a természetes, állati inteligenciát, a kérhetetlen vadságot - ezúttal az emberiség céljai érdekében.', 'Az udvari - másnéven nemesített - orkok Északon jelentek meg, első osztaguk egy ottani hatalmasság szolgálatában állt. A világhír, azaz inkább a koronás fők divathóbortja akkor kapta szárnyára őket, mikor kemény küzdelemben megmentették a szorongatott nagyúr életét.', 'Alkotóik, mikor magasabb intelligenciával ruházták fel őket, csak bizonyos problémák kiküszöbölésére törekedtek, nem szenteltek elég figyelmet az így létrhívott új faj asztrális és mentális adotságainak növekedésével. Az emberi értelemben vett érzelmek a természetes körülmények közt élő közönséges orkoknál sem mennek ritkaságszámba, az udvari orkok gondolkodásvilága azonban annyira kifinomult, hogy ideális táptalajt jelentet az öncélú lelki folyamatok -pl. szépelgés, melankólia - számára is. Bármely udvari ork képes bonyolult gondolatfüzéreit akár egy álló héten át is gombolyítani, mielőtt rászánná magát, hogy végkövetkeztetéseit egy arra alkalmasnak látszó emberrel megossza. Ha megteszi, rendszerint csalódás az osztályrésze: gondolatai hiába magvasak, szinte minden esetben sok ezer éve ismertek már, réges rég papirra vetette őket azóta elporlat tollforgatók. Az udvari orkok kisebbrendűség érzése allighanem épp e szerencsétlen fáziseltolódás következménye. Filozófiáról, művészetekről egyszerűen képtelenek újat mondani alkotójuknak, az embernek - azt pedig, hogy személyiségük, személyük is értékek hordozója lehet, nemigen tudják felfogni.', 'Az udvari orkok az Északi szövetség országaiban mindenütt megtalálhatók, ám uraik kiséretében Ynev majd minden tájára eljuthatnak. Az utóbbi évszázadban vált álltalánossá az a gyakorlat, hogy a főnemesek a kiemelkedő képességű udvari orkjaikat taníttatják, netán szélnek is eresztik - ekkor jelentek meg a kontinensen a kalandkeresők között.', 'A kalandozók nem sokat adnak a külsőre, annál többet a belső értékekre: társaságuk ideális a gátlásoktól gyötört, melankóliára hajlamos udvari orkok számára, akiket bizonyos idő elteltével bisztosan helyre ráznak. Egy-egy kalandozócsapat roppant vegyes összetételű lehet - Erion csapszékeiben hallani történeteket olyan vitézi különítményről, melynek vezetője és esze udvari orkként kezdte pályafutását.', 'Az udvari orkok átlagos testmagassága 180 cm, szőrzetük világosabb árnyalatú Káosz teremtette társaiknál, arcukon és nyakukon kimondottan ritkás - és jó hogy az, mert a boldogtalanokat még ez is szégyenérzettel tölti el. Ha egy udvari ork kalandozó társai nem ügyelnek eléggé, ha a férfiak nem tartják állandóan maguknál a borotvájukat, egy reggel azon vehetik észre magukat, hogy egy csupasz képű szörnyeteg az utitársuk. Az udvari orkok szeme savószinű, ritkábban földbarna. Kínosan tiszták - egy természetes állapotú, közönséges ork éppúgy undorral tölti el őket, mint az embereket. Az igazi orkokhoz fűződő viszonyuk egyébbként is sajátságos: mindkét faj képviselői saját torzképüknek tekintik a másikat. Az udvari orkok azért gyűlölik a vadon élőket, mert őket teszik felelőssé az emberek előítéleteiért - a vadon élő orkok pedig faja minden -amúgy kétes- értékének árulóját látja az udvariban. Keveredés a két faj között sosem fordul elő.']
   }]
 };
 var getters = {
@@ -24409,7 +24507,7 @@ var state = {
     name: 'Ranagol',
     sfera: ['H', 'L', 'T'],
     sferaText: 'Halál, Lélek, Természet',
-    description: ['Az erkölcstől mentes gondolkodást és a hűvös logikát részesiti előnybe. Az egyén kiemelkedhet és mások fölé kerülhet. Gorvick és Krán államvallása.']
+    description: ['Az erkölcstől mentes gondolkodást és a hűvös logikát részesíti előnybe. Az egyén kiemelkedhet és mások fölé kerülhet. Gorvick és Krán államvallása.']
   }, {
     id: 'ALDRON',
     name: 'Aldron',
@@ -24499,13 +24597,13 @@ var state = {
     name: 'Sogron, a Tűzkobra',
     sfera: ['E', 'T', 'L'],
     sferaText: 'Élet, Természet, Lélek',
-    description: ['A Tudás és a tudást szomjazók istene, az örök újitó.A tűz Őrzője.']
+    description: ['A Tudás és a tudást szomjazók istene, az örök újító.A tűz Őrzője.']
   }, {
     id: 'THARR',
     name: 'Tharr, a Háromfejű',
     sfera: ['L', 'H'],
     sferaText: 'Lélek, Halál',
-    description: ['A Káosz, a Sötétség és a Pusztitás Istene.']
+    description: ['A Káosz, a Sötétség és a Pusztítás Istene.']
   }, {
     id: 'ATE',
     name: 'Nem követ egyetlen Istent sem',
@@ -24661,7 +24759,7 @@ var state = {
     name: 'Ökölharc',
     KpAf: 3,
     KpMf: 15,
-    description: 'A karakter gyakorlott kétkezi verekedő. Nem jön zavarba, ha fegyverét valamely okból nem használhatja ( esetleg nincs is nála ). Az Ökölharc-bár fegyver nélkül űzik-nem hasonlit a harcművészetekre, nem is nyukszik hasonló alapokon. Inkább egyfajta Erőn és Ügyességen alapuló, művészetnek semmiképp nem nevezhető harcmodor. Az a karakter, aki ismeri az ökölharc fortélyait, nem szenvedi el a Képzetlen Fegyverforgatásból-ezesetben a puszta kéz képzetlen használatából eredő hátrányokat, és a küzdelemben mindkét kezét használhatja ( kétszer támad ). Az Alapfokot és a Mesterfokot kizárólag a puszta ököl sebzésének mértéke különbözteti meg egymástól.',
+    description: 'A karakter gyakorlott kétkezi verekedő. Nem jön zavarba, ha fegyverét valamely okból nem használhatja ( esetleg nincs is nála ). Az Ökölharc - bár fegyver nélkül űzik - nem hasonlít a harcművészetekre, nem is nyukszik hasonló alapokon. Inkább egyfajta Erőn és Ügyességen alapuló, művészetnek semmiképp nem nevezhető harcmodor. Az a karakter, aki ismeri az ökölharc fortélyait, nem szenvedi el a Képzetlen Fegyverforgatásból - ezesetben a puszta kéz képzetlen használatából eredő hátrányokat, és a küzdelemben mindkét kezét használhatja ( kétszer támad ). Az Alapfokot és a Mesterfokot kizárólag a puszta ököl sebzésének mértéke különbözteti meg egymástól.',
     Af: '1-2 Sp',
     Mf: '1-6 Sp'
   }, {
@@ -24669,7 +24767,7 @@ var state = {
     name: 'Birkózás',
     KpAf: 8,
     KpMf: 15,
-    description: 'A képzetség rokon az Ökölharccal, ám a birkózó kezét nem öklözésre, hanem ellenfelének lefogására, leszoritására használja. Ahhoz, hogy ezt megtehesse, természetesen sikeres Támadó Dobást kell tennie. Sebzés nincs, ellenben az álldozat körökre mozgásképtelenné tehető, mialatt támadni sem képes. Ha a képzetség alkalmazója egyszer már megragadta ellenfelét, és erősebb is nála, annak kevés az esélye a szoritásból szabadulni. A birkózó minden körben köteles Erőpróbát tenni, s az álldozatnak csak akkor nyilik egyáltalán lehetősége a szabadulásra, ha elvéti. Még ilyenkor sincs veszve semmi, mert a lefogott csak akkor menekülhet, ha az ő Erőpróbája ellenben sikeres. Ha az álldozat ereje nagyobb a lefogónál, ő tehet minden körbem Erőpróbát, s ha sikerrel jár, nyomban ki is bontakozik a marasztaló karokból. Ha a támadás, amivel a birkózó megragadja áldozatát túlütés, a lefogott személy a szoritásban nagy esélyel elveszti eszméletét. Ez akkor következik be, ha a birkózó, közvetlen a túlütést követő körben, sikeres Erőpróbát tesz.',
+    description: 'A képzetség rokon az Ökölharccal, ám a birkózó kezét nem öklözésre, hanem ellenfelének lefogására, leszorítására használja. Ahhoz, hogy ezt megtehesse, természetesen sikeres Támadó Dobást kell tennie. Sebzés nincs, ellenben az álldozat körökre mozgásképtelenné tehető, mialatt támadni sem képes. Ha a képzetség alkalmazója egyszer már megragadta ellenfelét, és erősebb is nála, annak kevés az esélye a szoritásból szabadulni. A birkózó minden körben köteles Erőpróbát tenni, s az álldozatnak csak akkor nyílik egyáltalán lehetősége a szabadulásra, ha elvéti. Még ilyenkor sincs veszve semmi, mert a lefogott csak akkor menekülhet, ha az ő Erőpróbája ellenben sikeres. Ha az álldozat ereje nagyobb a lefogónál, ő tehet minden körbem Erőpróbát, s ha sikerrel jár, nyomban ki is bontakozik a marasztaló karokból. Ha a támadás, amivel a birkózó megragadja áldozatát túlütés, a lefogott személy a szorításban nagy esélyel elveszti eszméletét. Ez akkor következik be, ha a birkózó, közvetlen a túlütést követő körben, sikeres Erőpróbát tesz.',
     Af: 'Az alapfokon képzett karakter, ha fegyveres ellenféllel birkózik, minden támadását -15-tel dobja.',
     Mf: 'A Mesterfokon képzett birkózó fegyveres ellenfél ellenében sem kerül hátrányba.'
   }, {
@@ -24677,7 +24775,7 @@ var state = {
     name: 'Fegyverhasználat',
     KpAf: 3,
     KpMf: 30,
-    description: 'A Fegyverhasználat a harcos ( és a harccal bármilyen módon foglalkozó ) kasztok tagjai számára talán a legfontosabb képzetség. Ugyanis mindazok, akik nem képzettek egy adott fegyver forgatásában, ha harcolni szándékoznak vele, csak komoly hátránnyal tehetik. Ezt nevezzük Képzetlen Fegyverforgatásnak, ami a következő hátrányokkal jár: KÉ: -10, TÉ: -25, VÉ: -20 Ha valaki képzetlenül nyúl célzó fegyverhez, 30-cal csökken CÉ-je. A játékos amikor a fegyverhasználat képzetséget kiválasztja, értelemszerűen, meg kell határoznia, hogy melyik fegyver forgatásában kivánja járatossá tenni karakterét.',
+    description: 'A Fegyverhasználat a harcos ( és a harccal bármilyen módon foglalkozó ) kasztok tagjai számára talán a legfontosabb képzetség. Ugyanis mindazok, akik nem képzettek egy adott fegyver forgatásában, ha harcolni szándékoznak vele, csak komoly hátránnyal tehetik. Ezt nevezzük Képzetlen Fegyverforgatásnak, ami a következő hátrányokkal jár: KÉ: -10, TÉ: -25, VÉ: -20 Ha valaki képzetlenül nyúl célzó fegyverhez, 30-cal csökken CÉ-je. A játékos amikor a fegyverhasználat képzetséget kiválasztja, értelemszerűen, meg kell határoznia, hogy melyik fegyver forgatásában kívánja járatossá tenni karakterét.',
     Af: 'A karakter a kiválasztott fegyver forgatásában képzett, azt használva nem sújtják a fent emlitett Képzetlen Fegyverforgatásból származó hátrányok.',
     Mf: 'Képes mesterien forgatni az adott fegyvert, ezért amikor azzal harcol, a következő előnyökben részesül: KÉ: +5, TÉ: +10, VÉ: +10, CÉ: +10'
   }, {
@@ -24685,16 +24783,16 @@ var state = {
     name: 'Pajzshasználat',
     KpAf: 5,
     KpMf: 30,
-    description: 'A Pajzshasználatot oktató legnevesebb iskolák: az Oroszlánsziv Lovagrend, a shadoni Isten Kardja Lovagrend, mig az élezett peremű pajzsok forgatásában a gorwicki Marico con Rabora Lovagrend és egyes kráni lovagrendek a legjáratosabbak.',
-    Af: 'A karakter képes a küzdelemben pajzsot használni. Védekezni vele ( a pajzs Vé-je hozzáadódik a karakter Védő Értékéhez ) és akár még támadni is. Pajzsal való támadáskor, sikeres Támadó Dobás esetén, pajzsával fellöki az ellenfelet, miközben még másik, fegyveres karjával is támadhat. Ám ha támad a pajzsal, akkor abban a harci körben a védekezésre nem használhatja ( igy annak Vé-je nem adódik hozzá a Védő Értékéhez ).',
-    Mf: 'A pajzsal mesteri módon támad, és ha annak pereme élezett, akkor vágni is képes vele. Emellett másik kezét is használhatja - és egyik támadásának TÉ-jére sincsen minusz. Mesterfokon a karakter egyazon körben támadhat és védekezhet is pajzsával, és a pajzs mozgásgátló tényezője megszűnik ( MGT )'
+    description: 'A Pajzshasználatot oktató legnevesebb iskolák: az Oroszlánszív Lovagrend, a shadoni Isten Kardja Lovagrend, míg az élezett peremű pajzsok forgatásában a gorwicki Marico con Rabora Lovagrend és egyes kráni lovagrendek a legjáratosabbak.',
+    Af: 'A karakter képes a küzdelemben pajzsot használni. Védekezni vele ( a pajzs Vé-je hozzáadódik a karakter Védő Értékéhez ) és akár még támadni is. Pajzsal való támadáskor, sikeres Támadó Dobás esetén, pajzsával fellöki az ellenfelét, miközben még másik, fegyveres karjával is támadhat. Ám ha támad a pajzsal, akkor abban a harci körben a védekezésre nem használhatja ( így annak Vé-je nem adódik hozzá a Védő Értékéhez ).',
+    Mf: 'A pajzsal mesteri módon támad, és ha annak pereme élezett, akkor vágni is képes vele. Emellett másik kezét is használhatja - és egyik támadásának TÉ-jére sincsen mínusz. Mesterfokon a karakter egyazon körben támadhat és védekezhet is pajzsával, és a pajzs mozgásgátló tényezője megszűnik ( MGT )'
   }, {
     id: 'FEGYVER_DOBAS',
     name: 'Fegyverdobás',
     KpAf: 4,
     KpMf: 40,
-    description: 'Harci helyzetben gyakran előfordul, hogy a karakter valamely okból hajitani szeretné fegyverét. Az esetek nagy többségében ez eleve hajitófegyver ( tőr, dárda, bárd ), de olykor egyébb kézifegyver is lehet. A karakter mikor a Fegyverdobás képzetség elsajátitásához kezd, köteles meghatározni a fegyver tipusát, amelynek hajitásában járatossá kiván válni. A képesség tanulása főként untalan gyakorlásból áll. A tőr hajitásának avatatlan nagymesterei a tolvajklánok, a dárdavetésben a különböző hegyi népek vadászai, mig a lovagikard célbadobásában a Ramort városállam Deva Morrola rendjének lovagjai jeleskednek messze mások előtt. Dobni bármilyen egykezes fegyvert lehet-akár a másfélkezes kardot is, a dobás sikerességének eldöntésében minden esetben Támadó és nem Célzó Dobást kell tenni.',
-    Af: 'A karakternek nincs minusza a választott fegyver dobásakor',
+    description: 'Harci helyzetben gyakran előfordul, hogy a karakter valamely okból hajítani szeretné fegyverét. Az esetek nagy többségében ez eleve hajítófegyver ( tőr, dárda, bárd ), de olykor egyébb kézifegyver is lehet. A karakter mikor a Fegyverdobás képzetség elsajátításához kezd, köteles meghatározni a fegyver tipusát, amelynek hajításában járatossá kíván válni. A képesség tanulása főként untalan gyakorlásból áll. A tőr hajításának avatatlan nagymesterei a tolvajklánok, a dárdavetésben a különböző hegyi népek vadászai, mig a lovagikard célbadobásában a Ramort városállam Deva Morrola rendjének lovagjai jeleskednek messze mások előtt. Dobni bármilyen egykezes fegyvert lehet - akár a másfélkezes kardot is, a dobás sikerességének eldöntésében minden esetben Támadó és nem Célzó Dobást kell tenni.',
+    Af: 'A karakternek nincs mínusza a választott fegyver dobásakor',
     Mf: 'A választott fegyvert a karakter +10 TÉ-vel dobja.'
   }, {
     id: 'FEGYVERTORES',
@@ -24703,62 +24801,62 @@ var state = {
     KpMf: 20,
     description: 'Harc során sokan alkalmazzák a Fegyvertörés képzetséget. A különleges tudomány arra irányul, hogy küzdelem közbe a karakter fegyverével eltörje - használhatatlanná tegye- ellenfele fegyverét. Erre képzet karakter is csak akkor képes, ha szándékát előre - a harci kör elején - bejelenti, majd sikeres Támadódobást tesz. Fegyvertörés csak akkor lehetséges, ha ezt a két összecsapó fegyver tipusa elképzelhetővé teszi - ennek eldöntése a KM feladata.',
     Af: 'A Támadó Dobás 25-tel csökkentett TÉ-vel',
-    Mf: 'TÉ minusz nélkül.'
+    Mf: 'TÉ mínusz nélkül.'
   }, {
     id: 'LEFEGYVERZES',
     name: 'Lefegyverzés',
     KpAf: 7,
     KpMf: 18,
-    description: 'A különleges képzetség segitségével a karakter képes arra, hogy küzdelem közben lefegyverezze ellenfelét. Ezt teheti fegyverrel, de akár puszta kézzel is ( a képzetség elsajátitásánál kell eldönteni ). Lefegyverző szándékát előre - a harci kör elején - kell bejelentenie, majd sikeres Támadó Dobást tennie.',
+    description: 'A különleges képzetség segítségével a karakter képes arra, hogy küzdelem közben lefegyverezze ellenfelét. Ezt teheti fegyverrel, de akár puszta kézzel is ( a képzetség elsajátításánál kell eldönteni ). Lefegyverző szándékát előre - a harci kör elején - kell bejelentenie, majd sikeres Támadó Dobást tennie.',
     Af: '25-tel csökkentett TÉ-vel.',
-    Mf: 'TÉ minusz nélkül.'
+    Mf: 'TÉ mínusz nélkül.'
   }, {
     id: 'PANCEL_VISELET',
     name: 'Nehézvért viselet',
     KpAf: 3,
     KpMf: 27,
-    description: 'A Nehézvért viselet képzetség birtokosa képes küzdelmet folytatni teljesvértezetben és félvértezetben is. Az a karakter aki még alapfokú képzetséggel sem bir, ha nehézvértet ölt, minden fegyverrel úgy harcol mintha annak forgatásában járatlan lenne ( Képzetlen fegyverforgatás: KÉ: -10, TÉ: -25 VÉ: -20 ). A Nehézvért viselet igazi nagymesterei a lovagok és paplovagok, hiszen ők nem kizárólag harci helyzetben, csatákban viselik páncéljukat, hanem szinte szüntelen, gyakran még diszruhaként is.',
-    Af: 'Az alapfokon képzett karakter nem szenvedi el az emlitett minuszokat, de gyorsasága és ügyessége továbbra is annyuval csökken, amennyi a viselt vért Mozgásgátló Tényezője ( MGT ).',
+    description: 'A Nehézvért viselet képzetség birtokosa képes küzdelmet folytatni teljesvértezetben és félvértezetben is. Az a karakter aki még alapfokú képzetséggel sem bír, ha nehézvértet ölt, minden fegyverrel úgy harcol mintha annak forgatásában járatlan lenne ( Képzetlen fegyverforgatás: KÉ: -10, TÉ: -25 VÉ: -20 ). A Nehézvért viselet igazi nagymesterei a lovagok és paplovagok, hiszen ők nem kizárólag harci helyzetben, csatákban viselik páncéljukat, hanem szinte szüntelen, gyakran még díszruhaként is.',
+    Af: 'Az alapfokon képzett karakter nem szenvedi el az említett minuszokat, de gyorsasága és ügyessége továbbra is annyival csökken, amennyi a viselt vért Mozgásgátló Tényezője ( MGT ).',
     Mf: 'Mesterfokú képzetség esetén már a viselt vért MGT-je sem érvényesül - azaz nem vonódik le a karakter gyorsaságából és ügyességéből.'
   }, {
     id: 'KETKEZES_HARC',
     name: 'Kétkezes harc',
     KpAf: 15,
     KpMf: 25,
-    description: 'Kétkezes harcot folytat az, aki mindkét kezében fegyvert tart. Abban az esetben, ha mingkét fegyvert támadásra használja, minden harci körben kétszer támad: először egyik majd másik kezével. Ha felváltva használja őket, meghatározhatja melyikkel védekezik, és melyikkel támad. Ha a karakter még Alapfokú képzetséggel sem bir, mégis kétkezes harcot folytat, akkor jobbik kezében tartott fegyverrel a következő minuszokkal harcol: KÉ: -5, TÉ: -10, VÉ: -10, mig rosszabbik kezét a Képzetlen Fegyverforgatásból származó minuszok sújtják.',
-    Af: 'Alapfokú képzetség esetén a jobbik kezében tartott fegyverre semmiféle minusz nincsen, mig a rosszabbik kézben lévőre, a következő megszoritások érvényesek: KÉ: -2, TÉ: -5, VÉ: -5',
-    Mf: 'Mesterfokú képzetség esetén a karakter mindkét kezét minuszok nélkül használhatja a küzdelemben.'
+    description: 'Kétkezes harcot folytat az, aki mindkét kezében fegyvert tart. Abban az esetben, ha mindkét fegyvert támadásra használja, minden harci körben kétszer támad: először egyik majd másik kezével. Ha felváltva használja őket, meghatározhatja melyikkel védekezik, és melyikkel támad. Ha a karakter még Alapfokú képzetséggel sem bír, mégis kétkezes harcot folytat, akkor jobbik kezében tartott fegyverrel a következő minuszokkal harcol: KÉ: -5, TÉ: -10, VÉ: -10, míg rosszabbik kezét a Képzetlen Fegyverforgatásból származó mínuszok sújtják.',
+    Af: 'Alapfokú képzetség esetén a jobbik kezében tartott fegyverre semmiféle mínusz nincsen, mig a rosszabbik kézben lévőre, a következő megszorítások érvényesek: KÉ: -2, TÉ: -5, VÉ: -5',
+    Mf: 'Mesterfokú képzetség esetén a karakter mindkét kezét mínuszok nélkül használhatja a küzdelemben.'
   }, {
     id: 'VAKHARC',
     name: 'Vakharc',
     KpAf: 10,
     KpMf: 30,
-    description: 'Mindazok, akik -vagy mert vakok, vagy bármely más okból- nem látják ellenfelüket, nem érzékelik pontosan a környezetüket jelentős hátránnyal képesek csak harcolni: KÉ: -20, TÉ: -60, VÉ: -70, CÉ: -150. Félhomályban, vagyis alkonyi sötétségben, gyertyák gyér fényével tessék-lássék átjárt helységben nehezebb harcolni, és csak komoly hátrányokkal lehetséges pontosan célozni. Ugyanezen szabály vonatkozik mindazokra, akik korlátozott látási viszonyok között, netán élhomályosult látással kényszerülnek küzdeni. Ennek oka lehet mágia, könny a szemben, pszi stb. Ez a módositó súlytja azokat is, akik ugyan környezetüket látják, viszont ellenfelük valamilyen oknál fogva láthatatlan: KÉ: -15, TÉ: -30, VÉ: -35, CÉ: -70.',
+    description: 'Mindazok, akik - vagy mert vakok, vagy bármely más okból- nem látják ellenfelüket, nem érzékelik pontosan a környezetüket jelentős hátránnyal képesek csak harcolni: KÉ: -20, TÉ: -60, VÉ: -70, CÉ: -150. Félhomályban, vagyis alkonyi sötétségben, gyertyák gyér fényével tessék-lássék átjárt helységben nehezebb harcolni, és csak komoly hátrányokkal lehetséges pontosan célozni. Ugyanezen szabály vonatkozik mindazokra, akik korlátozott látási viszonyok között, netán elhomályosult látással kényszerülnek küzdeni. Ennek oka lehet mágia, könny a szemben, pszi stb. Ez a módosító súlytja azokat is, akik ugyan környezetüket látják, viszont ellenfelük valamilyen oknál fogva láthatatlan: KÉ: -15, TÉ: -30, VÉ: -35, CÉ: -70.',
     Af: 'Hangok és neszek alapján tájékozódva, sőt némileg a megérzéseire hagyatkozva is képes harcolni. Ekkor: KÉ: -10, TÉ: -15, VÉ: -20, CÉ: -60.',
-    Mf: 'A karakter már belső megérzései alapján harcol. Nem látására, vagy hallására hagytkozik, igy akár le is hunyhatja a szemét, harcértéke nem fog csökkeni. A Vakharc Mesterfokát eredetileg harcművészek dolgozták ki, de ma már mindenki számára megtanulható. A leghiresebb iskola ahol oktatják, a tiadlani Shai-tra kardművész -iskola, ahol 250 aranypénz fizetség ellenében 2 esztendő alatt bárki elsajátithatja ezt a különös tudományt. A Vakharc Mesterfokú ismerőinek a küzdelem ezen formája a következők szerint módosul: KÉ: -5, TÉ: -5, VÉ: -10, CÉ: -30.'
+    Mf: 'A karakter már belső megérzései alapján harcol. Nem látására, vagy hallására hagytkozik, így akár le is hunyhatja a szemét, harcértéke nem fog csökkeni. A Vakharc Mesterfokát eredetileg harcművészek dolgozták ki, de ma már mindenki számára megtanulható. A leghíresebb iskola ahol oktatják, a tiadlani Shai-tra kardművész-iskola, ahol 250 aranypénz fizetség ellenében 2 esztendő alatt bárki elsajátíthatja ezt a különös tudományt. A Vakharc Mesterfokú ismerőinek a küzdelem ezen formája a következők szerint módosul: KÉ: -5, TÉ: -5, VÉ: -10, CÉ: -30.'
   }, {
     id: 'FEGYVER_ISMERET',
     name: 'Fegyverismeret',
     KpAf: 10,
     KpMf: 20,
-    description: 'A Fegyverismeret képzetség birtokában a karakter képes megállapitani a kezébe kerülő fegyverekről azok minőségét.',
-    Af: 'A karakter jó ismerője a fegyver tipusnak, amit a képzetség elsajátitásakor meghatározott. Ilyet vagy ehhez hasonló fegyvert a kezébe véve, súlyát anyagát megvizsgálva, itéletet tud mondani a fegyver minőségéről, gyakran képes felvilágositást adni készitőjének származásáról, ismertebb mesterember esetén akár még nevéről is.',
-    Mf: 'Mindenféle fegyverről tud itéletet mondani, olyanról is amilyen, vagy amelyhez hasonlót még csak nem is látott. Azokról a fegyverekről pedig, amelyek forgatásában képzett, meg tudja állapitani, hogy varázsfegyver vagy sem.'
+    description: 'A Fegyverismeret képzetség birtokában a karakter képes megállapítani a kezébe kerülő fegyverekről azok minőségét.',
+    Af: 'A karakter jó ismerője a fegyvertipusnak, amit a képzetség elsajátításakor meghatározott. Ilyet vagy ehhez hasonló fegyvert a kezébe véve, súlyát anyagát megvizsgálva, ítéletet tud mondani a fegyver minőségéről, gyakran képes felvilágosítást adni készítőjének származásáról, ismertebb mesterember esetén akár még nevéről is.',
+    Mf: 'Mindenféle fegyverről tud ítéletet mondani, olyanról is amilyen, vagy amelyhez hasonlót még csak nem is látott. Azokról a fegyverekről pedig, amelyek forgatásában képzett, meg tudja állapítani, hogy varázsfegyver vagy sem.'
   }, {
     id: 'HADVEZETES',
     name: 'Hadvezetés',
     KpAf: 5,
     KpMf: 20,
-    description: 'A Hadvezetés képzetség birtokában a karakter képes katonák, fegyelmezett csapatok vezetésére, parancsnoklására. Ismeri a seregek irányitásához szükséges jelrendszert, mitöbb tisztában van a haditaktika alapfogalmaival. A Hadvezetés legnagyobb elméi mindenképpen a Kráni Birodalom intutiven gondolkodó Légiós Procuratorai, vagy az Északi Vörös és Fekete hadurak. Akiktől pedig a karakter a legmagasabb fokon sajátithatja el a Hadvezetés tudományát, azok Ynev szerte a Dreina Lovagrendek, midenekelőtt az Oroszlánsziv Lovagrend, valamint Sigranomoi Egyetem hadvezetés tanszékének profeszorai.',
-    Af: 'A karakter valóban csak a taktika alapfogalmait ismeri, igy nem is képes 10-20 főnél nagyobb létszámú csapat sikeres parancsnoklására. Betanitani, kiképezni is csak efféle szabadcsapatokat tud.',
-    Mf: 'A karakter akár ezrekből álló csapatokat is sikeresen hadbavezethet. A haditaktika legkifinomultabb szabályaival is tisztában van, e téren jelentős gyakorlati vagy elméleti tapasztalattal rendelkezik. Akárhány fős sereget is képes kiképezni, ha erre elég ideje jut, és akadnak megfelelő segitői.'
+    description: 'A Hadvezetés képzetség birtokában a karakter képes katonák, fegyelmezett csapatok vezetésére, parancsnoklására. Ismeri a seregek irányításához szükséges jelrendszert, mitöbb tisztában van a haditaktika alapfogalmaival. A Hadvezetés legnagyobb elméi mindenképpen a Kráni Birodalom intutiven gondolkodó Légiós Procuratorai, vagy az Északi Vörös és Fekete hadurak. Akiktől pedig a karakter a legmagasabb fokon sajátíthatja el a Hadvezetés tudományát, azok Ynev szerte a Dreina Lovagrendek, midenekelőtt az Oroszlánszív Lovagrend, valamint Sigranomoi Egyetem hadvezetés tanszékének profeszorai.',
+    Af: 'A karakter valóban csak a taktika alapfogalmait ismeri, igy nem is képes 10-20 főnél nagyobb létszámú csapat sikeres parancsnoklására. Betanítani, kiképezni is csak efféle szabadcsapatokat tud.',
+    Mf: 'A karakter akár ezrekből álló csapatokat is sikeresen hadba vezethet. A haditaktika legkifinomultabb szabályaival is tisztában van, e téren jelentős gyakorlati vagy elméleti tapasztalattal rendelkezik. Akárhány fős sereget is képes kiképezni, ha erre elég ideje jut, és akadnak megfelelő segítői.'
   }, {
     id: 'IRAS_OLVASAS',
-    name: 'Irás/Olvasás',
+    name: 'Írás/Olvasás',
     KpAf: 5,
     KpMf: 25,
-    description: 'Egy efféle - túlnyomórészt feudális - világban, amilyen Ynev, korántsem természetes, hogy valaki birja az irás és az olvasás képességét. Sőt, az ilyen kifejezetten tanult, művelt emberek sajátja.',
-    Af: 'A karakter tökéletesen ismeri a betűket, gyakorlottan ir, olvas.',
+    description: 'Egy efféle - túlnyomórészt feudális - világban, amilyen Ynev, korántsem természetes, hogy valaki bírja az írás és az olvasás képességét. Sőt, az ilyen kifejezetten tanult, művelt emberek sajátja.',
+    Af: 'A karakter tökéletesen ismeri a betűket, gyakorlottan ír, olvas.',
     Mf: 'Kaligráfia. Gondosan rajzolt, szerzetesekhez méltó betűket képes a papirra vetni. A Kalligráfia leggyakoribb alkalmazói a különféle rendek és egyházak szerzetesei, ám igazi mesterei Niaréban élnek, s gyakran bizony jóval prózaibb foglalkozást mondhatnak magukénak. Némelyikük kardművész, hivatalnok, de akad közöttük egyszerő kertész is...'
   }, {
     id: 'NYELVISMERET',
@@ -24766,40 +24864,40 @@ var state = {
     KpAf: 3,
     KpMf: 20,
     description: 'A karakter ismer egy álltala tetszés szerint kiválasztott nyelvet a széles Ynevi palettáról. Hogy milyen mértékben teszi ezt magáévá, az attól függ, mennyi Képzetségi Pontot álldozott fel a következők szerint.',
-    Af: '1 Kp- ismer néhány szót, ha lassan tagoltan beszélnek hozzá, sejti -de nem tudja bisztosan- miről esik szó. Összefüggően beszélni képtelen. 2 Kp - ha kifejezetten hozzá szólnak, tagolva egyszerű szavakkal, egyszerű szerkezetet használva, megérti. Beszélni csak szakaszosan, körülményessen, gyakran az érthetetlenségig helytelenül, pocsék kiejtéssel képes. Csak közismert szavakból épitkező, egyszerűbb mondatokat használ. 3 Kp -érti, ha beszélnek hozzá, tűrhetően beszél ő is. Ha bir Irás/olvasás képzetséggel, akkor nehézkesen ugyan, de irja és olvassa az adott nyelvet. 4 Kp -mindent ésrt, és választékossan, bár akcentussal beszél. Ha irástudó, az irás, olvasás sem jelent számára gondot. Ha egy kifejezetten ritkán használt szót nem ért, azt pillanatok alatt körül lehet irni számára. 5 Kp - anyanyelvi szinten érti és beszéli, ha irástudó, irja és olvassa is az adott nyelvet. Semilyen akcentus nincs, és néhány egyszerűbb dialektust utánozni is képes.',
+    Af: '1 Kp- ismer néhány szót, ha lassan tagoltan beszélnek hozzá, sejti - de nem tudja bisztosan - miről esik szó. Összefüggően beszélni képtelen. 2 Kp - ha kifejezetten hozzá szólnak, tagolva egyszerű szavakkal, egyszerű szerkezetet használva, megérti. Beszélni csak szakaszosan, körülményessen, gyakran az érthetetlenségig helytelenül, pocsék kiejtéssel képes. Csak közismert szavakból épitkező, egyszerűbb mondatokat használ. 3 Kp -érti, ha beszélnek hozzá, tűrhetően beszél ő is. Ha bir Irás/olvasás képzetséggel, akkor nehézkesen ugyan, de írja és olvassa az adott nyelvet. 4 Kp -mindent ért, és választékossan, bár akcentussal beszél. Ha írástudó, az írás, olvasás sem jelent számára gondot. Ha egy kifejezetten ritkán használt szót nem ért, azt pillanatok alatt körül lehet írni számára. 5 Kp - anyanyelvi szinten érti és beszéli, ha írástudó, írja és olvassa is az adott nyelvet. Semilyen akcentusa nincs, és néhány egyszerűbb dialektust utánozni is képes.',
     Mf: 'Szónoki fordulatokat használ, beszéde gyönyörködtet, nem jelent számára gondot bármilyen akcentusban ,vagy akár archaizálva, esetleg szaknyelven beszélni. Papok, művelt emberek sajátja ez a képzettség.'
   }, {
     id: 'OSI_NYELV',
     name: 'Ősi nyelv ismerete',
     KpAf: 10,
     KpMf: 60,
-    description: 'Ynev világán a jelen tudománya számára fennmaradt több ősi, mára kihalt nép nyelve is. Ilyen a Kyr, az anur, az aquir, a kheton és az anghmar, jó néhány olyan akad még, amelyeket épp, hogy megfejtettek. Ezek legtöbbjét ma már csak egyes mágusok, papok, bölcsek beszélik, alig olvassák, és szinte senki sem irja. Magukról a népekről és nyelvükről a KM adhat bővebb felvilágositást - a Kalandmester utmutatójának ismeretében. A karakter mikor egy ősi nyelv ismeretének megtanulására adja fejét, meg kell jelölnie, melyiket kivánja elsajátitani. Minden esetben messter segitségét kell igénybe vennie, tekintve, hogy ezen nyelvek belső logikája olyannyira távol esnek a maiakétól, hogy pusztán könyvből lehetetlen azt megérteni.',
-    Af: 'Sok szót ismer, de képtelen beszélni, irni, érteni az adott nyelvet. Olvasni akadozva, nem minden szót megértve, de a mondatok értelmét felfogva képes.',
-    Mf: 'Folyamatosan irja, olvassa az ősi nyelvet. Érthetően, bár erős akcentussal beszéli, szövegértése sem hagy kivánnivalót maga után.'
+    description: 'Ynev világán a jelen tudománya számára fennmaradt több ősi, mára kihalt nép nyelve is. Ilyen a Kyr, az anur, az aquir, a kheton és az anghmar, jó néhány olyan akad még, amelyeket épp, hogy megfejtettek. Ezek legtöbbjét ma már csak egyes mágusok, papok, bölcsek beszélik, alig olvassák, és szinte senki sem írja. Magukról a népekről és nyelvükről a KM adhat bővebb felvilágosítást - a Kalandmester útmutatójának ismeretében. A karakter mikor egy ősi nyelv ismeretének megtanulására adja fejét, meg kell jelölnie, melyiket kivánja elsajátítani. Minden esetben mester segítségét kell igénybe vennie, tekintve, hogy ezen nyelvek belső logikája olyannyira távol esnek a maiakétól, hogy pusztán könyvből lehetetlen azt megérteni.',
+    Af: 'Sok szót ismer, de képtelen beszélni, írni, érteni az adott nyelvet. Olvasni akadozva, nem minden szót megértve, de a mondatok értelmét felfogva képes.',
+    Mf: 'Folyamatosan írja, olvassa az ősi nyelvet. Érthetően, bár erős akcentussal beszéli, szövegértése sem hagy kívánnivalót maga után.'
   }, {
     id: 'IDOJOSLAS',
     name: 'Időjóslás',
     KpAf: 3,
     KpMf: 15,
-    description: 'Az időjóslás ezer szempontból elengedhetetlen fontosságú Ynev világában is. A tengerészek életének a bisztonság, hadjáratok esetén győzelem, az utazók számára pedig a kényelem bisztositéka. Nem csoda hát, ha sokan igyekeznek kifürkészni szeszélyeit, hogy megjósolhatják az eljövendőt. Ezer módszer létezik erre, egyszerű, tapasztalatokon alapuló találgatástól, egészen a misztikus megoldásokig-mint amilyen a kártyavetés, vagy a madarak belső szerveinek bűbájos megolvasása. Egyet azonban le kell szögeznünk, ezek a módszerek igenis működnek.',
-    Af: 'Alapfokú képzetség a karakternek 60 százalékos bisztonsággal képest jóslást késziteni az elkövetkező két nap időjárására nézvést.',
-    Mf: 'A Mesterfokon képzet karakter 95 százalékos bisztonsággal készit előrejelzést az elkövetkező 2-7 ( 1K6+1) nap időjárásáról.'
+    description: 'Az időjóslás ezer szempontból elengedhetetlen fontosságú Ynev világában is. A tengerészek életének a bisztonság, hadjáratok esetén győzelem, az utazók számára pedig a kényelem bisztosítéka. Nem csoda hát, ha sokan igyekeznek kifürkészni szeszélyeit, hogy megjósolhatják az eljövendőt. Ezer módszer létezik erre, egyszerű, tapasztalatokon alapuló találgatástól, egészen a misztikus megoldásokig - mint amilyen a kártyavetés, vagy a madarak belső szerveinek bűbájos megolvasása. Egyet azonban le kell szögeznünk, ezek a módszerek igenis működnek.',
+    Af: 'Alapfokú képzetség a karakternek 60 százalékos bisztonsággal képest jóslást készíteni az elkövetkező két nap időjárására nézvést.',
+    Mf: 'A Mesterfokon képzet karakter 95 százalékos bisztonsággal készít előrejelzést az elkövetkező 2-7 ( 1K6+1) nap időjárásáról.'
   }, {
     id: 'TERKEPESZET',
     name: 'Térképészet',
     KpAf: 10,
     KpMf: 17,
     description: '',
-    Af: 'Az Alapfokú Térképészet képzetséggel biró karakter ismeri a térképészeti jeleket, könnyen eligazodik bárhol egy térkép segitségével.',
-    Mf: 'A Mesterfokon képzett karakter nem csak elolvasni, hanem késziteni is képes a térképeket. Ez korántsem egyszerű feladat, hiszen a sokéves gyakorlaton túl remek térlátás, és mégkülönb szemmértéket igényel.'
+    Af: 'Az Alapfokú Térképészet képzetséggel bíró karakter ismeri a térképészeti jeleket, könnyen eligazodik bárhol egy térkép segítségével.',
+    Mf: 'A Mesterfokon képzett karakter nem csak elolvasni, hanem készíteni is képes a térképeket. Ez korántsem egyszerű feladat, hiszen a sokéves gyakorlaton túl remek térlátás, és mégkülönb szemmértéket igényel.'
   }, {
     id: 'HERALDIKA',
     name: 'Heraldika',
     KpAf: 5,
     KpMf: 15,
-    description: 'A Heraldika tudománza a cimerek, a családi, klán és rendi jelek ismeretét jelenti. Nem lebecsülendően összetett tudomány ez, megvannak a maga törvényszerűségei és szabályai. Milyen alapon milyen figurák szerepelhetnek, milyen szinek párosulhatnak milyenekkel, milyen minták alkalmazhatók...stb.',
+    description: 'A Heraldika tudománya a címerek, a családi, klán és rendi jelek ismeretét jelenti. Nem lebecsülendően összetett tudomány ez, megvannak a maga törvényszerűségei és szabályai. Milyen alapon milyen figurák szerepelhetnek, milyen szinek párosulhatnak milyenekkel, milyen minták alkalmazhatók...stb.',
     Af: 'A karakter tisztában van mindezen szabályokkal, és bármikor képes tökéletes cimerek megalkotására. Ismeri országa, tájegysége cimereit, közvetlen környezetében, még a legjelenléktelenebbeket is, mitöbb Ynev távoli vidékeinek kiemelkedően fontos cimereit is.',
-    Mf: 'Mesterfokú képzetség esetén a karakter előtt nem ismeretlen a távoli tájak cimerei sem, még akkor sem, ha azok nem túl jelentősek. Saját országában még a legapróbb családokét is ismeri, mitöbb, a régmúlt korok cimereire és jeleire is emlékszik.'
+    Mf: 'Mesterfokú képzetség esetén a karakter előtt nem ismeretlen a távoli tájak cimerei sem, még akkor sem, ha azok nem túl jelentősek. Saját országában még a legapróbb családokét is ismeri, mitöbb, a régmúlt korok címereire és jeleire is emlékszik.'
   }, {
     id: 'LEGENDA_ISMERET',
     name: 'Legendaismeret',
@@ -24807,14 +24905,14 @@ var state = {
     KpMf: 50,
     description: '',
     Af: 'A Legendaismeret Alapfokon nem több egyszerű lexikális tudásnál. A képzett karakter tisztában van különféle helyekhez, tárgyakhoz, személyekhez kötött legendákkal. Tudása álltalában egy-egy tájegységre vanatkozik.',
-    Mf: 'A karakter mérhetetlen számú legendát ismer a világ majd minden tájáról. Soknak az igazságtartalmával is tisztában van. Világosan átlátja a legendák születésének pszihózisát, igy egy sosem halottból is nagy bisztonsággal képes kiszűrni a valóságot elkülönitva a prózai túlzásoktól. A Legendaismeret Mesterfokát általában neves bölcsek birják Ynev szerte.'
+    Mf: 'A karakter mérhetetlen számú legendát ismer a világ majd minden tájáról. Soknak az igazságtartalmával is tisztában van. Világosan átlátja a legendák születésének pszihózisát, igy egy sosem halottból is nagy bisztonsággal képes kiszűrni a valóságot elkülönítve a prózai túlzásoktól. A Legendaismeret Mesterfokát álltalában neves bölcsek bírják Ynev szerte.'
   }, {
     id: 'TORTENELEM_ISMERET',
     name: 'Történelemismeret',
     KpAf: 5,
     KpMf: 20,
-    description: 'A Történelemismeret képzetség elsősorban bölcsek, lovagok sajátja. Teljes mértékben lexikális jellegű tudomány, ámbátor mesterei állitják, a múlt ismerete sokban segit a jövő eseményeinek megsejtésében.',
-    Af: 'Alapfokon a karakter saját országának, tájegységének történelmét ismeri. Ez kiterjed eseményekre, helyszinekre, jelentős történelmi alakokra egyaránt.',
+    description: 'A Történelemismeret képzetség elsősorban bölcsek, lovagok sajátja. Teljes mértékben lexikális jellegű tudomány, ámbátor mesterei állítják, a múlt ismerete sokban segít a jövő eseményeinek megsejtésében.',
+    Af: 'Alapfokon a karakter saját országának, tájegységének történelmét ismeri. Ez kiterjed eseményekre, helyszínekre, jelentős történelmi alakokra egyaránt.',
     Mf: 'A Mesterfokú Történelemismeret felruházza a karaktert azon képességgel, hogy átlássa a történelem eseményei közötti összefüggéseket. Már nem pusztán saját tájegységének, de Ynev egészének történetével tisztában van, tekintettel a hősi múlt történeteire is.'
   }, {
     id: 'VALLAS_ISMERET',
@@ -24822,126 +24920,126 @@ var state = {
     KpAf: 5,
     KpMf: 25,
     description: '',
-    Af: 'Alapvetően a papok képzetsége, de tőlük bárki eltanulhatja. Nagyrészt lexikális jellegű tudás, melynek birtokában a karakter biszton álithatja, ismeri Ynev főbb vallásait, azok Isteneit, történetét, alapvető tanitásait és legnagyobb tanitóit. Számtalan szertartás menetével és céljával is tisztában van.',
-    Mf: 'Aki Mesterfokon birja a Vallásismeret képzetséget, az előtt Ynev legapróbb-cseprőbb, netán titkos vallásai sem ismeretlenek. Hallott ezek szertartásairól, és nagy bisztonsággal képes meghatározni azok célját is. A főbb vallásokat szinte teljes alaposággal ismeri, képes idézni azok szent könyveiből, nem jelent számára gondott kevéssé ismert alakjainak felsorolása és jellemzése sem. Saját hitévél és minden azzal kapcsolatos mozzanattal oly fokig tisztában van, hogy a legfelsőbb egyházi körökben sem kerülne zavarba egy teológiai vita kirobbanásakor.'
+    Af: 'Alapvetően a papok képzetsége, de tőlük bárki eltanulhatja. Nagyrészt lexikális jellegű tudás, melynek birtokában a karakter biszton állíthatja, ismeri Ynev főbb vallásait, azok Isteneit, történetét, alapvető tanításait és legnagyobb tanítóit. Számtalan szertartás menetével és céljával is tisztában van.',
+    Mf: 'Aki Mesterfokon bírja a Vallásismeret képzetséget, az előtt Ynev legapróbb-cseprőbb, netán titkos vallásai sem ismeretlenek. Hallott ezek szertartásairól, és nagy bisztonsággal képes meghatározni azok célját is. A főbb vallásokat szinte teljes alaposággal ismeri, képes idézni azok szent könyveiből, nem jelent számára gondott kevéssé ismert alakjainak felsorolása és jellemzése sem. Saját hitévél és minden azzal kapcsolatos mozzanattal oly fokig tisztában van, hogy a legfelsőbb egyházi körökben sem kerülne zavarba egy teológiai vita kirobbanásakor.'
   }, {
     id: 'EPITESZET',
-    name: 'Épitészet',
+    name: 'Építészet',
     KpAf: 5,
     KpMf: 20,
-    description: 'Az Épitészet képzetségben való jártasság nem feltétlenül jelenti az azonos nevű hivatás gyakorlását.',
-    Af: 'Az Alapfokon képzett karakter ismeri az Yneven uralkodó főbb épitészeti stilusokat, egy épületről megközelitő pontossággal képes megállapitani, mely században, s melyik kultúra emelte.',
+    description: 'Az Építészet képzetségben való jártasság nem feltétlenül jelenti az azonos nevű hivatás gyakorlását.',
+    Af: 'Az Alapfokon képzett karakter ismeri az Yneven uralkodó főbb építészeti stílusokat, egy épületről megközelítő pontossággal képes megállapítani, mely században, s melyik kultúra emelte.',
     Mf: 'A Mesterfokon jártas karakter tudománya már nem passziv tudás, ő már képes épületek megtervezésére. Ezek lehetnek házak, de kastélyok, komoly várak nemigen. A Mesterfokú képzetséggel együtt jár, hogy a karakter másoknál nagyobb bisztonsággal képes megsaccolni az esetleges titkos ajtók és folyosók elhelyeszkedését. Ezért a Titkosajtó keresés nevű, szézalékos jártasságban mért képzetségre +20 százalékot kap.'
   }, {
     id: 'MERGKEVERES',
-    name: 'Méregkeverés/semlegesités',
+    name: 'Méregkeverés/semlegesítés',
     KpAf: 15,
     KpMf: 60,
-    description: 'Sokan nyúlnak ellenfeleik gyengitésére vagy legyilkolásának reményében a mérgezés módszeréhez. Egyesek arra is hajlandók, hogy éveken át tanuljanak, elsajátitsák a méregkeverés tudományát és saját maguk készitsék el a káros matériát. Másokat éppen ellenkezőleg, a segitségnyújtás vágy hajt. Természetesen a képzetség igazi nagymesterei a boszorkányok és boszorkánymesterek, de a nagyobb orrgyilkos klánok mindegyike tart legalább egy méregkeverőt. A mérgezés mestersége sokban támaszkodik az alkimiára, a herbalizmusra és az élettanra, de tanulói e három tudományt, meglehetősen, egyoldalúan tanulják. Ha egy karakter rendelkezik ezekkel a képzetségekkel, jóval könnyebben sajátithatja el a mérgek tudományát ( Mindhárom képzetség 3-3 Képzetség Pontot ad a méregkeverés tanulásához). Ez egyben mutatja azt is, hogy egy herbalista vagy alkimista is állithat elő mérget, de lényegesebben gyengébbet, mint a méregkeverő. A méreg - vagy ellenméreg- előállitásához minden esetben megfelelő alapanyagok, felszerelés és idő kell.',
-    Af: 'Az alapfokon képzett karakter képes legfeljebb 5. szintű méreg előállitására, amely azonban ritkán okoz halált vagy ájulást. Kinmérgei legfeljebb 15 Fp vesztést okozhatnak. Alapfokon több komponensű és kontaktméreg nem keverhető. Képes ezenkivül az álltala ismert mérgek ellenszerét is előállitani, ezek +1-3 módositót jelentenek egészségpróba esetén.',
-    Mf: 'A Mesterfokon képzett karakter már képes bármilyen méreg előállitására, bár egyes esetben ez igen költséges és egy alkimista vagy herbalista mester közreműködését igényli. A karakter képes bármilyen, álltala ismert méreg ellenszerét előállitani, ami +2-6 módositót jelent egészségpróbánál.'
+    description: 'Sokan nyúlnak ellenfeleik gyengítésére vagy legyilkolásának reményében a mérgezés módszeréhez. Egyesek arra is hajlandók, hogy éveken át tanuljanak, elsajátítsák a méregkeverés tudományát és saját maguk készitsék el a káros matériát. Másokat éppen ellenkezőleg, a segítségnyújtás vágya hajt. Természetesen a képzetség igazi nagymesterei a boszorkányok és boszorkánymesterek, de a nagyobb orrgyilkos klánok mindegyike tart legalább egy méregkeverőt. A mérgezés mestersége sokban támaszkodik az alkímiára, a herbalizmusra és az élettanra, de tanulói e három tudományt, meglehetősen, egyoldalúan tanulják. Ha egy karakter rendelkezik ezekkel a képzetségekkel, jóval könnyebben sajátíthatsa el a mérgek tudományát ( Mindhárom képzetség 3-3 Képzetség Pontot ad a méregkeverés tanulásához). Ez egyben mutatja azt is, hogy egy herbalista vagy alkimista is állíthat elő mérget, de lényegesebben gyengébbet, mint a méregkeverő. A méreg - vagy ellenméreg- előállításához minden esetben megfelelő alapanyagok, felszerelés és idő kell.',
+    Af: 'Az alapfokon képzett karakter képes legfeljebb 5. szintű méreg előállítására, amely azonban ritkán okoz halált vagy ájulást. Kínmérgei legfeljebb 15 Fp vesztést okozhatnak. Alapfokon több komponensű és kontaktméreg nem keverhető. Képes ezenkívül az álltala ismert mérgek ellenszerét is előállítani, ezek +1-3 módosítót jelentenek egészségpróba esetén.',
+    Mf: 'A Mesterfokon képzett karakter már képes bármilyen méreg előállítására, bár egyes esetben ez igen költséges és egy alkímista vagy herbalista mester közreműködését igényli. A karakter képes bármilyen, álltala ismert méreg ellenszerét előállítani, ami +2-6 módosítót jelent egészségpróbánál.'
   }, {
     id: 'HERBALIZMUS',
     name: 'Herbalizmus',
     KpAf: 5,
     KpMf: 35,
-    description: 'Ez a tudomány elsősorban a természeti népek vajákosai és sámánai körében elterjedt, de Ogonomus óta, a világi bölcsek előtt sem ismeretlen. Eredeti célja a gyógyitás volt, de mint oly sok minden mást, at Ember ezt is hamar megtanulta egyébb célok elérése érdekében felhasználni-tegyük hozzá, nem kis sikerrel.A Herbalizmusban járatos karakter alapvetően kétféle hatású szert készithet növényekből: gyógyszert és mérget. Azt, hogy egy adott drog méreg vagy orvosság, inkább felhasználása dönti el, semmint eredete. Ide tartoznak még a halucinogénok-ha úgy tetszik kábitószerek-is. Ezek nem szó szoros értelemben vett mérgek, ám hasonló alkalmazásuk és hatásmechanizmusaik miatt itt tárgyaljuk őket.',
-    Af: 'Az Alapfokú képzetséggel képes a karakter legfeljebb 5. szintű betegség gyógyitására alkalmas orvosságok elkészitésére. Ezek álltalában az Egészség-próbára adnak módositót, rendszerint +1-től +9-ig. Képes ezenkivül sebeket és sérüléseket ellátni, melyek igy kétszer olyan gyorsan gyógyulnak, mint egyébbként -vonatkozik Ép és Fp vesztésre egyaránt. Ezeken túlmenően a karakter keverhet mérgeket, melyek beadható mérgek esetén elég erősek lehetnek, bár halált nem okozhatnak, egyébb fajtájú mérgekből, pedig csak gyenge állitható elő. Elkészitheti ezenkivül az álltala ismert mérgek ellenszerét is.',
-    Mf: 'Mesterfokú képzetség esetén a karakter bármilyen betegséget gyógyithat, hasonlóan ahhoz ahogy az Alapfokon tette. Az álltala kezelt sebek négyszer gyorsabban gyógyulnak, mint egyébbként. A mérgek közül hatékonnyabbakat készithet, nem csinálhat azonban gáz- és több komponensű mérgeket.'
+    description: 'Ez a tudomány elsősorban a természeti népek vajákosai és sámánai körében elterjedt, de Ogonomus óta, a világi bölcsek előtt sem ismeretlen. Eredeti célja a gyógyitás volt, de mint oly sok minden mást, at Ember ezt is hamar megtanulta egyébb célok elérése érdekében felhasználni - tegyük hozzá, nem kis sikerrel. A Herbalizmusban járatos karakter alapvetően kétféle hatású szert készíthet növényekből: gyógyszert és mérget. Azt, hogy egy adott drog méreg vagy orvosság, inkább felhasználása dönti el, semmint eredete. Ide tartoznak még a halucinogénok - ha úgy tetszik kábitószerek - is. Ezek nem szó szoros értelemben vett mérgek, ám hasonló alkalmazásuk és hatásmechanizmusaik miatt itt tárgyaljuk őket.',
+    Af: 'Az Alapfokú képzetséggel képes a karakter legfeljebb 5. szintű betegség gyógyítására alkalmas orvosságok elkészítésére. Ezek álltalában az Egészség-próbára adnak módosítót, rendszerint +1-től +9-ig. Képes ezenkivül sebeket és sérüléseket ellátni, melyek így kétszer olyan gyorsan gyógyulnak, mint egyébbként - vonatkozik Ép és Fp vesztésre egyaránt. Ezeken túlmenően a karakter keverhet mérgeket, melyek beadható mérgek esetén elég erősek lehetnek, bár halált nem okozhatnak, egyébb fajtájú mérgekből, pedig csak gyenge állítható elő. Elkészitheti ezenkivül az álltala ismert mérgek ellenszerét is.',
+    Mf: 'Mesterfokú képzetség esetén a karakter bármilyen betegséget gyógyíthat, hasonlóan ahhoz ahogy az Alapfokon tette. Az álltala kezelt sebek négyszer gyorsabban gyógyulnak, mint egyébbként. A mérgek közül hatékonnyabbakat készithet, nem csinálhat azonban gáz- és több komponensű mérgeket.'
   }, {
     id: 'SEBGYOGYITAS',
-    name: 'Sebgyógyitás',
+    name: 'Sebgyógyítás',
     KpAf: 15,
     KpMf: 30,
     description: '',
-    Af: 'A sebgyógyitás alapfokon leginkább a seb külső ellátását szolgálja, tehát segit megálitani a vérzést, megakadályozni az elfertőzést vagy a seb ismétlődő felnyillását. Ezért jelentős eredménnyel alkalmazható az Fp-k gyógyitásában. Ép gyógyitására nem alkalmas, ahhoz más jellegű ismeretek is szükségesek. Az Alapfokú képzetség lehetővé teszi a helyes kötés alkalmazását, s használója tisztában van a seb tisztitásának és frtőtlenitésének alapjaival. Ha rendelkezésre áll a szükséges kötszer, a vérzést elállithatja, a sebet bekötözheti. Ha a seben kötés van, a gyógyulás sebessége a kétszeresére nő. Amennyiben a képzetség használója gondozza a sebet, azaz cseréli rajta a kötszert, rendszeresen tisztitja környékét és mindent megtesz a seb gyógyulásáért, a sebesség háromszoros lesz. Ez csak a Fájdalomtűrés pontok gyógyulásakor igaz, az Ép gyógyulásának sebessége nem nő, csak a fertőzésveszély csökken. Az Alapfokú képzetség az Ép-vesztést okozó sebek gyógyitásakor egyötödére csökkenti a fertőzés esélyét. Ez annyit jelent, hogy a fertőzés esélye csak az elveszett Ép-k számának kétszerese lesz, százalékban ( és nem tizszerese!). A törések és repedések, továbbá inszakadások és porc sérülések ellátásához a képzetség csak alapfokú ismeretet ad, s a gyógyulást csak kis mértékben segiti elő.',
-    Mf: 'A Mesterfokú képzetség már komoly ismeretanyagot nyújt ezekhez is. Tartalmazza a kenőcsök és gyógynövények alkalmazásának tudományát is. Mesterfokú képzetség esetén mint Fájdalomtűrés pontok, mint az Életerő pontok gyorsabban gyógyulnak. Az Fp sérülések esetében, egyszeri kötözés hatására a gyógyulás háromszoros sebességű lesz, a rendszeres kezelés hatására pedig négyszeres. Az Ép gyógyulásában nagyobb a változás hiszen a Mesterfokú képzetség ebben nyújt igazán fontos segitséget. Kötözéssel, ami sinbe rakást, varrást vagy bármilyen egy alkalommal végrehajtott kezelést értünk - az Ép gyógyulás sebessége kétszeres lesz, az ellfertőzés esélye pedig nullára csökken. A rendszeres kezeléssel a gyógyulás ideje harmadára csökken. A mesterfokú képzetség lehetővé tesz viszonylag bonyolult, szinte műtét értékű beavatkozásokat is, amik az Alapfokú alkalmazással elképzelhetetlenek lennének.'
+    Af: 'A sebgyógyitás alapfokon leginkább a seb külső ellátását szolgálja, tehát segít megállítani a vérzést, megakadályozni az elfertőződést vagy a seb ismétlődő felnyillását. Ezért jelentős eredménnyel alkalmazható az Fp-k gyógyításában. Ép gyógyítására nem alkalmas, ahhoz más jellegű ismeretek is szükségesek. Az Alapfokú képzetség lehetővé teszi a helyes kötés alkalmazását, s használója tisztában van a seb tisztításának és fertőtlenítésének alapjaival. Ha rendelkezésre áll a szükséges kötszer, a vérzést elállíthatja, a sebet bekötözheti. Ha a seben kötés van, a gyógyulás sebessége a kétszeresére nő. Amennyiben a képzetség használója gondozza a sebet, azaz cseréli rajta a kötszert, rendszeresen tisztítja környékét és mindent megtesz a seb gyógyulásáért, a sebesség háromszoros lesz. Ez csak a Fájdalomtűrés pontok gyógyulásakor igaz, az Ép gyógyulásának sebessége nem nő, csak a fertőzésveszély csökken. Az Alapfokú képzetség az Ép-vesztést okozó sebek gyógyításakor egyötödére csökkenti a fertőzés esélyét. Ez annyit jelent, hogy a fertőzés esélye csak az elveszett Ép-k számának kétszerese lesz, százalékban ( és nem tízszerese!). A törések és repedések, továbbá ínszakadások és porc sérülések ellátásához a képzetség csak alapfokú ismeretet ad, s a gyógyulást csak kis mértékben segíti elő.',
+    Mf: 'A Mesterfokú képzetség már komoly ismeretanyagot nyújt ezekhez is. Tartalmazza a kenőcsök és gyógynövények alkalmazásának tudományát is. Mesterfokú képzetség esetén mint Fájdalomtűrés pontok, mint az Életerő pontok gyorsabban gyógyulnak. Az Fp sérülések esetében, egyszeri kötözés hatására a gyógyulás háromszoros sebességű lesz, a rendszeres kezelés hatására pedig négyszeres. Az Ép gyógyulásában nagyobb a változás hiszen a Mesterfokú képzetség ebben nyújt igazán fontos segítséget. Kötözéssel, ami sínbe rakást, varrást vagy bármilyen egy alkalommal végrehajtott kezelést értünk - az Ép gyógyulás sebessége kétszeres lesz, az ellfertőzés esélye pedig nullára csökken. A rendszeres kezeléssel a gyógyulás ideje harmadára csökken. A mesterfokú képzetség lehetővé tesz viszonylag bonyolult, szinte műtét értékű beavatkozásokat is, amik az Alapfokú alkalmazással elképzelhetetlenek lennének.'
   }, {
     id: 'PSZI',
     name: 'Pszi',
     KpAf: 10,
     KpMf: 55,
-    description: 'A gondolkodó elme hatalmas erőforrásokat rejt, melynek felhasználásával uralmunk alá hajthatjuk testünk minden porcikáját, befolyásolhatjuk az anyagi világ törvényeit, vagy akár mások tudatát. Pyarronban dolgozták ki a Pszi mindenki számára megtanulható fajtáját, mely segitségével önmagunk és mások felet is korlátozott befolyásra tehetünk szert. A Pyarroni módszer nem alkalmas sem Mana előállitására, és nem is olyan hatékony mint a Slan-út- ám nagy előnye, hogy rövidebb idő alatt elsajátitható, mint az előbbi kettő, és gyakorlatilag bármely kaszt számára elérhető.',
-    Af: 'Segitségével saját testünk és akaratunk felett nyerhetünk hatalmat, elménk köré asztrális, vagy mentális pajzsokat épithetünk. Az Alapfok alkalmazói az Általános Diszciplinák mindegyikét végrehajthatják, ám csak saját magukon. Elsajátitásához elegendő 2-3 év, noha szükséges, hogy a tanuló Inteligenciája, Asztrálja és Akaratereje legalább 12 legyen.',
-    Mf: 'A Pszi alkalmazás azon foka, amely megengedi, hogy mások tudatára vagy fizikumára is hatást gyakoroljunk. A mesterfok ismerői képesek más Pszi-pajzsokat lebontani, és az Általános Diszciplinákat nem csak magukon, hanem másokon is végrehajthatják. Igaz, ilyenkor a befolyásolni kivánt személy ME dobásra jogosult - asztrális vagy mentális, attól függően, hogy a diszciplina a tudat melyik sikját támadja. A mesterfok eléréséhez szükséges az alapfok ismerete, jó néhány év gyakorlat, és rövid képzés egy Pszi-mestertől ( legalább 5. szintű mesterfokú Pszi használó ).'
+    description: 'A gondolkodó elme hatalmas erőforrásokat rejt, melynek felhasználásával uralmunk alá hajthatjuk testünk minden porcikáját, befolyásolhatjuk az anyagi világ törvényeit, vagy akár mások tudatát. Pyarronban dolgozták ki a Pszi mindenki számára megtanulható fajtáját, mely segitségével önmagunk és mások felet is korlátozott befolyásra tehetünk szert. A Pyarroni módszer nem alkalmas sem Mana előállítására, és nem is olyan hatékony mint a Slan-út- ám nagy előnye, hogy rövidebb idő alatt elsajátítható, mint az előbbi kettő, és gyakorlatilag bármely kaszt számára elérhető.',
+    Af: 'Segítségével saját testünk és akaratunk felett nyerhetünk hatalmat, elménk köré asztrális, vagy mentális pajzsokat építhetünk. Az Alapfok alkalmazói az Általános Diszciplinák mindegyikét végrehajthatják, ám csak saját magukon. Elsajátításához elegendő 2-3 év, noha szükséges, hogy a tanuló Intelligenciája, Asztrálja és Akaratereje legalább 12 legyen.',
+    Mf: 'A Pszi alkalmazás azon foka, amely megengedi, hogy mások tudatára vagy fizikumára is hatást gyakoroljunk. A mesterfok ismerői képesek más Pszi-pajzsokat lebontani, és az Általános Diszciplinákat nem csak magukon, hanem másokon is végrehajthatják. Igaz, ilyenkor a befolyásolni kivánt személy ME dobásra jogosult - asztrális vagy mentális, attól függően, hogy a diszciplina a tudat melyik síkját támadja. A mesterfok eléréséhez szükséges az alapfok ismerete, jó néhány év gyakorlat, és rövid képzés egy Pszi-mestertől ( legalább 5. szintű mesterfokú Pszi használó ).'
   }, {
     id: 'ALKIMIA',
-    name: 'Alkimia',
+    name: 'Alkímia',
     KpAf: 10,
     KpMf: 40,
-    description: 'Az Alkimia Tudománya elsősorban a Prima Material, más néven a Bölcsek Köve előállitására törekszik. Ez az a principium, melynek segitségével a nemtelen anyag arannyá változtatható. Ámbár Ynev világán a mágusok, de még a varázslók is képessek erre, jóval kevésbé fáradságos módon. Ez mégsem kedvetleniti el az alkimistákat, hiszen ők a tömeges aranycsinálásra törekszenek. Másrészt pedig, az Alkimia mára szerteágazó tudománnyá fejlődött, foglalkozik mindenféle mágikus italok, porok előállitásával, és persze elméleti úton az emberi elme nemesedését is célul tűzi ki.',
+    description: 'Az Alkímia Tudománya elsősorban a Prima Material, más néven a Bölcsek Köve előállítására törekszik. Ez az a principium, melynek segítségével a nemtelen anyag arannyá változtatható. Ámbár Ynev világán a mágusok, de még a varázslók is képessek erre, jóval kevésbé fáradságos módon. Ez mégsem kedvetleniti el az alkimistákat, hiszen ők a tömeges aranycsinálásra törekszenek. Másrészt pedig, az Alkimia mára szerteágazó tudománnyá fejlődött, foglalkozik mindenféle mágikus italok, porok előállításával, és persze elméleti úton az emberi elme nemesedését is célul tűzi ki.',
     Af: 'A képzetség Alapfokán a karakter egyszerűbb vegyületek, párlatok, őrlemények elkészitésére képes.',
-    Mf: 'A karakter bonyolult, nagyhatású anyagokat is készithet.'
+    Mf: 'A karakter bonyolult, nagyhatású anyagokat is készíthet.'
   }, {
     id: 'ELETTAN',
     name: 'Élettan',
     KpAf: 15,
     KpMf: 45,
-    description: 'Ynev világi tudományai közül a legtitkosabb az élet forrását kutató Élettan. Tudósait óvatos tisztelet övezi - akár a Bölcsk Kövét kereső alkimistákat - hiszen magát az Élet Principiumát kutatják, a szikrát, ami élővé magasztositja, az amugy nemtelen anygból felépült testet.',
-    Af: 'Az Élettan képzetség már alapfokon is elegendő mozgó szobrok ( Gólemek ) megformázásához, hasznos a gyógyitáskor, és elengethetetlen az Átváltotatás varázslat egyszerűbb alkalmazásához, vagy a Mesterfokú képzetség elsajátitásához.',
-    Mf: 'Az Élettan Mesterfokú ismerője - ha birja a szükséges mágikus hatalmat - alkothat életképes homonkuluszt, s az átváltoztatás varázslattal szinte bármely varázslást eszközölhet az élőlények szervezetében. Természetesen különleges lények alkotásához, különleges szervek megformázásához az adott teremtmény élettanát is szükséges ismerni, ami nem lebecsülendő akadály, hisyen ki hallott már tudósról, aki - tegyük fel - sárkányokat boncolt ?!'
+    description: 'Ynev világi tudományai közül a legtitkosabb az élet forrását kutató Élettan. Tudósait óvatos tisztelet övezi - akár a Bölcsek Kövét kereső alkímistákat - hiszen magát az Élet Principiumát kutatják, a szikrát, ami élővé magasztosítja, az amugy nemtelen anygból felépült testet.',
+    Af: 'Az Élettan képzetség már alapfokon is elegendő mozgó szobrok ( Gólemek ) megformázásához, hasznos a gyógyításkor, és elengethetetlen az Átváltotatás varázslat egyszerűbb alkalmazásához, vagy a Mesterfokú képzetség elsajátításához.',
+    Mf: 'Az Élettan Mesterfokú ismerője - ha bírja a szükséges mágikus hatalmat - alkothat életképes homonkuluszt, s az átváltoztatás varázslattal szinte bármely varázslást eszközölhet az élőlények szervezetében. Természetesen különleges lények alkotásához, különleges szervek megformázásához az adott teremtmény élettanát is szükséges ismerni, ami nem lebecsülendő akadály, hiszen ki hallott már tudósról, aki - tegyük fel - sárkányokat boncolt ?!'
   }, {
     id: 'MAGIA_HASZNALAT',
     name: 'Mágia használat',
     KpAf: 15,
     KpMf: 45,
-    description: 'A Mágiahasználat képzettség ismerője semmiképp sem számit varászlónak. Tudományának leghasznosabb vonása nem is az, hogy varászlatok létrehozására képes, hanem, hogy ismeri a mágiát, felismeri a varázslatokat, tudja minek mi az ellenszere. Kisenergiájú varázslatai az Elemi Mágiát kivéve nemigen érnek többet egyszerű trükoknél, bűvészmutatványnál. A Mágiahasználat képzetség Mesterfokán 10 Mp-ot képes az elméjébe gyűjteni. Az energiagyűjtést minden nap csak egyszer - pontosabban mindég csak kiadós alvás után, kipihenten - képes.Ez oly mértékben leterheli pszihéjét, hogy a következő huzamosabb alvásig a műveletet megismételni képtelen. A Mágiahasználat képzetséget mágusok dolgozták ki, és Yneven kizárólag két helyen oktatják: a Pyarroni Okkult Tudományok Egyetemén, illetve a Sigranomi Egyetemen. A képzés Alapfokon 3 évbe és 700 aranypénzbe, Mesterfokon 5 évbe és 1000 aranypénzbe kerül.',
+    description: 'A Mágiahasználat képzettség ismerője semmiképp sem számít varászlónak. Tudományának leghasznosabb vonása nem is az, hogy varászlatok létrehozására képes, hanem, hogy ismeri a mágiát, felismeri a varázslatokat, tudja minek mi az ellenszere. Kisenergiájú varázslatai az Elemi Mágiát kivéve nemigen érnek többet egyszerű trüköknél, bűvészmutatványnál. A Mágiahasználat képzetség Mesterfokán 10 Mp-ot képes az elméjébe gyűjteni. Az energiagyűjtést minden nap csak egyszer - pontosabban mindég csak kiadós alvás után, kipihenten - képes.Ez oly mértékben leterheli pszihéjét, hogy a következő huzamosabb alvásig a műveletet megismételni képtelen. A Mágiahasználat képzetséget mágusok dolgozták ki, és Yneven kizárólag két helyen oktatják: a Pyarroni Okkult Tudományok Egyetemén, illetve a Sigranomi Egyetemen. A képzés Alapfokon 3 évbe és 700 aranypénzbe, Mesterfokon 5 évbe és 1000 aranypénzbe kerül.',
     Af: 'A Mágiahasználat képzetség alapfokú ismerője már hatásuk alapján felismerik a varázslatokat, képesek következtetni az alkalmazott mozaikokra - egyszóval tudatában van mindazon elméleti tudásnak, amit a Mágia fejezetben leirtunk - de nem képes használni mágiát.',
     Mf: 'A Mágiaismeret képzetség Mesterfokú elsajátitásával a karakter - bármely kasztú is- képes lesz mozaikmágia használatára. Természetesen csak jelentős megszoritásokkal: az Asztrál és Mentálmágia fejezet alá tartozó varázslatmozaikok alkalmazására egyáltalán nem képes, és a Mana-pontjainak száma sem növekszik TSZ- lépéskor.'
   }, {
     id: 'DEMONOLOGIA',
-    name: 'Demonológia',
+    name: 'Démonológia',
     KpAf: 20,
     KpMf: 55,
     description: 'A Démonológia titkos képzetség. Pyarron vagy Doran könyvtáraiban akad csak olyan fóliáns, amely titkairól regél, s pesze a távoli Kránban. Toron egyes rendjei avatják be tudományába a tagjaikat, s a Déli Kolostorokban bukkanhat efféle tudás nyomára a kiválasztott kutató.',
     Af: 'A Démonológiában alapfokon képzett karakter közel száz fajta közdémon nevét, gondolati sémáját és képességeit ismeri. Ugyanigy tisztában van a legtöbb démonúr és démonherceg tudományával.',
-    Mf: 'Mesterfokú képzetség esetén ismeri a Démonok mentális testének felépitését, igy Alexandrit használata nélkül is képes rájuk Mentális Mágiával hatni.'
+    Mf: 'Mesterfokú képzetség esetén ismeri a Démonok mentális testének felépítését, így Alexandrit használata nélkül is képes rájuk Mentális Mágiával hatni.'
   }, {
     id: 'RUNAMAGIA',
     name: 'Rúnamágia',
     KpAf: 18,
     KpMf: 45,
-    description: 'A Rúnamágia - ha szigorúan nézzük- a Jelmágia azon alfejezete, amely a különböző rúna-rajzolatok mágikus tulajdonságait tanulmányozza. Elsődleges fontossággal bir a Jelmágián alapuló varázstárgyak készitésében, ahol a mágikus hatásokat a rúnák tárolják.',
-    Af: 'A Rúnamágiában alapfokon képzett karakter képes szabályosan felolvasni a mások álltal leirt rúnákat. Tudománya elegendő arra, hogy tekercseket olvasson fel, s életrehivja a beléjük fogalmazott varázslatokat, ám nem teszi alkalmassá egyetlen rúna leirására sem.',
-    Mf: 'A rána leirásának tudománya. Mivel számtalan mágikus alapismeretet és jelentős mágikus hatalmat követel, még a nagy varázslóiskolákban is csak keveseknek oktatják ( 6. TSZ fölött ). Ismeretében a karakter varázstárgyakat alkothat.'
+    description: 'A Rúnamágia - ha szigorúan nézzük- a Jelmágia azon alfejezete, amely a különböző rúna-rajzolatok mágikus tulajdonságait tanulmányozza. Elsődleges fontossággal bir a Jelmágián alapuló varázstárgyak készítésében, ahol a mágikus hatásokat a rúnák tárolják.',
+    Af: 'A Rúnamágiában alapfokon képzett karakter képes szabályosan felolvasni a mások álltal leírt rúnákat. Tudománya elegendő arra, hogy tekercseket olvasson fel, s életrehivja a beléjük fogalmazott varázslatokat, ám nem teszi alkalmassá egyetlen rúna leírására sem.',
+    Mf: 'A rúna leírásának tudománya. Mivel számtalan mágikus alapismeretet és jelentős mágikus hatalmat követel, még a nagy varázslóiskolákban is csak keveseknek oktatják ( 6. TSZ fölött ). Ismeretében a karakter varázstárgyakat alkothat.'
   }, {
     id: 'DRAGAKO_MAGIA',
     name: 'Drágakő mágia',
     KpAf: 0,
     KpMf: 52,
-    description: 'Titkos képzetség, csak a legnagyobb varázslóiskolákban a kiválasztott ( 9. TSZ felett ) tanitványoknak oktatják.',
+    description: 'Titkos képzetség, csak a legnagyobb varázslóiskolákban a kiválasztott ( 9. TSZ felett ) tanítványoknak oktatják.',
     Af: 'Alapfokú alkalmazása nem ismeretes.',
-    Mf: 'Mesterfokon varázstárgyak és drágakő esszenciák készitésére alkalmas.'
+    Mf: 'Mesterfokon varázstárgyak és drágakő esszenciák készítésére alkalmas.'
   }, {
     id: 'IDOMITAS',
-    name: 'Idomitás',
+    name: 'Idomítás',
     KpAf: 8,
     KpMf: 20,
-    description: 'Ynev világában nagycsomó olyan állat akad, amely betanitható az ember szolgálatára. Ezeknek csak jelentős, de nem kizárólagos hányadát jelentik a lovak, ökrök, kutyák. Hiszen vannak akik farkasokat, madarakat édeskednek magukhoz. Az Idomitás képzetség felruházza a karaktert annak képességével, állatokat tanitson be különféle feladatok végrehajtására.',
-    Af: 'Alapfokú képzettség esetén ezek csak hétköznapi, az adott állatfajtól megszokott cselekedetek lehetnek. A ló idomitható lovaglásra, a kutya alapvető engedelmességre.',
-    Mf: 'A Mesterfokon idomitó karakter állatait már mindenféle különleges kunsztok végrehajtására is képes betanitani. Remek példája ennek az, ami a vándorcirkuszban történik.'
+    description: 'Ynev világában nagycsomó olyan állat akad, amely betanítható az ember szolgálatára. Ezeknek csak jelentős, de nem kizárólagos hányadát jelentik a lovak, ökrök, kutyák. Hiszen vannak akik farkasokat, madarakat édeskednek magukhoz. Az Idomítás képzetség felruházza a karaktert annak képességével, hogy állatokat tanítson be különféle feladatok végrehajtására.',
+    Af: 'Alapfokú képzettség esetén ezek csak hétköznapi, az adott állatfajtól megszokott cselekedetek lehetnek. A ló idomítható lovaglásra, a kutya alapvető engedelmességre.',
+    Mf: 'A Mesterfokon idomító karakter állatait már mindenféle különleges kunsztok végrehajtására is képes betanítani. Remek példája ennek az, ami a vándorcirkuszban történik.'
   }, {
     id: 'ETIKETT',
     name: 'Etikett',
     KpAf: 8,
     KpMf: 15,
-    description: 'Az Etikett az udvarias, társadalmi követelményeknek megfelelő viselkedést jelenti. Azt a tudományt melynek birtokában a karakter tudja, kit miként kell köszöntenie, milyen módon kell meghajolnia, bizonyos helyzetekben hogyan kell viselkednie. Képes cirkalmassan fogalmazni, és megtalálja a helyét úri társaságban. Minden nép, tájegység, ország, birodalom kialakitja saját illemrendszerét, igy a karakternek a képzetség tanulásakor meg kell határoznia, hogy mely vidék etiketjét kivánja elsajátitani. A legismertebbek a shadoni, a pyarroni, erigowi, toroni és abasziszi etikett.',
+    description: 'Az Etikett az udvarias, társadalmi követelményeknek megfelelő viselkedést jelenti. Azt a tudományt melynek birtokában a karakter tudja, kit miként kell köszöntenie, milyen módon kell meghajolnia, bizonyos helyzetekben hogyan kell viselkednie. Képes cirkalmassan fogalmazni, és megtalálja a helyét úri társaságban. Minden nép, tájegység, ország, birodalom kialakitja saját illemrendszerét, igy a karakternek a képzetség tanulásakor meg kell határoznia, hogy mely vidék etiketjét kívánja elsajátitani. A legismertebbek a shadoni, a pyarroni, erigowi, toroni és abasziszi etikett.',
     Af: 'A karakter járatos a nemesi és főnemesi etikettben. Ismeri a réteg szokásait, az udvariassági fordulatokat, képes burkoltan közölni gondolatait, illetve illedelmesen vérig sérteni valakit.',
-    Mf: 'A karakter a fent leirtak mindegyikében még az udvarnál is megállja helyét.'
+    Mf: 'A karakter a fent leírtak mindegyikében még az udvarnál is megállja helyét.'
   }, {
     id: 'NYOMOLVASAS',
     name: 'Nyomolvasás/eltüntetés',
     KpAf: 10,
     KpMf: 45,
-    description: 'A Nyomolvasásban járatos karakter képes követni mások nyomait, pusztán a nyomokból kiolvassa, hányan jártak arra őelőtte és nagyából mi történt a helyszinen. Természetesen az eső, és a köves talaj megneheziti a nyomolvasást.',
-    Af: 'Terptől függően 1-6 nap távlatából képes olvasni a nyomokat. Azonos szintű képzetséggel rendelkeznyomolvasó elől el tudja tüntetni nyomait.',
-    Mf: 'Tereptől függően akár 1 hónap távlatából is sikerülhet kiolvasnia a nyomokból a kivánt információt. Nyomait teljesen el tudja tüntetni.'
+    description: 'A Nyomolvasásban járatos karakter képes követni mások nyomait, pusztán a nyomokból kiolvassa, hányan jártak arra őelőtte és nagyából mi történt a helyszinen. Természetesen az eső, és a köves talaj megnehezíti a nyomolvasást.',
+    Af: 'Terptől függően 1-6 nap távlatából képes olvasni a nyomokat. Azonos szintű képzetséggel rendelkező nyomolvasó elől el tudja tüntetni nyomait.',
+    Mf: 'Tereptől függően akár 1 hónap távlatából is sikerülhet kiolvasnia a nyomokból a kívánt információt. Nyomait teljesen el tudja tüntetni.'
   }, {
     id: 'ERDOJARAS',
     name: 'Erdőjárás',
     KpAf: 5,
     KpMf: 14,
-    description: 'Az Erdőjárás képzetség a természet, különös tekintettel az erdő ismeretét jelenti. Olyan tudás amelynek segitségével a karakter eligazodik a leghatalmasabb rengetegben is, ismeri a ragadozókat, a zsákmányállatokat, tudja mitől kell tartani és mitől nem. Megleli az ehető bogyókat és gyökereket, mint ahogy felismeri a mérgezőket is. Ismeri a vadak szokásait, a növények tipusait.',
+    description: 'Az Erdőjárás képzetség a természet, különös tekintettel az erdő ismeretét jelenti. Olyan tudás amelynek segítségével a karakter eligazodik a leghatalmasabb rengetegben is, ismeri a ragadozókat, a zsákmányállatokat, tudja mitől kell tartani és mitől nem. Megleli az ehető bogyókat és gyökereket, mint ahogy felismeri a mérgezőket is. Ismeri a vadak szokásait, a növények tipusait.',
     Af: 'A karakter éveket élt erdőben',
     Mf: 'Leginkább elfek, erdőben élő Arel papok vagy évtizedekig erdőben élő erdőjáró.'
   }, {
@@ -24951,53 +25049,53 @@ var state = {
     KpMf: 15,
     description: 'A Vadászat/Halászat képzetség azzal a képességgel ruházza fel birtokosát, hogy könnyen, fáradság nélkül jusson élelemhez erdőn, mezőn, tavak, tengerek környékén.',
     Af: 'A képzett karakter ismeri az állatok, halak szokásait, tudja mire, milyen körülmények között, milyen csalétekkel és milyen napszakban érdemes vadászni, illetve halászni. Tudománya saját és mások tapasztalatán alapul, netán bizonyos népek nemzedéről nemzedékre öröklődő hagyományain.',
-    Mf: 'A Mesterfokon képzett karakter, ha vadak nyomába szegődik, mintegy ösztönösen, belső intuició által vezetve talál rájuk. Netán olyan misztikus képességekkel is rendelkezik, mely segitségével magához csalogatja a későbbi zsákmányt. A Mesterfokú Vadászat/Halászat igazi mesterei az elfek lehetnének, ha különleges képességeiket hajlandóak lennének efféle általuk megvetett cél szolgálatába állitani.'
+    Mf: 'A Mesterfokon képzett karakter, ha vadak nyomába szegődik, mintegy ösztönösen, belső intuíció álltal vezetve talál rájuk. Netán olyan misztikus képességekkel is rendelkezik, mely segítségével magához csalogatja a későbbi zsákmányt. A Mesterfokú Vadászat/Halászat igazi mesterei az elfek lehetnének, ha különleges képességeiket hajlandóak lennének efféle általuk megvetett cél szolgálatába állítani.'
   }, {
     id: 'LOVAGLAS',
     name: 'Lovaglás',
     KpAf: 1,
     KpMf: 15,
-    description: 'A Lovaglás képzettség elengethetetlenül fontos minden kalandozó életmódott folytató karakter számára. De nem nélkülözhetik a katonák, harcosok, lovagok sem - sőt! A ló Ynev legelsődlegesebb közlekedési eszköze. Igy vagy ugy de majdnem minden nem paraszti származású ember elsajátitja a Lovaglást.',
-    Af: 'Az alapfokon képzett karakter képes megülni a lovat, irányitani, akarata szolgálatába kényszeriteni - feltéve, ha a hátas idomitott. Nem jelent számára gondott a vágta, de az ugratás sem. Kijelenthetjük, már az alapfokú képzetség is tökéletes lovastudományt jelent. Ahoz azonban nem elegendő, hogy a karakter kihasználhassa a lovas harcmodorból származó előnyöket.',
-    Mf: 'A Mesterfokon képzett lovas tökéletes uralmat tart az álltala megült hátas felett. Gyakorlotsága révén nem igényel tőle különösebb figyelmet az állat irányitása, ezt ösztönösen teszi. Igy képes ugy harcolni lovaglás közben, hogy teljesen kihasználja az ebből eredő előnyöket.'
+    description: 'A Lovaglás képzettség elengethetetlenül fontos minden kalandozó életmódott folytató karakter számára. De nem nélkülözhetik a katonák, harcosok, lovagok sem - sőt! A ló Ynev legelsődlegesebb közlekedési eszköze. Így vagy ugy de majdnem minden nem paraszti származású ember elsajátítja a Lovaglást.',
+    Af: 'Az alapfokon képzett karakter képes megülni a lovat, irányítani, akarata szolgálatába kényszeríteni - feltéve, ha a hátas idomított. Nem jelent számára gondott a vágta, de az ugratás sem. Kijelenthetjük, már az alapfokú képzetség is tökéletes lovastudományt jelent. Ahoz azonban nem elegendő, hogy a karakter kihasználhassa a lovas harcmodorból származó előnyöket.',
+    Mf: 'A Mesterfokon képzett lovas tökéletes uralmat tart az álltala megült hátas felett. Gyakorlotsága révén nem igényel tőle különösebb figyelmet az állat irányítása, ezt ösztönösen teszi. Így képes ugy harcolni lovaglás közben, hogy teljesen kihasználja az ebből eredő előnyöket.'
   }, {
     id: 'KOCSIHAJTAS',
     name: 'Kocsihajtás',
     KpAf: 2,
     KpMf: 15,
     description: '',
-    Af: 'Az alapfokon képzett karakter gond nélkül hajt egyes- vagy kettesfogatot, tudja miként kell ki- és befogni a lovakat, ismeri a különböző kocsik, hintók teherbirását.',
+    Af: 'Az alapfokon képzett karakter gond nélkül hajt egyes- vagy kettesfogatot, tudja miként kell ki- és befogni a lovakat, ismeri a különböző kocsik, hintók teherbírását.',
     Mf: 'Mesterfokú képzetség esetén a karakter elboldogul a négyes- vagy akár a hatosfogattal is, mitöbb, harcikocsi hajtásban is megtalálja a helyét.'
   }, {
     id: 'USZAS',
     name: 'Úszás',
     KpAf: 2,
     KpMf: 10,
-    description: 'Az úszni tudás korántsem hétköznapi ismeret Ynev világán. Leginkább csak a tengerek, tavak, folyók prtján élők birják. Egyes hadseregekben alacsony szinten megkövetelik a katonáktól, de ez nem álltalános. A különféle Harcos kasztok tagjai esetében azonban már mindennapos tudománynak számit.',
+    description: 'Az úszni tudás korántsem hétköznapi ismeret Ynev világán. Leginkább csak a tengerek, tavak, folyók prtján élők bírják. Egyes hadseregekben alacsony szinten megkövetelik a katonáktól, de ez nem álltalános. A különféle Harcos kasztok tagjai esetében azonban már mindennapos tudománynak számít.',
     Af: 'A karakter jól úszik. Ha kevés súly huzza, akár egy óra hosszatt is képes lebegni a felszinen. Könnyedén átuszik egy közepesen erős sodrású folyót.',
-    Mf: 'Képes teljes felszerelését a viz felszinén tartani, könnyedén úszik órákig is, ha úgy hozza a sors. Átússza a legsebesebb sodrású folyót is. FIGYELEM! fémvértezetben még mesterfokon sem lehet úszni.'
+    Mf: 'Képes teljes felszerelését a viz felszínén tartani, könnyedén úszik órákig is, ha úgy hozza a sors. Átússza a legsebesebb sodrású folyót is. FIGYELEM! fémvértezetben még mesterfokon sem lehet úszni.'
   }, {
     id: 'SZEXUALIS_KULTURA',
     name: 'Szexuális kultúra',
     KpAf: 5,
     KpMf: 30,
-    description: 'A Szexuális kultúra képzetség valójában a szeretkezés művészetét jelenti. Ynev világán több kultúrkör is kialakitotta a maga, a többitől differens tudományát az érintett területen. A karakter ezek közül válogathat, mikor a képzetség elsajátitására készül.',
-    Af: 'A karakter kultúráltan szeretkezik, érzékeli és képes teljesiteni partnere kivánságait.',
-    Mf: 'A karakter szeretkezés közben a legmagasabb kéjben részesiti, szinte megörjiti partnerét. Mindezek eredményeként, álltalában, érzelmileg is magához láncolja a másikat.'
+    description: 'A Szexuális kultúra képzetség valójában a szeretkezés művészetét jelenti. Ynev világán több kultúrkör is kialakította a maga, a többitől differens tudományát az érintett területen. A karakter ezek közül válogathat, mikor a képzetség elsajátítására készül.',
+    Af: 'A karakter kultúráltan szeretkezik, érzékeli és képes teljesíteni partnere kívánságait.',
+    Mf: 'A karakter szeretkezés közben a legmagasabb kéjben részesíti, szinte megörjíti partnerét. Mindezek eredményeként, álltalában, érzelmileg is magához láncolja a másikat.'
   }, {
     id: 'HAJOZAS',
     name: 'Hajózás',
     KpAf: 15,
     KpMf: 40,
-    description: 'Ynev világának beltengerein, tavain és folyamain jelentős hajózás folyik. Használnak tutajokat, gályákat, vitorlás hajókat, de még acélból épitett mágikus hajtású vizijárműveket is. A három legjelentősebb vizi-kereskedelmi útvonal: az úgynevezett Bibor-út a Quiron-tengeren, mely Toronból Abasziszba vezet, a szintén ugyanezen tengert átszelő a Tiadlan kikötőiből a Városállamokba vezető útvonal, valamint maga az egész Gályák Tengere.',
-    Af: 'A Hajózásban alapfokon képzett karakter képes elirányitani folyami, vagy kisebb tavi hajókat, és megálja helyét matrózként a tengeri hajókon.',
-    Mf: 'Mesterfok képzettség esetén képes tengerjáró hajók parancsnoklására, sőt partmenti, óceáni fuvar lebonyolitására is. Azonban Mesterfok esetén már meg kell határozni azt a hajótipust, melyre ugymond szakosodik. Választhat egy vagy több árbócos vitorláshajót, Galeaszt, vagy gályát, netán ezen csoportok bármelyikébe tartozó, de külön kategóriának számitó hadihajót.'
+    description: 'Ynev világának beltengerein, tavain és folyamain jelentős hajózás folyik. Használnak tutajokat, gályákat, vitorlás hajókat, de még acélból épitett mágikus hajtású vizijárműveket is. A három legjelentősebb vizi-kereskedelmi útvonal: az úgynevezett Bíbor-út a Quiron-tengeren, mely Toronból Abasziszba vezet, a szintén ugyanezen tengert átszelő a Tiadlan kikötőiből a Városállamokba vezető útvonal, valamint maga az egész Gályák Tengere.',
+    Af: 'A Hajózásban alapfokon képzett karakter képes elirányítani folyami, vagy kisebb tavi hajókat, és megálja helyét matrózként a tengeri hajókon.',
+    Mf: 'Mesterfok képzettség esetén képes tengerjáró hajók parancsnoklására, sőt partmenti, óceáni fuvar lebonyolítására is. Azonban Mesterfok esetén már meg kell határozni azt a hajótípust, melyre ugymond szakosodik. Választhat egy vagy több árbócos vitorláshajót, Galeaszt, vagy gályát, netán ezen csoportok bármelyikébe tartozó, de külön kategóriának számító hadihajót.'
   }, {
     id: 'ENEKLES',
     name: 'Éneklés/zenélés',
     KpAf: 5,
     KpMf: 30,
-    description: 'Nincs oly világ, ahol ne ismernének az ének és zene művészetét. Nem kivétel ez alól Ynev sem-sőt! At udvari zenészektől a kizárólag maguk szórakoztatására éneklő bárdokig, a szent énekeket kántáló kórusoktól a primitiv benszülött ceremóniák énekeséig mindenféle és fajta zenecsinálló fellelhető a kontinensen. A képzetség elsajátitásával a karakter szert tehet a különféle hangszereken történő játék, valamint az éneklés tudományára. Olyan ismeret ez, mely kellő fokon űzve bisztos kenyeret bisztosit a karakternek bármilyen nemesi udvartartásban, olykor pedig segitségére lehet az egyébbként kemény szivek meglágyitásában. Különösen igaz e utóbbi kitétel Ilanorban, ahol a nyers, képzetlen hangú, de tagadhatatlanul lelkes és tehetséges dalnokok búskomor nótái hamar könnyet csalnak a hallgatóság szemébe.',
+    description: 'Nincs oly világ, ahol ne ismernének az ének és zene művészetét. Nem kivétel ez alól Ynev sem - sőt! Az udvari zenészektől a kizárólag maguk szórakoztatására éneklő bárdokig, a szent énekeket kántáló kórusoktól a primitív benszülött ceremóniák énekeséig mindenféle és fajta zenecsinálló fellelhető a kontinensen. A képzetség elsajátításával a karakter szert tehet a különféle hangszereken történő játék, valamint az éneklés tudományára. Olyan ismeret ez, mely kellő fokon űzve bisztos kenyeret bisztosít a karakternek bármilyen nemesi udvartartásban, olykor pedig segítségére lehet az egyébbként kemény szivek meglágyításában. Különösen igaz e utóbbi kitétel Ilanorban, ahol a nyers, képzetlen hangú, de tagadhatatlanul lelkes és tehetséges dalnokok búskomor nótái hamar könnyet csalnak a hallgatóság szemébe.',
     Af: 'Az alapfokú képzetség esetén a karakter tagadhatatlanul szépen énekel, és játszik egy álltala választott hangszeren.',
     Mf: 'A karakter kiművelt hangon énekel, sokféle hangszeren játszik. Ha zenél, egyhamar elbűvöli a hallgatóságát. Tudománya már minden szempontból művészetnek nevezhető.'
   }, {
@@ -25005,24 +25103,24 @@ var state = {
     name: 'Tánc',
     KpAf: 5,
     KpMf: 30,
-    description: 'Fontos elkülöniteni a köznépi és az udvari stilust, valamint az igazi táncművészetet. Az Ynevi vidék és város egyszerű népe ünnepei alkalmával szivesen táncol, s ugyanez áll a jómódú polgárházak, paloták lakóira is. Az előbbi látványa viszolygást kelt, az úgynevezett felsőbb körökbe, utóbbié kacajt fakaszt a közrendű ajkakon - az egyes osztályok képviselőinek azonban felettébb ritkán adatik meg, hogy produkcióikkal egymást boldogitsák. A tánc művészetének számtalan vállfaja akad a kontinensen, példaként elég, ha az ilanori és yllinori kardtáncot, a niarei tőrtáncot, vagy a dzsad tűztáncot emlitjük.',
+    description: 'Fontos elkülöniteni a köznépi és az udvari stílust, valamint az igazi táncművészetet. Az Ynevi vidék és város egyszerű népe ünnepei alkalmával szívesen táncol, s ugyanez áll a jómódú polgárházak, paloták lakóira is. Az előbbi látványa viszolygást kelt, az úgynevezett felsőbb körökbe, utóbbié kacajt fakaszt a közrendű ajkakon - az egyes osztályok képviselőinek azonban felettébb ritkán adatik meg, hogy produkcióikkal egymást boldogitsák. A tánc művészetének számtalan vállfaja akad a kontinensen, példaként elég, ha az ilanori és yllinori kardtáncot, a niarei tőrtáncot, vagy a dzsad tűztáncot említjük.',
     Af: 'Alapfokú képzetség birtokában a karakter ismeri szülőhelyének és környékének táncait, és - ha koncentrál - úri társaságban sem hoz szégyent magára.',
-    Mf: 'Mesterfokon a karakter már az összes számottefő irányzat lépéseit ismeri, a divatosabbakban pedig egyenesen kivállónak minősül-akár egy uralkodóházban is megálja a helyét. Ha anyagi helyzete megkivánja, fellépést vállalhat, leckéket is adhat, megfelelő javadalmazásért.'
+    Mf: 'Mesterfokon a karakter már az összes számottevő irányzat lépéseit ismeri, a divatosabbakban pedig egyenesen kivállónak minősül - akár egy uralkodóházban is megálja a helyét. Ha anyagi helyzete megkívánja, fellépést vállalhat, leckéket is adhat, megfelelő javadalmazásért.'
   }, {
     id: 'HANGUTANZAS',
     name: 'Hangutánzás',
     KpAf: 3,
     KpMf: 16,
-    description: 'Sokrétű képzetségről van szó, ide soroljuk a vadászok állathang utánzó képességét, mellyel magukhoz csalogatják a vadat, ide tartozik a komédiások tudománya is, ennek segitségével, ismert, személyek, főurak, papok, királyok hangját utánozzák, közönségük épülésére.',
+    description: 'Sokrétű képzetségről van szó, ide soroljuk a vadászok állathang utánzó képességét, mellyel magukhoz csalogatják a vadat, ide tartozik a komédiások tudománya is, ennek segítségével ismert személyek, főurak, papok, királyok hangját utánozzák, közönségük épülésére.',
     Af: 'A képzettség alapfokán a karakter utánozhat szinte bármely állat, madár hangját, s a jellegzetes karakteres hangú, beszédmondó emberek utánzásával is elboldogul. Ellenben azokat, akik az utánzott személyeket közelről ismerik nem képes megtéveszteni, legfeljebb remekül elszórakoztatni.',
-    Mf: 'A karakter bármilyen emberi, vagy nem emberi, de emberi szájjal reprodukállható hangot képes leutánozni. Kis gyakorlással ezt olyan tökélyre viheti, hogy meg az utánzott személy édesanyja is összekeveri őt saját fiával-persze hacsak hangját hallja. Mesterfokú képzetséggel zajok, zörejek is valósághűen utánozhatók, például kulccsörgés, fegyvercsattogás, léptek dobogása, ajtónyikorgás.'
+    Mf: 'A karakter bármilyen emberi, vagy nem emberi, de emberi szájjal reprodukállható hangot képes leutánozni. Kis gyakorlással ezt olyan tökélyre viheti, hogy még az utánzott személy édesanyja is összekeveri őt saját fiával - persze hacsak hangját hallja. Mesterfokú képzetséggel zajok, zörejek is valósághűen utánozhatók, például kulccsörgés, fegyvercsattogás, léptek dobogása, ajtónyikorgás.'
   }, {
     id: 'ERTEKBECSLES',
     name: 'Értékbecslés',
     KpAf: 5,
     KpMf: 11,
-    description: 'Az értékbecslés tudománya álltalában ékszerészek, aranyművesek, tolvajok képessége, de némi gyakorlással és tanulással bárki elsajátithatja. A képesség segitségéval az értő szemű karkter rögvest megállapithatja a drágaságok értékét, és könnyen elkülöniti a valóst a hamistól.',
-    Af: 'Az Alapfokú értékbecslő képes meghatározni a drágakövek, arnay- és ezüsttárgyak értékét. Felismeri a megmunkáltság minőségéből eredő különbségeket és a nves mesterek kezemunkáját. Egy ilyen karaktert bizony nehezen vernek át, mikor vásárol vagy elad.',
+    description: 'Az értékbecslés tudománya álltalában ékszerészek, aranyművesek, tolvajok képessége, de némi gyakorlással és tanulással bárki elsajátíthatja. A képesség segitségéval az értő szemű karkter rögvest megállapíthatja a drágaságok értékét, és könnyen elkülöníti a valóst a hamistól.',
+    Af: 'Az Alapfokú értékbecslő képes meghatározni a drágakövek, arnay- és ezüsttárgyak értékét. Felismeri a megmunkáltság minőségéből eredő különbségeket és a neves mesterek kezemunkáját. Egy ilyen karaktert bizony nehezen vernek át, mikor vásárol vagy elad.',
     Mf: 'A Mesterfokon képzett karakter már a régiségek, mitöbb a varázsos tárgyak értékét is meg tudja becsülni. Távoli tájak rég elhunyt kézműveseinek munkáit is felismeri, és tisztában van annak valós árával.'
   }, {
     id: 'CSAPDAALLITAS',
@@ -25030,7 +25128,7 @@ var state = {
     KpAf: 10,
     KpMf: 20,
     description: '',
-    Af: 'A karakter képes embert vagy állatot fogjulejtő, vagy akár csak figyelmeztető jellegű csapda elkészitésére. Ezzel Ép vesztést nem okozhat, Fp vesztést max 1-10-et, továbbá ember foglyul ejtésekor nagyon valószinű, hogy az kiszabadul.',
+    Af: 'A karakter képes embert vagy állatot fogjulejtő, vagy akár csak figyelmeztető jellegű csapda elkészítésére. Ezzel Ép vesztést nem okozhat, Fp vesztést max 1-10-et, továbbá ember foglyul ejtésekor nagyon valószinű, hogy az kiszabadul.',
     Mf: 'A karakter képes embert is tartósan fogvatartó csabda készitésére, vagy a csapdával 3-30 Fp-t illetve 1-10 Ép-t sebezni.'
   }, {
     id: 'CSOMOZAS',
@@ -25038,15 +25136,15 @@ var state = {
     KpAf: 7,
     KpMf: 24,
     description: 'A kötélhasználat mesterei, a hurkok és bogok legjobb ismerői mindég is a hajósnépek voltak. Idővel a szárazföldek kalandorai is felismerték a kötélhasználatban rejlő lehetőségeket és egyre rátermetebben kezdték alkalmazni.',
-    Af: 'Alapfokú képzetség olyan csomók készitésére alkalmas, melyet józan ésszel képesek vagyunk elképzelni.',
+    Af: 'Alapfokú képzetség olyan csomók készítésére alkalmas, melyet józan ésszel képesek vagyunk elképzelni.',
     Mf: 'Mesterfokon pedig mindaz, ami az alapfokon túl van.'
   }, {
     id: 'ZSONGLORKODES',
     name: 'Zsonglőrködés',
     KpAf: 3,
     KpMf: 10,
-    description: 'A Zsonglőrködés a szórakoztatás kedvelt módja Yneven. A felsőbb körök éppoly szivesen szemlélik, mint a piacterek jöttment közönsége. Társulatok járják a falvakat, városokat, igyekeznek hosszabb-rövidebb időre beférkőzni egy-egy tudományukat méltányoló földesúr kegyeibe. Álltalában vidéken találják meg könnyebben számitásaikat, ahol a vándorcirkusz érkezte jelentős eseménynek, kitüntetett látványosságnak számit. A nagyobb városokba márcsak az igazi profik keresik meg a kenyerüket, mig a főnemesi -ne adj Isten Királyi udvarba csak a legjobbak juthatnak be.',
-    Af: 'A karakter kezdő szinten zsonglőrködik, ügyesen dobál a levegőbe egyszerre három, vagy akár négy tárgyat is, és ezeket semmiképp nem ejti el. Nehezebb kunsztokba azonban - közönség előtt-jobb ha nem fog.',
+    description: 'A Zsonglőrködés a szórakoztatás kedvelt módja Yneven. A felsőbb körök éppoly szivesen szemlélik, mint a piacterek jöttment közönsége. Társulatok járják a falvakat, városokat, igyekeznek hosszabb-rövidebb időre beférkőzni egy-egy tudományukat méltányoló földesúr kegyeibe. Álltalában vidéken találják meg könnyebben számításaikat, ahol a vándorcirkusz érkezte jelentős eseménynek, kitüntetett látványosságnak számít. A nagyobb városokba márcsak az igazi profik keresik meg a kenyerüket, míg a főnemesi -ne adj Isten Királyi udvarba csak a legjobbak juthatnak be.',
+    Af: 'A karakter kezdő szinten zsonglőrködik, ügyesen dobál a levegőbe egyszerre három, vagy akár négy tárgyat is, és ezeket semmiképp nem ejti el. Nehezebb kunsztokba azonban - közönség előtt - jobb ha nem fog.',
     Mf: 'A karakter mesterien zsonglőrködik. Bármilyen társulatban, a legelőkelőbb közönség előtt is megálja a helyét, a piacterekre kiállva hamar pénzhez jutt.'
   }, {
     id: 'FUTAS',
@@ -25054,32 +25152,32 @@ var state = {
     KpAf: 9,
     KpMf: 24,
     description: 'A Futás képzetség sokkal inkább jelent kitartó, mint szélsebes futást.',
-    Af: 'Az Alapfokú képzettséggel biró karakter, órákig képes egyfolytában, lendületes tempóban futni - pontosan annyi óra hosszatt amenyi az Állóképessége.',
-    Mf: 'A Futás képzetségnek is akadnak hihetetlen teljesitményre képes űzői. Olyanok, akik napokig birnak egyfolytába futni, pihenő nélkül, vagy olyanok akik órák hosszat lépést tartanak egy vágtató lóval. A Mesterfokú karakter nincs időhöz kötve képzetsége gyakorlásában, ám ha túlfesziti a húrt, akár életét is veszitheti.'
+    Af: 'Az Alapfokú képzettséggel bíró karakter, órákig képes egyfolytában, lendületes tempóban futni - pontosan annyi óra hosszatt amenyi az Állóképessége.',
+    Mf: 'A Futás képzetségnek is akadnak hihetetlen teljesitményre képes űzői. Olyanok, akik napokig birnak egyfolytába futni, pihenő nélkül, vagy olyanok akik órák hosszat lépést tartanak egy vágtató lóval. A Mesterfokú karakter nincs időhöz kötve képzetsége gyakorlásában, ám ha túlfesziti a húrt, akár életét is veszítheti.'
   }, {
     id: 'SZAKMA',
     name: 'Szakma',
     KpAf: 2,
     KpMf: 15,
-    description: 'Természetesen Ynev világán is élnek suszterok, szatócsok, kovácsok, asztalosok, mindnek megvan a maga tudománya, másként fogalmazva a szakmája. A magus Képzetségrendszerében a karakternek arra is van lehetősége, hogy ezeket elsajátitsa. Akár azért, hogy inséges időkben megéljen belőle, akár azért mert úgy véli, hogy hasznára válik az efféle ismeret kalandozása során. A Szakma képzetség segitségével a karakter elsajátithat egy általa megnevezett kézműves, civil szakmát.',
-    Af: 'A karakter ismeri a szakma alapjait, inasként bárhol beválna. Egyszerűbb feladatokat maga is képes elvégezni, de semmiképpen sem számit elismert mesterembernek.',
-    Mf: 'A karakter szakemberként ismeri az asott szakmát. Tudása elegendő arra, hogy-ha úgy hozza a szükség-akár meg is éljen belőle. Bárhol telepszik le, szivesen fogadják, hozzáértését elismerik. Műhely hiján képes egyszerűbb, műhelyben akár bonyolultabb holmik elkészitésére.'
+    description: 'Természetesen Ynev világán is élnek suszterok, szatócsok, kovácsok, asztalosok, mindnek megvan a maga tudománya, másként fogalmazva a szakmája. A magus Képzetségrendszerében a karakternek arra is van lehetősége, hogy ezeket elsajátítsa. Akár azért, hogy ínséges időkben megéljen belőle, akár azért mert úgy véli, hogy hasznára válik az efféle ismeret kalandozása során. A Szakma képzetség segítségével a karakter elsajátíthat egy általa megnevezett kézműves, civil szakmát.',
+    Af: 'A karakter ismeri a szakma alapjait, inasként bárhol beválna. Egyszerűbb feladatokat maga is képes elvégezni, de semmiképpen sem számít elismert mesterembernek.',
+    Mf: 'A karakter szakemberként ismeri az adott szakmát. Tudása elegendő arra, hogy - ha úgy hozza a szükség - akár meg is éljen belőle. Bárhol telepszik le, szívesen fogadják, hozzáértését elismerik. Műhely híján képes egyszerűbb, műhelyben akár bonyolultabb holmik elkészitésére.'
   }, {
     id: 'KOCSMAI_VEREKEDES',
     name: 'Kocsmai verekedés',
     KpAf: 3,
     KpMf: 15,
-    description: 'A karakter gyakorlott kocsmai verekedő. Képes bármilyen kézbe akadó, fegyverként használható tárgyal verekedni. Korsóval, székkel, asztallábal. Az efféle képzetséget álltalában saját kárán okulva sajátitja el, esetleg valamilyen mester útmutatása alapján. Ilyesmit oktató iskolák, tárgyaló könyvek nemigen akadnak.',
-    Af: 'Ha a felsorolt használati tárgyakkal verekszik, a karakter Té-je Vé-je nem csökken a Képzetlen Fegyverforgatásból származó minuszokkal.',
+    description: 'A karakter gyakorlott kocsmai verekedő. Képes bármilyen kézbe akadó, fegyverként használható tárgyal verekedni. Korsóval, székkel, asztallábal. Az efféle képzetséget álltalában saját kárán okulva sajátítja el, esetleg valamilyen mester útmutatása alapján. Ilyesmit oktató iskolák, tárgyaló könyvek nemigen akadnak.',
+    Af: 'Ha a felsorolt használati tárgyakkal verekszik, a karakter Té-je Vé-je nem csökken a Képzetlen Fegyverforgatásból származó mínuszokkal.',
     Mf: 'A felsorolt tárgyakkal, egy kör alatt, képes mindkét kézzel támadni.'
   }, {
     id: 'HATBASZURAS',
     name: 'Hátbaszúrás',
     KpAf: 10,
     KpMf: 25,
-    description: 'A leggyakrabban fejvadászok vagy Boszorkánymesterek álltal ismert és oktatott képzetség. Ma már azonban más kasztokba tartozó személyek, olykor egész klánok és rendek folyamodnak használatához. A képzetségel biró karakter halálos pontossággal támad hátulról, tudja hova milyen erővel kell döfnie, vágnia, ütnie-hogy ezzel áldozatán a lehető legsúlyosabb sebet ejtse. Hátbaszúrásra csak olyan egykezes fegyvert lehet használni, melynek forgatásában a karakter legalább alapfokon képzett.',
+    description: 'A leggyakrabban fejvadászok vagy Boszorkánymesterek álltal ismert és oktatott képzetség. Ma már azonban más kasztokba tartozó személyek, olykor egész klánok és rendek folyamodnak használatához. A képzetségel bíró karakter halálos pontossággal támad hátulról, tudja hova milyen erővel kell döfnie, vágnia, ütnie-hogy ezzel áldozatán a lehető legsúlyosabb sebet ejtse. Hátbaszúrásra csak olyan egykezes fegyvert lehet használni, melynek forgatásában a karakter legalább alapfokon képzett.',
     Af: 'A hátulról ejtett seb Sp értékéhez a fegyver sebzésén túl még hozzáadódik 2k6 Sp.',
-    Mf: 'Különféle ősi, mitikus mozdulatok sorozata, melynek hatásaként a karakter megacélozza akaratát, megfékezi kezének remegését, s minden figyelmét a döfés pontosságának finomitására szenteli. Az Af-nál már tárgyaltakon kivül az áldozatnak igy még további 1k6 Ép-mindenképpen Ép-sebet képes okozni.'
+    Mf: 'Különféle ősi, mitikus mozdulatok sorozata, melynek hatásaként a karakter megacélozza akaratát, megfékezi kezének remegését, s minden figyelmét a döfés pontosságának finomítására szenteli. Az Af-nál már tárgyaltakon kivül az áldozatnak így még további 1k6 Ép -mindenképpen Ép-sebet képes okozni.'
   }, {
     id: 'HAMISKARTYA',
     name: 'Hamiskártya',
@@ -25093,9 +25191,9 @@ var state = {
     name: 'Kötelékből szabadulás',
     KpAf: 8,
     KpMf: 16,
-    description: 'A képpzetséggel biró karakter rövid idő alatt képes kiszabadulni, ha megkötözik. Sok erre irányuló trükkhöz folyamodhat, kötelékeit eldörzsöli valamin, ügyesen kezeli rejtett apró pengéit, netán kigyószerűen hajlékonnyá edzi testét, és egy óvatlan pillanatban kibúj a hurokból.',
+    description: 'A képpzetséggel bíró karakter rövid idő alatt képes kiszabadulni, ha megkötözik. Sok erre irányuló trükkhöz folyamodhat, kötelékeit eldörzsöli valamin, ügyesen kezeli rejtett apró pengéit, netán kígyószerűen hajlékonnyá edzi testét, és egy óvatlan pillanatban kibúj a hurokból.',
     Af: 'Egyszerűbb hurkokból képes kiszabadulni. Ilyen a hátul összekötött kéz, a bokánál való felakasztás. Ha csomózásban akár alapfokon képzett karakter kötözi meg tehetetlen.',
-    Mf: 'Bonyolultabb, szakértők álltal készitett csomók sem tartják sokáig vissza, hasztalan kötik gúzsba, karikára. Csomózásban alapfokon birók álltal készitett kötelékből is megszabadul, ám a Mesterfokú csomózók munkái már kifognak rajta.'
+    Mf: 'Bonyolultabb, szakértők álltal készített csomók sem tartják sokáig vissza, hasztalan kötik gúzsba, karikára. Csomózásban alapfokon bírók álltal készitett kötelékből is megszabadul, ám a Mesterfokú csomózók munkái már kifognak rajta.'
   }, {
     id: 'ALCAZAS',
     name: 'Álcázás/álruha',
@@ -25108,43 +25206,43 @@ var state = {
   skillsPrecent: [{
     id: 'maszas',
     name: 'Mászás',
-    description: 'A Mászás képzetség a fák, falak megmászásában való különleges jártasságot jelenti. Azt, amikor a karakter fürgén és bisztosan kúszik fel az átlagember számára megmászhatatlannak itélt meredélyeken is. Az igazán gyakorlott falmászók, még a hihetetlenül sima felületeken is képesek kapaszkodót, támaszt találni. Nem jelentenek számukra akadályt a várak, lakóházak falai, a függőleges, vagy akár a kifelé dőlő sziklák sem. A Mászás képzettségben való Százalékos Jártasság értéke olyan falra, fára vonatkozik, melyet nagy szerencsével egy ügyes, de gyakorlatlan karakter is képes lenne megmászni. Ilyenkor módositó tényező nincs. Ha a fal nehezebben, vagy könnyebben leküzdhető, akkor a KM a karakter hátrányára vagy előnyére százalékot vonhat le, vagy adhat hozzá a jártassághoz. Átlagos nehézségűnek minősül a függőleges, egymásra rakott dinnyényi kövekből halmozott várfal, ahol a kiálló kövek, és a  repedések sűrű, könnyű kapaszkodót bisztositanak. A Képzetségpróbát minden megtett 25 méter ( vagy 3 perc tétlen kapaszkodás ) után meg kell ismételni. Igy egy 50 méter magas várfal leküzdéséhez két sikeres próba kell. A Mászás képzetség a tolvajok sajátja, de sokan űzik ilyen vagy olyan-akár még az övéknél is magasabb-szinten.'
+    description: 'A Mászás képzetség a fák, falak megmászásában való különleges jártasságot jelenti. Azt, amikor a karakter fürgén és bisztosan kúszik fel az átlagember számára megmászhatatlannak itélt meredélyeken is. Az igazán gyakorlott falmászók, még a hihetetlenül sima felületeken is képesek kapaszkodót, támaszt találni. Nem jelentenek számukra akadályt a várak, lakóházak falai, a függőleges, vagy akár a kifelé dőlő sziklák sem. A Mászás képzettségben való Százalékos Jártasság értéke olyan falra, fára vonatkozik, melyet nagy szerencsével egy ügyes, de gyakorlatlan karakter is képes lenne megmászni. Ilyenkor módosító tényező nincs. Ha a fal nehezebben, vagy könnyebben leküzdhető, akkor a KM a karakter hátrányára vagy előnyére százalékot vonhat le, vagy adhat hozzá a jártassághoz. Átlagos nehézségűnek minősül a függőleges, egymásra rakott dinnyényi kövekből halmozott várfal, ahol a kiálló kövek, és a  repedések sűrű, könnyű kapaszkodót bisztosítanak. A Képzetségpróbát minden megtett 25 méter ( vagy 3 perc tétlen kapaszkodás ) után meg kell ismételni. Igy egy 50 méter magas várfal leküzdéséhez két sikeres próba kell. A Mászás képzetség a tolvajok sajátja, de sokan űzik ilyen vagy olyan - akár még az övéknél is magasabb - szinten.'
   }, {
     id: 'eses',
     name: 'Esés',
-    description: 'A karakter ügyesen kigurulja, tompitja az eséseket. Ha nagyon magasról zuhan, érti a módját, hogy a keze ügyébe akadó rögzitett tárgyak segitségével hogyan fékezze, vagy akár álitsa meg a zuhanást. Regéket mesélnek olyan harcművészekről, akik egy kútba zuhanva, a kövek összeillesztésénél keletkező résekbe bele-belekapaszkodva képesek voltak fékezni, sőt kis idő múltán a falhoz tapadva akár meg is állitani az esést. A képzetség általános felhasználása azonban a harc során való esésekből származó ütések tompitása. Az a karakter, aki sikeres Képzetségpróbát tesz, nem szenvedi el az esésből származó sebzést, sőt, jóval könnyebben talpra is keveredik. Az Esés képzettségből való előnyök kihasználásához a karakternek előbb sikeres Képzetségpróbát kell tennie. Az Esés avatatlan nagymesterei mindenképpen a harcművészek, ám a képzetség mindenki számára tanulható.'
+    description: 'A karakter ügyesen kigurulja, tompítja az eséseket. Ha nagyon magasról zuhan, érti a módját, hogy a keze ügyébe akadó rögzitett tárgyak segitségével hogyan fékezze, vagy akár állítsa meg a zuhanást. Regéket mesélnek olyan harcművészekről, akik egy kútba zuhanva, a kövek összeillesztésénél keletkező résekbe bele-belekapaszkodva képesek voltak fékezni, sőt kis idő múltán a falhoz tapadva akár meg is állitani az esést. A képzetség általános felhasználása azonban a harc során való esésekből származó ütések tompítása. Az a karakter, aki sikeres Képzetségpróbát tesz, nem szenvedi el az esésből származó sebzést, sőt, jóval könnyebben talpra is keveredik. Az Esés képzettségből való előnyök kihasználásához a karakternek előbb sikeres Képzetségpróbát kell tennie. Az Esés avatatlan nagymesterei mindenképpen a harcművészek, ám a képzetség mindenki számára tanulható.'
   }, {
     id: 'ugras',
     name: 'Ugrás/Akrobatika',
-    description: 'A karakter a legkülönlegesebb ugrások, perdülések, szaltók, passziv és dinamikus hajlékonysági elemek végrehajtására képes, ezeket akár harc közben is alkalmazni tudja. Ezzel természetesen nehezebbé teszi ellenfele számára, hogy az megsebezhesse őt. Igy az Ugrás képzetséget harc közben is használó karakter VÉ-jéhez hozzáadódik az ugrás százalékának egyötöde. ( Pl: Ugrás 40%, akkor +8 a Vé-re ). Ennek természetes alapvető feltétele, hogy a küzdelem helyszinén ehhez elegendő tér álljon rendelkezésre. Vagyis alacsony helységekben, szűk folyosókban az Ugrás képzetsége harc közben nem alkalmazható.A Képzetség nem használható arra, hogy különösen magas falakat, vagy különlegesen széles árkokat ugorjon át. Ezt a Psi Testsúlycsökkentés diszciplinával lehet elérni.'
+    description: 'A karakter a legkülönlegesebb ugrások, perdülések, szaltók, passzív és dinamikus hajlékonysági elemek végrehajtására képes, ezeket akár harc közben is alkalmazni tudja. Ezzel természetesen nehezebbé teszi ellenfele számára, hogy az megsebezhesse őt. Igy az Ugrás képzetséget harc közben is használó karakter VÉ-jéhez hozzáadódik az ugrás százalékának egyötöde. ( Pl: Ugrás 40%, akkor +8 a Vé-re ). Ennek természetes alapvető feltétele, hogy a küzdelem helyszinén ehhez elegendő tér álljon rendelkezésre. Vagyis alacsony helységekben, szűk folyosókban az Ugrás képzetsége harc közben nem alkalmazható.A Képzetség nem használható arra, hogy különösen magas falakat, vagy különlegesen széles árkokat ugorjon át. Ezt a Pszi Testsúlycsökkentés diszciplinával lehet elérni.'
   }, {
     id: 'lopakodas',
     name: 'Lopódzás',
-    description: 'A Lopózás képzettségben járatos karakter képes csendben haladni. Sem lépései, sem egyébb mozdulatai nem vernek neszt. Minél képzettebb, annál nehezebb talajon teheti. Nagy segitségére lehet ez az észrevétlen behatolásban, a meglepetésszerű támadásban. Mindezen túl a képzetség ismeret még a haladás közben rejtőzködés képességét is jelenti, mikor a lopódzó kihasználja a terep kinálta tárgyakat, azok takarásába, netán árnyékába húzódva közeliti meg célpontját. A Lopózás mesterei a könnyű léptű elfek valamint a tolvajok és fejvadászok. Ők azok is, akiktől a karakter a legmagasabb szinten sajátithatja el a képzettséget.'
+    description: 'A Lopózás képzettségben járatos karakter képes csendben haladni. Sem lépései, sem egyébb mozdulatai nem vernek neszt. Minél képzettebb, annál nehezebb talajon teheti. Nagy segítségére lehet ez az észrevétlen behatolásban, a meglepetésszerű támadásban. Mindezen túl a képzetség ismeret még a haladás közben rejtőzködés képességét is jelenti, mikor a lopódzó kihasználja a terep kínálta tárgyakat, azok takarásába, netán árnyékába húzódva közelíti meg célpontját. A Lopózás mesterei a könnyű léptű elfek valamint a tolvajok és fejvadászok. Ők azok is, akiktől a karakter a legmagasabb szinten sajátíthatja el a képzettséget.'
   }, {
     id: 'rejtozes',
     name: 'Rejtőzés',
-    description: 'A Rejtőzés a félhomályban, vagy tárgyak takarásában való mozdulatlan meghúzódás tudományát jelenti. A képzett karakter képes felfedezni és kihasználni a fényviszonyokat, az emberi gondolkodás hiányosságai kinálta lehalkalmasabb búvóhelyeken. A Rejtőzés képzettség a Lopózáshoz hasonlóan a tolvajok és fejvadászok sajátja. Igazi mesterei képesek szinte egybeolvadni a tereptárgyakkal, akár még fényes nappal is.'
+    description: 'A Rejtőzés a félhomályban, vagy tárgyak takarásában való mozdulatlan meghúzódás tudományát jelenti. A képzett karakter képes felfedezni és kihasználni a fényviszonyokat, az emberi gondolkodás hiányosságai kínálta legalkalmasabb búvóhelyeken. A Rejtőzés képzettség a Lopózáshoz hasonlóan a tolvajok és fejvadászok sajátja. Igazi mesterei képesek szinte egybeolvadni a tereptárgyakkal, akár még fényes nappal is.'
   }, {
     id: 'koteltanc',
     name: 'Kötéltánc',
-    description: 'A kötéltánc nem feltétlenül a mutatványosok egy száll kötélen bemutatott szórakoztató produkcióit jelenti. Felettébb hasznos képzetség ez a hétköznapi életben is- különösen azok számára, akik gyakran kényszerűlnek úgy távozni valahonnan, hogy más ne eredhessen a nyomukba. A képzett karakter képes vizszintes, vagy attól 30 fokban eltérő szögben kifeszitett kötélen, rúdon, padlón sétálni. Hogy ezt megtehesse, ahhoz sikeres Képzettségpróbát kell dobnia, minden megtett 10 láb után. Képzetségének százalékban mért értéke  átlagos nehézségű feladatra vonatkozik, amit befolyásolhat a kötél ( padló, rúd ) meredeksége illetve vastagsága, a szél ereje stb. Átlagos nehézségű kötéltáncnak nevezzük a két cm vastag, mereven kifeszitett kötélen való gyaloglást, mikor a karakter minden figyelmét a feladatnak szentelheti, és szél továbbá egyébb zavaró körülmények nincsenek. A Kötéltánc mesterei a Harcművészek és a Tolvajok.'
+    description: 'A kötéltánc nem feltétlenül a mutatványosok egy száll kötélen bemutatott szórakoztató produkcióit jelenti. Felettébb hasznos képzetség ez a hétköznapi életben is - különösen azok számára, akik gyakran kényszerűlnek úgy távozni valahonnan, hogy más ne eredhessen a nyomukba. A képzett karakter képes vízszintes, vagy attól 30 fokban eltérő szögben kifeszitett kötélen, rúdon, padlón sétálni. Hogy ezt megtehesse, ahhoz sikeres Képzettségpróbát kell dobnia, minden megtett 10 láb után. Képzetségének százalékban mért értéke  átlagos nehézségű feladatra vonatkozik, amit befolyásolhat a kötél ( padló, rúd ) meredeksége illetve vastagsága, a szél ereje stb. Átlagos nehézségű kötéltáncnak nevezzük a két cm vastag, mereven kifeszített kötélen való gyaloglást, mikor a karakter minden figyelmét a feladatnak szentelheti, és szél továbbá egyébb zavaró körülmények nincsenek. A Kötéltánc mesterei a Harcművészek és a Tolvajok.'
   }, {
     id: 'zsebmetszes',
     name: 'Zsebmetszés',
-    description: 'Ynev világán is akadnak emberek, akik mások pénzének elcsenéséből kivánnak meggazdagodni. A tolvajláson és az erőszakos rabláson túl azonban akadnak jóval finomabb módszerek is. Ilyen a Zsebmetszés. Általában tömegben, a kinálkozó alkalmat kihasználva űzik. A tolvaj belenyúl álldozata zsebébe vagy erszényébe, netán felmetszi azt, és a benne található javakat elemeli. Ahoz, hogy sikerrel járjon, Képzettségpróbát kell tennie. Természetesen léteznek bizonyos könnyitő és nehezitő körülmények, melyekkel számolni kell-ez azonban a KM feladata és jogköre!'
+    description: 'Ynev világán is akadnak emberek, akik mások pénzének elcsenéséből kívánnak meggazdagodni. A tolvajláson és az erőszakos rabláson túl azonban akadnak jóval finomabb módszerek is. Ilyen a Zsebmetszés. Általában tömegben, a kínálkozó alkalmat kihasználva űzik. A tolvaj belenyúl álldozata zsebébe vagy erszényébe, netán felmetszi azt, és a benne található javakat elemeli. Ahoz, hogy sikerrel járjon, Képzettségpróbát kell tennie. Természetesen léteznek bizonyos könnyítő és nehezitő körülmények, melyekkel számolni kell - ez azonban a KM feladata és jogköre!'
   }, {
     id: 'csabdafelfedezes',
     name: 'Csapdakeresés',
-    description: 'Az elrejtett csapdák felfedezése és hatástalanitása rendkivül hasznos tudomány. Sok kellemetlenségtől óvhatja meg a karaktert és társait. Természetesen a tevékenység nem tudatalatti, csak akkor alkalmazható, ha a karakter előre szól. Nem is nevezhető gyorsnak, hiszen a gyanús terület aprólékos átvizsgálásából áll. A felfedezés és hatástalanitás két egymást követő próba függvénye.'
+    description: 'Az elrejtett csapdák felfedezése és hatástalanítása rendkívül hasznos tudomány. Sok kellemetlenségtől óvhatja meg a karaktert és társait. Természetesen a tevékenység nem tudatalatti, csak akkor alkalmazható, ha a karakter előre szól. Nem is nevezhető gyorsnak, hiszen a gyanús terület aprólékos átvizsgálásából áll. A felfedezés és hatástalanítás két egymást követő próba függvénye.'
   }, {
     id: 'zarnyitas',
     name: 'Zárnyitás',
-    description: 'Zárt ajtókkal, lakatokkal gyakran szembesül a kalandozó - hiszen számtalanszor tér be mások házába, kincseskamrájába meghivó nélkül. Az ajtók beszakitása, a lakatok leverése nem mindég célravezető, mivel nemkivánatos zajjal jár. A zárakkal egyidős az állkulcs alkalmazásának tudománya. A Zárnyitásban járatos karakter ismeri a zárak szerkezetét, működési mechanizmusát. Álkulcs készlete - vagy jobb hiján egy darabb drót-segitségével csodákra képes. A sikeres zárnyitás esélyét növelheti a jóminőségű felszerelés és csökkenti a zár bonyolultsága, összetettsége, hozzáférhetetlensége, netán egyedisége.'
+    description: 'Zárt ajtókkal, lakatokkal gyakran szembesül a kalandozó - hiszen számtalanszor tér be mások házába, kincseskamrájába meghívó nélkül. Az ajtók beszakitása, a lakatok leverése nem mindég célravezető, mivel nemkivánatos zajjal jár. A zárakkal egyidős az állkulcs alkalmazásának tudománya. A Zárnyitásban járatos karakter ismeri a zárak szerkezetét, működési mechanizmusát. Álkulcs készlete - vagy jobb hiján egy darabb drót - segitségével csodákra képes. A sikeres zárnyitás esélyét növelheti a jóminőségű felszerelés és csökkenti a zár bonyolultsága, összetettsége, hozzáférhetetlensége, netán egyedisége.'
   }, {
     id: 'titkosajto',
     name: 'Titkosajtó-keresés',
-    description: 'Várakban, kastélyokban, de olykor még városi házakba is épitenek olyan titkos folyosókat, melyek létéről, bejáratáról a ház urának és bizalmasainak kivételével senki nem tud. A lakók, ha bajba kerülnek, ezekben észrevétlenül elhagyhatják az épületet, vagy meghúzódhatnak rejtett helységeikben. Gyakran efféle folyosók vezetnek a kincseskamrákba, titkos laboratóriumokba vagy föld alatti tanácskozó termekbe. Ugynide soroljuk még a falakban nyiló titkos kamrákat és fülkéket, a padlódeszkák alatt vagy a mennyezetet boritó rozetták mögött meghúzódó rekeszeket. A Titkosajtó keresésben járatos karakternek esélye van arra, hogy meglelje ezen rejtett helyiségek bejáratát, ha létüket sejti, de pontos helyükről nem tud. A képesség gyakorlásához a karakternek a legtöbb esetbe be kell jelentenie kutatási szándékát. Ilyenkor a falat kopogtatja döngő szakaszokat keresve, rések repedések után viszgálódik. A Képzettségpróbát pozitivan befolyásolja, ha megmondja pontosan hol és mit keres. Minnél pontosabb meghatározást add a keresés mikéntjéről, annál nagyobb az esély a sikerre - persze csak abban az esetben, ha a titkos bejárat valóban a gyanúnak megfelelő természetű. A siker esélye annál kisebb, minnél jobban álcázták a titkosajtót, minnél szokatlanabb módon helyezték el. Bizonyos esetben akkor is akad lehetőség egy titkosajtó észlelésére, ha a karakter nem jelenti be kutatási szándékát. Ilzenkor persze nem magát az ajtót leli meg, csak gyanúja támad fel léte felől. Például inokolatlan huzatott érezhet, szemet szúrhatnak neki bizonyos jellegzetes épitészeti megoldások. Ha az adott helységben ilyesmi előfordul, a KM titokban Képzettségpróbát dob a karakter helyett, s csak akkor szól neki, ha a próba sikeres. Ilyen esetben még a karakternek is dobnia kell, ha meg is kivánja lelni az ajtót - ám dobására +25%-ot kap. A titkosajtó felfedezése nem eggyenlő kinyitásával. Olykor egyszerű retesz, zár, netán ravasz mechanizmus gondoskodik a túloldali helység bisztonságáról. Ha a zár nem nyitható néhány egyszerű mozdulattal, ha a karakter nem rendelkezik a beillő kulcsal, vagy a mechanizmus működéséhez szükséges ismerettel, csak a Zárnyitás képzettség segithet - vagy a fejsze.'
+    description: 'Várakban, kastélyokban, de olykor még városi házakba is épitenek olyan titkos folyosókat, melyek létéről, bejáratáról a ház urának és bizalmasainak kivételével senki nem tud. A lakók, ha bajba kerülnek, ezekben észrevétlenül elhagyhatják az épületet, vagy meghúzódhatnak rejtett helységeikben. Gyakran efféle folyosók vezetnek a kincseskamrákba, titkos laboratóriumokba vagy föld alatti tanácskozó termekbe. Ugynide soroljuk még a falakban nyilló titkos kamrákat és fülkéket, a padlódeszkák alatt vagy a mennyezetet boritó rozetták mögött meghúzódó rekeszeket. A Titkosajtó keresésben járatos karakternek esélye van arra, hogy meglelje ezen rejtett helyiségek bejáratát, ha létüket sejti, de pontos helyükről nem tud. A képesség gyakorlásához a karakternek a legtöbb esetbe be kell jelentenie kutatási szándékát. Ilyenkor a falat kopogtatja döngő szakaszokat keresve, rések repedések után viszgálódik. A Képzettségpróbát pozitívan befolyásolja, ha megmondja pontosan hol és mit keres. Minnél pontosabb meghatározást add a keresés mikéntjéről, annál nagyobb az esély a sikerre - persze csak abban az esetben, ha a titkos bejárat valóban a gyanúnak megfelelő természetű. A siker esélye annál kisebb, minnél jobban álcázták a titkosajtót, minnél szokatlanabb módon helyezték el. Bizonyos esetben akkor is akad lehetőség egy titkosajtó észlelésére, ha a karakter nem jelenti be kutatási szándékát. Ilzenkor persze nem magát az ajtót leli meg, csak gyanúja támad fel léte felől. Például inokolatlan huzatott érezhet, szemet szúrhatnak neki bizonyos jellegzetes épitészeti megoldások. Ha az adott helységben ilyesmi előfordul, a KM titokban Képzettségpróbát dob a karakter helyett, s csak akkor szól neki, ha a próba sikeres. Ilyen esetben még a karakternek is dobnia kell, ha meg is kívánja lelni az ajtót - ám dobására +25%-ot kap. A titkosajtó felfedezése nem eggyenlő kinyitásával. Olykor egyszerű retesz, zár, netán ravasz mechanizmus gondoskodik a túloldali helység bisztonságáról. Ha a zár nem nyitható néhány egyszerű mozdulattal, ha a karakter nem rendelkezik a beillő kulcsal, vagy a mechanizmus működéséhez szükséges ismerettel, csak a Zárnyitás képzettség segíthet - vagy a fejsze.'
   }]
 };
 var getters = {
@@ -25234,7 +25332,7 @@ var state = {
     },
     weight: '2 kg',
     price: '6 ezüst',
-    description: 'A csatabárd a balta harcban használt rokona. Egy hoszabb rövidebb fa nyélhez erősitenek egy vagy akár két éles pengét.Az egykezes változat fél méteres. A törpék kedvenc fegyvere.'
+    description: 'A csatabárd a balta harcban használt rokona. Egy hoszabb rövidebb fa nyélhez erősítenek egy vagy akár két éles pengét. Az egykezes változat fél méteres. A törpék kedvenc fegyvere.'
   }, {
     id: 'CSATABARD_KETKEZES',
     name: 'Kétkezes csatabárd',
@@ -25252,7 +25350,7 @@ var state = {
     },
     weight: '5 kg',
     price: '2 arany',
-    description: 'A csatabárd a balta harcban használt rokona. Egy hoszabb rövidebb fa nyélhez erősitenek egy vagy akár két éles pengét.A kétkezes változat egy méteres. A törpék kedvenc fegyvere.'
+    description: 'A csatabárd a balta harcban használt rokona. Egy hoszabb rövidebb fa nyélhez erősítenek egy vagy akár két éles pengét. A kétkezes változat egy méteres. A törpék kedvenc fegyvere.'
   }, {
     id: 'CSATACSAKANY',
     name: 'Csatacsákány',
@@ -25270,7 +25368,7 @@ var state = {
     },
     weight: '2,5 kg',
     price: '8 ezüst',
-    description: 'A csatacsákány, más néven fokos sokban hasonlit a közönséges csákányhoz, ám feje jóval rövidebb, úgy egyarasznyi. Gyakran két hegyel látják el.'
+    description: 'A csatacsákány, más néven fokos sokban hasonlít a közönséges csákányhoz, ám feje jóval rövidebb, úgy egyarasznyi. Gyakran két hegyel látják el.'
   }, {
     id: 'HAJITOBARD',
     name: 'Hajitóbárd',
@@ -25288,7 +25386,7 @@ var state = {
     },
     weight: '1,2 kg',
     price: '1 ezüst',
-    description: 'A hajitóbárd két fő változatban készül, az egyik egy teljesen hagyományos kisbalta, a másik -gyakoribb- változat teljes egészében fémből készül.'
+    description: 'A hajitóbárd két fő változatban készül, az egyik egy teljesen hagyományos kisbalta, a másik - gyakoribb - változat teljes egészében fémből készül.'
   }, {
     id: 'KARD_ROVID',
     name: 'Rövidkard',
@@ -25306,7 +25404,7 @@ var state = {
     },
     weight: '1 kg',
     price: '1 arany',
-    description: 'A rövidkard 40-60 cm hosszú, egyenes pengéje mindkét oldalon ki van élezve. Gyakran ijászok második fegyvere.'
+    description: 'A rövidkard 40-60 cm hosszú, egyenes pengéje mindkét oldalon ki van élezve. Gyakran íjászok második fegyvere.'
   }, {
     id: 'KARD_HOSSZU',
     name: 'Hosszúkard',
@@ -25360,7 +25458,7 @@ var state = {
     },
     weight: '3,5 kg',
     price: '3 arany',
-    description: 'A lovagi kard a lovagok kedvenc fegyvere. Egyenes, kétélű pengéje 80-120 cm hosszú. A vége lekerekitett, vagy igen tompa szögben csúcsos. Keresztvasa gyakran S alakú.'
+    description: 'A lovagi kard a lovagok kedvenc fegyvere. Egyenes, kétélű pengéje 80-120 cm hosszú. A vége lekerekített, vagy igen tompa szögben csúcsos. Keresztvasa gyakran S alakú.'
   }, {
     id: 'KARD_PALLOS',
     name: 'Pallos',
@@ -25396,7 +25494,7 @@ var state = {
     },
     weight: '1,5 kg',
     price: '1 arany 6 ezüst',
-    description: 'A szablya pengéje 60-80 cm hosszú és enyhén hajlitott. Csak a külső iv van kiélezve. Ivelése miatt sokkal jobban lehet vele vágni, mint az egyenes kardokkal -szúrásra, döfésre ritkán használják.'
+    description: 'A szablya pengéje 60-80 cm hosszú és enyhén hajlított. Csak a külső ív van kiélezve. Ívelése miatt sokkal jobban lehet vele vágni, mint az egyenes kardokkal - szúrásra, döfésre ritkán használják.'
   }, {
     id: 'KARD_DZSENN_SZABLYA',
     name: 'Dzsenn szablya',
@@ -25414,7 +25512,7 @@ var state = {
     },
     weight: '0,5 kg',
     price: '120 arany',
-    description: 'A dzsenn szablya szokatlanul keskeny és hosszú, ivelt pengéjű, mágikus úton készitett, ám mágikus tulajdonságokkal nem rendelkező fegyver. Gyakorlatilag törhetetlen.'
+    description: 'A dzsenn szablya szokatlanul keskeny és hosszú, ívelt pengéjű, mágikus úton készített, ám mágikus tulajdonságokkal nem rendelkező fegyver. Gyakorlatilag törhetetlen.'
   }, {
     id: 'KARD_JATAGAN',
     name: 'Jatagán',
@@ -25432,7 +25530,7 @@ var state = {
     },
     weight: '0,8 kg',
     price: '1 arany 4 ezüst',
-    description: 'A jatagán elnyújtott S alakot formázó, egyélű pengéje rővid, a kiszélesedő hegy ráadás pengéje visszahúzáskor mélyit a seben'
+    description: 'A jatagán elnyújtott S alakot formázó, egyélű pengéje rövid, a kiszélesedő hegy ráadás pengéje visszahúzáskor mélyít a seben'
   }, {
     id: 'KARD_HANDZSAR',
     name: 'Handzsár',
@@ -25450,7 +25548,7 @@ var state = {
     },
     weight: '2 kg',
     price: '1 arany 5 ezüst',
-    description: 'A handzsár a dzsadok kedvelt fegyvere. Erősen ivelt, csak a külső éle van kifenve. Jellegzetessége, hogy a penge a keresztvasnál allig tenyérnyi, a hegynél viszont jó másféltenyérnyi széles.'
+    description: 'A handzsár a dzsadok kedvelt fegyvere. Erősen ívelt, csak a külső éle van kifenve. Jellegzetessége, hogy a penge a keresztvasnál allig tenyérnyi, a hegynél viszont jó másféltenyérnyi széles.'
   }, {
     id: 'KARD_FEJVADASZ',
     name: 'Fejvadászkard',
@@ -25468,7 +25566,7 @@ var state = {
     },
     weight: '0,8 kg',
     price: '2 arany',
-    description: 'A fejvadászkard speciális, kétmarkolatú fegyver, Gorviktól Kránig szinte mindenütt alkalmazzák. Hossza személyre szabott, alsó, úgynevezett tonfa-markolatnál fogva, az alkarra szoritva épp könyékig ér. Külső élre és hegyre fenik.'
+    description: 'A fejvadászkard speciális, kétmarkolatú fegyver, Gorviktól Kránig szinte mindenütt alkalmazzák. Hossza személyre szabott, alsó, úgynevezett tonfa-markolatnál fogva, az alkarra szorítva épp könyékig ér. Külső élre és hegyre fenik.'
   }, {
     id: 'KARD_SLAN',
     name: 'Slan kard',
@@ -25486,10 +25584,10 @@ var state = {
     },
     weight: '1,4 kg',
     price: '100 arany',
-    description: 'A Slan kard a kardművész fegyvere. Keskeny enyhén ivelt pengéjének csak a külső ivét fenik ki. Hossza 1,1 méter amiből 30 cm a markolat. Keresztvasa kicsi, kör alakú. Különleges kovácsolási eljárással készül, nagyon nehezen törik, borotvaélles.'
+    description: 'A Slan kard a kardművész fegyvere. Keskeny enyhén ívelt pengéjének csak a külső ívét fenik ki. Hossza 1,1 méter amiből 30 cm a markolat. Keresztvasa kicsi, kör alakú. Különleges kovácsolási eljárással készül, nagyon nehezen törik, borotvaélles.'
   }, {
     id: 'KARD_KIGYO',
-    name: 'Kigyó kard',
+    name: 'Kígyó kard',
     TamKor: '1',
     Type: 'Szúró/vágófegyver',
     Hand: 1,
@@ -25504,7 +25602,7 @@ var state = {
     },
     weight: '1,4 kg',
     price: '6 arany',
-    description: 'A kigyókard szinte kizárólag a Tharr-papok fegyvertárában lelhető fel. Hossza 1,1 méter, kétélű pengéje enyhén hullámos. Egykezes fegyver.'
+    description: 'A kígyókard szinte kizárólag a Tharr-papok fegyvertárában lelhető fel. Hossza 1,1 méter, kétélű pengéje enyhén hullámos. Egykezes fegyver.'
   }, {
     id: 'KES',
     name: 'Kés',
@@ -25540,7 +25638,7 @@ var state = {
     },
     weight: '1 kg',
     price: '2 arany',
-    description: 'A mara-sequor 1 méter hosszúságú, enyhe ivben hajló, hegyénél kétélű, belső pengére fent vágókard. Hagyományos kráni fejvadászeszköz-lásd még sequor.'
+    description: 'A mara-sequor 1 méter hosszúságú, enyhe ívben hajló, hegyénél kétélű, belső pengére fent vágókard. Hagyományos kráni fejvadászeszköz - lásd még sequor.'
   }, {
     id: 'RAMIERA',
     name: 'Ramiera',
@@ -25558,7 +25656,7 @@ var state = {
     },
     weight: '0,8 kg',
     price: '2 arany',
-    description: 'A ramiera jó 40 cm hosszúságú, levélkeresztbetszetű, keskeny, kétélű és tűhegyes szúrófegyver, a gorviki fejvadászok és orgyilkosok kedvenc eszköze.'
+    description: 'A ramiera jó 40 cm hosszúságú, levélkeresztmetszetű, keskeny, kétélű és tűhegyes szúrófegyver, a gorviki fejvadászok és orgyilkosok kedvenc eszköze.'
   }, {
     id: 'SEQUOR',
     name: 'Sequor',
@@ -25576,7 +25674,7 @@ var state = {
     },
     weight: '0,4 kg',
     price: '1 arany 3 ezüst',
-    description: 'A sequor erősen görbitett pengéjű, kétélű és borotvaéles vágótőr. Krán fejvadászainak hagyományos fegyvere. Rajtuk kivül szinte csak egy yllinori embervadász-iskola beavatottai alkalmazzák.'
+    description: 'A sequor erősen görbített pengéjű, kétélű és borotvaéles vágótőr. Krán fejvadászainak hagyományos fegyvere. Rajtuk kívül szinte csak egy yllinori embervadász-iskola beavatottai alkalmazzák.'
   }, {
     id: 'SLAN_CSILLAG',
     name: 'Slan csillag',
@@ -25648,7 +25746,7 @@ var state = {
     },
     weight: '0,8 kg',
     price: '70 arany',
-    description: 'A Slan tőr sokban hasonlit a Slan kardra, csak rövidebb. Felépitésében inkább kardra, mint tőrre emlékeztet, de pengéje hossza nem haladja meg a 40 cm-t.'
+    description: 'A Slan tőr sokban hasonlit a Slan kardra, csak rövidebb. Felépítésében inkább kardra, mint tőrre emlékeztet, de pengéje hossza nem haladja meg a 40 cm-t.'
   }, {
     id: 'TORKARD',
     name: 'Tőrkard',
@@ -25666,7 +25764,7 @@ var state = {
     },
     weight: '0,8 kg',
     price: '2 arany',
-    description: 'A tőrkard vagy rapir pengéje 80 cm hosszú, keskeny és egyenes. Mindkét oldalán ki van élezve, de főleg döfésre használják. Keskeny pengéje kivételes hajlékonyságot tesz lehetővé, ezért is terjedt el vivóeszközként. Keresztvasa diszes, a markolatot gyakran kosár védi.'
+    description: 'A tőrkard vagy rapír pengéje 80 cm hosszú, keskeny és egyenes. Mindkét oldalán ki van élezve, de főleg döfésre használják. Keskeny pengéje kivételes hajlékonyságot tesz lehetővé, ezért is terjedt el vívóeszközként. Keresztvasa díszes, a markolatot gyakran kosár védi.'
   }, {
     id: 'BOT_HOSSZU',
     name: 'Hosszú bot',
@@ -25684,7 +25782,7 @@ var state = {
     },
     weight: '1,2 kg',
     price: '50 réz',
-    description: 'A botot, mint fegyvert, Ynev-szerte alkalmazzák, bár általában lenézik használóját. Niarén és Enoszukén kivül inkább csak furkósbotot forgatnak, ami lehet akár egy frissen vágot husáng is - az előbb emlitett országok harcművészei viszont tökélyre fejlesztették a botok használatának tudományát.'
+    description: 'A botot, mint fegyvert, Ynev-szerte alkalmazzák, bár álltalában lenézik használóját. Niarén és Enoszukén kívül inkább csak furkósbotot forgatnak, ami lehet akár egy frissen vágot husáng is - az előbb emlitett országok harcművészei viszont tökélyre fejlesztették a botok használatának tudományát.'
   }, {
     id: 'BOT_ROVID',
     name: 'Rövid bot',
@@ -25702,7 +25800,7 @@ var state = {
     },
     weight: '0,7 kg',
     price: '30 réz',
-    description: 'A botot, mint fegyvert, Ynev-szerte alkalmazzák, bár általában lenézik használóját. Niarén és Enoszukén kivül inkább csak furkósbotot forgatnak, ami lehet akár egy frissen vágot husáng is - az előbb emlitett országok harcművészei viszont tökélyre fejlesztették a botok használatának tudományát.'
+    description: 'A botot, mint fegyvert, Ynev-szerte alkalmazzák, bár álltalában lenézik használóját. Niarén és Enoszukén kivül inkább csak furkósbotot forgatnak, ami lehet akár egy frissen vágot husáng is - az előbb emlitett országok harcművészei viszont tökélyre fejlesztették a botok használatának tudományát.'
   }, {
     id: 'BOT_FURKOS',
     name: 'Furkósbot',
@@ -25720,7 +25818,7 @@ var state = {
     },
     weight: '1,3 kg',
     price: 'ingyen',
-    description: 'A botot, mint fegyvert, Ynev-szerte alkalmazzák, bár általában lenézik használóját. Niarén és Enoszukén kivül inkább csak furkósbotot forgatnak, ami lehet akár egy frissen vágot husáng is - az előbb emlitett országok harcművészei viszont tökélyre fejlesztették a botok használatának tudományát.'
+    description: 'A botot, mint fegyvert, Ynev-szerte alkalmazzák, bár álltalában lenézik használóját. Niarén és Enoszukén kivül inkább csak furkósbotot forgatnak, ami lehet akár egy frissen vágot husáng is - az előbb emlitett országok harcművészei viszont tökélyre fejlesztették a botok használatának tudományát.'
   }, {
     id: 'BUZOGANY_EGYKEZES',
     name: 'Egykezes buzogány',
@@ -25738,7 +25836,7 @@ var state = {
     },
     weight: '2 kg',
     price: '8 ezüst',
-    description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
+    description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, míg a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
   }, {
     id: 'BUZOGANY_KETKEZES',
     name: 'Kétkezes buzogány',
@@ -25756,7 +25854,7 @@ var state = {
     },
     weight: '3 kg',
     price: '1 arany 2 ezüst',
-    description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
+    description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, míg a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
   }, {
     id: 'BUZOGANY_TUSKES',
     name: 'Tüskés buzogány',
@@ -25774,7 +25872,7 @@ var state = {
     },
     weight: '2 kg',
     price: '1 arany',
-    description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
+    description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, míg a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
   }, {
     id: 'BUZOGANY_TOLLAS',
     name: 'Tollas buzogány',
@@ -25792,7 +25890,7 @@ var state = {
     },
     weight: '2 kg',
     price: '1 arany 1 ezüst',
-    description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
+    description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, míg a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
   }, {
     id: 'BUZOGANY_LANCOS',
     name: 'Láncos buzogány',
@@ -25810,7 +25908,7 @@ var state = {
     },
     weight: '2 kg',
     price: '1 arany 2 ezüst',
-    description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, mig a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
+    description: 'A buzogánynak rengeteg változata van. Az alapképlet egyszerű, egy hoszabb-rövidebb nyél végére nehezék kerül, ennek csapása súlyos kárt tesz az ellenfélben. Az egykezes változatoknál ez a nyél 0,5-1 méteres, míg a kétkezesnél az 1,5 métert is elérheti. Az egykezes buzogány különböző változatai szögekkel vagy bordákkal vannak ellátva, netán a nyél és a súly közé egy lánc kerül. A láncos és kétkezes buzogányok szinte mindég tüskézettek.'
   }, {
     id: 'CSEPHADARO',
     name: 'Cséphadaró',
@@ -25828,7 +25926,7 @@ var state = {
     },
     weight: '2,5 kg',
     price: '7 ezüst',
-    description: 'A cséphadaró a láncos buzogány távoli rokona. Egy hosszú nyélre lánc segitségével egy fél méteres fa- vagy vasnehezéket erősitenek. Néha a nehezéket szögekkel is kiverik.'
+    description: 'A cséphadaró a láncos buzogány távoli rokona. Egy hosszú nyélre lánc segitségével egy fél méteres fa- vagy vasnehezéket erősítenek. Néha a nehezéket szögekkel is kiverik.'
   }, {
     id: 'HARCIKALAPACS',
     name: 'Harcikalapács',
@@ -25882,7 +25980,7 @@ var state = {
     },
     weight: '1,5 kg',
     price: '5 ezüst',
-    description: 'A dárda rövid, másfél méteres nyelén keskeny, hegyes penge helyeszkedik el, melynek gyakorta még éle sincs. Súlyelosztása miatt kiválóan dobható.'
+    description: 'A dárda rövid, másfél méteres nyelén keskeny, hegyes penge helyeszkedik el, melynek gyakorta még éle sincs. Súlyelosztása miatt kivállóan dobható.'
   }, {
     id: 'KOPJA_KONNYU',
     name: 'Könnyűkopja',
@@ -25900,7 +25998,7 @@ var state = {
     },
     weight: '2 kg',
     price: '9 ezüst',
-    description: 'A könnyű kopját lovasok és gyalogosok egyaránt használják. Nyele 2-3 méteres, feje keskeny hegybe végződik. A fej alá gyakorta zászlót is erősitenek.'
+    description: 'A könnyű kopját lovasok és gyalogosok egyaránt használják. Nyele 2-3 méteres, feje keskeny hegybe végződik. A fej alá gyakorta zászlót is erősítenek.'
   }, {
     id: 'KOPJA_LOVAS',
     name: 'Lovaskopja',
@@ -25972,7 +26070,7 @@ var state = {
     },
     weight: '2 kg',
     price: '5 ezüst',
-    description: 'A szigony a halásznépek egész különleges lándzsája. Hegye olyan keskeny, akár a nyél, és visszahajló tüskék sorakoznak rajta, ami megneheziti eltávolitását a sebből. Másik változatában a hegye két- vagy háromfelé ágazik szét.'
+    description: 'A szigony a halásznépek egész különleges lándzsája. Hegye olyan keskeny, akár a nyél, és visszahajló tüskék sorakoznak rajta, ami megnehezíti eltávolitását a sebből. Másik változatában a hegye két- vagy háromfelé ágazik szét.'
   }, {
     id: 'BOLA',
     name: 'Bola',
@@ -25990,7 +26088,7 @@ var state = {
     },
     weight: '0,8 kg',
     price: '40 réz',
-    description: 'A bola három rövid kötél- vagy szijdarab, ezeket a szijakat egyik végükön egymáshoz, a másikon ökölnyi nehezékhez rögzitik. A csomónál megfogva, megpörgetve és elhajitva sikeres Támadás esetén a kötelek ( szijak ) az álldozat valamelyik testrészére ( kivátképp a nyak a cél ) tekerednek, a feltekeredő súlyok pedig kábitó, nem ritkán halálos ütést mérnek rá. Az ellenfél -ha egyáltalán talpon marad- a továbbiakban 15-el csökkent VÉ-vel küzd, hisz mozgása nehézkesebbé válik.'
+    description: 'A bola három rövid kötél- vagy szíjdarab, ezeket a szíjakat egyik végükön egymáshoz, a másikon ökölnyi nehezékhez rögzítik. A csomónál megfogva, megpörgetve és elhajítva sikeres Támadás esetén a kötelek ( szíjak ) az álldozat valamelyik testrészére ( kivátképp a nyak a cél ) tekerednek, a feltekeredő súlyok pedig kábító, nem ritkán halálos ütést mérnek rá. Az ellenfél -ha egyáltalán talpon marad- a továbbiakban 15-el csökkent VÉ-vel küzd, hisz mozgása nehézkesebbé válik.'
   }, {
     id: 'DOBOHALO',
     name: 'Dobóháló',
@@ -26008,7 +26106,7 @@ var state = {
     },
     weight: '1 kg',
     price: '3 ezüst',
-    description: 'A dobóháló az abasziszi gladiátorok egyik közkedvelt fegyvere. A hozzávetőleg egy-két négyzetméteres, nem túl sürü szövésű hálót a baljukba tartják összefogva. A megfelelő pillanatban elhajitva a hálót, az a szélére erősitett sulyok hatására kibomlik, az ellenfélre terül, aki minden heves mozdulatával csak jobban belegabalyodik. A háló közepén akad egy külső kötél, amelynek végét a gladiátor mindvégig a kezében tartja. Sikeres támadásnál ezzel még jobban ráhurkolja a hálót az ellenfelére, sikertelen támadásnál ezzel ránthatja vissza fegyverét egy esetleges újrabróbálkozás reményében.A második és az összes többi támadásnál a támadó TÉ-jéből 15 levonódik - mivel hálója egyszer kibomlott már, és harc közben csak tessék -lássék lehet feltekerni. Ugynezen okból a hálóval legfeljebb minden harmadik körben kisérelhet meg támadást a használója. Ha a támadás sikeres, az ellenfél VÉ-je 40-el csökken.'
+    description: 'A dobóháló az abasziszi gladiátorok egyik közkedvelt fegyvere. A hozzávetőleg egy-két négyzetméteres, nem túl sűrű szövésű hálót a baljukba tartják összefogva. A megfelelő pillanatban elhajítva a hálót, az a szélére erősitett sulyok hatására kibomlik, az ellenfélre terül, aki minden heves mozdulatával csak jobban belegabalyodik. A háló közepén akad egy külső kötél, amelynek végét a gladiátor mindvégig a kezében tartja. Sikeres támadásnál ezzel még jobban ráhurkolja a hálót az ellenfelére, sikertelen támadásnál ezzel ránthatja vissza fegyverét egy esetleges újrabróbálkozás reményében.A második és az összes többi támadásnál a támadó TÉ-jéből 15 levonódik - mivel hálója egyszer kibomlott már, és harc közben csak tessék -lássék lehet feltekerni. Ugynezen okból a hálóval legfeljebb minden harmadik körben kísérelhet meg támadást a használója. Ha a támadás sikeres, az ellenfél VÉ-je 40-el csökken.'
   }, {
     id: 'GAROTT',
     name: 'Garott',
@@ -26026,10 +26124,10 @@ var state = {
     },
     weight: '0,1 kg',
     price: '1 ezüst',
-    description: 'A garott vagy fojtóhurok jellegzetes orrgyilkos fegyver. Nem más, mint egy hozzávetőleg 60-80 centiméteres acélhuzal, két végén foggantyúval. A támadó álldozata háta mögé osonva hurkot vett annak nyakába és addig szoritja, mig az meg nem fullad, vagy át nem vágja a torkát a vékony huzal. Az álldozat körönkénk 1k10-Sp-t veszit, mig meg nem hall-vagy ki nem szabadul. Szabadságra igen kicsi az esélye, hiszen szorongatot helyzete miatt kevesett tehet, csak az alábbi levonásokkal támadhat sikeres Akaraterőbróba után: Gyorsaság -5, Ügyesség -5, KÉ -10, TÉ -15, VÉ -20.Persze a támadó sajátossan kiszolgáltatott helyzetben van, mig a gyilkosság elkövetésére öszpontosit, ezért az ő VÉ-je is 20-szal csökken. Ha az álldozat sikeres támadást hajt végre támadója ellen, akkor annak kell Akaraterő próbát tennie, vajon sikerül-e továbbra is kitartania. Természetesen ez a fegyver csakis és kizárólag hátulról és meglepetésszerűen alkalmazható ( azaz csakis ha a Kezdeményezés a támadóé ), nyilt közelharcban semmi haszna. TÉ-je is csak a hátbatámadásra vonatkozik. Túlütés esetén az első körben -és csakis akkor - a garott Ép-t is sebezhet, a hirtelen rántás következtében.'
+    description: 'A garott vagy fojtóhurok jellegzetes orrgyilkos fegyver. Nem más, mint egy hozzávetőleg 60-80 centiméteres acélhuzal, két végén foggantyúval. A támadó álldozata háta mögé osonva hurkot vett annak nyakába és addig szorítja, míg az meg nem fullad, vagy át nem vágja a torkát a vékony huzal. Az álldozat körönkénk 1k10-Sp-t veszít, míg meg nem hall - vagy ki nem szabadul. Szabadságra igen kicsi az esélye, hiszen szorongatot helyzete miatt kevesett tehet, csak az alábbi levonásokkal támadhat sikeres Akaraterőbróba után: Gyorsaság -5, Ügyesség -5, KÉ -10, TÉ -15, VÉ -20. Persze a támadó sajátossan kiszolgáltatott helyzetben van, míg a gyilkosság elkövetésére öszpontosít, ezért az ő VÉ-je is 20-szal csökken. Ha az álldozat sikeres támadást hajt végre támadója ellen, akkor annak kell Akaraterő próbát tennie, vajon sikerül-e továbbra is kitartania. Természetesen ez a fegyver csakis és kizárólag hátulról és meglepetésszerűen alkalmazható ( azaz csakis ha a Kezdeményezés a támadóé ), nyílt közelharcban semmi haszna. TÉ-je is csak a hátbatámadásra vonatkozik. Túlütés esetén az első körben - és csakis akkor - a garott Ép-t is sebezhet, a hirtelen rántás következtében.'
   }, {
     id: 'HARITOTOR',
-    name: 'Háritótőr',
+    name: 'Hárítótőr',
     TamKor: '2',
     Type: 'Egyébb fegyverek',
     Hand: 1,
@@ -26044,7 +26142,7 @@ var state = {
     },
     weight: '0,3 kg',
     price: '2 ezüst',
-    description: 'A háritótőr egy különlegessen széles keresztvasú tőr, amit a vivó álltalában bal kézben forgat, felfogva vele ellenfele csapásait. A markolatot kosár védi. A háritótőr támadásra is használható, bár pengéje gyakran csak hegyes, éle nincs.'
+    description: 'A hárítótőr egy különlegessen széles keresztvasú tőr, amit a vívó álltalában bal kézben forgat, felfogva vele ellenfele csapásait. A markolatot kosár védi. A hárítótőr támadásra is használható, bár pengéje gyakran csak hegyes, éle nincs.'
   }, {
     id: 'KORBACS',
     name: 'Korbács',
@@ -26062,7 +26160,7 @@ var state = {
     },
     weight: '0,5 kg',
     price: '1 ezüst 20 réz',
-    description: 'A korbács sok helyen fenyitő eszköz. Egy-másfélméteres fonott bőrszij, vég tüskékkel, nehezékekkel kirakva. Túlütésnél nem sebez Ép-t, hanem kétszeres mennyiségű Fp-t, tekintettel arra, hogy ez az eszköz elsősorban kinozásra készült.'
+    description: 'A korbács sok helyen fenyítő eszköz. Egy-másfélméteres fonott bőrszíj, végin tüskékkel, nehezékekkel kirakva. Túlütésnél nem sebez Ép-t, hanem kétszeres mennyiségű Fp-t, tekintettel arra, hogy ez az eszköz elsősorban kínozásra készült.'
   }, {
     id: 'LASSZO',
     name: 'Lasszó',
@@ -26098,7 +26196,7 @@ var state = {
     },
     weight: '0,6 kg',
     price: '1 ezüst',
-    description: 'Az ostor nem csak lovak ösztönzésére használható, de harcban és mászásban egyaránt nagy segitség. Harci értéke nem sebzésében rejlik, hanem abban, hogy rátekeredik ellenfelére, megbénitva vagy lefegyverezve azt. Sikeres támadás esetén áldozata Vé-je 15-el csökken.'
+    description: 'Az ostor nem csak lovak ösztönzésére használható, de harcban és mászásban egyaránt nagy segítség. Harci értéke nem sebzésében rejlik, hanem abban, hogy rátekeredik ellenfelére, megbénítva vagy lefegyverezve azt. Sikeres támadás esetén áldozata Vé-je 15-el csökken.'
   }, {
     id: 'OKOL',
     name: 'Ököl',
@@ -26151,10 +26249,10 @@ var state = {
     },
     weight: '0,2 kg',
     price: '6 ezüst',
-    description: 'A fúvócső tűlövedékek kilövésére alkalmas. Lesből, méreggel használják, nyilt harcban vajmi kevés előnye van.'
+    description: 'A fúvócső tűlövedékek kilövésére alkalmas. Lesből, méreggel használják, nyílt harcban vajmi kevés előnye van.'
   }, {
     id: 'IJ_ROVID',
-    name: 'Rövidij',
+    name: 'Rövidíj',
     Hand: 2,
     TamKor: '2',
     Cat: 'R',
@@ -26167,10 +26265,10 @@ var state = {
     },
     weight: '0,6 kg',
     price: '3 arany',
-    description: 'A rövid és a hosszú ijak csak méretükben különböznek, felépitésük ugynolyan. Mindkettő egyszeresen hajlitott. Mivel a hosszú ij fája jobban hajlik, nagyobb erővel repiti a vesszőt.'
+    description: 'A rövid és a hosszú íjak csak méretükben különböznek, felépitésük ugynolyan. Mindkettő egyszeresen hajlított. Mivel a hosszú íj fája jobban hajlik, nagyobb erővel repíti a vesszőt.'
   }, {
     id: 'IJ_HOSSZU',
-    name: 'Hosszúij',
+    name: 'Hosszúíj',
     Hand: 2,
     TamKor: '2',
     Cat: 'R',
@@ -26183,10 +26281,10 @@ var state = {
     },
     weight: '0,7 kg',
     price: '3 arany 5 ezüst',
-    description: 'A rövid és a hosszú ijak csak méretükben különböznek, felépitésük ugynolyan. Mindkettő egyszeresen hajlitott. Mivel a hosszú ij fája jobban hajlik, nagyobb erővel repiti a vesszőt.'
+    description: 'A rövid és a hosszú íjak csak méretükben különböznek, felépitésük ugynolyan. Mindkettő egyszeresen hajlított. Mivel a hosszú íj fája jobban hajlik, nagyobb erővel repíti a vesszőt.'
   }, {
     id: 'IJ_VISSZACSAPO',
-    name: 'Visszacsapóij',
+    name: 'Visszacsapóíj',
     Hand: 2,
     TamKor: '2',
     Cat: 'R',
@@ -26199,10 +26297,10 @@ var state = {
     },
     weight: '0,8 kg',
     price: '25 arany',
-    description: 'A visszacsapó vagy nomád ij lényegesen különbözik a rövid- hosszú ijaktól. Rétegzett fából, csontból és esetenként fémből készül. Kétszeresen hajlitott, igy lényegesen nagyobb rugalmas erő halmozódik föl benne.'
+    description: 'A visszacsapó vagy nomád íj lényegesen különbözik a rövid- hosszú íjaktól. Rétegzett fából, csontból és esetenként fémből készül. Kétszeresen hajlított, igy lényegesen nagyobb rugalmas erő halmozódik föl benne.'
   }, {
     id: 'IJ_ELF',
-    name: 'Elf ij',
+    name: 'Elf íj',
     Hand: 2,
     TamKor: '2',
     Cat: 'R',
@@ -26215,7 +26313,7 @@ var state = {
     },
     weight: '0,7 kg',
     price: '120 arany',
-    description: 'Az elf ij mágikus úton készitett, enyhe mágikus hatású fegyver. A hatás főként felhúzáskor érvényesül, és a lendülethez, lövéstávhoz viszonyitva csekély erőfeszitést követel -preciziós célzásra kiválóan alkalmas.'
+    description: 'Az elf íj mágikus úton készitett, enyhe mágikus hatású fegyver. A hatás főként felhúzáskor érvényesül, és a lendülethez, lövéstávhoz viszonyítva csekély erőfeszítést követel -precíziós célzásra kiválóan alkalmas.'
   }, {
     id: 'NYILPUSKA_AQUIR',
     name: 'Aquir nyilpuska',
@@ -26327,7 +26425,7 @@ var state = {
     },
     weight: '0,1 kg',
     price: '30 réz',
-    description: 'A parittya egy hosszú bőrszij, kiszélesedő középső részel, ide kerül a kő. A félbehajtott szijat megforgatva, majd az egyik végét elengedve veti ki a követ a parittyás.'
+    description: 'A parittya egy hosszú bőrszíj, kiszélesedő középső részel, ide kerül a kő. A félbehajtott szíjat megforgatva, majd az egyik végét elengedve veti ki a követ a parittyás.'
   }]
 };
 var getters = {
@@ -50219,6 +50317,45 @@ component.options.__file = "resources/js/components/AdminSite.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/DiceGenerator.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/DiceGenerator.vue ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DiceGenerator_vue_vue_type_template_id_7dd5a091___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DiceGenerator.vue?vue&type=template&id=7dd5a091& */ "./resources/js/components/DiceGenerator.vue?vue&type=template&id=7dd5a091&");
+/* harmony import */ var _DiceGenerator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DiceGenerator.vue?vue&type=script&lang=js& */ "./resources/js/components/DiceGenerator.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _DiceGenerator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DiceGenerator_vue_vue_type_template_id_7dd5a091___WEBPACK_IMPORTED_MODULE_0__.render,
+  _DiceGenerator_vue_vue_type_template_id_7dd5a091___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/DiceGenerator.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/GameDownloads.vue":
 /*!***************************************************!*\
   !*** ./resources/js/components/GameDownloads.vue ***!
@@ -51831,6 +51968,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/DiceGenerator.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/DiceGenerator.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DiceGenerator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DiceGenerator.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DiceGenerator.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DiceGenerator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/GameDownloads.vue?vue&type=script&lang=js&":
 /*!****************************************************************************!*\
   !*** ./resources/js/components/GameDownloads.vue?vue&type=script&lang=js& ***!
@@ -52722,6 +52875,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/DiceGenerator.vue?vue&type=template&id=7dd5a091&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/DiceGenerator.vue?vue&type=template&id=7dd5a091& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DiceGenerator_vue_vue_type_template_id_7dd5a091___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DiceGenerator_vue_vue_type_template_id_7dd5a091___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DiceGenerator_vue_vue_type_template_id_7dd5a091___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DiceGenerator.vue?vue&type=template&id=7dd5a091& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DiceGenerator.vue?vue&type=template&id=7dd5a091&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/GameDownloads.vue?vue&type=template&id=6ec5543e&":
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/GameDownloads.vue?vue&type=template&id=6ec5543e& ***!
@@ -53593,6 +53763,159 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DiceGenerator.vue?vue&type=template&id=7dd5a091&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DiceGenerator.vue?vue&type=template&id=7dd5a091& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "diceModal",
+          tabindex: "-1",
+          "aria-labelledby": "diceModalLabel",
+          "aria-hidden": "true",
+        },
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _c("div", { staticClass: "modal-header" }, [
+              _c(
+                "h5",
+                { staticClass: "modal-title", attrs: { id: "diceModalLabel" } },
+                [_vm._v("Kockák")]
+              ),
+              _vm._v(" "),
+              _c("button", {
+                staticClass: "btn-close",
+                attrs: {
+                  type: "button",
+                  "data-bs-dismiss": "modal",
+                  "aria-label": "Close",
+                },
+                on: { click: _vm.closeModal },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "text-center p-5 m-2 border border-secondary rounded-2",
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "d-grid gap-2" },
+                    _vm._l(_vm.dices, function (dice, index) {
+                      return _c(
+                        "button",
+                        {
+                          key: "DICE" + index,
+                          staticClass: "btn btn-success btn-lg costum-btn mb-2",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.rollDice(dice)
+                            },
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                            K" +
+                              _vm._s(dice) +
+                              " dobókocka\n                        "
+                          ),
+                        ]
+                      )
+                    }),
+                    0
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", [
+                _c("div", { staticClass: "text-center mt-3" }, [
+                  _c("h2", [_vm._v(_vm._s(_vm.rollLabel))]),
+                  _vm._v(" "),
+                  _vm.rollResult
+                    ? _c("h2", { staticClass: "display-3 mt-3" }, [
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "shadow pt-1 pb-1 ps-3 pe-3 border border-3 border-dark rounded-pill",
+                          },
+                          [_vm._v(_vm._s(_vm.rollResult))]
+                        ),
+                      ])
+                    : _vm._e(),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary costum-btn",
+                  attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  on: { click: _vm.closeModal },
+                },
+                [_vm._v("Bezár")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success mt-2 costum-btn",
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#diceModal",
+          },
+        },
+        [_vm._v("Kockadobás")]
+      ),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameDownloads.vue?vue&type=template&id=6ec5543e&":
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GameDownloads.vue?vue&type=template&id=6ec5543e& ***!
@@ -53829,6 +54152,13 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", [
     _vm.error ? _c("div", [_vm._m(0)]) : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "text-end" },
+      [_c("dice-generator", { attrs: { dices: [6, 10, 100] } })],
+      1
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "text-center m-5" }, [
       _c("h1", { staticClass: "mb-5" }, [_vm._v(_vm._s(_vm.moduleName))]),
@@ -62322,6 +62652,13 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid bg-white-leather" }, [
+    _c(
+      "div",
+      { staticClass: "text-end" },
+      [_c("dice-generator", { attrs: { dices: [6, 10, 100] } })],
+      1
+    ),
+    _vm._v(" "),
     _vm.basic == 1
       ? _c("div", [
           _vm._m(0),
