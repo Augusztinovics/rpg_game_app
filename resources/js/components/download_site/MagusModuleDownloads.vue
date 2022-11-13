@@ -59,11 +59,15 @@
                                 >
                                     Áttekintés
                                 </button>
-                                <a :href="'public/game-module-pdf/' + gameModule.id" class="btn btn-outline-success m-1"
-                                    >Letölt</a
+                                <a
+                                    v-if="gameModule.author_id != userId"
+                                    :href="'public/game-module-pdf/' + gameModule.id"
+                                    class="btn btn-outline-success m-1"
                                 >
+                                    Letölt
+                                </a>
                                 <button
-                                    v-if="isGm"
+                                    v-if="isGm && (gameModule.author_id != userId)"
                                     class="btn btn-outline-success m-1"
                                     @click="usePublicGameModule(gameModule.id)"
                                 >
@@ -243,6 +247,7 @@ export default {
             isAdmin: false,
             searchByAuthor: '',
             searchByTitle: '',
+            userId: null,
         };
     },
     computed: {
@@ -258,6 +263,7 @@ export default {
                 this.gameModules = res.data.gameModules.data;
                 this.isGm = res.data.isGm;
                 this.isAdmin = res.data.isAdmin;
+                this.userId = res.data.userId;
                 this.pagLinks = res.data.gameModules.links;
             })
             .catch((error) => {
@@ -271,6 +277,7 @@ export default {
                 this.gameModules = res.data.gameModules.data;
                 this.isGm = res.data.isGm;
                 this.isAdmin = res.data.isAdmin;
+                this.userId = res.data.userId;
                 this.pagLinks = res.data.gameModules.links;
             })
             .catch((error) => {
@@ -345,6 +352,7 @@ export default {
                 this.gameModules = res.data.gameModules;
                 this.isGm = res.data.isGm;
                 this.isAdmin = res.data.isAdmin;
+                this.userId = res.data.userId;
                 this.pagLinks = [];
                 this.loading = false;
             })

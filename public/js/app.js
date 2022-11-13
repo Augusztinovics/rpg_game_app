@@ -7163,6 +7163,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -7175,7 +7179,8 @@ __webpack_require__.r(__webpack_exports__);
       selectedIndex: null,
       isAdmin: false,
       searchByAuthor: '',
-      searchByTitle: ''
+      searchByTitle: '',
+      userId: null
     };
   },
   computed: {
@@ -7191,6 +7196,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.gameModules = res.data.gameModules.data;
         _this.isGm = res.data.isGm;
         _this.isAdmin = res.data.isAdmin;
+        _this.userId = res.data.userId;
         _this.pagLinks = res.data.gameModules.links;
       })["catch"](function (error) {
         console.log(error);
@@ -7203,6 +7209,7 @@ __webpack_require__.r(__webpack_exports__);
         _this2.gameModules = res.data.gameModules.data;
         _this2.isGm = res.data.isGm;
         _this2.isAdmin = res.data.isAdmin;
+        _this2.userId = res.data.userId;
         _this2.pagLinks = res.data.gameModules.links;
       })["catch"](function (error) {
         console.log(error);
@@ -7275,6 +7282,7 @@ __webpack_require__.r(__webpack_exports__);
         _this6.gameModules = res.data.gameModules;
         _this6.isGm = res.data.isGm;
         _this6.isAdmin = res.data.isAdmin;
+        _this6.userId = res.data.userId;
         _this6.pagLinks = [];
         _this6.loading = false;
       })["catch"](function (error) {
@@ -56436,18 +56444,24 @@ var render = function () {
                     ]
                   ),
                   _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-outline-success m-1",
-                      attrs: {
-                        href: "public/game-module-pdf/" + gameModule.id,
-                      },
-                    },
-                    [_vm._v("Letölt")]
-                  ),
+                  gameModule.author_id != _vm.userId
+                    ? _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-outline-success m-1",
+                          attrs: {
+                            href: "public/game-module-pdf/" + gameModule.id,
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                                Letölt\n                            "
+                          ),
+                        ]
+                      )
+                    : _vm._e(),
                   _vm._v(" "),
-                  _vm.isGm
+                  _vm.isGm && gameModule.author_id != _vm.userId
                     ? _c(
                         "button",
                         {
