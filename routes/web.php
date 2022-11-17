@@ -10,6 +10,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CostumerSupportController;
+use App\Http\Controllers\GameSiteController;
 use App\Models\User;
 
 /*
@@ -107,3 +108,6 @@ Route::post('gm/create-game-module-data/{id}', [GameModuleMakerController::class
 Route::post('gm/update-game-module-data/{id}', [GameModuleMakerController::class, 'updateGameModuleData']);
 Route::post('gm/update-game-module-order/{id}', [GameModuleMakerController::class, 'updateGameModuleDataOrder']);
 Route::post('gm/delete-game-module-data/{id}', [GameModuleMakerController::class, 'deleteGameModuleData']);
+
+//Game Site routs
+Route::get('site/game-module/{id}', [GameSiteController::class, 'index']);
