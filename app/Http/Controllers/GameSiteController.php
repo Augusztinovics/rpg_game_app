@@ -35,11 +35,11 @@ class GameSiteController extends Controller
         }
 
         $players = GameModulePlayer::where('game_module_id', $module->id)->get();
-        if (!$players || $module->gm_id !== Auth::id()) {
+        if (!$players && $module->gm_id !== Auth::id()) {
             return redirect()->route('home');
         }
 
-        if (!$players->contains('player_id', Auth::id()) || $module->gm_id !== Auth::id()) {
+        if (!$players->contains('player_id', Auth::id()) && $module->gm_id !== Auth::id()) {
             return redirect()->route('home');
         }
 
