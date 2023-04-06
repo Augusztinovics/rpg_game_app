@@ -47,6 +47,7 @@ Route::post('character/create', [CharacterSheetsController::class, 'characterCre
 Route::post('character/update/{id}', [CharacterSheetsController::class, 'updateCharacter']);
 Route::get('character/game-characters/{game}', [CharacterSheetsController::class, 'gameCharacters']);
 Route::post('character/delete/{id}', [CharacterSheetsController::class, 'deleteGameCharacter']);
+Route::get('character/game-calls/{game}', [CharacterSheetsController::class, 'getGameCalls']);
 
 //Json costumers routs
 Route::get('support/questions', [CostumerSupportController::class, 'getUsersQuestions']);
