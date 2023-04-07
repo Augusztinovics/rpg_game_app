@@ -1,7 +1,41 @@
 <template>
     <div>
-        <h2>Game modules!!!!!</h2>
-        <p v-for="call in calls" :key="call.game_id">{{ call.game_name}}</p>
+        <div v-for="call in calls" :key="call.game_id" class="p-3 m-2 border rounded-3 border-dark">
+            <div class="row">
+                <div class="col">
+                    <h3>{{ call.game_name}}</h3>
+                </div>
+                <div v-if="call.character_id" class="col">
+                    <button type="button" class="w-100 btn btn-lg btn-success costum-btn bg-green-leather">Játék oldal</button>
+                </div>
+            </div>
+            <div v-if="call.character_id">
+                <hr>
+                <div class="col">
+                    <p>{{ getCharName(call.character_id)}}</p>
+                </div>
+                <div v-if="call.character_id" class="col">
+                    <button type="button" class="w-100 btn btn-lg btn-danger costum-btn bg-red-leather">Töröl</button>
+                </div>
+            </div>
+            <div v-else>
+                <hr>
+                <div>
+                    <button type="button" class="w-90 btn btn-lg btn-success costum-btn bg-green-leather" @click="toogleDrop(call.game_id)">Karakter választása a játékhoz</button>
+                </div>
+                <div v-if="char_drop == call.game_id" class="p-3 m-2 border rounded-3 border-dark">
+                    <div v-for="character in GeneratedCharacters" :key="call.game_id + character.id" class="row">
+                        <hr>
+                        <div class="col">
+                            <p class="h3">{{ character.character_data.Nev + ' - ' + character.character_data.Szint + ' Szint'}}</p>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="w-100 mb-2 btn btn-success costum-btn bg-green-leather">Kiválaszt</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -16,6 +50,7 @@ export default {
     data() {
         return {
             calls: [],
+            char_drop: 0,
         }
     },
 
@@ -33,6 +68,17 @@ export default {
             .catch( (error) => {
                 console.log(error);
             });
+        },
+        getCharName(char_id) {
+            let character = GeneratedCharacters.find((ch) => {ch.id == char_id});
+            if (character) {
+                return character.character_data.Nev + ' ' + character.character_data.Szint + ' Szint';
+            } else {
+                return 'Nem talalom a karaktert!!!';
+            }
+        },
+        toogleDrop(id) {
+            this.char_drop == id ? this.char_drop = 0 : this.char_drop = id;
         }
     },
 

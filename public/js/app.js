@@ -11222,6 +11222,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     GeneratedCharacters: {
@@ -11231,7 +11265,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      calls: []
+      calls: [],
+      char_drop: 0
     };
   },
   computed: {},
@@ -11245,6 +11280,20 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
+    },
+    getCharName: function getCharName(char_id) {
+      var character = GeneratedCharacters.find(function (ch) {
+        ch.id == char_id;
+      });
+
+      if (character) {
+        return character.character_data.Nev + ' ' + character.character_data.Szint + ' Szint';
+      } else {
+        return 'Nem talalom a karaktert!!!';
+      }
+    },
+    toogleDrop: function toogleDrop(id) {
+      this.char_drop == id ? this.char_drop = 0 : this.char_drop = id;
     }
   },
   mounted: function mounted() {
@@ -65362,17 +65411,134 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [
-      _c("h2", [_vm._v("Game modules!!!!!")]),
-      _vm._v(" "),
-      _vm._l(_vm.calls, function (call) {
-        return _c("p", { key: call.game_id }, [_vm._v(_vm._s(call.game_name))])
-      }),
-    ],
-    2
+    _vm._l(_vm.calls, function (call) {
+      return _c(
+        "div",
+        {
+          key: call.game_id,
+          staticClass: "p-3 m-2 border rounded-3 border-dark",
+        },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col" }, [
+              _c("h3", [_vm._v(_vm._s(call.game_name))]),
+            ]),
+            _vm._v(" "),
+            call.character_id
+              ? _c("div", { staticClass: "col" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "w-100 btn btn-lg btn-success costum-btn bg-green-leather",
+                      attrs: { type: "button" },
+                    },
+                    [_vm._v("Játék oldal")]
+                  ),
+                ])
+              : _vm._e(),
+          ]),
+          _vm._v(" "),
+          call.character_id
+            ? _c("div", [
+                _c("hr"),
+                _vm._v(" "),
+                _c("div", { staticClass: "col" }, [
+                  _c("p", [_vm._v(_vm._s(_vm.getCharName(call.character_id)))]),
+                ]),
+                _vm._v(" "),
+                call.character_id
+                  ? _c("div", { staticClass: "col" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "w-100 btn btn-lg btn-danger costum-btn bg-red-leather",
+                          attrs: { type: "button" },
+                        },
+                        [_vm._v("Töröl")]
+                      ),
+                    ])
+                  : _vm._e(),
+              ])
+            : _c("div", [
+                _c("hr"),
+                _vm._v(" "),
+                _c("div", [
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "w-90 btn btn-lg btn-success costum-btn bg-green-leather",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function ($event) {
+                          return _vm.toogleDrop(call.game_id)
+                        },
+                      },
+                    },
+                    [_vm._v("Karakter választása a játékhoz")]
+                  ),
+                ]),
+                _vm._v(" "),
+                _vm.char_drop == call.game_id
+                  ? _c(
+                      "div",
+                      { staticClass: "p-3 m-2 border rounded-3 border-dark" },
+                      _vm._l(_vm.GeneratedCharacters, function (character) {
+                        return _c(
+                          "div",
+                          {
+                            key: call.game_id + character.id,
+                            staticClass: "row",
+                          },
+                          [
+                            _c("hr"),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col" }, [
+                              _c("p", { staticClass: "h3" }, [
+                                _vm._v(
+                                  _vm._s(
+                                    character.character_data.Nev +
+                                      " - " +
+                                      character.character_data.Szint +
+                                      " Szint"
+                                  )
+                                ),
+                              ]),
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(0, true),
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  : _vm._e(),
+              ]),
+        ]
+      )
+    }),
+    0
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [
+      _c(
+        "button",
+        {
+          staticClass: "w-100 mb-2 btn btn-success costum-btn bg-green-leather",
+          attrs: { type: "button" },
+        },
+        [_vm._v("Kiválaszt")]
+      ),
+    ])
+  },
+]
 render._withStripped = true
 
 
