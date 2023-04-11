@@ -48,6 +48,8 @@ Route::post('character/update/{id}', [CharacterSheetsController::class, 'updateC
 Route::get('character/game-characters/{game}', [CharacterSheetsController::class, 'gameCharacters']);
 Route::post('character/delete/{id}', [CharacterSheetsController::class, 'deleteGameCharacter']);
 Route::get('character/game-calls/{game}', [CharacterSheetsController::class, 'getGameCalls']);
+Route::post('character/game-calls/add-character/{game}', [CharacterSheetsController::class, 'addCharToModule']);
+Route::post('character/game-calls/remove-character/{game}', [CharacterSheetsController::class, 'removeCharToModule']);
 
 //Json costumers routs
 Route::get('support/questions', [CostumerSupportController::class, 'getUsersQuestions']);

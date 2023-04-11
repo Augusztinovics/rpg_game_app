@@ -115,4 +115,51 @@ class CharacterSheetsController extends Controller
 
         return response()->json($data, 200);
     }
+
+    /**
+     * add character to module
+     */
+    public function addCharToModule(Request $request, $game) {
+        $char_id = $request->input('char_id', false);
+        $module_id = $request->input('module_id', false);
+        $user = $request->user();
+
+        if ( !$module_id || !$char_id) {
+            return $this->getGameCalls($request, $game);
+        }
+
+        $call = GameModulePlayer::where('game_module_id', $module_id)->where('player_id', $user->id)->first();
+
+        if (!$call) {
+            return $this->getGameCalls($request, $game);
+        }
+
+        $call->character_id = $char_id;
+        $call->save();
+
+        return $this->getGameCalls($request, $game);
+    }
+
+    /**
+     * add character to module
+     */
+    public function removeCharToModule(Request $request, $game) {
+        $module_id = $request->input('module_id', false);
+        $user = $request->user();
+
+        if ( !$module_id) {
+            return $this->getGameCalls($request, $game);
+        }
+
+        $call = GameModulePlayer::where('game_module_id', $module_id)->where('player_id', $user->id)->first();
+
+        if (!$call) {
+            return $this->getGameCalls($request, $game);
+        }
+
+        $call->character_id = null;
+        $call->save();
+
+        return $this->getGameCalls($request, $game);
+    }
 }
