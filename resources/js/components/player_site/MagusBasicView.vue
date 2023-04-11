@@ -214,10 +214,9 @@
                                 <h4 class="my-0 fw-normal letter-spec-1">Játék modulok</h4>
                             </div>
                             <div class="card-body">
-                                <ul class="list-unstyled mt-3 mb-4">
-                                    <li>Még nem elérhető funkció</li>
-                                </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-success costum-btn bg-green-leather">Modul keresése</button>
+                                <player-magus-game-modules :GeneratedCharacters="magusCharacters">
+
+                                </player-magus-game-modules>
                             </div>
                         </div>
                     </div>    
@@ -249,6 +248,7 @@
     import MagusCharacterSheet from './magus/MagusCharacterSheet.vue'
     import MagusKasztPreview from './magus/MagusKasztPreview.vue';
     import DiceGenerator from '../DiceGenerator.vue';
+    import PlayerMagusGameModules from './PlayerMagusGameModules.vue';
     import { mapGetters, mapActions, mapMutations } from 'vuex';
 
     export default {
@@ -257,6 +257,7 @@
             MagusCharacterSheet,
             MagusKasztPreview,
             DiceGenerator,
+            PlayerMagusGameModules,
         },
         data() {
             return {

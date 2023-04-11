@@ -10,6 +10,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CostumerSupportController;
+use App\Http\Controllers\GameSiteController;
 use App\Models\User;
 
 /*
@@ -46,6 +47,9 @@ Route::post('character/create', [CharacterSheetsController::class, 'characterCre
 Route::post('character/update/{id}', [CharacterSheetsController::class, 'updateCharacter']);
 Route::get('character/game-characters/{game}', [CharacterSheetsController::class, 'gameCharacters']);
 Route::post('character/delete/{id}', [CharacterSheetsController::class, 'deleteGameCharacter']);
+Route::get('character/game-calls/{game}', [CharacterSheetsController::class, 'getGameCalls']);
+Route::post('character/game-calls/add-character/{game}', [CharacterSheetsController::class, 'addCharToModule']);
+Route::post('character/game-calls/remove-character/{game}', [CharacterSheetsController::class, 'removeCharToModule']);
 
 //Json costumers routs
 Route::get('support/questions', [CostumerSupportController::class, 'getUsersQuestions']);
@@ -107,3 +111,6 @@ Route::post('gm/create-game-module-data/{id}', [GameModuleMakerController::class
 Route::post('gm/update-game-module-data/{id}', [GameModuleMakerController::class, 'updateGameModuleData']);
 Route::post('gm/update-game-module-order/{id}', [GameModuleMakerController::class, 'updateGameModuleDataOrder']);
 Route::post('gm/delete-game-module-data/{id}', [GameModuleMakerController::class, 'deleteGameModuleData']);
+
+//Game Site routs
+Route::get('site/game-module/{id}', [GameSiteController::class, 'index']);
