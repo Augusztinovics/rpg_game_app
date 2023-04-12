@@ -133,7 +133,7 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <div v-if="stage.module_data.note.lenght > 0">
+                                <div v-if="stage.module_data.note.length > 0">
                                     <div>
                                         <div class="stage-title">
                                             <img class="header-img" src="/img/pentagram.png" alt="pentagram" width="72" height="72">
