@@ -56872,7 +56872,8 @@ var render = function () {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "modal-footer" }, [
-              _vm.gameModules[_vm.selectedIndex]
+              _vm.gameModules[_vm.selectedIndex] &&
+              _vm.gameModules[_vm.selectedIndex].author_id != _vm.userId
                 ? _c("div", [
                     _c(
                       "a",
@@ -56887,7 +56888,8 @@ var render = function () {
                       [_vm._v("Letölt")]
                     ),
                     _vm._v(" "),
-                    _vm.isGm
+                    _vm.isGm &&
+                    _vm.gameModules[_vm.selectedIndex].author_id != _vm.userId
                       ? _c(
                           "button",
                           {
