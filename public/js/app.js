@@ -56636,7 +56636,7 @@ var render = function () {
                           _vm._v(" "),
                           _c("hr"),
                           _vm._v(" "),
-                          stage.module_data.note.lenght > 0
+                          stage.module_data.note.length > 0
                             ? _c("div", [
                                 _c("div", [
                                   _c("div", { staticClass: "stage-title" }, [
