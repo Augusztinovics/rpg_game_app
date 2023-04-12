@@ -3,8 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>RPG games</title>
+        <meta name="description" content="Itt játszhatsz különböző (jelenleg csak MAGUS ETK) RPG játékokat a barátaiddal">
+        <meta name="keywords" content="RPG, MAGUS, magus, szerepjáték">
+        <meta name="author" content="Avgusztinovics János">
+        <title>RPG játékok</title>
 
           <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -20,7 +22,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    RPG games
+                    RPG játékok
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -103,8 +105,8 @@
         <main>
             <div class="cover-image">
                 <div class="cover-text">
-                    <h1 class="display-2 fw-bold pb-4">Welcome to RPG games!</h1>
-                    <p class="lead fw-bold fs-4">Here you can play many different RPG games with your friends</p>
+                    <h1 class="display-2 fw-bold pb-4">Üdvözlet az RPG játékokon!</h1>
+                    <p class="lead fw-bold fs-4">Itt játszhatsz különböző (jelenleg csak MAGUS ETK) RPG játékokat a barátaiddal</p>
                 </div>  
             </div>
             <div class="container bg-light shadow-lg">
@@ -126,6 +128,11 @@
                             <iframe class="p-3 shadow-lg border border-4 border-danger rounded-3" width="560" height="315" src="https://www.youtube.com/embed/jX1NyMyhPDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <hr>
+                        <div class="text-center my-4">
+                            <iframe class="p-3 shadow-lg border border-4 border-danger rounded-3" width="560" height="315" src="https://www.youtube.com/embed/7X7B_ahpyL8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <hr>
+
                         <p class="px-4">Jelenleg az aplikáció a fejlesztés első fázisában van.</p>
                         <p class="px-4">Az első fázis funkciói:</p>
                         <p class="px-4">Karakter készités</p>
