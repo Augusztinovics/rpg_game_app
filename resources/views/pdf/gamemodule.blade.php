@@ -33,6 +33,7 @@
             .one-row {
                 display: inline-block;
                 width: 45%;
+                padding-top: 10px;
             }
         </style>
     </head>
@@ -89,10 +90,9 @@
             </div>
             <hr>
             @foreach ($npcs as $npc)
-                <div>
+                <div class="one-row">
                     <h2>{{ $npc['name'] }}</h2>
                 </div>
-                <p>------------------------------------------</p>
                 <div> 
                     <div>
                         <div class="one-row">
