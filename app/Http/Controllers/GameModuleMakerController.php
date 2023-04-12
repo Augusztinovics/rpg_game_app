@@ -37,12 +37,7 @@ class GameModuleMakerController extends Controller
                 'game_module_name' => 'Új MAGUS játék module'
             ]);
 
-            $data = [
-                'game_module' => $module,
-                'game_data' => []
-            ];
-
-            return view('magusgameedit', $data);
+            return redirect('/gm/magus-game-module/' . $module->id);
 
         } else {
 
