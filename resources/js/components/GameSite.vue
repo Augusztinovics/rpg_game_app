@@ -1,18 +1,18 @@
 <template>
-    <div>
-        <!-- dice generator container -->
-        <div class="text-center m-2 p-2">
-            <dice-generator :dices="[6, 10, 100]"/>
-        </div>
+    <div class="container bg-light">
         <!-- header menu container -->
-        <div>
-            <div v-if="isGm">
+        <header class="row mt-4">
+            <div v-if="isGm" class="col-8">
                 <gm-header/>
             </div>
-            <div v-else>
+            <div v-else class="col-8">
                 <player-header/>
             </div>
-        </div>
+            <div class="col-4 text-center">
+                <dice-generator :dices="[6, 10, 100]"/>
+            </div>
+        </header>
+        <div style="height:2000px;"></div>
         <!-- body container -->
         <div>
             <game-body/>

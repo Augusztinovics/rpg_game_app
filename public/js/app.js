@@ -54609,7 +54609,7 @@ var render = function () {
     _c(
       "div",
       {
-        staticClass: "modal fade",
+        staticClass: "modal fade dice-foward",
         attrs: {
           id: "diceModal",
           tabindex: "-1",
@@ -54894,19 +54894,21 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      { staticClass: "text-center m-2 p-2" },
-      [_c("dice-generator", { attrs: { dices: [6, 10, 100] } })],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", [
+  return _c("div", { staticClass: "container bg-light" }, [
+    _c("header", { staticClass: "row mt-4" }, [
       _vm.isGm
-        ? _c("div", [_c("gm-header")], 1)
-        : _c("div", [_c("player-header")], 1),
+        ? _c("div", { staticClass: "col-8" }, [_c("gm-header")], 1)
+        : _c("div", { staticClass: "col-8" }, [_c("player-header")], 1),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-4 text-center" },
+        [_c("dice-generator", { attrs: { dices: [6, 10, 100] } })],
+        1
+      ),
     ]),
+    _vm._v(" "),
+    _c("div", { staticStyle: { height: "2000px" } }),
     _vm._v(" "),
     _c("div", [_c("game-body"), _vm._v(" "), _c("not-ready-overlay")], 1),
     _vm._v(" "),
