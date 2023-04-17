@@ -5,17 +5,21 @@
 </template>
 
 <script>
-import MagusPlayerHeader from './magus/MagusPlayerHeader.vue';
+import MagusPlayerModals from './magus/MagusPlayerModals.vue';
 import EmptyComponent from './EmptyComponent.vue';
 export default {
     components: {
-        MagusPlayerHeader,
+        MagusPlayerModals,
         EmptyComponent,
     },
     props: {
         game: {
             type: String,
             default: 'MAGUS'
+        },
+        isGm: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -26,7 +30,11 @@ export default {
     mounted() {
         switch(this.game) {
             case 'MAGUS':
-                this.active_component = 'MagusPlayerHeader';
+                if (this.isGm) {
+                    //Gm magus modals!!!
+                } else {
+                    this.active_component = 'MagusPlayerModals';
+                }
                 break;
             default:
                 this.active_component = 'EmptyComponent';

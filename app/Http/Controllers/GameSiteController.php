@@ -50,6 +50,10 @@ class GameSiteController extends Controller
         }
 
         $gameData = GameModuleData::where('game_module_id', $module->id)->orderBy('game_module_data_order', 'asc')->get();
+        if (Auth::id() === $module->gm_id) {
+            $module->game_active = true;
+            $module->save();
+        }
         $data = [
             'game_module' => $module,
             'game_data' => $gameData,

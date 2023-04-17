@@ -18,6 +18,7 @@ import magusPapSpells from './modules/magus/magusPapSpells';
 import userCharacters from './modules/userCharacters';
 import magusBestiarium from './modules/magus/magusBestiarium';
 import fantasyBgImgs from './modules/fantasyBgImgs';
+import gameSiteControl from './modules/gameSiteControl';
 
 Vue.use(Vuex);
 
@@ -40,5 +41,6 @@ export default new Vuex.Store({
         userCharacters,
         magusBestiarium,
         fantasyBgImgs,
+        gameSiteControl,
     }
 })
