@@ -1,5 +1,5 @@
 <template>
-    <div :class="['container', 'bg-light', siteStyle]">
+    <div :class="['bg-light', siteStyle]">
         <!-- header menu container -->
         <header class="fixed-top">
             <nav class="navbar space-between bg-dark">
@@ -18,25 +18,33 @@
         </header>
         <dice-generator ref="dice-modal" :form_site="true" :dices="diceSet" @roll="atDiceRolled"/>
         <div style="height:80px;"></div>
-        <active-modals 
-            :game="gameModule.game"
-            :isGm="isGm"
-        />
-        <!-- body container -->
-        <div>
-            <game-body :game="gameModule.game"/>
-            <not-ready-overlay v-if="!game_active" />
+        <!-- Body layout -->
+        <div :class="[doubleLayout ? 'container-fluid row' : 'container']">
+            <!-- modals and side menus -->
+            <div :class="[doubleLayout ? 'col-4' : '']">
+                <active-modals 
+                    :game="gameModule.game"
+                    :isGm="isGm"
+                />
+            </div>
+            
+            <!-- body container -->
+            <div :class="[doubleLayout ? 'col-8' : '']">
+                <game-body :game="gameModule.game"/>
+                <not-ready-overlay v-if="!game_active" />
+            </div>
         </div>
+        
         <div style="height:120px;"></div>
         <!-- footer container -->
-        <div>
+        <div class="fixed-bottom">
             <game-footer/>
         </div>
     </div>
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapMutations, mapGetters } from 'vuex';
 import GameBody from './game_site/GameBody.vue';
 import GameFooter from './game_site/GameFooter.vue';
 import GmHeader from './game_site/GmHeader.vue';
@@ -84,9 +92,19 @@ export default {
         }
     },
     computed: {
+        ...mapGetters('gameSiteControl', {
+            openCharacterSheet: 'openCharacterSheet',
+        }),
+
+        doubleLayout() {
+            //here will be maybe a lot
+            return (this.openCharacterSheet) && window.innerWidth > 1399;
+        },
+
         siteStyle() {
             return this.gameModule.game ? this.gameModule.game.toLowerCase() + '-style' : '';
         },
+
         diceSet() {
             switch(this.gameModule.game) {
                 case 'MAGUS':
@@ -115,6 +133,9 @@ export default {
                 characterData: this.character.character_data,
             });
         }
+        this.$root.$on('CharacterChangedEvent', (msg) => {
+            console.log(msg);
+        });
     }
 }
 </script>

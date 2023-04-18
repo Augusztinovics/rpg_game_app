@@ -4,7 +4,7 @@
             <magus-character-sheet />
             <button type="button" class="btn btn-secondary costum-btn" @click="charcterSheetClose">Bezár</button>
         </div>
-       <!-- Character Sheet Modal -->
+       <!-- Character Sheet Modal
         <div class="modal fade" id="characterSheetModal" tabindex="-1" aria-labelledby="characterSheetModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
@@ -20,7 +20,7 @@
                 </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -47,24 +47,24 @@ export default {
             this.updateOpenCharacterSheet(false);
         },
 
-        charcterSheetModalOpen() {
-            document.body.classList.add('modal-open');
-            let modalClasses = window.document.getElementById('characterSheetModal').classList;
-            modalClasses.add('d-block')
-            modalClasses.add('show')
-            let backdrop = document.createElement('div')
-            backdrop.classList = "modal-backdrop fade show"
-            document.body.appendChild(backdrop)
-        },
+        // charcterSheetModalOpen() {
+        //     document.body.classList.add('modal-open');
+        //     let modalClasses = window.document.getElementById('characterSheetModal').classList;
+        //     modalClasses.add('d-block')
+        //     modalClasses.add('show')
+        //     let backdrop = document.createElement('div')
+        //     backdrop.classList = "modal-backdrop fade show"
+        //     document.body.appendChild(backdrop)
+        // },
 
-        charcterSheetModalClose() {
-            let modalClasses = window.document.getElementById('characterSheetModal').classList;
-            document.body.classList.remove('modal-open');
-            modalClasses.remove('d-block')
-            modalClasses.remove('show')
-            let backdrop = document.querySelector('.modal-backdrop')
-            document.body.removeChild(backdrop)
-        },
+        // charcterSheetModalClose() {
+        //     let modalClasses = window.document.getElementById('characterSheetModal').classList;
+        //     document.body.classList.remove('modal-open');
+        //     modalClasses.remove('d-block')
+        //     modalClasses.remove('show')
+        //     let backdrop = document.querySelector('.modal-backdrop')
+        //     document.body.removeChild(backdrop)
+        // },
     },
 
     // watch: {
