@@ -10,7 +10,7 @@
             <div class="col-sm-3">
                 <div class="border border-secondary rounded my-4">
                     <p class="mb-3 p-1">Sp: <span>{{ spMod }}</span></p>
-                </div>    
+                </div>
             </div>
         </div>
         <div class="row">
@@ -98,7 +98,7 @@
             <p class=" p-2">A <span title="Ideiglenesen csökkentsd a tulajdonságot" class="btn btn-outline-danger btn-sm me-2"><b>-</b></span> és <span title="Ideiglenesen növeld a tulajdonságot" class="btn btn-outline-success btn-sm ms-2"><b>+</b></span> gombok segitségével ideiglenesen lehet növelni vagy csökkenteni a tulajdonságot. A tulajdonság értékére kattintva visszaáll az eredeti értékére.</p> 
         </div>
     </div>
-     
+
 </template>
 
 <script>
@@ -148,7 +148,7 @@ export default {
                 return '0';
             } else {
                 return '-' + this.magusCharacter.MgtMod.toString();
-            }       
+            }
         }
     },
     methods: {
@@ -167,47 +167,74 @@ export default {
         ...mapActions('currentCharacter', {
             save: 'save'
         }),
-        ModEro(mod) {    
+        ModEro(mod) {
+            let msg = this.magusCharacter.Nev + ' megváltoztatta ERŐ tulajdonságát. Volt: ' + this.ero + ' Lett: ';
             this.updateEroMod(mod);
             this.save();
+            msg += this.ero;
+            this.$root.$emit('CharacterChangedEvent', msg);
         },
-        ModGyors(mod) {  
-           this.updateGyorsMod(mod);
-           this.save();
+        ModGyors(mod) {
+            let msg = this.magusCharacter.Nev + ' megváltoztatta GYORSASÁG tulajdonságát. Volt: ' + this.gyorsasag + ' Lett: ';
+            this.updateGyorsMod(mod);
+            this.save();
+            msg += this.gyorsasag;
+            this.$root.$emit('CharacterChangedEvent', msg);
         },
-        ModUgy(mod) {         
+        ModUgy(mod) {
+            let msg = this.magusCharacter.Nev + ' megváltoztatta ÜGYESSÉG tulajdonságát. Volt: ' + this.ugyesseg + ' Lett: ';
             this.updateUgyMod(mod);
             this.save();
+            msg += this.ugyesseg;
+            this.$root.$emit('CharacterChangedEvent', msg);
         },
-        ModAllo(mod) {         
+        ModAllo(mod) {
+            let msg = this.magusCharacter.Nev + ' megváltoztatta ÁLLÓKÉPESSÉG tulajdonságát. Volt: ' + this.allokepesseg + ' Lett: ';
             this.updateAlloMod(mod);
             this.save();
+            msg += this.allokepesseg;
+            this.$root.$emit('CharacterChangedEvent', msg);
         },
-        ModEg(mod) {         
-           this.updateEgMod(mod);
-           this.save();
+        ModEg(mod) {
+            let msg = this.magusCharacter.Nev + ' megváltoztatta EGÉSZSÉG tulajdonságát. Volt: ' + this.egeszseg + ' Lett: ';
+            this.updateEgMod(mod);
+            this.save();
+            msg += this.egeszseg;
+            this.$root.$emit('CharacterChangedEvent', msg);
         },
-        ModSzep(mod) {         
+        ModSzep(mod) {
+            let msg = this.magusCharacter.Nev + ' megváltoztatta SZÉPSÉG tulajdonságát. Volt: ' + this.szepseg + ' Lett: ';
             this.updateSzepMod(mod);
             this.save();
+            msg += this.szepseg;
+            this.$root.$emit('CharacterChangedEvent', msg);
         },
-        ModInt(mod) {         
-           this.updateIntMod(mod);
-           this.save();
+        ModInt(mod) {
+            let msg = this.magusCharacter.Nev + ' megváltoztatta INTELIGENCIA tulajdonságát. Volt: ' + this.inteligencia + ' Lett: ';
+            this.updateIntMod(mod);
+            this.save();
+            msg += this.inteligencia;
+            this.$root.$emit('CharacterChangedEvent', msg);
         },
-        ModAk(mod) {         
+        ModAk(mod) {
+            let msg = this.magusCharacter.Nev + ' megváltoztatta AKARATERŐ tulajdonságát. Volt: ' + this.akarat + ' Lett: ';
             this.updateAkMod(mod);
             this.save();
+            msg += this.akarat;
+            this.$root.$emit('CharacterChangedEvent', msg);
         },
-        ModAszt(mod) {         
+        ModAszt(mod) {
+            let msg = this.magusCharacter.Nev + ' megváltoztatta ASZTRÁL tulajdonságát. Volt: ' + this.asztral + ' Lett: ';
             this.updateAsztMod(mod);
             this.save();
+            msg += this.asztral;
+            this.$root.$emit('CharacterChangedEvent', msg);
         },
         ModSp(sp) {
             this.updateSp(sp);
             this.save();
         }
     },
-    
+
 }
 </script>

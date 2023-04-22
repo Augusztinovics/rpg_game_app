@@ -5644,7 +5644,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$refs['dice-modal'].showModal();
     },
     atDiceRolled: function atDiceRolled(roll) {
-      console.log('Dice Rolled With K' + roll.type + ' The Resoult: ' + roll.result);
+      var msg = this.character ? this.character.character_data.Nev : 'Játékmester';
+      msg += ' Dobott K' + roll.type + ' dobókockával. A dobás eredménye: ' + roll.result;
+      console.log(msg);
     }
   }, (0,vuex__WEBPACK_IMPORTED_MODULE_7__.mapMutations)('currentCharacter', {
     addCharacter: 'addCharacter'
@@ -12165,7 +12167,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     damageSfe: function damageSfe() {
       this.updateSfeDamage();
-      var msg = this.magusCharacter.Nev + ' levont 1 Sfét a páncéljáról. Pácél:  ' + this.currentArmor.name;
+      var msg = this.magusCharacter.Nev + ' levont 1 Sfét a páncéljáról. Pácél: ' + this.currentArmor.name;
       this.$root.$emit('CharacterChangedEvent', msg);
       this.save();
     }
@@ -12360,40 +12362,67 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     save: 'save'
   })), {}, {
     ModEro: function ModEro(mod) {
+      var msg = this.magusCharacter.Nev + ' megváltoztatta ERŐ tulajdonságát. Volt: ' + this.ero + ' Lett: ';
       this.updateEroMod(mod);
       this.save();
+      msg += this.ero;
+      this.$root.$emit('CharacterChangedEvent', msg);
     },
     ModGyors: function ModGyors(mod) {
+      var msg = this.magusCharacter.Nev + ' megváltoztatta GYORSASÁG tulajdonságát. Volt: ' + this.gyorsasag + ' Lett: ';
       this.updateGyorsMod(mod);
       this.save();
+      msg += this.gyorsasag;
+      this.$root.$emit('CharacterChangedEvent', msg);
     },
     ModUgy: function ModUgy(mod) {
+      var msg = this.magusCharacter.Nev + ' megváltoztatta ÜGYESSÉG tulajdonságát. Volt: ' + this.ugyesseg + ' Lett: ';
       this.updateUgyMod(mod);
       this.save();
+      msg += this.ugyesseg;
+      this.$root.$emit('CharacterChangedEvent', msg);
     },
     ModAllo: function ModAllo(mod) {
+      var msg = this.magusCharacter.Nev + ' megváltoztatta ÁLLÓKÉPESSÉG tulajdonságát. Volt: ' + this.allokepesseg + ' Lett: ';
       this.updateAlloMod(mod);
       this.save();
+      msg += this.allokepesseg;
+      this.$root.$emit('CharacterChangedEvent', msg);
     },
     ModEg: function ModEg(mod) {
+      var msg = this.magusCharacter.Nev + ' megváltoztatta EGÉSZSÉG tulajdonságát. Volt: ' + this.egeszseg + ' Lett: ';
       this.updateEgMod(mod);
       this.save();
+      msg += this.egeszseg;
+      this.$root.$emit('CharacterChangedEvent', msg);
     },
     ModSzep: function ModSzep(mod) {
+      var msg = this.magusCharacter.Nev + ' megváltoztatta SZÉPSÉG tulajdonságát. Volt: ' + this.szepseg + ' Lett: ';
       this.updateSzepMod(mod);
       this.save();
+      msg += this.szepseg;
+      this.$root.$emit('CharacterChangedEvent', msg);
     },
     ModInt: function ModInt(mod) {
+      var msg = this.magusCharacter.Nev + ' megváltoztatta INTELIGENCIA tulajdonságát. Volt: ' + this.inteligencia + ' Lett: ';
       this.updateIntMod(mod);
       this.save();
+      msg += this.inteligencia;
+      this.$root.$emit('CharacterChangedEvent', msg);
     },
     ModAk: function ModAk(mod) {
+      var msg = this.magusCharacter.Nev + ' megváltoztatta AKARATERŐ tulajdonságát. Volt: ' + this.akarat + ' Lett: ';
       this.updateAkMod(mod);
       this.save();
+      msg += this.akarat;
+      this.$root.$emit('CharacterChangedEvent', msg);
     },
     ModAszt: function ModAszt(mod) {
+      var msg = this.magusCharacter.Nev + ' megváltoztatta ASZTRÁL tulajdonságát. Volt: ' + this.asztral + ' Lett: ';
       this.updateAsztMod(mod);
       this.save();
+      msg += this.asztral;
+      this.$root.$emit('CharacterChangedEvent', msg);
     },
     ModSp: function ModSp(sp) {
       this.updateSp(sp);
@@ -12719,36 +12748,48 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   })), {}, {
     updateNewName: function updateNewName() {
       if (this.inputName != '') {
+        var msg = this.magusCharacter.Nev + ' megváltoztatta nevét. Új neve: ' + this.inputName;
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.updateName(this.inputName);
         this.save();
       }
     },
     updateNewJellem: function updateNewJellem() {
       if (this.inputJellem != '') {
+        var msg = this.magusCharacter.Nev + ' megváltoztatta jellemét';
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.updateJellem(this.inputJellem);
         this.save();
       }
     },
     updateNewVallas: function updateNewVallas() {
       if (this.inputVallas != '') {
+        var msg = this.magusCharacter.Nev + ' megváltoztatta vallását';
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.updateVallas(this.inputVallas);
         this.save();
       }
     },
     updateNewSzulofold: function updateNewSzulofold() {
       if (this.inputSzulofold != '') {
+        var msg = this.magusCharacter.Nev + ' megváltoztatta szülőföldjét';
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.updateSzulofold(this.inputSzulofold);
         this.save();
       }
     },
     updateNewSzimbolum: function updateNewSzimbolum() {
       if (this.inputSzimbolum != '') {
+        var msg = this.magusCharacter.Nev + ' megváltoztatta szimbólumát';
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.updateSzimbolum(this.inputSzimbolum);
         this.save();
       }
     },
     updateNewIskola: function updateNewIskola() {
       if (this.inputIskola != '') {
+        var msg = this.magusCharacter.Nev + ' megváltoztatta iskoláját';
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.updateIskola(this.inputIskola);
         this.save();
       }

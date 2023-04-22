@@ -119,7 +119,9 @@ export default {
             this.$refs['dice-modal'].showModal();
         },
         atDiceRolled(roll) {
-            console.log('Dice Rolled With K' + roll.type + ' The Resoult: ' + roll.result);
+            let msg = this.character ? this.character.character_data.Nev : 'Játékmester';
+            msg += ' Dobott K' + roll.type + ' dobókockával. A dobás eredménye: ' + roll.result;
+            console.log(msg);
         },
         ...mapMutations('currentCharacter', {
             addCharacter: 'addCharacter',

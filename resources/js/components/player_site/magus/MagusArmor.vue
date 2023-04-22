@@ -191,9 +191,9 @@
                     this.updateArmorEquip(false);
                     if (this.haveArmorSkill.level != 'Mf'){
                         this.updateMgtMod(this.currentArmor.Mgt * -1);
-                    } 
+                    }
                     this.save();
-                }              
+                }
             },
             selectArmor(id) {
                 this.selectedArmorId = id;
@@ -213,12 +213,12 @@
             },
             damageSfe(){
                 this.updateSfeDamage();
-                let msg = this.magusCharacter.Nev + ' levont 1 Sfét a páncéljáról. Pácél:  ' + this.currentArmor.name;
+                let msg = this.magusCharacter.Nev + ' levont 1 Sfét a páncéljáról. Pácél: ' + this.currentArmor.name;
                 this.$root.$emit('CharacterChangedEvent', msg);
                 this.save();
             }
         },
-       
+
     }
 </script>
 
