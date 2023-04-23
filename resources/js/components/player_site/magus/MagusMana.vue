@@ -298,6 +298,8 @@ export default {
         submitManaUse() {
             if (parseInt(this.inputManaUse) <= this.magia.aktMp && parseInt(this.inputManaUse) > 0) {
                 let updatedMana = this.magia.aktMp - parseInt(this.inputManaUse);
+                let msg = this.magusCharacter.Nev + ' Manát használt! Mennyiség: ' + this.inputManaUse + 'Mp';
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.inputManaUse = 0;
                 this.updateAktMp(updatedMana);
                 this.save();
@@ -306,6 +308,8 @@ export default {
         refreshMana() {
             this.updateAktMp(this.magia.maxMp);
             this.save();
+            let msg = this.magusCharacter.Nev + ' Feltöltötte Mana pontjait!';
+            this.$root.$emit('CharacterChangedEvent', msg);
         }
     },
     

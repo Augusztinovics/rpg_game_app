@@ -13422,8 +13422,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   })), {}, {
     sebzesGyogyul: function sebzesGyogyul(mod) {
       if (mod === '+') {
+        var msg = this.magusCharacter.Nev + ' Gyógyult! ';
+
         if (this.inputFp !== 0 || this.inputFp !== '') {
           this.aktualisFp += parseInt(this.inputFp);
+          msg += 'Fp: ' + this.inputFp;
 
           if (this.aktualisFp > this.maxFp) {
             this.aktualisFp = this.maxFp;
@@ -13431,6 +13434,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
 
         if (this.inputEp !== 0 || this.inputEp !== '') {
+          msg += ' Ép: ' + this.inputEp;
           this.aktualisEp += parseInt(this.inputEp);
 
           if (this.aktualisEp > this.maxEp) {
@@ -13441,6 +13445,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (this.aktualisFp > 0 && this.aktualisEp > 0) {
           this.halott = false;
         }
+
+        this.$root.$emit('CharacterChangedEvent', msg);
       }
 
       if (mod === '-') {
@@ -13460,6 +13466,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           Fpsp = this.aktualisFp;
         }
 
+        var _msg = this.magusCharacter.Nev + ' Sebződött! Fp sebzés: ' + Fpsp + ' Ép sebzés: ' + Epsp;
+
+        this.$root.$emit('CharacterChangedEvent', _msg);
         this.aktualisFp -= Fpsp;
         this.aktualisEp -= Epsp;
 
@@ -13479,6 +13488,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.inputFp = 0;
       this.inputEp = 0;
       this.saveEletero();
+      var msg = this.magusCharacter.Nev + ' Teljesen meggyógyult!';
+      this.$root.$emit('CharacterChangedEvent', msg);
     },
     saveEletero: function saveEletero() {
       this.updateEletero({
@@ -13598,6 +13609,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     addQuantToEquipment: function addQuantToEquipment(index) {
       this.felszereles[index].quantity++;
       this.saveEquipment();
+      var msg = this.magusCharacter.Nev + ' Megváltoztatta felszerelése mennyiségét! Tárgy: ' + this.felszereles[index].name + ' Mennyiség: +1';
+      this.$root.$emit('CharacterChangedEvent', msg);
     },
     removeQuantFromEquipment: function removeQuantFromEquipment(index) {
       if (this.felszereles[index].quantity === 1) {
@@ -13606,6 +13619,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.felszereles[index].quantity--;
       }
 
+      var msg = this.magusCharacter.Nev + ' Megváltoztatta felszerelése mennyiségét! Tárgy: ' + this.felszereles[index].name + ' Mennyiség: -1';
+      this.$root.$emit('CharacterChangedEvent', msg);
       this.saveEquipment();
     },
     addNewEquipment: function addNewEquipment() {
@@ -13615,6 +13630,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           quantity: this.input_quantity,
           where: this.input_where
         };
+        var msg = this.magusCharacter.Nev + ' Új felszerelést vett magához! Tárgy: ' + newEquip.name + ' Mennyiség: ' + newEquip.quantity;
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.felszereles.push(newEquip);
         this.input_felszereles = '';
         this.input_quantity = 1;
@@ -13732,6 +13749,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.updateHmLeft();
         this.save();
       }
+
+      var msg = this.magusCharacter.Nev + ' HM-et osztott! ' + this.id + ': +1';
+      this.$root.$emit('CharacterChangedEvent', msg);
     }
   })
 });
@@ -14165,6 +14185,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (this.egyebb_text !== '') {
           this.egyebb.push(this.egyebb_text);
         }
+
+        var msg = this.magusCharacter.Nev + ' Növelte kincseit! Réz: +' + rez + ' Ezüst: +' + ezust + ' Arany: +' + arany + ' Mithrill: +' + mithrill + ' Egyébb: ' + this.egyebb_text;
+        this.$root.$emit('CharacterChangedEvent', msg);
       }
 
       if (mod === '-') {
@@ -14187,6 +14210,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (this.dragako > 0) {
           this.dragako -= dragako;
         }
+
+        var _msg = this.magusCharacter.Nev + ' Csökentette kincseit! Réz: -' + rez + ' Ezüst: -' + ezust + ' Arany: -' + arany + ' Mithrill: -' + mithrill;
+
+        this.$root.$emit('CharacterChangedEvent', _msg);
       }
 
       this.egyebb_text = '';
@@ -14462,8 +14489,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusSkills', {
+    skill: 'skill',
     skills: 'skills'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusWeapons', {
+    weapon: 'weapon',
+    rangedWeapon: 'rangedWeapon',
     weapons: 'weapons',
     rangedWeapons: 'rangedWeapons'
   })), {}, {
@@ -14630,6 +14660,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.updateWeaposAf(learnedWeaponList);
         this.updateKpLeftDown(3);
         this.save();
+        var weaponName = '';
+
+        if (this.weapon(this.newWeapon)) {
+          weaponName = this.weapon(this.newWeapon).name;
+        }
+
+        if (this.rangedWeapon(this.newWeapon)) {
+          weaponName = this.rangedWeapon(this.newWeapon).name;
+        }
+
+        var msg = this.magusCharacter.Nev + ' Új Alapfokú fegyverhasználatott tanult! Fegyver: ' + weaponName;
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.newWeapon = '';
       }
     },
@@ -14640,6 +14682,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.updateThrowWeaposAf(learnedTrowWeaponList);
         this.updateKpLeftDown(4);
         this.save();
+        var weaponName = '';
+
+        if (this.weapon(this.newThrowWeapon)) {
+          weaponName = this.weapon(this.newThrowWeapon).name;
+        }
+
+        var msg = this.magusCharacter.Nev + ' Új Alapfokú fegyverdobást tanult! Fegyver: ' + weaponName;
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.newThrowWeapon = '';
       }
     },
@@ -14650,6 +14700,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.updateLanguageAf(learnedLanguageList);
         this.updateKpLeftDown(3);
         this.save();
+        var msg = this.magusCharacter.Nev + ' Új Alapfokú nyelvismeretet tanult! Nyelv: ' + this.newLanguage;
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.newLanguage = '';
       }
     },
@@ -14660,6 +14712,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.updateCraftAf(learnedCraftList);
         this.updateKpLeftDown(2);
         this.save();
+        var msg = this.magusCharacter.Nev + ' Új Alapfokú szakmát tanult! Szakma: ' + this.newCraft;
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.newCraft = '';
       }
     },
@@ -14681,6 +14735,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.updatePszi(psiSkill);
       }
 
+      var msg = this.magusCharacter.Nev + ' Új Alapfokú képzetséget tanult! Képzetség: ' + this.skill(id).name;
+      this.$root.$emit('CharacterChangedEvent', msg);
       this.save();
     },
     upgradeWeaponSkillMf: function upgradeWeaponSkillMf() {
@@ -14690,6 +14746,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.updateWeaposMf(learnedWeaponListMf);
         this.updateKpLeftDown(30);
         this.save();
+        var weaponName = '';
+
+        if (this.weapon(this.weaponMf)) {
+          weaponName = this.weapon(this.weaponMf).name;
+        }
+
+        if (this.rangedWeapon(this.weaponMf)) {
+          weaponName = this.rangedWeapon(this.weaponMf).name;
+        }
+
+        var msg = this.magusCharacter.Nev + ' Mesterfokra fejlesztette egy fegyver használatát! Fegyver: ' + weaponName;
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.weaponMf = '';
       }
     },
@@ -14700,6 +14768,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.updateThrowWeaposMf(learnedTrowWeaponListMf);
         this.updateKpLeftDown(40);
         this.save();
+        var weaponName = '';
+
+        if (this.weapon(this.trowWeaponMf)) {
+          weaponName = this.weapon(this.trowWeaponMf).name;
+        }
+
+        var msg = this.magusCharacter.Nev + ' Mesterfokra fejlesztette egy fegyver dobását! Fegyver: ' + weaponName;
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.trowWeaponMf = '';
       }
     },
@@ -14710,6 +14786,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.updateLanguageMf(learnedLanguageListMf);
         this.updateKpLeftDown(20);
         this.save();
+        var msg = this.magusCharacter.Nev + ' Mesterfokra fejlesztette nyelvismeretét! Nyelv: ' + this.languageMf;
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.languageMf = '';
       }
     },
@@ -14720,6 +14798,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.updateCraftMf(learnedCraftListMf);
         this.updateKpLeftDown(15);
         this.save();
+        var msg = this.magusCharacter.Nev + ' Mesterfokra fejlesztette szakmáját! Szakma: ' + this.craftMf;
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.craftMf = '';
       }
     },
@@ -14744,6 +14824,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       }
 
+      var msg = this.magusCharacter.Nev + ' Mesterfokra fejlesztette egy képzetségét! Képzetség: ' + this.skill(id).name;
+      this.$root.$emit('CharacterChangedEvent', msg);
       this.save();
     }
   })
@@ -14853,6 +14935,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     addTp: function addTp() {
       if (parseInt(this.inputTp) > 0) {
         this.updateTp(parseInt(this.inputTp));
+        var msg = this.magusCharacter.Nev + ' Tp-t kapott! Mennyiség: ' + this.inputTp + ' Tp';
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.inputTp = 0;
         this.save();
         this.checkLevelUp();
@@ -14860,6 +14944,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     checkLevelUp: function checkLevelUp() {
       if (this.currentTp >= this.tpNextLevel) {
+        var msg = this.magusCharacter.Nev + ' Szintett lépet!';
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.processLevelUp();
       }
     },
@@ -15304,6 +15390,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     submitManaUse: function submitManaUse() {
       if (parseInt(this.inputManaUse) <= this.magia.aktMp && parseInt(this.inputManaUse) > 0) {
         var updatedMana = this.magia.aktMp - parseInt(this.inputManaUse);
+        var msg = this.magusCharacter.Nev + ' Manát használt! Mennyiség: ' + this.inputManaUse + 'Mp';
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.inputManaUse = 0;
         this.updateAktMp(updatedMana);
         this.save();
@@ -15312,6 +15400,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     refreshMana: function refreshMana() {
       this.updateAktMp(this.magia.maxMp);
       this.save();
+      var msg = this.magusCharacter.Nev + ' Feltöltötte Mana pontjait!';
+      this.$root.$emit('CharacterChangedEvent', msg);
     }
   })
 });
@@ -15817,28 +15907,40 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     refreshPsi: function refreshPsi() {
       this.updateCurrentPsiPoint(this.availablePsi);
       this.save();
+      var msg = this.magusCharacter.Nev + ' Feltöltötte Pszi pontjait!';
+      this.$root.$emit('CharacterChangedEvent', msg);
     },
     submitPsiUse: function submitPsiUse() {
       if (parseInt(this.inputPsiUse) <= this.availablePsi && parseInt(this.inputPsiUse) > 0) {
         var updatedPsi = this.availablePsi - parseInt(this.inputPsiUse);
+        var msg = this.magusCharacter.Nev + ' Pszit használt! Mennyiség: ' + this.inputPsiUse + 'Pszi';
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.inputPsiUse = 0;
         this.updateCurrentPsiPoint(updatedPsi);
         this.save();
       }
     },
     buildStaticAsztral: function buildStaticAsztral() {
+      var msg = this.magusCharacter.Nev + ' Újraépítette a Statikus Asztrál pajzsát!';
+      this.$root.$emit('CharacterChangedEvent', msg);
       this.updateStaticAsztral(this.psiSkill.maxPszi);
       this.save();
     },
     buildStaticMental: function buildStaticMental() {
+      var msg = this.magusCharacter.Nev + ' Újraépítette a Statikus Mentál pajzsát!';
+      this.$root.$emit('CharacterChangedEvent', msg);
       this.updateStaticMental(this.psiSkill.maxPszi);
       this.save();
     },
     destroyStaticAsztral: function destroyStaticAsztral() {
+      var msg = this.magusCharacter.Nev + ' Összeomlott a Statikus Asztrál pajzsa!';
+      this.$root.$emit('CharacterChangedEvent', msg);
       this.updateStaticAsztral(0);
       this.save();
     },
     destroyStaticMental: function destroyStaticMental() {
+      var msg = this.magusCharacter.Nev + ' Összeomlott a Statikus Mentál pajzsa!';
+      this.$root.$emit('CharacterChangedEvent', msg);
       this.updateStaticMental(0);
       this.save();
     },
@@ -15850,6 +15952,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.updateCurrentPsiPoint(newSkillPoint);
         this.updateDinamicAsztral(updatedDinamic);
         this.save();
+        var msg = this.magusCharacter.Nev + ' Erősítette Dinamikus Asztrál pajzsát! Erősség: ' + this.inputDinamic + 'Pszi';
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.inputDinamic = 1;
       }
     },
@@ -15861,6 +15965,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.updateCurrentPsiPoint(newSkillPoint);
         this.updateDinamicMental(updatedDinamic);
         this.save();
+        var msg = this.magusCharacter.Nev + ' Erősítette Dinamikus Mentál pajzsát! Erősség: ' + this.inputDinamic + 'Pszi';
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.inputDinamic = 1;
       }
     },
@@ -15872,6 +15978,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.updateCurrentPsiPoint(newSkillPoint);
         this.updateDinamicAsztral(updatedDinamic);
         this.save();
+        var msg = this.magusCharacter.Nev + ' Kivont pszit a  Dinamikus Asztrál pajzsából! Kivont mennyiség: ' + this.inputDinamic + 'Pszi';
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.inputDinamic = 1;
       }
     },
@@ -15883,6 +15991,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.updateCurrentPsiPoint(newSkillPoint);
         this.updateDinamicMental(updatedDinamic);
         this.save();
+        var msg = this.magusCharacter.Nev + ' Kivont pszit a  Dinamikus Mentál pajzsából! Kivont mennyiség: ' + this.inputDinamic + 'Pszi';
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.inputDinamic = 1;
       }
     },
@@ -15892,6 +16002,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         var updatedDinamic = currentDinamicE - parseInt(this.inputDinamic);
         this.updateDinamicAsztral(updatedDinamic);
         this.save();
+        var msg = this.magusCharacter.Nev + ' Bomlasztották a Dinamikus Asztrál pajzsát! Bomlasztott mennyiség: ' + this.inputDinamic + 'Pszi';
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.inputDinamic = 1;
       }
     },
@@ -15901,6 +16013,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         var updatedDinamic = currentDinamicE - parseInt(this.inputDinamic);
         this.updateDinamicMental(updatedDinamic);
         this.save();
+        var msg = this.magusCharacter.Nev + ' Bomlasztották a Dinamikus Mentál pajzsát! Bomlasztott mennyiség: ' + this.inputDinamic + 'Pszi';
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.inputDinamic = 1;
       }
     },
@@ -16144,6 +16258,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           this.updateMgtMod(this.currentShield.Mgt * -1);
         }
 
+        var msg = this.magusCharacter.Nev + ' Levette a pajzsát!';
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.save();
       } else {
         this.$root.$emit('emptyLeftWeapon');
@@ -16155,6 +16271,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           this.updateMgtMod(this.currentShield.Mgt);
         }
 
+        var _msg = this.magusCharacter.Nev + ' Felvette a pajzsát!';
+
+        this.$root.$emit('CharacterChangedEvent', _msg);
         this.save();
       }
     },
@@ -16168,6 +16287,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           this.updateMgtMod(this.currentShield.Mgt * -1);
         }
 
+        var msg = this.magusCharacter.Nev + ' Levette a pajzsát!';
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.save();
       }
     },
@@ -16175,6 +16296,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.selectedShieldId = id;
     },
     submitShield: function submitShield() {
+      var msg = this.magusCharacter.Nev + ' Pajzsot választott! A pajzs:' + this.selectedShieldName;
+      this.$root.$emit('CharacterChangedEvent', msg);
       this.updateShieldType(this.selectedShieldId);
       this.save();
     }
@@ -16796,6 +16919,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       precentSkillSet[key].kpAdded += 1;
       this.updateKpLeftDown(1);
       this.updatePrecentSkills(precentSkillSet);
+      var msg = this.magusCharacter.Nev + ' Kp segítségével növelte 3%-al egy százalékos képzetségét! A képzetség: ' + this.skillPrecent(key).name;
+      this.$root.$emit('CharacterChangedEvent', msg);
       this.save();
     },
     addPrecentToPrecentSkill: function addPrecentToPrecentSkill(key) {
@@ -16804,6 +16929,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       precentSkillSet[key].precentAdded += 1;
       this.updateKpPrecLeftDown(1);
       this.updatePrecentSkills(precentSkillSet);
+      var msg = this.magusCharacter.Nev + ' 1%-al növelte egy százalékos képzetségét! A képzetség: ' + this.skillPrecent(key).name;
+      this.$root.$emit('CharacterChangedEvent', msg);
       this.save();
     },
     submitFreeFHAf: function submitFreeFHAf() {
@@ -17293,6 +17420,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   })), {}, {
     removeWeapon: function removeWeapon(index) {
       if (this.magusCharacter.LeftHand == this.kozelharci[index] || this.magusCharacter.RightHand == this.kozelharci[index]) {} else {
+        var msg = this.magusCharacter.Nev + ' Eldobott egy fegyvert! A fegyver:' + this.weapon(this.kozelharci[index]).name;
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.kozelharci.splice(index, 1);
         this.updateWeapons(this.kozelharci);
         this.save();
@@ -17300,6 +17429,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     removeRanged: function removeRanged(index) {
       if (this.magusCharacter.LeftHand == this.tav[index] || this.magusCharacter.RightHand == this.tav[index]) {} else {
+        var msg = this.magusCharacter.Nev + ' Eldobott egy fegyvert! A fegyver:' + this.rangedWeapon(this.tav[index]).name;
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.tav.splice(index, 1);
         this.updateRangedWeapons(this.tav);
         this.save();
@@ -17315,6 +17446,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (this.selectedWeaponId != '') {
         this.kozelharci.push(this.selectedWeaponId);
         this.updateWeapons(this.kozelharci);
+        var msg = this.magusCharacter.Nev + ' Fegyvert választott! A fegyver:' + this.weapon(this.selectedWeaponId).name;
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.selectedWeaponId = '';
         this.save();
       }
@@ -17323,6 +17456,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (this.selectedRangedId != '') {
         this.tav.push(this.selectedRangedId);
         this.updateRangedWeapons(this.tav);
+        var msg = this.magusCharacter.Nev + ' Fegyvert választott! A fegyver:' + this.rangedWeapon(this.selectedRangedId).name;
+        this.$root.$emit('CharacterChangedEvent', msg);
         this.selectedRangedId = '';
         this.save();
       }

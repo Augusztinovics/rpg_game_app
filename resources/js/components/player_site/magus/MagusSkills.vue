@@ -493,6 +493,8 @@ export default {
             precentSkillSet[key].kpAdded += 1;
             this.updateKpLeftDown(1);
             this.updatePrecentSkills(precentSkillSet);
+            let msg = this.magusCharacter.Nev + ' Kp segítségével növelte 3%-al egy százalékos képzetségét! A képzetség: ' + this.skillPrecent(key).name;
+            this.$root.$emit('CharacterChangedEvent', msg);
             this.save();
         },
         addPrecentToPrecentSkill(key) {
@@ -501,6 +503,8 @@ export default {
             precentSkillSet[key].precentAdded += 1;
             this.updateKpPrecLeftDown(1);
             this.updatePrecentSkills(precentSkillSet);
+            let msg = this.magusCharacter.Nev + ' 1%-al növelte egy százalékos képzetségét! A képzetség: ' + this.skillPrecent(key).name;
+            this.$root.$emit('CharacterChangedEvent', msg);
             this.save();
         },
         submitFreeFHAf() {

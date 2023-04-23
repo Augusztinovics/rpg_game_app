@@ -76,6 +76,8 @@ export default {
                 this.updateHmLeft();
                 this.save();
             }
+            let msg = this.magusCharacter.Nev + ' HM-et osztott! ' + this.id + ': +1';
+            this.$root.$emit('CharacterChangedEvent', msg);
         }
     },
 }

@@ -150,6 +150,8 @@
                     if (this.haveShieldSkill.level != 'Mf'){
                         this.updateMgtMod(this.currentShield.Mgt * -1);
                     } 
+                    let msg = this.magusCharacter.Nev + ' Levette a pajzsát!';
+                    this.$root.$emit('CharacterChangedEvent', msg);
                     this.save();
                 } else {
                     this.$root.$emit('emptyLeftWeapon');
@@ -158,7 +160,9 @@
                     this.updateLeftHand(this.currentShield.id);
                    if (this.haveShieldSkill.level != 'Mf'){
                         this.updateMgtMod(this.currentShield.Mgt);
-                    } 
+                    }
+                    let msg = this.magusCharacter.Nev + ' Felvette a pajzsát!';
+                    this.$root.$emit('CharacterChangedEvent', msg);
                     this.save();
                 }
             },
@@ -169,14 +173,18 @@
                     this.updateLeftHand('');
                     if (this.haveShieldSkill.level != 'Mf'){
                         this.updateMgtMod(this.currentShield.Mgt * -1);
-                    } 
+                    }
+                    let msg = this.magusCharacter.Nev + ' Levette a pajzsát!';
+                    this.$root.$emit('CharacterChangedEvent', msg);
                     this.save();
-                }              
+                }
             },
             selectShield(id) {
                 this.selectedShieldId = id;
             },
             submitShield() {
+                let msg = this.magusCharacter.Nev + ' Pajzsot választott! A pajzs:' + this.selectedShieldName;
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.updateShieldType(this.selectedShieldId);
                 this.save();
             }
@@ -184,6 +192,6 @@
         created() {
             this.$root.$on('emptyLeftShield', () => {this.unequip();});
         }
-       
+
     }
 </script>

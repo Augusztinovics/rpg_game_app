@@ -86,6 +86,8 @@ export default {
         addTp() {
             if (parseInt(this.inputTp) > 0) {
                 this.updateTp(parseInt(this.inputTp));
+                let msg = this.magusCharacter.Nev + ' Tp-t kapott! Mennyiség: ' + this.inputTp + ' Tp';
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.inputTp = 0;
                 this.save();
                 this.checkLevelUp();
@@ -93,6 +95,8 @@ export default {
         },
         checkLevelUp() {
             if (this.currentTp >= this.tpNextLevel) {
+                let msg = this.magusCharacter.Nev + ' Szintett lépet!';
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.processLevelUp();
             }
         },

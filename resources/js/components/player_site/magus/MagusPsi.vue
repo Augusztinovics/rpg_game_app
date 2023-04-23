@@ -392,28 +392,40 @@ export default {
         refreshPsi() {
             this.updateCurrentPsiPoint(this.availablePsi);
             this.save();
+            let msg = this.magusCharacter.Nev + ' Feltöltötte Pszi pontjait!';
+            this.$root.$emit('CharacterChangedEvent', msg);
         },
         submitPsiUse() {
             if (parseInt(this.inputPsiUse) <= this.availablePsi && parseInt(this.inputPsiUse) > 0) {
                 let updatedPsi = this.availablePsi - parseInt(this.inputPsiUse);
+                let msg = this.magusCharacter.Nev + ' Pszit használt! Mennyiség: ' + this.inputPsiUse + 'Pszi';
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.inputPsiUse = 0;
                 this.updateCurrentPsiPoint(updatedPsi);
                 this.save();
             }
         },
         buildStaticAsztral() {
+            let msg = this.magusCharacter.Nev + ' Újraépítette a Statikus Asztrál pajzsát!';
+            this.$root.$emit('CharacterChangedEvent', msg);
             this.updateStaticAsztral(this.psiSkill.maxPszi);
             this.save();
         },
         buildStaticMental() {
+            let msg = this.magusCharacter.Nev + ' Újraépítette a Statikus Mentál pajzsát!';
+            this.$root.$emit('CharacterChangedEvent', msg);
             this.updateStaticMental(this.psiSkill.maxPszi);
             this.save();
         },
         destroyStaticAsztral() {
+            let msg = this.magusCharacter.Nev + ' Összeomlott a Statikus Asztrál pajzsa!';
+            this.$root.$emit('CharacterChangedEvent', msg);
             this.updateStaticAsztral(0);
             this.save();
         },
         destroyStaticMental() {
+            let msg = this.magusCharacter.Nev + ' Összeomlott a Statikus Mentál pajzsa!';
+            this.$root.$emit('CharacterChangedEvent', msg);
             this.updateStaticMental(0);
             this.save();
         },
@@ -425,6 +437,8 @@ export default {
                 this.updateCurrentPsiPoint(newSkillPoint);
                 this.updateDinamicAsztral(updatedDinamic);
                 this.save();
+                let msg = this.magusCharacter.Nev + ' Erősítette Dinamikus Asztrál pajzsát! Erősség: ' + this.inputDinamic + 'Pszi';
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.inputDinamic = 1;
             }
         },
@@ -436,6 +450,8 @@ export default {
                 this.updateCurrentPsiPoint(newSkillPoint);
                 this.updateDinamicMental(updatedDinamic);
                 this.save();
+                let msg = this.magusCharacter.Nev + ' Erősítette Dinamikus Mentál pajzsát! Erősség: ' + this.inputDinamic + 'Pszi';
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.inputDinamic = 1;
             }
         },
@@ -447,6 +463,8 @@ export default {
                 this.updateCurrentPsiPoint(newSkillPoint);
                 this.updateDinamicAsztral(updatedDinamic);
                 this.save();
+                let msg = this.magusCharacter.Nev + ' Kivont pszit a  Dinamikus Asztrál pajzsából! Kivont mennyiség: ' + this.inputDinamic + 'Pszi';
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.inputDinamic = 1;
             }
         },
@@ -458,6 +476,8 @@ export default {
                 this.updateCurrentPsiPoint(newSkillPoint);
                 this.updateDinamicMental(updatedDinamic);
                 this.save();
+                let msg = this.magusCharacter.Nev + ' Kivont pszit a  Dinamikus Mentál pajzsából! Kivont mennyiség: ' + this.inputDinamic + 'Pszi';
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.inputDinamic = 1;
             }
         },
@@ -467,6 +487,8 @@ export default {
                 let updatedDinamic = currentDinamicE - parseInt(this.inputDinamic);
                 this.updateDinamicAsztral(updatedDinamic);
                 this.save();
+                let msg = this.magusCharacter.Nev + ' Bomlasztották a Dinamikus Asztrál pajzsát! Bomlasztott mennyiség: ' + this.inputDinamic + 'Pszi';
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.inputDinamic = 1;
             }
         },
@@ -476,6 +498,8 @@ export default {
                 let updatedDinamic = currentDinamicE - parseInt(this.inputDinamic);
                 this.updateDinamicMental(updatedDinamic);
                 this.save();
+                let msg = this.magusCharacter.Nev + ' Bomlasztották a Dinamikus Mentál pajzsát! Bomlasztott mennyiség: ' + this.inputDinamic + 'Pszi';
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.inputDinamic = 1;
             }
         },

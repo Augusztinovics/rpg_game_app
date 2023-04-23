@@ -107,13 +107,16 @@ export default {
         }),
         sebzesGyogyul(mod) {
             if (mod === '+') {
+                let msg = this.magusCharacter.Nev + ' Gyógyult! ';
                 if (this.inputFp !== 0 || this.inputFp !== '') {
                     this.aktualisFp += parseInt(this.inputFp);
+                    msg += 'Fp: ' + this.inputFp;
                     if (this.aktualisFp > this.maxFp) {
                         this.aktualisFp = this.maxFp;
                     }
                 }
                 if (this.inputEp !== 0 || this.inputEp !== '') {
+                    msg += ' Ép: ' + this.inputEp;
                     this.aktualisEp += parseInt(this.inputEp);
                     if (this.aktualisEp > this.maxEp) {
                         this.aktualisEp = this.maxEp;
@@ -122,6 +125,7 @@ export default {
                 if (this.aktualisFp > 0 && this.aktualisEp > 0) {
                     this.halott = false;
                 }
+                this.$root.$emit('CharacterChangedEvent', msg);
             }
             if (mod === '-') {
                 let Fpsp = 0;
@@ -136,6 +140,8 @@ export default {
                     Epsp += Fpsp - this.aktualisFp;
                     Fpsp = this.aktualisFp;
                 }
+                let msg = this.magusCharacter.Nev + ' Sebződött! Fp sebzés: ' + Fpsp + ' Ép sebzés: ' + Epsp;
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.aktualisFp -= Fpsp;
                 this.aktualisEp -= Epsp;
                 if (this.aktualisFp <= 0 || this.aktualisEp <= 0) {
@@ -153,6 +159,8 @@ export default {
             this.inputFp = 0;
             this.inputEp = 0;
             this.saveEletero();
+            let msg = this.magusCharacter.Nev + ' Teljesen meggyógyult!';
+            this.$root.$emit('CharacterChangedEvent', msg);
         },
         saveEletero() {
             this.updateEletero({
