@@ -4,7 +4,10 @@
         <header class="fixed-top">
             <nav class="navbar space-between bg-dark">
                 <div v-if="isGm" class="mx-3">
-                    <gm-header :game="gameModule.game"/>
+                    <gm-header 
+                        :game="gameModule.game"
+                        :game-active="game_active"
+                    />
                 </div>
                 <div v-else class="mx-3">
                     <player-header 
@@ -25,12 +28,17 @@
                 <active-modals 
                     :game="gameModule.game"
                     :isGm="isGm"
+                    :module="gameModule"
+                    :seens="gameData"
                 />
             </div>
             
             <!-- body container -->
             <div :class="[doubleLayout ? 'col-8' : '']">
-                <game-body :game="gameModule.game"/>
+                <game-body 
+                    :game="gameModule.game"
+                    :seen="activeSeene"
+                />
                 <not-ready-overlay v-if="!game_active" />
             </div>
         </div>
@@ -89,6 +97,7 @@ export default {
     data() {
         return {
             game_active: false,
+            active_seene: 1,
         }
     },
     computed: {
@@ -112,6 +121,11 @@ export default {
                 default:
                     return [6];
             }
+        },
+
+        activeSeene() {
+            let seen = this.gameData.find(d => d.game_module_data_order === this.active_seene);
+            return seen ? seen : this.gameData[0];
         }
     },
     methods: {
@@ -129,6 +143,8 @@ export default {
     },
     mounted() {
         this.game_active = this.gameModule.game_active;
+        this.active_seene = this.gameModule.game_module_state;
+        console.log(this.activeSeene);
         if (this.character) {
             this.addCharacter({
                 id: this.character.id,
@@ -137,6 +153,19 @@ export default {
         }
         this.$root.$on('CharacterChangedEvent', (msg) => {
             console.log(msg);
+        });
+        this.$root.$on('GameDeactive', (state) => {
+            //Send axio to backend!!!
+            axios.post('/site/game-module/update-active/' + this.gameModule.id, {
+                game_active: state
+            }).then((res) => {
+                console.log(res);
+                this.game_active = state;
+                console.log('Game State: ' + state);
+                //fire the event to everybody
+            }).catch((e) => {
+                console.log(e);
+            })
         });
     }
 }

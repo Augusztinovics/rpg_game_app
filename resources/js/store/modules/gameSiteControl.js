@@ -2,6 +2,7 @@ const state = {
     openCharacterSheet: false,
     openGlobalNotes: false,
     openBestiarium: false,
+    openSeeneSelect: false,
 };
 const getters = {
     openCharacterSheet: () => {
@@ -13,6 +14,9 @@ const getters = {
     openBestiarium: () => {
         return state.openBestiarium;
     },
+    openSeeneSelect: () => {
+        return state.openSeeneSelect;
+    },
 };
 const mutations = {
     updateOpenCharacterSheet(state, showCharacterSheet) {
@@ -23,6 +27,9 @@ const mutations = {
     },
     updateOpenBestiarium(state, showBestiarium) {
         state.openBestiarium = showBestiarium;
+    },
+    updateOpenSeeneSelect(state, showSeeneSelect) {
+        state.openSeeneSelect = showSeeneSelect;
     }
 };
 const actions = {};

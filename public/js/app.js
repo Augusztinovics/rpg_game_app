@@ -5573,6 +5573,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -5616,7 +5621,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
-      game_active: false
+      game_active: false,
+      active_seene: 1
     };
   },
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_7__.mapGetters)('gameSiteControl', {
@@ -5637,6 +5643,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         default:
           return [6];
       }
+    },
+    activeSeene: function activeSeene() {
+      var _this = this;
+
+      var seen = this.gameData.find(function (d) {
+        return d.game_module_data_order === _this.active_seene;
+      });
+      return seen ? seen : this.gameData[0];
     }
   }),
   methods: _objectSpread({
@@ -5652,7 +5666,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     addCharacter: 'addCharacter'
   })),
   mounted: function mounted() {
+    var _this2 = this;
+
     this.game_active = this.gameModule.game_active;
+    this.active_seene = this.gameModule.game_module_state;
+    console.log(this.activeSeene);
 
     if (this.character) {
       this.addCharacter({
@@ -5663,6 +5681,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     this.$root.$on('CharacterChangedEvent', function (msg) {
       console.log(msg);
+    });
+    this.$root.$on('GameDeactive', function (state) {
+      //Send axio to backend!!!
+      axios.post('/site/game-module/update-active/' + _this2.gameModule.id, {
+        game_active: state
+      }).then(function (res) {
+        console.log(res);
+        _this2.game_active = state;
+        console.log('Game State: ' + state); //fire the event to everybody
+      })["catch"](function (e) {
+        console.log(e);
+      });
     });
   }
 });
@@ -7507,18 +7537,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _magus_MagusPlayerModals_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./magus/MagusPlayerModals.vue */ "./resources/js/components/game_site/magus/MagusPlayerModals.vue");
 /* harmony import */ var _EmptyComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EmptyComponent.vue */ "./resources/js/components/game_site/EmptyComponent.vue");
+/* harmony import */ var _magus_MagusGmModals_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./magus/MagusGmModals.vue */ "./resources/js/components/game_site/magus/MagusGmModals.vue");
 //
 //
 //
 //
 //
 //
+//
+//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     MagusPlayerModals: _magus_MagusPlayerModals_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    EmptyComponent: _EmptyComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    EmptyComponent: _EmptyComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    MagusGmModals: _magus_MagusGmModals_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   props: {
     game: {
@@ -7528,6 +7563,14 @@ __webpack_require__.r(__webpack_exports__);
     isGm: {
       type: Boolean,
       "default": false
+    },
+    module: {
+      type: Object,
+      "default": {}
+    },
+    seens: {
+      type: Array,
+      "default": []
     }
   },
   data: function data() {
@@ -7538,7 +7581,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     switch (this.game) {
       case 'MAGUS':
-        if (this.isGm) {//Gm magus modals!!!
+        if (this.isGm) {
+          this.active_component = 'MagusGmModals';
         } else {
           this.active_component = 'MagusPlayerModals';
         }
@@ -7610,6 +7654,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -7621,6 +7666,10 @@ __webpack_require__.r(__webpack_exports__);
     game: {
       type: String,
       "default": 'MAGUS'
+    },
+    gameActive: {
+      type: Boolean,
+      "default": false
     }
   },
   data: function data() {
@@ -7739,24 +7788,62 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    gameActive: {
+      type: Boolean,
+      "default": false
+    }
+  },
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('gameSiteControl', {
     openGlobalNotes: 'openGlobalNotes',
-    openBestiarium: 'openBestiarium'
+    openBestiarium: 'openBestiarium',
+    openSeeneSelect: 'openSeeneSelect'
   })),
   methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('gameSiteControl', {
     updateOpenGlobalNotes: 'updateOpenGlobalNotes',
-    updateOpenBestiarium: 'updateOpenBestiarium'
+    updateOpenBestiarium: 'updateOpenBestiarium',
+    updateOpenSeeneSelect: 'updateOpenSeeneSelect'
   })), {}, {
     globalNotesOpen: function globalNotesOpen() {
       this.updateOpenGlobalNotes(!this.openGlobalNotes);
     },
     bestiariumOpen: function bestiariumOpen() {
       this.updateOpenBestiarium(!this.openBestiarium);
+    },
+    SeeneSelectOpen: function SeeneSelectOpen() {
+      this.updateOpenSeeneSelect(!this.openSeeneSelect);
+    },
+    confirmGameDeactivate: function confirmGameDeactivate() {
+      if (window.confirm('Bisztosan akarod változtatni a játék aktív állapotát?')) {
+        this.$root.$emit('GameDeactive', !this.gameActive);
+      }
     }
   })
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/game_site/magus/MagusGmModals.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/game_site/magus/MagusGmModals.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
 
@@ -18214,7 +18301,8 @@ __webpack_require__.r(__webpack_exports__);
 var state = {
   openCharacterSheet: false,
   openGlobalNotes: false,
-  openBestiarium: false
+  openBestiarium: false,
+  openSeeneSelect: false
 };
 var getters = {
   openCharacterSheet: function openCharacterSheet() {
@@ -18225,6 +18313,9 @@ var getters = {
   },
   openBestiarium: function openBestiarium() {
     return state.openBestiarium;
+  },
+  openSeeneSelect: function openSeeneSelect() {
+    return state.openSeeneSelect;
   }
 };
 var mutations = {
@@ -18236,6 +18327,9 @@ var mutations = {
   },
   updateOpenBestiarium: function updateOpenBestiarium(state, showBestiarium) {
     state.openBestiarium = showBestiarium;
+  },
+  updateOpenSeeneSelect: function updateOpenSeeneSelect(state, showSeeneSelect) {
+    state.openSeeneSelect = showSeeneSelect;
   }
 };
 var actions = {};
@@ -52189,6 +52283,45 @@ component.options.__file = "resources/js/components/game_site/magus/MagusGmHeade
 
 /***/ }),
 
+/***/ "./resources/js/components/game_site/magus/MagusGmModals.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/game_site/magus/MagusGmModals.vue ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MagusGmModals_vue_vue_type_template_id_2c1cd069___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MagusGmModals.vue?vue&type=template&id=2c1cd069& */ "./resources/js/components/game_site/magus/MagusGmModals.vue?vue&type=template&id=2c1cd069&");
+/* harmony import */ var _MagusGmModals_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MagusGmModals.vue?vue&type=script&lang=js& */ "./resources/js/components/game_site/magus/MagusGmModals.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MagusGmModals_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MagusGmModals_vue_vue_type_template_id_2c1cd069___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MagusGmModals_vue_vue_type_template_id_2c1cd069___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/game_site/magus/MagusGmModals.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/game_site/magus/MagusPlayerHeader.vue":
 /*!***********************************************************************!*\
   !*** ./resources/js/components/game_site/magus/MagusPlayerHeader.vue ***!
@@ -53816,6 +53949,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/game_site/magus/MagusGmModals.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/game_site/magus/MagusGmModals.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusGmModals_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusGmModals.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/game_site/magus/MagusGmModals.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusGmModals_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/game_site/magus/MagusPlayerHeader.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************!*\
   !*** ./resources/js/components/game_site/magus/MagusPlayerHeader.vue?vue&type=script&lang=js& ***!
@@ -54961,6 +55110,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/game_site/magus/MagusGmModals.vue?vue&type=template&id=2c1cd069&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/game_site/magus/MagusGmModals.vue?vue&type=template&id=2c1cd069& ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusGmModals_vue_vue_type_template_id_2c1cd069___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusGmModals_vue_vue_type_template_id_2c1cd069___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MagusGmModals_vue_vue_type_template_id_2c1cd069___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MagusGmModals.vue?vue&type=template&id=2c1cd069& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/game_site/magus/MagusGmModals.vue?vue&type=template&id=2c1cd069&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/game_site/magus/MagusPlayerHeader.vue?vue&type=template&id=15af81cb&":
 /*!******************************************************************************************************!*\
   !*** ./resources/js/components/game_site/magus/MagusPlayerHeader.vue?vue&type=template&id=15af81cb& ***!
@@ -56025,7 +56191,14 @@ var render = function () {
             ? _c(
                 "div",
                 { staticClass: "mx-3" },
-                [_c("gm-header", { attrs: { game: _vm.gameModule.game } })],
+                [
+                  _c("gm-header", {
+                    attrs: {
+                      game: _vm.gameModule.game,
+                      "game-active": _vm.game_active,
+                    },
+                  }),
+                ],
                 1
               )
             : _c(
@@ -56060,7 +56233,12 @@ var render = function () {
             { class: [_vm.doubleLayout ? "col-4" : ""] },
             [
               _c("active-modals", {
-                attrs: { game: _vm.gameModule.game, isGm: _vm.isGm },
+                attrs: {
+                  game: _vm.gameModule.game,
+                  isGm: _vm.isGm,
+                  module: _vm.gameModule,
+                  seens: _vm.gameData,
+                },
               }),
             ],
             1
@@ -59111,7 +59289,10 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(_vm.active_component, { tag: "component" })
+  return _c(_vm.active_component, {
+    tag: "component",
+    attrs: { module: this.module, seens: this.seens },
+  })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -59211,7 +59392,10 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(_vm.active_component, { tag: "component" })
+  return _c(_vm.active_component, {
+    tag: "component",
+    attrs: { "game-active": _vm.gameActive },
+  })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -59293,24 +59477,55 @@ var render = function () {
     _vm._v(" "),
     _c("button", { on: { click: _vm.bestiariumOpen } }, [_vm._v("Bestiárium")]),
     _vm._v(" "),
-    _c("button", { on: { click: _vm.bestiariumOpen } }, [
+    _c("button", { on: { click: _vm.SeeneSelectOpen } }, [
       _vm._v("Jelenet változtatása"),
     ]),
     _vm._v(" "),
-    _vm._m(0),
+    _vm.gameActive
+      ? _c(
+          "button",
+          {
+            staticClass: "ms-2 btn btn-sm btn-success",
+            on: { click: _vm.confirmGameDeactivate },
+          },
+          [_vm._v("A játék aktív")]
+        )
+      : _c(
+          "button",
+          {
+            staticClass: "ms-2 btn btn-sm btn-danger",
+            on: { click: _vm.confirmGameDeactivate },
+          },
+          [_vm._v("A játék nem aktív, Aktiváld!")]
+        ),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "checkbox" } }, [
-      _vm._v("Játék aktív "),
-      _c("input", { attrs: { type: "checkbox", id: "checkbox" } }),
-    ])
-  },
-]
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/game_site/magus/MagusGmModals.vue?vue&type=template&id=2c1cd069&":
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/game_site/magus/MagusGmModals.vue?vue&type=template&id=2c1cd069& ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

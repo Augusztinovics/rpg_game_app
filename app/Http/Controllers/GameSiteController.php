@@ -28,7 +28,7 @@ class GameSiteController extends Controller
      */
     public function index(Request $request, $id)
     {
-    
+
         $module = GameModule::where('id', $id)->first();
         if (!$module) {
             return redirect()->route('home');
@@ -68,6 +68,27 @@ class GameSiteController extends Controller
         ];
 
         return view('game.site', $data);
-        
+
+    }
+
+    /**
+     * update the game module active state
+     * 
+     * @param \App\Models\GameModule $module
+     *
+     * @return json
+     */
+    public function updateGameModuleActive(Request $request, GameModule $module) {
+
+        $user = $request->user();
+        if (!$user) {
+            return response()->json('Nobady here', 200);
+        }
+        if ($user->id !== $module->gm_id) {
+            return response()->json('What are you want?', 200);
+        }
+        $module->game_active = $request->input('game_active', false);
+        $module->save();
+        return response()->json('ok', 200);
     }
 }

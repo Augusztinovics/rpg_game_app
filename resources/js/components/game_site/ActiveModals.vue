@@ -1,16 +1,21 @@
 <template>
     <component 
         :is="active_component"
+        :module="this.module"
+        :seens="this.seens"
     />
 </template>
 
 <script>
 import MagusPlayerModals from './magus/MagusPlayerModals.vue';
 import EmptyComponent from './EmptyComponent.vue';
+import MagusGmModals from './magus/MagusGmModals.vue';
+
 export default {
     components: {
         MagusPlayerModals,
         EmptyComponent,
+        MagusGmModals,
     },
     props: {
         game: {
@@ -20,6 +25,14 @@ export default {
         isGm: {
             type: Boolean,
             default: false
+        },
+        module: {
+            type: Object,
+            default: {}
+        },
+        seens: {
+            type: Array,
+            default: []
         }
     },
     data() {
@@ -31,7 +44,7 @@ export default {
         switch(this.game) {
             case 'MAGUS':
                 if (this.isGm) {
-                    //Gm magus modals!!!
+                    this.active_component = 'MagusGmModals';
                 } else {
                     this.active_component = 'MagusPlayerModals';
                 }

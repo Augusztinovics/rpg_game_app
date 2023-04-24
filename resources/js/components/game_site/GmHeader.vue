@@ -1,6 +1,7 @@
 <template>
     <component 
         :is="active_component"
+        :game-active="gameActive"
     />
 </template>
 
@@ -16,6 +17,10 @@
             game: {
                 type: String,
                 default: 'MAGUS'
+            },
+            gameActive: {
+                type: Boolean,
+                default: false
             }
         },
         data() {
