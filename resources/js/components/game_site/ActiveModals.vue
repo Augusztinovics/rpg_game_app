@@ -3,6 +3,7 @@
         :is="active_component"
         :module="this.module"
         :seens="this.seens"
+        :active-seene="activeSeene"
     />
 </template>
 
@@ -33,6 +34,10 @@ export default {
         seens: {
             type: Array,
             default: []
+        },
+        activeSeene: {
+            type: Number,
+            default: 1
         }
     },
     data() {

@@ -1,5 +1,5 @@
 <template>
-    <div>Not Ready!!!!</div>
+    <div></div>
 </template>
 
 <script>

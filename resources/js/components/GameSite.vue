@@ -30,6 +30,7 @@
                     :isGm="isGm"
                     :module="gameModule"
                     :seens="gameData"
+                    :active-seene="active_seene"
                 />
             </div>
             
@@ -103,11 +104,13 @@ export default {
     computed: {
         ...mapGetters('gameSiteControl', {
             openCharacterSheet: 'openCharacterSheet',
+            openGlobalNotes: 'openGlobalNotes',
+            openBestiarium: 'openBestiarium',
         }),
 
         doubleLayout() {
             //here will be maybe a lot
-            return (this.openCharacterSheet) && window.innerWidth > 1399;
+            return (this.openCharacterSheet || this.openBestiarium || this.openGlobalNotes) && window.innerWidth > 1399;
         },
 
         siteStyle() {
@@ -166,6 +169,12 @@ export default {
             }).catch((e) => {
                 console.log(e);
             })
+        });
+        this.$root.$on('SeeneChanged', (order) => {
+            //Send axios to backend
+            //fire the event to everybody
+            //Change the activeSceen in socket event callback
+            console.log('Order Changed ' + order);
         });
     }
 }
