@@ -115,3 +115,4 @@ Route::post('gm/delete-game-module-data/{id}', [GameModuleMakerController::class
 //Game Site routs
 Route::get('site/game-module/{id}', [GameSiteController::class, 'index']);
 Route::post('site/game-module/update-active/{module}', [GameSiteController::class, 'updateGameModuleActive']);
+Route::post('site/game-module/update-state/{module}', [GameSiteController::class, 'updateGameModuleState']);

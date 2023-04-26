@@ -39,12 +39,13 @@
                 <game-body 
                     :game="gameModule.game"
                     :seen="activeSeene"
+                    :is-gm="isGm"
                 />
                 <not-ready-overlay v-if="!game_active" />
             </div>
         </div>
         
-        <div style="height:120px;"></div>
+        <div style="height:160px;"></div>
         <!-- footer container -->
         <div class="fixed-bottom">
             <game-footer/>
@@ -172,9 +173,17 @@ export default {
         });
         this.$root.$on('SeeneChanged', (order) => {
             //Send axios to backend
-            //fire the event to everybody
+            axios.post('/site/game-module/update-state/' + this.gameModule.id, {
+                game_state: order
+            }).then((res) => {
+                console.log(res);
+                this.active_seene = order;
+                 //fire the event to everybody
+                console.log('Game Seene: ' + order);
+            }).catch((e) => {
+                console.log(e);
+            })
             //Change the activeSceen in socket event callback
-            console.log('Order Changed ' + order);
         });
     }
 }

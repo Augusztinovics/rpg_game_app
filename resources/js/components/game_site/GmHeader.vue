@@ -10,8 +10,8 @@
     import EmptyComponent from './EmptyComponent.vue';
     export default {
         components: {
-        MagusGmHeader,
-        EmptyComponent,
+            MagusGmHeader,
+            EmptyComponent,
         },
         props: {
             game: {

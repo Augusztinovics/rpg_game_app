@@ -1,16 +1,47 @@
 <template>
-    <div class="test">Game body</div>
+    <component 
+        :is="active_component"
+        :game-seen="seen"
+        :is-gm="isGm"
+    />
 </template>
 
 <script>
-export default {
-    
-}
-</script>
+    import MagusGameBody from './magus/MagusGameBody.vue';
+    import EmptyComponent from './EmptyComponent.vue';
 
-<style scoped>
-    .test {
-        height: 1200px;
-        background-color: aqua;
+    export default {
+        components: {
+            MagusGameBody,
+            EmptyComponent,
+        },
+        props: {
+            game: {
+                type: String,
+                default: 'MAGUS'
+            },
+            seen: {
+                type: Object,
+                default: {}
+            },
+            isGm: {
+                type: Boolean,
+                default: false
+            }
+        },
+        data() {
+            return {
+                active_component: 'EmptyComponent'
+            }
+        },
+        mounted() {
+            switch(this.game) {
+                case 'MAGUS':
+                    this.active_component = 'MagusGameBody';
+                    break;
+                default:
+                    this.active_component = 'EmptyComponent';
+            }
+        }
     }
-</style>
+</script>

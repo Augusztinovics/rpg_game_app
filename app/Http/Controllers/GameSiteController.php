@@ -82,12 +82,33 @@ class GameSiteController extends Controller
 
         $user = $request->user();
         if (!$user) {
-            return response()->json('Nobady here', 200);
+            return response()->json('Nobady here', 403);
         }
         if ($user->id !== $module->gm_id) {
-            return response()->json('What are you want?', 200);
+            return response()->json('What are you want?', 403);
         }
         $module->game_active = $request->input('game_active', false);
+        $module->save();
+        return response()->json('ok', 200);
+    }
+
+    /**
+     * update the game module active state
+     * 
+     * @param \App\Models\GameModule $module
+     *
+     * @return json
+     */
+    public function updateGameModuleState(Request $request, GameModule $module) {
+
+        $user = $request->user();
+        if (!$user) {
+            return response()->json('Nobady here', 403);
+        }
+        if ($user->id !== $module->gm_id) {
+            return response()->json('What are you want?', 403);
+        }
+        $module->game_module_state = $request->input('game_state', 1);
         $module->save();
         return response()->json('ok', 200);
     }
