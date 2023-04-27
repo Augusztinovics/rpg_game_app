@@ -38,8 +38,12 @@
 </template>
 
 <script>
+import MapDrowing from '../../gm_site/MapDrowing.vue';
 //gameSeen.module_data
     export default {
+        components: {
+            MapDrowing,
+        },
         props: {
             gameSeen: {
                 type: Object,
