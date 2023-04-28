@@ -110,6 +110,8 @@ class GameSiteController extends Controller
         }
         $module->game_module_state = $request->input('game_state', 1);
         $module->save();
-        return response()->json('ok', 200);
+        $gameData = GameModuleData::where('game_module_id', $module->id)->orderBy('game_module_data_order', 'asc')->get();
+        $data = ['game_data' => $gameData];
+        return response()->json($data, 200);
     }
 }

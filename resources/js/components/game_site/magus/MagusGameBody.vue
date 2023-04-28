@@ -33,17 +33,12 @@
                 </div>
             </div>
         </div>
-        <!-- Rjztabla az eventekkel -->
     </div>
 </template>
 
 <script>
-import MapDrowing from '../../gm_site/MapDrowing.vue';
 //gameSeen.module_data
     export default {
-        components: {
-            MapDrowing,
-        },
         props: {
             gameSeen: {
                 type: Object,
@@ -58,7 +53,7 @@ import MapDrowing from '../../gm_site/MapDrowing.vue';
             bgImg() {
                 return '/img/fantasy-bg/' + this.gameSeen.module_data.img;
             },
-        }
+        },
     }
 </script>
 

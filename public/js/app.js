@@ -5514,7 +5514,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _game_site_GameBody_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./game_site/GameBody.vue */ "./resources/js/components/game_site/GameBody.vue");
 /* harmony import */ var _game_site_GameFooter_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./game_site/GameFooter.vue */ "./resources/js/components/game_site/GameFooter.vue");
 /* harmony import */ var _game_site_GmHeader_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./game_site/GmHeader.vue */ "./resources/js/components/game_site/GmHeader.vue");
@@ -5522,6 +5522,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _game_site_PlayerHeader_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./game_site/PlayerHeader.vue */ "./resources/js/components/game_site/PlayerHeader.vue");
 /* harmony import */ var _DiceGenerator_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./DiceGenerator.vue */ "./resources/js/components/DiceGenerator.vue");
 /* harmony import */ var _game_site_ActiveModals_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./game_site/ActiveModals.vue */ "./resources/js/components/game_site/ActiveModals.vue");
+/* harmony import */ var _gm_site_MapDrowing_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./gm_site/MapDrowing.vue */ "./resources/js/components/gm_site/MapDrowing.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -5583,6 +5584,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -5599,7 +5611,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     NotReadyOverlay: _game_site_NotReadyOverlay_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     PlayerHeader: _game_site_PlayerHeader_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     DiceGenerator: _DiceGenerator_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    ActiveModals: _game_site_ActiveModals_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+    ActiveModals: _game_site_ActiveModals_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    MapDrowing: _gm_site_MapDrowing_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   props: {
     gameModule: {
@@ -5627,10 +5640,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       game_active: false,
-      active_seene: 1
+      active_seene: 1,
+      game_data: this.gameData
     };
   },
-  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_7__.mapGetters)('gameSiteControl', {
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_8__.mapGetters)('gameSiteControl', {
     openCharacterSheet: 'openCharacterSheet',
     openGlobalNotes: 'openGlobalNotes',
     openBestiarium: 'openBestiarium'
@@ -5654,13 +5668,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     activeSeene: function activeSeene() {
       var _this = this;
 
-      var seen = this.gameData.find(function (d) {
+      var seen = this.game_data.find(function (d) {
         return d.game_module_data_order === _this.active_seene;
       });
-      return seen ? seen : this.gameData[0];
+      return seen ? seen : this.game_data[0];
     }
   }),
-  methods: _objectSpread({
+  methods: _objectSpread(_objectSpread({
     openDiceModal: function openDiceModal() {
       this.$refs['dice-modal'].showModal();
     },
@@ -5669,9 +5683,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       msg += ' Dobott K' + roll.type + ' dobókockával. A dobás eredménye: ' + roll.result;
       console.log(msg);
     }
-  }, (0,vuex__WEBPACK_IMPORTED_MODULE_7__.mapMutations)('currentCharacter', {
+  }, (0,vuex__WEBPACK_IMPORTED_MODULE_8__.mapMutations)('currentCharacter', {
     addCharacter: 'addCharacter'
-  })),
+  })), {}, {
+    seenDrowSave: function seenDrowSave(draw) {
+      console.log(draw);
+    }
+  }),
   mounted: function mounted() {
     var _this2 = this;
 
@@ -5694,7 +5712,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       axios.post('/site/game-module/update-active/' + _this2.gameModule.id, {
         game_active: state
       }).then(function (res) {
-        console.log(res);
         _this2.game_active = state;
         console.log('Game State: ' + state); //fire the event to everybody
       })["catch"](function (e) {
@@ -5707,12 +5724,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         game_state: order
       }).then(function (res) {
         console.log(res);
-        _this2.active_seene = order; //fire the event to everybody
+        _this2.game_data = res.data.game_data;
+        _this2.active_seene = order;
+        console.log(_this2.activeSeene); //fire the event to everybody
 
         console.log('Game Seene: ' + order);
       })["catch"](function (e) {
         console.log(e);
       }); //Change the activeSceen in socket event callback
+    });
+    this.$root.$on('CanvasDrow', function (line) {
+      console.log(line);
     });
   }
 });
@@ -7839,7 +7861,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
 //
 //
 //
@@ -10197,6 +10218,14 @@ __webpack_require__.r(__webpack_exports__);
     canvasId: {
       type: String,
       "default": "canvas"
+    },
+    fromSite: {
+      type: Boolean,
+      "default": false
+    },
+    moduleIndex: {
+      type: Number,
+      "default": 1
     }
   },
   data: function data() {
@@ -10251,6 +10280,7 @@ __webpack_require__.r(__webpack_exports__);
         this.drowingContext.closePath();
         this.isDrowing = false;
         this.localMapData.push(this.currentLine);
+        this.$root.$emit('CanvasDrow', this.currentLine);
         this.currentLine = {
           startX: 0,
           startY: 0,
@@ -10297,15 +10327,55 @@ __webpack_require__.r(__webpack_exports__);
       this.drowingContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
       this.drowingContext.fillRect(0, 0, this.canvas.width, this.canvas.height);
       this.$emit('save', this.localMapData);
+    },
+    clearMap: function clearMap() {
+      this.drowingContext.fillStyle = '#ffffff';
+      this.drowingContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      this.drowingContext.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    setUpCanvas: function setUpCanvas() {
+      var _this2 = this;
+
+      setTimeout(function () {
+        _this2.localMapData = _this2.mapDrowData;
+        _this2.canvas = document.getElementById(_this2.canvasId);
+        _this2.drowingContext = _this2.canvas.getContext("2d");
+        var canvasWidth = window.innerWidth;
+
+        if (canvasWidth < 768) {
+          canvasWidth = canvasWidth - 100;
+        } else if (canvasWidth > 768 && canvasWidth < 992) {
+          canvasWidth = 650;
+        } else if (canvasWidth > 992 && canvasWidth < 1200) {
+          canvasWidth = 900;
+        } else if (canvasWidth > 1200 && canvasWidth < 1400) {
+          canvasWidth = 1000;
+        } else {
+          canvasWidth = 1200;
+        }
+
+        console.log(canvasWidth);
+        _this2.canvas.width = canvasWidth;
+        _this2.canvas.height = 500;
+
+        _this2.clearMap();
+
+        _this2.drowMap();
+      }, 100);
+    }
+  },
+  watch: {
+    moduleIndex: function moduleIndex(newIndex) {
+      this.setUpCanvas();
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this3 = this;
 
     setTimeout(function () {
-      _this2.localMapData = _this2.mapDrowData;
-      _this2.canvas = document.getElementById(_this2.canvasId);
-      _this2.drowingContext = _this2.canvas.getContext("2d");
+      _this3.localMapData = _this3.mapDrowData;
+      _this3.canvas = document.getElementById(_this3.canvasId);
+      _this3.drowingContext = _this3.canvas.getContext("2d");
       var canvasWidth = window.innerWidth;
 
       if (canvasWidth < 768) {
@@ -10320,12 +10390,11 @@ __webpack_require__.r(__webpack_exports__);
         canvasWidth = 1200;
       }
 
-      console.log(canvasWidth);
-      _this2.canvas.width = canvasWidth;
-      _this2.canvas.height = 500;
+      _this3.canvas.width = canvasWidth;
+      _this3.canvas.height = 500;
 
-      _this2.drowMap();
-    }, 100);
+      _this3.drowMap();
+    }, 120);
   }
 });
 
@@ -56702,6 +56771,25 @@ var render = function () {
       _vm._v(" "),
       _c("div", { staticStyle: { height: "80px" } }),
       _vm._v(" "),
+      _vm.isGm
+        ? _c(
+            "div",
+            { staticClass: "container text-center" },
+            [
+              _c("map-drowing", {
+                attrs: {
+                  "map-drow-data": _vm.activeSeene.module_data.map,
+                  "canvas-id": "seenCanvas",
+                  "from-site": true,
+                  "module-index": _vm.active_seene,
+                },
+                on: { save: _vm.seenDrowSave },
+              }),
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _c(
         "div",
         { class: [_vm.doubleLayout ? "container-fluid row" : "container"] },
@@ -65162,15 +65250,17 @@ var render = function () {
           [_vm._v("\n                Mentés\n            ")]
         ),
         _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-outline-secondary ms-3",
-            attrs: { type: "button" },
-            on: { click: _vm.deleteMap },
-          },
-          [_vm._v("\n                Törlés\n            ")]
-        ),
+        !_vm.fromSite
+          ? _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-secondary ms-3",
+                attrs: { type: "button" },
+                on: { click: _vm.deleteMap },
+              },
+              [_vm._v("\n                Törlés\n            ")]
+            )
+          : _vm._e(),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "color-options" }, [

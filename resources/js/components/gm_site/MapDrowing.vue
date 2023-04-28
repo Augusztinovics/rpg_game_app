@@ -5,7 +5,7 @@
                 <button type="button" class="btn btn-outline-success" @click="saveMap">
                     Mentés
                 </button>
-                <button type="button" class="btn btn-outline-secondary ms-3" @click="deleteMap">
+                <button v-if="!fromSite" type="button" class="btn btn-outline-secondary ms-3" @click="deleteMap">
                     Törlés
                 </button>
             </div>
@@ -87,6 +87,14 @@ export default {
             type: String,
             default: "canvas",
         },
+        fromSite: {
+            type: Boolean,
+            default: false
+        },
+        moduleIndex: {
+            type: Number,
+            default: 1
+        }
     },
     data() {
         return {
@@ -145,6 +153,7 @@ export default {
                 this.drowingContext.closePath();
                 this.isDrowing = false;
                 this.localMapData.push(this.currentLine);
+                this.$root.$emit('CanvasDrow', this.currentLine);
                 this.currentLine = {
                     startX: 0,
                     startY: 0,
@@ -188,6 +197,39 @@ export default {
             this.drowingContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
             this.drowingContext.fillRect(0, 0, this.canvas.width, this.canvas.height);
             this.$emit('save', this.localMapData);
+        },
+        clearMap() {
+            this.drowingContext.fillStyle = '#ffffff';
+            this.drowingContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            this.drowingContext.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        },
+        setUpCanvas() {
+            setTimeout(() => {
+                this.localMapData = this.mapDrowData;
+                this.canvas = document.getElementById(this.canvasId);
+                this.drowingContext = this.canvas.getContext("2d");
+                let canvasWidth = window.innerWidth;
+                if (canvasWidth < 768) {
+                    canvasWidth = canvasWidth - 100;
+                } else if (canvasWidth > 768 && canvasWidth < 992) {
+                    canvasWidth = 650;
+                } else if (canvasWidth > 992 && canvasWidth < 1200) {
+                    canvasWidth = 900;
+                } else if (canvasWidth > 1200 && canvasWidth < 1400) {
+                    canvasWidth = 1000;
+                } else {
+                    canvasWidth = 1200;
+                }
+                this.canvas.width = canvasWidth;
+                this.canvas.height = 500;
+                this.clearMap();
+                this.drowMap();
+            }, 100);
+        }
+    },
+    watch: {
+        moduleIndex(newIndex) {
+            this.setUpCanvas();
         }
     },
     mounted() {
@@ -207,11 +249,10 @@ export default {
             } else {
                 canvasWidth = 1200;
             }
-            console.log(canvasWidth);
             this.canvas.width = canvasWidth;
             this.canvas.height = 500;
             this.drowMap();
-        }, 100);
+        }, 120);
     },
 };
 </script>

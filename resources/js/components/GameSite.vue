@@ -21,6 +21,16 @@
         </header>
         <dice-generator ref="dice-modal" :form_site="true" :dices="diceSet" @roll="atDiceRolled"/>
         <div style="height:80px;"></div>
+        <!-- drowing canvas -->
+        <div v-if="isGm" class="container text-center">
+            <map-drowing
+                :map-drow-data="activeSeene.module_data.map"
+                canvas-id="seenCanvas"
+                :from-site="true"
+                :module-index="active_seene"
+                @save="seenDrowSave"
+            ></map-drowing>
+        </div>
         <!-- Body layout -->
         <div :class="[doubleLayout ? 'container-fluid row' : 'container']">
             <!-- modals and side menus -->
@@ -62,6 +72,7 @@ import NotReadyOverlay from './game_site/NotReadyOverlay.vue';
 import PlayerHeader from './game_site/PlayerHeader.vue';
 import DiceGenerator from './DiceGenerator.vue';
 import ActiveModals from './game_site/ActiveModals.vue';
+import MapDrowing from './gm_site/MapDrowing.vue';
 
 export default {
     components: {
@@ -72,6 +83,7 @@ export default {
         PlayerHeader,
         DiceGenerator,
         ActiveModals,
+        MapDrowing,
     },
     props: {
         gameModule: {
@@ -100,6 +112,7 @@ export default {
         return {
             game_active: false,
             active_seene: 1,
+            game_data: this.gameData,
         }
     },
     computed: {
@@ -128,9 +141,10 @@ export default {
         },
 
         activeSeene() {
-            let seen = this.gameData.find(d => d.game_module_data_order === this.active_seene);
-            return seen ? seen : this.gameData[0];
-        }
+            let seen = this.game_data.find(d => d.game_module_data_order === this.active_seene);
+            return seen ? seen : this.game_data[0];
+        },
+
     },
     methods: {
         openDiceModal() {
@@ -144,6 +158,9 @@ export default {
         ...mapMutations('currentCharacter', {
             addCharacter: 'addCharacter',
         }),
+        seenDrowSave(draw) {
+            console.log(draw);
+        },
     },
     mounted() {
         this.game_active = this.gameModule.game_active;
@@ -163,7 +180,6 @@ export default {
             axios.post('/site/game-module/update-active/' + this.gameModule.id, {
                 game_active: state
             }).then((res) => {
-                console.log(res);
                 this.game_active = state;
                 console.log('Game State: ' + state);
                 //fire the event to everybody
@@ -176,14 +192,18 @@ export default {
             axios.post('/site/game-module/update-state/' + this.gameModule.id, {
                 game_state: order
             }).then((res) => {
-                console.log(res);
+                this.game_data = res.data.game_data;
                 this.active_seene = order;
+                console.log(this.activeSeene);
                  //fire the event to everybody
                 console.log('Game Seene: ' + order);
             }).catch((e) => {
                 console.log(e);
             })
             //Change the activeSceen in socket event callback
+        });
+        this.$root.$on('CanvasDrow', (line) => {
+            console.log(line);
         });
     }
 }
