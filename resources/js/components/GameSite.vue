@@ -31,6 +31,13 @@
                 @save="seenDrowSave"
             ></map-drowing>
         </div>
+        <div v-else class="container text-center">
+            <site-canvas
+                :map-drow-data="activeSeene.module_data.map"
+                :module-index="active_seene"
+            >
+            </site-canvas>
+        </div>
         <!-- Body layout -->
         <div :class="[doubleLayout ? 'container-fluid row' : 'container']">
             <!-- modals and side menus -->
@@ -73,6 +80,7 @@ import PlayerHeader from './game_site/PlayerHeader.vue';
 import DiceGenerator from './DiceGenerator.vue';
 import ActiveModals from './game_site/ActiveModals.vue';
 import MapDrowing from './gm_site/MapDrowing.vue';
+import SiteCanvas from './game_site/SiteCanvas.vue';
 
 export default {
     components: {
@@ -84,6 +92,7 @@ export default {
         DiceGenerator,
         ActiveModals,
         MapDrowing,
+        SiteCanvas,
     },
     props: {
         gameModule: {
