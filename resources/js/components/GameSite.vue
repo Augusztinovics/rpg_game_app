@@ -41,7 +41,7 @@
         <!-- Body layout -->
         <div :class="[doubleLayout ? 'container-fluid row' : 'container']">
             <!-- modals and side menus -->
-            <div :class="[doubleLayout ? 'col-4' : '']">
+            <div :class="[doubleLayout ? 'col-4 game-side-menu' : '']">
                 <active-modals 
                     :game="gameModule.game"
                     :isGm="isGm"
@@ -62,6 +62,15 @@
             </div>
         </div>
         
+        <!-- game book -->
+        <div>
+            <game-book
+                :game="gameModule.game"
+                :is-gm="isGm"
+                :character-id="playerCharacterId"
+            >
+            </game-book>
+        </div>
         <div style="height:160px;"></div>
         <!-- footer container -->
         <div class="fixed-bottom">
@@ -81,6 +90,7 @@ import DiceGenerator from './DiceGenerator.vue';
 import ActiveModals from './game_site/ActiveModals.vue';
 import MapDrowing from './gm_site/MapDrowing.vue';
 import SiteCanvas from './game_site/SiteCanvas.vue';
+import GameBook from './game_site/GameBook.vue';
 
 export default {
     components: {
@@ -93,6 +103,7 @@ export default {
         ActiveModals,
         MapDrowing,
         SiteCanvas,
+        GameBook,
     },
     props: {
         gameModule: {
@@ -130,6 +141,13 @@ export default {
             openGlobalNotes: 'openGlobalNotes',
             openBestiarium: 'openBestiarium',
         }),
+
+        playerCharacterId() {
+            if (this.character) {
+                return this.character.character_data.Kaszt;
+            }
+            return '';
+        },
 
         doubleLayout() {
             //here will be maybe a lot
@@ -170,6 +188,18 @@ export default {
         seenDrowSave(draw) {
             console.log(draw);
         },
+        deactivateGame(state) {
+            //Send axio to backend!!!
+            axios.post('/site/game-module/update-active/' + this.gameModule.id, {
+                game_active: state
+            }).then((res) => {
+                this.game_active = state;
+                console.log('Game State: ' + state);
+                //fire the event to everybody
+            }).catch((e) => {
+                console.log(e);
+            })
+        },
     },
     mounted() {
         this.game_active = this.gameModule.game_active;
@@ -185,16 +215,7 @@ export default {
             console.log(msg);
         });
         this.$root.$on('GameDeactive', (state) => {
-            //Send axio to backend!!!
-            axios.post('/site/game-module/update-active/' + this.gameModule.id, {
-                game_active: state
-            }).then((res) => {
-                this.game_active = state;
-                console.log('Game State: ' + state);
-                //fire the event to everybody
-            }).catch((e) => {
-                console.log(e);
-            })
+            this.deactivateGame(state);
         });
         this.$root.$on('SeeneChanged', (order) => {
             //Send axios to backend
@@ -214,6 +235,11 @@ export default {
         this.$root.$on('CanvasDrow', (line) => {
             console.log(line);
         });
+    },
+    beforeDestroy() {
+        if (this.isGm) {
+            this.deactivateGame(false);
+        }
     }
 }
 </script>
