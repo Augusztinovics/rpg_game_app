@@ -8183,10 +8183,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     isGm: {
@@ -8197,6 +8223,67 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       "default": ''
     }
+  },
+  data: function data() {
+    return {
+      selected_tab: 'let_szabalya_tab',
+      current_page: 1,
+      max_page: 1
+    };
+  },
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusBook', {
+    let_szabalyai: 'let_szabalyai',
+    harcrendszer: 'harcrendszer'
+  })), {}, {
+    imgUrl: function imgUrl() {
+      var _this$harcrendszer, _this$let_szabalyai;
+
+      switch (this.selected_tab) {
+        case 'harcrendszer_tab':
+          return (_this$harcrendszer = this.harcrendszer[this.current_page - 1]) !== null && _this$harcrendszer !== void 0 ? _this$harcrendszer : this.harcrendszer[0];
+
+        default:
+          return (_this$let_szabalyai = this.let_szabalyai[this.current_page - 1]) !== null && _this$let_szabalyai !== void 0 ? _this$let_szabalyai : this.let_szabalyai[0];
+      }
+    }
+  }),
+  methods: {
+    selectTab: function selectTab(tab) {
+      switch (tab) {
+        case 'harcrendszer_tab':
+          //
+          this.selected_tab = 'harcrendszer_tab';
+          this.current_page = 1;
+          this.max_page = this.harcrendszer.length;
+          break;
+
+        default:
+          this.selected_tab = 'let_szabalya_tab';
+          this.current_page = 1;
+          this.max_page = this.let_szabalyai.length;
+      }
+    },
+    prevPage: function prevPage() {
+      var prev = this.current_page - 1;
+
+      if (prev < 1) {
+        this.current_page = this.max_page;
+      } else {
+        this.current_page = prev;
+      }
+    },
+    nextPage: function nextPage() {
+      var next = this.current_page + 1;
+
+      if (next > this.max_page) {
+        this.current_page = 1;
+      } else {
+        this.current_page = next;
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.max_page = this.let_szabalyai.length;
   }
 });
 
@@ -18877,8 +18964,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/magus/magusAligments */ "./resources/js/store/modules/magus/magusAligments.js");
 /* harmony import */ var _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/magus/magusRaces */ "./resources/js/store/modules/magus/magusRaces.js");
 /* harmony import */ var _modules_magus_magusClasses__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/magus/magusClasses */ "./resources/js/store/modules/magus/magusClasses.js");
@@ -18897,6 +18984,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_magus_magusBestiarium__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modules/magus/magusBestiarium */ "./resources/js/store/modules/magus/magusBestiarium.js");
 /* harmony import */ var _modules_fantasyBgImgs__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./modules/fantasyBgImgs */ "./resources/js/store/modules/fantasyBgImgs.js");
 /* harmony import */ var _modules_gameSiteControl__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./modules/gameSiteControl */ "./resources/js/store/modules/gameSiteControl.js");
+/* harmony import */ var _modules_magusBook__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./modules/magusBook */ "./resources/js/store/modules/magusBook.js");
 
 
 
@@ -18917,8 +19005,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_18__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_19__["default"]);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_19__["default"].Store({
+
+vue__WEBPACK_IMPORTED_MODULE_19__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_20__["default"]);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vuex__WEBPACK_IMPORTED_MODULE_20__["default"].Store({
   modules: {
     magusAligments: _modules_magus_magusAligments__WEBPACK_IMPORTED_MODULE_0__["default"],
     magusRaces: _modules_magus_magusRaces__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -18937,7 +19026,8 @@ vue__WEBPACK_IMPORTED_MODULE_18__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1
     userCharacters: _modules_userCharacters__WEBPACK_IMPORTED_MODULE_14__["default"],
     magusBestiarium: _modules_magus_magusBestiarium__WEBPACK_IMPORTED_MODULE_15__["default"],
     fantasyBgImgs: _modules_fantasyBgImgs__WEBPACK_IMPORTED_MODULE_16__["default"],
-    gameSiteControl: _modules_gameSiteControl__WEBPACK_IMPORTED_MODULE_17__["default"]
+    gameSiteControl: _modules_gameSiteControl__WEBPACK_IMPORTED_MODULE_17__["default"],
+    magusBook: _modules_magusBook__WEBPACK_IMPORTED_MODULE_18__["default"]
   }
 }));
 
@@ -19019,6 +19109,41 @@ var mutations = {
     state.openSeeneSelect = showSeeneSelect;
   }
 };
+var actions = {};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/magusBook.js":
+/*!*************************************************!*\
+  !*** ./resources/js/store/modules/magusBook.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var state = {
+  let_szabalyai: ['/magus-book/let-szabalyai/magus-038.png', '/magus-book/let-szabalyai/magus-039.png', '/magus-book/let-szabalyai/magus-040.png', '/magus-book/let-szabalyai/magus-041.png'],
+  harcrendszer: ['/magus-book/let-szabalyai/magus-041.png', '/magus-book/harcrendszer/magus-042.png', '/magus-book/harcrendszer/magus-043.png', '/magus-book/harcrendszer/magus-044.png', '/magus-book/harcrendszer/magus-045.png', '/magus-book/harcrendszer/magus-046.png']
+};
+var getters = {
+  let_szabalyai: function let_szabalyai() {
+    return state.let_szabalyai;
+  },
+  harcrendszer: function harcrendszer() {
+    return state.harcrendszer;
+  }
+};
+var mutations = {};
 var actions = {};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   namespaced: true,
@@ -60859,7 +60984,80 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", { staticClass: "card m-2 mt-4" }, [
+    _c("div", { staticClass: "card-header" }, [
+      _c("div", { staticClass: "ms-2 d-flex flex-row" }, [
+        _c(
+          "button",
+          {
+            class: [
+              "m-1 btn btn-sm ",
+              _vm.selected_tab == "let_szabalya_tab"
+                ? "btn-dark"
+                : "btn-secondary",
+            ],
+            on: {
+              click: function ($event) {
+                return _vm.selectTab("let_szabalya_tab")
+              },
+            },
+          },
+          [_vm._v("Létezés Szabályai")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            class: [
+              "m-1 btn btn-sm ",
+              _vm.selected_tab == "harcrendszer_tab"
+                ? "btn-dark"
+                : "btn-secondary",
+            ],
+            on: {
+              click: function ($event) {
+                return _vm.selectTab("harcrendszer_tab")
+              },
+            },
+          },
+          [_vm._v("Harcrendszer")]
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body text-center" }, [
+      _c("img", {
+        staticClass: "img-fluid",
+        attrs: { src: _vm.imgUrl, alt: "magus book page" },
+      }),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-footer text-center" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-sm btn-secondary",
+          on: { click: _vm.prevPage },
+        },
+        [_vm._v("<")]
+      ),
+      _vm._v(" "),
+      _c("span", { staticClass: "mx-2" }, [
+        _c("span", [_vm._v(_vm._s(_vm.current_page))]),
+        _vm._v("/\n            "),
+        _c("span", [_vm._v(_vm._s(_vm.max_page))]),
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-sm btn-secondary",
+          on: { click: _vm.nextPage },
+        },
+        [_vm._v(">")]
+      ),
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
