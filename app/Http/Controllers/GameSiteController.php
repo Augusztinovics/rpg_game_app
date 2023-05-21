@@ -28,7 +28,7 @@ class GameSiteController extends Controller
      */
     public function index(Request $request, $id)
     {
-    
+
         $module = GameModule::where('id', $id)->first();
         if (!$module) {
             return redirect()->route('home');
@@ -50,6 +50,10 @@ class GameSiteController extends Controller
         }
 
         $gameData = GameModuleData::where('game_module_id', $module->id)->orderBy('game_module_data_order', 'asc')->get();
+        if (Auth::id() === $module->gm_id) {
+            $module->game_active = true;
+            $module->save();
+        }
         $data = [
             'game_module' => $module,
             'game_data' => $gameData,
@@ -64,6 +68,50 @@ class GameSiteController extends Controller
         ];
 
         return view('game.site', $data);
-        
+
+    }
+
+    /**
+     * update the game module active state
+     * 
+     * @param \App\Models\GameModule $module
+     *
+     * @return json
+     */
+    public function updateGameModuleActive(Request $request, GameModule $module) {
+
+        $user = $request->user();
+        if (!$user) {
+            return response()->json('Nobady here', 403);
+        }
+        if ($user->id !== $module->gm_id) {
+            return response()->json('What are you want?', 403);
+        }
+        $module->game_active = $request->input('game_active', false);
+        $module->save();
+        return response()->json('ok', 200);
+    }
+
+    /**
+     * update the game module active state
+     * 
+     * @param \App\Models\GameModule $module
+     *
+     * @return json
+     */
+    public function updateGameModuleState(Request $request, GameModule $module) {
+
+        $user = $request->user();
+        if (!$user) {
+            return response()->json('Nobady here', 403);
+        }
+        if ($user->id !== $module->gm_id) {
+            return response()->json('What are you want?', 403);
+        }
+        $module->game_module_state = $request->input('game_state', 1);
+        $module->save();
+        $gameData = GameModuleData::where('game_module_id', $module->id)->orderBy('game_module_data_order', 'asc')->get();
+        $data = ['game_data' => $gameData];
+        return response()->json($data, 200);
     }
 }

@@ -43,7 +43,7 @@
                         >
                             <td>{{ gameModule.id }}</td>
                             <td>
-                                <a :href="'/site/game-module/' + gameModule.id" target="_blank" class="btn btn-link">{{
+                                <a :href="'/site/game-module/' + gameModule.id" class="btn btn-link">{{
                                     gameModule.game_module_name
                                 }}</a>
                             </td>

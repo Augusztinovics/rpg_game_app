@@ -80,8 +80,10 @@ export default {
             save: 'save'
         }),
         addQuantToEquipment(index) {
-                this.felszereles[index].quantity ++;
-                this.saveEquipment();
+            this.felszereles[index].quantity ++;
+            this.saveEquipment();
+            let msg = this.magusCharacter.Nev + ' Megváltoztatta felszerelése mennyiségét! Tárgy: ' + this.felszereles[index].name + ' Mennyiség: +1';
+            this.$root.$emit('CharacterChangedEvent', msg);
         },
         removeQuantFromEquipment(index) {
             if (this.felszereles[index].quantity === 1) {
@@ -89,6 +91,8 @@ export default {
             } else {
                 this.felszereles[index].quantity --;
             }
+            let msg = this.magusCharacter.Nev + ' Megváltoztatta felszerelése mennyiségét! Tárgy: ' + this.felszereles[index].name + ' Mennyiség: -1';
+            this.$root.$emit('CharacterChangedEvent', msg);
             this.saveEquipment();
         },
         addNewEquipment() {
@@ -98,6 +102,8 @@ export default {
                     quantity: this.input_quantity,
                     where: this.input_where
                 }
+                let msg = this.magusCharacter.Nev + ' Új felszerelést vett magához! Tárgy: ' + newEquip.name + ' Mennyiség: ' + newEquip.quantity;
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.felszereles.push(newEquip);
                 this.input_felszereles = '';
                 this.input_quantity = 1;

@@ -14,7 +14,7 @@
                     <button class="btn btn-success my-3 bg-green-leather costum-btn" type="button" data-bs-toggle="modal" data-bs-target="#rangedWeaponModal">Lőfegyver kézbe vétele</button>
                 </div>
             </div>
-            
+
         </div>
         <div class="mt-3">
             <h5 class="text-center">Közelharci fegyverek</h5>
@@ -173,7 +173,7 @@
                 <div class="modal-body">
                     <select class="form-select" v-model="inputLeftWeapon">
                         <option disabled value="">Please select one</option>
-                        <option v-for="fegyver, index in kozelharci" :key="'LW' + index" :value="fegyver">{{ weapon(fegyver).name }}</option>                      
+                        <option v-for="fegyver, index in kozelharci" :key="'LW' + index" :value="fegyver">{{ weapon(fegyver).name }}</option>
                     </select>
                     
                 </div>
@@ -196,9 +196,9 @@
                 <div class="modal-body">
                     <select class="form-select" v-model="inputRightWeapon">
                         <option disabled value="">Please select one</option>
-                        <option v-for="fegyver, index in kozelharci" :key="'RW' + index" :value="fegyver">{{ weapon(fegyver).name }}</option>                      
+                        <option v-for="fegyver, index in kozelharci" :key="'RW' + index" :value="fegyver">{{ weapon(fegyver).name }}</option>
                     </select>
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Bezár</button>
@@ -219,9 +219,9 @@
                 <div class="modal-body">
                     <select class="form-select" v-model="inputRanged">
                         <option disabled value="">Please select one</option>
-                        <option v-for="celzo, index in tav" :key="'RW' + index" :value="celzo">{{ rangedWeapon(celzo).name }}</option>                      
+                        <option v-for="celzo, index in tav" :key="'RW' + index" :value="celzo">{{ rangedWeapon(celzo).name }}</option>
                     </select>
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Bezár</button>
@@ -286,7 +286,7 @@ export default {
                 if (leftShield) {
                     return leftShield;
                 } else if (leftWeapon) {
-                    return leftWeapon;                
+                    return leftWeapon;
                 } else if (leftRanged) {
                     return leftRanged;
                 } else {
@@ -304,7 +304,7 @@ export default {
                 if (rightShield) {
                     return rightShield;
                 } else if (rightWeapon) {
-                    return rightWeapon;                
+                    return rightWeapon;
                 } else if (rightRanged) {
                     return rightRanged;
                 } else {
@@ -372,19 +372,23 @@ export default {
             if (this.magusCharacter.LeftHand == this.kozelharci[index] || this.magusCharacter.RightHand == this.kozelharci[index]) {
 
             } else {
+                let msg = this.magusCharacter.Nev + ' Eldobott egy fegyvert! A fegyver:' + this.weapon(this.kozelharci[index]).name;
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.kozelharci.splice(index, 1);
                 this.updateWeapons(this.kozelharci);
                 this.save();
-            }    
+            }
         },
         removeRanged(index) {
             if (this.magusCharacter.LeftHand == this.tav[index] || this.magusCharacter.RightHand == this.tav[index]) {
 
             } else {
+                let msg = this.magusCharacter.Nev + ' Eldobott egy fegyvert! A fegyver:' + this.rangedWeapon(this.tav[index]).name;
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.tav.splice(index, 1);
                 this.updateRangedWeapons(this.tav);
                 this.save();
-            }    
+            }
         },
         selectWeapon(id) {
             this.selectedWeaponId = id;
@@ -396,6 +400,8 @@ export default {
             if (this.selectedWeaponId != '') {
                 this.kozelharci.push(this.selectedWeaponId);
                 this.updateWeapons(this.kozelharci);
+                let msg = this.magusCharacter.Nev + ' Fegyvert választott! A fegyver:' + this.weapon(this.selectedWeaponId).name;
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.selectedWeaponId = '';
                 this.save();
             }
@@ -404,6 +410,8 @@ export default {
             if (this.selectedRangedId != '') {
                 this.tav.push(this.selectedRangedId);
                 this.updateRangedWeapons(this.tav);
+                let msg = this.magusCharacter.Nev + ' Fegyvert választott! A fegyver:' + this.rangedWeapon(this.selectedRangedId).name;
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.selectedRangedId = '';
                 this.save();
             }

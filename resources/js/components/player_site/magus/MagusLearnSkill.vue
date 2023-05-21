@@ -199,9 +199,12 @@ export default {
             magusCharacter: 'magusCharacter',
         }),
         ...mapGetters('magusSkills', {
+            skill: 'skill',
             skills: 'skills',
         }),
         ...mapGetters('magusWeapons', {
+            weapon: 'weapon',
+            rangedWeapon: 'rangedWeapon',
             weapons: 'weapons',
             rangedWeapons: 'rangedWeapons',
         }),
@@ -322,6 +325,15 @@ export default {
                 this.updateWeaposAf(learnedWeaponList);
                 this.updateKpLeftDown(3);
                 this.save();
+                let weaponName = '';
+                if (this.weapon(this.newWeapon)) {
+                    weaponName = this.weapon(this.newWeapon).name;
+                }
+                if (this.rangedWeapon(this.newWeapon)) {
+                    weaponName = this.rangedWeapon(this.newWeapon).name;
+                }
+                let msg = this.magusCharacter.Nev + ' Új Alapfokú fegyverhasználatott tanult! Fegyver: ' + weaponName;
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.newWeapon = '';
             }
         },
@@ -332,6 +344,12 @@ export default {
                 this.updateThrowWeaposAf(learnedTrowWeaponList);
                 this.updateKpLeftDown(4);
                 this.save();
+                let weaponName = '';
+                if (this.weapon(this.newThrowWeapon)) {
+                    weaponName = this.weapon(this.newThrowWeapon).name;
+                }
+                let msg = this.magusCharacter.Nev + ' Új Alapfokú fegyverdobást tanult! Fegyver: ' + weaponName;
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.newThrowWeapon = '';
             }
         },
@@ -342,6 +360,8 @@ export default {
                 this.updateLanguageAf(learnedLanguageList);
                 this.updateKpLeftDown(3);
                 this.save();
+                let msg = this.magusCharacter.Nev + ' Új Alapfokú nyelvismeretet tanult! Nyelv: ' + this.newLanguage;
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.newLanguage = '';
             }
         },
@@ -352,6 +372,8 @@ export default {
                 this.updateCraftAf(learnedCraftList);
                 this.updateKpLeftDown(2);
                 this.save();
+                let msg = this.magusCharacter.Nev + ' Új Alapfokú szakmát tanult! Szakma: ' + this.newCraft;
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.newCraft = '';
             }
         },
@@ -371,6 +393,8 @@ export default {
                 psiSkill.currentPszi += 0;
                 this.updatePszi(psiSkill); 
             }
+            let msg = this.magusCharacter.Nev + ' Új Alapfokú képzetséget tanult! Képzetség: ' + this.skill(id).name;
+            this.$root.$emit('CharacterChangedEvent', msg);
             this.save();
         },
 
@@ -381,6 +405,15 @@ export default {
                 this.updateWeaposMf(learnedWeaponListMf);
                 this.updateKpLeftDown(30);
                 this.save();
+                let weaponName = '';
+                if (this.weapon(this.weaponMf)) {
+                    weaponName = this.weapon(this.weaponMf).name;
+                }
+                if (this.rangedWeapon(this.weaponMf)) {
+                    weaponName = this.rangedWeapon(this.weaponMf).name;
+                }
+                let msg = this.magusCharacter.Nev + ' Mesterfokra fejlesztette egy fegyver használatát! Fegyver: ' + weaponName;
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.weaponMf = '';
             }
         },
@@ -391,6 +424,12 @@ export default {
                 this.updateThrowWeaposMf(learnedTrowWeaponListMf);
                 this.updateKpLeftDown(40);
                 this.save();
+                let weaponName = '';
+                if (this.weapon(this.trowWeaponMf)) {
+                    weaponName = this.weapon(this.trowWeaponMf).name;
+                }
+                let msg = this.magusCharacter.Nev + ' Mesterfokra fejlesztette egy fegyver dobását! Fegyver: ' + weaponName;
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.trowWeaponMf = '';
             }
         },
@@ -401,6 +440,8 @@ export default {
                 this.updateLanguageMf(learnedLanguageListMf);
                 this.updateKpLeftDown(20);
                 this.save();
+                let msg = this.magusCharacter.Nev + ' Mesterfokra fejlesztette nyelvismeretét! Nyelv: ' + this.languageMf;
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.languageMf = '';
             }
         },
@@ -411,6 +452,8 @@ export default {
                 this.updateCraftMf(learnedCraftListMf);
                 this.updateKpLeftDown(15);
                 this.save();
+                let msg = this.magusCharacter.Nev + ' Mesterfokra fejlesztette szakmáját! Szakma: ' + this.craftMf;
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.craftMf = '';
             }
         },
@@ -432,6 +475,8 @@ export default {
                     this.updateMaxMp(10);
                 }
             }
+            let msg = this.magusCharacter.Nev + ' Mesterfokra fejlesztette egy képzetségét! Képzetség: ' + this.skill(id).name;
+            this.$root.$emit('CharacterChangedEvent', msg);
             this.save();
         }
     },

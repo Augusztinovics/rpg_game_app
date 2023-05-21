@@ -173,12 +173,16 @@
                     if (this.haveArmorSkill.level != 'Mf'){
                         this.updateMgtMod(this.currentArmor.Mgt * -1);
                     } 
+                    let msg = this.magusCharacter.Nev + ' levetette a ' + this.currentArmor.name;
+                    this.$root.$emit('CharacterChangedEvent', msg);
                     this.save();
                 } else {
                     this.updateArmorEquip(true);
                     if (this.haveArmorSkill.level != 'Mf'){
                         this.updateMgtMod(this.currentArmor.Mgt);
-                    } 
+                    }
+                    let msg = this.magusCharacter.Nev + ' felvette a ' + this.currentArmor.name;
+                    this.$root.$emit('CharacterChangedEvent', msg);
                     this.save();
                 }
             },
@@ -187,9 +191,9 @@
                     this.updateArmorEquip(false);
                     if (this.haveArmorSkill.level != 'Mf'){
                         this.updateMgtMod(this.currentArmor.Mgt * -1);
-                    } 
+                    }
                     this.save();
-                }              
+                }
             },
             selectArmor(id) {
                 this.selectedArmorId = id;
@@ -197,18 +201,24 @@
             submitArmor() {
                 this.updateArmorType(this.selectedArmorId);
                 this.updateCurrentSfe(this.armor(this.selectedArmorId).Sfe);
+                let msg = this.magusCharacter.Nev + ' új páncélt választott. A páncél: ' + this.armor(this.selectedArmorId).name;
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.save();
             },
             restoreSfe() {
                 this.updateCurrentSfe(this.currentArmor.Sfe);
+                let msg = this.magusCharacter.Nev + ' megjavította a ' + this.currentArmor.name + ' megrongálódott Sféit';
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.save();
             },
             damageSfe(){
                 this.updateSfeDamage();
+                let msg = this.magusCharacter.Nev + ' levont 1 Sfét a páncéljáról. Pácél: ' + this.currentArmor.name;
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.save();
             }
         },
-       
+
     }
 </script>
 
