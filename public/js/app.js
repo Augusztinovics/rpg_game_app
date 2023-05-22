@@ -5663,7 +5663,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       game_active: false,
       active_seene: 1,
-      game_data: this.gameData
+      game_data: this.gameData,
+      socket: null
     };
   },
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_10__.mapGetters)('gameSiteControl', {
@@ -5710,7 +5711,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     atDiceRolled: function atDiceRolled(roll) {
       var msg = this.character ? this.character.character_data.Nev : 'Játékmester';
       msg += ' Dobott K' + roll.type + ' dobókockával. A dobás eredménye: ' + roll.result;
-      console.log(msg);
+      this.socket.emit('CharacterChangedEvent', msg);
     }
   }, (0,vuex__WEBPACK_IMPORTED_MODULE_10__.mapMutations)('currentCharacter', {
     addCharacter: 'addCharacter'
@@ -5726,18 +5727,41 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         game_active: state
       }).then(function (res) {
         _this2.game_active = state;
-        console.log('Game State: ' + state); //fire the event to everybody
+        console.log('Game State: ' + state);
+
+        _this2.socket.emit('GameStateChange', state); //fire the event to everybody
+
       })["catch"](function (e) {
         console.log(e);
       });
+    },
+    characterChanged: function characterChanged(msg) {
+      console.log(msg);
     }
   }),
   mounted: function mounted() {
     var _this3 = this;
 
+    var ip = this.jsServerSettings.server_ip;
+    var port = this.jsServerSettings.server_port;
+    var address = ip;
+
+    if (this.jsServerSettings.use_port == true) {
+      address += ':' + port;
+    }
+
+    this.socket = io(address + '/Game-' + this.gameModule.id);
+    this.socket.on('CharacterChanged', function (msg) {
+      _this3.characterChanged(msg);
+    });
+    this.socket.on('GameActiveChanged', function (state) {
+      _this3.game_active = state;
+    });
+    this.socket.on('ChangedActiveSeene', function (order) {
+      _this3.active_seene = order;
+    });
     this.game_active = this.gameModule.game_active;
     this.active_seene = this.gameModule.game_module_state;
-    console.log(this.activeSeene);
 
     if (this.character) {
       this.addCharacter({
@@ -5747,7 +5771,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
 
     this.$root.$on('CharacterChangedEvent', function (msg) {
-      console.log(msg);
+      _this3.socket.emit('CharacterChangedEvent', msg);
     });
     this.$root.$on('GameDeactive', function (state) {
       _this3.deactivateGame(state);
@@ -5758,10 +5782,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         game_state: order
       }).then(function (res) {
         _this3.game_data = res.data.game_data;
-        _this3.active_seene = order;
-        console.log(_this3.activeSeene); //fire the event to everybody
+        _this3.active_seene = order; //fire the event to everybody
 
-        console.log('Game Seene: ' + order);
+        _this3.socket.emit('ActiveSeeneChanged', order);
       })["catch"](function (e) {
         console.log(e);
       }); //Change the activeSceen in socket event callback

@@ -13,26 +13,11 @@ const io = socketio(server,{cors: {
 
 const aktiveUsers = [];
 
-//socket.join(roomname)
-//socket.broadcast.to(roomnam).emit('message', msg)
+const GameIo = io.of(/^\/Game-\d+$/);
 
 //Run when new user connect
 io.on('connection', socket => {
-
-    //welcome current user
-    // socket.emit('message', {
-    //     msg: 'Welcome in chat',
-    //     id: 0,
-    //     name: 'Chatbot'
-    // });
-
-    //Broadcast when user connect
-    // socket.broadcast.emit('message', {
-    //     msg: 'A user joined',
-    //     id: 0,
-    //     name: 'Chatbot'
-    // });
-
+    console.log('Default socket connected!');
 
     //When disconnecting
     socket.on('disconnect', () => {
@@ -47,12 +32,6 @@ io.on('connection', socket => {
             });
             aktiveUsers.splice(leftingUser, 1);
         }
-        // io.emit('message', {
-        //     msg: 'User left',
-        //     id: 0,
-        //     name: 'Chatbot',
-        //     active: false
-        // });
     });
 
     //Gather aktive users
@@ -81,6 +60,21 @@ io.on('connection', socket => {
     });
     socket.on('sendPrivateMessage', (msg) => {
         io.emit('privateMessage', msg);
+    });
+});
+
+GameIo.on('connect', (socket) => {
+    let room = socket.nsp.name;
+    socket.join(room);
+    console.log('Game socket connected! ' + socket.nsp.name);
+    socket.on('CharacterChangedEvent', msg => {
+        socket.to(room).emit('CharacterChanged', msg);
+    });
+    socket.on('GameStateChange', state => {
+        socket.to(room).emit('GameActiveChanged', state);
+    });
+    socket.on('ActiveSeeneChanged', order => {
+        socket.to(room).emit('ChangedActiveSeene', order);
     });
 });
 

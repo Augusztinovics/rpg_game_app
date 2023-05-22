@@ -133,6 +133,7 @@ export default {
             game_active: false,
             active_seene: 1,
             game_data: this.gameData,
+            socket: null,
         }
     },
     computed: {
@@ -180,7 +181,7 @@ export default {
         atDiceRolled(roll) {
             let msg = this.character ? this.character.character_data.Nev : 'Játékmester';
             msg += ' Dobott K' + roll.type + ' dobókockával. A dobás eredménye: ' + roll.result;
-            console.log(msg);
+            this.socket.emit('CharacterChangedEvent', msg);
         },
         ...mapMutations('currentCharacter', {
             addCharacter: 'addCharacter',
@@ -195,16 +196,36 @@ export default {
             }).then((res) => {
                 this.game_active = state;
                 console.log('Game State: ' + state);
+                this.socket.emit('GameStateChange', state);
                 //fire the event to everybody
             }).catch((e) => {
                 console.log(e);
             })
         },
+        characterChanged(msg) {
+            console.log(msg);
+        }
     },
     mounted() {
+        let ip = this.jsServerSettings.server_ip;
+        let port = this.jsServerSettings.server_port;
+        let address = ip;
+        if (this.jsServerSettings.use_port == true) {
+          address += ':' + port;
+        }
+        this.socket = io(address + '/Game-' + this.gameModule.id);
+        this.socket.on('CharacterChanged', (msg) => {
+            this.characterChanged(msg);
+        });
+        this.socket.on('GameActiveChanged', (state) => {
+            this.game_active = state;
+        });
+        this.socket.on('ChangedActiveSeene', (order) => {
+            this.active_seene = order;
+        });
         this.game_active = this.gameModule.game_active;
         this.active_seene = this.gameModule.game_module_state;
-        console.log(this.activeSeene);
+
         if (this.character) {
             this.addCharacter({
                 id: this.character.id,
@@ -212,7 +233,7 @@ export default {
             });
         }
         this.$root.$on('CharacterChangedEvent', (msg) => {
-            console.log(msg);
+            this.socket.emit('CharacterChangedEvent', msg);
         });
         this.$root.$on('GameDeactive', (state) => {
             this.deactivateGame(state);
@@ -224,9 +245,8 @@ export default {
             }).then((res) => {
                 this.game_data = res.data.game_data;
                 this.active_seene = order;
-                console.log(this.activeSeene);
                  //fire the event to everybody
-                console.log('Game Seene: ' + order);
+                this.socket.emit('ActiveSeeneChanged', order);
             }).catch((e) => {
                 console.log(e);
             })
