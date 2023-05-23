@@ -91,7 +91,29 @@
                     this.clearMap();
                     this.drowMap();
                 }, 100);
-            }
+            },
+            drowLine(line) {
+                if (line) {
+                    this.drowingContext.beginPath();
+                    this.drowingContext.moveTo(
+                        line.startX,
+                        line.startY
+                    );
+                    line.path.forEach(point => {
+                        this.drowingContext.lineTo(
+                            point.x,
+                            point.y
+                        );
+                        this.drowingContext.strokeStyle = line.color;
+                        this.drowingContext.lineWidth = line.size;
+                        this.drowingContext.lineCap = "round";
+                        this.drowingContext.lineJoin = "round";
+                        this.drowingContext.stroke();
+                    });
+                    this.drowingContext.stroke();
+                    this.drowingContext.closePath();
+                }
+            },
         },
         watch: {
             moduleIndex(newIndex) {

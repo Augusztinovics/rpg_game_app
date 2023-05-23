@@ -5612,6 +5612,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -5664,7 +5669,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       game_active: false,
       active_seene: 1,
       game_data: this.gameData,
-      socket: null
+      socket: null,
+      players: [],
+      messages: []
     };
   },
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_10__.mapGetters)('gameSiteControl', {
@@ -5717,30 +5724,65 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     addCharacter: 'addCharacter'
   })), {}, {
     seenDrowSave: function seenDrowSave(draw) {
-      console.log(draw);
+      var _this2 = this;
+
+      var data = this.activeSeene.module_data;
+      data.map = draw;
+      axios.post('/gm/update-game-module-data/' + this.activeSeene.id, {
+        newData: data
+      }).then(function (res) {
+        _this2.activeSeene.module_data = res.data.module_data;
+
+        _this2.socket.emit('ReloadActiveSeeneData');
+      })["catch"](function (e) {
+        console.log(e);
+      });
     },
     deactivateGame: function deactivateGame(state) {
-      var _this2 = this;
+      var _this3 = this;
 
       //Send axio to backend!!!
       axios.post('/site/game-module/update-active/' + this.gameModule.id, {
         game_active: state
       }).then(function (res) {
-        _this2.game_active = state;
+        _this3.game_active = state;
         console.log('Game State: ' + state);
 
-        _this2.socket.emit('GameStateChange', state); //fire the event to everybody
+        _this3.socket.emit('GameStateChange', state); //fire the event to everybody
 
       })["catch"](function (e) {
         console.log(e);
       });
     },
     characterChanged: function characterChanged(msg) {
-      console.log(msg);
+      this.messages.push(msg);
+    },
+    messageSend: function messageSend(msg) {
+      var message = this.character ? this.character.character_data.Nev : 'Játékmester';
+      message += ' : ' + msg;
+      this.messages.push(message);
+      this.socket.emit('CharacterChangedEvent', message);
+    },
+    drowCanvasLine: function drowCanvasLine(line) {
+      if (this.$refs["SiteDrowCanvas"]) {
+        this.$refs["SiteDrowCanvas"].drowLine(line);
+      }
+    },
+    reloadActiveModuleData: function reloadActiveModuleData() {
+      var _this4 = this;
+
+      axios.get('/site/game-module-data/' + this.activeSeene.id).then(function (res) {
+        _this4.activeSeene.module_data = res.data;
+      })["catch"](function (e) {
+        console.log(e);
+      });
+    },
+    refreshPlayers: function refreshPlayers(players) {
+      this.players = players;
     }
   }),
   mounted: function mounted() {
-    var _this3 = this;
+    var _this5 = this;
 
     var ip = this.jsServerSettings.server_ip;
     var port = this.jsServerSettings.server_port;
@@ -5752,45 +5794,57 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     this.socket = io(address + '/Game-' + this.gameModule.id);
     this.socket.on('CharacterChanged', function (msg) {
-      _this3.characterChanged(msg);
+      _this5.characterChanged(msg);
     });
     this.socket.on('GameActiveChanged', function (state) {
-      _this3.game_active = state;
+      _this5.game_active = state;
     });
     this.socket.on('ChangedActiveSeene', function (order) {
-      _this3.active_seene = order;
+      _this5.active_seene = order;
+    });
+    this.socket.on('OnCanvasDrow', function (line) {
+      _this5.drowCanvasLine(line);
+    });
+    this.socket.on('OnReloadActiveSeeneData', function () {
+      _this5.reloadActiveModuleData();
+    });
+    this.socket.on('PlayerJoined', function (players) {
+      _this5.refreshPlayers(players);
     });
     this.game_active = this.gameModule.game_active;
     this.active_seene = this.gameModule.game_module_state;
+    var playerName = 'KM';
 
     if (this.character) {
       this.addCharacter({
         id: this.character.id,
         characterData: this.character.character_data
       });
+      playerName = this.character.character_data.Nev;
     }
 
+    this.socket.emit('PlayerJoin', playerName);
     this.$root.$on('CharacterChangedEvent', function (msg) {
-      _this3.socket.emit('CharacterChangedEvent', msg);
+      _this5.socket.emit('CharacterChangedEvent', msg);
     });
     this.$root.$on('GameDeactive', function (state) {
-      _this3.deactivateGame(state);
+      _this5.deactivateGame(state);
     });
     this.$root.$on('SeeneChanged', function (order) {
       //Send axios to backend
-      axios.post('/site/game-module/update-state/' + _this3.gameModule.id, {
+      axios.post('/site/game-module/update-state/' + _this5.gameModule.id, {
         game_state: order
       }).then(function (res) {
-        _this3.game_data = res.data.game_data;
-        _this3.active_seene = order; //fire the event to everybody
+        _this5.game_data = res.data.game_data;
+        _this5.active_seene = order; //fire the event to everybody
 
-        _this3.socket.emit('ActiveSeeneChanged', order);
+        _this5.socket.emit('ActiveSeeneChanged', order);
       })["catch"](function (e) {
         console.log(e);
-      }); //Change the activeSceen in socket event callback
+      });
     });
     this.$root.$on('CanvasDrow', function (line) {
-      console.log(line);
+      _this5.socket.emit('DrowCanvas', line);
     });
   },
   beforeDestroy: function beforeDestroy() {
@@ -7842,7 +7896,52 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    activePlayers: {
+      type: Array,
+      "default": []
+    },
+    sendedMessages: {
+      type: Array,
+      "default": []
+    }
+  },
+  data: function data() {
+    return {
+      message: ''
+    };
+  },
+  methods: {
+    sendMessage: function sendMessage() {
+      if (this.message != '') {
+        this.$emit('SendAMessage', this.message);
+        this.message = '';
+      }
+    }
+  }
+});
 
 /***/ }),
 
@@ -8087,6 +8186,26 @@ __webpack_require__.r(__webpack_exports__);
 
         _this2.drowMap();
       }, 100);
+    },
+    drowLine: function drowLine(line) {
+      var _this3 = this;
+
+      if (line) {
+        this.drowingContext.beginPath();
+        this.drowingContext.moveTo(line.startX, line.startY);
+        line.path.forEach(function (point) {
+          _this3.drowingContext.lineTo(point.x, point.y);
+
+          _this3.drowingContext.strokeStyle = line.color;
+          _this3.drowingContext.lineWidth = line.size;
+          _this3.drowingContext.lineCap = "round";
+          _this3.drowingContext.lineJoin = "round";
+
+          _this3.drowingContext.stroke();
+        });
+        this.drowingContext.stroke();
+        this.drowingContext.closePath();
+      }
     }
   },
   watch: {
@@ -8095,12 +8214,12 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    var _this3 = this;
+    var _this4 = this;
 
     setTimeout(function () {
-      _this3.localMapData = _this3.mapDrowData;
-      _this3.canvas = document.getElementById("siteCanvas");
-      _this3.drowingContext = _this3.canvas.getContext("2d");
+      _this4.localMapData = _this4.mapDrowData;
+      _this4.canvas = document.getElementById("siteCanvas");
+      _this4.drowingContext = _this4.canvas.getContext("2d");
       var canvasWidth = window.innerWidth;
 
       if (canvasWidth < 768) {
@@ -8115,10 +8234,10 @@ __webpack_require__.r(__webpack_exports__);
         canvasWidth = 1200;
       }
 
-      _this3.canvas.width = canvasWidth;
-      _this3.canvas.height = 500;
+      _this4.canvas.width = canvasWidth;
+      _this4.canvas.height = 500;
 
-      _this3.drowMap();
+      _this4.drowMap();
     }, 120);
   }
 });
@@ -57686,6 +57805,7 @@ var render = function () {
             { staticClass: "container text-center" },
             [
               _c("site-canvas", {
+                ref: "SiteDrowCanvas",
                 attrs: {
                   "map-drow-data": _vm.activeSeene.module_data.map,
                   "module-index": _vm.active_seene,
@@ -57751,7 +57871,20 @@ var render = function () {
       _vm._v(" "),
       _c("div", { staticStyle: { height: "160px" } }),
       _vm._v(" "),
-      _c("div", { staticClass: "fixed-bottom" }, [_c("game-footer")], 1),
+      _c(
+        "div",
+        { staticClass: "fixed-bottom" },
+        [
+          _c("game-footer", {
+            attrs: {
+              "active-players": _vm.players,
+              "sended-messages": _vm.messages,
+            },
+            on: { SendAMessage: _vm.messageSend },
+          }),
+        ],
+        1
+      ),
     ],
     1
   )
@@ -60894,7 +61027,65 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "test" }, [_vm._v("Footer")])
+  return _c("div", [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-7" }, [
+        _c(
+          "div",
+          { staticClass: "d-flex flex-row" },
+          _vm._l(_vm.activePlayers, function (player, index) {
+            return _c("div", { key: "Player" + index }, [
+              _vm._v(_vm._s(player.name)),
+            ])
+          }),
+          0
+        ),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [
+        _c("div", [
+          _c("div", [
+            _c(
+              "ul",
+              _vm._l(_vm.sendedMessages, function (msg, index) {
+                return _c("li", { key: "msg" + index }, [_vm._v(_vm._s(msg))])
+              }),
+              0
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.message,
+                  expression: "message",
+                },
+              ],
+              attrs: { type: "text" },
+              domProps: { value: _vm.message },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.message = $event.target.value
+                },
+              },
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-sm", on: { click: _vm.sendMessage } },
+              [_vm._v("Küld")]
+            ),
+          ]),
+        ]),
+      ]),
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

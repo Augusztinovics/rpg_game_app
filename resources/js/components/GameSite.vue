@@ -35,6 +35,7 @@
             <site-canvas
                 :map-drow-data="activeSeene.module_data.map"
                 :module-index="active_seene"
+                ref="SiteDrowCanvas"
             >
             </site-canvas>
         </div>
@@ -74,7 +75,11 @@
         <div style="height:160px;"></div>
         <!-- footer container -->
         <div class="fixed-bottom">
-            <game-footer/>
+            <game-footer
+                :active-players="players"
+                :sended-messages="messages"
+                @SendAMessage="messageSend"
+            />
         </div>
     </div>
 </template>
@@ -134,6 +139,8 @@ export default {
             active_seene: 1,
             game_data: this.gameData,
             socket: null,
+            players: [],
+            messages: [],
         }
     },
     computed: {
@@ -187,7 +194,17 @@ export default {
             addCharacter: 'addCharacter',
         }),
         seenDrowSave(draw) {
-            console.log(draw);
+            let data = this.activeSeene.module_data;
+            data.map = draw;
+            axios.post('/gm/update-game-module-data/' + this.activeSeene.id, {
+                newData: data
+            }).then((res) => {
+                this.activeSeene.module_data = res.data.module_data;
+                this.socket.emit('ReloadActiveSeeneData');
+            }).catch((e) => {
+                console.log(e);
+            })
+
         },
         deactivateGame(state) {
             //Send axio to backend!!!
@@ -203,7 +220,29 @@ export default {
             })
         },
         characterChanged(msg) {
-            console.log(msg);
+            this.messages.push(msg);
+        },
+        messageSend(msg) {
+            let message = this.character ? this.character.character_data.Nev : 'Játékmester';
+            message += ' : ' + msg;
+            this.messages.push(message);
+            this.socket.emit('CharacterChangedEvent', message);
+        },
+        drowCanvasLine(line) {
+            if (this.$refs["SiteDrowCanvas"]) {
+                this.$refs["SiteDrowCanvas"].drowLine(line);
+            }
+        },
+        reloadActiveModuleData() {
+            axios.get('/site/game-module-data/' + this.activeSeene.id)
+            .then((res) => {
+                this.activeSeene.module_data = res.data;
+            }).catch((e) => {
+                console.log(e);
+            })
+        },
+        refreshPlayers(players) {
+            this.players = players;
         }
     },
     mounted() {
@@ -223,15 +262,27 @@ export default {
         this.socket.on('ChangedActiveSeene', (order) => {
             this.active_seene = order;
         });
+        this.socket.on('OnCanvasDrow', (line) => {
+            this.drowCanvasLine(line);
+        });
+        this.socket.on('OnReloadActiveSeeneData', () => {
+            this.reloadActiveModuleData();
+        });
+        this.socket.on('PlayerJoined', (players) => {
+            this.refreshPlayers(players);
+        });
         this.game_active = this.gameModule.game_active;
         this.active_seene = this.gameModule.game_module_state;
 
+        let playerName = 'KM';
         if (this.character) {
             this.addCharacter({
                 id: this.character.id,
                 characterData: this.character.character_data,
             });
+            playerName = this.character.character_data.Nev;
         }
+        this.socket.emit('PlayerJoin', playerName);
         this.$root.$on('CharacterChangedEvent', (msg) => {
             this.socket.emit('CharacterChangedEvent', msg);
         });
@@ -250,10 +301,9 @@ export default {
             }).catch((e) => {
                 console.log(e);
             })
-            //Change the activeSceen in socket event callback
         });
         this.$root.$on('CanvasDrow', (line) => {
-            console.log(line);
+            this.socket.emit('DrowCanvas', line);
         });
     },
     beforeDestroy() {

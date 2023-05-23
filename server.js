@@ -12,6 +12,7 @@ const io = socketio(server,{cors: {
   }});
 
 const aktiveUsers = [];
+const playerGroups = [];
 
 const GameIo = io.of(/^\/Game-\d+$/);
 
@@ -75,6 +76,28 @@ GameIo.on('connect', (socket) => {
     });
     socket.on('ActiveSeeneChanged', order => {
         socket.to(room).emit('ChangedActiveSeene', order);
+    });
+    socket.on('DrowCanvas', line => {
+        socket.to(room).emit('OnCanvasDrow', line);
+    });
+    socket.on('ReloadActiveSeeneData', () => {
+        socket.to(room).emit('OnReloadActiveSeeneData');
+    });
+    socket.on('PlayerJoin', (playerName) => {
+        let newPlayer = {
+            id: socket.id,
+            name: playerName,
+            roomId: room
+        };
+        playerGroups.push(newPlayer);
+        let playersInRoom = playerGroups.filter(p => p.roomId == room);
+        GameIo.to(room).emit('PlayerJoined', playersInRoom);
+    });
+    socket.on('disconnect', () => {
+        let leftingPlayer = playerGroups.findIndex(p => p.id == socket.id);
+        if (leftingPlayer >= 0) {
+            playerGroups.splice(leftingPlayer, 1);
+        }
     });
 });
 
