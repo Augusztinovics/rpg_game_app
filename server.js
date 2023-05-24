@@ -99,6 +99,9 @@ GameIo.on('connect', (socket) => {
             playerGroups.splice(leftingPlayer, 1);
         }
     });
+    socket.on("voice", (data) => {
+        socket.to(room).emit('AudioMessage', data);
+    });
 });
 
 const PORT = 4411;

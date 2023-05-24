@@ -5617,6 +5617,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -5671,7 +5673,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       game_data: this.gameData,
       socket: null,
       players: [],
-      messages: []
+      messages: [],
+      mic: false,
+      mediaRec: null,
+      interval: null
     };
   },
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_10__.mapGetters)('gameSiteControl', {
@@ -5779,10 +5784,43 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     refreshPlayers: function refreshPlayers(players) {
       this.players = players;
+    },
+    toogleMic: function toogleMic() {
+      var _this5 = this;
+
+      this.mic = !this.mic;
+
+      if (this.mic) {
+        if (this.mediaRec) {
+          this.mediaRec.start();
+          this.interval = setInterval(function () {
+            _this5.mediaRec.stop();
+
+            _this5.mediaRec.start();
+          }, 1000);
+        }
+      } else {
+        if (this.mediaRec) {
+          clearInterval(this.interval);
+          this.mediaRec.stop();
+        }
+      }
+    },
+    sendVoice: function sendVoice(e) {
+      var _this6 = this;
+
+      var fileReader = new FileReader();
+      fileReader.readAsDataURL(e.data);
+
+      fileReader.onloadend = function () {
+        var base64String = fileReader.result;
+
+        _this6.socket.emit('voice', base64String);
+      };
     }
   }),
   mounted: function mounted() {
-    var _this5 = this;
+    var _this7 = this;
 
     var ip = this.jsServerSettings.server_ip;
     var port = this.jsServerSettings.server_port;
@@ -5794,22 +5832,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     this.socket = io(address + '/Game-' + this.gameModule.id);
     this.socket.on('CharacterChanged', function (msg) {
-      _this5.characterChanged(msg);
+      _this7.characterChanged(msg);
     });
     this.socket.on('GameActiveChanged', function (state) {
-      _this5.game_active = state;
+      _this7.game_active = state;
     });
     this.socket.on('ChangedActiveSeene', function (order) {
-      _this5.active_seene = order;
+      _this7.active_seene = order;
     });
     this.socket.on('OnCanvasDrow', function (line) {
-      _this5.drowCanvasLine(line);
+      _this7.drowCanvasLine(line);
     });
     this.socket.on('OnReloadActiveSeeneData', function () {
-      _this5.reloadActiveModuleData();
+      _this7.reloadActiveModuleData();
     });
     this.socket.on('PlayerJoined', function (players) {
-      _this5.refreshPlayers(players);
+      _this7.refreshPlayers(players);
+    });
+    this.socket.on('AudioMessage', function (data) {
+      var audio = new Audio(data);
+      audio.play();
     });
     this.game_active = this.gameModule.game_active;
     this.active_seene = this.gameModule.game_module_state;
@@ -5825,26 +5867,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     this.socket.emit('PlayerJoin', playerName);
     this.$root.$on('CharacterChangedEvent', function (msg) {
-      _this5.socket.emit('CharacterChangedEvent', msg);
+      _this7.socket.emit('CharacterChangedEvent', msg);
     });
     this.$root.$on('GameDeactive', function (state) {
-      _this5.deactivateGame(state);
+      _this7.deactivateGame(state);
     });
     this.$root.$on('SeeneChanged', function (order) {
       //Send axios to backend
-      axios.post('/site/game-module/update-state/' + _this5.gameModule.id, {
+      axios.post('/site/game-module/update-state/' + _this7.gameModule.id, {
         game_state: order
       }).then(function (res) {
-        _this5.game_data = res.data.game_data;
-        _this5.active_seene = order; //fire the event to everybody
+        _this7.game_data = res.data.game_data;
+        _this7.active_seene = order; //fire the event to everybody
 
-        _this5.socket.emit('ActiveSeeneChanged', order);
+        _this7.socket.emit('ActiveSeeneChanged', order);
       })["catch"](function (e) {
         console.log(e);
       });
     });
     this.$root.$on('CanvasDrow', function (line) {
-      _this5.socket.emit('DrowCanvas', line);
+      _this7.socket.emit('DrowCanvas', line);
+    });
+    navigator.mediaDevices.getUserMedia({
+      audio: true
+    }).then(function (stream) {
+      _this7.mediaRec = new MediaRecorder(stream);
+
+      _this7.mediaRec.ondataavailable = function (e) {
+        _this7.sendVoice(e);
+      };
     });
   },
   beforeDestroy: function beforeDestroy() {
@@ -7917,6 +7968,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     activePlayers: {
@@ -7926,6 +7980,10 @@ __webpack_require__.r(__webpack_exports__);
     sendedMessages: {
       type: Array,
       "default": []
+    },
+    micActive: {
+      type: Boolean,
+      "default": false
     }
   },
   data: function data() {
@@ -7939,6 +7997,9 @@ __webpack_require__.r(__webpack_exports__);
         this.$emit('SendAMessage', this.message);
         this.message = '';
       }
+    },
+    toogleMic: function toogleMic() {
+      this.$emit('ToogleMic');
     }
   }
 });
@@ -57879,8 +57940,9 @@ var render = function () {
             attrs: {
               "active-players": _vm.players,
               "sended-messages": _vm.messages,
+              "mic-active": _vm.mic,
             },
-            on: { SendAMessage: _vm.messageSend },
+            on: { SendAMessage: _vm.messageSend, ToogleMic: _vm.toogleMic },
           }),
         ],
         1
@@ -61082,6 +61144,20 @@ var render = function () {
               [_vm._v("Küld")]
             ),
           ]),
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c(
+            "button",
+            {
+              class: [
+                "btn btn-sm",
+                _vm.micActive ? " btn-succes" : "btn-danger",
+              ],
+              on: { click: _vm.toogleMic },
+            },
+            [_vm._v("Mic")]
+          ),
         ]),
       ]),
     ]),

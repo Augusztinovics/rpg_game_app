@@ -78,7 +78,9 @@
             <game-footer
                 :active-players="players"
                 :sended-messages="messages"
+                :mic-active="mic"
                 @SendAMessage="messageSend"
+                @ToogleMic="toogleMic"
             />
         </div>
     </div>
@@ -141,6 +143,9 @@ export default {
             socket: null,
             players: [],
             messages: [],
+            mic: false,
+            mediaRec: null,
+            interval: null,
         }
     },
     computed: {
@@ -243,7 +248,32 @@ export default {
         },
         refreshPlayers(players) {
             this.players = players;
-        }
+        },
+        toogleMic() {
+            this.mic = !this.mic;
+            if (this.mic) {
+                if (this.mediaRec) {
+                    this.mediaRec.start();
+                    this.interval = setInterval(() => {
+                        this.mediaRec.stop();
+                        this.mediaRec.start();
+                    }, 1000)
+                }
+            } else {
+                if (this.mediaRec) {
+                    clearInterval(this.interval);
+                    this.mediaRec.stop();
+                }
+            }
+        },
+        sendVoice(e) {
+            var fileReader = new FileReader();
+            fileReader.readAsDataURL(e.data);
+            fileReader.onloadend = () => {
+                var base64String = fileReader.result;
+                this.socket.emit('voice', base64String);
+            }
+        },
     },
     mounted() {
         let ip = this.jsServerSettings.server_ip;
@@ -270,6 +300,10 @@ export default {
         });
         this.socket.on('PlayerJoined', (players) => {
             this.refreshPlayers(players);
+        });
+        this.socket.on('AudioMessage', (data) => {
+            let audio = new Audio(data);
+            audio.play();
         });
         this.game_active = this.gameModule.game_active;
         this.active_seene = this.gameModule.game_module_state;
@@ -304,6 +338,12 @@ export default {
         });
         this.$root.$on('CanvasDrow', (line) => {
             this.socket.emit('DrowCanvas', line);
+        });
+        navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
+            this.mediaRec = new MediaRecorder(stream);
+            this.mediaRec.ondataavailable = (e) => {
+                this.sendVoice(e);
+            }
         });
     },
     beforeDestroy() {

@@ -18,6 +18,9 @@
                         <button class="btn btn-sm" @click="sendMessage">Küld</button>
                     </div>
                 </div>
+                <div>
+                    <button :class="['btn btn-sm', micActive ? ' btn-succes' : 'btn-danger']" @click="toogleMic">Mic</button>
+                </div>
             </div>
         </div>
     </div>
@@ -33,6 +36,10 @@ export default {
         sendedMessages: {
             type: Array,
             default: []
+        },
+        micActive: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -46,6 +53,9 @@ export default {
                 this.$emit('SendAMessage', this.message);
                 this.message = '';
             }
+        },
+        toogleMic() {
+            this.$emit('ToogleMic');
         }
     },
 }
