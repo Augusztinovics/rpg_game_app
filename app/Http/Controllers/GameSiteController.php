@@ -114,4 +114,15 @@ class GameSiteController extends Controller
         $data = ['game_data' => $gameData];
         return response()->json($data, 200);
     }
+
+    /**
+     * get the new game module data
+     *
+     * @return json
+     */
+    public function getNewModuleData(Request $request, $id) {
+
+        $gameModule = GameModuleData::findOrFail($id);
+        return response()->json($gameModule->module_data, 200);
+    }
 }

@@ -35,6 +35,7 @@
             <site-canvas
                 :map-drow-data="activeSeene.module_data.map"
                 :module-index="active_seene"
+                ref="SiteDrowCanvas"
             >
             </site-canvas>
         </div>
@@ -74,7 +75,13 @@
         <div style="height:160px;"></div>
         <!-- footer container -->
         <div class="fixed-bottom">
-            <game-footer/>
+            <game-footer
+                :active-players="players"
+                :sended-messages="messages"
+                :mic-active="mic"
+                @SendAMessage="messageSend"
+                @ToogleMic="toogleMic"
+            />
         </div>
     </div>
 </template>
@@ -133,6 +140,12 @@ export default {
             game_active: false,
             active_seene: 1,
             game_data: this.gameData,
+            socket: null,
+            players: [],
+            messages: [],
+            mic: false,
+            mediaRec: null,
+            interval: null,
         }
     },
     computed: {
@@ -180,13 +193,23 @@ export default {
         atDiceRolled(roll) {
             let msg = this.character ? this.character.character_data.Nev : 'Játékmester';
             msg += ' Dobott K' + roll.type + ' dobókockával. A dobás eredménye: ' + roll.result;
-            console.log(msg);
+            this.socket.emit('CharacterChangedEvent', msg);
         },
         ...mapMutations('currentCharacter', {
             addCharacter: 'addCharacter',
         }),
         seenDrowSave(draw) {
-            console.log(draw);
+            let data = this.activeSeene.module_data;
+            data.map = draw;
+            axios.post('/gm/update-game-module-data/' + this.activeSeene.id, {
+                newData: data
+            }).then((res) => {
+                this.activeSeene.module_data = res.data.module_data;
+                this.socket.emit('ReloadActiveSeeneData');
+            }).catch((e) => {
+                console.log(e);
+            })
+
         },
         deactivateGame(state) {
             //Send axio to backend!!!
@@ -195,24 +218,115 @@ export default {
             }).then((res) => {
                 this.game_active = state;
                 console.log('Game State: ' + state);
+                this.socket.emit('GameStateChange', state);
                 //fire the event to everybody
             }).catch((e) => {
                 console.log(e);
             })
         },
+        characterChanged(msg) {
+            this.messages.push(msg);
+        },
+        messageSend(msg) {
+            let message = this.character ? this.character.character_data.Nev : 'Játékmester';
+            message += ' : ' + msg;
+            this.messages.push(message);
+            this.socket.emit('CharacterChangedEvent', message);
+        },
+        drowCanvasLine(line) {
+            if (this.$refs["SiteDrowCanvas"]) {
+                this.$refs["SiteDrowCanvas"].drowLine(line);
+            }
+        },
+        reloadActiveModuleData() {
+            axios.get('/site/game-module-data/' + this.activeSeene.id)
+            .then((res) => {
+                this.activeSeene.module_data = res.data;
+            }).catch((e) => {
+                console.log(e);
+            })
+        },
+        refreshPlayers(players) {
+            this.players = players;
+        },
+        toogleMic() {
+            this.mic = !this.mic;
+            if (this.mic) {
+                if (this.mediaRec) {
+                    this.mediaRec.start();
+                    this.interval = setInterval(() => {
+                        //this.mediaRec.requestData();
+                        this.mediaRec.stop();
+                        this.mediaRec.start();
+                    }, 1000)
+                }
+            } else {
+                if (this.mediaRec) {
+                    clearInterval(this.interval);
+                    this.mediaRec.stop();
+                }
+            }
+        },
+        sendVoice(e) {
+            var fileReader = new FileReader();
+            fileReader.readAsDataURL(e.data);
+            fileReader.onloadend = () => {
+                var base64String = fileReader.result;
+                this.socket.emit('voice', base64String);
+            }
+        },
     },
     mounted() {
+        let ip = this.jsServerSettings.server_ip;
+        let port = this.jsServerSettings.server_port;
+        let address = ip;
+        if (this.jsServerSettings.use_port == true) {
+          address += ':' + port;
+        }
+        this.socket = io(address + '/Game-' + this.gameModule.id);
+        this.socket.on('CharacterChanged', (msg) => {
+            this.characterChanged(msg);
+        });
+        this.socket.on('GameActiveChanged', (state) => {
+            this.game_active = state;
+        });
+        this.socket.on('ChangedActiveSeene', (order) => {
+            this.active_seene = order;
+        });
+        this.socket.on('OnCanvasDrow', (line) => {
+            this.drowCanvasLine(line);
+        });
+        this.socket.on('OnReloadActiveSeeneData', () => {
+            this.reloadActiveModuleData();
+        });
+        this.socket.on('PlayerJoined', (players) => {
+            this.refreshPlayers(players);
+        });
+        this.socket.on('AudioMessage', (data) => {
+            let audio = new Audio(data.sound);
+            audio.play();
+            let speaker = this.players.find(p => p.id == data.user);
+            if (speaker) {
+                speaker.voice = true;
+                setTimeout(() => {
+                    speaker.voice = false;
+                }, 500);
+            }
+        });
         this.game_active = this.gameModule.game_active;
         this.active_seene = this.gameModule.game_module_state;
-        console.log(this.activeSeene);
+
+        let playerName = 'KM';
         if (this.character) {
             this.addCharacter({
                 id: this.character.id,
                 characterData: this.character.character_data,
             });
+            playerName = this.character.character_data.Nev;
         }
+        this.socket.emit('PlayerJoin', playerName);
         this.$root.$on('CharacterChangedEvent', (msg) => {
-            console.log(msg);
+            this.socket.emit('CharacterChangedEvent', msg);
         });
         this.$root.$on('GameDeactive', (state) => {
             this.deactivateGame(state);
@@ -224,22 +338,27 @@ export default {
             }).then((res) => {
                 this.game_data = res.data.game_data;
                 this.active_seene = order;
-                console.log(this.activeSeene);
                  //fire the event to everybody
-                console.log('Game Seene: ' + order);
+                this.socket.emit('ActiveSeeneChanged', order);
             }).catch((e) => {
                 console.log(e);
             })
-            //Change the activeSceen in socket event callback
         });
         this.$root.$on('CanvasDrow', (line) => {
-            console.log(line);
+            this.socket.emit('DrowCanvas', line);
         });
-    },
-    beforeDestroy() {
+        navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
+            this.mediaRec = new MediaRecorder(stream);
+            this.mediaRec.ondataavailable = (e) => {
+                this.sendVoice(e);
+            }
+        });
         if (this.isGm) {
-            this.deactivateGame(false);
+            window.addEventListener("beforeunload", (event) => {
+                event.preventDefault();
+                this.deactivateGame(false);
+            });
         }
-    }
+    },
 }
 </script>
