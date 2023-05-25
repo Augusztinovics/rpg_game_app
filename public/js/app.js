@@ -5794,6 +5794,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (this.mediaRec) {
           this.mediaRec.start();
           this.interval = setInterval(function () {
+            //this.mediaRec.requestData();
             _this5.mediaRec.stop();
 
             _this5.mediaRec.start();
@@ -5850,8 +5851,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       _this7.refreshPlayers(players);
     });
     this.socket.on('AudioMessage', function (data) {
-      var audio = new Audio(data);
+      var audio = new Audio(data.sound);
       audio.play();
+
+      var speaker = _this7.players.find(function (p) {
+        return p.id == data.user;
+      });
+
+      if (speaker) {
+        speaker.voice = true;
+        setTimeout(function () {
+          speaker.voice = false;
+        }, 500);
+      }
     });
     this.game_active = this.gameModule.game_active;
     this.active_seene = this.gameModule.game_module_state;
@@ -5897,10 +5909,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this7.sendVoice(e);
       };
     });
-  },
-  beforeDestroy: function beforeDestroy() {
+
     if (this.isGm) {
-      this.deactivateGame(false);
+      window.addEventListener("beforeunload", function (event) {
+        event.preventDefault();
+
+        _this7.deactivateGame(false);
+      });
     }
   }
 });
@@ -61097,7 +61112,8 @@ var render = function () {
           { staticClass: "d-flex flex-row" },
           _vm._l(_vm.activePlayers, function (player, index) {
             return _c("div", { key: "Player" + index }, [
-              _vm._v(_vm._s(player.name)),
+              _vm._v(_vm._s(player.name) + " "),
+              player.voice ? _c("span", [_vm._v("*")]) : _vm._e(),
             ])
           }),
           0

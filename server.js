@@ -87,20 +87,29 @@ GameIo.on('connect', (socket) => {
         let newPlayer = {
             id: socket.id,
             name: playerName,
-            roomId: room
+            roomId: room,
+            voice: false,
         };
         playerGroups.push(newPlayer);
         let playersInRoom = playerGroups.filter(p => p.roomId == room);
         GameIo.to(room).emit('PlayerJoined', playersInRoom);
+        if (playerName == 'KM') {
+            socket.to(room).emit('GameActiveChanged', true);
+        }
     });
     socket.on('disconnect', () => {
         let leftingPlayer = playerGroups.findIndex(p => p.id == socket.id);
         if (leftingPlayer >= 0) {
+            if (playerGroups[leftingPlayer].name == 'KM') {
+                socket.to(room).emit('GameActiveChanged', false);
+            }
             playerGroups.splice(leftingPlayer, 1);
+            let playersInRoom = playerGroups.filter(p => p.roomId == room);
+            socket.to(room).emit('PlayerJoined', playersInRoom);
         }
     });
     socket.on("voice", (data) => {
-        socket.to(room).emit('AudioMessage', data);
+        socket.to(room).emit('AudioMessage', {user: socket.id, sound: data});
     });
 });
 

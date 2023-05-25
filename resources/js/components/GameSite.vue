@@ -255,6 +255,7 @@ export default {
                 if (this.mediaRec) {
                     this.mediaRec.start();
                     this.interval = setInterval(() => {
+                        //this.mediaRec.requestData();
                         this.mediaRec.stop();
                         this.mediaRec.start();
                     }, 1000)
@@ -302,8 +303,15 @@ export default {
             this.refreshPlayers(players);
         });
         this.socket.on('AudioMessage', (data) => {
-            let audio = new Audio(data);
+            let audio = new Audio(data.sound);
             audio.play();
+            let speaker = this.players.find(p => p.id == data.user);
+            if (speaker) {
+                speaker.voice = true;
+                setTimeout(() => {
+                    speaker.voice = false;
+                }, 500);
+            }
         });
         this.game_active = this.gameModule.game_active;
         this.active_seene = this.gameModule.game_module_state;
@@ -345,11 +353,12 @@ export default {
                 this.sendVoice(e);
             }
         });
-    },
-    beforeDestroy() {
         if (this.isGm) {
-            this.deactivateGame(false);
+            window.addEventListener("beforeunload", (event) => {
+                event.preventDefault();
+                this.deactivateGame(false);
+            });
         }
-    }
+    },
 }
 </script>

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-7">
                 <div class="d-flex flex-row">
-                    <div v-for="player, index in activePlayers" :key="'Player' + index">{{ player.name}}</div>
+                    <div v-for="player, index in activePlayers" :key="'Player' + index">{{ player.name}} <span v-if="player.voice">*</span> </div>
                 </div>
             </div>
             <div class="col">
