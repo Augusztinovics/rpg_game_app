@@ -5619,6 +5619,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -57821,7 +57830,9 @@ var render = function () {
     { class: ["bg-light", _vm.siteStyle] },
     [
       _c("header", { staticClass: "fixed-top" }, [
-        _c("nav", { staticClass: "navbar space-between bg-dark" }, [
+        _c("div", { staticClass: "top-img" }),
+        _vm._v(" "),
+        _c("nav", { staticClass: "navbar space-between" }, [
           _vm.isGm
             ? _c(
                 "div",
@@ -57843,10 +57854,16 @@ var render = function () {
                 1
               ),
           _vm._v(" "),
+          _c("h1", { staticClass: "top-title" }, [
+            _vm._v(_vm._s(_vm.gameModule.game_module_name)),
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "mx-3" }, [
-            _c("button", { on: { click: _vm.openDiceModal } }, [
-              _vm._v("Dobókockák"),
-            ]),
+            _c(
+              "button",
+              { staticClass: "top-btn", on: { click: _vm.openDiceModal } },
+              [_vm._v("Dobókockák")]
+            ),
           ]),
         ]),
       ]),
@@ -57857,39 +57874,45 @@ var render = function () {
         on: { roll: _vm.atDiceRolled },
       }),
       _vm._v(" "),
-      _c("div", { staticStyle: { height: "80px" } }),
+      _c("div", { staticStyle: { height: "100px" } }),
       _vm._v(" "),
-      _vm.isGm
-        ? _c(
-            "div",
-            { staticClass: "container text-center" },
-            [
-              _c("map-drowing", {
-                attrs: {
-                  "map-drow-data": _vm.activeSeene.module_data.map,
-                  "canvas-id": "seenCanvas",
-                  "from-site": true,
-                  "module-index": _vm.active_seene,
-                },
-                on: { save: _vm.seenDrowSave },
-              }),
-            ],
-            1
-          )
-        : _c(
-            "div",
-            { staticClass: "container text-center" },
-            [
-              _c("site-canvas", {
-                ref: "SiteDrowCanvas",
-                attrs: {
-                  "map-drow-data": _vm.activeSeene.module_data.map,
-                  "module-index": _vm.active_seene,
-                },
-              }),
-            ],
-            1
-          ),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-1 left-side" }),
+        _vm._v(" "),
+        _vm.isGm
+          ? _c(
+              "div",
+              { staticClass: "container text-center col-10" },
+              [
+                _c("map-drowing", {
+                  attrs: {
+                    "map-drow-data": _vm.activeSeene.module_data.map,
+                    "canvas-id": "seenCanvas",
+                    "from-site": true,
+                    "module-index": _vm.active_seene,
+                  },
+                  on: { save: _vm.seenDrowSave },
+                }),
+              ],
+              1
+            )
+          : _c(
+              "div",
+              { staticClass: "container text-center col-10" },
+              [
+                _c("site-canvas", {
+                  ref: "SiteDrowCanvas",
+                  attrs: {
+                    "map-drow-data": _vm.activeSeene.module_data.map,
+                    "module-index": _vm.active_seene,
+                  },
+                }),
+              ],
+              1
+            ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-1 right-side" }),
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -57959,6 +57982,8 @@ var render = function () {
             },
             on: { SendAMessage: _vm.messageSend, ToogleMic: _vm.toogleMic },
           }),
+          _vm._v(" "),
+          _c("div", { staticClass: "bottom-img" }),
         ],
         1
       ),
@@ -61168,7 +61193,7 @@ var render = function () {
             {
               class: [
                 "btn btn-sm",
-                _vm.micActive ? " btn-succes" : "btn-danger",
+                _vm.micActive ? " btn-success" : "btn-danger",
               ],
               on: { click: _vm.toogleMic },
             },
@@ -61803,15 +61828,23 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("button", { on: { click: _vm.globalNotesOpen } }, [
-      _vm._v("Álltalános jegyzetek"),
-    ]),
+    _c(
+      "button",
+      { staticClass: "ms-2 top-btn", on: { click: _vm.globalNotesOpen } },
+      [_vm._v("Álltalános jegyzetek")]
+    ),
     _vm._v(" "),
-    _c("button", { on: { click: _vm.bestiariumOpen } }, [_vm._v("Bestiárium")]),
+    _c(
+      "button",
+      { staticClass: "ms-2 top-btn", on: { click: _vm.bestiariumOpen } },
+      [_vm._v("Bestiárium")]
+    ),
     _vm._v(" "),
-    _c("button", { on: { click: _vm.SeeneSelectOpen } }, [
-      _vm._v("Jelenet változtatása"),
-    ]),
+    _c(
+      "button",
+      { staticClass: "ms-2 top-btn", on: { click: _vm.SeeneSelectOpen } },
+      [_vm._v("Jelenet változtatása")]
+    ),
     _vm._v(" "),
     _vm.gameActive
       ? _c(
@@ -62255,9 +62288,11 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("button", { on: { click: _vm.charcterSheetOpen } }, [
-      _vm._v("Karakterlap"),
-    ]),
+    _c(
+      "button",
+      { staticClass: "ms-2 top-btn", on: { click: _vm.charcterSheetOpen } },
+      [_vm._v("Karakterlap")]
+    ),
   ])
 }
 var staticRenderFns = []

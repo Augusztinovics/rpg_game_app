@@ -11312,3 +11312,47 @@ textarea.form-control-lg {
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
+
+.magus-style {
+  background-image: linear-gradient(rgb(252, 247, 247), rgb(224, 212, 212), rgb(219, 214, 214));
+}
+.magus-style .top-img {
+  height: 20px;
+  background-image: url("/img/magus-style/top.png");
+  background-repeat: repeat;
+  background-size: contain;
+}
+.magus-style .top-title {
+  text-decoration: underline;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 700;
+  border-radius: 5px;
+  background-color: rgba(255, 254, 254, 0.705);
+}
+.magus-style .top-btn {
+  border-radius: 5px;
+  font-weight: 800;
+}
+.magus-style .top-btn:hover {
+  background-color: antiquewhite;
+}
+.magus-style .left-side {
+  background-image: url("/img/magus-style/left.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.magus-style .right-side {
+  background-image: url("/img/magus-style/right.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.magus-style .bottom-img {
+  height: 20px;
+  background-image: url("/img/magus-style/bottom.png");
+  background-repeat: repeat;
+  background-size: contain;
+}

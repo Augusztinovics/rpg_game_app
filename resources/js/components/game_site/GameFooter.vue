@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div>
-                    <button :class="['btn btn-sm', micActive ? ' btn-succes' : 'btn-danger']" @click="toogleMic">Mic</button>
+                    <button :class="['btn btn-sm', micActive ? ' btn-success' : 'btn-danger']" @click="toogleMic">Mic</button>
                 </div>
             </div>
         </div>
