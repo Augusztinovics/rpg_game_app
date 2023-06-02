@@ -5626,8 +5626,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 
@@ -7967,6 +7965,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
 //
 //
 //
@@ -57829,7 +57832,7 @@ var render = function () {
     "div",
     { class: ["bg-light", _vm.siteStyle] },
     [
-      _c("header", { staticClass: "fixed-top" }, [
+      _c("header", { staticClass: "fixed-top menu-bg" }, [
         _c("div", { staticClass: "top-img" }),
         _vm._v(" "),
         _c("nav", { staticClass: "navbar space-between" }, [
@@ -57876,13 +57879,11 @@ var render = function () {
       _vm._v(" "),
       _c("div", { staticStyle: { height: "100px" } }),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-1 left-side" }),
-        _vm._v(" "),
+      _c("div", [
         _vm.isGm
           ? _c(
               "div",
-              { staticClass: "container text-center col-10" },
+              { staticClass: "container text-center" },
               [
                 _c("map-drowing", {
                   attrs: {
@@ -57898,7 +57899,7 @@ var render = function () {
             )
           : _c(
               "div",
-              { staticClass: "container text-center col-10" },
+              { staticClass: "container text-center" },
               [
                 _c("site-canvas", {
                   ref: "SiteDrowCanvas",
@@ -57910,8 +57911,6 @@ var render = function () {
               ],
               1
             ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-1 right-side" }),
       ]),
       _vm._v(" "),
       _c(
@@ -57972,7 +57971,7 @@ var render = function () {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "fixed-bottom" },
+        { staticClass: "fixed-bottom menu-bg" },
         [
           _c("game-footer", {
             attrs: {
@@ -61130,75 +61129,84 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-7" }, [
+    _c("div", { staticClass: "row align-items-end" }, [
+      _c("div", { staticClass: "col-8" }, [
         _c(
           "div",
-          { staticClass: "d-flex flex-row" },
+          { staticClass: "d-flex flex-row align-items-end" },
           _vm._l(_vm.activePlayers, function (player, index) {
-            return _c("div", { key: "Player" + index }, [
-              _vm._v(_vm._s(player.name) + " "),
-              player.voice ? _c("span", [_vm._v("*")]) : _vm._e(),
-            ])
+            return _c(
+              "div",
+              {
+                key: "Player" + index,
+                class: [
+                  "p-2 player-icon text-center",
+                  player.voice ? " mic-active" : "",
+                ],
+              },
+              [_c("h6", [_vm._v(_vm._s(player.name))])]
+            )
           }),
           0
         ),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c("div", [
+      _c("div", { staticClass: "col-4" }, [
+        _c("div", { staticClass: "d-flex flex-row align-items-end" }, [
           _c("div", [
             _c(
-              "ul",
-              _vm._l(_vm.sendedMessages, function (msg, index) {
-                return _c("li", { key: "msg" + index }, [_vm._v(_vm._s(msg))])
-              }),
-              0
+              "button",
+              {
+                class: ["mic-btn", _vm.micActive ? " mic-btn-active" : ""],
+                on: { click: _vm.toogleMic },
+              },
+              [_c("span", [_vm._v("Mic")])]
             ),
           ]),
           _vm._v(" "),
           _c("div", [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.message,
-                  expression: "message",
-                },
-              ],
-              attrs: { type: "text" },
-              domProps: { value: _vm.message },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.message = $event.target.value
-                },
-              },
-            }),
+            _c("div", { staticClass: "msg-holder" }, [
+              _c(
+                "ul",
+                _vm._l(_vm.sendedMessages, function (msg, index) {
+                  return _c("li", { key: "msg" + index }, [_vm._v(_vm._s(msg))])
+                }),
+                0
+              ),
+            ]),
             _vm._v(" "),
-            _c(
-              "button",
-              { staticClass: "btn btn-sm", on: { click: _vm.sendMessage } },
-              [_vm._v("Küld")]
-            ),
+            _c("div", [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.message,
+                    expression: "message",
+                  },
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.message },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.message = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-sm btn-success",
+                  on: { click: _vm.sendMessage },
+                },
+                [_vm._v("Küld")]
+              ),
+            ]),
           ]),
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c(
-            "button",
-            {
-              class: [
-                "btn btn-sm",
-                _vm.micActive ? " btn-success" : "btn-danger",
-              ],
-              on: { click: _vm.toogleMic },
-            },
-            [_vm._v("Mic")]
-          ),
         ]),
       ]),
     ]),

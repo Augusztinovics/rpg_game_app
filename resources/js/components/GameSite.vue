@@ -1,7 +1,7 @@
 <template>
     <div :class="['bg-light', siteStyle]">
         <!-- header menu container -->
-        <header class="fixed-top">
+        <header class="fixed-top menu-bg">
             <div class="top-img"></div>
             <nav class="navbar space-between">
                 <div v-if="isGm" class="mx-3">
@@ -25,9 +25,8 @@
         <div style="height:100px;"></div>
         
         <!-- drowing canvas -->
-        <div class="row">
-            <div class="col-1 left-side"></div>
-            <div v-if="isGm" class="container text-center col-10">
+        <div>
+            <div v-if="isGm" class="container text-center">
                 <map-drowing
                     :map-drow-data="activeSeene.module_data.map"
                     canvas-id="seenCanvas"
@@ -36,7 +35,7 @@
                     @save="seenDrowSave"
                 ></map-drowing>
             </div>
-            <div v-else class="container text-center col-10">
+            <div v-else class="container text-center">
                 <site-canvas
                     :map-drow-data="activeSeene.module_data.map"
                     :module-index="active_seene"
@@ -44,7 +43,6 @@
                 >
                 </site-canvas>
             </div>
-            <div class="col-1 right-side"></div>
         </div>
         
         <!-- Body layout -->
@@ -82,7 +80,7 @@
         </div>
         <div style="height:160px;"></div>
         <!-- footer container -->
-        <div class="fixed-bottom">
+        <div class="fixed-bottom menu-bg">
             <game-footer
                 :active-players="players"
                 :sended-messages="messages"
