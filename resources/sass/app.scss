@@ -34,3 +34,118 @@
         -ms-transform: translate(-50%,-50%);
     }
 }
+
+.magus-style {
+    background-image: linear-gradient(rgb(252, 247, 247), rgb(224, 212, 212), rgb(219, 214, 214));
+
+    .top-img {
+        height: 20px;
+        background-image: url("/img/magus-style/top.png");
+        background-repeat: repeat;
+        background-size:contain;
+    }
+
+    .top-title {
+        text-decoration: underline;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 1.5rem;
+        font-style:italic;
+        font-weight: 700;
+        border-radius: 5px;
+        background-color: rgba(255, 254, 254, 0.705);
+    }
+
+    .top-btn {
+        border-radius: 5px;
+        font-weight: 800;
+    }
+
+    .top-btn:hover {
+        background-color: antiquewhite;
+    }
+
+    .menu-bg {
+        background-color: rgba(235, 197, 148, 0.5);
+    }
+
+    .bottom-img {
+        height: 20px;
+        background-image: url("/img/magus-style/bottom.png");
+        background-repeat: repeat;
+        background-size:contain;
+    }
+
+    .player-icon {
+        margin-left: 10px;
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        background-image: url("/img/magus-style/player-bg.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size:contain;
+        position: relative;
+
+        h6 {
+            font-weight: 800;
+            font-size: 0.8rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+            padding: 2px;
+            border-radius: 5px;
+            background-color: azure;
+        }
+    }
+
+    .mic-active {
+        border: 2px solid rgb(4, 61, 4);
+    }
+
+    .mic-btn {
+        margin-right: 10px;
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+        background-image: url("/img/magus-style/mic-bg.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size:contain;
+        position: relative;
+        background-color: rgb(190, 53, 53);
+        border: 2px solid red;
+        cursor: pointer;
+
+        span {
+            font-weight: 800;
+            font-size: 0.8rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+        }
+    }
+
+    .mic-btn-active {
+        background-color: rgb(58, 190, 53);
+        border: 2px solid green;
+    }
+
+    .msg-holder {
+        height: 55px;
+        padding: 5px;
+        background-color: white;
+        border-radius: 5px;
+        border: 2px solid black;
+        margin-bottom: 2px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .msg-holder-expand {
+        height: 150px;
+    }
+}

@@ -18,7 +18,6 @@ const GameIo = io.of(/^\/Game-\d+$/);
 
 //Run when new user connect
 io.on('connection', socket => {
-    console.log('Default socket connected!');
 
     //When disconnecting
     socket.on('disconnect', () => {
@@ -67,7 +66,7 @@ io.on('connection', socket => {
 GameIo.on('connect', (socket) => {
     let room = socket.nsp.name;
     socket.join(room);
-    console.log('Game socket connected! ' + socket.nsp.name);
+
     socket.on('CharacterChangedEvent', msg => {
         socket.to(room).emit('CharacterChanged', msg);
     });

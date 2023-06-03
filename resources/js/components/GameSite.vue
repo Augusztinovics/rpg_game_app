@@ -1,8 +1,9 @@
 <template>
     <div :class="['bg-light', siteStyle]">
         <!-- header menu container -->
-        <header class="fixed-top">
-            <nav class="navbar space-between bg-dark">
+        <header class="fixed-top menu-bg">
+            <div class="top-img"></div>
+            <nav class="navbar space-between">
                 <div v-if="isGm" class="mx-3">
                     <gm-header 
                         :game="gameModule.game"
@@ -14,31 +15,36 @@
                         :game="gameModule.game"
                     />
                 </div>
+                <h1 class="top-title">{{ gameModule.game_module_name }}</h1>
                 <div class="mx-3">
-                    <button @click="openDiceModal">Dobókockák</button>
+                    <button class="top-btn" @click="openDiceModal">Dobókockák</button>
                 </div>
             </nav>
         </header>
         <dice-generator ref="dice-modal" :form_site="true" :dices="diceSet" @roll="atDiceRolled"/>
-        <div style="height:80px;"></div>
+        <div style="height:100px;"></div>
+        
         <!-- drowing canvas -->
-        <div v-if="isGm" class="container text-center">
-            <map-drowing
-                :map-drow-data="activeSeene.module_data.map"
-                canvas-id="seenCanvas"
-                :from-site="true"
-                :module-index="active_seene"
-                @save="seenDrowSave"
-            ></map-drowing>
+        <div>
+            <div v-if="isGm" class="container text-center">
+                <map-drowing
+                    :map-drow-data="activeSeene.module_data.map"
+                    canvas-id="seenCanvas"
+                    :from-site="true"
+                    :module-index="active_seene"
+                    @save="seenDrowSave"
+                ></map-drowing>
+            </div>
+            <div v-else class="container text-center">
+                <site-canvas
+                    :map-drow-data="activeSeene.module_data.map"
+                    :module-index="active_seene"
+                    ref="SiteDrowCanvas"
+                >
+                </site-canvas>
+            </div>
         </div>
-        <div v-else class="container text-center">
-            <site-canvas
-                :map-drow-data="activeSeene.module_data.map"
-                :module-index="active_seene"
-                ref="SiteDrowCanvas"
-            >
-            </site-canvas>
-        </div>
+        
         <!-- Body layout -->
         <div :class="[doubleLayout ? 'container-fluid row' : 'container']">
             <!-- modals and side menus -->
@@ -72,9 +78,9 @@
             >
             </game-book>
         </div>
-        <div style="height:160px;"></div>
+        <div style="height:400px;"></div>
         <!-- footer container -->
-        <div class="fixed-bottom">
+        <div class="fixed-bottom menu-bg">
             <game-footer
                 :active-players="players"
                 :sended-messages="messages"
@@ -82,6 +88,7 @@
                 @SendAMessage="messageSend"
                 @ToogleMic="toogleMic"
             />
+            <div class="bottom-img"></div>
         </div>
     </div>
 </template>

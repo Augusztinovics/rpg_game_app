@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button @click="charcterSheetOpen">Karakterlap</button>
+        <button class="ms-2 top-btn" @click="charcterSheetOpen">Karakterlap</button>
     </div>
 </template>
 
