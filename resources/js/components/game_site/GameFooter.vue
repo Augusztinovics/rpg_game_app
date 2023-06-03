@@ -4,24 +4,27 @@
             <div class="col-8">
                 <div class="d-flex flex-row align-items-end">
                     <div :class="['p-2 player-icon text-center', player.voice ? ' mic-active' : '']" v-for="player, index in activePlayers" :key="'Player' + index">
-                        <h6>{{ player.name}}</h6>
+                        <h6>{{ shortenName(player.name)}}</h6>
                     </div>
                 </div>
             </div>
             <div class="col-4">
                 <div class="d-flex flex-row align-items-end">
                     <div>
-                        <button :class="['mic-btn', micActive ? ' mic-btn-active' : '']" @click="toogleMic"><span>Mic</span></button>
+                        <button :class="['mic-btn', micActive ? ' mic-btn-active' : '']" @click="toogleMic"><span>Mikrofon</span></button>
                     </div>
-                    <div>
-                        <div class="msg-holder">
-                            <ul>
-                                <li v-for="msg, index in sendedMessages" :key="'msg' + index">{{ msg }}</li>
+                    <div class="flex-fill me-2 p-1 bg-light">
+                        <div :class="['msg-holder', expanded ? ' msg-holder-expand' : '']" id="msg_holder">
+                            <ul class="list-unstyled">
+                                <li v-for="msg, index in sendedMessages" :key="'msg' + index" class="fw-bold">{{ msg }}</li>
                             </ul>
                         </div>
                         <div>
-                            <input type="text" v-model="message">
-                            <button class="btn btn-sm btn-success" @click="sendMessage">Küld</button>
+                            <div class="input-group input-group-sm">
+                                <button class="btn btn-outline-secondary fw-bold" type="button" id="btn-up" @click="toogleMsgBox" v-html="expandBtnText"></button>
+                                <input type="text" v-model="message" class="form-control" aria-label="Message" aria-describedby="btn-send" placeholder="Üzenet..." @keyup.enter="sendMessage">
+                                <button class="btn btn-outline-secondary fw-bold" type="button" id="btn-send" @click="sendMessage">Küld</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -49,7 +52,13 @@ export default {
     },
     data() {
         return {
-            message: ''
+            message: '',
+            expanded: false,
+        }
+    },
+    computed: {
+        expandBtnText() {
+            return this.expanded ? '&curlyvee;' : '&curlywedge;';
         }
     },
     methods: {
@@ -61,15 +70,28 @@ export default {
         },
         toogleMic() {
             this.$emit('ToogleMic');
+        },
+        shortenName(name) {
+            if (name.length > 20) {
+                return name.substring(0, 20) + '...';
+            }
+            return name;
+        },
+        toogleMsgBox() {
+            this.expanded = !this.expanded;
+            setTimeout(() => {this.bottomMsg();}, 100);
+        },
+        bottomMsg() {
+            let msgCont = document.getElementById('msg_holder');
+            if (msgCont) {
+                msgCont.scrollTop = msgCont.scrollHeight;
+            }
+        },
+    },
+    watch: {
+        sendedMessages() {
+            this.bottomMsg();
         }
     },
 }
 </script>
-
-<style scoped>
- .test {
-     width: 100%;
-     height: 120px;
-     background-color: blue;
- }
-</style>

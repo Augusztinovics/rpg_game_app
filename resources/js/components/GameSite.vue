@@ -78,7 +78,7 @@
             >
             </game-book>
         </div>
-        <div style="height:160px;"></div>
+        <div style="height:400px;"></div>
         <!-- footer container -->
         <div class="fixed-bottom menu-bg">
             <game-footer

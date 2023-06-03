@@ -11401,12 +11401,15 @@ textarea.form-control-lg {
   border: 2px solid green;
 }
 .magus-style .msg-holder {
-  height: 100px;
-  width: 230px;
+  height: 55px;
+  padding: 5px;
   background-color: white;
   border-radius: 5px;
   border: 2px solid black;
   margin-bottom: 2px;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
+}
+.magus-style .msg-holder-expand {
+  height: 150px;
 }
