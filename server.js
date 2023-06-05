@@ -12,27 +12,12 @@ const io = socketio(server,{cors: {
   }});
 
 const aktiveUsers = [];
+const playerGroups = [];
 
-//socket.join(roomname)
-//socket.broadcast.to(roomnam).emit('message', msg)
+const GameIo = io.of(/^\/Game-\d+$/);
 
 //Run when new user connect
 io.on('connection', socket => {
-
-    //welcome current user
-    // socket.emit('message', {
-    //     msg: 'Welcome in chat',
-    //     id: 0,
-    //     name: 'Chatbot'
-    // });
-
-    //Broadcast when user connect
-    // socket.broadcast.emit('message', {
-    //     msg: 'A user joined',
-    //     id: 0,
-    //     name: 'Chatbot'
-    // });
-
 
     //When disconnecting
     socket.on('disconnect', () => {
@@ -47,12 +32,6 @@ io.on('connection', socket => {
             });
             aktiveUsers.splice(leftingUser, 1);
         }
-        // io.emit('message', {
-        //     msg: 'User left',
-        //     id: 0,
-        //     name: 'Chatbot',
-        //     active: false
-        // });
     });
 
     //Gather aktive users
@@ -81,6 +60,55 @@ io.on('connection', socket => {
     });
     socket.on('sendPrivateMessage', (msg) => {
         io.emit('privateMessage', msg);
+    });
+});
+
+GameIo.on('connect', (socket) => {
+    let room = socket.nsp.name;
+    socket.join(room);
+
+    socket.on('CharacterChangedEvent', msg => {
+        socket.to(room).emit('CharacterChanged', msg);
+    });
+    socket.on('GameStateChange', state => {
+        socket.to(room).emit('GameActiveChanged', state);
+    });
+    socket.on('ActiveSeeneChanged', order => {
+        socket.to(room).emit('ChangedActiveSeene', order);
+    });
+    socket.on('DrowCanvas', line => {
+        socket.to(room).emit('OnCanvasDrow', line);
+    });
+    socket.on('ReloadActiveSeeneData', () => {
+        socket.to(room).emit('OnReloadActiveSeeneData');
+    });
+    socket.on('PlayerJoin', (playerName) => {
+        let newPlayer = {
+            id: socket.id,
+            name: playerName,
+            roomId: room,
+            voice: false,
+        };
+        playerGroups.push(newPlayer);
+        let playersInRoom = playerGroups.filter(p => p.roomId == room);
+        GameIo.to(room).emit('PlayerJoined', playersInRoom);
+        if (playerName == 'KM') {
+            socket.to(room).emit('GameActiveChanged', true);
+        }
+    });
+    socket.on('disconnect', () => {
+        let leftingPlayer = playerGroups.findIndex(p => p.id == socket.id);
+        if (leftingPlayer >= 0) {
+            if (playerGroups[leftingPlayer].name == 'KM') {
+                socket.to(room).emit('GameActiveChanged', false);
+            }
+            playerGroups.splice(leftingPlayer, 1);
+            let playersInRoom = playerGroups.filter(p => p.roomId == room);
+            socket.to(room).emit('PlayerJoined', playersInRoom);
+        }
+    });
+    socket.on("voice", (data) => {
+        socket.to(room).emit('AudioMessage', {user: socket.id, sound: data});
     });
 });
 

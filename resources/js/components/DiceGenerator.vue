@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div>
+        <div v-if="!form_site">
             <button class="btn btn-success mt-2 costum-btn" type="button"  data-bs-toggle="modal" data-bs-target="#diceModal">Kockadobás</button>
         </div>
 
         <!-- Dice Modal -->
-        <div class="modal fade" id="diceModal" tabindex="-1" aria-labelledby="diceModalLabel" aria-hidden="true">
+        <div class="modal fade dice-foward" id="diceModal" tabindex="-1" aria-labelledby="diceModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -48,6 +48,10 @@ export default {
             type: Array,
             default: [6]
         },
+        form_site: {
+            type: Boolean,
+            default: false
+        }
     },
     data() {
         return {
@@ -59,12 +63,32 @@ export default {
         rollDice(dice) {
             this.rollResult = Math.floor(Math.random() * (dice - 1 + 1) ) + 1;
             this.rollLabel = 'A K' + dice +' dobás eredménye';
-            this.$emit('roll', this.rollResult);
+            this.$emit('roll', {result:this.rollResult, type:dice});
         },
         closeModal() {
             this.rollResult = 0;
             this.rollLabel = 'Még nem történt kockadobás';
-        }
+            if (this.form_site) {
+                let modalClasses = window.document.getElementById('diceModal').classList;
+                document.body.classList.remove('modal-open');
+                modalClasses.remove('d-block')
+                modalClasses.remove('show')
+                let backdrop = document.querySelector('.modal-backdrop')
+                document.body.removeChild(backdrop)
+            }
+        },
+        showModal() {
+            document.body.classList.add('modal-open');
+            let modalClasses = window.document.getElementById('diceModal').classList;
+        
+            modalClasses.add('d-block')
+            modalClasses.add('show')
+    
+            //show backdrop
+            let backdrop = document.createElement('div')
+            backdrop.classList = "modal-backdrop fade show"
+            document.body.appendChild(backdrop)
+        },
     },
 }
 </script>

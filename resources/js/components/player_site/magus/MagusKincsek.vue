@@ -205,6 +205,8 @@ export default {
                 if (this.egyebb_text !== '') {
                     this.egyebb.push(this.egyebb_text);
                 }
+                let msg = this.magusCharacter.Nev + ' Növelte kincseit! Réz: +' + rez + ' Ezüst: +' + ezust + ' Arany: +' + arany + ' Mithrill: +' + mithrill + ' Egyébb: ' + this.egyebb_text;
+                this.$root.$emit('CharacterChangedEvent', msg);
             }
             if (mod === '-') {
                 if (this.rez > 0) {
@@ -222,6 +224,8 @@ export default {
                     if (this.dragako > 0) {
                     this.dragako -= dragako;
                 }
+                let msg = this.magusCharacter.Nev + ' Csökentette kincseit! Réz: -' + rez + ' Ezüst: -' + ezust + ' Arany: -' + arany + ' Mithrill: -' + mithrill ;
+                this.$root.$emit('CharacterChangedEvent', msg);
             }
             this.egyebb_text = '';
             this.saveKincsek();

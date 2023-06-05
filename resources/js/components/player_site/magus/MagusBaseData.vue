@@ -257,7 +257,7 @@ export default {
                 return {name: '', description: '', sferaText: ''}
             }
         },
-        Faj() {  
+        Faj() {
             return this.race(this.magusCharacter.Faj);
         },
         Kaszt() {
@@ -293,36 +293,48 @@ export default {
         }),
         updateNewName() {
             if (this.inputName != '') {
+                let msg = this.magusCharacter.Nev + ' megváltoztatta nevét. Új neve: ' + this.inputName;
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.updateName(this.inputName);
                 this.save();
             }
         },
         updateNewJellem() {
             if (this.inputJellem != '') {
+                let msg = this.magusCharacter.Nev + ' megváltoztatta jellemét';
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.updateJellem(this.inputJellem);
                 this.save();
             }
         },
         updateNewVallas() {
             if (this.inputVallas != '') {
+                let msg = this.magusCharacter.Nev + ' megváltoztatta vallását';
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.updateVallas(this.inputVallas);
                 this.save();
             }
         },
         updateNewSzulofold() {
             if (this.inputSzulofold != '') {
+                let msg = this.magusCharacter.Nev + ' megváltoztatta szülőföldjét';
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.updateSzulofold(this.inputSzulofold);
                 this.save();
             }
         },
         updateNewSzimbolum() {
             if (this.inputSzimbolum != '') {
+                let msg = this.magusCharacter.Nev + ' megváltoztatta szimbólumát';
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.updateSzimbolum(this.inputSzimbolum);
                 this.save();
             }
         },
         updateNewIskola() {
             if (this.inputIskola != '') {
+                let msg = this.magusCharacter.Nev + ' megváltoztatta iskoláját';
+                this.$root.$emit('CharacterChangedEvent', msg);
                 this.updateIskola(this.inputIskola);
                 this.save();
             }

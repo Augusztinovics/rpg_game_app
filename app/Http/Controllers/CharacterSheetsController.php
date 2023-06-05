@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\CharacterSheet;
+use App\Models\GameModulePlayer;
+use App\Models\GameModule;
 
 class CharacterSheetsController extends Controller
 {
@@ -25,7 +27,7 @@ class CharacterSheetsController extends Controller
      * 
      * @return json
      */
-    public function characterCreate(Request $request){
+    public function characterCreate(Request $request) {
         $user = $request->user();
         $game = $request->input('game');
         if (!$game) {
@@ -50,7 +52,7 @@ class CharacterSheetsController extends Controller
      * 
      * @return json
      */
-    public function updateCharacter(Request $request, $id){
+    public function updateCharacter(Request $request, $id) {
         
         $characterData = $request->input('characterData');
         if (!$characterData) {
@@ -68,7 +70,7 @@ class CharacterSheetsController extends Controller
      * 
      * @return json
      */
-    public function gameCharacters(Request $request, $game){
+    public function gameCharacters(Request $request, $game) {
         
         $user = $request->user();
         $characters = CharacterSheet::where('user_id', $user->id)->where('game', $game)->get();
@@ -82,11 +84,82 @@ class CharacterSheetsController extends Controller
      * 
      * @return json
      */
-    public function deleteGameCharacter(Request $request, $id){
+    public function deleteGameCharacter(Request $request, $id) {
         
         CharacterSheet::where('id', $id)->delete();
        
         
        return response()->json('Success', 200);
+    }
+
+    /**
+     * get the player game calls
+     * 
+     * @return json
+     */
+    public function getGameCalls(Request $request, $game) {
+        $user = $request->user();
+        $calls = GameModulePlayer::where('player_id', $user->id)->get();
+
+        $data = [];
+        foreach ($calls as $call) {
+            $module = GameModule::find($call->game_module_id);
+            if ($module && $module->game == $game) {
+                $data[] = [
+                    'game_id' => $module->id,
+                    'game_name' => $module->game_module_name,
+                    'character_id' => $call->character_id ? $call->character_id : false,
+                ];
+            }
+        }
+
+        return response()->json($data, 200);
+    }
+
+    /**
+     * add character to module
+     */
+    public function addCharToModule(Request $request, $game) {
+        $char_id = $request->input('char_id', false);
+        $module_id = $request->input('module_id', false);
+        $user = $request->user();
+
+        if ( !$module_id || !$char_id) {
+            return $this->getGameCalls($request, $game);
+        }
+
+        $call = GameModulePlayer::where('game_module_id', $module_id)->where('player_id', $user->id)->first();
+
+        if (!$call) {
+            return $this->getGameCalls($request, $game);
+        }
+
+        $call->character_id = $char_id;
+        $call->save();
+
+        return $this->getGameCalls($request, $game);
+    }
+
+    /**
+     * add character to module
+     */
+    public function removeCharToModule(Request $request, $game) {
+        $module_id = $request->input('module_id', false);
+        $user = $request->user();
+
+        if ( !$module_id) {
+            return $this->getGameCalls($request, $game);
+        }
+
+        $call = GameModulePlayer::where('game_module_id', $module_id)->where('player_id', $user->id)->first();
+
+        if (!$call) {
+            return $this->getGameCalls($request, $game);
+        }
+
+        $call->character_id = null;
+        $call->save();
+
+        return $this->getGameCalls($request, $game);
     }
 }
