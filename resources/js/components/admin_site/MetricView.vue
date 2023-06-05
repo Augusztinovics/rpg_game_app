@@ -81,6 +81,32 @@
                 </div>
             </div>
        </div>
+       <hr>
+       <!-- Game Site Page Views -->
+       <div>
+           <div class="text-center">
+                <h2>Game Site Views</h2>
+            </div>
+            <div class="bg-ligh bg-gradient border border-success rounded mt-4 mb-4 text-center">
+                <button type="button" class="btn btn-success m-3" @click="fetchGameSiteViewData">Fetch Game Site View Data</button>
+            </div>
+
+            <div v-if="haveGameSiteViewData" class="p-3 border border-secondary rounded m-2">
+                <div class="row">
+                    <!-- v-for -->
+                    <div v-for="view in gameSiteViews" :key="view.id" class="col">
+                        <h4>Views: <b>{{ view.views }}</b></h4>
+                        <p>Modules: <b>{{ makeStringFromArray(view.module_ids)}}</b></p>
+                        <p>Players: <b>{{ makeStringFromArray(view.user_ids)}}</b></p>
+                        <h5> <b>{{ view.updated_at }}</b></h5>
+                    </div>
+                </div>
+                <div v-if="haveGameSitePagination" class="text-center">
+                    <button v-for="pag, index in gameSitePagLinks" :key="'PB' + index" :disabled="!pag.url" :class="{'active':pag.active}" class="btn btn-sm" @click="paginateGameSiteView(pag.url)" v-html="pag.label"></button>
+                </div>
+            </div>
+
+       </div>
     </div>
 </template>
 
@@ -97,6 +123,8 @@ export default {
             allDownload: 0,
             magusGameShared: 0,
             magusGameUsed: 0,
+            gameSiteViews: [],
+            gameSitePagLinks: [],
         }
     },
     computed: {
@@ -105,6 +133,12 @@ export default {
         },
         haveMetrickData() {
             return this.metrickData.length > 0;
+        },
+        haveGameSitePagination() {
+            return this.gameSitePagLinks.length > 3;
+        },
+        haveGameSiteViewData() {
+            return this.gameSiteViews.length > 0;
         }
     },
     methods: {
@@ -135,6 +169,33 @@ export default {
                 console.log(error);
             })
         },
+        fetchGameSiteViewData() {
+            this.loading = true;
+            this.haveError = false;
+            axios.get('/admin/game-site-view-data')
+            .then(res => {
+                this.gameSiteViews = res.data.data;
+                this.gameSitePagLinks = res.data.links;
+                this.loading = false;
+            }).catch(error => {
+                this.loading = false;
+                this.haveError = true;
+                console.log(error);
+            })
+        },
+        paginateGameSiteView(link) {
+            this.loading = true;
+            this.haveError = false;
+            axios.get(link)
+            .then(res => {
+                this.gameSiteViews = res.data.data;
+                this.gameSitePagLinks = res.data.links;
+                this.loading = false;
+            }).catch(error => {
+                this.haveError = true;
+                console.log(error);
+            })
+        },
         fetchDownloadedData() {
             this.loading = true;
             this.haveError = false;
@@ -151,6 +212,13 @@ export default {
                 this.haveError = true;
                 console.log(error);
             })
+        },
+        makeStringFromArray(ar) {
+            if (ar && typeof ar === 'object') {
+                ar = Object.values(ar);
+                return ar.join(', ');
+            }
+            return '';
         }
     },
 }
