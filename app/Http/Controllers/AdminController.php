@@ -8,6 +8,7 @@ use App\Models\DownloadCount;
 use App\Models\User;
 use App\Models\CharacterSheet;
 use App\Models\CostumerSupport;
+use App\Models\GamePageView;
 use App\Models\WhatsNew;
 use App\Models\PageView;
 use App\Models\PublicGameModule;
@@ -338,6 +339,22 @@ class AdminController extends Controller
         }
         
         $data = PageView::latest()->paginate(7);
+       
+       return response()->json($data, 200);
+    }
+
+    /**
+     * getting game site view data data
+     * 
+     * @return json
+     */
+    public function getGameSiteViewData(Request $request){
+        
+        if ($request->user()->level !== 'ADMIN'){
+            return response()->json('forbitten', 403);
+        }
+        
+        $data = GamePageView::latest()->paginate(7);
        
        return response()->json($data, 200);
     }

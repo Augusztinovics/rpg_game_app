@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\GameModule;
 use App\Models\GameModuleData;
 use App\Models\GameModulePlayer;
+use App\Models\GamePageView;
 
 class GameSiteController extends Controller
 {
@@ -66,6 +68,34 @@ class GameSiteController extends Controller
             'is_gm' => Auth::id() === $module->gm_id,
             'character' => $character
         ];
+
+        $pageView = GamePageView::where('created_at', '>=', Carbon::today())->first();
+        if ($pageView) {
+            $count = $pageView->views;
+            if (!$count) {
+                $count = 1;
+            } else {
+                $count ++;
+            }
+            $moduleIds = $pageView->module_ids ?? [];
+            $userIds = $pageView->user_ids ?? [];
+            if (!in_array($id, $moduleIds)) {
+                $moduleIds[] = $id;
+                $pageView->module_ids = $moduleIds;
+            }
+            if (!in_array(Auth::id(), $userIds)) {
+                $userIds[] = Auth::id();
+                $pageView->user_ids = $userIds;
+            }
+            $pageView->views = $count;
+            $pageView->save();
+        } else {
+            GamePageView::create([
+                'views'      => 1,
+                'module_ids' => [$id],
+                'user_ids'   => [Auth::id()],
+            ]);
+        }
 
         return view('game.site', $data);
 

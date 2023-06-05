@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PageView extends Model
+class GamePageView extends Model
 {
     use HasFactory;
 
@@ -16,6 +16,8 @@ class PageView extends Model
      */
     protected $fillable = [
         'views',
+        'module_ids',
+        'user_ids',
     ];
 
     /**
@@ -24,6 +26,8 @@ class PageView extends Model
      * @var array
      */
     protected $casts = [
+        'module_ids' => 'array',
+        'user_ids' => 'array',
         'updated_at' => 'datetime:Y-m-d',
     ];
 }

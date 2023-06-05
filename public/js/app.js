@@ -6605,6 +6605,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6702,7 +6730,9 @@ __webpack_require__.r(__webpack_exports__);
       magusGameDownloaded: 0,
       allDownload: 0,
       magusGameShared: 0,
-      magusGameUsed: 0
+      magusGameUsed: 0,
+      gameSiteViews: [],
+      gameSitePagLinks: []
     };
   },
   computed: {
@@ -6711,6 +6741,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     haveMetrickData: function haveMetrickData() {
       return this.metrickData.length > 0;
+    },
+    haveGameSitePagination: function haveGameSitePagination() {
+      return this.gameSitePagLinks.length > 3;
+    },
+    haveGameSiteViewData: function haveGameSiteViewData() {
+      return this.gameSiteViews.length > 0;
     }
   },
   methods: {
@@ -6743,23 +6779,60 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error);
       });
     },
-    fetchDownloadedData: function fetchDownloadedData() {
+    fetchGameSiteViewData: function fetchGameSiteViewData() {
       var _this3 = this;
 
       this.loading = true;
       this.haveError = false;
-      axios.get('/admin/download-data').then(function (res) {
-        _this3.magusCharacterSheet = res.data.magus_character_sheet;
-        _this3.magusGameDownloaded = res.data.magus_game_downloaded;
-        _this3.allDownload = res.data.all_download;
-        _this3.magusGameShared = res.data.magus_game_shared;
-        _this3.magusGameUsed = res.data.magus_game_used;
+      axios.get('/admin/game-site-view-data').then(function (res) {
+        _this3.gameSiteViews = res.data.data;
+        _this3.gameSitePagLinks = res.data.links;
         _this3.loading = false;
       })["catch"](function (error) {
         _this3.loading = false;
         _this3.haveError = true;
         console.log(error);
       });
+    },
+    paginateGameSiteView: function paginateGameSiteView(link) {
+      var _this4 = this;
+
+      this.loading = true;
+      this.haveError = false;
+      axios.get(link).then(function (res) {
+        _this4.gameSiteViews = res.data.data;
+        _this4.gameSitePagLinks = res.data.links;
+        _this4.loading = false;
+      })["catch"](function (error) {
+        _this4.haveError = true;
+        console.log(error);
+      });
+    },
+    fetchDownloadedData: function fetchDownloadedData() {
+      var _this5 = this;
+
+      this.loading = true;
+      this.haveError = false;
+      axios.get('/admin/download-data').then(function (res) {
+        _this5.magusCharacterSheet = res.data.magus_character_sheet;
+        _this5.magusGameDownloaded = res.data.magus_game_downloaded;
+        _this5.allDownload = res.data.all_download;
+        _this5.magusGameShared = res.data.magus_game_shared;
+        _this5.magusGameUsed = res.data.magus_game_used;
+        _this5.loading = false;
+      })["catch"](function (error) {
+        _this5.loading = false;
+        _this5.haveError = true;
+        console.log(error);
+      });
+    },
+    makeStringFromArray: function makeStringFromArray(ar) {
+      if (ar && _typeof(ar) === 'object') {
+        ar = Object.values(ar);
+        return ar.join(', ');
+      }
+
+      return '';
     }
   }
 });
@@ -59130,6 +59203,93 @@ var render = function () {
         ]),
       ]),
     ]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c("div", [
+      _vm._m(4),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "bg-ligh bg-gradient border border-success rounded mt-4 mb-4 text-center",
+        },
+        [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success m-3",
+              attrs: { type: "button" },
+              on: { click: _vm.fetchGameSiteViewData },
+            },
+            [_vm._v("Fetch Game Site View Data")]
+          ),
+        ]
+      ),
+      _vm._v(" "),
+      _vm.haveGameSiteViewData
+        ? _c(
+            "div",
+            { staticClass: "p-3 border border-secondary rounded m-2" },
+            [
+              _c(
+                "div",
+                { staticClass: "row" },
+                _vm._l(_vm.gameSiteViews, function (view) {
+                  return _c("div", { key: view.id, staticClass: "col" }, [
+                    _c("h4", [
+                      _vm._v("Views: "),
+                      _c("b", [_vm._v(_vm._s(view.views))]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v("Modules: "),
+                      _c("b", [
+                        _vm._v(
+                          _vm._s(_vm.makeStringFromArray(view.module_ids))
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _vm._v("Players: "),
+                      _c("b", [
+                        _vm._v(_vm._s(_vm.makeStringFromArray(view.user_ids))),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("h5", [_c("b", [_vm._v(_vm._s(view.updated_at))])]),
+                  ])
+                }),
+                0
+              ),
+              _vm._v(" "),
+              _vm.haveGameSitePagination
+                ? _c(
+                    "div",
+                    { staticClass: "text-center" },
+                    _vm._l(_vm.gameSitePagLinks, function (pag, index) {
+                      return _c("button", {
+                        key: "PB" + index,
+                        staticClass: "btn btn-sm",
+                        class: { active: pag.active },
+                        attrs: { disabled: !pag.url },
+                        domProps: { innerHTML: _vm._s(pag.label) },
+                        on: {
+                          click: function ($event) {
+                            return _vm.paginateGameSiteView(pag.url)
+                          },
+                        },
+                      })
+                    }),
+                    0
+                  )
+                : _vm._e(),
+            ]
+          )
+        : _vm._e(),
+    ]),
   ])
 }
 var staticRenderFns = [
@@ -59163,6 +59323,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center" }, [
       _c("h2", [_vm._v("Game Module Share and Use")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c("h2", [_vm._v("Game Site Views")]),
     ])
   },
 ]
