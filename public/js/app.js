@@ -18917,33 +18917,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               }
             } else {
               //one handed weapon, just left hand empty
-              var _weponSkillLevel = this.weaponSkillLevel(this.LeftHandId);
+              var weponSkillLevel = this.weaponSkillLevel(this.LeftHandId);
 
               if (this.haveTwoHandedFightSkill.have) {
                 //two weapon fighting skill jus Ve added
                 if (this.haveTwoHandedFightSkill.level == 'Af') {
-                  if (_weponSkillLevel == 'Na') {
+                  if (weponSkillLevel == 'Na') {
                     this.updateVeMod(this.leftHandEquip.Ve * -1 + 30);
                     this.updateLeftHand('');
                     this.save();
                     return;
                   }
 
-                  if (_weponSkillLevel == 'Af') {
+                  if (weponSkillLevel == 'Af') {
                     this.updateVeMod(this.leftHandEquip.Ve * -1);
                     this.updateLeftHand('');
                     this.save();
                     return;
                   }
 
-                  if (_weponSkillLevel == 'Mf') {
+                  if (weponSkillLevel == 'Mf') {
                     this.updateVeMod(this.leftHandEquip.Ve * -1 - 10);
                     this.updateLeftHand('');
                     this.save();
                     return;
                   }
                 } else {
-                  if (_weponSkillLevel == 'Na') {
+                  if (weponSkillLevel == 'Na') {
                     this.updateKeMod(this.leftHandEquip.Ke * -1 + 10);
                     this.updateTeMod(this.leftHandEquip.Te * -1 + 25);
                     this.updateVeMod(this.leftHandEquip.Ve * -1 + 20);
@@ -18952,7 +18952,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     return;
                   }
 
-                  if (_weponSkillLevel == 'Af') {
+                  if (weponSkillLevel == 'Af') {
                     this.updateKeMod(this.leftHandEquip.Ke * -1);
                     this.updateTeMod(this.leftHandEquip.Te * -1);
                     this.updateVeMod(this.leftHandEquip.Ve * -1);
@@ -18961,7 +18961,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     return;
                   }
 
-                  if (_weponSkillLevel == 'Mf') {
+                  if (weponSkillLevel == 'Mf') {
                     this.updateKeMod(this.leftHandEquip.Ke * -1 - 5);
                     this.updateTeMod(this.leftHandEquip.Te * -1 - 10);
                     this.updateVeMod(this.leftHandEquip.Ve * -1 - 10);
@@ -19154,7 +19154,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         } else {
           if (this.haveTwoHandedFightSkill.have) {
             if (this.haveTwoHandedFightSkill.level == 'Af') {
-              if (weponSkillLevel == 'Na') {
+              if (skillLevel == 'Na') {
                 this.updateKeMod(equippingLeftWeapon.Ke - 10);
                 this.updateTeMod(equippingLeftWeapon.Te - 25);
                 this.updateVeMod(equippingLeftWeapon.Ve - 20);
@@ -19164,7 +19164,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 return;
               }
 
-              if (weponSkillLevel == 'Af') {
+              if (skillLevel == 'Af') {
                 this.updateKeMod(equippingLeftWeapon.Ke);
                 this.updateTeMod(equippingLeftWeapon.Te);
                 this.updateVeMod(equippingLeftWeapon.Ve);
@@ -19174,7 +19174,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 return;
               }
 
-              if (weponSkillLevel == 'Mf') {
+              if (skillLevel == 'Mf') {
                 this.updateKeMod(equippingLeftWeapon.Ke + 5);
                 this.updateTeMod(equippingLeftWeapon.Te + 10);
                 this.updateVeMod(equippingLeftWeapon.Ve + 10);
@@ -19184,7 +19184,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 return;
               }
             } else {
-              if (weponSkillLevel == 'Na') {
+              if (skillLevel == 'Na') {
                 this.updateVeMod(equippingLeftWeapon.Ve - 20);
                 this.updateLeftHand(this.inputLeftWeapon);
                 this.inputLeftWeapon = '';
@@ -19192,7 +19192,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 return;
               }
 
-              if (weponSkillLevel == 'Af') {
+              if (skillLevel == 'Af') {
                 this.updateVeMod(equippingLeftWeapon.Ve);
                 this.updateLeftHand(this.inputLeftWeapon);
                 this.inputLeftWeapon = '';
@@ -19200,7 +19200,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 return;
               }
 
-              if (weponSkillLevel == 'Mf') {
+              if (skillLevel == 'Mf') {
                 this.updateVeMod(equippingLeftWeapon.Ve + 10);
                 this.updateLeftHand(this.inputLeftWeapon);
                 this.inputLeftWeapon = '';

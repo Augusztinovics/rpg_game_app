@@ -674,7 +674,7 @@ export default {
                 } else {
                     if (this.haveTwoHandedFightSkill.have) {
                         if (this.haveTwoHandedFightSkill.level == 'Af') {
-                            if (weponSkillLevel == 'Na') {
+                            if (skillLevel == 'Na') {
                                 this.updateKeMod(equippingLeftWeapon.Ke  - 10);
                                 this.updateTeMod(equippingLeftWeapon.Te  - 25);
                                 this.updateVeMod(equippingLeftWeapon.Ve  - 20);
@@ -683,7 +683,7 @@ export default {
                                 this.save();
                                 return;
                             }
-                            if (weponSkillLevel == 'Af') {
+                            if (skillLevel == 'Af') {
                                 this.updateKeMod(equippingLeftWeapon.Ke);
                                 this.updateTeMod(equippingLeftWeapon.Te);
                                 this.updateVeMod(equippingLeftWeapon.Ve);
@@ -692,7 +692,7 @@ export default {
                                 this.save();
                                 return;
                             }
-                            if (weponSkillLevel == 'Mf') {
+                            if (skillLevel == 'Mf') {
                                 this.updateKeMod(equippingLeftWeapon.Ke + 5);
                                 this.updateTeMod(equippingLeftWeapon.Te + 10);
                                 this.updateVeMod(equippingLeftWeapon.Ve + 10);
@@ -702,21 +702,21 @@ export default {
                                 return;
                             }
                         } else {
-                            if (weponSkillLevel == 'Na') {
+                            if (skillLevel == 'Na') {
                                 this.updateVeMod(equippingLeftWeapon.Ve  - 20);
                                 this.updateLeftHand(this.inputLeftWeapon);
                                 this.inputLeftWeapon = '';
                                 this.save();
                                 return;
                             }
-                            if (weponSkillLevel == 'Af') {
+                            if (skillLevel == 'Af') {
                                 this.updateVeMod(equippingLeftWeapon.Ve );
                                 this.updateLeftHand(this.inputLeftWeapon);
                                 this.inputLeftWeapon = '';
                                 this.save();
                                 return;
                             }
-                            if (weponSkillLevel == 'Mf') {
+                            if (skillLevel == 'Mf') {
                                 this.updateVeMod(equippingLeftWeapon.Ve + 10);
                                 this.updateLeftHand(this.inputLeftWeapon);
                                 this.inputLeftWeapon = '';
