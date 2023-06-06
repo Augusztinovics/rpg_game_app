@@ -11,6 +11,5 @@
         <p>Hogy ez pontosan mit is takar...Hmm majd kiderül, egyenlőre amire gondolok, hogy új képek legyenek adhatóak a játékmodul szerkesztőhöz.</p>
         <p>Ha van ötleded vagy kívánságod írd meg ( bár a teljesítését nem garantálom ).</p>
     </div>
-    
 </div>
 @endsection

@@ -84,13 +84,11 @@
                                                             document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
-    
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf
                                         </form>
                                     </li>
                                 </ul>
-                                                           
                             </li>
                             @if (Auth::user()->level === 'PLAYER')
                                 <li class="nav-item">
@@ -133,14 +131,13 @@
                         </div>
                         <hr>
 
-                        <p class="px-4">Jelenleg az aplikáció a fejlesztés első fázisában van.</p>
+                        <p class="px-4">Az aplikáció elérte a negyedeik fázisát!</p>
                         <p class="px-4">Az első fázis funkciói:</p>
                         <p class="px-4">Karakter készités</p>
                         <p class="px-4">Játékos karaktereket lehet elkésziteni 6 egyszerű lépésben, igy nem kell a játékosoknak órákat tölteni karakterkészitéssel.</p>
                         <p class="px-4">Interaktiv karakterlap</p>
                         <p class="px-4">Miután a karakter elkészült, további játék során a karakterlap kiszámol minden szükséges értéket, levonni és hozzáadni lehet minden változtatható értékhez és az aplikáció újraszámol minden végértéket az adott változás függvényében.</p>
                         <p class="px-4">Súgók, és leirások szinte mindenhez, jegyzetek készithetők, törölhetők. Felszerelés adható elvehető a karaktertől...és még sok más.</p>
-                        <p class="px-4">A további fázisok tervei</p>
                         <p class="px-4">A második fázisban egy belső beszélgető (chat) aplikáció elkészitése van, ahol a szobákat a játékoscsapatok tudják megcsinálni, igy minden csapatnak külön szobája lehet, amibe csak a Kalandmester meghivásával lehet belépni.</p>
                         <p class="px-4">A harmadik fázisra egy játékmodul készitésére alkalmas vizuális felület elkészitése van tervezve, aminek segitségével a Kalandmesterek moduljaikat könnyebben elkészithetik, és vizuálisan is bemutathatják játék közben.</p>
                         <p class="px-4">A negyedik fázis gyakorlatilag az eddigiek egy honlapra való összehozatala, igy minden csapatnak, minden játékmodul külön honlappá válik, és az adott modult saját honlapján fogják tudni játszani a játékosok.</p>
