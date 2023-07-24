@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="hu">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,13 +42,13 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">Bejelentkezés</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">Regisztráció</a>
                                 </li>
                             @endif
                         @else
@@ -82,7 +82,7 @@
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                             document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
+                                            Kijelentkezés
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf
@@ -122,6 +122,67 @@
                 <section>
                     <div class="pt-5">
                         <h2 class="display-4 fw-bold text-center pb-4">Mit nyújt az aplikáció</h2>
+                        <p class="px-4">Az aplikáció három főbb részre van osztva: <b>Játékos panel</b>, <b>Kalandmester panel</b> és <b>Játékoldal</b></p>
+                        <p class="px-4"><b>Játékos panel</b></p>
+                        <p class="px-4">A Játékos panel segítségével karaktereket készíthetsz, jelenlen ETK, de tervben van az MTK karakterekkel való bővítés is. Valamint itt küldhetsz barátkérelmeket, cseveghetsz a barátlistáról éppen aktív játékosokkal és elküldheted kérdéseidet az adminnak.</p>
+                        <p class="px-4"><b>Kalandmester panel</b></p>
+                        <p class="px-4">Ha átépíted magad KM-nek, ezen a panelen készíthetsz játékmodulokat, megoszthatod, vagy letöltheted őket.</p>
+                        <p class="px-4"><b>Játékoldal</b></p>
+                        <p class="px-4">Ha van egy KM és néhány játékos, itt játszhattok online. Az oldal bisztosít élő hang és üzenet lehetőséget, rajztáblát a KM-nek és még sok minden mást.</p>
+                        <p class="px-4"><b>Bónusz</b></p>
+                        <p class="px-4">A különböző letöltések menüponton letölthetsz üres karakterlapot, valamint mások álltal megosztott játék modult.</p>
+                    </div>
+                </section>
+                <hr>
+                <section>
+                    <div class="pt-5 pb-5">
+                        <h2 class="display-4 fw-bold text-center pb-4">Az oldal használata</h2>
+                        <h3 class="px-4">Regisztráció</h3>
+
+                        <div class="row px-4">
+                            <div class="col-lg mb-3">
+                                <img class="img-fluid" src="/img/help/reg_box.jpg" alt="Register link">
+                            </div>
+                            <div class="col text-center mb-3">
+                                <p>Ha új vagy az oldalon a jobb felső sarokban lévő regisztráció link segítségével regisztrálhatsz az oldalra.</p>
+                            </div>
+                        </div>
+
+                        <div class="row px-4">
+                            <div class="col text-center mb-3">
+                                <p>A regiszter link egy egyszerű regisztrációs formra vezett. Itt megadhatod a bejelentkezéshez szükséges adatokat. A Felhasználó névnek és Emailnek egyedinek kell, hogy legyen, tehát ha hibát jelez a regisztráció, akkor valaki már használja az adott nevet. Az emailnek, csak email formában kell, hogy legyen (nem szükséges, hogy valódi email legyen) mivel nem küldünk semmiféle emailt senkinek, így nem ellenőrizzük annak valódiságát. FIGYELEM! Mivel az emailt nem ellenőrizzük, így nincs lehetőség a későbbiekben a jelszó megváltoztatására, kérem írja fel a Felhasználó nevet, Emailt és Jelszavat miután regisztrált, mivel akármelyik elfelejtése esetén, csak az újra regisztrálás lehetősége marad!</p>
+                            </div>
+                            <div class="col-lg mb-3">
+                                <img class="img-fluid" src="/img/help/reg.jpg" alt="Register">
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <h3 class="px-4">Bejelentkezés</h3>
+
+                        <div class="row px-4">
+                            <div class="col-lg mb-3">
+                                <img class="img-fluid" src="/img/help/login_box.jpg" alt="Register link">
+                            </div>
+                            <div class="col text-center mb-3">
+                                <p>Amennyiben már regisztráltál a Bejelentkezés link segítségével léphetsz be újra</p>
+                            </div>
+                        </div>
+
+                        <div class="row px-4">
+                            <div class="col text-center mb-3">
+                                <p>A bejelentkezés alkalmával az email cím és a jelszó szükséges. Az emlékez rám kipipálásával legközelebb (ha ugyanarról a számítógépről próbálkozol) a rendszer magától bejelentkezik.</p>
+                            </div>
+                            <div class="col-lg mb-3">
+                                <img class="img-fluid" src="/img/help/login.jpg" alt="Register">
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <h3 class="px-4">Játékos panel</h3>
+
                         <div class="text-center my-4">
                             <iframe class="p-3 shadow-lg border border-4 border-danger rounded-3" width="560" height="315" src="https://www.youtube.com/embed/jX1NyMyhPDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
@@ -130,23 +191,9 @@
                             <iframe class="p-3 shadow-lg border border-4 border-danger rounded-3" width="560" height="315" src="https://www.youtube.com/embed/7X7B_ahpyL8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                         <hr>
-
-                        <p class="px-4">Az aplikáció elérte a negyedeik fázisát!</p>
-                        <p class="px-4">Az első fázis funkciói:</p>
-                        <p class="px-4">Karakter készités</p>
-                        <p class="px-4">Játékos karaktereket lehet elkésziteni 6 egyszerű lépésben, igy nem kell a játékosoknak órákat tölteni karakterkészitéssel.</p>
-                        <p class="px-4">Interaktiv karakterlap</p>
-                        <p class="px-4">Miután a karakter elkészült, további játék során a karakterlap kiszámol minden szükséges értéket, levonni és hozzáadni lehet minden változtatható értékhez és az aplikáció újraszámol minden végértéket az adott változás függvényében.</p>
-                        <p class="px-4">Súgók, és leirások szinte mindenhez, jegyzetek készithetők, törölhetők. Felszerelés adható elvehető a karaktertől...és még sok más.</p>
-                        <p class="px-4">A második fázisban egy belső beszélgető (chat) aplikáció elkészitése van, ahol a szobákat a játékoscsapatok tudják megcsinálni, igy minden csapatnak külön szobája lehet, amibe csak a Kalandmester meghivásával lehet belépni.</p>
-                        <p class="px-4">A harmadik fázisra egy játékmodul készitésére alkalmas vizuális felület elkészitése van tervezve, aminek segitségével a Kalandmesterek moduljaikat könnyebben elkészithetik, és vizuálisan is bemutathatják játék közben.</p>
-                        <p class="px-4">A negyedik fázis gyakorlatilag az eddigiek egy honlapra való összehozatala, igy minden csapatnak, minden játékmodul külön honlappá válik, és az adott modult saját honlapján fogják tudni játszani a játékosok.</p>
-                    </div>  
-                </section>
-                <hr>
-                <section>
-                    <div class="pt-5 pb-5">
-                        <h2 class="display-4 fw-bold text-center pb-4">Az oldal használata</h2>
+                        <div class="text-center my-4">
+                            <iframe class="p-3 shadow-lg border border-4 border-danger rounded-3" width="560" height="315" src="https://www.youtube.com/embed/pnehxsLOQ4o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
                         <p class="px-4">Ahoz, hogy az aplikációt használni tudhassa valaki, elsősorban be kell regisztrálni</p>
                         <p class="px-4">A regisztráció egy egyszerű lépésből áll, és nem kell konfirmállni vagy fizetni érte semmit.</p>
                         <p class="px-4">A regisztrációhoz meg kell adni egy felhasználó nevet, egy e-mail cimet ( később ezen e-mail megadásával fog lehetni belépni ) és egy jelszavat. Ennyi. FIGYELEM, mivel nem ellenőrizzük az e-mail cimeket, igy nincs lehetőség elfelejtett jelszavak újraaktivizálására. Regisztráció után kérem irja fel magának, mert elfelejtés esetén csak az újraregisztrálás lehetősége marad!</p>
