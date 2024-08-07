@@ -52,7 +52,7 @@
             INT: 0,
             AK: 0,
             ASZT: 0,
-            forbittenClasses: ['LOVAG', 'TOLVAJ', 'PAP', 'PAP_DONVIK', 'PAP_AREL', 'PAPLOVAG', 'HARCMUVESZ', 'KARDMUVESZ', 'BOSZORKANY', 'BOSZORKANYMESTER', 'TUZVARAZSLO'],
+            forbittenClasses: ['LOVAG', 'TOLVAJ', 'PAP', 'PAP_DONVIK', 'PAP_AREL', 'PAP_THARR', 'PAP_KYEL', 'PAPLOVAG', 'HARCMUVESZ', 'KARDMUVESZ', 'BOSZORKANY', 'BOSZORKANYMESTER', 'TUZVARAZSLO'],
             CE: 20,
             specials: ['Kétszer jobb hallás', 'Két és félszer jobb látás', 'Infralátás 50 méterig', 'Nekromancia érzékenység -8'],
             skills: {
@@ -93,7 +93,7 @@
             INT: 0,
             AK: 0,
             ASZT: 0,
-            forbittenClasses: ['PAP', 'PAP_DONVIK', 'PAP_AREL', 'PAPLOVAG', 'TUZVARAZSLO'],
+            forbittenClasses: ['PAP', 'PAP_DONVIK', 'PAP_AREL', 'PAP_THARR', 'PAP_KYEL', 'PAPLOVAG', 'TUZVARAZSLO'],
             CE: 10,
             specials: ['Másfélszer jobb hallás', 'Kiváló futó', 'Infralátás 10 méterig', 'Nekromancia érzékenység -6'],
             skills: {
