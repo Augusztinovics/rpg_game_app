@@ -1364,7 +1364,7 @@
         },
         {
             id: 'PAP',
-            name: 'Pap',
+            name: 'Pap(álltalános)',
             ERO: { name:'2k6+6', sp: [8, 18, 0]},
             GYORS: { name: '3k6x2', sp: [3, 18, 2]},
             UGY: { name: '3k6x2', sp: [3, 18, 2]},
@@ -4598,7 +4598,70 @@ const getters = {
     },
     magusClass: (state) => (id) => {
         return state.classes.find(r => r.id === id) ?? state.classes[0];
-    }
+    },
+    selectableClasses: (state) => (forbittenList, religionId) => {
+
+        let list = [];
+        forbittenList.forEach(element => {
+            list.push(element);
+        });
+        if (!list.includes('PAP')) {
+            switch (religionId) {
+                case 'ATE':
+                    //Nincs vallasa, nem lehet pap
+                    list.push('PAP', 'PAP_DONVIK', 'PAP_AREL', 'PAP_THARR', 'PAP_KYEL');
+                    break;
+                case 'DOMVIK':
+                    list.push('PAP', 'PAP_AREL', 'PAP_THARR', 'PAP_KYEL');
+                    break;
+                case 'AREL':
+                    list.push('PAP', 'PAP_DONVIK', 'PAP_THARR', 'PAP_KYEL');
+                    break;
+                case 'THARR':
+                    list.push('PAP', 'PAP_DONVIK', 'PAP_AREL', 'PAP_KYEL');
+                    break;
+                case 'KYEL':
+                    list.push('PAP', 'PAP_DONVIK', 'PAP_AREL', 'PAP_THARR');
+                    break;
+                default:
+                    list.push('PAP_DONVIK', 'PAP_AREL', 'PAP_THARR', 'PAP_KYEL');
+                    break;
+            }
+        }
+
+        if (!list.includes('PAPLOVAG')) {
+            switch (religionId) {
+                case 'ATE':
+                    //Nincs vallasa, nem lehet pap
+                    list.push('PAPLOVAG', 'PAPLOVAG_DONVIK', 'PAPLOVAG_RANAGOL', 'PAPLOVAG_DREINA', 'PAPLOVAG_KRAD', 'PAPLOVAG_UWEL', 'PAPLOVAG_DARTON');
+                    break;
+                case 'DOMVIK':
+                    list.push('PAPLOVAG', 'PAPLOVAG_RANAGOL', 'PAPLOVAG_DREINA', 'PAPLOVAG_KRAD', 'PAPLOVAG_UWEL', 'PAPLOVAG_DARTON');
+                    break;
+                case 'RANAGOL':
+                    list.push('PAPLOVAG', 'PAPLOVAG_DONVIK', 'PAPLOVAG_DREINA', 'PAPLOVAG_KRAD', 'PAPLOVAG_UWEL', 'PAPLOVAG_DARTON');
+                    break;
+                case 'DREINA':
+                    list.push('PAPLOVAG', 'PAPLOVAG_DONVIK', 'PAPLOVAG_RANAGOL', 'PAPLOVAG_KRAD', 'PAPLOVAG_UWEL', 'PAPLOVAG_DARTON');
+                    break;
+                case 'KRAD':
+                    list.push('PAPLOVAG', 'PAPLOVAG_DONVIK', 'PAPLOVAG_RANAGOL', 'PAPLOVAG_DREINA', 'PAPLOVAG_UWEL', 'PAPLOVAG_DARTON');
+                    break;
+                case 'UWEL':
+                    list.push('PAPLOVAG', 'PAPLOVAG_DONVIK', 'PAPLOVAG_RANAGOL', 'PAPLOVAG_DREINA', 'PAPLOVAG_KRAD', 'PAPLOVAG_DARTON');
+                    break;
+                case 'DARTON':
+                    //Nincs vallasa, nem lehet pap
+                    list.push('PAPLOVAG', 'PAPLOVAG_DONVIK', 'PAPLOVAG_RANAGOL', 'PAPLOVAG_DREINA', 'PAPLOVAG_KRAD', 'PAPLOVAG_UWEL');
+                    break;
+                default:
+                    list.push('PAPLOVAG_DONVIK', 'PAPLOVAG_RANAGOL', 'PAPLOVAG_DREINA', 'PAPLOVAG_KRAD', 'PAPLOVAG_UWEL', 'PAPLOVAG_DARTON');
+                    break;
+            }
+        }
+
+        return state.classes.filter(c => !list.includes(c.id));
+    },
 };
 const mutations = {};
 const actions = {};
