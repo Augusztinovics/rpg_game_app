@@ -7,7 +7,7 @@
                 <button :class="['m-1 btn btn-sm ', selected_tab == 'kepzetsegek_tab' ? 'btn-dark' : 'btn-secondary']" @click="selectTab('kepzetsegek_tab')">Képzetségek</button>
                 <button :class="['m-1 btn btn-sm ', selected_tab == 'pszi_tab' ? 'btn-dark' : 'btn-secondary']" @click="selectTab('pszi_tab')">Pszi</button>
                 <button v-if="isGm || characterId == 'BARD'" :class="['m-1 btn btn-sm ', selected_tab == 'bard_magia_tab' ? 'btn-dark' : 'btn-secondary']" @click="selectTab('bard_magia_tab')">Bárd Mágia</button>
-                <button v-if="isGm || characterId == 'PAP' || characterId == 'PAPLOVAG'" :class="['m-1 btn btn-sm ', selected_tab == 'pap_magia_tab' ? 'btn-dark' : 'btn-secondary']" @click="selectTab('pap_magia_tab')">Papi Mágia</button>
+                <button v-if="isGm || isCleric" :class="['m-1 btn btn-sm ', selected_tab == 'pap_magia_tab' ? 'btn-dark' : 'btn-secondary']" @click="selectTab('pap_magia_tab')">Papi Mágia</button>
                 <button v-if="isGm || characterId == 'BOSZORKANY'" :class="['m-1 btn btn-sm ', selected_tab == 'boszorkany_magia_tab' ? 'btn-dark' : 'btn-secondary']" @click="selectTab('boszorkany_magia_tab')">Boszorkány Mágia</button>
                 <button v-if="isGm || characterId == 'BOSZORKANYMESTER'" :class="['m-1 btn btn-sm ', selected_tab == 'boszmester_magia_tab' ? 'btn-dark' : 'btn-secondary']" @click="selectTab('boszmester_magia_tab')">Boszorkánymester Mágia</button>
                 <button v-if="isGm || characterId == 'TUZVARAZSLO'" :class="['m-1 btn btn-sm ', selected_tab == 'tuzvarazslo_magia_tab' ? 'btn-dark' : 'btn-secondary']" @click="selectTab('tuzvarazslo_magia_tab')">Tűzvarázsló Mágia</button>
@@ -101,7 +101,11 @@
                     default:
                         return this.let_szabalyai[this.current_page - 1] ?? this.let_szabalyai[0];
                 }
-            }
+            },
+            isCleric() {
+                let clerics = ['PAP', 'PAP_DONVIK', 'PAP_AREL', 'PAP_THARR', 'PAP_KYEL', 'PAPLOVAG', 'PAPLOVAG_DONVIK', 'PAPLOVAG_RANAGOL', 'PAPLOVAG_DREINA', 'PAPLOVAG_KRAD', 'PAPLOVAG_UWEL', 'PAPLOVAG_DARTON'];
+                return clerics.includes(this.characterId);
+            },
         },
         methods: {
             selectTab(tab) {

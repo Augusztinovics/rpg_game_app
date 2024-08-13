@@ -1,17 +1,17 @@
 <template>
     <div>
         <div>
-            <div v-if="magia.maxMp > 0" class="border-bottom border-secondary my-2">
+            <div v-if="isMage" class="border-bottom border-secondary my-2">
                 <h4 class="text-center mt-2">Varázslatok</h4>
                 <div class="d-grid text-center mb-3">
-                    <button v-if="magusCharacter.Kaszt == 'BARD'" class="btn btn-success m-2 bg-green-leather costum-btn" type="button" data-bs-toggle="modal" data-bs-target="#bardModal">Bárd Mágiák</button>
-                </div>   
+                    <button class="btn btn-success m-2 bg-green-leather costum-btn" type="button" data-bs-toggle="modal" data-bs-target="#magiaModal">Mágiák</button>
+                </div>
             </div>
             <h4 class="text-center mt-2">Mana-pontok</h4>
             <div class="row">
                 <div class="col border-end border-secondary">
                     <p>Mp/szint</p>
-                    <p>{{ kasztMagia.text }}</p>   
+                    <p>{{ kasztMagia.text }}</p>
                 </div>
                 <div class="col">
                     <p>Max Mp</p>
@@ -47,166 +47,36 @@
         </div>
 
         <!-- Magia view modals -->
-        <!-- Bard -->
-        <div class="modal fade" id="bardModal" tabindex="-1" aria-labelledby="bardModalLabel" aria-hidden="true">
+        <div class="modal fade" id="magiaModal" tabindex="-1" aria-labelledby="magiaModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="bardModalLabel">Bárd Mágia</h5>
+                        <h5 class="modal-title" id="magiaModalLabel">Mágiák: </h5>
+                        <div class="mx-2 d-flex flex-row">
+                            <button v-if="magusCharacter.Kaszt == 'BARD'" :class="['m-1 btn btn-sm ', selected_tab == 'bard_magia_tab' ? 'btn-dark' : 'btn-secondary']" @click="selectTab('bard_magia_tab')">Bárd Mágia</button>
+                            <button v-if="isCleric" :class="['m-1 btn btn-sm ', selected_tab == 'pap_magia_tab' ? 'btn-dark' : 'btn-secondary']" @click="selectTab('pap_magia_tab')">Papi Mágia</button>
+                            <button v-if="magusCharacter.Kaszt == 'BOSZORKANY'" :class="['m-1 btn btn-sm ', selected_tab == 'boszorkany_magia_tab' ? 'btn-dark' : 'btn-secondary']" @click="selectTab('boszorkany_magia_tab')">Boszorkány Mágia</button>
+                            <button v-if="magusCharacter.Kaszt == 'BOSZORKANYMESTER'" :class="['m-1 btn btn-sm ', selected_tab == 'boszmester_magia_tab' ? 'btn-dark' : 'btn-secondary']" @click="selectTab('boszmester_magia_tab')">Boszorkánymester Mágia</button>
+                            <button v-if="magusCharacter.Kaszt == 'TUZVARAZSLO'" :class="['m-1 btn btn-sm ', selected_tab == 'tuzvarazslo_magia_tab' ? 'btn-dark' : 'btn-secondary']" @click="selectTab('tuzvarazslo_magia_tab')">Tűzvarázsló Mágia</button>
+                            <button v-if="magusCharacter.Kaszt == 'VARAZSLO' || haveMagiaHasznalatMf" :class="['m-1 btn btn-sm ', selected_tab == 'varazslo_magia_tab' ? 'btn-dark' : 'btn-secondary']" @click="selectTab('varazslo_magia_tab')">Varázsló Mágia</button>
+                            <button v-if="magusCharacter.Kaszt == 'BOSZORKANYMESTER' || magusCharacter.Kaszt == 'BOSZORKANY' || magusCharacter.Kaszt == 'VARAZSLO' || isCleric" :class="['m-1 btn btn-sm ', selected_tab == 'varazstargyak_tab' ? 'btn-dark' : 'btn-secondary']" @click="selectTab('varazstargyak_tab')">Varázstárgyak</button>
+                        </div>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="p-3 border border-secondary rounded mb-2">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" v-model="showBardAll" id="bard_checkbox">
-                                <label class="form-check-label" for="bard_checkbox">
-                                    Összes mágia mutatása
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="ismerteto-tab" data-bs-toggle="tab" data-bs-target="#ismerteto" type="button" role="tab" aria-controls="ismerteto" aria-selected="true">Ismertető</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="dal-tab" data-bs-toggle="tab" data-bs-target="#dal" type="button" role="tab" aria-controls="dal" aria-selected="false">{{ bardDalMagia.name }}</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="hang-tab" data-bs-toggle="tab" data-bs-target="#hang" type="button" role="tab" aria-controls="hang" aria-selected="false">{{ bardHangMagia.name }}</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="feny-tab" data-bs-toggle="tab" data-bs-target="#feny" type="button" role="tab" aria-controls="feny" aria-selected="false">{{ bardFenyMagia.name }}</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="egyebb-tab" data-bs-toggle="tab" data-bs-target="#egyebb" type="button" role="tab" aria-controls="egyebb" aria-selected="false">{{ bardEgyebbMagia.name }}</button>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="ismerteto" role="tabpanel" aria-labelledby="ismerteto-tab">
-                                <div class="mt-3">
-                                    <p v-for="ism, index in bardSpellDescription" :key="'ismerteto' + index">{{ ism }}</p>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="dal" role="tabpanel" aria-labelledby="dal-tab">
-                                <div class="border border-secondary p-2 mb-2">
-                                    <h4>{{ bardDalMagia.name }}</h4>
-                                    <p v-for="daldes, index in bardDalMagia.description" :key="'daldes' + index">{{ daldes }}</p>
-                                </div>
-                                <div>
-                                    <h4>Varázslatok</h4>
-                                    <div v-for="dal, index in bardDalMagiaList" :key="'dal' + index" class="accordion-item">
-                                        <h2 class="accordion-header" :id="'dal' + index + '-heading'">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" :data-bs-target="'#' + 'dal' + index" aria-expanded="false" :aria-controls="'dal' + index">
-                                                {{ dal.name }}
-                                            </button>
-                                        </h2>
-                                         <div :id="'dal' + index" class="accordion-collapse collapse" :aria-labelledby="'dal' + index + '-heading'">
-                                            <div class="accordion-body">
-                                                <p><b>Tipus:{{ dal.typ }}</b></p>
-                                                <p><b>Mana-pont: {{ dal.manaText }}</b></p>
-                                                <p><b>Erősség: {{ dal.strenght }}</b></p>
-                                                <p><b>Varázslás ideje: {{ dal.castTime }}</b></p>
-                                                <p><b>Hatótáv: {{ dal.effectRange }}</b></p>
-                                                <p><b>Időtartam: {{ dal.effectTime }}</b></p>
-                                                <p><b>Mágiaellenállás: {{ dal.resistance }}</b></p>
-                                                <p><b>Leirás:</b></p>
-                                                <p v-for="des, index in dal.description" :key="'Des' + index">{{ des }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="hang" role="tabpanel" aria-labelledby="hang-tab">
-                                <div class="border border-secondary p-2 mb-2">
-                                    <h4>{{ bardHangMagia.name }}</h4>
-                                    <p v-for="hangdes, index in bardHangMagia.description" :key="'hangdes' + index">{{ hangdes }}</p>
-                                </div>
-                                <div>
-                                    <h4>Varázslatok</h4>
-                                    <div v-for="hang, index in bardHangMagiaList" :key="'hang' + index" class="accordion-item">
-                                        <h2 class="accordion-header" :id="'hang' + index + '-heading'">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" :data-bs-target="'#' + 'hang' + index" aria-expanded="false" :aria-controls="'hang' + index">
-                                                {{ hang.name }}
-                                            </button>
-                                        </h2>
-                                         <div :id="'hang' + index" class="accordion-collapse collapse" :aria-labelledby="'hang' + index + '-heading'">
-                                            <div class="accordion-body">
-                                                <p><b>Tipus:{{ hang.typ }}</b></p>
-                                                <p><b>Mana-pont: {{ hang.manaText }}</b></p>
-                                                <p><b>Erősség: {{ hang.strenght }}</b></p>
-                                                <p><b>Varázslás ideje: {{ hang.castTime }}</b></p>
-                                                <p><b>Hatótáv: {{ hang.effectRange }}</b></p>
-                                                <p><b>Időtartam: {{ hang.effectTime }}</b></p>
-                                                <p><b>Mágiaellenállás: {{ hang.resistance }}</b></p>
-                                                <p><b>Leirás:</b></p>
-                                                <p v-for="des, index in hang.description" :key="'hangDes' + index">{{ des }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="feny" role="tabpanel" aria-labelledby="feny-tab">
-                                <div class="border border-secondary p-2 mb-2">
-                                    <h4>{{ bardFenyMagia.name }}</h4>
-                                    <p v-for="fenydes, index in bardFenyMagia.description" :key="'fenydes' + index">{{ fenydes }}</p>
-                                </div>
-                                <div>
-                                    <h4>Varázslatok</h4>
-                                    <div v-for="feny, index in bardFenyMagiaList" :key="'feny' + index" class="accordion-item">
-                                        <h2 class="accordion-header" :id="'feny' + index + '-heading'">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" :data-bs-target="'#' + 'feny' + index" aria-expanded="false" :aria-controls="'feny' + index">
-                                                {{ feny.name }}
-                                            </button>
-                                        </h2>
-                                         <div :id="'feny' + index" class="accordion-collapse collapse" :aria-labelledby="'feny' + index + '-heading'">
-                                            <div class="accordion-body">
-                                                <p><b>Tipus:{{ feny.typ }}</b></p>
-                                                <p><b>Mana-pont: {{ feny.manaText }}</b></p>
-                                                <p><b>Erősség: {{ feny.strenght }}</b></p>
-                                                <p><b>Varázslás ideje: {{ feny.castTime }}</b></p>
-                                                <p><b>Hatótáv: {{ feny.effectRange }}</b></p>
-                                                <p><b>Időtartam: {{ feny.effectTime }}</b></p>
-                                                <p><b>Mágiaellenállás: {{ feny.resistance }}</b></p>
-                                                <p><b>Leirás:</b></p>
-                                                <p v-for="des, index in feny.description" :key="'fenyDes' + index">{{ des }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="egyebb" role="tabpanel" aria-labelledby="egyebb-tab">
-                                <div class="border border-secondary p-2 mb-2">
-                                    <h4>{{ bardEgyebbMagia.name }}</h4>
-                                    <p v-for="egyebbdes, index in bardEgyebbMagia.description" :key="'egyebbdes' + index">{{ egyebbdes }}</p>
-                                </div>
-                                <div>
-                                    <h4>Varázslatok</h4>
-                                    <div v-for="egyebb, index in bardEgyebbMagiaList" :key="'egyebb' + index" class="accordion-item">
-                                        <h2 class="accordion-header" :id="'egyebb' + index + '-heading'">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" :data-bs-target="'#' + 'egyebb' + index" aria-expanded="false" :aria-controls="'egyebb' + index">
-                                                {{ egyebb.name }}
-                                            </button>
-                                        </h2>
-                                         <div :id="'egyebb' + index" class="accordion-collapse collapse" :aria-labelledby="'egyebb' + index + '-heading'">
-                                            <div class="accordion-body">
-                                                <p><b>Tipus:{{ egyebb.typ }}</b></p>
-                                                <p><b>Mana-pont: {{ egyebb.manaText }}</b></p>
-                                                <p><b>Erősség: {{ egyebb.strenght }}</b></p>
-                                                <p><b>Varázslás ideje: {{ egyebb.castTime }}</b></p>
-                                                <p><b>Hatótáv: {{ egyebb.effectRange }}</b></p>
-                                                <p><b>Időtartam: {{ egyebb.effectTime }}</b></p>
-                                                <p><b>Mágiaellenállás: {{ egyebb.resistance }}</b></p>
-                                                <p><b>Leirás:</b></p>
-                                                <p v-for="des, index in egyebb.description" :key="'egyebbDes' + index">{{ des }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="card-body text-center">
+                            <img :src="imgUrl" alt="magus book page" class="img-fluid">
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <div class="card-footer text-center">
+                            <button class="btn btn-sm btn-secondary" @click="prevPage">&lt;</button>
+                            <span class="mx-2">
+                                <span>{{ current_page }}</span>/
+                                <span>{{ max_page }}</span>
+                            </span>
+                            <button class="btn btn-sm btn-secondary" @click="nextPage">&gt;</button>
+                        </div>
                         <button type="button" class="btn btn-secondary bg-blue-leather costum-btn" data-bs-dismiss="modal">Bezár</button>
                     </div>
                 </div>
@@ -223,23 +93,47 @@ export default {
     data() {
         return {
             inputManaUse: 0,
-            showBardAll: false,
+            selected_tab: 'bard_magia',
+            current_page: 1,
+            max_page: 1,
         }
     },
     computed: {
         ...mapGetters('currentCharacter', {
             magusCharacter: 'magusCharacter',
         }),
-        ...mapGetters('magusBardSpells', {
-            bardSpellDescription: 'bardSpellDescription',
-            bardDalMagia: 'bardDalMagia',
-            bardHangMagia: 'bardHangMagia',
-            bardFenyMagia: 'bardFenyMagia',
-            bardEgyebbMagia: 'bardEgyebbMagia',
-        }),
         ...mapGetters('magusClasses', {
             magusKaszt: 'magusClass'
         }),
+        ...mapGetters('magusBook', {
+            bard_magia: 'bard_magia',
+            pap_magia: 'pap_magia',
+            boszorkany_magia: 'boszorkany_magia',
+            boszmester_magia: 'boszmester_magia',
+            tuzvarazslo_magia: 'tuzvarazslo_magia',
+            varazslo_magia: 'varazslo_magia',
+            varazstargyak: 'varazstargyak',
+        }),
+        imgUrl() {
+            switch(this.selected_tab) {
+                case 'bard_magia_tab':
+                    return this.bard_magia[this.current_page - 1] ?? this.bard_magia[0];
+                case 'pap_magia_tab':
+                    return this.pap_magia[this.current_page - 1] ?? this.pap_magia[0];
+                case 'boszorkany_magia_tab':
+                    return this.boszorkany_magia[this.current_page - 1] ?? this.boszorkany_magia[0];
+                case 'boszmester_magia_tab':
+                    return this.boszmester_magia[this.current_page - 1] ?? this.boszmester_magia[0];
+                case 'tuzvarazslo_magia_tab':
+                    return this.tuzvarazslo_magia[this.current_page - 1] ?? this.tuzvarazslo_magia[0];
+                case 'varazslo_magia_tab':
+                    return this.varazslo_magia[this.current_page - 1] ?? this.varazslo_magia[0];
+                case 'varazstargyak_tab':
+                    return this.varazstargyak[this.current_page - 1] ?? this.varazstargyak[0];
+                default:
+                    return this.bard_magia[this.current_page - 1] ?? this.bard_magia[0];
+            }
+        },
         Kaszt() {
             return this.magusKaszt(this.magusCharacter.Kaszt);
         },
@@ -252,40 +146,48 @@ export default {
         haveMagiaHasznalatMf() {
             return this.magusCharacter.LearnedSkills.mf.includes('MAGIA_HASZNALAT');
         },
-        // Bard Spells
-        bardDalMagiaList() {
-            let dalList = this.bardDalMagia.spells;
-            if (this.showBardAll) {
-                return dalList;
-            } else {
-                return dalList.filter(s => s.mana <= this.magia.aktMp);
+        isMage() {
+            if (this.haveMagiaHasznalatMf) {
+                this.selected_tab = 'varazslo_magia_tab';
+                this.current_page = 1;
+                this.max_page = this.varazslo_magia.length;
             }
+            if (this.magusCharacter.Kaszt == 'BARD') {
+                this.selected_tab = 'bard_magia_tab';
+                this.current_page = 1;
+                this.max_page = this.bard_magia.length;
+            }
+            if (this.isCleric) {
+                this.selected_tab = 'pap_magia_tab';
+                this.current_page = 1;
+                this.max_page = this.pap_magia.length;
+            }
+            if (this.magusCharacter.Kaszt == 'BOSZORKANY') {
+                this.selected_tab = 'boszorkany_magia_tab';
+                this.current_page = 1;
+                this.max_page = this.boszorkany_magia.length;
+            }
+            if (this.magusCharacter.Kaszt == 'BOSZORKANYMESTER') {
+                this.selected_tab = 'boszmester_magia_tab';
+                this.current_page = 1;
+                this.max_page = this.boszmester_magia.length;
+            }
+            if (this.magusCharacter.Kaszt == 'TUZVARAZSLO') {
+                this.selected_tab = 'tuzvarazslo_magia_tab';
+                this.current_page = 1;
+                this.max_page = this.tuzvarazslo_magia.length;
+            }
+            if (this.magusCharacter.Kaszt == 'VARAZSLO') {
+                this.selected_tab = 'varazslo_magia_tab';
+                this.current_page = 1;
+                this.max_page = this.varazslo_magia.length;
+            }
+            return this.haveMagiaHasznalatMf || this.magusCharacter.Kaszt == 'BARD' || this.isCleric || this.magusCharacter.Kaszt == 'BOSZORKANY' || this.magusCharacter.Kaszt == 'BOSZORKANYMESTER' || this.magusCharacter.Kaszt == 'TUZVARAZSLO' || this.magusCharacter.Kaszt == 'VARAZSLO';
         },
-        bardHangMagiaList() {
-            let hangList = this.bardHangMagia.spells;
-            if (this.showBardAll) {
-                return hangList;
-            } else {
-                return hangList.filter(s => s.mana <= this.magia.aktMp);
-            }
+        isCleric() {
+            let clerics = ['PAP', 'PAP_DONVIK', 'PAP_AREL', 'PAP_THARR', 'PAP_KYEL', 'PAPLOVAG', 'PAPLOVAG_DONVIK', 'PAPLOVAG_RANAGOL', 'PAPLOVAG_DREINA', 'PAPLOVAG_KRAD', 'PAPLOVAG_UWEL', 'PAPLOVAG_DARTON'];
+            return clerics.includes(this.magusCharacter.Kaszt);
         },
-        bardFenyMagiaList() {
-            let fenyList = this.bardFenyMagia.spells;
-            if (this.showBardAll) {
-                return fenyList;
-            } else {
-                return fenyList.filter(s => s.mana <= this.magia.aktMp);
-            }
-        },
-        bardEgyebbMagiaList() {
-            let egyebbList = this.bardEgyebbMagia.spells;
-            if (this.showBardAll) {
-                return egyebbList;
-            } else {
-                return egyebbList.filter(s => s.mana <= this.magia.aktMp);
-            }
-        }
-        
     },
     methods: {
         ...mapMutations('currentCharacter', {
@@ -310,7 +212,66 @@ export default {
             this.save();
             let msg = this.magusCharacter.Nev + ' Feltöltötte Mana pontjait!';
             this.$root.$emit('CharacterChangedEvent', msg);
-        }
+        },
+        selectTab(tab) {
+            switch (tab) {
+                case 'bard_magia_tab':
+                    this.selected_tab = 'bard_magia_tab';
+                    this.current_page = 1;
+                    this.max_page = this.bard_magia.length;
+                    break;
+                case 'pap_magia_tab':
+                    this.selected_tab = 'pap_magia_tab';
+                    this.current_page = 1;
+                    this.max_page = this.pap_magia.length;
+                    break;
+                case 'boszorkany_magia_tab':
+                    this.selected_tab = 'boszorkany_magia_tab';
+                    this.current_page = 1;
+                    this.max_page = this.boszorkany_magia.length;
+                    break;
+                case 'boszmester_magia_tab':
+                    this.selected_tab = 'boszmester_magia_tab';
+                    this.current_page = 1;
+                    this.max_page = this.boszmester_magia.length;
+                    break;
+                case 'tuzvarazslo_magia_tab':
+                    this.selected_tab = 'tuzvarazslo_magia_tab';
+                    this.current_page = 1;
+                    this.max_page = this.tuzvarazslo_magia.length;
+                    break;
+                case 'varazslo_magia_tab':
+                    this.selected_tab = 'varazslo_magia_tab';
+                    this.current_page = 1;
+                    this.max_page = this.varazslo_magia.length;
+                    break;
+                case 'varazstargyak_tab':
+                    this.selected_tab = 'varazstargyak_tab';
+                    this.current_page = 1;
+                    this.max_page = this.varazstargyak.length;
+                    break;
+                default:
+                    this.selected_tab = 'bard_magia_tab';
+                    this.current_page = 1;
+                    this.max_page = this.bard_magia.length;
+            }
+        },
+        prevPage() {
+            let prev = this.current_page - 1;
+            if (prev < 1) {
+                this.current_page = this.max_page;
+            } else {
+                this.current_page = prev;
+            }
+        },
+        nextPage() {
+            let next = this.current_page + 1;
+            if (next > this.max_page) {
+                this.current_page = 1;
+            } else {
+                this.current_page = next;
+            }
+        },
     },
     
 }

@@ -8644,6 +8644,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         default:
           return (_this$let_szabalyai = this.let_szabalyai[this.current_page - 1]) !== null && _this$let_szabalyai !== void 0 ? _this$let_szabalyai : this.let_szabalyai[0];
       }
+    },
+    isCleric: function isCleric() {
+      var clerics = ['PAP', 'PAP_DONVIK', 'PAP_AREL', 'PAP_THARR', 'PAP_KYEL', 'PAPLOVAG', 'PAPLOVAG_DONVIK', 'PAPLOVAG_RANAGOL', 'PAPLOVAG_DREINA', 'PAPLOVAG_KRAD', 'PAPLOVAG_UWEL', 'PAPLOVAG_DARTON'];
+      return clerics.includes(this.characterId);
     }
   }),
   methods: {
@@ -16576,155 +16580,58 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       inputManaUse: 0,
-      showBardAll: false
+      selected_tab: 'bard_magia',
+      current_page: 1,
+      max_page: 1
     };
   },
   computed: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('currentCharacter', {
     magusCharacter: 'magusCharacter'
-  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusBardSpells', {
-    bardSpellDescription: 'bardSpellDescription',
-    bardDalMagia: 'bardDalMagia',
-    bardHangMagia: 'bardHangMagia',
-    bardFenyMagia: 'bardFenyMagia',
-    bardEgyebbMagia: 'bardEgyebbMagia'
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusClasses', {
     magusKaszt: 'magusClass'
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)('magusBook', {
+    bard_magia: 'bard_magia',
+    pap_magia: 'pap_magia',
+    boszorkany_magia: 'boszorkany_magia',
+    boszmester_magia: 'boszmester_magia',
+    tuzvarazslo_magia: 'tuzvarazslo_magia',
+    varazslo_magia: 'varazslo_magia',
+    varazstargyak: 'varazstargyak'
   })), {}, {
+    imgUrl: function imgUrl() {
+      var _this$bard_magia, _this$pap_magia, _this$boszorkany_magi, _this$boszmester_magi, _this$tuzvarazslo_mag, _this$varazslo_magia, _this$varazstargyak, _this$bard_magia2;
+
+      switch (this.selected_tab) {
+        case 'bard_magia_tab':
+          return (_this$bard_magia = this.bard_magia[this.current_page - 1]) !== null && _this$bard_magia !== void 0 ? _this$bard_magia : this.bard_magia[0];
+
+        case 'pap_magia_tab':
+          return (_this$pap_magia = this.pap_magia[this.current_page - 1]) !== null && _this$pap_magia !== void 0 ? _this$pap_magia : this.pap_magia[0];
+
+        case 'boszorkany_magia_tab':
+          return (_this$boszorkany_magi = this.boszorkany_magia[this.current_page - 1]) !== null && _this$boszorkany_magi !== void 0 ? _this$boszorkany_magi : this.boszorkany_magia[0];
+
+        case 'boszmester_magia_tab':
+          return (_this$boszmester_magi = this.boszmester_magia[this.current_page - 1]) !== null && _this$boszmester_magi !== void 0 ? _this$boszmester_magi : this.boszmester_magia[0];
+
+        case 'tuzvarazslo_magia_tab':
+          return (_this$tuzvarazslo_mag = this.tuzvarazslo_magia[this.current_page - 1]) !== null && _this$tuzvarazslo_mag !== void 0 ? _this$tuzvarazslo_mag : this.tuzvarazslo_magia[0];
+
+        case 'varazslo_magia_tab':
+          return (_this$varazslo_magia = this.varazslo_magia[this.current_page - 1]) !== null && _this$varazslo_magia !== void 0 ? _this$varazslo_magia : this.varazslo_magia[0];
+
+        case 'varazstargyak_tab':
+          return (_this$varazstargyak = this.varazstargyak[this.current_page - 1]) !== null && _this$varazstargyak !== void 0 ? _this$varazstargyak : this.varazstargyak[0];
+
+        default:
+          return (_this$bard_magia2 = this.bard_magia[this.current_page - 1]) !== null && _this$bard_magia2 !== void 0 ? _this$bard_magia2 : this.bard_magia[0];
+      }
+    },
     Kaszt: function Kaszt() {
       return this.magusKaszt(this.magusCharacter.Kaszt);
     },
@@ -16737,58 +16644,54 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     haveMagiaHasznalatMf: function haveMagiaHasznalatMf() {
       return this.magusCharacter.LearnedSkills.mf.includes('MAGIA_HASZNALAT');
     },
-    // Bard Spells
-    bardDalMagiaList: function bardDalMagiaList() {
-      var _this = this;
-
-      var dalList = this.bardDalMagia.spells;
-
-      if (this.showBardAll) {
-        return dalList;
-      } else {
-        return dalList.filter(function (s) {
-          return s.mana <= _this.magia.aktMp;
-        });
+    isMage: function isMage() {
+      if (this.haveMagiaHasznalatMf) {
+        this.selected_tab = 'varazslo_magia_tab';
+        this.current_page = 1;
+        this.max_page = this.varazslo_magia.length;
       }
+
+      if (this.magusCharacter.Kaszt == 'BARD') {
+        this.selected_tab = 'bard_magia_tab';
+        this.current_page = 1;
+        this.max_page = this.bard_magia.length;
+      }
+
+      if (this.isCleric) {
+        this.selected_tab = 'pap_magia_tab';
+        this.current_page = 1;
+        this.max_page = this.pap_magia.length;
+      }
+
+      if (this.magusCharacter.Kaszt == 'BOSZORKANY') {
+        this.selected_tab = 'boszorkany_magia_tab';
+        this.current_page = 1;
+        this.max_page = this.boszorkany_magia.length;
+      }
+
+      if (this.magusCharacter.Kaszt == 'BOSZORKANYMESTER') {
+        this.selected_tab = 'boszmester_magia_tab';
+        this.current_page = 1;
+        this.max_page = this.boszmester_magia.length;
+      }
+
+      if (this.magusCharacter.Kaszt == 'TUZVARAZSLO') {
+        this.selected_tab = 'tuzvarazslo_magia_tab';
+        this.current_page = 1;
+        this.max_page = this.tuzvarazslo_magia.length;
+      }
+
+      if (this.magusCharacter.Kaszt == 'VARAZSLO') {
+        this.selected_tab = 'varazslo_magia_tab';
+        this.current_page = 1;
+        this.max_page = this.varazslo_magia.length;
+      }
+
+      return this.haveMagiaHasznalatMf || this.magusCharacter.Kaszt == 'BARD' || this.isCleric || this.magusCharacter.Kaszt == 'BOSZORKANY' || this.magusCharacter.Kaszt == 'BOSZORKANYMESTER' || this.magusCharacter.Kaszt == 'TUZVARAZSLO' || this.magusCharacter.Kaszt == 'VARAZSLO';
     },
-    bardHangMagiaList: function bardHangMagiaList() {
-      var _this2 = this;
-
-      var hangList = this.bardHangMagia.spells;
-
-      if (this.showBardAll) {
-        return hangList;
-      } else {
-        return hangList.filter(function (s) {
-          return s.mana <= _this2.magia.aktMp;
-        });
-      }
-    },
-    bardFenyMagiaList: function bardFenyMagiaList() {
-      var _this3 = this;
-
-      var fenyList = this.bardFenyMagia.spells;
-
-      if (this.showBardAll) {
-        return fenyList;
-      } else {
-        return fenyList.filter(function (s) {
-          return s.mana <= _this3.magia.aktMp;
-        });
-      }
-    },
-    bardEgyebbMagiaList: function bardEgyebbMagiaList() {
-      var _this4 = this;
-
-      var egyebbList = this.bardEgyebbMagia.spells;
-
-      if (this.showBardAll) {
-        return egyebbList;
-      } else {
-        return egyebbList.filter(function (s) {
-          return s.mana <= _this4.magia.aktMp;
-        });
-      }
+    isCleric: function isCleric() {
+      var clerics = ['PAP', 'PAP_DONVIK', 'PAP_AREL', 'PAP_THARR', 'PAP_KYEL', 'PAPLOVAG', 'PAPLOVAG_DONVIK', 'PAPLOVAG_RANAGOL', 'PAPLOVAG_DREINA', 'PAPLOVAG_KRAD', 'PAPLOVAG_UWEL', 'PAPLOVAG_DARTON'];
+      return clerics.includes(this.magusCharacter.Kaszt);
     }
   }),
   methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('currentCharacter', {
@@ -16812,6 +16715,74 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.save();
       var msg = this.magusCharacter.Nev + ' Feltöltötte Mana pontjait!';
       this.$root.$emit('CharacterChangedEvent', msg);
+    },
+    selectTab: function selectTab(tab) {
+      switch (tab) {
+        case 'bard_magia_tab':
+          this.selected_tab = 'bard_magia_tab';
+          this.current_page = 1;
+          this.max_page = this.bard_magia.length;
+          break;
+
+        case 'pap_magia_tab':
+          this.selected_tab = 'pap_magia_tab';
+          this.current_page = 1;
+          this.max_page = this.pap_magia.length;
+          break;
+
+        case 'boszorkany_magia_tab':
+          this.selected_tab = 'boszorkany_magia_tab';
+          this.current_page = 1;
+          this.max_page = this.boszorkany_magia.length;
+          break;
+
+        case 'boszmester_magia_tab':
+          this.selected_tab = 'boszmester_magia_tab';
+          this.current_page = 1;
+          this.max_page = this.boszmester_magia.length;
+          break;
+
+        case 'tuzvarazslo_magia_tab':
+          this.selected_tab = 'tuzvarazslo_magia_tab';
+          this.current_page = 1;
+          this.max_page = this.tuzvarazslo_magia.length;
+          break;
+
+        case 'varazslo_magia_tab':
+          this.selected_tab = 'varazslo_magia_tab';
+          this.current_page = 1;
+          this.max_page = this.varazslo_magia.length;
+          break;
+
+        case 'varazstargyak_tab':
+          this.selected_tab = 'varazstargyak_tab';
+          this.current_page = 1;
+          this.max_page = this.varazstargyak.length;
+          break;
+
+        default:
+          this.selected_tab = 'bard_magia_tab';
+          this.current_page = 1;
+          this.max_page = this.bard_magia.length;
+      }
+    },
+    prevPage: function prevPage() {
+      var prev = this.current_page - 1;
+
+      if (prev < 1) {
+        this.current_page = this.max_page;
+      } else {
+        this.current_page = prev;
+      }
+    },
+    nextPage: function nextPage() {
+      var next = this.current_page + 1;
+
+      if (next > this.max_page) {
+        this.current_page = 1;
+      } else {
+        this.current_page = next;
+      }
     }
   })
 });
@@ -63863,7 +63834,7 @@ var render = function () {
             )
           : _vm._e(),
         _vm._v(" "),
-        _vm.isGm || _vm.characterId == "PAP" || _vm.characterId == "PAPLOVAG"
+        _vm.isGm || _vm.isCleric
           ? _c(
               "button",
               {
@@ -78821,29 +78792,13 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", [
-      _vm.magia.maxMp > 0
+      _vm.isMage
         ? _c("div", { staticClass: "border-bottom border-secondary my-2" }, [
             _c("h4", { staticClass: "text-center mt-2" }, [
               _vm._v("Varázslatok"),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "d-grid text-center mb-3" }, [
-              _vm.magusCharacter.Kaszt == "BARD"
-                ? _c(
-                    "button",
-                    {
-                      staticClass:
-                        "btn btn-success m-2 bg-green-leather costum-btn",
-                      attrs: {
-                        type: "button",
-                        "data-bs-toggle": "modal",
-                        "data-bs-target": "#bardModal",
-                      },
-                    },
-                    [_vm._v("Bárd Mágiák")]
-                  )
-                : _vm._e(),
-            ]),
+            _vm._m(0),
           ])
         : _vm._e(),
       _vm._v(" "),
@@ -78917,7 +78872,7 @@ var render = function () {
       [
         _c("div", { staticClass: "modal-dialog modal-dialog-centered" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _vm._m(0),
+            _vm._m(1),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
               _c("p", [
@@ -78988,9 +78943,9 @@ var render = function () {
       {
         staticClass: "modal fade",
         attrs: {
-          id: "bardModal",
+          id: "magiaModal",
           tabindex: "-1",
-          "aria-labelledby": "bardModalLabel",
+          "aria-labelledby": "magiaModalLabel",
           "aria-hidden": "true",
         },
       },
@@ -79003,948 +78958,217 @@ var render = function () {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(1),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
+              _c("div", { staticClass: "modal-header" }, [
                 _c(
-                  "div",
-                  { staticClass: "p-3 border border-secondary rounded mb-2" },
-                  [
-                    _c("div", { staticClass: "form-check" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.showBardAll,
-                            expression: "showBardAll",
-                          },
-                        ],
-                        staticClass: "form-check-input",
-                        attrs: { type: "checkbox", id: "bard_checkbox" },
-                        domProps: {
-                          checked: Array.isArray(_vm.showBardAll)
-                            ? _vm._i(_vm.showBardAll, null) > -1
-                            : _vm.showBardAll,
-                        },
-                        on: {
-                          change: function ($event) {
-                            var $$a = _vm.showBardAll,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = null,
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 && (_vm.showBardAll = $$a.concat([$$v]))
-                              } else {
-                                $$i > -1 &&
-                                  (_vm.showBardAll = $$a
-                                    .slice(0, $$i)
-                                    .concat($$a.slice($$i + 1)))
-                              }
-                            } else {
-                              _vm.showBardAll = $$c
-                            }
-                          },
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "label",
-                        {
-                          staticClass: "form-check-label",
-                          attrs: { for: "bard_checkbox" },
-                        },
-                        [
-                          _vm._v(
-                            "\n                                Összes mágia mutatása\n                            "
-                          ),
-                        ]
-                      ),
-                    ]),
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
+                  "h5",
                   {
-                    staticClass: "nav nav-tabs",
-                    attrs: { id: "myTab", role: "tablist" },
+                    staticClass: "modal-title",
+                    attrs: { id: "magiaModalLabel" },
                   },
-                  [
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        staticClass: "nav-item",
-                        attrs: { role: "presentation" },
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "nav-link",
-                            attrs: {
-                              id: "dal-tab",
-                              "data-bs-toggle": "tab",
-                              "data-bs-target": "#dal",
-                              type: "button",
-                              role: "tab",
-                              "aria-controls": "dal",
-                              "aria-selected": "false",
-                            },
-                          },
-                          [_vm._v(_vm._s(_vm.bardDalMagia.name))]
-                        ),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        staticClass: "nav-item",
-                        attrs: { role: "presentation" },
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "nav-link",
-                            attrs: {
-                              id: "hang-tab",
-                              "data-bs-toggle": "tab",
-                              "data-bs-target": "#hang",
-                              type: "button",
-                              role: "tab",
-                              "aria-controls": "hang",
-                              "aria-selected": "false",
-                            },
-                          },
-                          [_vm._v(_vm._s(_vm.bardHangMagia.name))]
-                        ),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        staticClass: "nav-item",
-                        attrs: { role: "presentation" },
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "nav-link",
-                            attrs: {
-                              id: "feny-tab",
-                              "data-bs-toggle": "tab",
-                              "data-bs-target": "#feny",
-                              type: "button",
-                              role: "tab",
-                              "aria-controls": "feny",
-                              "aria-selected": "false",
-                            },
-                          },
-                          [_vm._v(_vm._s(_vm.bardFenyMagia.name))]
-                        ),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      {
-                        staticClass: "nav-item",
-                        attrs: { role: "presentation" },
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "nav-link",
-                            attrs: {
-                              id: "egyebb-tab",
-                              "data-bs-toggle": "tab",
-                              "data-bs-target": "#egyebb",
-                              type: "button",
-                              role: "tab",
-                              "aria-controls": "egyebb",
-                              "aria-selected": "false",
-                            },
-                          },
-                          [_vm._v(_vm._s(_vm.bardEgyebbMagia.name))]
-                        ),
-                      ]
-                    ),
-                  ]
+                  [_vm._v("Mágiák: ")]
                 ),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "tab-content", attrs: { id: "myTabContent" } },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade show active",
-                        attrs: {
-                          id: "ismerteto",
-                          role: "tabpanel",
-                          "aria-labelledby": "ismerteto-tab",
+                _c("div", { staticClass: "mx-2 d-flex flex-row" }, [
+                  _vm.magusCharacter.Kaszt == "BARD"
+                    ? _c(
+                        "button",
+                        {
+                          class: [
+                            "m-1 btn btn-sm ",
+                            _vm.selected_tab == "bard_magia_tab"
+                              ? "btn-dark"
+                              : "btn-secondary",
+                          ],
+                          on: {
+                            click: function ($event) {
+                              return _vm.selectTab("bard_magia_tab")
+                            },
+                          },
                         },
-                      },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "mt-3" },
-                          _vm._l(
-                            _vm.bardSpellDescription,
-                            function (ism, index) {
-                              return _c("p", { key: "ismerteto" + index }, [
-                                _vm._v(_vm._s(ism)),
-                              ])
-                            }
-                          ),
-                          0
-                        ),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade",
-                        attrs: {
-                          id: "dal",
-                          role: "tabpanel",
-                          "aria-labelledby": "dal-tab",
+                        [_vm._v("Bárd Mágia")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.isCleric
+                    ? _c(
+                        "button",
+                        {
+                          class: [
+                            "m-1 btn btn-sm ",
+                            _vm.selected_tab == "pap_magia_tab"
+                              ? "btn-dark"
+                              : "btn-secondary",
+                          ],
+                          on: {
+                            click: function ($event) {
+                              return _vm.selectTab("pap_magia_tab")
+                            },
+                          },
                         },
-                      },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "border border-secondary p-2 mb-2" },
-                          [
-                            _c("h4", [_vm._v(_vm._s(_vm.bardDalMagia.name))]),
-                            _vm._v(" "),
-                            _vm._l(
-                              _vm.bardDalMagia.description,
-                              function (daldes, index) {
-                                return _c("p", { key: "daldes" + index }, [
-                                  _vm._v(_vm._s(daldes)),
-                                ])
-                              }
-                            ),
+                        [_vm._v("Papi Mágia")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.magusCharacter.Kaszt == "BOSZORKANY"
+                    ? _c(
+                        "button",
+                        {
+                          class: [
+                            "m-1 btn btn-sm ",
+                            _vm.selected_tab == "boszorkany_magia_tab"
+                              ? "btn-dark"
+                              : "btn-secondary",
                           ],
-                          2
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          [
-                            _c("h4", [_vm._v("Varázslatok")]),
-                            _vm._v(" "),
-                            _vm._l(_vm.bardDalMagiaList, function (dal, index) {
-                              return _c(
-                                "div",
-                                {
-                                  key: "dal" + index,
-                                  staticClass: "accordion-item",
-                                },
-                                [
-                                  _c(
-                                    "h2",
-                                    {
-                                      staticClass: "accordion-header",
-                                      attrs: { id: "dal" + index + "-heading" },
-                                    },
-                                    [
-                                      _c(
-                                        "button",
-                                        {
-                                          staticClass:
-                                            "accordion-button collapsed",
-                                          attrs: {
-                                            type: "button",
-                                            "data-bs-toggle": "collapse",
-                                            "data-bs-target":
-                                              "#" + "dal" + index,
-                                            "aria-expanded": "false",
-                                            "aria-controls": "dal" + index,
-                                          },
-                                        },
-                                        [
-                                          _vm._v(
-                                            "\n                                            " +
-                                              _vm._s(dal.name) +
-                                              "\n                                        "
-                                          ),
-                                        ]
-                                      ),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass:
-                                        "accordion-collapse collapse",
-                                      attrs: {
-                                        id: "dal" + index,
-                                        "aria-labelledby":
-                                          "dal" + index + "-heading",
-                                      },
-                                    },
-                                    [
-                                      _c(
-                                        "div",
-                                        { staticClass: "accordion-body" },
-                                        [
-                                          _c("p", [
-                                            _c("b", [
-                                              _vm._v(
-                                                "Tipus:" + _vm._s(dal.typ)
-                                              ),
-                                            ]),
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("p", [
-                                            _c("b", [
-                                              _vm._v(
-                                                "Mana-pont: " +
-                                                  _vm._s(dal.manaText)
-                                              ),
-                                            ]),
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("p", [
-                                            _c("b", [
-                                              _vm._v(
-                                                "Erősség: " +
-                                                  _vm._s(dal.strenght)
-                                              ),
-                                            ]),
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("p", [
-                                            _c("b", [
-                                              _vm._v(
-                                                "Varázslás ideje: " +
-                                                  _vm._s(dal.castTime)
-                                              ),
-                                            ]),
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("p", [
-                                            _c("b", [
-                                              _vm._v(
-                                                "Hatótáv: " +
-                                                  _vm._s(dal.effectRange)
-                                              ),
-                                            ]),
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("p", [
-                                            _c("b", [
-                                              _vm._v(
-                                                "Időtartam: " +
-                                                  _vm._s(dal.effectTime)
-                                              ),
-                                            ]),
-                                          ]),
-                                          _vm._v(" "),
-                                          _c("p", [
-                                            _c("b", [
-                                              _vm._v(
-                                                "Mágiaellenállás: " +
-                                                  _vm._s(dal.resistance)
-                                              ),
-                                            ]),
-                                          ]),
-                                          _vm._v(" "),
-                                          _vm._m(3, true),
-                                          _vm._v(" "),
-                                          _vm._l(
-                                            dal.description,
-                                            function (des, index) {
-                                              return _c(
-                                                "p",
-                                                { key: "Des" + index },
-                                                [_vm._v(_vm._s(des))]
-                                              )
-                                            }
-                                          ),
-                                        ],
-                                        2
-                                      ),
-                                    ]
-                                  ),
-                                ]
-                              )
-                            }),
-                          ],
-                          2
-                        ),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade",
-                        attrs: {
-                          id: "hang",
-                          role: "tabpanel",
-                          "aria-labelledby": "hang-tab",
+                          on: {
+                            click: function ($event) {
+                              return _vm.selectTab("boszorkany_magia_tab")
+                            },
+                          },
                         },
-                      },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "border border-secondary p-2 mb-2" },
-                          [
-                            _c("h4", [_vm._v(_vm._s(_vm.bardHangMagia.name))]),
-                            _vm._v(" "),
-                            _vm._l(
-                              _vm.bardHangMagia.description,
-                              function (hangdes, index) {
-                                return _c("p", { key: "hangdes" + index }, [
-                                  _vm._v(_vm._s(hangdes)),
-                                ])
-                              }
-                            ),
+                        [_vm._v("Boszorkány Mágia")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.magusCharacter.Kaszt == "BOSZORKANYMESTER"
+                    ? _c(
+                        "button",
+                        {
+                          class: [
+                            "m-1 btn btn-sm ",
+                            _vm.selected_tab == "boszmester_magia_tab"
+                              ? "btn-dark"
+                              : "btn-secondary",
                           ],
-                          2
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          [
-                            _c("h4", [_vm._v("Varázslatok")]),
-                            _vm._v(" "),
-                            _vm._l(
-                              _vm.bardHangMagiaList,
-                              function (hang, index) {
-                                return _c(
-                                  "div",
-                                  {
-                                    key: "hang" + index,
-                                    staticClass: "accordion-item",
-                                  },
-                                  [
-                                    _c(
-                                      "h2",
-                                      {
-                                        staticClass: "accordion-header",
-                                        attrs: {
-                                          id: "hang" + index + "-heading",
-                                        },
-                                      },
-                                      [
-                                        _c(
-                                          "button",
-                                          {
-                                            staticClass:
-                                              "accordion-button collapsed",
-                                            attrs: {
-                                              type: "button",
-                                              "data-bs-toggle": "collapse",
-                                              "data-bs-target":
-                                                "#" + "hang" + index,
-                                              "aria-expanded": "false",
-                                              "aria-controls": "hang" + index,
-                                            },
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                            " +
-                                                _vm._s(hang.name) +
-                                                "\n                                        "
-                                            ),
-                                          ]
-                                        ),
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "accordion-collapse collapse",
-                                        attrs: {
-                                          id: "hang" + index,
-                                          "aria-labelledby":
-                                            "hang" + index + "-heading",
-                                        },
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "accordion-body" },
-                                          [
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Tipus:" + _vm._s(hang.typ)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Mana-pont: " +
-                                                    _vm._s(hang.manaText)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Erősség: " +
-                                                    _vm._s(hang.strenght)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Varázslás ideje: " +
-                                                    _vm._s(hang.castTime)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Hatótáv: " +
-                                                    _vm._s(hang.effectRange)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Időtartam: " +
-                                                    _vm._s(hang.effectTime)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Mágiaellenállás: " +
-                                                    _vm._s(hang.resistance)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _vm._m(4, true),
-                                            _vm._v(" "),
-                                            _vm._l(
-                                              hang.description,
-                                              function (des, index) {
-                                                return _c(
-                                                  "p",
-                                                  { key: "hangDes" + index },
-                                                  [_vm._v(_vm._s(des))]
-                                                )
-                                              }
-                                            ),
-                                          ],
-                                          2
-                                        ),
-                                      ]
-                                    ),
-                                  ]
-                                )
-                              }
-                            ),
-                          ],
-                          2
-                        ),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade",
-                        attrs: {
-                          id: "feny",
-                          role: "tabpanel",
-                          "aria-labelledby": "feny-tab",
+                          on: {
+                            click: function ($event) {
+                              return _vm.selectTab("boszmester_magia_tab")
+                            },
+                          },
                         },
-                      },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "border border-secondary p-2 mb-2" },
-                          [
-                            _c("h4", [_vm._v(_vm._s(_vm.bardFenyMagia.name))]),
-                            _vm._v(" "),
-                            _vm._l(
-                              _vm.bardFenyMagia.description,
-                              function (fenydes, index) {
-                                return _c("p", { key: "fenydes" + index }, [
-                                  _vm._v(_vm._s(fenydes)),
-                                ])
-                              }
-                            ),
+                        [_vm._v("Boszorkánymester Mágia")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.magusCharacter.Kaszt == "TUZVARAZSLO"
+                    ? _c(
+                        "button",
+                        {
+                          class: [
+                            "m-1 btn btn-sm ",
+                            _vm.selected_tab == "tuzvarazslo_magia_tab"
+                              ? "btn-dark"
+                              : "btn-secondary",
                           ],
-                          2
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          [
-                            _c("h4", [_vm._v("Varázslatok")]),
-                            _vm._v(" "),
-                            _vm._l(
-                              _vm.bardFenyMagiaList,
-                              function (feny, index) {
-                                return _c(
-                                  "div",
-                                  {
-                                    key: "feny" + index,
-                                    staticClass: "accordion-item",
-                                  },
-                                  [
-                                    _c(
-                                      "h2",
-                                      {
-                                        staticClass: "accordion-header",
-                                        attrs: {
-                                          id: "feny" + index + "-heading",
-                                        },
-                                      },
-                                      [
-                                        _c(
-                                          "button",
-                                          {
-                                            staticClass:
-                                              "accordion-button collapsed",
-                                            attrs: {
-                                              type: "button",
-                                              "data-bs-toggle": "collapse",
-                                              "data-bs-target":
-                                                "#" + "feny" + index,
-                                              "aria-expanded": "false",
-                                              "aria-controls": "feny" + index,
-                                            },
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                            " +
-                                                _vm._s(feny.name) +
-                                                "\n                                        "
-                                            ),
-                                          ]
-                                        ),
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "accordion-collapse collapse",
-                                        attrs: {
-                                          id: "feny" + index,
-                                          "aria-labelledby":
-                                            "feny" + index + "-heading",
-                                        },
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "accordion-body" },
-                                          [
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Tipus:" + _vm._s(feny.typ)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Mana-pont: " +
-                                                    _vm._s(feny.manaText)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Erősség: " +
-                                                    _vm._s(feny.strenght)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Varázslás ideje: " +
-                                                    _vm._s(feny.castTime)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Hatótáv: " +
-                                                    _vm._s(feny.effectRange)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Időtartam: " +
-                                                    _vm._s(feny.effectTime)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Mágiaellenállás: " +
-                                                    _vm._s(feny.resistance)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _vm._m(5, true),
-                                            _vm._v(" "),
-                                            _vm._l(
-                                              feny.description,
-                                              function (des, index) {
-                                                return _c(
-                                                  "p",
-                                                  { key: "fenyDes" + index },
-                                                  [_vm._v(_vm._s(des))]
-                                                )
-                                              }
-                                            ),
-                                          ],
-                                          2
-                                        ),
-                                      ]
-                                    ),
-                                  ]
-                                )
-                              }
-                            ),
-                          ],
-                          2
-                        ),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade",
-                        attrs: {
-                          id: "egyebb",
-                          role: "tabpanel",
-                          "aria-labelledby": "egyebb-tab",
+                          on: {
+                            click: function ($event) {
+                              return _vm.selectTab("tuzvarazslo_magia_tab")
+                            },
+                          },
                         },
-                      },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "border border-secondary p-2 mb-2" },
-                          [
-                            _c("h4", [
-                              _vm._v(_vm._s(_vm.bardEgyebbMagia.name)),
-                            ]),
-                            _vm._v(" "),
-                            _vm._l(
-                              _vm.bardEgyebbMagia.description,
-                              function (egyebbdes, index) {
-                                return _c("p", { key: "egyebbdes" + index }, [
-                                  _vm._v(_vm._s(egyebbdes)),
-                                ])
-                              }
-                            ),
+                        [_vm._v("Tűzvarázsló Mágia")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.magusCharacter.Kaszt == "VARAZSLO" ||
+                  _vm.haveMagiaHasznalatMf
+                    ? _c(
+                        "button",
+                        {
+                          class: [
+                            "m-1 btn btn-sm ",
+                            _vm.selected_tab == "varazslo_magia_tab"
+                              ? "btn-dark"
+                              : "btn-secondary",
                           ],
-                          2
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          [
-                            _c("h4", [_vm._v("Varázslatok")]),
-                            _vm._v(" "),
-                            _vm._l(
-                              _vm.bardEgyebbMagiaList,
-                              function (egyebb, index) {
-                                return _c(
-                                  "div",
-                                  {
-                                    key: "egyebb" + index,
-                                    staticClass: "accordion-item",
-                                  },
-                                  [
-                                    _c(
-                                      "h2",
-                                      {
-                                        staticClass: "accordion-header",
-                                        attrs: {
-                                          id: "egyebb" + index + "-heading",
-                                        },
-                                      },
-                                      [
-                                        _c(
-                                          "button",
-                                          {
-                                            staticClass:
-                                              "accordion-button collapsed",
-                                            attrs: {
-                                              type: "button",
-                                              "data-bs-toggle": "collapse",
-                                              "data-bs-target":
-                                                "#" + "egyebb" + index,
-                                              "aria-expanded": "false",
-                                              "aria-controls": "egyebb" + index,
-                                            },
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                            " +
-                                                _vm._s(egyebb.name) +
-                                                "\n                                        "
-                                            ),
-                                          ]
-                                        ),
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "accordion-collapse collapse",
-                                        attrs: {
-                                          id: "egyebb" + index,
-                                          "aria-labelledby":
-                                            "egyebb" + index + "-heading",
-                                        },
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "accordion-body" },
-                                          [
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Tipus:" + _vm._s(egyebb.typ)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Mana-pont: " +
-                                                    _vm._s(egyebb.manaText)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Erősség: " +
-                                                    _vm._s(egyebb.strenght)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Varázslás ideje: " +
-                                                    _vm._s(egyebb.castTime)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Hatótáv: " +
-                                                    _vm._s(egyebb.effectRange)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Időtartam: " +
-                                                    _vm._s(egyebb.effectTime)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("p", [
-                                              _c("b", [
-                                                _vm._v(
-                                                  "Mágiaellenállás: " +
-                                                    _vm._s(egyebb.resistance)
-                                                ),
-                                              ]),
-                                            ]),
-                                            _vm._v(" "),
-                                            _vm._m(6, true),
-                                            _vm._v(" "),
-                                            _vm._l(
-                                              egyebb.description,
-                                              function (des, index) {
-                                                return _c(
-                                                  "p",
-                                                  { key: "egyebbDes" + index },
-                                                  [_vm._v(_vm._s(des))]
-                                                )
-                                              }
-                                            ),
-                                          ],
-                                          2
-                                        ),
-                                      ]
-                                    ),
-                                  ]
-                                )
-                              }
-                            ),
+                          on: {
+                            click: function ($event) {
+                              return _vm.selectTab("varazslo_magia_tab")
+                            },
+                          },
+                        },
+                        [_vm._v("Varázsló Mágia")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.magusCharacter.Kaszt == "BOSZORKANYMESTER" ||
+                  _vm.magusCharacter.Kaszt == "BOSZORKANY" ||
+                  _vm.magusCharacter.Kaszt == "VARAZSLO" ||
+                  _vm.isCleric
+                    ? _c(
+                        "button",
+                        {
+                          class: [
+                            "m-1 btn btn-sm ",
+                            _vm.selected_tab == "varazstargyak_tab"
+                              ? "btn-dark"
+                              : "btn-secondary",
                           ],
-                          2
-                        ),
-                      ]
-                    ),
-                  ]
-                ),
+                          on: {
+                            click: function ($event) {
+                              return _vm.selectTab("varazstargyak_tab")
+                            },
+                          },
+                        },
+                        [_vm._v("Varázstárgyak")]
+                      )
+                    : _vm._e(),
+                ]),
+                _vm._v(" "),
+                _c("button", {
+                  staticClass: "btn-close",
+                  attrs: {
+                    type: "button",
+                    "data-bs-dismiss": "modal",
+                    "aria-label": "Close",
+                  },
+                }),
               ]),
               _vm._v(" "),
-              _vm._m(7),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { staticClass: "card-body text-center" }, [
+                  _c("img", {
+                    staticClass: "img-fluid",
+                    attrs: { src: _vm.imgUrl, alt: "magus book page" },
+                  }),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c("div", { staticClass: "card-footer text-center" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-secondary",
+                      on: { click: _vm.prevPage },
+                    },
+                    [_vm._v("<")]
+                  ),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "mx-2" }, [
+                    _c("span", [_vm._v(_vm._s(_vm.current_page))]),
+                    _vm._v("/\n                            "),
+                    _c("span", [_vm._v(_vm._s(_vm.max_page))]),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-secondary",
+                      on: { click: _vm.nextPage },
+                    },
+                    [_vm._v(">")]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary bg-blue-leather costum-btn",
+                    attrs: { type: "button", "data-bs-dismiss": "modal" },
+                  },
+                  [_vm._v("Bezár")]
+                ),
+              ]),
             ]),
           ]
         ),
@@ -79953,6 +79177,25 @@ var render = function () {
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-grid text-center mb-3" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success m-2 bg-green-leather costum-btn",
+          attrs: {
+            type: "button",
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#magiaModal",
+          },
+        },
+        [_vm._v("Mágiák")]
+      ),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -79972,93 +79215,6 @@ var staticRenderFns = [
           "aria-label": "Close",
         },
       }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "bardModalLabel" } },
-        [_vm._v("Bárd Mágia")]
-      ),
-      _vm._v(" "),
-      _c("button", {
-        staticClass: "btn-close",
-        attrs: {
-          type: "button",
-          "data-bs-dismiss": "modal",
-          "aria-label": "Close",
-        },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "li",
-      { staticClass: "nav-item", attrs: { role: "presentation" } },
-      [
-        _c(
-          "button",
-          {
-            staticClass: "nav-link active",
-            attrs: {
-              id: "ismerteto-tab",
-              "data-bs-toggle": "tab",
-              "data-bs-target": "#ismerteto",
-              type: "button",
-              role: "tab",
-              "aria-controls": "ismerteto",
-              "aria-selected": "true",
-            },
-          },
-          [_vm._v("Ismertető")]
-        ),
-      ]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [_c("b", [_vm._v("Leirás:")])])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [_c("b", [_vm._v("Leirás:")])])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [_c("b", [_vm._v("Leirás:")])])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [_c("b", [_vm._v("Leirás:")])])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary bg-blue-leather costum-btn",
-          attrs: { type: "button", "data-bs-dismiss": "modal" },
-        },
-        [_vm._v("Bezár")]
-      ),
     ])
   },
 ]
