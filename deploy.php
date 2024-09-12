@@ -20,6 +20,9 @@ add('shared_dirs', []);
 add('writable_dirs', []);
 set('allow_anonymous_stats', false);
 
+set('bin/php', function () {
+    return '/usr/bin/php8.0';
+});
 // Hosts
 
 host('rpg-app.wdev.rs')
