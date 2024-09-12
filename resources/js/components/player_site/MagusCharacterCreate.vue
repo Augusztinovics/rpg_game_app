@@ -320,6 +320,7 @@
             ...mapGetters('magusClasses', {
                 magusKaszt: 'magusClass',
                 magusClasses: 'magusClasses',
+                selectableClasses: 'selectableClasses',
             }),
             ...mapGetters('magusReligions', {
                 religions: 'religions',
@@ -345,7 +346,10 @@
                 }
             },
             availableClasses() {
-                return this.magusClasses.filter(c => !this.Faj.forbittenClasses.includes(c.id));
+                console.log(this.inputVallas);
+                console.log(this.Faj.forbittenClasses);
+                return this.selectableClasses(this.Faj.forbittenClasses, this.inputVallas);
+                //return this.magusClasses.filter(c => !this.Faj.forbittenClasses.includes(c.id));
             },
         },
         methods: {

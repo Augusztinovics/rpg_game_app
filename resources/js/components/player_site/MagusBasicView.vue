@@ -19,7 +19,7 @@
                 <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
                     <figure>
                         <blockquote class="blockquote">
-                            <p><strong>Hiretelen néma </strong>csend lett. A fények kihunytak, csupán egyetlen pentagramma izzott fenyegető smaragd színnel.</p>
+                            <p><strong>Hirtelen néma </strong>csend lett. A fények kihunytak, csupán egyetlen pentagramma izzott fenyegető smaragd színnel.</p>
                             <p>- Árulás! - kiáltotta a Weila legfőbb annyrja. Alakja körül sápadt fényaura éledt...</p>
                             <p>...és az egyik istenszobor lomhán megmozdult.</p>
                             <p></p>

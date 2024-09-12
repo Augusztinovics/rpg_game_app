@@ -52,7 +52,7 @@
             INT: 0,
             AK: 0,
             ASZT: 0,
-            forbittenClasses: ['LOVAG', 'TOLVAJ', 'PAP', 'PAPLOVAG', 'HARCMUVESZ', 'KARDMUVESZ', 'BOSZORKANY', 'BOSZORKANYMESTER', 'TUZVARAZSLO'],
+            forbittenClasses: ['LOVAG', 'TOLVAJ', 'PAP', 'PAP_DONVIK', 'PAP_AREL', 'PAP_THARR', 'PAP_KYEL', 'PAPLOVAG', 'PAPLOVAG_DONVIK', 'PAPLOVAG_RANAGOL', 'PAPLOVAG_DREINA', 'PAPLOVAG_KRAD', 'PAPLOVAG_UWEL', 'PAPLOVAG_DARTON', 'HARCMUVESZ', 'KARDMUVESZ', 'BOSZORKANY', 'BOSZORKANYMESTER', 'TUZVARAZSLO'],
             CE: 20,
             specials: ['Kétszer jobb hallás', 'Két és félszer jobb látás', 'Infralátás 50 méterig', 'Nekromancia érzékenység -8'],
             skills: {
@@ -93,7 +93,7 @@
             INT: 0,
             AK: 0,
             ASZT: 0,
-            forbittenClasses: ['PAP', 'PAPLOVAG', 'TUZVARAZSLO'],
+            forbittenClasses: ['PAP', 'PAP_DONVIK', 'PAP_AREL', 'PAP_THARR', 'PAP_KYEL', 'PAPLOVAG', 'PAPLOVAG_DONVIK', 'PAPLOVAG_RANAGOL', 'PAPLOVAG_DREINA', 'PAPLOVAG_KRAD', 'PAPLOVAG_UWEL', 'PAPLOVAG_DARTON', 'TUZVARAZSLO'],
             CE: 10,
             specials: ['Másfélszer jobb hallás', 'Kiváló futó', 'Infralátás 10 méterig', 'Nekromancia érzékenység -6'],
             skills: {
@@ -130,7 +130,7 @@
             INT: -1,
             AK: 0,
             ASZT: -1,
-            forbittenClasses: ['FEJVADASZ', 'LOVAG', 'BARD', 'PAPLOVAG', 'HARCMUVESZ', 'KARDMUVESZ', 'BOSZORKANY', 'BOSZORKANYMESTER', 'TUZVARAZSLO'],
+            forbittenClasses: ['FEJVADASZ', 'LOVAG', 'BARD', 'PAPLOVAG', 'PAPLOVAG_DONVIK', 'PAPLOVAG_RANAGOL', 'PAPLOVAG_DREINA', 'PAPLOVAG_KRAD', 'PAPLOVAG_UWEL', 'PAPLOVAG_DARTON', 'HARCMUVESZ', 'KARDMUVESZ', 'BOSZORKANY', 'BOSZORKANYMESTER', 'TUZVARAZSLO'],
             CE: 0,
             specials: ['Infralátás 30 méter', 'Kiválló időérzék', 'Föld alatt mélységérzett - 2 méter pontosság', '+-5 év pontossággal meghatározza egy épület korát'],
             skills: {
@@ -171,7 +171,7 @@
             INT: -1,
             AK: 0,
             ASZT: -3,
-            forbittenClasses: ['LOVAG', 'BARD', 'PAPLOVAG', 'HARCMUVESZ', 'KARDMUVESZ', 'BOSZORKANY', 'TUZVARAZSLO', 'VARAZSLO'],
+            forbittenClasses: ['LOVAG', 'BARD', 'PAPLOVAG', 'PAPLOVAG_DONVIK', 'PAPLOVAG_RANAGOL', 'PAPLOVAG_DREINA', 'PAPLOVAG_KRAD', 'PAPLOVAG_UWEL', 'PAPLOVAG_DARTON', 'HARCMUVESZ', 'KARDMUVESZ', 'BOSZORKANY', 'TUZVARAZSLO', 'VARAZSLO'],
             CE: 0,
             specials: ['Infralátás 15 méterig', 'Föld alatti mélységérzett - 4 méter pontosság', 'Ötször jobb szaglás'],
             skills: {
