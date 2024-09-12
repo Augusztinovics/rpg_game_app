@@ -118,26 +118,26 @@
                         <p class="px-4">Jelenleg a M.A.G.U.S. ETK szabályrendszerével lehet játszani az aplikáció segitségével.</p>
                     </div>  
                 </section>
-                <hr>
+                <hr class="mt-5">
                 <section>
-                    <div class="pt-5">
-                        <h2 class="display-4 fw-bold text-center pb-4">Mit nyújt az aplikáció</h2>
+                    <div class="pt-4">
+                        <h2 class="display-4 fw-bold text-center pb-4 mb-4">Mit nyújt az aplikáció</h2>
                         <p class="px-4">Az aplikáció három főbb részre van osztva: <b>Játékos panel</b>, <b>Kalandmester panel</b> és <b>Játékoldal</b></p>
-                        <p class="px-4"><b>Játékos panel</b></p>
+                        <p class="p-4 h3"><b>Játékos panel</b></p>
                         <p class="px-4">A Játékos panel segítségével karaktereket készíthetsz, jelenlen ETK, de tervben van az MTK karakterekkel való bővítés is. Valamint itt küldhetsz barátkérelmeket, cseveghetsz a barátlistáról éppen aktív játékosokkal és elküldheted kérdéseidet az adminnak.</p>
-                        <p class="px-4"><b>Kalandmester panel</b></p>
+                        <p class="p-4 h3"><b>Kalandmester panel</b></p>
                         <p class="px-4">Ha átépíted magad KM-nek, ezen a panelen készíthetsz játékmodulokat, megoszthatod, vagy letöltheted őket.</p>
-                        <p class="px-4"><b>Játékoldal</b></p>
+                        <p class="p-4 h3"><b>Játékoldal</b></p>
                         <p class="px-4">Ha van egy KM és néhány játékos, itt játszhattok online. Az oldal bisztosít élő hang és üzenet lehetőséget, rajztáblát a KM-nek és még sok minden mást.</p>
-                        <p class="px-4"><b>Bónusz</b></p>
+                        <p class="p-4 h3"><b>Bónusz</b></p>
                         <p class="px-4">A különböző letöltések menüponton letölthetsz üres karakterlapot, valamint mások álltal megosztott játék modult.</p>
                     </div>
                 </section>
-                <hr>
+                <hr class="mt-5">
                 <section>
                     <div class="pt-5 pb-5">
                         <h2 class="display-4 fw-bold text-center pb-4">Az oldal használata</h2>
-                        <h3 class="px-4">Regisztráció</h3>
+                        <h3 class="p-4">Regisztráció</h3>
 
                         <div class="row px-4">
                             <div class="col-lg mb-3">
@@ -159,7 +159,7 @@
 
                         <hr>
 
-                        <h3 class="px-4">Bejelentkezés</h3>
+                        <h3 class="p-4">Bejelentkezés</h3>
 
                         <div class="row px-4">
                             <div class="col-lg mb-3">
@@ -181,25 +181,33 @@
 
                         <hr>
 
-                        <h3 class="px-4">Játékos panel</h3>
+                        <h3 class="p-4">Játékos panel</h3>
 
-                        <div class="text-center my-4">
-                            <iframe class="p-3 shadow-lg border border-4 border-danger rounded-3" width="560" height="315" src="https://www.youtube.com/embed/jX1NyMyhPDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="text-center my-5">
+                            <iframe class="p-3 shadow-lg border border-4 border-danger rounded-3" width="100%" height="400" src="https://www.youtube.com/embed/jX1NyMyhPDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
-                        <hr>
-                        <div class="text-center my-4">
-                            <iframe class="p-3 shadow-lg border border-4 border-danger rounded-3" width="560" height="315" src="https://www.youtube.com/embed/7X7B_ahpyL8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <hr class="mt-5">
+
+                        <h3 class="p-4">Játék szerkesztő</h3>
+                        <div class="text-center my-5">
+                            <iframe class="p-3 shadow-lg border border-4 border-danger rounded-3" width="100%" height="400" src="https://www.youtube.com/embed/7X7B_ahpyL8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
-                        <hr>
+                        <hr class="mt-5">
+
+                        <h3 class="p-4">Játék oldal</h3>
                         <div class="text-center my-4">
-                            <iframe class="p-3 shadow-lg border border-4 border-danger rounded-3" width="560" height="315" src="https://www.youtube.com/embed/pnehxsLOQ4o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <iframe class="p-3 shadow-lg border border-4 border-danger rounded-3" width="100%" height="400" src="https://www.youtube.com/embed/pnehxsLOQ4o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
-                        <p class="px-4">Ahoz, hogy az aplikációt használni tudhassa valaki, elsősorban be kell regisztrálni</p>
-                        <p class="px-4">A regisztráció egy egyszerű lépésből áll, és nem kell konfirmállni vagy fizetni érte semmit.</p>
-                        <p class="px-4">A regisztrációhoz meg kell adni egy felhasználó nevet, egy e-mail cimet ( később ezen e-mail megadásával fog lehetni belépni ) és egy jelszavat. Ennyi. FIGYELEM, mivel nem ellenőrizzük az e-mail cimeket, igy nincs lehetőség elfelejtett jelszavak újraaktivizálására. Regisztráció után kérem irja fel magának, mert elfelejtés esetén csak az újraregisztrálás lehetősége marad!</p>
-                        <p class="px-4">Belépés után a Játékos Panelen a felhasználó hozzáfér az aplikáció lehetőségeihez.</p>
-                        <p class="px-4">FIGYELEM az aplikáció használata ingyenes és nem kérünk vagy gyűjtünk semmilyen adatot a felhasználóktól, csak amit a regisztrációhoz meg kell adni, de ezen adatokat sem használjuk, vagy adjuk át semmiféle harmadik személynek. A regisztráció csupán azért szükséges, hogy tudjuk melyik karakterlap kihez tartozik.</p>
-                    </div>  
+                        <hr class="mt-5">
+
+                        <div class="my-4">
+                            <p class="px-4">Ahoz, hogy az aplikációt használni tudhassa valaki, elsősorban be kell regisztrálni</p>
+                            <p class="px-4">A regisztráció egy egyszerű lépésből áll, és nem kell konfirmállni vagy fizetni érte semmit.</p>
+                            <p class="px-4">A regisztrációhoz meg kell adni egy felhasználó nevet, egy e-mail cimet ( később ezen e-mail megadásával fog lehetni belépni ) és egy jelszavat. Ennyi. FIGYELEM, mivel nem ellenőrizzük az e-mail cimeket, igy nincs lehetőség elfelejtett jelszavak újraaktivizálására. Regisztráció után kérem irja fel magának, mert elfelejtés esetén csak az újraregisztrálás lehetősége marad!</p>
+                            <p class="px-4">Belépés után a Játékos Panelen a felhasználó hozzáfér az aplikáció lehetőségeihez.</p>
+                            <p class="px-4">FIGYELEM az aplikáció használata ingyenes és nem kérünk vagy gyűjtünk semmilyen adatot a felhasználóktól, csak amit a regisztrációhoz meg kell adni, de ezen adatokat sem használjuk, vagy adjuk át semmiféle harmadik személynek. A regisztráció csupán azért szükséges, hogy tudjuk melyik karakterlap kihez tartozik.</p>
+                        </div>
+                    </div>
                 </section>
             </div>
             <div id="app">
