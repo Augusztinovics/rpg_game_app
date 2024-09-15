@@ -8329,24 +8329,26 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.localMapData) {
         this.localMapData.forEach(function (line) {
-          _this.drowingContext.beginPath();
+          if (line.path) {
+            _this.drowingContext.beginPath();
 
-          _this.drowingContext.moveTo(line.startX, line.startY);
+            _this.drowingContext.moveTo(line.startX, line.startY);
 
-          line.path.forEach(function (point) {
-            _this.drowingContext.lineTo(point.x, point.y);
+            line.path.forEach(function (point) {
+              _this.drowingContext.lineTo(point.x, point.y);
 
-            _this.drowingContext.strokeStyle = line.color;
-            _this.drowingContext.lineWidth = line.size;
-            _this.drowingContext.lineCap = "round";
-            _this.drowingContext.lineJoin = "round";
+              _this.drowingContext.strokeStyle = line.color;
+              _this.drowingContext.lineWidth = line.size;
+              _this.drowingContext.lineCap = "round";
+              _this.drowingContext.lineJoin = "round";
+
+              _this.drowingContext.stroke();
+            });
 
             _this.drowingContext.stroke();
-          });
 
-          _this.drowingContext.stroke();
-
-          _this.drowingContext.closePath();
+            _this.drowingContext.closePath();
+          }
         });
       }
     },
@@ -8387,7 +8389,7 @@ __webpack_require__.r(__webpack_exports__);
     drowLine: function drowLine(line) {
       var _this3 = this;
 
-      if (line) {
+      if (line && line.path) {
         this.drowingContext.beginPath();
         this.drowingContext.moveTo(line.startX, line.startY);
         line.path.forEach(function (point) {
@@ -11085,19 +11087,23 @@ __webpack_require__.r(__webpack_exports__);
         size: 2,
         color: '#000000',
         path: []
-      }
+      },
+      stamp: false
     };
   },
   computed: {},
   methods: {
     drowStart: function drowStart(e) {
-      this.isDrowing = true;
-      this.drowingContext.beginPath();
-      this.drowingContext.moveTo(e.clientX - (e.clientX - e.offsetX), e.clientY - (e.clientY - e.offsetY));
-      this.currentLine.startX = e.clientX - (e.clientX - e.offsetX);
-      this.currentLine.startY = e.clientY - (e.clientY - e.offsetY);
-      this.currentLine.size = this.drowSize;
-      this.currentLine.color = this.selectedColor;
+      if (this.stamp) {} else {
+        this.isDrowing = true;
+        this.drowingContext.beginPath();
+        this.drowingContext.moveTo(e.clientX - (e.clientX - e.offsetX), e.clientY - (e.clientY - e.offsetY));
+        this.currentLine.startX = e.clientX - (e.clientX - e.offsetX);
+        this.currentLine.startY = e.clientY - (e.clientY - e.offsetY);
+        this.currentLine.size = this.drowSize;
+        this.currentLine.color = this.selectedColor;
+      }
+
       e.preventDefault();
     },
     drowing: function drowing(e) {
@@ -11133,6 +11139,10 @@ __webpack_require__.r(__webpack_exports__);
         };
       }
 
+      if (this.stamp) {
+        this.stamp = false;
+      }
+
       e.preventDefault();
     },
     drowMap: function drowMap() {
@@ -11140,24 +11150,26 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.localMapData) {
         this.localMapData.forEach(function (line) {
-          _this.drowingContext.beginPath();
+          if (line.path) {
+            _this.drowingContext.beginPath();
 
-          _this.drowingContext.moveTo(line.startX, line.startY);
+            _this.drowingContext.moveTo(line.startX, line.startY);
 
-          line.path.forEach(function (point) {
-            _this.drowingContext.lineTo(point.x, point.y);
+            line.path.forEach(function (point) {
+              _this.drowingContext.lineTo(point.x, point.y);
 
-            _this.drowingContext.strokeStyle = line.color;
-            _this.drowingContext.lineWidth = line.size;
-            _this.drowingContext.lineCap = "round";
-            _this.drowingContext.lineJoin = "round";
+              _this.drowingContext.strokeStyle = line.color;
+              _this.drowingContext.lineWidth = line.size;
+              _this.drowingContext.lineCap = "round";
+              _this.drowingContext.lineJoin = "round";
+
+              _this.drowingContext.stroke();
+            });
 
             _this.drowingContext.stroke();
-          });
 
-          _this.drowingContext.stroke();
-
-          _this.drowingContext.closePath();
+            _this.drowingContext.closePath();
+          }
         });
       }
     },

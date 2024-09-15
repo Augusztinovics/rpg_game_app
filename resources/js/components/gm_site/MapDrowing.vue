@@ -110,22 +110,27 @@ export default {
                 size: 2,
                 color: '#000000',
                 path: []
-            }
+            },
+            stamp: false,
         };
     },
     computed: {},
     methods: {
         drowStart(e) {
-            this.isDrowing = true;
-            this.drowingContext.beginPath();
-            this.drowingContext.moveTo(
-                e.clientX - (e.clientX - e.offsetX),
-                e.clientY - (e.clientY - e.offsetY)
-            );
-            this.currentLine.startX = e.clientX - (e.clientX - e.offsetX);
-            this.currentLine.startY = e.clientY - (e.clientY - e.offsetY);
-            this.currentLine.size = this.drowSize;
-            this.currentLine.color = this.selectedColor;
+            if (this.stamp) {
+
+            } else {
+                this.isDrowing = true;
+                this.drowingContext.beginPath();
+                this.drowingContext.moveTo(
+                    e.clientX - (e.clientX - e.offsetX),
+                    e.clientY - (e.clientY - e.offsetY)
+                );
+                this.currentLine.startX = e.clientX - (e.clientX - e.offsetX);
+                this.currentLine.startY = e.clientY - (e.clientY - e.offsetY);
+                this.currentLine.size = this.drowSize;
+                this.currentLine.color = this.selectedColor;
+            }
             e.preventDefault();
         },
         drowing(e) {
@@ -162,29 +167,34 @@ export default {
                     path: []
                 };
             }
+            if (this.stamp) {
+                this.stamp = false;
+            }
             e.preventDefault();
         },
         drowMap() {
             if (this.localMapData) {
                 this.localMapData.forEach(line => {
-                    this.drowingContext.beginPath();
-                    this.drowingContext.moveTo(
-                        line.startX,
-                        line.startY
-                    );
-                    line.path.forEach(point => {
-                        this.drowingContext.lineTo(
-                            point.x,
-                            point.y
+                    if (line.path) {
+                        this.drowingContext.beginPath();
+                        this.drowingContext.moveTo(
+                            line.startX,
+                            line.startY
                         );
-                        this.drowingContext.strokeStyle = line.color;
-                        this.drowingContext.lineWidth = line.size;
-                        this.drowingContext.lineCap = "round";
-                        this.drowingContext.lineJoin = "round";
+                        line.path.forEach(point => {
+                            this.drowingContext.lineTo(
+                                point.x,
+                                point.y
+                            );
+                            this.drowingContext.strokeStyle = line.color;
+                            this.drowingContext.lineWidth = line.size;
+                            this.drowingContext.lineCap = "round";
+                            this.drowingContext.lineJoin = "round";
+                            this.drowingContext.stroke();
+                        });
                         this.drowingContext.stroke();
-                    });
-                    this.drowingContext.stroke();
-                    this.drowingContext.closePath();
+                        this.drowingContext.closePath();
+                    }
                 });
             }
         },

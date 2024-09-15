@@ -43,24 +43,26 @@
             drowMap() {
                 if (this.localMapData) {
                     this.localMapData.forEach(line => {
-                        this.drowingContext.beginPath();
-                        this.drowingContext.moveTo(
-                            line.startX,
-                            line.startY
-                        );
-                        line.path.forEach(point => {
-                            this.drowingContext.lineTo(
-                                point.x,
-                                point.y
+                        if (line.path) {
+                            this.drowingContext.beginPath();
+                            this.drowingContext.moveTo(
+                                line.startX,
+                                line.startY
                             );
-                            this.drowingContext.strokeStyle = line.color;
-                            this.drowingContext.lineWidth = line.size;
-                            this.drowingContext.lineCap = "round";
-                            this.drowingContext.lineJoin = "round";
+                            line.path.forEach(point => {
+                                this.drowingContext.lineTo(
+                                    point.x,
+                                    point.y
+                                );
+                                this.drowingContext.strokeStyle = line.color;
+                                this.drowingContext.lineWidth = line.size;
+                                this.drowingContext.lineCap = "round";
+                                this.drowingContext.lineJoin = "round";
+                                this.drowingContext.stroke();
+                            });
                             this.drowingContext.stroke();
-                        });
-                        this.drowingContext.stroke();
-                        this.drowingContext.closePath();
+                            this.drowingContext.closePath();
+                        }
                     });
                 }
             },
@@ -93,7 +95,7 @@
                 }, 100);
             },
             drowLine(line) {
-                if (line) {
+                if (line && line.path) {
                     this.drowingContext.beginPath();
                     this.drowingContext.moveTo(
                         line.startX,
