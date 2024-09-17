@@ -39,7 +39,7 @@
                     <input
                         type="range"
                         min="1"
-                        max="25"
+                        max="20"
                         class="range-input"
                         v-model="drowSize"
                     />
@@ -48,6 +48,7 @@
                         maxlength="2"
                         v-model="drowSize"
                         class="number-input"
+                        readonly
                     />
                     <span
                         v-bind:style="{
@@ -58,6 +59,100 @@
                         class="drow-size-show"
                     ></span>
                 </div>
+            </div>
+        </div>
+        <div class="d-flex align-items-start p-2 border border-secondary rounded">
+            <div class="border-right border-secondary p-2 mr-1">
+                <p>Bélyegek</p>
+                <p>
+                    <input
+                        type="range"
+                        min="0.5"
+                        max="3"
+                        step="0.1"
+                        class="range-input"
+                        v-model="stampSize"
+                    />
+                </p>
+                <p>
+                    <input
+                        type="number"
+                        v-model="stampSize"
+                        class="number-input"
+                        readonly
+                    />
+                </p>
+            </div>
+            <div class="d-flex align-items-end flex-wrap">
+                <div class="border border-secondary rounded">
+                    <div class="d-flex align-items-end">
+                        <div class="m-1 p-2 border border-secondary rounded">
+                            <img src="/img/stamps/montain1.png" alt="montain1">
+                        </div>
+                        <div class="m-1 p-2 border border-secondary rounded">
+                            <img src="/img/stamps/montain2.png" alt="montain2">
+                        </div>
+                        <div class="m-1 p-2 border border-secondary rounded">
+                            <img src="/img/stamps/montain3.png" alt="montain3">
+                        </div>
+                        <div class="m-1 p-2 border border-secondary rounded">
+                            <img src="/img/stamps/montain4.png" alt="montain4">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="m-1 p-2 border border-secondary rounded">
+                    <img src="/img/stamps/tree1.png" alt="tree1">
+                </div>
+                <div class="m-1 p-2 border border-secondary rounded">
+                    <img src="/img/stamps/tree2.png" alt="tree2">
+                </div>
+                <div class="m-1 p-2 border border-secondary rounded">
+                    <img src="/img/stamps/tree3.png" alt="tree3">
+                </div>
+                <div class="m-1 p-2 border border-secondary rounded">
+                    <img src="/img/stamps/tree4.png" alt="tree4">
+                </div>
+                <div class="m-1 p-2 border border-secondary rounded">
+                    <img src="/img/stamps/tree5.png" alt="tree5">
+                </div>
+                <div class="m-1 p-2 border border-secondary rounded">
+                    <img src="/img/stamps/tree6.png" alt="tree6">
+                </div>
+
+                <div class="m-1 p-2 border border-secondary rounded">
+                    <img src="/img/stamps/animal1.png" alt="animal1">
+                </div>
+                <div class="m-1 p-2 border border-secondary rounded">
+                    <img src="/img/stamps/animal2.png" alt="animal2">
+                </div>
+                <div class="m-1 p-2 border border-secondary rounded">
+                    <img src="/img/stamps/animal3.png" alt="animal3">
+                </div>
+                <div class="m-1 p-2 border border-secondary rounded">
+                    <img src="/img/stamps/animal4.png" alt="animal4">
+                </div>
+                <div class="m-1 p-2 border border-secondary rounded">
+                    <img src="/img/stamps/animal5.png" alt="animal5">
+                </div>
+                <div class="m-1 p-2 border border-secondary rounded">
+                    <img src="/img/stamps/animal6.png" alt="animal6">
+                </div>
+                <div class="m-1 p-2 border border-secondary rounded">
+                    <img src="/img/stamps/animal7.png" alt="animal7">
+                </div>
+                <div class="m-1 p-2 border border-secondary rounded">
+                    <img src="/img/stamps/animal8.png" alt="animal8">
+                </div>
+                <div class="m-1 p-2 border border-secondary rounded">
+                    <img src="/img/stamps/animal9.png" alt="animal9">
+                </div>
+                <div class="m-1 p-2 border border-secondary rounded">
+                    <img src="/img/stamps/animal10.png" alt="animal10">
+                </div>
+            </div>
+            <div>
+
             </div>
         </div>
         <div>
@@ -112,6 +207,7 @@ export default {
                 path: []
             },
             stamp: false,
+            stampSize: 1,
         };
     },
     computed: {},

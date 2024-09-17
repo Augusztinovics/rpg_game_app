@@ -11052,6 +11052,101 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     mapDrowData: {
@@ -11088,7 +11183,8 @@ __webpack_require__.r(__webpack_exports__);
         color: '#000000',
         path: []
       },
-      stamp: false
+      stamp: false,
+      stampSize: 1
     };
   },
   computed: {},
@@ -69247,7 +69343,7 @@ var render = function () {
                 },
               ],
               staticClass: "range-input",
-              attrs: { type: "range", min: "1", max: "25" },
+              attrs: { type: "range", min: "1", max: "20" },
               domProps: { value: _vm.drowSize },
               on: {
                 __r: function ($event) {
@@ -69266,7 +69362,7 @@ var render = function () {
                 },
               ],
               staticClass: "number-input",
-              attrs: { type: "number", maxlength: "2" },
+              attrs: { type: "number", maxlength: "2", readonly: "" },
               domProps: { value: _vm.drowSize },
               on: {
                 input: function ($event) {
@@ -69291,6 +69387,68 @@ var render = function () {
       ]),
     ]),
     _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "d-flex align-items-start p-2 border border-secondary rounded",
+      },
+      [
+        _c("div", { staticClass: "border-right border-secondary p-2 mr-1" }, [
+          _c("p", [_vm._v("Bélyegek")]),
+          _vm._v(" "),
+          _c("p", [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.stampSize,
+                  expression: "stampSize",
+                },
+              ],
+              staticClass: "range-input",
+              attrs: { type: "range", min: "0.5", max: "3", step: "0.1" },
+              domProps: { value: _vm.stampSize },
+              on: {
+                __r: function ($event) {
+                  _vm.stampSize = $event.target.value
+                },
+              },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.stampSize,
+                  expression: "stampSize",
+                },
+              ],
+              staticClass: "number-input",
+              attrs: { type: "number", readonly: "" },
+              domProps: { value: _vm.stampSize },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.stampSize = $event.target.value
+                },
+              },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div"),
+      ]
+    ),
+    _vm._v(" "),
     _c("div", [
       _c("canvas", {
         staticClass: "drowing-canvas",
@@ -69305,7 +69463,142 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-flex align-items-end flex-wrap" }, [
+      _c("div", { staticClass: "border border-secondary rounded" }, [
+        _c("div", { staticClass: "d-flex align-items-end" }, [
+          _c(
+            "div",
+            { staticClass: "m-1 p-2 border border-secondary rounded" },
+            [
+              _c("img", {
+                attrs: { src: "/img/stamps/montain1.png", alt: "montain1" },
+              }),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "m-1 p-2 border border-secondary rounded" },
+            [
+              _c("img", {
+                attrs: { src: "/img/stamps/montain2.png", alt: "montain2" },
+              }),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "m-1 p-2 border border-secondary rounded" },
+            [
+              _c("img", {
+                attrs: { src: "/img/stamps/montain3.png", alt: "montain3" },
+              }),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "m-1 p-2 border border-secondary rounded" },
+            [
+              _c("img", {
+                attrs: { src: "/img/stamps/montain4.png", alt: "montain4" },
+              }),
+            ]
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-1 p-2 border border-secondary rounded" }, [
+        _c("img", { attrs: { src: "/img/stamps/tree1.png", alt: "tree1" } }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-1 p-2 border border-secondary rounded" }, [
+        _c("img", { attrs: { src: "/img/stamps/tree2.png", alt: "tree2" } }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-1 p-2 border border-secondary rounded" }, [
+        _c("img", { attrs: { src: "/img/stamps/tree3.png", alt: "tree3" } }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-1 p-2 border border-secondary rounded" }, [
+        _c("img", { attrs: { src: "/img/stamps/tree4.png", alt: "tree4" } }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-1 p-2 border border-secondary rounded" }, [
+        _c("img", { attrs: { src: "/img/stamps/tree5.png", alt: "tree5" } }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-1 p-2 border border-secondary rounded" }, [
+        _c("img", { attrs: { src: "/img/stamps/tree6.png", alt: "tree6" } }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-1 p-2 border border-secondary rounded" }, [
+        _c("img", {
+          attrs: { src: "/img/stamps/animal1.png", alt: "animal1" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-1 p-2 border border-secondary rounded" }, [
+        _c("img", {
+          attrs: { src: "/img/stamps/animal2.png", alt: "animal2" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-1 p-2 border border-secondary rounded" }, [
+        _c("img", {
+          attrs: { src: "/img/stamps/animal3.png", alt: "animal3" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-1 p-2 border border-secondary rounded" }, [
+        _c("img", {
+          attrs: { src: "/img/stamps/animal4.png", alt: "animal4" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-1 p-2 border border-secondary rounded" }, [
+        _c("img", {
+          attrs: { src: "/img/stamps/animal5.png", alt: "animal5" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-1 p-2 border border-secondary rounded" }, [
+        _c("img", {
+          attrs: { src: "/img/stamps/animal6.png", alt: "animal6" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-1 p-2 border border-secondary rounded" }, [
+        _c("img", {
+          attrs: { src: "/img/stamps/animal7.png", alt: "animal7" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-1 p-2 border border-secondary rounded" }, [
+        _c("img", {
+          attrs: { src: "/img/stamps/animal8.png", alt: "animal8" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-1 p-2 border border-secondary rounded" }, [
+        _c("img", {
+          attrs: { src: "/img/stamps/animal9.png", alt: "animal9" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-1 p-2 border border-secondary rounded" }, [
+        _c("img", {
+          attrs: { src: "/img/stamps/animal10.png", alt: "animal10" },
+        }),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
